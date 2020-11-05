@@ -1,11 +1,11 @@
 import "./helloWidget.scss";
 import React, { useState, useEffect } from "react";
 
-let options = {
+const options = {
   hour: "numeric",
   minute: "2-digit",
 };
-let time = new Date().toLocaleTimeString("lt-LT", options);
+const time = new Date().toLocaleTimeString("lt-LT", options);
 
 const HelloWidget = () => {
   const name = "Wizard";
@@ -20,7 +20,7 @@ const HelloWidget = () => {
   }, []);
 
   const renderGreeting = () => {
-    let now = new Date().getHours();
+    const now = parseInt(state.slice(0, 2));
     if (now < 12) {
       return "Good morning";
     } else if (now < 18) {

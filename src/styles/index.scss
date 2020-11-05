@@ -5,8 +5,7 @@
 
 @import 'print';
 
-// Delete this
-$font-family-delete: sans-serif;
+$font-family: 'Roboto', sans-serif;
 
 *,
 *::after,
@@ -22,7 +21,7 @@ html {
 }
 
 .app {
-    font-family: $font-family-delete;
+    font-family: $font-family;
     margin: 40px auto;
     max-width: 400px;
     width: 100%;
