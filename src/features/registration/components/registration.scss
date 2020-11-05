@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+
+.page-container {
+    background-color: #dcdfe4;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 24px;
+    color: #3e5067;
+}
+
+.form-container {
+    width: 544px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__logo {
+        width: 16rem;
+        padding-bottom: 8rem;
+    }
+}
+
+.registration-form {
+    background-color: #fff;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-size: 1.6rem;
+
+    &__header {
+        padding: 3rem 0;
+
+        & h2 {
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__row {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: rgba(132, 146, 166, 1);
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+
+        & input {
+            padding: 1rem;
+            border: 1px solid #dcdfe3;
+            border-radius: 5px;
+        }
+
+        & input::placeholder {
+            color: #dcdfe3;
+        }
+
+        &--long {
+            width: 100%;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 3rem 0;
+    }
+
+    &__signin-link {
+        text-decoration: none;
+        color: #6e44ff;
+        padding-left: 3px;
+    }
+}
