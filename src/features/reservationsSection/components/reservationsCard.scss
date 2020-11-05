@@ -1,0 +1,14 @@
+.reservations-card {
+    border-radius: 8px;
+    // background-color: #fafafa;
+    box-shadow: 0 8px 23px rgba(0, 0, 0, 0.25);
+    display: flex;
+    padding: 15px;
+    position: relative;
+
+    &__image {
+        position: absolute;
+        right: 10%;
+        top: 0;
+    }
+}
