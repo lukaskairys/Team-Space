@@ -1,0 +1,20 @@
+@import '../../../styles/base/base';
+
+.hello-widget {
+    align-items: flex-start;
+    color: $color-dark-blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &__time {
+        font-size: $font-size-time;
+        font-weight: bold;
+        line-height: 11.7rem;
+    }
+
+    &__greeting {
+        font-size: $font-size-h1;
+        line-height: 4.2rem;
+    }
+}
