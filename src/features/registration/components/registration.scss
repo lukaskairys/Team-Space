@@ -27,7 +27,7 @@ html {
 
     &__logo {
         width: 16rem;
-        padding-bottom: 8rem;
+        padding-bottom: 5rem;
     }
 }
 
@@ -80,6 +80,7 @@ html {
     &__footer {
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
         padding: 3rem 0;
     }
 
