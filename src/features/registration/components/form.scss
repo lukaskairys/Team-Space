@@ -30,8 +30,7 @@ html {
         padding-bottom: 5rem;
     }
 }
-
-.registration-form {
+.form {
     background-color: #fff;
     width: 100%;
     padding: 2rem;
@@ -61,16 +60,6 @@ html {
         display: flex;
         flex-direction: column;
         width: 48%;
-
-        & input {
-            padding: 1rem;
-            border: 1px solid #dcdfe3;
-            border-radius: 5px;
-        }
-
-        & input::placeholder {
-            color: #dcdfe3;
-        }
 
         &--long {
             width: 100%;
