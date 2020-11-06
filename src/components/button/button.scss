@@ -1,0 +1,31 @@
+.button {
+    text-transform: uppercase;
+    border: none;
+    font-weight: 500;
+    outline: none;
+
+    &__default {
+        padding: 1.2rem 2.2rem;
+        color: #fff;
+        background: #6e44ff;
+        border-radius: 65px;
+
+        &:hover,
+        &:focus {
+            background: rgba(88, 54, 204, 1);
+        }
+
+        &:active {
+            background: rgba(70, 44, 163, 1);
+        }
+
+        &:disabled {
+            background: rgba(237, 239, 241, 1);
+            color: #9ea7b3;
+        }
+
+        &--large {
+            font-size: 1.6rem;
+        }
+    }
+}
