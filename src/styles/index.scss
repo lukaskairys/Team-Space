@@ -5,13 +5,24 @@
 
 @import 'print';
 
-// Delete this
-$font-family-delete: sans-serif;
+$font-family: 'Roboto', sans-serif;
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: $font-size-reset;
+}
 
 .app {
-    font-family: $font-family-delete;
+    font-family: $font-family;
     margin: 40px auto;
     max-width: 400px;
-    text-align: center;
     width: 100%;
 }
