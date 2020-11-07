@@ -1,14 +1,61 @@
+@import '../../../styles/base/base';
+
 .reservations-card {
+    backface-visibility: hidden;
+    background-color: $color-very-light-gray;
     border-radius: 8px;
-    // background-color: #fafafa;
     box-shadow: 0 8px 23px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
     display: flex;
-    padding: 15px;
+    margin-top: 3rem;
+    padding: 2.3rem 2rem;
     position: relative;
+    transform: translateZ(0);
+    transition: box-shadow 0.1s ease-out, transform 0.1s ease-out;
+    width: 396px;
+
+    &:hover {
+        box-shadow: 0 8px 23px rgba(0, 0, 0, 0.15);
+        transform: scale(1.02);
+    }
+
+    &:active {
+        box-shadow: 0 8px 23px rgba(0, 0, 0, 0.2);
+        transform: scale(1.01);
+    }
+
+    @media only screen and (max-width: 1265px) {
+        margin-top: 5rem;
+    }
+
+    &:nth-child(2) {
+        margin: 0 3.85rem;
+        margin-top: 3rem;
+
+        @media only screen and (max-width: 1265px) {
+            margin-top: 5rem;
+        }
+    }
+
+    &__title {
+        color: $color-dark-blue;
+        font-size: $font-size-h2;
+        font-weight: 900;
+        line-height: 3.2rem;
+    }
+
+    &__caption {
+        color: $color-mostly-desaturated-dark-blue;
+        font-size: $font-size-caption-2;
+        font-weight: 500;
+        line-height: 1.3rem;
+        text-transform: uppercase;
+    }
 
     &__image {
         position: absolute;
-        right: 10%;
-        top: 0;
+        right: 12%;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
