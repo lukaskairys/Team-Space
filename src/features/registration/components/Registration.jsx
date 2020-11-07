@@ -105,6 +105,7 @@ function Registration() {
               />
             </div>
           </div>
+
           <div className="form__footer">
             <Button
               type={"submit"}

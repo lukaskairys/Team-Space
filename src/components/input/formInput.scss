@@ -1,18 +1,21 @@
+@import '../../styles/base/base';
+
 .form__input {
     padding: 1rem;
-    border: 1px solid #dcdfe3;
+    border: 1px solid $color-grey-6;
     border-radius: 5px;
     outline: none;
-    color: #3e5067;
+    color: $color-grey-2;
 
     &:focus {
-        border: 1px solid #3e5067;
+        border: 1px solid $color-grey-2;
     }
     &:disabled {
-        border: 1px solid #dcdfe3;
+        border: 1px solid $color-grey-6;
     }
 }
 
 .form__input::placeholder {
-    color: #dcdfe3;
+    color: $color-grey-6;
+    font-size: 1.4rem;
 }

@@ -1,22 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html {
-    font-size: 62.5%;
-}
+@import '../../../styles/base/base';
+@import '../../../styles/index.scss';
 
 .page-container {
-    background-color: #dcdfe4;
+    background-color: $color-grey-6;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-family;
     line-height: 24px;
-    color: #3e5067;
+    color: $color-grey-2;
 }
 
 .form-container {
@@ -31,12 +25,12 @@ html {
     }
 }
 .form {
-    background-color: #fff;
+    background-color: $color-white;
     width: 100%;
     padding: 2rem;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    font-size: 1.6rem;
+    font-size: $font-size-label;
 
     &__header {
         padding: 3rem 0;
@@ -49,7 +43,7 @@ html {
     &__row {
         text-transform: uppercase;
         font-weight: bold;
-        color: rgba(132, 146, 166, 1);
+        color: $color-grey-4;
         padding: 1rem 0;
         display: flex;
         flex-direction: row;
@@ -75,7 +69,7 @@ html {
 
     &__signin-link {
         text-decoration: none;
-        color: #6e44ff;
+        color: $color-dark-violet;
         padding-left: 3px;
     }
 }
