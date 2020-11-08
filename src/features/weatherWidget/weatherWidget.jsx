@@ -17,7 +17,7 @@ const images = {
   },
 };
 
-export default function FetchWeather() {
+export default function WeatherWidget() {
   const { location, geolocationError } = useCurrentLocation(geolocationOptions);
   const URL = "https://api.openweathermap.org/data/2.5/weather/";
   const API_KEY = "5d862191a42940fcbf7bec6f3531884b";
