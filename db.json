@@ -1,13 +1,11 @@
 {
-  "instructions": [
-    {
+  "instructions": [{
       "id": 1,
       "instruction": "setup nvm"
     },
     {
       "id": 2,
-      "instruction":
-      "run 'nvm use' or just set the node version to the one in .nvmrc file"
+      "instruction": "run 'nvm use' or just set the node version to the one in .nvmrc file"
     },
     {
       "id": 3,
