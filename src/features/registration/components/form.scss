@@ -1,0 +1,73 @@
+@import '../../../styles/base/base';
+@import '../../../styles/index.scss';
+
+.page-container {
+    background-color: $color-iron;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-family;
+    line-height: 1.5;
+    color: $color-fiord;
+}
+
+.form-container {
+    width: 544px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+.form {
+    background-color: $color-white;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-size: $font-size-label;
+    margin-top: 5rem;
+
+    &__header {
+        padding: 3rem 0;
+
+        & h2 {
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__row {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $color-gull-gray;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+
+        &--long {
+            width: 100%;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 3rem 0;
+    }
+
+    &__signin-link {
+        text-decoration: none;
+        color: $color-dark-violet;
+        padding-left: 0.3rem;
+    }
+}
