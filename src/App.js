@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as SourceryLogo } from "assets/logo.svg";
 import { GetStartedList } from "features/getStarted/components/GetStartedList";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
+import MainLayout from "components/MainLayout/MainLayout";
 
 function App() {
   const [instructions, setInstructions] = useState([]);
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="app">
+      <MainLayout />
       <header className="App-header">
         <SourceryLogo />
         <p>
