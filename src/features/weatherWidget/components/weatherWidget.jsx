@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useCurrentLocation from "./useCurrentLocation";
-import "./assets/test.scss";
+import "./weatherWidget.scss";
 
 const geolocationOptions = {
   enableHighAccuracy: true,
@@ -8,12 +8,12 @@ const geolocationOptions = {
 };
 const images = {
   WeatherConditions: {
-    Sunny: require("./assets/sunny.svg"),
-    Thunderstorm: require("./assets/thunderstorm.svg"),
-    Cloudy: require("./assets/cloudy.svg"),
-    Rainy: require("./assets/rainy.svg"),
-    Snowing: require("./assets/snowing.svg"),
-    Misty: require("./assets/rainy.svg"),
+    Sunny: require("assets/WeatherWidget/sunny.svg"),
+    Thunderstorm: require("assets/WeatherWidget/thunderstorm.svg"),
+    Cloudy: require("assets/WeatherWidget/cloudy.svg"),
+    Rainy: require("assets/WeatherWidget/rainy.svg"),
+    Snowing: require("assets/WeatherWidget/snowing.svg"),
+    Misty: require("assets/WeatherWidget/rainy.svg"),
   },
 };
 
@@ -87,7 +87,7 @@ export default function WeatherWidget() {
       return (
         <img
           className="widget__spinner"
-          src={require("./assets/spinner.svg")}
+          src={require("assets/WeatherWidget/spinner.svg")}
           alt=""
         />
       );
@@ -158,7 +158,7 @@ export default function WeatherWidget() {
           <div>
             <img
               className="widget__content__icon"
-              src={require("./assets/wind.svg")}
+              src={require("assets/WeatherWidget/wind.svg")}
               alt="wind speed"
             />
             <label htmlFor="widget__content__icon">{items.windSpeed} m/s</label>
@@ -166,7 +166,7 @@ export default function WeatherWidget() {
           <div>
             <img
               className="widget__content__icon"
-              src={require("./assets/humidity.svg")}
+              src={require("assets/WeatherWidget/humidity.svg")}
               alt="humidity"
             />
             <label htmlFor="widget__content__icon">{items.humidity} mm</label>
