@@ -18,8 +18,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-
 }
 .form {
     background-color: $color-white;
@@ -40,7 +38,7 @@
 
     &__row {
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: $bold-weight;
         color: $color-gull-gray;
         padding: 1rem 0;
         display: flex;
@@ -67,7 +65,7 @@
 
     &__signin-link {
         text-decoration: none;
-        color: $color-dark-violet;
+        color: $color-bright-violet;
         padding-left: 0.3rem;
     }
 }

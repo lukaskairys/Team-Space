@@ -3,6 +3,7 @@ $font-family: 'Roboto';
 // Weights
 $normal-weight: 400;
 $medium-weight: 500;
+$bold-weight: 700;
 $black-weight: 900;
 
 @font-face {
@@ -26,6 +27,15 @@ $black-weight: 900;
 @font-face {
     font-family: $font-family;
     font-style: normal;
+    font-weight: $bold-weight;
+    src: url('/assets/fonts/Roboto-Bold.woff2') format('woff2'),
+        url('/assets/fonts/Roboto-Bold.woff') format('woff'),
+        url('/assets/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: $font-family;
+    font-style: normal;
     font-weight: $black-weight;
     src: url('/assets/fonts/Roboto-Black.woff2') format('woff2'),
         url('/assets/fonts/Roboto-Black.woff') format('woff'),
@@ -39,3 +49,4 @@ $font-size-h2: 2.4rem;
 $font-size-time: 10rem;
 $font-size-label: 1.7rem;
 $font-size-caption-secondary: 1.2rem;
+$font-size-error-msg: 1rem;
