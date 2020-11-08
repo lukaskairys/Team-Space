@@ -47,12 +47,13 @@ export default function FetchWeather() {
 
     const isValid = () => {
       if (geolocationError === "User denied Geolocation") {
-        setError("Enable geolocation to use this widget!");
+        setError("Enable geolocation!");
         return false;
       } else if (isObjectEmpty(location)) {
         setError("Loading...");
         return false;
       }
+
       return true;
     };
 

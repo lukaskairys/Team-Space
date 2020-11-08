@@ -1,5 +1,5 @@
 import React from "react";
-import FetchWeather from "./components/Weather/WeatherAPI";
+import FetchWeather from "./features/weatherWidget/weatherWidget.jsx";
 
 function App() {
   // const [instructions, setInstructions] = useState([]);
