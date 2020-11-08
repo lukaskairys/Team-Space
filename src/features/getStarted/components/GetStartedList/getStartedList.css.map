@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "AGCA,UAAU;EACN,WAAW,EAFD,QAAQ;EAGlB,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,GAAG;EAChB,GAAG,EAAE,yCAAyC,CAAC,eAAe,EAC1D,wCAAwC,CAAC,cAAc,EACvD,uCAAuC,CAAC,kBAAkB;;;AAGlE,UAAU;EACN,WAAW,EAXD,QAAQ;EAYlB,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,GAAG;EAChB,GAAG,EAAE,wCAAwC,CAAC,eAAe,EACzD,uCAAuC,CAAC,cAAc,EACtD,sCAAsC,CAAC,kBAAkB;;;AAGjE,UAAU;EACN,WAAW,EApBD,QAAQ;EAqBlB,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,GAAG;EAChB,GAAG,EAAE,uCAAuC,CAAC,eAAe,EACxD,sCAAsC,CAAC,cAAc,EACrD,qCAAqC,CAAC,kBAAkB;;;AHvBhE,AAAA,iBAAiB,CAAC;EACd,MAAM,EAAE,GAAG,CAAC,KAAK,CEHP,IAAI;EFId,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,IAAI;CAUnB;;AARI,AAAD,uBAAO,CAAC;EACJ,WAAW,EAAE,IAAI;EACjB,OAAO,EAAE,IAAI;CAChB;;AAEA,AAAD,4BAAY,CAAC;EACT,OAAO,EAAE,GAAG;CACf",
+    "sources": [
+        "getStartedList.scss",
+        "../../../../styles/base/_base.scss",
+        "../../../../styles/base/_colors.scss",
+        "../../../../styles/base/_typography.scss",
+        "../../../../styles/base/_config.scss"
+    ],
+    "names": [],
+    "file": "getStartedList.css"
+}
