@@ -5,8 +5,6 @@
 
 @import 'print';
 
-$font-family: 'Roboto', sans-serif;
-
 *,
 *::after,
 *::before {
@@ -21,8 +19,8 @@ html {
 }
 
 .app {
-    font-family: $font-family;
+    font-family: $font-family, sans-serif;
     margin: 40px auto;
-    max-width: 400px;
+    max-width: 1265px;
     width: 100%;
 }
