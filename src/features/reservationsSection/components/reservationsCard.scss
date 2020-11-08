@@ -1,10 +1,11 @@
 @import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
 
 .reservations-card {
     backface-visibility: hidden;
     background-color: $color-very-light-gray;
     border-radius: 8px;
-    box-shadow: 0 8px 23px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.25);
     cursor: pointer;
     display: flex;
     margin-top: 3rem;
@@ -14,25 +15,25 @@
     transition: box-shadow 0.1s ease-out, transform 0.1s ease-out;
     width: 396px;
 
+    @include respond-to(1265, max) {
+        margin-top: 5rem;
+    }
+
     &:hover {
-        box-shadow: 0 8px 23px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.15);
         transform: scale(1.02);
     }
 
     &:active {
-        box-shadow: 0 8px 23px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.2);
         transform: scale(1.01);
-    }
-
-    @media only screen and (max-width: 1265px) {
-        margin-top: 5rem;
     }
 
     &:nth-child(2) {
         margin: 0 3.85rem;
         margin-top: 3rem;
 
-        @media only screen and (max-width: 1265px) {
+        @include respond-to(1265, max) {
             margin-top: 5rem;
         }
     }
@@ -46,7 +47,7 @@
 
     &__caption {
         color: $color-mostly-desaturated-dark-blue;
-        font-size: $font-size-caption-2;
+        font-size: $font-size-caption-secondary;
         font-weight: 500;
         line-height: 1.3rem;
         text-transform: uppercase;
