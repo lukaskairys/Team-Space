@@ -103,7 +103,9 @@ function Registration() {
           </div>
 
           <div className="form__footer">
-            <Button type={"submit"} text={"Register"} large={true} />
+            <Button type={"submit"} large={true}>
+              Register
+            </Button>
             <p>
               Already have account?
               <a href="/login" className="form__signin-link">
