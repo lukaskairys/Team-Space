@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../../components/button/Button";
 import FormInput from "../../../components/input/FormInput";
+import { ReactComponent as Logo } from "../../../assets/logo165.svg";
 import "./form.scss";
 
 function Registration() {
@@ -23,17 +24,12 @@ function Registration() {
   function handleSubmit(event) {
     event.preventDefault();
     document.querySelector(".form__input").value = "";
-    console.log(state);
   }
 
   return (
     <div className="page-container">
       <div className="form-container">
-        <img
-          className="form-container__logo"
-          src={require("../../../assets/logo.png")}
-          alt=""
-        />
+        <Logo />
         <form className="form registration-form" onSubmit={handleSubmit}>
           <div className="form__header">
             <h2>Register</h2>
@@ -107,11 +103,7 @@ function Registration() {
           </div>
 
           <div className="form__footer">
-            <Button
-              type={"submit"}
-              text={"Register"}
-              additionalClassNames={"button__default button__default--large"}
-            />
+            <Button type={"submit"} text={"Register"} large={true} />
             <p>
               Already have account?
               <a href="/login" className="form__signin-link">

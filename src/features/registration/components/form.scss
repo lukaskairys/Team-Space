@@ -2,15 +2,15 @@
 @import '../../../styles/index.scss';
 
 .page-container {
-    background-color: $color-grey-6;
+    background-color: $color-iron;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: $font-family;
-    line-height: 24px;
-    color: $color-grey-2;
+    line-height: 1.5;
+    color: $color-fiord;
 }
 
 .form-container {
@@ -18,11 +18,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 
-    &__logo {
-        width: 16rem;
-        padding-bottom: 5rem;
-    }
 }
 .form {
     background-color: $color-white;
@@ -31,6 +28,7 @@
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     font-size: $font-size-label;
+    margin-top: 5rem;
 
     &__header {
         padding: 3rem 0;
@@ -43,7 +41,7 @@
     &__row {
         text-transform: uppercase;
         font-weight: bold;
-        color: $color-grey-4;
+        color: $color-gull-gray;
         padding: 1rem 0;
         display: flex;
         flex-direction: row;
@@ -70,6 +68,6 @@
     &__signin-link {
         text-decoration: none;
         color: $color-dark-violet;
-        padding-left: 3px;
+        padding-left: 0.3rem;
     }
 }

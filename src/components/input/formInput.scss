@@ -2,20 +2,20 @@
 
 .form__input {
     padding: 1rem;
-    border: 1px solid $color-grey-6;
+    border: 1px solid $color-iron;
     border-radius: 5px;
     outline: none;
-    color: $color-grey-2;
+    color: $color-fiord;
 
     &:focus {
-        border: 1px solid $color-grey-2;
+        border: 1px solid $color-fiord;
     }
     &:disabled {
-        border: 1px solid $color-grey-6;
+        border: 1px solid $color-iron;
     }
 }
 
 .form__input::placeholder {
-    color: $color-grey-6;
+    color: $color-iron;
     font-size: 1.4rem;
 }
