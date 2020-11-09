@@ -29,11 +29,11 @@ function Registration() {
   return (
     <div className="page-container">
       <div className="form-container">
-        <Logo />
+        <Logo className="logo" />
         <form className="form registration-form" onSubmit={handleSubmit}>
           <div className="form__header">
-            <h2>Register</h2>
-            <p>Let’s get you on board.</p>
+            <h2 className="form__heading">Register</h2>
+            <p className="form__under-heading">Let’s get you on board.</p>
           </div>
           <div className="form__row">
             <div className="form__item">
