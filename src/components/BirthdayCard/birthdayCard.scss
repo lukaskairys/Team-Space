@@ -1,0 +1,73 @@
+@import '../../styles/base/base';
+
+.card-container {
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    font-family: $font-family;
+    height: 18.4rem;
+    margin-bottom: 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-top: 8.8rem;
+    width: 39.5rem;
+}
+
+.card-content {
+    bottom: 14rem;
+    margin-bottom: 0.4rem;
+    position: relative;
+    text-align: center;
+}
+
+.card-title {
+    font-size: $font-size-caption-secondary;
+    font-weight: $medium-weight;
+    line-height: 1.3rem;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+}
+
+.card-date {
+    font-size: $font-size-caption-secondary;
+    font-weight: $normal-weight;
+    line-height: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.card-body {
+    font-size: $font-size-caption-secondary;
+    font-weight: $medium-weight;
+    line-height: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.image-container {
+    align-items: center;
+    height: 20.7rem;
+    margin: auto;
+    padding-top: 30px;
+    position: relative;
+    top: -10rem;
+    width: 13.3rem;
+}
+
+.image-container img {
+    border: 2px solid $color-white;
+    border-radius: 50%;
+    display: block;
+    height: 9.6rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.4rem;
+    object-fit: cover;
+    position: relative;
+    width: 9.6rem;
+}
+
+.card-divider {
+    background-color: $color-iron;
+    height: 0.1rem;
+    margin: auto;
+    width: 36.3rem;
+}
