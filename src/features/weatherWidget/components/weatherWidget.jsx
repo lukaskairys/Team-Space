@@ -124,7 +124,7 @@ export default function WeatherWidget() {
   const loadFigure = () => {
     if (isLoaded)
       return (
-        <figure className="widget__content__figure">
+        <figure className="widget__figure">
           <img src={translateIdToImage(items.conditionId)} alt="" />
         </figure>
       );
@@ -138,7 +138,7 @@ export default function WeatherWidget() {
       description = items.description;
     }
     return (
-      <p className="widget__content__paragraph">
+      <p className="widget__paragraph">
         <span className="widget__span">{content} </span>
         {description}
       </p>
@@ -153,23 +153,23 @@ export default function WeatherWidget() {
           {getDateFormat("en-us")} | {items.location}
         </p>
         {loadParagraph()}
-        <div className="widget__content__borderBottom"></div>
-        <section className="widget__content__section">
+        <div className="widget__border"></div>
+        <section className="widget__section">
           <div>
             <img
-              className="widget__content__icon"
+              className="widget__icon"
               src={require("assets/WeatherWidget/wind.svg")}
               alt="wind speed"
             />
-            <label htmlFor="widget__content__icon">{items.windSpeed} m/s</label>
+            <label htmlFor="widget__icon">{items.windSpeed} m/s</label>
           </div>
           <div>
             <img
-              className="widget__content__icon"
+              className="widget__icon"
               src={require("assets/WeatherWidget/humidity.svg")}
               alt="humidity"
             />
-            <label htmlFor="widget__content__icon">{items.humidity} mm</label>
+            <label htmlFor="widget__icon">{items.humidity} mm</label>
           </div>
           <div></div>
         </section>
