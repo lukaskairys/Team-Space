@@ -4,6 +4,7 @@ import Registration from "../src/features/registration/components/Registration";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import BirthdayCard from "../src/components/BirthdayCard/BirthdayCard";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
+import FeedCard from "../src/components/FeedCard/FeedCard";
 
 function App() {
   return (
@@ -21,6 +22,16 @@ function App() {
               imageUrl="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
               date="Sep 13th"
               body="Send a wish!"
+            />
+            <FeedCard
+              authorUsername="firstname lastname"
+              authorImg="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
+              city="VLN"
+              time="20h"
+              imageUrl="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              commenterUsername="firstname lastname2"
+              commentText="A new comment on this post."
+              userPhoto="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
             />
 
             <ReservationSection />
