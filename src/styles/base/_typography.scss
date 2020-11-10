@@ -29,18 +29,18 @@ $heavy-weight: 900;
     font-family: $font-family;
     font-style: normal;
     font-weight: $bold-weight;
-    src: url('/assets/fonts/Roboto-Black.woff2') format('woff2'),
-        url('/assets/fonts/Roboto-Black.woff') format('woff'),
-        url('/assets/fonts/Roboto-Black.ttf') format('truetype');
+    src: url('/assets/fonts/Roboto-Bold.woff2') format('woff2'),
+        url('/assets/fonts/Roboto-Bold.woff') format('woff'),
+        url('/assets/fonts/Roboto-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: $font-family;
     font-style: normal;
     font-weight: $heavy-weight;
-    src: url('/assets/fonts/Roboto-Black.woff2') format('woff2'),
-        url('/assets/fonts/Roboto-Black.woff') format('woff'),
-        url('/assets/fonts/Roboto-Black.ttf') format('truetype');
+    src: url('/assets/fonts/Roboto-Heavy.woff2') format('woff2'),
+        url('/assets/fonts/Roboto-Heavy.woff') format('woff'),
+        url('/assets/fonts/Roboto-Heavy.ttf') format('truetype');
 }
 
 // Font Sizes
@@ -163,5 +163,3 @@ $font-size-label: 1.7rem;
     font-weight: $regular-weight;
     line-height: 1.33;
 }
-
-//-----------------------------
