@@ -3,7 +3,7 @@
 
 .reservations-card {
     backface-visibility: hidden;
-    background-color: $color-very-light-gray;
+    background-color: $color-light-porcelain;
     border-radius: 8px;
     box-shadow: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.25);
     cursor: pointer;
@@ -39,18 +39,13 @@
     }
 
     &__title {
-        color: $color-dark-blue;
-        font-size: $font-size-h2;
-        font-weight: 900;
-        line-height: 3.2rem;
+        @include typography-h2-alternative;
+        color: $color-fiord;
     }
 
     &__caption {
-        color: $color-mostly-desaturated-dark-blue;
-        font-size: $font-size-caption-secondary;
-        font-weight: 500;
-        line-height: 1.3rem;
-        text-transform: uppercase;
+        @include typography-caption-caps;
+        color: $color-slate-gray;
     }
 
     &__image {

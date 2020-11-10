@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Registration from "../src/features/registration/components/Registration";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import BirthdayCard from "../src/components/BirthdayCard/BirthdayCard";
+import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 
 function App() {
   return (
@@ -14,12 +15,15 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HelloWidget />
+
             <BirthdayCard
               title="firstname lastname"
               imageUrl="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
               date="Sep 13th"
               body="Send a wish!"
             />
+
+            <ReservationSection />
           </Route>
           <Route path="/registration">
             <Registration />

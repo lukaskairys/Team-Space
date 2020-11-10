@@ -1,14 +1,16 @@
 $font-family: 'Roboto';
 
 // Weights
-$normal-weight: 400;
+$regular-weight: 400;
 $medium-weight: 500;
-$black-weight: 900;
+$bold-weight: 700;
+$heavy-weight: 900;
 
+// Font-import
 @font-face {
     font-family: $font-family;
     font-style: normal;
-    font-weight: $normal-weight;
+    font-weight: $regular-weight;
     src: url('/assets/fonts/Roboto-Regular.woff2') format('woff2'),
         url('/assets/fonts/Roboto-Regular.woff') format('woff'),
         url('/assets/fonts/Roboto-Regular.ttf') format('truetype');
@@ -26,16 +28,138 @@ $black-weight: 900;
 @font-face {
     font-family: $font-family;
     font-style: normal;
-    font-weight: $black-weight;
-    src: url('/assets/fonts/Roboto-Black.woff2') format('woff2'),
-        url('/assets/fonts/Roboto-Black.woff') format('woff'),
-        url('/assets/fonts/Roboto-Black.ttf') format('truetype');
+    font-weight: $bold-weight;
+    src: url('/assets/fonts/Roboto-Bold.woff2') format('woff2'),
+        url('/assets/fonts/Roboto-Bold.woff') format('woff'),
+        url('/assets/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: $heavy-weight;
+    src: url('/assets/fonts/Roboto-Heavy.woff2') format('woff2'),
+        url('/assets/fonts/Roboto-Heavy.woff') format('woff'),
+        url('/assets/fonts/Roboto-Heavy.ttf') format('truetype');
 }
 
 // Font Sizes
+
 $font-size-reset: 62.5%;
-$font-size-h1: 3.6rem;
-$font-size-h2: 2.4rem;
+$font-size-10: 1rem;
+$font-size-12: 1.2rem;
+$font-size-14: 1.4rem;
+$font-size-16: 1.6rem;
+$font-size-18: 1.8rem;
+$font-size-20: 2rem;
+$font-size-24: 2.4rem;
+$font-size-32: 3.2rem;
+$font-size-36: 3.6rem;
+
 $font-size-time: 10rem;
 $font-size-label: 1.7rem;
-$font-size-caption-secondary: 1.2rem;
+
+@mixin typography-h1 {
+    font-size: $font-size-36;
+    font-weight: $bold-weight;
+    line-height: 1.17;
+}
+
+@mixin typography-h2 {
+    font-size: $font-size-32;
+    font-weight: $medium-weight;
+    line-height: 1.17;
+}
+
+@mixin typography-h2-alternative {
+    font-size: $font-size-24;
+    font-weight: $heavy-weight;
+    line-height: 1.33;
+}
+
+@mixin typography-h3 {
+    font-size: $font-size-24;
+    font-weight: $medium-weight;
+    letter-spacing: 0.05rem;
+    line-height: 1.17;
+}
+
+@mixin typography-h3-alternative {
+    font-size: $font-size-20;
+    font-weight: $medium-weight;
+    line-height: 1.2;
+}
+
+@mixin typography-h4 {
+    font-size: $font-size-20;
+    font-weight: $medium-weight;
+    line-height: 1.17;
+}
+
+@mixin typography-h4-alternative {
+    font-size: $font-size-16;
+    font-weight: $medium-weight;
+    line-height: 1.5;
+}
+
+@mixin typography-h5 {
+    font-size: $font-size-18;
+    font-weight: $regular-weight;
+    line-height: 1.17;
+}
+
+@mixin typography-body {
+    font-size: $font-size-16;
+    font-weight: $regular-weight;
+    line-height: 1.5;
+}
+
+@mixin typography-body-bold {
+    font-size: $font-size-16;
+    font-weight: $heavy-weight;
+    line-height: 1.5;
+}
+
+@mixin typography-body-2 {
+    font-size: $font-size-14;
+    font-weight: $regular-weight;
+    line-height: 1.43;
+}
+
+@mixin typography-body-2-medium {
+    font-size: $font-size-14;
+    font-weight: $medium-weight;
+    line-height: 1.43;
+}
+
+@mixin typography-body-2-bold {
+    font-size: $font-size-14;
+    font-weight: $heavy-weight;
+    line-height: 1.43;
+}
+
+@mixin typography-caption {
+    font-size: $font-size-14;
+    font-weight: $medium-weight;
+    line-height: 1.14;
+}
+
+@mixin typography-caption-caps {
+    font-size: $font-size-12;
+    font-weight: $medium-weight;
+    line-height: 1.08;
+    text-transform: uppercase;
+}
+
+@mixin typography-tiny-caps {
+    font-size: $font-size-10;
+    font-weight: $medium-weight;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+@mixin typography-tiny {
+    font-size: $font-size-12;
+    font-weight: $regular-weight;
+    line-height: 1.33;
+}
