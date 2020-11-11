@@ -113,3 +113,29 @@
     object-fit: cover;
     width: 2.4rem;
 }
+
+.comment-input {
+    border: 0;
+    line-height: 1.1rem;
+    margin-right: 2rem;
+    width: 27rem;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.post-button {
+    background-color: $color-white;
+    border: 0;
+    color: $color-slate-gray;
+    cursor: pointer;
+    font-size: $font-size-12;
+    font-weight: $medium-weight;
+    line-height: 1.3rem;
+
+    &:focus {
+        color: $color-midnight;
+        outline: none;
+    }
+}

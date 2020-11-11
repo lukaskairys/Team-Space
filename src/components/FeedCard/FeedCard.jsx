@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./feedCard.scss";
 import { ReactComponent as HeartIcon } from "../../assets/images/heart-icon.svg";
 import { ReactComponent as CommentIcon } from "../../assets/images/comment-icon.svg";
+import FormInput from "../input/FormInput";
 
 function FeedCard({
   authorUsername,
@@ -49,6 +50,8 @@ function FeedCard({
       <div className="card-divider"></div>
       <div className="new-comment-container">
         <img src={userPhoto} alt="" />
+        <FormInput className="comment-input" placeholder="Leave a comment..." />
+        <button className="post-button">POST</button>
       </div>
     </div>
   );
