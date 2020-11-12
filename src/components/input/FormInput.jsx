@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { ReactComponent as IconX } from "../../assets/images/x.svg";
+// import Button from "../button/Button";
 import "./formInput.scss";
 
 function FormInput(props) {
-  const { name, type, placeholder, onChange, className, value, label } = props;
+  const {
+    name,
+    type,
+    placeholder,
+    onChange,
+    className,
+    value,
+    label,
+    onFocus,
+    // handleClick,
+    isError,
+  } = props;
 
   return (
     <>
@@ -16,7 +29,9 @@ function FormInput(props) {
         onChange={onChange}
         value={value}
         className={className}
+        onFocus={onFocus}
       />
+      {isError ? <IconX className="form__btn-x" /> : ""}
     </>
   );
 }
@@ -30,6 +45,9 @@ FormInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.any,
   className: PropTypes.string,
+  onFocus: PropTypes.func,
+  handleClick: PropTypes.func,
+  isError: PropTypes.bool,
 };
 
 export default FormInput;
