@@ -3,7 +3,6 @@ import { ReactComponent as SourceryLogo } from "assets/logo.svg";
 import { GetStartedList } from "features/getStarted/components/GetStartedList";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import MainLayout from "components/MainLayout/MainLayout";
-import Sidebar from "components/Sidebar/Sidebar";
 
 function App() {
   const [instructions, setInstructions] = useState([]);
@@ -23,7 +22,6 @@ function App() {
 
   return (
     <div className="app">
-      <Sidebar />
       <MainLayout />
       <header className="App-header">
         <SourceryLogo />
