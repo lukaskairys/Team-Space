@@ -19,6 +19,11 @@ function App() {
               <ReservationSection />
             </MainLayout>
           </Route>
+          <Route path="/reservations">
+            <MainLayout>
+              <ReservationSection />
+            </MainLayout>
+          </Route>
           <Route path="/registration">
             <Registration />
           </Route>
