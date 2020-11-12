@@ -1,0 +1,61 @@
+@import '../../styles/base/base';
+
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    &__header {
+        align-items: center;
+        background-color: $color-white;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: row;
+        height: 9.6rem;
+        justify-content: flex-end;
+        z-index: $z-index-header; //box shadow remains under main content without z-index
+    }
+
+    &__status {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__icon {
+        stroke: $color-fiord;
+    }
+
+    &__notifications {
+        height: 2.7rem;
+        margin-right: 2.4rem;
+        width: 2.4rem;
+    }
+
+    &__profile {
+        background-color: $color-black;
+        border-radius: 50%;
+        height: 4rem;
+        margin-right: 4rem;
+        width: 4rem;
+    }
+
+    &__main {
+        background-color: $color-light-porcelain;
+        flex: 1;
+    }
+
+    &__footer {
+        background-color: $color-white;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        height: 7.2rem;
+        text-align: end;
+    }
+
+    &__copyright {
+        @include typography-tiny-caps;
+        color: $color-fiord;
+        margin: 2.9rem 4rem;
+        text-transform: uppercase;
+    }
+}
