@@ -1,6 +1,6 @@
 @import '../../styles/base/base';
 
-.MainLayout {
+.main-layout {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -23,7 +23,7 @@
     }
 
     &__icon {
-        stroke: $color-grey-2;
+        stroke: $color-fiord;
     }
 
     &__notifications {
@@ -41,7 +41,7 @@
     }
 
     &__main {
-        background-color: $color-grey-8;
+        background-color: $color-light-porcelain;
         flex: 1;
     }
 
@@ -50,12 +50,12 @@
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
         height: 7.2rem;
         text-align: end;
+    }
 
-        p {
-            color: $color-grey-2;
-            font-size: $font-size-tiny-caps;
-            font-weight: $font-weight-tiny-caps;
-            margin: 2.9rem 4rem;
-        }
+    &__copyright {
+        @include typography-tiny-caps;
+        color: $color-fiord;
+        margin: 2.9rem 4rem;
+        text-transform: uppercase;
     }
 }

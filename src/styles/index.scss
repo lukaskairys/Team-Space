@@ -20,7 +20,12 @@ html {
     font-size: $font-size-reset;
 }
 
+body {
+    font-family: $font-family;
+}
+
 .app {
     font-family: $font-family;
+    height: 100vh;
     width: 100%;
 }
