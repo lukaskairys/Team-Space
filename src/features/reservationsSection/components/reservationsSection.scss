@@ -6,9 +6,8 @@
     justify-content: center;
 
     &__title {
-        color: $color-dark-blue;
-        font-size: $font-size-h2;
-        line-height: 3.2rem;
+        @include typography-h2-alternative;
+        color: $color-fiord;
 
         @media only screen and (max-width: 1265px) {
             text-align: center;
