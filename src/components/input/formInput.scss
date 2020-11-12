@@ -1,0 +1,25 @@
+@import '../../styles/base/base';
+
+.form__input {
+    border: 1px solid $color-iron;
+    border-radius: 5px;
+    color: $color-fiord;
+    font-family: $font-family;
+    margin-top: 0.3rem;
+    outline: none;
+    padding: 1.5rem;
+
+    &:focus {
+        border: 1px solid $color-fiord;
+    }
+
+    &:disabled {
+        border: 1px solid $color-iron;
+    }
+}
+
+.form__input::placeholder {
+    color: $color-iron;
+    font-size: $font-size-14;
+    line-height: 1.57;
+}

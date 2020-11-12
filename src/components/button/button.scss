@@ -1,0 +1,32 @@
+@import '../../styles/base/base';
+
+.button {
+    background: $color-bright-violet;
+    border: 0;
+    border-radius: 65px;
+    color: $color-white;
+    font-family: $font-family;
+    font-weight: $medium-weight;
+    line-height: 1.5;
+    outline: none;
+    padding: 0.8rem 2.4rem;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        background: $color-medium-violet;
+    }
+
+    &:active {
+        background: $color-dark-violet;
+    }
+
+    &:disabled {
+        background: $color-porcelain;
+        color: $color-gull-gray;
+    }
+
+    &--large {
+        font-size: $font-size-16;
+    }
+}

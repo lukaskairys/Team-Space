@@ -1,0 +1,22 @@
+@import '../../../styles/base/base';
+
+.RESERVATIONS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+        @include typography-h2-alternative;
+        color: $color-fiord;
+
+        @media only screen and (max-width: 1265px) {
+            text-align: center;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
