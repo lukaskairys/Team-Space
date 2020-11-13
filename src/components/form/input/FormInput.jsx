@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ReactComponent as IconX } from "../../assets/images/x.svg";
-// import Button from "../button/Button";
+import { ReactComponent as IconX } from "../../../assets/images/x.svg";
 import "./formInput.scss";
 
 function FormInput(props) {
@@ -14,7 +13,6 @@ function FormInput(props) {
     value,
     label,
     onFocus,
-    // handleClick,
     isError,
   } = props;
 
@@ -31,7 +29,7 @@ function FormInput(props) {
         className={className}
         onFocus={onFocus}
       />
-      {isError ? <IconX className="form__btn-x" /> : ""}
+      {isError ? <IconX className="form__icon-x" /> : ""}
     </>
   );
 }

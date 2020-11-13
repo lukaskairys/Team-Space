@@ -1,35 +1,10 @@
-@import '../../../styles/base/base';
-@import '../../../styles/index';
-
-.page-container {
-    align-items: center;
-    background-color: $color-iron;
-    color: $color-fiord;
-    display: flex;
-    font-family: $font-family;
-    height: auto;
-    justify-content: center;
-    line-height: 1.5;
-    min-height: 100vh;
-    width: 100vw;
-}
-
-.form-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 544px;
-}
-
-.logo {
-    width: 162px;
-}
+@import '../../styles/base/base';
+@import '../../styles/index';
 
 .form {
     background-color: $color-white;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    font-size: $font-size-14;
     margin-top: 5rem;
     padding: 5rem 3rem;
     width: 100%;
@@ -43,16 +18,15 @@
     }
 
     &__under-heading {
-        font-size: $font-size-16;
-        line-height: 1.5;
+        @include typography-body;
         padding-top: 0.5rem;
     }
 
     &__row {
+        @include typography-body-2-medium;
         color: $color-gull-gray;
         display: flex;
         flex-direction: row;
-        font-weight: $medium-weight;
         justify-content: space-between;
         padding: 1rem 0;
         text-transform: uppercase;
@@ -72,7 +46,6 @@
     &__footer {
         align-items: baseline;
         display: flex;
-        font-size: $font-size-16;
         justify-content: space-between;
         padding-top: 2rem;
     }
@@ -84,10 +57,8 @@
     }
 
     &__error-msg {
+        @include typography-tiny-caps;
         color: $color-watermelon;
-        font-size: $font-size-10;
-        font-weight: $medium-weight;
-        line-height: 1.1;
-        padding-top: 1rem;
+        padding-top: 0.5rem;
     }
 }

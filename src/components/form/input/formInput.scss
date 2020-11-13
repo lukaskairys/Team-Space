@@ -1,10 +1,9 @@
-@import '../../styles/base/base';
+@import '../../../styles/base/base';
 
 .form__input {
     border: 1px solid $color-iron;
     border-radius: 5px;
     color: $color-fiord;
-    font-family: $font-family;
     margin-top: 0.3rem;
     outline: none;
     padding: 1.5rem;
@@ -26,22 +25,14 @@
 .form__input::placeholder {
     color: $color-iron;
     font-size: $font-size-14;
-    line-height: 1.57;
 }
 
-.form__btn-x {
+.form__icon-x {
     background: 0;
-    // cursor: pointer;
     line-height: 0;
     padding: 0.2rem;
     position: absolute;
     right: 10px;
     top: 38px;
     transform: scale(1.3);
-
-    // &:hover,
-    // &:focus {
-    //     background: 0;
-    //     transform: scale(1.3);
-    // }
 }

@@ -35,19 +35,10 @@ const useForm = (callback, validate) => {
     setErrors(rest);
   };
 
-  // function handleClick() {
-  //   // clear input
-  //   let name = document.querySelectorAll(".form__input[id='firstName']")[0].id;
-  //   const { [name]: undefined, ...rest } = values;
-  //   setValues(rest);
-  //   console.log("clicked");
-  // }
-
   return {
     handleChange,
     handleSubmit,
     handleFocus,
-    // handleClick,
     values,
     errors,
   };

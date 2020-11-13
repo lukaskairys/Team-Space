@@ -1,0 +1,26 @@
+@import '../../styles/base/base';
+@import '../../styles/index';
+@import './form';
+
+.page-container {
+    @include typography-body;
+    align-items: center;
+    background-color: $color-iron;
+    color: $color-fiord;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 3rem;
+    width: 100vw;
+}
+
+.form-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 544px;
+}
+
+.logo {
+    width: 162px;
+}

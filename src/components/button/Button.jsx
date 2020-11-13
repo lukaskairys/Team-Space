@@ -7,7 +7,6 @@ function Button(props) {
   const btnClass = classNames({
     button: true,
     "button--large": props.large,
-    // "form__btn-x": props.del,
   });
   return (
     <button onClick={props.handleClick} className={btnClass}>
@@ -20,7 +19,6 @@ Button.propTypes = {
   handleClick: PropTypes.func,
   children: PropTypes.element,
   large: PropTypes.bool,
-  // del: PropTypes.bool,
 };
 
 export default Button;
