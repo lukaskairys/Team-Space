@@ -4,6 +4,7 @@ import { isObjectEmpty } from "../../../utils/utils";
 import { translateIdToImage } from "./translateIdToImage";
 import { geolocationOptions } from "./geolocationOptions";
 import { getDateFormat } from "./getDateFormat";
+import { deconstructAPI } from "./deconstructAPI";
 import "./weatherWidget.scss";
 
 export default function WeatherWidget() {
@@ -25,7 +26,7 @@ export default function WeatherWidget() {
         })
         .then(
           (data) => {
-            deconstructAPI(data);
+            deconstructAPI(data, setError, setItems, setLoading);
           },
           (error) => {
             setError(error);
@@ -44,22 +45,6 @@ export default function WeatherWidget() {
 
       return true;
     };
-
-    function deconstructAPI(data) {
-      if (isObjectEmpty(data)) {
-        setError("Unable to retrieve data");
-        return;
-      }
-      setItems({
-        temp: data.main.temp.toFixed(),
-        humidity: data.main.humidity,
-        windSpeed: data.wind.speed,
-        description: data.weather[0].description,
-        location: data.name,
-        conditionId: data.weather[0].id,
-      });
-      setLoading(true);
-    }
 
     if (isValid()) {
       fetchAPI();
