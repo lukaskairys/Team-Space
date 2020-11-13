@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useCurrentLocation from "./useCurrentLocation";
-import { isObjectEmpty } from "../../../utils/utils";
+import { isObjectEmpty } from "../../../utils/objects";
 import { translateIdToImage } from "./translateIdToImage";
 import { geolocationOptions } from "./geolocationOptions";
 import { getDateFormat } from "./getDateFormat";

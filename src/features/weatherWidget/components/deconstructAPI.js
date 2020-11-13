@@ -1,4 +1,4 @@
-import { isObjectEmpty } from "../../../utils/utils";
+import { isObjectEmpty } from "../../../utils/objects";
 export const deconstructAPI = (data, setError, setItems, setLoading) => {
   if (isObjectEmpty(data)) {
     setError("Unable to retrieve data");
