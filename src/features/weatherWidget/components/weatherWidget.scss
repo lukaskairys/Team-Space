@@ -1,36 +1,36 @@
 @import '../../../styles/base/base';
-$section-margin: 1rem;
-$widget-padding: 1.5rem;
-$content-color: rgba(0, 0, 0, 0.5);
-$paragraph-font-size: 2rem;
-$temperature-font-size: 6rem;
-$temperature-font-color: rgba(0, 0, 0, 0.7);
-
-ul {
-    list-style-type: none;
+$_section-margin: 1rem;
+$_content-padding: 1.5rem;
+$_content-color: rgba(0, 0, 0, 0.5);
+$_paragraph-font-size: 2rem;
+$_temperature-font-size: 6rem;
+$_temperature-font-color: rgba(0, 0, 0, 0.7);
+$_spinner-size: 6rem;
+$_spinner-offset: $_spinner-size / -2;
+body {
+    background-color: gray;
 }
-
-.widget {
+.weather-widget {
     font-size: $font-size-caption-2;
     position: relative;
     width: 50rem;
 
     &__content {
-        background: #fff;
+        background: $color-white;
         border-radius: 1rem;
-        color: $content-color;
+        color: $_content-color;
         height: 100%;
-        padding: $widget-padding 0 $widget-padding $widget-padding;
+        padding: $_content-padding 0 $_content-padding $_content-padding;
         position: relative;
         width: 83%;
     }
 
     &__section {
         display: flex;
-        margin-top: $section-margin;
+        margin-top: $_section-margin;
         width: 70%;
 
-        div {
+        & > div {
             margin-right: 2rem;
         }
     }
@@ -39,6 +39,8 @@ ul {
         margin-right: 0.5rem;
         position: relative;
         top: 0.3rem;
+        width: 1.9rem;
+        height: 1.7rem;
     }
 
     &__header {
@@ -51,7 +53,6 @@ ul {
         align-items: flex-end;
         display: flex;
         letter-spacing: 0.1rem;
-        line-height: 1.4rem;
         text-transform: capitalize;
     }
 
@@ -69,31 +70,30 @@ ul {
     }
 
     &__paragraph {
-        font-size: $paragraph-font-size;
-        line-height: 2.3rem;
+        font-size: $_paragraph-font-size;
         margin-top: 3.5rem;
+        line-height: 1.2;
     }
 
     &__border {
         border-bottom: 0.1rem solid rgba(0, 0, 0, 0.3);
-        margin-top: $section-margin;
+        margin-top: $_section-margin;
         width: 50%;
     }
 
     &__span {
-        color: $temperature-font-color;
-        font-size: $temperature-font-size;
-        line-height: 5rem;
+        color: $_temperature-font-color;
+        font-size: $_temperature-font-size;
+        line-height: 1;
     }
 
     &__spinner {
-        --webkit-animation: spin 4s linear infinite;
         animation: spin 4s linear infinite;
-        height: 6rem;
+        height: $_spinner-size;
         position: absolute;
-        right: -3rem;
-        top: -3rem;
-        width: 6rem;
+        right: $_spinner-offset;
+        top: $_spinner-offset;
+        width: $_spinner-size;
     }
 
     @keyframes spin {

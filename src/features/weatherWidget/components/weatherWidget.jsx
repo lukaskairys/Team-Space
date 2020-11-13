@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useCurrentLocation from "./useCurrentLocation";
+import { isObjectEmpty } from "../../../utils/utils";
 import "./weatherWidget.scss";
 
 const geolocationOptions = {
@@ -86,21 +87,12 @@ export default function WeatherWidget() {
     if (!isLoaded) {
       return (
         <img
-          className="widget__spinner"
+          className="weather-widget__spinner"
           src={require("assets/WeatherWidget/spinner.svg")}
           alt=""
         />
       );
     }
-  };
-  const isObjectEmpty = (objectData) => {
-    if (
-      Object.keys(objectData).length === 0 &&
-      objectData.constructor === Object
-    )
-      return true;
-
-    return false;
   };
   function getDateFormat(locale) {
     var date = new Date();
@@ -124,7 +116,7 @@ export default function WeatherWidget() {
   const loadFigure = () => {
     if (isLoaded)
       return (
-        <figure className="widget__figure">
+        <figure className="weather-widget__figure">
           <img src={translateIdToImage(items.conditionId)} alt="" />
         </figure>
       );
@@ -138,38 +130,38 @@ export default function WeatherWidget() {
       description = items.description;
     }
     return (
-      <p className="widget__paragraph">
-        <span className="widget__span">{content} </span>
+      <p className="weather-widget__paragraph">
+        <span className="weather-widget__span">{content} </span>
         {description}
       </p>
     );
   };
 
   return (
-    <article className="widget widget--disabled">
-      <main className="widget__content">
-        <p className="widget__header">
+    <article className="weather-widget">
+      <main className="weather-widget__content">
+        <p className="weather-widget__header">
           {loadSpinner()}
           {getDateFormat("en-us")} | {items.location}
         </p>
         {loadParagraph()}
-        <div className="widget__border"></div>
-        <section className="widget__section">
+        <div className="weather-widget__border"></div>
+        <section className="weather-widget__section">
           <div>
             <img
-              className="widget__icon"
+              className="weather-widget__icon"
               src={require("assets/WeatherWidget/wind.svg")}
               alt="wind speed"
             />
-            <label htmlFor="widget__icon">{items.windSpeed} m/s</label>
+            <label htmlFor="weather-widget__icon">{items.windSpeed} m/s</label>
           </div>
           <div>
             <img
-              className="widget__icon"
+              className="weather-widget__icon"
               src={require("assets/WeatherWidget/humidity.svg")}
               alt="humidity"
             />
-            <label htmlFor="widget__icon">{items.humidity} mm</label>
+            <label htmlFor="weather-widget__icon">{items.humidity} mm</label>
           </div>
           <div></div>
         </section>
