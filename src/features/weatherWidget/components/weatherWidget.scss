@@ -7,9 +7,7 @@ $_temperature-font-size: 6rem;
 $_temperature-font-color: rgba(0, 0, 0, 0.7);
 $_spinner-size: 6rem;
 $_spinner-offset: $_spinner-size / -2;
-body {
-    background-color: gray;
-}
+
 .weather-widget {
     font-size: $font-size-caption-2;
     position: relative;
