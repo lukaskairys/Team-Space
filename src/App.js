@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
+import MainLayout from "components/MainLayout/MainLayout";
 
 function App() {
   return (
@@ -13,8 +14,10 @@ function App() {
         {/* If you want to render something everywhere (in each page), render it outside the <Switch>, but inside the <Router> */}
         <Switch>
           <Route exact path="/">
-            <HelloWidget />
-            <ReservationSection />
+            <MainLayout>
+              <HelloWidget />
+              <ReservationSection />
+            </MainLayout>
           </Route>
           <Route path="/registration">
             <RegistrationPage />
