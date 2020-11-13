@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from "react";
 import useCurrentLocation from "./useCurrentLocation";
 import { isObjectEmpty } from "../../../utils/utils";
+import { translateIdToImage } from "./translateIdToImage";
+import { geolocationOptions } from "./geolocationOptions";
+import { getDateFormat } from "./getDateFormat";
 import "./weatherWidget.scss";
-
-const geolocationOptions = {
-  enableHighAccuracy: true,
-  timeout: 1000 * 60,
-};
-const images = {
-  WeatherConditions: {
-    Sunny: require("assets/WeatherWidget/sunny.svg"),
-    Thunderstorm: require("assets/WeatherWidget/thunderstorm.svg"),
-    Cloudy: require("assets/WeatherWidget/cloudy.svg"),
-    Rainy: require("assets/WeatherWidget/rainy.svg"),
-    Snowing: require("assets/WeatherWidget/snowing.svg"),
-    Misty: require("assets/WeatherWidget/rainy.svg"),
-  },
-};
 
 export default function WeatherWidget() {
   const { location, geolocationError } = useCurrentLocation(geolocationOptions);
@@ -26,7 +14,6 @@ export default function WeatherWidget() {
   const [errors, setError] = useState("");
   const [items, setItems] = useState({});
   const [isLoaded, setLoading] = useState(false);
-
   useEffect(() => {
     const fetchAPI = () => {
       fetch(API_URL)
@@ -60,7 +47,7 @@ export default function WeatherWidget() {
 
     function deconstructAPI(data) {
       if (isObjectEmpty(data)) {
-        setError("Unable to retirieve data");
+        setError("Unable to retrieve data");
         return;
       }
       setItems({
@@ -94,25 +81,7 @@ export default function WeatherWidget() {
       );
     }
   };
-  function getDateFormat(locale) {
-    var date = new Date();
-    return date.toLocaleDateString(locale, {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-    });
-  }
 
-  const translateIdToImage = (id) => {
-    const conditions = images.WeatherConditions;
-    if (id >= 200 && id < 300) return conditions.Thunderstorm;
-    if (id >= 300 && id < 400) return conditions.Rainy;
-    if (id >= 500 && id < 600) return conditions.Snowing;
-    //need more picture mist, smoke, haze, dust, fog, sand, dust, ash, squall  = thunderstorm atm due to lack of pictures
-    if (id >= 700 && id < 800) return conditions.Thunderstorm;
-    if (id === 800) return conditions.Sunny;
-    if (id > 800) return conditions.Cloudy;
-  };
   const loadFigure = () => {
     if (isLoaded)
       return (
