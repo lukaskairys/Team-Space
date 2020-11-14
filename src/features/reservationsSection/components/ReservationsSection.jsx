@@ -15,13 +15,25 @@ function ReservationsSection() {
     <div className="RESERVATIONS">
       <h2 className="RESERVATIONS__title">Reservations</h2>
       <div className="RESERVATIONS__cards">
-        <ReservationCard name={"Devices"} reserved={reservations.phones}>
+        <ReservationCard
+          name={"Devices"}
+          path={"/reservations/devices"}
+          reserved={reservations.phones}
+        >
           <Phone />
         </ReservationCard>
-        <ReservationCard name={"Books"} reserved={reservations.books}>
+        <ReservationCard
+          name={"Books"}
+          path={"/reservations/books"}
+          reserved={reservations.books}
+        >
           <Book />
         </ReservationCard>
-        <ReservationCard name={"Meeting rooms"} reserved={reservations.rooms}>
+        <ReservationCard
+          name={"Meeting rooms"}
+          path={"/"}
+          reserved={reservations.rooms}
+        >
           <Door />
         </ReservationCard>
       </div>

@@ -1,21 +1,23 @@
 import "./reservationsCard.scss";
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-function ReservationsCard({ name, reserved, children }) {
+function ReservationsCard({ name, path, reserved, children }) {
   return (
-    <div className="reservations-card">
+    <Link to={path} className="reservations-card">
       <div>
         <h2 className="reservations-card__title">{name}</h2>
         <span className="reservations-card__caption">{`${reserved} Reserved`}</span>
       </div>
       <div className="reservations-card__image">{children}</div>
-    </div>
+    </Link>
   );
 }
 
 ReservationsCard.propTypes = {
   name: PropTypes.string,
+  path: PropTypes.string,
   children: PropTypes.object,
   reserved: PropTypes.number,
 };
