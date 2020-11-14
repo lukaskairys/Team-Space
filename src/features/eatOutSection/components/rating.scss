@@ -1,0 +1,26 @@
+$_icon-size: 1.2rem;
+.rating-container {
+    width: 6.5rem;
+    height: 3.2rem;
+    background: #fadb5e;
+    border-radius: 0.8rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+
+    &__items {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    &__icon {
+        width: $_icon-size;
+        height: $_icon-size;
+    }
+}
+
+.person-container:hover {
+    cursor: pointer;
+}
