@@ -71,7 +71,11 @@ export default function WeatherWidget() {
     if (isLoaded)
       return (
         <figure className="weather-widget__figure">
-          <img src={translateIdToImage(items.conditionId)} alt="" />
+          <img
+            className="figure__image"
+            src={translateIdToImage(items.conditionId)}
+            alt=""
+          />
         </figure>
       );
   };
@@ -85,7 +89,7 @@ export default function WeatherWidget() {
     }
     return (
       <p className="weather-widget__paragraph">
-        <span className="weather-widget__span">{content} </span>
+        <span className="weather-widget__temperature">{content} </span>
         {description}
       </p>
     );
@@ -101,7 +105,7 @@ export default function WeatherWidget() {
         {loadParagraph()}
         <div className="weather-widget__border"></div>
         <section className="weather-widget__section">
-          <div>
+          <div className="weather-widget__subsection">
             <img
               className="weather-widget__icon"
               src={require("assets/WeatherWidget/wind.svg")}
@@ -109,7 +113,7 @@ export default function WeatherWidget() {
             />
             <label htmlFor="weather-widget__icon">{items.windSpeed} m/s</label>
           </div>
-          <div>
+          <div className="weather-widget__subsection">
             <img
               className="weather-widget__icon"
               src={require("assets/WeatherWidget/humidity.svg")}

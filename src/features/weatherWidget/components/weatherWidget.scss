@@ -27,18 +27,18 @@ $_spinner-offset: $_spinner-size / -2;
         display: flex;
         margin-top: $_section-margin;
         width: 70%;
+    }
 
-        & > div {
-            margin-right: 2rem;
-        }
+    &__subsection {
+        margin-right: 2rem;
     }
 
     &__icon {
+        height: 1.7rem;
         margin-right: 0.5rem;
         position: relative;
         top: 0.3rem;
         width: 1.9rem;
-        height: 1.7rem;
     }
 
     &__header {
@@ -62,15 +62,15 @@ $_spinner-offset: $_spinner-size / -2;
         top: 0;
         width: 21rem;
 
-        img {
+        .figure__image {
             width: 100%;
         }
     }
 
     &__paragraph {
         font-size: $_paragraph-font-size;
-        margin-top: 3.5rem;
         line-height: 1.2;
+        margin-top: 3.5rem;
     }
 
     &__border {
@@ -79,7 +79,7 @@ $_spinner-offset: $_spinner-size / -2;
         width: 50%;
     }
 
-    &__span {
+    &__temperature {
         color: $_temperature-font-color;
         font-size: $_temperature-font-size;
         line-height: 1;
