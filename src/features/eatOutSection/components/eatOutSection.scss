@@ -1,133 +1,133 @@
 @import '../../../styles/base/base';
-body {
-    background: #f6f7f8;
-    margin: 20px;
-}
+$_title-color: 'rgba(0, 0, 0, 0.7)';
+
 .eatOut-card {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 4rem;
+    grid-template-columns: repeat(3, 1fr);
 
     &__column {
         background: linear-gradient(
-            180deg,
+            0deg,
             rgba(255, 255, 255, 0) 0%,
-            #ffffff 100%
+            $color-white 100%
         );
         border-radius: 0.8rem;
         padding-bottom: 2rem;
     }
+
     &__column:nth-child(n + 2) {
-        // filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.25));
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
     }
+
     &__title {
         @include typography-h2-alternative;
-        color: rgba(0, 0, 0, 0.7);
+        color: $_title-color;
+        width: 90%;
     }
 
     &__header {
-        background-image: url('../../../assets/images/eatOut/card__photo.svg');
-        background-color: #fff;
+        background-color: $color-white;
+        background-position: center;
         background-repeat: no-repeat;
-        background-position: center bottom;
         background-size: cover;
-        width: 100%;
-        height: 70%;
+        border-radius: 0.8rem;
         display: flex;
         flex-direction: column;
+        height: 70%;
         justify-content: space-between;
         min-height: 18rem;
-        border-radius: 0.8rem;
+        width: 100%;
     }
+
     &__center {
-        padding: 4rem;
-        display: flex;
-        justify-content: center;
         align-items: center;
-        height: 100%;
+        display: flex;
         flex-wrap: wrap;
+        height: 100%;
+        justify-content: center;
+        padding: 4rem;
     }
+
     &__icons {
         display: flex;
         justify-content: space-between;
         margin: 1.6rem;
     }
+
     &__button {
-        width: 11rem;
-        height: 3.2rem;
-        background: #6e44ff;
-        border-color: #6e44ff;
+        background: $color-bright-violet;
+        border-color: $color-bright-violet;
         border-radius: 6.5rem;
         border-style: solid;
+        color: $color-white;
+        font-size: $font-size-12;
+        height: 3.2rem;
         padding: 0.5rem;
-        font-size: 1.2rem;
         text-transform: uppercase;
-        color: #ffffff;
+        width: 11rem;
     }
+
     &__center h1 {
         text-align: center;
     }
-    &__image {
-        width: 46rem;
-        height: 21rem;
-    }
+
     &__categories {
-        display: flex;
         align-self: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 1.6rem;
     }
 
     &__item {
-        margin: 0 1.6rem 0 1.6rem;
+        color: $color-slate-gray;
+        font-size: $font-size-20; //for bullet points
         font-weight: 500;
+        margin-right: 3.2rem;
         text-transform: uppercase;
-        color: #6a7889;
+    }
+
+    &__category {
+        bottom: 0.25rem;
+        font-size: $font-size-10;
+        position: relative;
     }
 
     &__categories li:nth-of-type(1) {
         list-style: none;
     }
+
     &__subSection {
-        margin: 0rem 2.4rem 0rem 1.6rem;
         display: flex;
         justify-content: space-between;
+        margin: 0 2.4rem 0 1.6rem;
     }
+
     &__favoriteContainer {
-        width: 2.4rem;
         height: 2.2rem;
+        width: 2.4rem;
     }
+
     &__favorite {
-        fill: #fff;
-        stroke: #3e5067;
-        stroke-width: 2;
+        fill: $color-white;
+        stroke: $color-fiord;
         stroke-linecap: round;
         stroke-linejoin: round;
+        stroke-width: 2;
     }
+
     &__favorite--active {
-        fill: #ff6e75;
-        stroke: #ff6e75;
+        fill: $color-watermelon;
+        stroke: $color-watermelon;
     }
+
     &__time {
-        margin: 0rem 1.6rem 0rem 1.6rem;
-        color: #6a7889;
+        color: $color-slate-gray;
+        margin: 0 1.6rem;
     }
+
     &__favorite,
     &__button:hover {
         cursor: pointer;
     }
-}
-
-//bullet points
-li {
-    font-size: 2rem;
-}
-li span {
-    position: relative;
-    bottom: 0.25rem;
-    font-size: 1rem;
-}
-
-h1 {
-    width: 32rem;
-    height: 6.6rem;
 }
