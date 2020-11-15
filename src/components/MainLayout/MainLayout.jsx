@@ -13,7 +13,7 @@ if (creationYear === currentYear) {
   year = `${creationYear} - ${currentYear}`;
 }
 
-const MainLayout = (props) => {
+const MainLayout = ({ children }) => {
   return (
     <div className="main-layout">
       <Sidebar />
@@ -26,7 +26,7 @@ const MainLayout = (props) => {
             <div className="main-layout__profile"></div>
           </div>
         </header>
-        <main className="main-layout__main">{props.children}</main>
+        <main className="main-layout__main">{children}</main>
         <footer className="main-layout__footer">
           <p className="main-layout__copyright">
             copyright &copy; {year} devbridge
@@ -38,7 +38,7 @@ const MainLayout = (props) => {
 };
 
 MainLayout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
 };
 
 export default MainLayout;

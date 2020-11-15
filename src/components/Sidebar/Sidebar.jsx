@@ -4,8 +4,10 @@ import { ReactComponent as HomeIcon } from "assets/icons/home.svg";
 import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
 import { ReactComponent as CompassIcon } from "assets/icons/compass.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
+import { ReactComponent as Background } from "assets/sidebar-selection.svg";
+/* import mySvg from "assets/sidebar-selection.svg"; */
 
-const SidebarData = [
+const sidebarData = [
   {
     title: "Dashboard",
     icon: <HomeIcon />,
@@ -25,28 +27,33 @@ const SidebarData = [
 
 const Sidebar = () => {
   return (
-    <nav className="Sidebar">
-      <Logo className="Logo" />
-      <div className="SidebarList">
-        {SidebarData.map((val, key) => {
+    <nav className="sidebar">
+      <Logo className="sidebar__logo" />
+      <div className="sidebar__list">
+        {sidebarData.map((val, key) => {
           return (
-            <button
+            <div
+              role="button"
+              tabIndex={0}
               key={key}
-              className={`row ${
-                window.location.pathname === val.link ? "active" : ""
+              className={`sidebar__list-item ${
+                window.location.pathname === val.link
+                  ? "sidebar__list-item--active"
+                  : ""
               }`}
               onClick={() => {
                 window.location.pathname = val.link;
               }}
               onKeyDown={() => {
-                window.location.pathname = val.link;
+                /* window.location.pathname = val.link; */
               }}
             >
-              <div className="icon">{val.icon}</div>
-              <div className="title">{val.title}</div>
-            </button>
+              <i className="sidebar__icon">{val.icon}</i>
+              <p className="sidebar__item-title">{val.title}</p>
+            </div>
           );
         })}
+        <Background />
       </div>
     </nav>
   );
