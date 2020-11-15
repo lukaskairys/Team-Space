@@ -38,7 +38,7 @@ const MainLayout = ({ children }) => {
 };
 
 MainLayout.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.object,
 };
 
 export default MainLayout;

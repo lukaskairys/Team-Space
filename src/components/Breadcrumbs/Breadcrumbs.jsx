@@ -4,6 +4,8 @@ import { ReactComponent as HomeIcon } from "assets/icons/home.svg";
 import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
 import { ReactComponent as CompassIcon } from "assets/icons/compass.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
+import { ReactComponent as Background } from "assets/sidebar-selection.svg";
+/* import mySvg from "assets/sidebar-selection.svg"; */
 
 const sidebarData = [
   {
@@ -27,11 +29,12 @@ const Sidebar = () => {
   return (
     <nav className="sidebar">
       <Logo className="sidebar__logo" />
-      <div></div>
       <div className="sidebar__list">
         {sidebarData.map((val, key) => {
           return (
-            <button
+            <div
+              role="button"
+              tabIndex={0}
               key={key}
               className={`sidebar__list-item ${
                 window.location.pathname === val.link
@@ -41,12 +44,16 @@ const Sidebar = () => {
               onClick={() => {
                 window.location.pathname = val.link;
               }}
+              onKeyDown={() => {
+                /* window.location.pathname = val.link; */
+              }}
             >
               <i className="sidebar__icon">{val.icon}</i>
-              <span className="sidebar__item-title">{val.title}</span>
-            </button>
+              <p className="sidebar__item-title">{val.title}</p>
+            </div>
           );
         })}
+        <Background />
       </div>
     </nav>
   );
