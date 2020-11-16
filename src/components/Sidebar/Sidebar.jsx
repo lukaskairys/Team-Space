@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.scss";
 import { ReactComponent as HomeIcon } from "assets/icons/home.svg";
 import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
 import { ReactComponent as CompassIcon } from "assets/icons/compass.svg";
+import { ReactComponent as ToggleIcon } from "assets/icons/toggle.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
 
 const sidebarData = [
@@ -24,10 +25,15 @@ const sidebarData = [
 ];
 
 const Sidebar = () => {
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(!sidebar);
+
   return (
-    <nav className="sidebar">
+    <nav className={sidebar ? "sidebar sidebar--active" : "sidebar"}>
       <Logo className="sidebar__logo" />
-      <div></div>
+      <button className="sidebar__toggle" onClick={showSidebar}>
+        <ToggleIcon />
+      </button>
       <div className="sidebar__list">
         {sidebarData.map((val, key) => {
           return (
@@ -43,6 +49,7 @@ const Sidebar = () => {
               }}
             >
               <i className="sidebar__icon">{val.icon}</i>
+              <span className="sidebar__corner"></span>
               <span className="sidebar__item-title">{val.title}</span>
             </button>
           );
