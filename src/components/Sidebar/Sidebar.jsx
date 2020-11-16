@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import "./Sidebar.scss";
 import { ReactComponent as HomeIcon } from "assets/icons/home.svg";
 import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
@@ -24,14 +25,16 @@ const sidebarData = [
   },
 ];
 
-const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
-
+const Sidebar = ({ sidebarState, showSidebar }) => {
   return (
-    <nav className={sidebar ? "sidebar sidebar--active" : "sidebar"}>
+    <nav className={sidebarState ? "sidebar sidebar--active" : "sidebar"}>
       <Logo className="sidebar__logo" />
-      <button className="sidebar__toggle" onClick={showSidebar}>
+      <button
+        className="sidebar__toggle"
+        onClick={() => {
+          showSidebar();
+        }}
+      >
         <ToggleIcon />
       </button>
       <div className="sidebar__list">
@@ -58,4 +61,10 @@ const Sidebar = () => {
     </nav>
   );
 };
+
+Sidebar.propTypes = {
+  sidebarState: PropTypes.bool,
+  showSidebar: PropTypes.func,
+};
+
 export default Sidebar;

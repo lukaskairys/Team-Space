@@ -5,14 +5,14 @@
     flex-grow: 0;
     height: 100vh;
     position: fixed;
-    transition-duration: 1000ms;
+    transition: width 1000ms;
     width: 20.6rem;
 
     &__logo {
         fill: $color-white;
         margin-bottom: 8.1rem;
         margin-left: 2.4rem;
-        transition: 1500ms;
+        transition: fill 1500ms;
         transition-delay: 300ms;
         width: 11.472rem;
     }
@@ -26,8 +26,9 @@
         outline: none;
         position: absolute;
         top: 12rem;
-        transition-duration: 1000ms;
+        transition: transform 1000ms;
         width: 2.8rem;
+
         /*  &:focus {
             box-shadow: 0 0 0 3px $color-dark-violet;
         } */
@@ -142,12 +143,11 @@
 }
 
 .sidebar--active.sidebar {
-    transition-duration: 1000ms;
+    transition: width 1000ms;
     width: 9.6rem;
 
     .sidebar__toggle {
         transform: translateX(-11rem) rotate(180deg);
-        transition-duration: 1000ms;
     }
 
     .sidebar__item-title {
@@ -158,6 +158,6 @@
 
     .sidebar__logo {
         fill: $color-transparent;
-        transition: 500ms;
+        transition: fill 500ms;
     }
 }

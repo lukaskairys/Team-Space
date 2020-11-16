@@ -9,8 +9,9 @@
     &__content {
         display: flex;
         flex-direction: column;
-        margin-left: 206px;
-        overflow: hidden;
+        margin-left: 20.6rem;
+        overflow-x: hidden;
+        transition: margin-left 1000ms;
         width: 100%;
     }
 
@@ -69,4 +70,9 @@
         margin: 2.9rem 4rem;
         text-transform: uppercase;
     }
+}
+
+.main-layout__content.main-layout__content--active {
+    margin-left: 9.6rem;
+    transition: margin-left 1000ms;
 }

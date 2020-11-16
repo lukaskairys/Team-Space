@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./MainLayout.scss";
 import { ReactComponent as NotificationBell } from "assets/icons/notification-bell.svg";
@@ -13,11 +13,34 @@ if (creationYear === currentYear) {
   year = `${creationYear} - ${currentYear}`;
 }
 
+const checkState = () => {
+  let initialState;
+  if (sessionStorage.sidebarState === undefined) {
+    initialState = false;
+  } else {
+    initialState = sessionStorage.sidebarState;
+  }
+  return JSON.parse(initialState);
+};
+
 const MainLayout = ({ children }) => {
+  const [sidebar, setSidebar] = useState(checkState());
+
+  const showSidebar = () => {
+    setSidebar(!sidebar);
+  };
+  sessionStorage.sidebarState = sidebar;
+
   return (
     <div className="main-layout">
-      <Sidebar />
-      <div className="main-layout__content">
+      <Sidebar sidebarState={sidebar} showSidebar={showSidebar} />
+      <div
+        className={
+          sidebar
+            ? "main-layout__content main-layout__content--active"
+            : "main-layout__content"
+        }
+      >
         <header className="main-layout__header">
           <div className="main-layout__status">
             <div className="main-layout__notifications">
