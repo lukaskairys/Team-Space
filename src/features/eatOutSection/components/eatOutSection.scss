@@ -1,20 +1,21 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
 $_title-color: rgba(0, 0, 0, 0.7);
-$_font-size-categoryMedia: 0.9rem;
+$_font-size-category-query: 0.9rem;
+
 .eatOut-card {
     display: grid;
     grid-column-gap: 4rem;
     grid-template-columns: repeat(3, 1fr);
 
     &__column {
-        background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0) 0%,
-            $color-white 100%
-        );
+        background-color: $color-white;
         border-radius: 0.8rem;
         padding-bottom: 2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__column:nth-child(n + 2) {
@@ -23,9 +24,9 @@ $_font-size-categoryMedia: 0.9rem;
 
     &__suggestion {
         color: $_title-color;
-        width: 90%;
         font-weight: 900;
         text-align: center;
+        width: 90%;
     }
 
     &__suggestion,
@@ -111,7 +112,7 @@ $_font-size-categoryMedia: 0.9rem;
         font-size: $font-size-10;
         position: relative;
         @include respond-to(920, max) {
-            font-size: $_font-size-categoryMedia;
+            font-size: $_font-size-category-query;
         }
     }
 
