@@ -13,17 +13,19 @@ function App() {
             renders the first one that matches the path. */}
         {/* If you want to render something everywhere (in each page), render it outside the <Switch>, but inside the <Router> */}
         <Switch>
-          <MainLayout>
-            <Route exact path="/">
+          <Route exact path="/">
+            <MainLayout>
               <>
                 <HelloWidget />
                 <ReservationSection />
               </>
-            </Route>
-            <Route path="/reservations">
+            </MainLayout>
+          </Route>
+          <Route path="/reservations">
+            <MainLayout>
               <ReservationSection />
-            </Route>
-          </MainLayout>
+            </MainLayout>
+          </Route>
           <Route path="/registration">
             <Registration />
           </Route>

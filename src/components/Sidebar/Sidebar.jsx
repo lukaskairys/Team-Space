@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./Sidebar.scss";
 import { ReactComponent as HomeIcon } from "assets/icons/home.svg";
 import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
@@ -40,21 +41,19 @@ const Sidebar = ({ sidebarState, showSidebar }) => {
       <div className="sidebar__list">
         {sidebarData.map((val, key) => {
           return (
-            <button
+            <Link
               key={key}
               className={`sidebar__list-item ${
                 window.location.pathname === val.link
                   ? "sidebar__list-item--active"
                   : ""
               }`}
-              onClick={() => {
-                window.location.pathname = val.link;
-              }}
+              to={val.link}
             >
               <i className="sidebar__icon">{val.icon}</i>
               <span className="sidebar__corner"></span>
               <span className="sidebar__item-title">{val.title}</span>
-            </button>
+            </Link>
           );
         })}
       </div>

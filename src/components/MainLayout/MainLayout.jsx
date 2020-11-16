@@ -13,23 +13,12 @@ if (creationYear === currentYear) {
   year = `${creationYear} - ${currentYear}`;
 }
 
-const checkState = () => {
-  let initialState;
-  if (sessionStorage.sidebarState === undefined) {
-    initialState = false;
-  } else {
-    initialState = sessionStorage.sidebarState;
-  }
-  return JSON.parse(initialState);
-};
-
 const MainLayout = ({ children }) => {
-  const [sidebar, setSidebar] = useState(checkState());
+  const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => {
     setSidebar(!sidebar);
   };
-  sessionStorage.sidebarState = sidebar;
 
   return (
     <div className="main-layout">

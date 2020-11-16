@@ -54,6 +54,7 @@
         margin-bottom: 1.7rem;
         outline: none;
         position: relative;
+        text-decoration: none;
         width: 100%;
 
         /* &:focus {
@@ -71,7 +72,7 @@
 
     &__item-title {
         margin-left: 1.55rem;
-        transition: 1500ms;
+        transition: opacity 1500ms, visibility 1500ms;
         transition-delay: 300ms;
     }
 
@@ -152,8 +153,8 @@
     }
 
     .sidebar__item-title {
-        color: $color-transparent;
-        transition: color 350ms, visibility 350ms;
+        opacity: 0;
+        transition: opacity 350ms, visibility 350ms;
         visibility: hidden;
     }
 
