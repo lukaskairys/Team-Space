@@ -103,8 +103,8 @@ function Registration() {
           </div>
 
           <div className="form__footer">
-            <Button type={"submit"} large={true}>
-              Register
+            <Button type={"submit"} large={"true"}>
+              <span>Register</span>
             </Button>
             <p>
               Already have account?
