@@ -1,12 +1,12 @@
 import "./eatOutSection.scss";
 import React from "react";
-import RatingComponent from "./rating";
-import PersonComponent from "./person";
-import fetchBestRatedRestaurants from "./fetchBestRatedRestaurants";
-import { createWorkingSchedule, isOpen } from "./restaurantWorkingSchedule";
+import RatingComponent from "./Rating";
+import PersonComponent from "./PersonCounter";
+import FetchBestRatedRestaurants from "./FetchBestRatedRestaurants";
+import { createWorkingSchedule, isOpen } from "./RestaurantWorkingSchedule";
 
 const EatOutSection = () => {
-  const restaurants = fetchBestRatedRestaurants(40);
+  const restaurants = FetchBestRatedRestaurants(2);
   const favoriteClickHandler = (event) => {
     var classes = event.target.classList;
     if (classes.contains("eatOut-card__favorite--active")) {
@@ -34,7 +34,7 @@ const EatOutSection = () => {
           {formCategories(restaurant.categories)}
         </div>
         <div className="eatOut-card__subSection">
-          <h1 className="eatOut-card__title">{formTitle(restaurant.name)}</h1>
+          <h3 className="eatOut-card__title">{formTitle(restaurant.name)}</h3>
           <svg className="eatOut-card__favoriteContainer" viewBox="0 0 24 22">
             <path
               onClick={favoriteClickHandler}
@@ -74,10 +74,10 @@ const EatOutSection = () => {
   return (
     <section className="eatOut-card">
       <div className="eatOut-card__column">
-        <div className="eatOut-card__center">
-          <h1 className="eatOut-card__title">
+        <div className="eatOut-card__content">
+          <h3 className="eatOut-card__suggestion">
             View all your favorite lunch spots and more
-          </h1>
+          </h3>
           <button className="eatOut-card__button">Browse List</button>
         </div>
       </div>

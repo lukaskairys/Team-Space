@@ -1,5 +1,5 @@
 import React from "react";
-import "./person.scss";
+import "./personCounter.scss";
 
 const Person = (counter) => {
   return (

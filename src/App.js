@@ -1,7 +1,7 @@
 import React from "react";
 import Registration from "../src/features/registration/components/Registration";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
-import EatOutSection from "features/eatOutSection/components/eatOutSection";
+import EatOutSection from "features/eatOutSection/components/EatOutSection";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 
 function App() {
