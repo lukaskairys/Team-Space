@@ -9,9 +9,9 @@ function RegistrationPage() {
       <div className="form-container">
         <Logo className="logo" />
         <Form
-          isRegister={true}
-          heading={"Registration"}
-          underHeading={"Let’s get you on board."}
+          action={"register"}
+          title={"Registration"}
+          subtitle={"Let’s get you on board."}
           buttonLabel={"Register"}
         />
       </div>

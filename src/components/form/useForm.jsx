@@ -11,9 +11,17 @@ const useForm = (callback, validate) => {
     }
   }, [errors, callback, isSubmitting]);
 
+  const handleXclick = (inputRef) => {
+    const inputName = inputRef.current.name;
+    // clear current input value
+    setValues({
+      ...values,
+      [inputName]: "",
+    });
+  };
+
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-    document.querySelector(".form__input").value = "";
     setErrors(validate(values));
     setIsSubmitting(true);
   };
@@ -41,6 +49,7 @@ const useForm = (callback, validate) => {
     handleFocus,
     values,
     errors,
+    handleXclick,
   };
 };
 

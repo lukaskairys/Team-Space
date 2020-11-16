@@ -2,25 +2,30 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ReactComponent as IconX } from "../../../assets/images/x.svg";
 import "./formInput.scss";
+import Button from "../../button/Button";
 
 function FormInput(props) {
-  const {
+  let {
     name,
+    label,
     type,
-    placeholder,
+    placeholder = label,
+    id = name,
     onChange,
     className,
     value,
-    label,
     onFocus,
     isError,
+    handleXclick,
   } = props;
+
+  const inputRef = React.useRef(null);
 
   return (
     <>
       <label htmlFor={name}>{label}</label>
       <input
-        id={name}
+        id={id}
         name={name}
         type={type}
         placeholder={placeholder}
@@ -28,15 +33,24 @@ function FormInput(props) {
         value={value}
         className={className}
         onFocus={onFocus}
+        ref={inputRef}
       />
-      {isError ? <IconX className="form__icon-x" /> : ""}
+      {isError && (
+        <Button
+          type={"button"}
+          del={true}
+          handleClick={() => handleXclick(inputRef)}
+        >
+          <IconX />
+        </Button>
+      )}
     </>
   );
 }
 
 FormInput.propTypes = {
   label: PropTypes.string,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
@@ -44,7 +58,7 @@ FormInput.propTypes = {
   value: PropTypes.any,
   className: PropTypes.string,
   onFocus: PropTypes.func,
-  handleClick: PropTypes.func,
+  handleXclick: PropTypes.func,
   isError: PropTypes.bool,
 };
 

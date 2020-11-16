@@ -4,6 +4,7 @@
 
 .page-container {
     @include typography-body;
+
     align-items: center;
     background-color: $color-iron;
     color: $color-fiord;

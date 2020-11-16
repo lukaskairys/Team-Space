@@ -28,4 +28,24 @@
     &--large {
         font-size: $font-size-16;
     }
+
+    &__icon-x {
+        background: 0;
+        cursor: pointer;
+        line-height: 0;
+        padding: 0.2rem;
+        position: absolute;
+        right: 0.5rem;
+        top: 3.5rem;
+
+        &:hover,
+        &:focus {
+            background: none;
+            transform: scale(1.2);
+        }
+
+        &:active {
+            background: none;
+        }
+    }
 }

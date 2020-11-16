@@ -1,38 +1,30 @@
 @import '../../../styles/base/base';
 
-.form__input {
-    border: 1px solid $color-iron;
-    border-radius: 5px;
-    color: $color-fiord;
-    margin-top: 0.3rem;
-    outline: none;
-    padding: 1.5rem;
-
-    &:focus {
-        border: 1px solid $color-fiord;
-        outline: none;
-    }
-
-    &:disabled {
+.form {
+    &__input {
         border: 1px solid $color-iron;
+        border-radius: 5px;
+        color: $color-fiord;
+        margin-top: 0.3rem;
+        outline: none;
+        padding: 1.5rem;
+
+        &:focus {
+            border: 1px solid $color-fiord;
+            outline: none;
+        }
+
+        &:disabled {
+            border: 1px solid $color-iron;
+        }
+
+        &--error {
+            border: 1px solid $color-watermelon;
+        }
+
+        &::placeholder {
+            color: $color-iron;
+            font-size: $font-size-14;
+        }
     }
-
-    &--error {
-        border: 1px solid $color-watermelon;
-    }
-}
-
-.form__input::placeholder {
-    color: $color-iron;
-    font-size: $font-size-14;
-}
-
-.form__icon-x {
-    background: 0;
-    line-height: 0;
-    padding: 0.2rem;
-    position: absolute;
-    right: 10px;
-    top: 38px;
-    transform: scale(1.3);
 }

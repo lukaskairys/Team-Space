@@ -1,4 +1,4 @@
-function validate(values) {
+export function validateRegistration(values) {
   const { firstName, lastName, email, password, repeatPassword } = values;
   let errors = {};
   // first name
@@ -37,4 +37,6 @@ function validate(values) {
   return errors;
 }
 
-export default validate;
+export function noValidation() {
+  return {};
+}
