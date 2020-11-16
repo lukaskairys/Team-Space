@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Registration from "../src/features/registration/components/Registration";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
+import WeatherWidget from "./features/weatherWidget/components/weatherWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
 
@@ -18,6 +19,7 @@ function App() {
               <>
                 <HelloWidget />
                 <ReservationSection />
+                <WeatherWidget />
               </>
             </MainLayout>
           </Route>
