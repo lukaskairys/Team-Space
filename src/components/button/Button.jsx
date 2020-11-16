@@ -3,22 +3,23 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./button.scss";
 
-function Button({ handleClick, ...props }) {
+function Button({ type = "button", handleClick, children, large }) {
   const btnClass = classNames({
     button: true,
-    "button--large": props.large,
+    "button--large": large === "true",
   });
   return (
-    <button {...props} onClick={handleClick} className={btnClass}>
-      {props.children}
+    <button type={type} onClick={handleClick} className={btnClass}>
+      {children}
     </button>
   );
 }
 
 Button.propTypes = {
+  type: PropTypes.string,
   handleClick: PropTypes.func,
-  children: PropTypes.element,
-  large: PropTypes.bool,
+  children: PropTypes.object,
+  large: PropTypes.string,
 };
 
 export default Button;

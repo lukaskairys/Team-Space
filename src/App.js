@@ -16,9 +16,11 @@ function App() {
         <Switch>
           <Route exact path="/">
             <MainLayout>
-              <HelloWidget />
-              <ReservationSection />
-              <EatOutSection />
+              <>
+                <HelloWidget />
+                <ReservationSection />
+                <EatOutSection />
+              </>
             </MainLayout>
           </Route>
           <Route path="/registration">
