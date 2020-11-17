@@ -1,12 +1,19 @@
 $font-family: 'Roboto';
 
 // Weights
+$light-weight: 300;
 $regular-weight: 400;
 $medium-weight: 500;
 $bold-weight: 700;
 $heavy-weight: 900;
 
 // Font-import
+@font-face {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: $light-weight;
+    src: url('/assets/fonts/Roboto-Light.ttf') format('truetype');
+}
 @font-face {
     font-family: $font-family;
     font-style: normal;
