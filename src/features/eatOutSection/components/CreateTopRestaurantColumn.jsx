@@ -4,7 +4,7 @@ import RatingComponent from "../../../components/Rating/Rating";
 import PersonComponent from "./PersonCounter";
 import { createWorkingSchedule, isOpen } from "./RestaurantWorkingSchedule";
 
-const CreateColumn = (restaurant) => {
+const CreateTopRestaurantColumn = (restaurant) => {
   return (
     <div key={restaurant.id} className="eat-out-card__column">
       {/* TODO dont use inline styles.  inline styles here are not good - struggled finding a way to do it differently due to dynamic background image rendering*/}
@@ -72,4 +72,4 @@ const formCategories = (categories) => {
   );
 };
 
-export default CreateColumn;
+export default CreateTopRestaurantColumn;

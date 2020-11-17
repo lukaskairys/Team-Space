@@ -3,10 +3,10 @@ import React from "react";
 import "./eatOutSection.scss";
 import FetchBestRatedRestaurants from "./FetchBestRatedRestaurants";
 import Button from "../../../components/button/Button";
-import CreateColumn from "./CreateColumn";
+import CreateTopRestaurantColumn from "./CreateTopRestaurantColumn";
 
 const EatOutSection = () => {
-  const restaurants = FetchBestRatedRestaurants(40);
+  const restaurants = FetchBestRatedRestaurants(2);
 
   return (
     <section className="eat-out-card">
@@ -21,7 +21,7 @@ const EatOutSection = () => {
         </div>
       </div>
       {restaurants.map((restaurant) => {
-        return CreateColumn(restaurant);
+        return CreateTopRestaurantColumn(restaurant);
       })}
     </section>
   );
