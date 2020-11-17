@@ -32,6 +32,7 @@ export const createWorkingSchedule = (workingSchedule) => {
   }
   return schedule;
 };
+
 const addFormattedEntry = (
   schedule,
   weekDay,
@@ -63,6 +64,7 @@ export const isOpen = (schedule) => {
 
   return findNextOpeningDate(schedule, currentDay);
 };
+
 export const findNextOpeningDate = (schedule, currentDay) => {
   let count = 0;
   while (schedule.length > count) {
