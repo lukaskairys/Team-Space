@@ -9,6 +9,7 @@ import Button from "../../../components/button/Button";
 
 const EatOutSection = () => {
   const restaurants = FetchBestRatedRestaurants(2);
+
   const favoriteClickHandler = (event) => {
     const classes = event.target.classList;
     if (classes.contains("eat-out-card__favorite--active")) {
@@ -94,5 +95,4 @@ const EatOutSection = () => {
     </section>
   );
 };
-
 export default EatOutSection;
