@@ -24,6 +24,13 @@ function App() {
               </>
             </MainLayout>
           </Route>
+          <Route exact path="/reservations">
+            <MainLayout>
+              <ReservationSection />
+            </MainLayout>
+          </Route>
+          <Route exact path="/reservations/devices"></Route>
+          <Route exact path="/reservations/books"></Route>
           <Route path="/registration">
             <RegistrationPage />
           </Route>
