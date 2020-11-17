@@ -107,19 +107,21 @@ export default function WeatherWidget() {
         <section className="weather-widget__section">
           <div className="weather-widget__subsection">
             <img
-              className="weather-widget__icon"
+              className="weather-widget__wind"
               src={require("assets/WeatherWidget/wind.svg")}
               alt="wind speed"
             />
-            <label htmlFor="weather-widget__icon">{items.windSpeed} m/s</label>
+            <label htmlFor="weather-widget__wind">{items.windSpeed} m/s</label>
           </div>
           <div className="weather-widget__subsection">
             <img
-              className="weather-widget__icon"
+              className="weather-widget__humidity"
               src={require("assets/WeatherWidget/humidity.svg")}
               alt="humidity"
             />
-            <label htmlFor="weather-widget__icon">{items.humidity} mm</label>
+            <label htmlFor="weather-widget__humidity">
+              {items.humidity} mm
+            </label>
           </div>
           <div></div>
         </section>
