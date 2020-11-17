@@ -7,15 +7,8 @@ import { createWorkingSchedule, isOpen } from "./RestaurantWorkingSchedule";
 const CreateTopRestaurantColumn = (restaurant) => {
   return (
     <div key={restaurant.id} className="eat-out-card__column">
-      {/* TODO dont use inline styles.  inline styles here are not good - struggled finding a way to do it differently due to dynamic background image rendering*/}
-      <div
-        className="eat-out-card__header"
-        style={{
-          background: `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%),url(${restaurant.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="eat-out-card__header">
+        <img src={restaurant.image} className="eat-out-card__image" alt="" />
         <div className="eat-out-card__icons">
           {PersonComponent(restaurant.checkIns)}
           {RatingComponent(restaurant.ratingAverage)}
