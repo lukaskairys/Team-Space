@@ -24,7 +24,7 @@ const HelloWidget = () => {
         const { data } = await jsonserver.get("/userData", {
           cancelToken: source.token,
         });
-        setUserName(data.username);
+        setUserName(data.userName);
       } catch (err) {
         if (err) {
           setUserName("Mr. Error");
