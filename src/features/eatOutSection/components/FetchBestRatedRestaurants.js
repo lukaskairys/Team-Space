@@ -6,6 +6,7 @@ import { GetApiURL } from "../../../utils/Api";
 const FetchBestRatedRestaurants = (count) => {
   const API_URL = GetApiURL("restaurants");
   const [restaurants, setRestaurants] = useState([]);
+
   const fetchAPI = () => {
     fetch(API_URL)
       .then((response) => {
@@ -55,4 +56,5 @@ const FetchBestRatedRestaurants = (count) => {
   useEffect(fetchAPI, [filter, API_URL]);
   return restaurants;
 };
+
 export default FetchBestRatedRestaurants;

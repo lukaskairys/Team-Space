@@ -95,4 +95,5 @@ const EatOutSection = () => {
     </section>
   );
 };
+
 export default EatOutSection;

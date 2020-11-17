@@ -13,4 +13,5 @@ const Person = (counter) => {
     </div>
   );
 };
+
 export default Person;
