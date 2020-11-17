@@ -15,25 +15,22 @@ const ReservationsSection = () => {
   });
 
   useEffect(() => {
-    const fetchUsername = () => {
-      jsonserver
-        .get("/userData")
-        .then(function ({ data }) {
-          setReservations((prevState) => ({
-            ...prevState,
-            devices: data.reservations.devices.length,
-            books: data.reservations.books.length,
-          }));
-        })
-        .catch(function () {
-          setReservations((prevState) => ({
-            ...prevState,
-            devices: "X",
-            books: "X",
-          }));
-        });
-    };
-    fetchUsername();
+    jsonserver
+      .get("/userData")
+      .then(function ({ data }) {
+        setReservations((prevState) => ({
+          ...prevState,
+          devices: data.reservations.devices.length,
+          books: data.reservations.books.length,
+        }));
+      })
+      .catch(function () {
+        setReservations((prevState) => ({
+          ...prevState,
+          devices: "X",
+          books: "X",
+        }));
+      });
   }, []);
   return (
     <div className="RESERVATIONS">
