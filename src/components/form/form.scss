@@ -1,0 +1,67 @@
+@import '../../styles/base/base';
+@import '../../styles/index';
+
+.form {
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: $card-shadow;
+    margin-top: 5rem;
+    padding: 5rem 3rem;
+    width: 100%;
+
+    &__header {
+        padding-bottom: 2.5rem;
+    }
+
+    &__title {
+        @include typography-h2-alternative;
+    }
+
+    &__subtitle {
+        @include typography-body;
+
+        padding-top: 0.5rem;
+    }
+
+    &__content {
+        @include typography-body-2-medium;
+
+        color: $color-gull-gray;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        padding: 1rem 0;
+        text-transform: uppercase;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+
+        &--long {
+            grid-column: 1 / 3;
+        }
+    }
+
+    &__footer {
+        align-items: baseline;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2rem;
+    }
+
+    &__link {
+        color: $color-bright-violet;
+        padding-left: 0.3rem;
+        text-decoration: none;
+    }
+
+    &__error-msg {
+        @include typography-tiny-caps;
+
+        color: $color-watermelon;
+        padding-top: 0.5rem;
+    }
+}

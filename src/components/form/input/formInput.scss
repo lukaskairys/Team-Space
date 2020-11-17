@@ -1,0 +1,30 @@
+@import '../../../styles/base/base';
+
+.form {
+    &__input {
+        border: 1px solid $color-iron;
+        border-radius: 5px;
+        color: $color-fiord;
+        margin-top: 0.3rem;
+        outline: none;
+        padding: 1.5rem;
+
+        &:focus {
+            border: 1px solid $color-fiord;
+            outline: none;
+        }
+
+        &:disabled {
+            border: 1px solid $color-iron;
+        }
+
+        &--error {
+            border: 1px solid $color-watermelon;
+        }
+
+        &::placeholder {
+            color: $color-iron;
+            font-size: $font-size-14;
+        }
+    }
+}
