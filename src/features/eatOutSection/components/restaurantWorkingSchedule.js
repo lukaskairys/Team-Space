@@ -10,6 +10,7 @@ export const createWorkingSchedule = (workingSchedule) => {
   ];
   let schedule = [];
   let startAdding = false;
+
   for (let i = 0; i < workingSchedule.length; i++) {
     const daysOpen = workingSchedule[i].days.split(" - ");
     const hoursOpen = workingSchedule[i].hours.split(" - ");

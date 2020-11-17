@@ -17,6 +17,7 @@ const EatOutSection = () => {
       classes.add("eat-out-card__favorite--active");
     }
   };
+
   const formGrid = (restaurant) => {
     return (
       <div key={restaurant.id} className="eat-out-card__column">
@@ -49,6 +50,7 @@ const EatOutSection = () => {
       </div>
     );
   };
+
   const formTitle = (title) => {
     if (title.length > 26) {
       return title.substring(0, 26) + "...";
@@ -56,10 +58,12 @@ const EatOutSection = () => {
       return title;
     }
   };
+
   const formTime = (workingSchedule) => {
     const schedule = createWorkingSchedule(workingSchedule);
     return <time className="eat-out-card__time">{isOpen(schedule)}</time>;
   };
+
   const formCategories = (categories) => {
     return (
       <ul className="eat-out-card__categories">
@@ -73,6 +77,7 @@ const EatOutSection = () => {
       </ul>
     );
   };
+
   return (
     <section className="eat-out-card">
       <div className="eat-out-card__column">
