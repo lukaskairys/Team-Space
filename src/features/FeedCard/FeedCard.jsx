@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./feedCard.scss";
 import { ReactComponent as HeartIcon } from "../../assets/icons/heart-icon.svg";
 import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.svg";
-import FormInput from "../../components/input/FormInput";
+import FormInput from "../../components/form/input/FormInput";
 
 function FeedCard({
   authorUsername,
