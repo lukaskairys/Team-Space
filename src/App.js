@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Registration from "../src/features/registration/components/Registration";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
-import BirthdayCard from "../src/components/BirthdayCard/BirthdayCard";
+import BirthdayCard from "./features/BirthdayCard/BirthdayCard";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
-import FeedCard from "../src/components/FeedCard/FeedCard";
+import FeedCard from "./features/FeedCard/FeedCard";
 
 function App() {
   return (

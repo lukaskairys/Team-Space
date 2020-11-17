@@ -1,6 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./birthdayCard.scss";
+import { ReactComponent as ConfettiLeft } from "../../assets/images/confetti-1.svg";
+import { ReactComponent as ConfettiRight } from "../../assets/images/confetti-2.svg";
+import { ReactComponent as Sparkles } from "../../assets/images/sparkles.svg";
+import { ReactComponent as GiftIcon } from "../../assets/images/gift-icon.svg";
+import { ReactComponent as CommentIcon } from "../../assets/images/comment-icon.svg";
 
 function BirthdayCard({ title, imageUrl, body, date }) {
   return (
@@ -22,6 +27,13 @@ function BirthdayCard({ title, imageUrl, body, date }) {
           <p>{body}</p>
         </div>
         <div className="card-divider"></div>
+        <div className="birthday-interactions-container">
+          <GiftIcon className="gift-icon" />
+          <CommentIcon className="comment-icon" />
+        </div>
+        <ConfettiLeft />
+        <ConfettiRight />
+        <Sparkles className="sparkles" />
       </div>
     </div>
   );

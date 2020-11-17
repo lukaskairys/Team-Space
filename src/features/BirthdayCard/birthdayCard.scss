@@ -71,3 +71,16 @@
     margin: auto;
     width: 36.3rem;
 }
+
+.interactions-container {
+    align-items: flex-start;
+    color: $color-slate-gray;
+    font-size: $font-size-12;
+    height: 4.7rem;
+    line-height: 1.3rem;
+    vertical-align: middle;
+}
+
+.gift-icon {
+    cursor: pointer;
+}
