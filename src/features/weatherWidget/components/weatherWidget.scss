@@ -1,7 +1,8 @@
 @import '../../../styles/base/base';
+
 $_section-margin: 1rem;
-$_vertical-padding: 0.874rem;
-$_horizontal-padding: 1.748rem;
+$_vertical-padding: 0.878rem;
+$_horizontal-padding: 1.75rem;
 $_content-color: rgba(0, 0, 0, 0.5);
 $_paragraph-font-size: 2rem;
 $_temperature-font-size: 6rem;
@@ -37,7 +38,7 @@ $_spinner-offset: $_spinner-size / -2;
 
     &__wind,
     &__humidity {
-        margin-right: 0.546rem;
+        margin-right: 0.55rem;
         position: relative;
         top: 0.3rem;
     }
@@ -90,7 +91,6 @@ $_spinner-offset: $_spinner-size / -2;
 
     &__border {
         border-bottom: 0.1rem solid rgba(0, 0, 0, 0.3);
-        // margin-top: $_section-margin;
         width: 50%;
     }
 
@@ -99,6 +99,7 @@ $_spinner-offset: $_spinner-size / -2;
         font-size: $_temperature-font-size;
         font-weight: $light-weight;
         line-height: 1.1;
+        margin-right: 0.6rem;
     }
 
     &__spinner {
