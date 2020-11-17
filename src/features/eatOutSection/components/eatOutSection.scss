@@ -72,19 +72,6 @@ $_content-margin: 1.6rem;
         margin: $_content-margin;
     }
 
-    &__button {
-        background: $color-bright-violet;
-        border-color: $color-bright-violet;
-        border-radius: 6.5rem;
-        border-style: solid;
-        color: $color-white;
-        font-size: $font-size-12;
-        height: 3.2rem;
-        padding: 0.5rem;
-        text-transform: uppercase;
-        width: 11rem;
-    }
-
     &__categories {
         align-self: flex-start;
         display: flex;
@@ -146,11 +133,11 @@ $_content-margin: 1.6rem;
 
     &__time {
         color: $color-slate-gray;
-        margin: 0 $_content-margin;
         font-weight: $medium-weight;
+        margin: 0 $_content-margin;
     }
 
-    &__favorite {
+    &__favorite:hover {
         cursor: pointer;
     }
 }
