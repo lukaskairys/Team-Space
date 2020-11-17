@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
+import LoginPage from "../src/features/login/pages/LoginPage";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import WeatherWidget from "./features/weatherWidget/components/weatherWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/registration">
             <RegistrationPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
         </Switch>
       </>
