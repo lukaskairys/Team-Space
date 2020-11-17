@@ -11,7 +11,7 @@ const time = new Date().toLocaleTimeString("lt-LT", options);
 
 const HelloWidget = () => {
   const [currentTime, setCurrentTime] = useState(time);
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("Wizard");
 
   useEffect(() => {
     jsonserver
@@ -19,7 +19,7 @@ const HelloWidget = () => {
       .then(function ({ data }) {
         setUserName(data.userName);
       })
-      .catch(function (error) {
+      .catch(function () {
         setUserName("Mr. Error");
       });
 
