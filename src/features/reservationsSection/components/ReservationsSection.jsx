@@ -6,8 +6,10 @@ import { ReactComponent as Phone } from "assets/images/phone-1.svg";
 import { ReactComponent as Door } from "assets/images/door-1.svg";
 import { ReactComponent as Book } from "assets/images/book-1.svg";
 import jsonserver from "../../../apis/jsonserver";
+import axios from "axios";
 
 const ReservationsSection = () => {
+  const [mounted, setMounted] = useState(false);
   const [reservations, setReservations] = useState({
     devices: "-",
     books: "-",
@@ -15,23 +17,41 @@ const ReservationsSection = () => {
   });
 
   useEffect(() => {
-    jsonserver
-      .get("/userData")
-      .then(function ({ data }) {
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+    setMounted(true);
+
+    const getReservations = async () => {
+      try {
+        const { data } = await jsonserver.get("/userData", {
+          cancelToken: source.token,
+        });
         setReservations((prevState) => ({
           ...prevState,
           devices: data.reservations.devices.length,
           books: data.reservations.books.length,
         }));
-      })
-      .catch(function () {
-        setReservations((prevState) => ({
-          ...prevState,
-          devices: "X",
-          books: "X",
-        }));
-      });
-  }, []);
+      } catch (err) {
+        if (err) {
+          setReservations((prevState) => ({
+            ...prevState,
+            devices: "Err",
+            books: "Err",
+          }));
+        }
+      }
+    };
+
+    if (mounted) {
+      getReservations();
+    }
+
+    return () => {
+      source.cancel();
+      setMounted(false);
+    };
+  }, [mounted]);
+
   return (
     <div className="RESERVATIONS">
       <h2 className="RESERVATIONS__title">Reservations</h2>

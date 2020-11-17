@@ -13,8 +13,8 @@
     transform: translateZ(0);
     transition: box-shadow 0.1s ease-out, transform 0.1s ease-out;
 
-    @include respond-to(1265, max) {
-        margin-top: 5rem;
+    @include respond-to(1515, max) {
+        margin-top: 6rem;
     }
 
     &--big {
@@ -36,11 +36,11 @@
     }
 
     &:nth-child(2) {
-        margin: 0 3.85rem;
+        margin: 0 1rem;
         margin-top: 5rem;
 
-        @include respond-to(1265, max) {
-            margin-top: 5rem;
+        @include respond-to(1515, max) {
+            margin-top: 6rem;
         }
     }
 

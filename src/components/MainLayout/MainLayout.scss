@@ -2,8 +2,18 @@
 
 .main-layout {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
+    width: 100vw;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20.6rem;
+        overflow-x: hidden;
+        transition: margin-left 1000ms;
+        width: 100%;
+    }
 
     &__header {
         align-items: center;
@@ -14,7 +24,7 @@
         flex-shrink: 0;
         height: 9.6rem;
         justify-content: flex-end;
-        z-index: $z-index-header; //box shadow remains under main content without z-index
+        z-index: $z-index-base;
     }
 
     &__status {
@@ -56,8 +66,14 @@
 
     &__copyright {
         @include typography-tiny-caps;
+
         color: $color-fiord;
         margin: 2.9rem 4rem;
         text-transform: uppercase;
     }
+}
+
+.main-layout__content--sidebar-closed {
+    margin-left: 9.6rem;
+    transition: margin-left 1000ms;
 }
