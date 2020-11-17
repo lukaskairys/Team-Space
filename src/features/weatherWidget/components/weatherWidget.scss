@@ -1,6 +1,8 @@
 @import '../../../styles/base/base';
+
 $_section-margin: 1rem;
-$_content-padding: 1.5rem;
+$_vertical-padding: 0.878rem;
+$_horizontal-padding: 1.75rem;
 $_content-color: rgba(0, 0, 0, 0.5);
 $_paragraph-font-size: 2rem;
 $_temperature-font-size: 6rem;
@@ -9,7 +11,6 @@ $_spinner-size: 6rem;
 $_spinner-offset: $_spinner-size / -2;
 
 .weather-widget {
-    font-size: $font-size-14;
     position: relative;
     width: 50rem;
 
@@ -18,30 +19,45 @@ $_spinner-offset: $_spinner-size / -2;
         border-radius: 1rem;
         color: $_content-color;
         height: 100%;
-        padding: $_content-padding 0 $_content-padding $_content-padding;
+        padding: $_vertical-padding 0 $_vertical-padding $_horizontal-padding;
         position: relative;
-        width: 83%;
+        width: 39.6rem;
     }
 
     &__section {
         display: flex;
-        margin-top: $_section-margin;
+        margin-top: 0.5rem;
         width: 70%;
     }
 
     &__subsection {
+        font-size: $font-size-12;
+        font-weight: $light-weight;
         margin-right: 2rem;
     }
 
-    &__icon {
-        height: 1.7rem;
-        margin-right: 0.5rem;
+    &__wind,
+    &__humidity {
+        margin-right: 0.55rem;
         position: relative;
         top: 0.3rem;
+    }
+
+    &__wind {
+        height: 1.7rem;
         width: 1.9rem;
     }
 
+    &__humidity {
+        height: 1.7rem;
+        width: 1.4rem;
+    }
+
     &__header {
+        color: $_content-color;
+        font-size: $font-size-12;
+        font-weight: $regular-weight;
+        letter-spacing: 0.1rem;
         margin: 0;
         padding: 0;
     }
@@ -50,7 +66,6 @@ $_spinner-offset: $_spinner-size / -2;
     &__paragraph {
         align-items: flex-end;
         display: flex;
-        letter-spacing: 0.1rem;
         text-transform: capitalize;
     }
 
@@ -67,31 +82,47 @@ $_spinner-offset: $_spinner-size / -2;
         }
     }
 
+    &__figure-shift {
+        right: 1.3rem;
+    }
+
     &__paragraph {
         font-size: $_paragraph-font-size;
-        line-height: 1.2;
+        font-weight: $light-weight;
+        line-height: 1.8;
         margin-top: 3.5rem;
     }
 
     &__border {
         border-bottom: 0.1rem solid rgba(0, 0, 0, 0.3);
-        margin-top: $_section-margin;
         width: 50%;
     }
 
     &__temperature {
         color: $_temperature-font-color;
         font-size: $_temperature-font-size;
-        line-height: 1;
+        font-weight: $light-weight;
+        line-height: 1.1;
+        margin-right: 0.6rem;
     }
 
     &__spinner {
-        animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite, fadeIn 1.5s ease-in-out forwards;
         height: $_spinner-size;
         position: absolute;
         right: $_spinner-offset;
         top: $_spinner-offset;
         width: $_spinner-size;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
 
     @keyframes spin {

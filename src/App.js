@@ -1,10 +1,11 @@
 import React from "react";
-import Registration from "../src/features/registration/components/Registration";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
-import EatOutSection from "features/eatOutSection/components/EatOutSection";
+import WeatherWidget from "./features/weatherWidget/components/weatherWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
+import EatOutSection from "features/eatOutSection/components/EatOutSection";
 
 function App() {
   return (
@@ -19,12 +20,16 @@ function App() {
               <>
                 <HelloWidget />
                 <ReservationSection />
+                <WeatherWidget />
                 <EatOutSection />
               </>
             </MainLayout>
           </Route>
+          <Route exact path="/reservations"></Route>
+          <Route exact path="/reservations/devices"></Route>
+          <Route exact path="/reservations/books"></Route>
           <Route path="/registration">
-            <Registration />
+            <RegistrationPage />
           </Route>
         </Switch>
       </>
