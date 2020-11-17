@@ -1,0 +1,32 @@
+@import '../../styles/base/base';
+
+.news-feed-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10rem;
+
+    &__title {
+        @include typography-h2-alternative;
+        color: $color-fiord;
+        margin-bottom: 2.4rem;
+    }
+
+    &__content {
+        align-items: end;
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        justify-content: space-between;
+    }
+}
+
+.div-1 {
+    // background-color: gray;
+    height: 232px;
+}
+
+.div-2 {
+    // background-color: cadetblue;
+    height: 612px;
+}
