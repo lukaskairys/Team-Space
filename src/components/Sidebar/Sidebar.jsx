@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { Link } from "react-router-dom";
-import "./Sidebar.scss";
+
 import { ReactComponent as HomeIcon } from "assets/icons/home.svg";
 import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
 import { ReactComponent as CompassIcon } from "assets/icons/compass.svg";
 import { ReactComponent as ToggleIcon } from "assets/icons/toggle.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
+
+import "./Sidebar.scss";
 
 const sidebarData = [
   {
@@ -26,14 +29,18 @@ const sidebarData = [
   },
 ];
 
-const Sidebar = ({ sidebarState, showSidebar }) => {
+const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
   return (
-    <nav className={sidebarState ? "sidebar sidebar--active" : "sidebar"}>
+    <nav
+      className={classNames("sidebar", {
+        "sidebar--closed": isSidebarClosed,
+      })}
+    >
       <Logo className="sidebar__logo" />
       <button
         className="sidebar__toggle"
         onClick={() => {
-          showSidebar();
+          toggleSidebar();
         }}
       >
         <ToggleIcon />
@@ -43,11 +50,10 @@ const Sidebar = ({ sidebarState, showSidebar }) => {
           return (
             <Link
               key={key}
-              className={`sidebar__list-item ${
-                window.location.pathname === val.link
-                  ? "sidebar__list-item--active"
-                  : ""
-              }`}
+              className={classNames("sidebar__list-item", {
+                "sidebar__list-item--active":
+                  window.location.pathname === val.link,
+              })}
               to={val.link}
             >
               <i className="sidebar__icon">{val.icon}</i>
@@ -62,8 +68,8 @@ const Sidebar = ({ sidebarState, showSidebar }) => {
 };
 
 Sidebar.propTypes = {
-  sidebarState: PropTypes.bool,
-  showSidebar: PropTypes.func,
+  isSidebarClosed: PropTypes.bool,
+  toggleSidebar: PropTypes.func,
 };
 
 export default Sidebar;

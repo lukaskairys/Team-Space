@@ -1,5 +1,7 @@
 @import '../../styles/base/base';
 
+$button-rounding-size: 1.7rem;
+
 .sidebar {
     background-color: $color-bright-violet;
     flex-grow: 0;
@@ -24,7 +26,7 @@
         cursor: pointer;
         height: 2.8rem;
         left: 19.2rem;
-        outline: none;
+        outline: transparent;
         position: absolute;
         top: 12rem;
         transition: transform 1000ms;
@@ -41,6 +43,7 @@
 
     &__list-item {
         @include typography-h4-alternative;
+
         align-items: center;
         background-color: $color-bright-violet;
         border: 0;
@@ -52,7 +55,7 @@
         height: 5.5rem;
         justify-content: flex-start;
         margin-bottom: 1.7rem;
-        outline: none;
+        outline: transparent;
         position: relative;
         text-decoration: none;
         width: 100%;
@@ -86,25 +89,25 @@
                 background-color: $color-light-porcelain;
                 content: '';
                 display: block;
-                height: 1.7rem;
+                height: $button-rounding-size;
                 position: absolute;
                 right: 0;
-                top: -1.7rem;
-                width: 1.7rem;
+                top: -$button-rounding-size;
+                width: $button-rounding-size;
             }
 
             &::after {
                 background-color: $color-bright-violet;
-                border-radius: 0 0 1.7rem;
+                border-radius: 0 0 $button-rounding-size;
                 box-shadow: 0 0.2rem rgba(0, 0, 0, 0.14);
                 content: '';
                 display: block;
-                height: 1.7rem;
+                height: $button-rounding-size;
                 position: absolute;
                 right: 0;
-                top: -1.7rem;
-                width: 1.7rem;
-                z-index: $z-index-1;
+                top: -$button-rounding-size;
+                width: $button-rounding-size;
+                z-index: $z-index-base;
             }
         }
 
@@ -113,23 +116,23 @@
 
             &::before {
                 background-color: $color-light-porcelain;
-                bottom: -1.7rem;
+                bottom: -$button-rounding-size;
                 content: '';
-                height: 1.7rem;
+                height: $button-rounding-size;
                 position: absolute;
                 right: 0;
-                width: 1.7rem;
+                width: $button-rounding-size;
             }
 
             &::after {
                 background-color: $color-bright-violet;
-                border-radius: 0 1.7rem 0 0;
-                bottom: -1.7rem;
+                border-radius: 0 $button-rounding-size 0 0;
+                bottom: -$button-rounding-size;
                 content: '';
-                height: 1.7rem;
+                height: $button-rounding-size;
                 position: absolute;
                 right: 0;
-                width: 1.7rem;
+                width: $button-rounding-size;
             }
         }
 
@@ -139,12 +142,12 @@
             height: 5.5rem;
             position: absolute;
             right: 0;
-            width: 1.7rem;
+            width: $button-rounding-size;
         }
     }
 }
 
-.sidebar--active.sidebar {
+.sidebar--closed.sidebar {
     transition: width 1000ms;
     width: 9.6rem;
 

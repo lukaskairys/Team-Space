@@ -24,7 +24,7 @@
         flex-shrink: 0;
         height: 9.6rem;
         justify-content: flex-end;
-        z-index: $z-index-1; //box shadow remains under main content without z-index
+        z-index: $z-index-base;
     }
 
     &__status {
@@ -66,13 +66,14 @@
 
     &__copyright {
         @include typography-tiny-caps;
+
         color: $color-fiord;
         margin: 2.9rem 4rem;
         text-transform: uppercase;
     }
 }
 
-.main-layout__content.main-layout__content--active {
+.main-layout__content--sidebar-closed {
     margin-left: 9.6rem;
     transition: margin-left 1000ms;
 }

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./MainLayout.scss";
+import classNames from "classnames";
+
 import { ReactComponent as NotificationBell } from "assets/icons/notification-bell.svg";
 import Sidebar from "components/Sidebar/Sidebar";
+
+import "./MainLayout.scss";
 
 const creationYear = "(dark ages)";
 const currentYear = new Date().getFullYear(); //getting current year
@@ -14,21 +17,22 @@ if (creationYear === currentYear) {
 }
 
 const MainLayout = ({ children }) => {
-  const [sidebar, setSidebar] = useState(false);
+  const [isSidebarClosed, setIsSidebarClosed] = useState(false);
 
-  const showSidebar = () => {
-    setSidebar(!sidebar);
+  const toggleSidebar = () => {
+    setIsSidebarClosed(!isSidebarClosed);
   };
 
   return (
     <div className="main-layout">
-      <Sidebar sidebarState={sidebar} showSidebar={showSidebar} />
+      <Sidebar
+        isSidebarClosed={isSidebarClosed}
+        toggleSidebar={toggleSidebar}
+      />
       <div
-        className={
-          sidebar
-            ? "main-layout__content main-layout__content--active"
-            : "main-layout__content"
-        }
+        className={classNames("main-layout__content", {
+          "main-layout__content--sidebar-closed": isSidebarClosed,
+        })}
       >
         <header className="main-layout__header">
           <div className="main-layout__status">
