@@ -1,5 +1,7 @@
-import "./helloWidget.scss";
 import React, { useState, useEffect } from "react";
+
+import "./helloWidget.scss";
+import jsonserver from "../../../apis/jsonserver";
 
 const options = {
   hour: "numeric",
@@ -8,19 +10,28 @@ const options = {
 const time = new Date().toLocaleTimeString("lt-LT", options);
 
 const HelloWidget = () => {
-  const name = "Wizard";
-  const [state, setState] = useState(time);
+  const [currentTime, setCurrentTime] = useState(time);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
+    jsonserver
+      .get("/userData")
+      .then(function ({ data }) {
+        setUserName(data.userName);
+      })
+      .catch(function (error) {
+        setUserName("Mr. Error");
+      });
+
     let intervalID = setInterval(() => {
-      setState(new Date().toLocaleTimeString("lt-LT", options));
+      setCurrentTime(new Date().toLocaleTimeString("lt-LT", options));
     }, 1000);
 
     return () => clearInterval(intervalID);
   }, []);
 
   const renderGreeting = () => {
-    const now = parseInt(state.slice(0, 2));
+    const now = parseInt(currentTime.slice(0, 2));
     if (now < 12) {
       return "Good morning";
     } else if (now < 18) {
@@ -32,8 +43,8 @@ const HelloWidget = () => {
 
   return (
     <div className="hello-widget">
-      <time className="hello-widget__time">{state}</time>
-      <h1 className="hello-widget__greeting">{`${renderGreeting()}, ${name}`}</h1>
+      <time className="hello-widget__time">{currentTime}</time>
+      <h1 className="hello-widget__greeting">{`${renderGreeting()}, ${userName}`}</h1>
     </div>
   );
 };
