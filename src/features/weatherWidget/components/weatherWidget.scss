@@ -1,0 +1,123 @@
+@import '../../../styles/base/base';
+
+$_section-margin: 1rem;
+$_vertical-padding: 0.878rem;
+$_horizontal-padding: 1.75rem;
+$_content-color: rgba(0, 0, 0, 0.5);
+$_paragraph-font-size: 2rem;
+$_temperature-font-size: 6rem;
+$_temperature-font-color: rgba(0, 0, 0, 0.7);
+$_spinner-size: 6rem;
+$_spinner-offset: $_spinner-size / -2;
+
+.weather-widget {
+    position: relative;
+    width: 50rem;
+
+    &__content {
+        background: $color-white;
+        border-radius: 1rem;
+        color: $_content-color;
+        height: 100%;
+        padding: $_vertical-padding 0 $_vertical-padding $_horizontal-padding;
+        position: relative;
+        width: 80.5%;
+    }
+
+    &__section {
+        display: flex;
+        margin-top: 0.5rem;
+        width: 70%;
+    }
+
+    &__subsection {
+        font-size: $font-size-12;
+        font-weight: $light-weight;
+        margin-right: 2rem;
+    }
+
+    &__wind,
+    &__humidity {
+        margin-right: 0.55rem;
+        position: relative;
+        top: 0.3rem;
+    }
+
+    &__wind {
+        height: 1.7rem;
+        width: 1.9rem;
+    }
+
+    &__humidity {
+        height: 1.7rem;
+        width: 1.4rem;
+    }
+
+    &__header {
+        color: $_content-color;
+        font-size: $font-size-12;
+        font-weight: $regular-weight;
+        letter-spacing: 0.1rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__header,
+    &__paragraph {
+        align-items: flex-end;
+        display: flex;
+        text-transform: capitalize;
+    }
+
+    &__figure {
+        height: 20rem;
+        margin: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 21rem;
+
+        .figure__image {
+            width: 100%;
+        }
+    }
+
+    &__paragraph {
+        font-size: $_paragraph-font-size;
+        font-weight: $light-weight;
+        line-height: 1.8;
+        margin-top: 3.5rem;
+    }
+
+    &__border {
+        border-bottom: 0.1rem solid rgba(0, 0, 0, 0.3);
+        width: 50%;
+    }
+
+    &__temperature {
+        color: $_temperature-font-color;
+        font-size: $_temperature-font-size;
+        font-weight: $light-weight;
+        line-height: 1.1;
+        margin-right: 0.6rem;
+    }
+
+    &__spinner {
+        animation: spin 4s linear infinite;
+        height: $_spinner-size;
+        position: absolute;
+        right: $_spinner-offset;
+        top: $_spinner-offset;
+        width: $_spinner-size;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
