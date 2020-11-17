@@ -1,60 +1,58 @@
 @import '../../styles/base/base';
 
-.feed-card-container {
+.feed-card {
     background-color: $color-white;
     border-radius: 8px;
     box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
     font-family: $font-family;
     height: 61.2rem;
-    margin-bottom: 4rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
-    margin-top: 8.8rem;
+    margin: 8.8rem 4rem 4rem;
     width: 39.5rem;
-}
 
-.feed-card-info {
-    align-items: center;
-    color: $color-midnight;
-    display: flex;
-    font-family: $font-family;
-    font-size: $font-size-12;
-    font-weight: $medium-weight;
-    text-transform: uppercase;
+    &__info {
+        align-items: center;
+        color: $color-midnight;
+        display: flex;
+        font-family: $font-family;
+        font-size: $font-size-12;
+        font-weight: $medium-weight;
+        text-transform: uppercase;
+    }
+
+    &__info img {
+        border-radius: 50%;
+        height: 2.4rem;
+        margin: 0.8rem 1.2rem 0.8rem 1.6rem;
+        object-fit: cover;
+        width: 2.4rem;
+    }
+
+    &__time {
+        margin-left: 0.815rem;
+        margin-right: 1.3rem;
+        text-transform: none;
+    }
+
+    &__content {
+        height: 40.5rem;
+        object-fit: cover;
+        width: 39.5rem;
+    }
+
+    &__content img {
+        height: 40.5rem;
+        object-fit: cover;
+        width: 39.5rem;
+    }
 }
 
 .comments-container p {
     display: inline;
 }
 
-.feed-card-info p:last-child {
+.feed-card__info p:last-child {
     color: $color-slate-gray;
     margin-left: auto;
-}
-
-.feed-card-time {
-    margin-left: 0.815rem;
-    margin-right: 1.3rem;
-    text-transform: none;
-}
-
-.feed-card-info img {
-    border-radius: 50%;
-    height: 2.4rem;
-    margin: 0.8rem 1.2rem 0.8rem 1.6rem;
-    object-fit: cover;
-    width: 2.4rem;
-}
-
-.feed-card-image-container {
-    height: 40.5rem;
-    width: 39.5rem;
-}
-
-.feed-card-image-container img {
-    height: 40.5rem;
-    object-fit: cover;
-    width: 39.5rem;
 }
 
 .interactions-container {

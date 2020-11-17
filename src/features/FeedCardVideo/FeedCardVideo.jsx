@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./feedCard.scss";
+import "../FeedCard/feedCard.scss";
 import { ReactComponent as HeartIcon } from "../../assets/icons/heart-icon.svg";
 import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.svg";
+import { ReactComponent as PlayButton } from "../../assets/images/play-button.svg";
 import FormInput from "../../components/input/FormInput";
+import ReactPlayer from "react-player";
 
-function FeedCard({
+function FeedCardVideo({
   authorUsername,
   authorImg,
   city,
@@ -26,7 +28,14 @@ function FeedCard({
         </p>
       </div>
       <div className="feed-card__content">
-        <img src={imageUrl} alt="" />
+        <ReactPlayer
+          url="https://storage.coverr.co/videos/flYliO01fn8Zw5RH1O9hXlbKbCs02A01hKp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MTA2MzIyfQ.eHacEaqpHvG_dNz6lOVkNSG4cydWgrqYs9WDdhK82ks"
+          light="https://storage.coverr.co/t/Q4G3nDsk01ZRFR9o7HjBzTFkcgXE90101NA"
+          width="100%"
+          height="100%"
+          playing="true"
+          playIcon={<PlayButton />}
+        />
       </div>
       <div className="interactions-container">
         <HeartIcon className="heart-icon" />
@@ -57,7 +66,7 @@ function FeedCard({
   );
 }
 
-FeedCard.propTypes = {
+FeedCardVideo.propTypes = {
   authorUsername: PropTypes.string,
   authorImg: PropTypes.string,
   city: PropTypes.string,
@@ -69,4 +78,4 @@ FeedCard.propTypes = {
   userPhoto: PropTypes.string,
 };
 
-export default FeedCard;
+export default FeedCardVideo;

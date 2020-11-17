@@ -17,7 +17,6 @@
     bottom: 14rem;
     margin-bottom: 0.4rem;
     position: relative;
-    text-align: center;
 }
 
 .card-title {
@@ -25,6 +24,7 @@
     font-weight: $medium-weight;
     line-height: 1.3rem;
     margin-bottom: 0.4rem;
+    text-align: center;
     text-transform: uppercase;
 }
 
@@ -33,6 +33,7 @@
     font-weight: $regular-weight;
     line-height: 1.6rem;
     margin-bottom: 0.4rem;
+    text-align: center;
 }
 
 .card-body {
@@ -40,6 +41,7 @@
     font-weight: $medium-weight;
     line-height: 1.6rem;
     margin-bottom: 1.6rem;
+    text-align: center;
 }
 
 .image-container {
@@ -72,15 +74,25 @@
     width: 36.3rem;
 }
 
-.interactions-container {
-    align-items: flex-start;
-    color: $color-slate-gray;
-    font-size: $font-size-12;
-    height: 4.7rem;
-    line-height: 1.3rem;
-    vertical-align: middle;
-}
-
 .gift-icon {
     cursor: pointer;
+    margin: 1.2rem 0.55rem 1.4rem 1.755rem;
+}
+
+.sparkles {
+    bottom: 13rem;
+    left: 3.5rem;
+    position: absolute;
+}
+
+.confetti-left {
+    bottom: 6rem;
+    left: 2rem;
+    position: absolute;
+}
+
+.confetti-right {
+    bottom: 6rem;
+    position: absolute;
+    right: 2rem;
 }
