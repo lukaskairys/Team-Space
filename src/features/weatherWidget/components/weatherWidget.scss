@@ -21,7 +21,7 @@ $_spinner-offset: $_spinner-size / -2;
         height: 100%;
         padding: $_vertical-padding 0 $_vertical-padding $_horizontal-padding;
         position: relative;
-        width: 80.5%;
+        width: 39.6rem;
     }
 
     &__section {
@@ -82,6 +82,10 @@ $_spinner-offset: $_spinner-size / -2;
         }
     }
 
+    &__figure-shift {
+        right: 1.3rem;
+    }
+
     &__paragraph {
         font-size: $_paragraph-font-size;
         font-weight: $light-weight;
@@ -103,12 +107,22 @@ $_spinner-offset: $_spinner-size / -2;
     }
 
     &__spinner {
-        animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite, fadeIn 1.5s ease-in-out forwards;
         height: $_spinner-size;
         position: absolute;
         right: $_spinner-offset;
         top: $_spinner-offset;
         width: $_spinner-size;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
 
     @keyframes spin {

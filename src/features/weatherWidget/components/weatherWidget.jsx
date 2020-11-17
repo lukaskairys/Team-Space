@@ -68,16 +68,18 @@ export default function WeatherWidget() {
   };
 
   const loadFigure = () => {
-    if (isLoaded)
+    if (isLoaded) {
+      const { image, shiftLeft } = translateIdToImage(items.conditionId);
+      const className =
+        shiftLeft === true
+          ? "weather-widget__figure weather-widget__figure-shift"
+          : "weather-widget__figure";
       return (
-        <figure className="weather-widget__figure">
-          <img
-            className="figure__image"
-            src={translateIdToImage(items.conditionId)}
-            alt=""
-          />
+        <figure className={className}>
+          <img className="figure__image" src={image} alt="" />
         </figure>
       );
+    }
   };
 
   const loadParagraph = () => {
