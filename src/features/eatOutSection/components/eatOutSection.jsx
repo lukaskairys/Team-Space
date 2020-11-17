@@ -10,7 +10,7 @@ import Button from "../../../components/button/Button";
 const EatOutSection = () => {
   const restaurants = FetchBestRatedRestaurants(2);
   const favoriteClickHandler = (event) => {
-    var classes = event.target.classList;
+    const classes = event.target.classList;
     if (classes.contains("eat-out-card__favorite--active")) {
       classes.remove("eat-out-card__favorite--active");
     } else {
@@ -57,7 +57,7 @@ const EatOutSection = () => {
     }
   };
   const formTime = (workingSchedule) => {
-    var schedule = createWorkingSchedule(workingSchedule);
+    const schedule = createWorkingSchedule(workingSchedule);
     return <time className="eat-out-card__time">{isOpen(schedule)}</time>;
   };
   const formCategories = (categories) => {
