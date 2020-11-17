@@ -1,10 +1,11 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
+
 $_title-color: rgba(0, 0, 0, 0.7);
 $_font-size-category-query: 0.9rem;
 $_content-margin: 1.6rem;
 
-.eatOut-card {
+.eat-out-card {
     display: grid;
     grid-column-gap: 4rem;
     grid-template-columns: repeat(3, 1fr);
@@ -13,10 +14,6 @@ $_content-margin: 1.6rem;
         background-color: $color-white;
         border-radius: 0.8rem;
         padding-bottom: 2rem;
-
-        &:hover {
-            cursor: pointer;
-        }
     }
 
     &__column:nth-child(n + 2) {
@@ -33,6 +30,7 @@ $_content-margin: 1.6rem;
     &__suggestion,
     &__title {
         @include typography-h2-alternative;
+
         @include respond-to(920, max) {
             font-size: $font-size-16;
         }
@@ -102,6 +100,7 @@ $_content-margin: 1.6rem;
         font-weight: $medium-weight;
         margin-right: 3.2rem;
         text-transform: uppercase;
+
         @include respond-to(920, max) {
             margin-right: 2.6rem;
         }
@@ -111,6 +110,7 @@ $_content-margin: 1.6rem;
         bottom: 0.25rem;
         font-size: $font-size-10;
         position: relative;
+
         @include respond-to(920, max) {
             font-size: $_font-size-category-query;
         }
@@ -120,13 +120,13 @@ $_content-margin: 1.6rem;
         list-style: none;
     }
 
-    &__subSection {
+    &__subsection {
         display: flex;
         justify-content: space-between;
         margin: 0 2.4rem 0 1.6rem;
     }
 
-    &__favoriteContainer {
+    &__favorite-container {
         height: 2.2rem;
         width: 2.4rem;
     }
@@ -147,10 +147,10 @@ $_content-margin: 1.6rem;
     &__time {
         color: $color-slate-gray;
         margin: 0 $_content-margin;
+        font-weight: $medium-weight;
     }
 
-    &__favorite,
-    &__button:hover {
+    &__favorite {
         cursor: pointer;
     }
 }

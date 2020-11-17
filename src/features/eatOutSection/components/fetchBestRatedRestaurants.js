@@ -1,8 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
-import { roundNumber } from "../../../utils/Math";
 
-const FetchBestRatedRestaurants = (cnt) => {
-  const API_URL = "http://localhost:3008/restaurants";
+import { roundNumber } from "../../../utils/Math";
+import { GetApiURL } from "../../../utils/Api";
+
+const FetchBestRatedRestaurants = (count) => {
+  const API_URL = GetApiURL("restaurants");
   const [restaurants, setRestaurants] = useState([]);
   const fetchAPI = () => {
     fetch(API_URL)
@@ -21,7 +23,7 @@ const FetchBestRatedRestaurants = (cnt) => {
   const filter = useCallback(
     (restaurants) => {
       var allCount = restaurants.restaurantList.length;
-      var size = cnt > allCount ? allCount : cnt;
+      var size = count > allCount ? allCount : count;
       var BestRatedRestaurants = [];
       restaurants = restaurants.restaurantList;
       //map all specific restaurant ratings into one array
@@ -47,10 +49,10 @@ const FetchBestRatedRestaurants = (cnt) => {
       }
       return BestRatedRestaurants;
     },
-    [cnt]
+    [count]
   );
 
-  useEffect(fetchAPI, [filter]);
+  useEffect(fetchAPI, [filter, API_URL]);
   return restaurants;
 };
 export default FetchBestRatedRestaurants;

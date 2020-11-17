@@ -1,8 +1,10 @@
 @import '../../../styles/base/base';
+
 $_icon-size: 1.2rem;
+$_background-color: #31465e;
 
 .person-container {
-    background: #31465e;
+    background: $_background-color;
     border-radius: 0.8rem;
     color: $color-yellow;
     font-size: $font-size-14;

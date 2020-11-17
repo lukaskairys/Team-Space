@@ -8,14 +8,14 @@ export const createWorkingSchedule = (workingSchedule) => {
     "Friday",
     "Saturday",
   ];
-  var schedule = [];
-  var startAdding = false;
-  for (var i = 0; i < workingSchedule.length; i++) {
-    var daysOpen = workingSchedule[i].days.split(" - ");
-    var hoursOpen = workingSchedule[i].hours.split(" - ");
-    var openingHours = hoursOpen[0];
-    var closingHours = hoursOpen[1];
-    for (var j = 0; j < weekDays.length; j++) {
+  let schedule = [];
+  let startAdding = false;
+  for (let i = 0; i < workingSchedule.length; i++) {
+    const daysOpen = workingSchedule[i].days.split(" - ");
+    const hoursOpen = workingSchedule[i].hours.split(" - ");
+    const openingHours = hoursOpen[0];
+    const closingHours = hoursOpen[1];
+    for (let j = 0; j < weekDays.length; j++) {
       if (daysOpen[1] === weekDays[j]) {
         addFormattedEntry(schedule, weekDays[j], openingHours, closingHours);
         startAdding = false;
@@ -49,9 +49,9 @@ const addFormattedEntry = (
 
 export const isOpen = (schedule) => {
   const currentDate = new Date();
-  var currentDay = currentDate.getDay();
-  var currentHours = currentDate.getHours();
-  var scheduleDay = schedule[currentDate.getDay()];
+  const currentDay = currentDate.getDay();
+  const currentHours = currentDate.getHours();
+  const scheduleDay = schedule[currentDate.getDay()];
   if (
     scheduleDay.doesWork &&
     scheduleDay.openingHours <= currentHours &&
@@ -63,10 +63,10 @@ export const isOpen = (schedule) => {
   return findNextOpeningDate(schedule, currentDay);
 };
 export const findNextOpeningDate = (schedule, currentDay) => {
-  var cnt = 0;
-  while (schedule.length > cnt) {
+  let count = 0;
+  while (schedule.length > count) {
     if (schedule[currentDay].doesWork)
-      return cnt === 0
+      return count === 0
         ? `Opens today at ${schedule[currentDay].openingHours}:00`
         : `Opens at ${schedule[currentDay].day} ${schedule[currentDay].openingHours}:00`;
     if (currentDay === schedule.length - 1) {
@@ -74,6 +74,6 @@ export const findNextOpeningDate = (schedule, currentDay) => {
     } else {
       currentDay += 1;
     }
-    cnt++;
+    count++;
   }
 };

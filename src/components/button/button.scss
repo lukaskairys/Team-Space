@@ -29,4 +29,8 @@
     &--large {
         font-size: $font-size-16;
     }
+    &--medium {
+        font-size: $font-size-12;
+        padding: 0.8rem 1.6rem;
+    }
 }
