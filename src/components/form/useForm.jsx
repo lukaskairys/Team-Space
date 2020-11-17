@@ -24,6 +24,8 @@ const useForm = (callback, validate) => {
     if (event) event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
+    callback(values);
+    setValues({});
   };
 
   const handleChange = (event) => {

@@ -34,7 +34,7 @@ function FormFooter({ action }) {
 
   return (
     <>
-      <Button type={"submit"} large={true}>
+      <Button type={"submit"} large={"true"}>
         <span>{label}</span>
       </Button>
       <p>

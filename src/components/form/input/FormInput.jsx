@@ -38,7 +38,7 @@ function FormInput(props) {
       {isError && (
         <Button
           type={"button"}
-          del={true}
+          del={"true"}
           handleClick={() => handleXclick(inputRef)}
         >
           <IconX />

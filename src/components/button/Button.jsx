@@ -6,8 +6,8 @@ import "./button.scss";
 function Button({ type = "button", handleClick, children, large, del }) {
   const btnClass = classNames({
     button: true,
-    "button--large": large,
-    "button__icon-x": del,
+    "button--large": large === "true",
+    "button__icon-x": del === "true",
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>
@@ -19,9 +19,9 @@ function Button({ type = "button", handleClick, children, large, del }) {
 Button.propTypes = {
   type: PropTypes.string,
   handleClick: PropTypes.func,
-  children: PropTypes.element,
-  large: PropTypes.bool,
-  del: PropTypes.bool,
+  children: PropTypes.object,
+  large: PropTypes.string,
+  del: PropTypes.string,
 };
 
 export default Button;
