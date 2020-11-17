@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Registration from "../src/features/registration/components/Registration";
+import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import BirthdayCard from "./features/BirthdayCard/BirthdayCard";
 import FeedCard from "./features/FeedCard/FeedCard";
@@ -53,8 +53,15 @@ function App() {
               </>
             </MainLayout>
           </Route>
+          <Route exact path="/reservations">
+            <MainLayout>
+              <ReservationSection />
+            </MainLayout>
+          </Route>
+          <Route exact path="/reservations/devices"></Route>
+          <Route exact path="/reservations/books"></Route>
           <Route path="/registration">
-            <Registration />
+            <RegistrationPage />
           </Route>
         </Switch>
       </>

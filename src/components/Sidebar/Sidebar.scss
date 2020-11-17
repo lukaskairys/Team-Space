@@ -1,0 +1,168 @@
+@import '../../styles/base/base';
+
+$button-rounding-size: 1.7rem;
+
+.sidebar {
+    background-color: $color-bright-violet;
+    flex-grow: 0;
+    height: 100vh;
+    position: fixed;
+    transition: width 1000ms;
+    width: 20.6rem;
+
+    &__logo {
+        fill: $color-white;
+        margin-bottom: 8.1rem;
+        margin-left: 2.4rem;
+        transition: fill 1500ms;
+        transition-delay: 300ms;
+        width: 11.472rem;
+    }
+
+    &__toggle {
+        background-color: $color-transparent;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 2.8rem;
+        left: 19.2rem;
+        outline: transparent;
+        position: absolute;
+        top: 12rem;
+        transition: transform 1000ms;
+        width: 2.8rem;
+
+        /*  &:focus {
+            box-shadow: 0 0 0 3px $color-dark-violet;
+        } */
+    }
+
+    &__list {
+        margin-left: 2rem;
+    }
+
+    &__list-item {
+        @include typography-h4-alternative;
+
+        align-items: center;
+        background-color: $color-bright-violet;
+        border: 0;
+        border-radius: 2.75rem 0 0 2.75rem;
+        color: $color-light-porcelain;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        height: 5.5rem;
+        justify-content: flex-start;
+        margin-bottom: 1.7rem;
+        outline: transparent;
+        position: relative;
+        text-decoration: none;
+        width: 100%;
+
+        /* &:focus {
+            outline: 3px solid $color-dark-violet;
+            outline-offset: -3px;
+        } */
+    }
+
+    &__icon {
+        height: 2.4rem;
+        margin-left: 1.55rem;
+        stroke: $color-white;
+        width: 2.5rem;
+    }
+
+    &__item-title {
+        margin-left: 1.55rem;
+        transition: opacity 1500ms, visibility 1500ms;
+        transition-delay: 300ms;
+    }
+
+    &__list-item--active {
+        background-color: $color-light-porcelain;
+        box-shadow: inset 0.2rem 0.2rem rgba(0, 0, 0, 0.14);
+        color: $color-fiord;
+
+        .sidebar__corner {
+            &::before {
+                background-color: $color-light-porcelain;
+                content: '';
+                display: block;
+                height: $button-rounding-size;
+                position: absolute;
+                right: 0;
+                top: -$button-rounding-size;
+                width: $button-rounding-size;
+            }
+
+            &::after {
+                background-color: $color-bright-violet;
+                border-radius: 0 0 $button-rounding-size;
+                box-shadow: 0 0.2rem rgba(0, 0, 0, 0.14);
+                content: '';
+                display: block;
+                height: $button-rounding-size;
+                position: absolute;
+                right: 0;
+                top: -$button-rounding-size;
+                width: $button-rounding-size;
+                z-index: $z-index-base;
+            }
+        }
+
+        .sidebar__icon {
+            stroke: $color-fiord;
+
+            &::before {
+                background-color: $color-light-porcelain;
+                bottom: -$button-rounding-size;
+                content: '';
+                height: $button-rounding-size;
+                position: absolute;
+                right: 0;
+                width: $button-rounding-size;
+            }
+
+            &::after {
+                background-color: $color-bright-violet;
+                border-radius: 0 $button-rounding-size 0 0;
+                bottom: -$button-rounding-size;
+                content: '';
+                height: $button-rounding-size;
+                position: absolute;
+                right: 0;
+                width: $button-rounding-size;
+            }
+        }
+
+        &::after {
+            background-color: $color-light-porcelain;
+            content: '';
+            height: 5.5rem;
+            position: absolute;
+            right: 0;
+            width: $button-rounding-size;
+        }
+    }
+}
+
+.sidebar--closed.sidebar {
+    transition: width 1000ms;
+    width: 9.6rem;
+
+    .sidebar__toggle {
+        transform: translateX(-11rem) rotate(180deg);
+    }
+
+    .sidebar__item-title {
+        opacity: 0;
+        transition: opacity 350ms, visibility 350ms;
+        visibility: hidden;
+    }
+
+    .sidebar__logo {
+        fill: $color-transparent;
+        transition: fill 500ms;
+    }
+}
