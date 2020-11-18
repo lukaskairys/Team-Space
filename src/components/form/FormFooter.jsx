@@ -20,8 +20,8 @@ function FormFooter({ action }) {
         break;
       case "login":
         data.label = "Login";
-        data.textBeforeLink = "loginloginloginloginlogin?";
-        data.linkText = "loginloginloginloginlogin";
+        data.textBeforeLink = "Don't have an account?";
+        data.linkText = "Sign up";
         data.linkPath = "/registration";
         break;
       default:
