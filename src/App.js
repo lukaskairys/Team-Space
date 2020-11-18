@@ -6,6 +6,7 @@ import HelloWidget from "features/helloWidget/components/HelloWidget";
 import WeatherWidget from "./features/weatherWidget/components/weatherWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
+import EatOutSection from "features/eatOutSection/components/EatOutSection";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <HelloWidget />
                 <ReservationSection />
                 <WeatherWidget />
+                <EatOutSection />
               </>
             </MainLayout>
           </Route>
