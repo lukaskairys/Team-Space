@@ -3,7 +3,7 @@ import React from "react";
 import MainLayout from "components/MainLayout/MainLayout";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import WeatherWidget from "features/weatherWidget/components/weatherWidget";
-import ReservationSection from "features/reservationsSection/components/ReservationsSection";
+import ReservationsSection from "features/reservationsSection/components/ReservationsSection";
 import EatOutSection from "features/eatOutSection/components/EatOutSection";
 import FeedCardVideo from "features/FeedCardVideo/FeedCardVideo";
 import FeedCard from "features/FeedCard/FeedCard";
@@ -16,10 +16,16 @@ const Dashboard = () => {
     <div className="dashboard">
       <MainLayout>
         <>
-          <HelloWidget />
-          <ReservationSection />
-          <WeatherWidget />
-          <EatOutSection />
+          <div className="dashboard__widgets">
+            <HelloWidget />
+            <WeatherWidget />
+          </div>
+          <div className="dashboard__reservations-section">
+            <ReservationsSection />
+          </div>
+          <div className="dashboard__eat-out-section">
+            <EatOutSection />
+          </div>
           <BirthdayCard
             title="firstname lastname"
             imageUrl="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
