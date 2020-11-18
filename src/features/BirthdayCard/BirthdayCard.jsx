@@ -10,8 +10,12 @@ import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.s
 function BirthdayCard({ title, imageUrl, body, date }) {
   return (
     <div className="birthday-card">
-      <div className="image-container">
-        <img src={imageUrl} alt="" />
+      <div className="birthday-card__image-container">
+        <img
+          className="birthday-card__image"
+          src={imageUrl}
+          alt="Birthday celebrant"
+        />
       </div>
       <div className="birthday-card__content">
         <div className="birthday-card__title">
@@ -20,13 +24,13 @@ function BirthdayCard({ title, imageUrl, body, date }) {
         <div className="birthday-card__date">
           <p>
             Celebrated a birthday on
-            <span style={{ fontWeight: "500" }}> {date} </span>
+            <span className="birthday-card__date-day"> {date} </span>
           </p>
         </div>
         <div className="birthday-card__body">
           <p>{body}</p>
         </div>
-        <div className="card-divider"></div>
+        <div className="feed-card-divider"></div>
         <div className="interactions-container">
           <GiftIcon className="gift-icon" />
           <CommentIcon className="comment-icon" />

@@ -22,6 +22,9 @@ function App() {
             <MainLayout>
               <>
                 <HelloWidget />
+
+                <ReservationSection />
+                <WeatherWidget />
                 <BirthdayCard
                   title="firstname lastname"
                   imageUrl="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
@@ -48,9 +51,6 @@ function App() {
                   commentText="A new comment on this post."
                   userPhoto="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
                 />
-
-                <ReservationSection />
-                <WeatherWidget />
               </>
             </MainLayout>
           </Route>

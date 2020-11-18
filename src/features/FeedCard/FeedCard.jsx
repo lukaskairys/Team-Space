@@ -19,20 +19,24 @@ function FeedCard({
   return (
     <div className="feed-card">
       <div className="feed-card__info">
-        <img src={authorImg} alt="" />
+        <img
+          className="feed-card__info-img"
+          src={authorImg}
+          alt="Post author"
+        />
         <p>{authorUsername}</p>
         <p>
           {city} <span className="feed-card__time">{time}</span>
         </p>
       </div>
       <div className="feed-card__content">
-        <img src={imageUrl} alt="" />
+        <img className="feed-card__content-img" src={imageUrl} alt="Post" />
       </div>
       <div className="interactions-container">
         <HeartIcon className="heart-icon" />
         <CommentIcon className="comment-icon" />
       </div>
-      <div className="card-divider"></div>
+      <div className="feed-card-divider"></div>
       <div className="feed-card__comments">
         <div className="comment">
           <p className="commenter-username">{commenterUsername}</p>
@@ -40,16 +44,12 @@ function FeedCard({
         </div>
         <div className="comment">
           <p className="commenter-username">{commenterUsername}</p>
-          <p className="comment-text">
-            {commentText}
-            {commentText}
-            {commentText}
-          </p>
+          <p className="comment-text">{commentText}</p>
         </div>
       </div>
-      <div className="card-divider"></div>
+      <div className="feed-card-divider"></div>
       <div className="new-comment-container">
-        <img src={userPhoto} alt="" />
+        <img className="new-comment-image" src={userPhoto} alt="User" />
         <FormInput className="comment-input" placeholder="Leave a comment..." />
         <button className="post-button">POST</button>
       </div>

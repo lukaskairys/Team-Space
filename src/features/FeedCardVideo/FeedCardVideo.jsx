@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ReactPlayer from "react-player";
 import "../FeedCard/feedCard.scss";
 import { ReactComponent as HeartIcon } from "../../assets/icons/heart-icon.svg";
 import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.svg";
 import { ReactComponent as PlayButton } from "../../assets/images/play-button.svg";
 import FormInput from "../../components/form/input/FormInput";
-import ReactPlayer from "react-player";
 
 function FeedCardVideo({
   authorUsername,
@@ -21,7 +21,11 @@ function FeedCardVideo({
   return (
     <div className="feed-card">
       <div className="feed-card__info">
-        <img src={authorImg} alt="" />
+        <img
+          className="feed-card__info-img"
+          src={authorImg}
+          alt="Post author"
+        />
         <p>{authorUsername}</p>
         <p>
           {city} <span className="feed-card__time">{time}</span>
@@ -41,7 +45,7 @@ function FeedCardVideo({
         <HeartIcon className="heart-icon" />
         <CommentIcon className="comment-icon" />
       </div>
-      <div className="card-divider"></div>
+      <div className="feed-card-divider"></div>
       <div className="feed-card__comments">
         <div className="comment">
           <p className="commenter-username">{commenterUsername}</p>
@@ -49,16 +53,12 @@ function FeedCardVideo({
         </div>
         <div className="comment">
           <p className="commenter-username">{commenterUsername}</p>
-          <p className="comment-text">
-            {commentText}
-            {commentText}
-            {commentText}
-          </p>
+          <p className="comment-text">{commentText}</p>
         </div>
       </div>
-      <div className="card-divider"></div>
+      <div className="feed-card-divider"></div>
       <div className="new-comment-container">
-        <img src={userPhoto} alt="" />
+        <img className="new-comment-image" src={userPhoto} alt="User" />
         <FormInput className="comment-input" placeholder="Leave a comment..." />
         <button className="post-button">POST</button>
       </div>
