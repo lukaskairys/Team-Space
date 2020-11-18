@@ -34,11 +34,7 @@ const CreateTopRestaurantColumn = (restaurant) => {
 
 const toggleFavorite = (event) => {
   const classes = event.target.classList;
-  if (classes.contains("eat-out-card__favorite--active")) {
-    classes.remove("eat-out-card__favorite--active");
-  } else {
-    classes.add("eat-out-card__favorite--active");
-  }
+  classes.toggle("eat-out-card__favorite--active");
 };
 
 const formTitle = (title) => {
