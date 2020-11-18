@@ -4,12 +4,20 @@
 $_title-color: rgba(0, 0, 0, 0.7);
 $_font-size-category-query: 0.9rem;
 $_content-margin: 1.6rem;
-$_breakpoint: 920;
+$_breakpoint: 1200;
 
 .eat-out-card {
     display: grid;
-    grid-column-gap: 4rem;
+    grid-gap: 4rem;
+    grid-template-areas: 'suggestion  firstRestaurant secondRestaurant';
     grid-template-columns: repeat(3, 1fr);
+
+    @include respond-to($_breakpoint, max) {
+        grid-template-areas:
+            '. suggestion suggestion .'
+            'firstRestaurant firstRestaurant secondRestaurant secondRestaurant';
+        grid-template-columns: repeat(4, 1fr);
+    }
 
     &__column {
         background-color: $color-white;
@@ -29,19 +37,32 @@ $_breakpoint: 920;
         box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
     }
 
-    &__suggestion {
-        color: $_title-color;
-        font-weight: $heavy-weight;
-        text-align: center;
-        width: 90%;
+    &__column:first-child {
+        grid-area: suggestion;
+    }
+
+    &__column:nth-child(2) {
+        grid-area: firstRestaurant;
+    }
+
+    &__column:last-child {
+        grid-area: secondRestaurant;
     }
 
     &__suggestion,
     &__title {
         @include typography-h2-alternative;
+    }
+
+    &__suggestion {
+        color: $_title-color;
+        font-weight: $heavy-weight;
+        text-align: center;
+        width: 90%;
 
         @include respond-to($_breakpoint, max) {
-            font-size: $font-size-16;
+            font-size: $font-size-20;
+            margin-bottom: 1.5rem;
         }
     }
 
@@ -60,6 +81,7 @@ $_breakpoint: 920;
         height: 70%;
         justify-content: space-between;
         min-height: 18rem;
+        overflow: hidden;
         position: relative;
         width: 100%;
     }
@@ -94,20 +116,12 @@ $_breakpoint: 920;
         font-weight: $medium-weight;
         margin-right: 3.2rem;
         text-transform: uppercase;
-
-        @include respond-to($_breakpoint, max) {
-            margin-right: 2.6rem;
-        }
     }
 
     &__category {
         bottom: 0.25rem;
         font-size: $font-size-10;
         position: relative;
-
-        @include respond-to($_breakpoint, max) {
-            font-size: $_font-size-category-query;
-        }
     }
 
     &__categories li:nth-of-type(1) {
