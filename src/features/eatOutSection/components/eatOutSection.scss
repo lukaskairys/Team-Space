@@ -4,6 +4,7 @@
 $_title-color: rgba(0, 0, 0, 0.7);
 $_font-size-category-query: 0.9rem;
 $_content-margin: 1.6rem;
+$_breakpoint: 920;
 
 .eat-out-card {
     display: grid;
@@ -39,7 +40,7 @@ $_content-margin: 1.6rem;
     &__title {
         @include typography-h2-alternative;
 
-        @include respond-to(920, max) {
+        @include respond-to($_breakpoint, max) {
             font-size: $font-size-16;
         }
     }
@@ -94,7 +95,7 @@ $_content-margin: 1.6rem;
         margin-right: 3.2rem;
         text-transform: uppercase;
 
-        @include respond-to(920, max) {
+        @include respond-to($_breakpoint, max) {
             margin-right: 2.6rem;
         }
     }
@@ -104,7 +105,7 @@ $_content-margin: 1.6rem;
         font-size: $font-size-10;
         position: relative;
 
-        @include respond-to(920, max) {
+        @include respond-to($_breakpoint, max) {
             font-size: $_font-size-category-query;
         }
     }

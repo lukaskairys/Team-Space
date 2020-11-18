@@ -8,27 +8,28 @@ export const createWorkingSchedule = (workingSchedule) => {
     "Friday",
     "Saturday",
   ];
-  let schedule = [];
-  let startAdding = false;
 
+  const schedule = [];
   for (let i = 0; i < workingSchedule.length; i++) {
     const daysOpen = workingSchedule[i].days.split(" - ");
     const hoursOpen = workingSchedule[i].hours.split(" - ");
     const openingHours = hoursOpen[0];
     const closingHours = hoursOpen[1];
-    for (let j = 0; j < weekDays.length; j++) {
-      if (daysOpen[1] === weekDays[j]) {
-        addFormattedEntry(schedule, weekDays[j], openingHours, closingHours);
+    let startAdding = false;
+
+    weekDays.forEach((weekday) => {
+      if (daysOpen[1] === weekday) {
+        addFormattedEntry(schedule, weekday, openingHours, closingHours);
         startAdding = false;
       } else if (startAdding) {
-        addFormattedEntry(schedule, weekDays[j], openingHours, closingHours);
-      } else if (daysOpen[0] === weekDays[j]) {
+        addFormattedEntry(schedule, weekday, openingHours, closingHours);
+      } else if (daysOpen[0] === weekday) {
         startAdding = true;
-        addFormattedEntry(schedule, weekDays[j], openingHours, closingHours);
+        addFormattedEntry(schedule, weekday, openingHours, closingHours);
       } else {
-        addFormattedEntry(schedule, weekDays[j]);
+        addFormattedEntry(schedule, weekday);
       }
-    }
+    });
   }
   return schedule;
 };
@@ -38,6 +39,7 @@ const addFormattedEntry = (
   weekDay,
   openingHours = 0,
   closingHours = 0,
+
   doesWork = openingHours === 0 && closingHours === 0 ? false : true
 ) => {
   schedule.push({
@@ -54,6 +56,7 @@ export const isOpen = (schedule) => {
   const currentDay = currentDate.getDay();
   const currentHours = currentDate.getHours();
   const scheduleDay = schedule[currentDate.getDay()];
+
   if (
     scheduleDay.doesWork &&
     scheduleDay.openingHours <= currentHours &&
@@ -67,6 +70,7 @@ export const isOpen = (schedule) => {
 
 export const findNextOpeningDate = (schedule, currentDay) => {
   let count = 0;
+
   while (schedule.length > count) {
     if (schedule[currentDay].doesWork)
       return count === 0
