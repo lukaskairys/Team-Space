@@ -1,15 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { isObjectEmpty } from "../../utils/objects";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
-    }
-  }, [errors, callback, isSubmitting]);
+  const [isValid, setIsValid] = useState(false);
 
   const handleXclick = (inputRef) => {
     const inputName = inputRef.current.name;
@@ -19,13 +14,23 @@ const useForm = (callback, validate) => {
       [inputName]: "",
     });
   };
+  const err = validate(values);
+  const validateForm = () => {
+    setErrors(err);
+    if (isObjectEmpty(err)) {
+      callback();
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  };
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-    setErrors(validate(values));
-    setIsSubmitting(true);
-    callback(values);
-    setValues({});
+    validateForm();
+    if (isObjectEmpty(err)) {
+      setValues({});
+    }
   };
 
   const handleChange = (event) => {
@@ -51,6 +56,7 @@ const useForm = (callback, validate) => {
     handleFocus,
     values,
     errors,
+    isValid,
     handleXclick,
   };
 };
