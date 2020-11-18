@@ -127,10 +127,12 @@ $_breakpoint: 920;
 
     &__favorite {
         fill: $color-white;
+        height: 2.2rem;
         stroke: $color-fiord;
         stroke-linecap: round;
         stroke-linejoin: round;
         stroke-width: 2;
+        width: 2.4rem;
     }
 
     &__favorite--active {
@@ -144,7 +146,7 @@ $_breakpoint: 920;
         margin: 0 $_content-margin;
     }
 
-    &__favorite:hover {
+    &__favorite path:hover {
         cursor: pointer;
     }
 }
