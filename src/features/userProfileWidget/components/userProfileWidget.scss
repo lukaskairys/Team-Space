@@ -1,0 +1,54 @@
+@import '../../../styles/base/base';
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    &__content {
+        @include typography-body-2;
+        // display: none;
+        border: 1px solid $color-iron;
+        border-radius: 5px;
+        list-style-type: none;
+        right: 0;
+        position: absolute;
+        max-width: 197px;
+        width: 20rem;
+        z-index: 1;
+    }
+    &__item {
+        background-color: $color-white;
+        padding: 1rem;
+
+        &:hover {
+            background-color: $color-porcelain;
+        }
+    }
+}
+
+.dropdown:hover .dropdown__content {
+    display: block;
+}
+
+.user-profile-widget {
+    width: 58px;
+    height: 76px;
+    position: relative;
+    margin: 15rem;
+
+    &__picture {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &__arrow {
+        position: absolute;
+        bottom: 35px;
+        right: 20px;
+        width: 10px;
+        filter: drop-shadow(1px 1px 0px #fff) drop-shadow(-1px 1px 0px #fff)
+            drop-shadow(1px -1px 0px #fff) drop-shadow(-1px -1px 0px #fff);
+    }
+}
