@@ -1,5 +1,30 @@
 @import '../../styles/base/base';
 
 .breadcrumbs {
-    display: block;
+    @include typography-caption-caps;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    stroke: $color-gull-gray;
+
+    &__item {
+        color: $color-gull-gray;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-fiord;
+        }
+    }
+
+    &__item--last {
+        color: $color-fiord;
+        cursor: default;
+    }
+
+    &__icon {
+        display: flex;
+        flex-shrink: 0;
+        height: 1rem;
+    }
 }

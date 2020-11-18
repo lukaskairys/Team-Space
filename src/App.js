@@ -6,6 +6,7 @@ import HelloWidget from "features/helloWidget/components/HelloWidget";
 import WeatherWidget from "./features/weatherWidget/components/weatherWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
+import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 
 function App() {
   return (
@@ -26,11 +27,22 @@ function App() {
           </Route>
           <Route exact path="/reservations">
             <MainLayout>
-              <ReservationSection />
+              <>
+                <Breadcrumbs />
+                <ReservationSection />
+              </>
             </MainLayout>
           </Route>
-          <Route exact path="/reservations/devices"></Route>
-          <Route exact path="/reservations/books"></Route>
+          <Route exact path="/reservations/devices">
+            <MainLayout>
+              <Breadcrumbs />
+            </MainLayout>
+          </Route>
+
+          <Route exact path="/reservations/books">
+            <MainLayout />
+          </Route>
+
           <Route path="/registration">
             <RegistrationPage />
           </Route>
