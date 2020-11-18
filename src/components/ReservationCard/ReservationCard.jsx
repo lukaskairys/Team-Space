@@ -12,7 +12,7 @@ function ReservationsCard({ name, path, reserved, size, children }) {
   const cardClassNames = classNames({
     "reservations-card": true,
     "reservations-card--big": size === "big" ? true : false,
-    "reservations-card--small": size === "big" ? false : true,
+    "reservations-card--small": size === "small" ? true : false,
   });
   const cardImageClassnames = classNames({
     "reservations-card__image": true,
