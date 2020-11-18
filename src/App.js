@@ -2,11 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
 import LoginPage from "../src/features/login/pages/LoginPage";
-import EatOutSection from "features/eatOutSection/components/EatOutSection";
-import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
-import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import Dashboard from "pages/Dashboard/Dashboard";
+import Reservations from "pages/Reservations/Reservations";
+import Devices from "pages/Devices/Devices";
 
 function App() {
   return (
@@ -19,19 +18,13 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
+
           <Route exact path="/reservations">
-            <MainLayout>
-              <>
-                <EatOutSection />
-                <Breadcrumbs />
-                <ReservationSection />
-              </>
-            </MainLayout>
+            <Reservations />
           </Route>
+
           <Route exact path="/reservations/devices">
-            <MainLayout>
-              <Breadcrumbs />
-            </MainLayout>
+            <Devices />
           </Route>
 
           <Route exact path="/reservations/books">
@@ -41,6 +34,7 @@ function App() {
           <Route path="/registration">
             <RegistrationPage />
           </Route>
+
           <Route path="/login">
             <LoginPage />
           </Route>
