@@ -10,7 +10,7 @@ function RegistrationPage() {
         <Logo className="logo" />
         <Form
           action={"register"}
-          title={"Registration"}
+          title={"Register"}
           subtitle={"Let’s get you on board."}
           buttonLabel={"Register"}
         />
