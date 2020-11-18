@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Registration from "../src/features/registration/components/Registration";
-import HelloWidget from "features/helloWidget/components/HelloWidget";
-import ReservationSection from "features/reservationsSection/components/ReservationsSection";
+import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
+import LoginPage from "../src/features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
-import NewsFeedLayout from "components/NewsFeedLayout/NewsFeedLayout";
-import BirthdayExample from "components/NewsFeedLayout/BirthdayExample";
-import PostExample from "components/NewsFeedLayout/PostExample";
+import Dashboard from "pages/Dashboard/Dashboard";
+import Reservations from "pages/Reservations/Reservations";
+import Devices from "pages/Devices/Devices";
 
 function App() {
   return (
@@ -17,21 +16,27 @@ function App() {
         {/* If you want to render something everywhere (in each page), render it outside the <Switch>, but inside the <Router> */}
         <Switch>
           <Route exact path="/">
-            <MainLayout>
-              <HelloWidget />
-              <ReservationSection />
-              <NewsFeedLayout>
-                <BirthdayExample />
-                <BirthdayExample />
-                <BirthdayExample />
-                <PostExample type={"post1"} />
-                <PostExample type={"post2"} />
-                <PostExample type={"post3"} />
-              </NewsFeedLayout>
-            </MainLayout>
+            <Dashboard />
           </Route>
+
+          <Route exact path="/reservations">
+            <Reservations />
+          </Route>
+
+          <Route exact path="/reservations/devices">
+            <Devices />
+          </Route>
+
+          <Route exact path="/reservations/books">
+            <MainLayout />
+          </Route>
+
           <Route path="/registration">
-            <Registration />
+            <RegistrationPage />
+          </Route>
+
+          <Route path="/login">
+            <LoginPage />
           </Route>
         </Switch>
       </>

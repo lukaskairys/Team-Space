@@ -28,10 +28,11 @@ const changeGridRowStyle = () => {
 };
 
 const layoutChildren = (data) => {
-  let result = data.map((child) => {
+  let result = data.map((child, index) => {
     if (child.props.type === "post1") {
       return (
         <div
+          key={index}
           style={{
             gridColumn: "1 / 2",
             gridRow: gridRowStyle.firstAndThirdColumn,
@@ -44,6 +45,7 @@ const layoutChildren = (data) => {
     if (child.props.type === "post2") {
       return (
         <div
+          key={index}
           style={{ gridColumn: "2 / 3", gridRow: gridRowStyle.secondColumn }}
         >
           {child}
@@ -53,6 +55,7 @@ const layoutChildren = (data) => {
     if (child.props.type === "post3") {
       let result = (
         <div
+          key={index}
           style={{
             gridColumn: "3 / 4",
             gridRow: gridRowStyle.firstAndThirdColumn,

@@ -1,0 +1,98 @@
+@import '../../styles/base/base';
+
+.birthday-card {
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    font-family: $font-family;
+    height: 18.4rem;
+    width: 39.5rem;
+
+    &__content {
+        bottom: 14rem;
+        margin-bottom: 0.4rem;
+        position: relative;
+    }
+
+    &__image-container {
+        align-items: center;
+        height: 20.7rem;
+        margin: auto;
+        padding-top: 3rem;
+        position: relative;
+        top: -10rem;
+        width: 13.3rem;
+    }
+
+    &__image {
+        border: 2px solid $color-white;
+        border-radius: 50%;
+        display: block;
+        height: 9.6rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2.4rem;
+        object-fit: cover;
+        position: relative;
+        width: 9.6rem;
+    }
+
+    &__title {
+        font-size: $font-size-12;
+        font-weight: $medium-weight;
+        line-height: 1.3rem;
+        margin-bottom: 0.4rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__date {
+        font-size: $font-size-12;
+        font-weight: $regular-weight;
+        line-height: 1.6rem;
+        margin-bottom: 0.4rem;
+        text-align: center;
+    }
+
+    &__date-day {
+        font-weight: $medium-weight;
+    }
+
+    &__body {
+        font-size: $font-size-12;
+        font-weight: $medium-weight;
+        line-height: 1.6rem;
+        margin-bottom: 1.6rem;
+        text-align: center;
+    }
+}
+
+.feed-card-divider {
+    background-color: $color-iron;
+    height: 0.1rem;
+    margin: auto;
+    width: 36.3rem;
+}
+
+.gift-icon {
+    cursor: pointer;
+    margin: 1.2rem 0.55rem 1.4rem 1.8rem;
+}
+
+.sparkles {
+    bottom: 13rem;
+    left: 3.5rem;
+    position: absolute;
+}
+
+.confetti-left {
+    bottom: 6rem;
+    left: 2rem;
+    position: absolute;
+}
+
+.confetti-right {
+    bottom: 6rem;
+    position: absolute;
+    right: 2rem;
+}

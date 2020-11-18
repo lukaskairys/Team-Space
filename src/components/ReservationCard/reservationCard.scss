@@ -1,22 +1,28 @@
-@import '../../../styles/base/base';
-@import '../../../styles/mixins/mixins';
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 .reservations-card {
     backface-visibility: hidden;
     background-color: $color-light-porcelain;
     border-radius: 8px;
     box-shadow: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.25);
-    cursor: pointer;
     display: flex;
-    margin-top: 3rem;
+    margin-top: 5rem;
     padding: 2.3rem 2rem;
     position: relative;
     transform: translateZ(0);
     transition: box-shadow 0.1s ease-out, transform 0.1s ease-out;
-    width: 396px;
 
-    @include respond-to(1265, max) {
-        margin-top: 5rem;
+    @include respond-to(1515, max) {
+        margin-top: 6rem;
+    }
+
+    &--big {
+        width: 39.6rem;
+    }
+
+    &--small {
+        width: 25rem;
     }
 
     &:hover {
@@ -30,11 +36,11 @@
     }
 
     &:nth-child(2) {
-        margin: 0 3.85rem;
-        margin-top: 3rem;
+        margin: 0 1rem;
+        margin-top: 5rem;
 
-        @include respond-to(1265, max) {
-            margin-top: 5rem;
+        @include respond-to(1515, max) {
+            margin-top: 6rem;
         }
     }
 
@@ -53,5 +59,13 @@
         right: 12%;
         top: 50%;
         transform: translateY(-50%);
+
+        &--small {
+            right: -5%;
+        }
+
+        &--big {
+            right: 12%;
+        }
     }
 }

@@ -16,7 +16,7 @@ const NewsFeedLayout = ({ children }) => {
 };
 
 NewsFeedLayout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 export default NewsFeedLayout;
