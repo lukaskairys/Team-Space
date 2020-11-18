@@ -42,7 +42,7 @@ function FeedCardVideo({
         <CommentIcon className="comment-icon" />
       </div>
       <div className="card-divider"></div>
-      <div className="comments-container">
+      <div className="feed-card__comments">
         <div className="comment">
           <p className="commenter-username">{commenterUsername}</p>
           <p className="comment-text">{commentText}</p>

@@ -9,21 +9,21 @@ import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.s
 
 function BirthdayCard({ title, imageUrl, body, date }) {
   return (
-    <div className="card-container">
+    <div className="birthday-card">
       <div className="image-container">
         <img src={imageUrl} alt="" />
       </div>
-      <div className="card-content">
-        <div className="card-title">
+      <div className="birthday-card__content">
+        <div className="birthday-card__title">
           <p>{title}</p>
         </div>
-        <div className="card-date">
+        <div className="birthday-card__date">
           <p>
             Celebrated a birthday on
             <span style={{ fontWeight: "500" }}> {date} </span>
           </p>
         </div>
-        <div className="card-body">
+        <div className="birthday-card__body">
           <p>{body}</p>
         </div>
         <div className="card-divider"></div>
