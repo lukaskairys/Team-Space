@@ -58,6 +58,14 @@
         text-decoration: none;
     }
 
+    &__success-msg {
+        background-color: $color-mint;
+        border-radius: 8px;
+        margin-top: 2rem;
+        padding: 1rem;
+        text-align: center;
+    }
+
     &__error-msg {
         @include typography-tiny-caps;
 
