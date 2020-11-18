@@ -3,20 +3,20 @@ import Form from "../../../components/form/Form";
 import { ReactComponent as Logo } from "../../../assets/logo165.svg";
 import "../../../components/form/formPage.scss";
 
-function RegistrationPage() {
+function LoginPage() {
   return (
     <div className="page-container">
       <div className="form-container">
         <Logo className="logo" />
         <Form
-          action={"register"}
-          title={"Register"}
-          subtitle={"Let’s get you on board."}
-          buttonLabel={"Register"}
+          action={"login"}
+          title={"Login"}
+          subtitle={"Welcome back, please login."}
+          buttonLabel={"Login"}
         />
       </div>
     </div>
   );
 }
 
-export default RegistrationPage;
+export default LoginPage;
