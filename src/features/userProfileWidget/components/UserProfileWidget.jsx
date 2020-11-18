@@ -9,7 +9,8 @@ import "./userProfileWidget.scss";
 function UserProfileWidget() {
   const [mounted, setMounted] = useState(false);
   const [image, setImage] = useState("");
-
+  const externalAPI =
+    "https://res.cloudinary.com/demo/image/fetch/w_300,h_300,c_fill,g_face,r_max,f_auto/";
   useEffect(() => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
@@ -19,7 +20,8 @@ function UserProfileWidget() {
         const { data } = await jsonserver.get("/userData", {
           cancelToken: source.token,
         });
-        setImage(data.userImage);
+        const centeredByFace = `${externalAPI}/${data.userImage}`;
+        setImage(centeredByFace);
       } catch (err) {
         if (err) {
           setImage("error");
