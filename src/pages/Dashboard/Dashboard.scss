@@ -1,5 +1,13 @@
 @import '../../styles/base/base';
 
 .dashboard {
-    display: block;
+    &__widgets {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5rem;
+    }
+
+    &__reservations {
+        margin-bottom: 5rem;
+    }
 }

@@ -13,9 +13,14 @@ const Dashboard = () => {
     <div className="dashboard">
       <MainLayout>
         <>
-          <HelloWidget />
-          <ReservationSection />
-          <WeatherWidget />
+          <div className="dashboard__widgets">
+            <HelloWidget />
+            <WeatherWidget />
+          </div>
+          <div className="dashboard__reservations">
+            <ReservationSection />
+          </div>
+
           <EatOutSection />
         </>
       </MainLayout>

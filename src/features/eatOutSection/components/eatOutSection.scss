@@ -18,6 +18,7 @@ $_breakpoint: 920;
     }
 
     &__image {
+        border-radius: 0.8rem;
         height: 18rem;
         mask-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
         object-fit: cover;
