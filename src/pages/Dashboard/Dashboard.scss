@@ -2,4 +2,15 @@
 
 .dashboard {
     display: block;
+
+    &__widgets {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4.8rem;
+    }
+
+    &__reservations-section {
+        margin-bottom: 6.4rem;
+    }
 }
