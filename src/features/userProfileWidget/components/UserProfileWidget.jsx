@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ReactComponent as ArrowDown } from "../../../assets/icons/down.svg";
+import { ReactComponent as SettingsIcon } from "../../../assets/icons/settings.svg";
+import { ReactComponent as LogOutIcon } from "../../../assets/icons/log-out.svg";
 import jsonserver from "../../../apis/jsonserver";
 import "./userProfileWidget.scss";
 
@@ -42,8 +44,14 @@ function UserProfileWidget() {
       />
       <ArrowDown className="user-profile-widget__arrow " />
       <ul className="dropdown__content">
-        <li className="dropdown__item">Settings</li>
-        <li className="dropdown__item">Log out</li>
+        <li className="dropdown__item">
+          <SettingsIcon className="dropdown__item__icon" />
+          <span>Settings</span>
+        </li>
+        <li className="dropdown__item">
+          <LogOutIcon className="dropdown__item__icon" />
+          <span>Log out</span>
+        </li>
       </ul>
     </div>
   );

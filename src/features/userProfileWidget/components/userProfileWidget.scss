@@ -10,18 +10,35 @@
         border: 1px solid $color-iron;
         border-radius: 5px;
         list-style-type: none;
-        right: 0;
+        right: 20px;
+        top: 50px;
         position: absolute;
         max-width: 197px;
         width: 20rem;
         z-index: 1;
     }
+
+    &__content li:first-child {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    &__content li:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
     &__item {
         background-color: $color-white;
         padding: 1rem;
+        display: flex;
+        align-items: center;
 
         &:hover {
             background-color: $color-porcelain;
+        }
+        &__icon {
+            padding: 0.2rem;
+            margin-right: 1rem;
         }
     }
 }
@@ -31,16 +48,18 @@
 }
 
 .user-profile-widget {
-    width: 58px;
+    color: $color-fiord;
     height: 76px;
-    position: relative;
+    //TODO REMOVE this margin
     margin: 15rem;
+    position: relative;
+    width: 58px;
 
     &__picture {
-        width: 40px;
+        border-radius: 50%;
         height: 40px;
         object-fit: cover;
-        border-radius: 50%;
+        width: 40px;
     }
 
     &__arrow {
@@ -51,4 +70,9 @@
         filter: drop-shadow(1px 1px 0px #fff) drop-shadow(-1px 1px 0px #fff)
             drop-shadow(1px -1px 0px #fff) drop-shadow(-1px -1px 0px #fff);
     }
+}
+
+.dropdown-content:first-child {
+    background-color: red;
+    border-bottom-left-radius: 5px;
 }
