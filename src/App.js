@@ -9,6 +9,7 @@ import WeatherWidget from "./features/weatherWidget/components/weatherWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
 import FeedCardVideo from "./features/FeedCardVideo/FeedCardVideo";
+import EatOutSection from "features/eatOutSection/components/EatOutSection";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
                   commentText="A new comment on this post."
                   userPhoto="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
                 />
+                <EatOutSection />
               </>
             </MainLayout>
           </Route>
