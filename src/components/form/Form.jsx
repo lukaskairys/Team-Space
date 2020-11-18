@@ -9,18 +9,21 @@ function Form({ title, subtitle, action }) {
   const {
     values,
     errors,
+    isValid,
     handleChange,
     handleSubmit,
     handleFocus,
     handleXclick,
-  } = useForm(
-    getCallback(),
-    action === "register" ? validateRegistration : noValidation
-  );
+  } = useForm(getCallback(), getValidation());
 
   function getCallback() {
     if (action === "register") return register;
     else if (action === "login") return login;
+  }
+
+  function getValidation() {
+    if (action === "register") return validateRegistration;
+    else if (action === "login") return noValidation;
   }
 
   function register() {
@@ -53,6 +56,13 @@ function Form({ title, subtitle, action }) {
           <FormFooter action={action} />
         </div>
       </form>
+      {isValid && action === "register" ? (
+        <p className="form__success-msg">
+          Congratulations! Your registration was successful.
+        </p>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

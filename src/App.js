@@ -4,6 +4,7 @@ import RegistrationPage from "../src/features/registration/pages/RegistrationPag
 import LoginPage from "../src/features/login/pages/LoginPage";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
+import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import Dashboard from "pages/Dashboard/Dashboard";
 
 function App() {
@@ -19,11 +20,22 @@ function App() {
           </Route>
           <Route exact path="/reservations">
             <MainLayout>
-              <ReservationSection />
+              <>
+                <Breadcrumbs />
+                <ReservationSection />
+              </>
             </MainLayout>
           </Route>
-          <Route exact path="/reservations/devices"></Route>
-          <Route exact path="/reservations/books"></Route>
+          <Route exact path="/reservations/devices">
+            <MainLayout>
+              <Breadcrumbs />
+            </MainLayout>
+          </Route>
+
+          <Route exact path="/reservations/books">
+            <MainLayout />
+          </Route>
+
           <Route path="/registration">
             <RegistrationPage />
           </Route>
