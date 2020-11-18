@@ -2,5 +2,5 @@
 import React from "react";
 
 export default function NewsFeed() {
-  return <div style={{ backgroundColor: "#FFAC81", height: "232px" }}></div>;
+  return <div className="div-1"></div>;
 }

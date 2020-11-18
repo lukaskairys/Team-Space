@@ -5,8 +5,8 @@ import HelloWidget from "features/helloWidget/components/HelloWidget";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import MainLayout from "components/MainLayout/MainLayout";
 import NewsFeedLayout from "components/NewsFeedLayout/NewsFeedLayout";
-import NewsFeedSmall from "components/NewsFeedLayout/NewsFeedSmall";
-import NewsFeedBig from "components/NewsFeedLayout/NewsFeedBig";
+import BirthdayExample from "components/NewsFeedLayout/BirthdayExample";
+import PostExample from "components/NewsFeedLayout/PostExample";
 
 function App() {
   return (
@@ -21,30 +21,12 @@ function App() {
               <HelloWidget />
               <ReservationSection />
               <NewsFeedLayout>
-                <NewsFeedSmall />
-                <NewsFeedSmall />
-                <NewsFeedSmall />
-                <NewsFeedBig type={"post"} />
-                <NewsFeedBig type={"post1"} />
-                <NewsFeedBig type={"post"} />
-                <NewsFeedBig type={"post"} />
-                <NewsFeedBig type={"post1"} />
-                <NewsFeedBig type={"post"} />
-                {/* <div style={{ gridRow: "5 / 7" }}>
-                  <NewsFeedBig />
-                </div>
-                <div style={{ gridRow: "4 / 6" }}>
-                  <NewsFeedBig />
-                </div>
-                <div style={{ gridRow: "5 / 7" }}>
-                  <NewsFeedBig />
-                </div>
-                <div style={{ gridRow: "8 / 10" }}>
-                  <NewsFeedBig />
-                </div>
-                <div style={{ gridRow: "7 / 9" }}>
-                  <NewsFeedBig />
-                </div> */}
+                <BirthdayExample />
+                <BirthdayExample />
+                <BirthdayExample />
+                <PostExample type={"post1"} />
+                <PostExample type={"post2"} />
+                <PostExample type={"post3"} />
               </NewsFeedLayout>
             </MainLayout>
           </Route>
