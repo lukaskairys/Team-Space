@@ -16,6 +16,9 @@ const HelloWidget = () => {
   const [userName, setUserName] = useState("Wizard");
 
   useEffect(() => {
+    let intervalID = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString("lt-LT", options));
+    }, 1000);
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     setMounted(true);
@@ -35,10 +38,6 @@ const HelloWidget = () => {
     if (mounted) {
       getUserName();
     }
-
-    let intervalID = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString("lt-LT", options));
-    }, 1000);
 
     return () => {
       clearInterval(intervalID);
