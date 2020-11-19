@@ -1,0 +1,64 @@
+$drop-border-radius: 5px;
+
+a {
+    text-decoration: none;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+
+    &__content {
+        @include typography-body-2;
+
+        border: 1px solid $color-ghost;
+        border-radius: $drop-border-radius;
+        cursor: pointer;
+        list-style-type: none;
+        right: 0;
+        top: 15px;
+        width: 20rem;
+        position: absolute;
+        z-index: 5;
+
+        &::before {
+            background-color: $color-white;
+            border-top: 1px solid $color-ghost;
+            border-left: 1px solid $color-ghost;
+            content: '';
+            display: block;
+            height: 10px;
+            position: absolute;
+            right: 12px;
+            top: -6px;
+            width: 10px;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+    }
+
+    &__item {
+        align-items: center;
+        background-color: $color-white;
+        display: flex;
+        padding: 1rem;
+
+        &:hover {
+            background-color: $color-porcelain;
+        }
+    }
+    &__icon {
+        margin-right: 1rem;
+        padding: 0.2rem;
+    }
+}
+
+.dropdown__content li:first-child {
+    border-top-left-radius: $drop-border-radius;
+    border-top-right-radius: $drop-border-radius;
+}
+
+.dropdown__content li:last-child {
+    border-bottom-left-radius: $drop-border-radius;
+    border-bottom-right-radius: $drop-border-radius;
+}

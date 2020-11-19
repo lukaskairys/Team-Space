@@ -1,36 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { ReactComponent as ArrowDown } from "../../../assets/icons/down.svg";
-import { ReactComponent as SettingsIcon } from "../../../assets/icons/settings.svg";
-import { ReactComponent as LogOutIcon } from "../../../assets/icons/log-out.svg";
+
+import Button from "../../../components/button/Button";
+import { ReactComponent as ArrowDown } from "../../../assets/icons/down-with-border.svg";
+
 import jsonserver from "../../../apis/jsonserver";
 import "./userProfileWidget.scss";
+import DropDownContent from "./DropdownContent";
 
 function UserProfileWidget() {
   const [mounted, setMounted] = useState(false);
   const [image, setImage] = useState("");
-  const externalAPI =
-    "https://res.cloudinary.com/demo/image/fetch/w_300,h_300,c_fill,g_face,r_max,f_auto/";
+  const [open, setOpen] = useState(false);
+
+  const drop = useRef(null);
+  const handleClick = () => setOpen(!open);
+  const handleOutsideClick = (event) => {
+    if (drop.current && !drop.current.contains(event.target)) setOpen(false);
+  };
+
   useEffect(() => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     setMounted(true);
+
+    document.addEventListener("mousedown", handleOutsideClick);
     const getImage = async () => {
       try {
         const { data } = await jsonserver.get("/userData", {
           cancelToken: source.token,
         });
-        const centeredByFace = `${externalAPI}/${data.userImage}`;
-        setImage(centeredByFace);
+        setImage(data.userImage);
       } catch (err) {
-        if (err) {
-          setImage("error");
-        }
+        if (err) setImage("error");
       }
     };
-    if (mounted) {
-      getImage();
-    }
+
+    if (mounted) getImage();
     return () => {
       source.cancel();
       setMounted(false);
@@ -38,23 +44,12 @@ function UserProfileWidget() {
   }, [mounted, image]);
 
   return (
-    <div className="user-profile-widget dropdown ">
-      <img
-        className="user-profile-widget__picture"
-        src={image}
-        alt="user profile"
-      />
-      <ArrowDown className="user-profile-widget__arrow " />
-      <ul className="dropdown__content">
-        <li className="dropdown__item">
-          <SettingsIcon className="dropdown__item__icon" />
-          <span>Settings</span>
-        </li>
-        <li className="dropdown__item">
-          <LogOutIcon className="dropdown__item__icon" />
-          <span>Log out</span>
-        </li>
-      </ul>
+    <div className="profile-widget" ref={drop}>
+      <Button dropdown={"true"} handleClick={handleClick}>
+        <img className="dropdown-btn__picture" src={image} alt="user profile" />
+      </Button>
+      <ArrowDown className="profile-widget__arrow " />
+      {open && <DropDownContent />}
     </div>
   );
 }

@@ -1,81 +1,15 @@
 @import '../../../styles/base/base';
+@import './dropdownContent.scss';
 
-.dropdown {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-
-    &__content {
-        @include typography-body-2;
-
-        display: none;
-        border: 1px solid $color-iron;
-        border-radius: 5px;
-        list-style-type: none;
-        right: 20px;
-        top: 50px;
-        position: absolute;
-        max-width: 197px;
-        width: 20rem;
-        z-index: 1;
-    }
-
-    &__content li:first-child {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
-    &__content li:last-child {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-    }
-
-    &__item {
-        align-items: center;
-        background-color: $color-white;
-        display: flex;
-        padding: 1rem;
-
-        &:hover {
-            background-color: $color-porcelain;
-        }
-
-        &__icon {
-            margin-right: 1rem;
-            padding: 0.2rem;
-        }
-    }
-}
-
-.dropdown:hover .dropdown__content {
-    display: block;
-}
-
-.user-profile-widget {
+.profile-widget {
     color: $color-fiord;
     height: 76px;
-    //TODO REMOVE this margin
-    margin: 15rem;
     position: relative;
     width: 58px;
 
-    &__picture {
-        border-radius: 50%;
-        height: 40px;
-        object-fit: cover;
-        width: 40px;
-    }
-
     &__arrow {
-        bottom: 35px;
+        bottom: 36px;
         position: absolute;
-        right: 20px;
-        width: 10px;
-        filter: drop-shadow(1px 1px 0px #fff) drop-shadow(-1px 1px 0px #fff)
-            drop-shadow(1px -1px 0px #fff) drop-shadow(-1px -1px 0px #fff);
+        right: 18px;
     }
-}
-
-.dropdown-content:first-child {
-    background-color: red;
-    border-bottom-left-radius: 5px;
 }
