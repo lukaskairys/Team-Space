@@ -1,0 +1,167 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$_title-color: rgba(0, 0, 0, 0.7);
+$_font-size-category-query: 0.9rem;
+$_content-margin: 1.6rem;
+$_breakpoint: 1200;
+
+.eat-out-card {
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-areas: 'suggestion  firstRestaurant secondRestaurant';
+    grid-template-columns: repeat(3, 1fr);
+
+    @include respond-to($_breakpoint, max) {
+        grid-template-areas:
+            '. suggestion suggestion .'
+            'firstRestaurant firstRestaurant secondRestaurant secondRestaurant';
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__column {
+        background-color: $color-white;
+        border-radius: 0.8rem;
+        padding-bottom: 2rem;
+    }
+
+    &__image {
+        border-radius: 0.8rem;
+        height: 18rem;
+        mask-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
+    }
+
+    &__column:nth-child(n + 2) {
+        box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    }
+
+    &__column:first-child {
+        grid-area: suggestion;
+    }
+
+    &__column:nth-child(2) {
+        grid-area: firstRestaurant;
+    }
+
+    &__column:last-child {
+        grid-area: secondRestaurant;
+    }
+
+    &__suggestion,
+    &__title {
+        @include typography-h2-alternative;
+    }
+
+    &__suggestion {
+        color: $_title-color;
+        font-weight: $heavy-weight;
+        text-align: center;
+        width: 90%;
+
+        @include respond-to($_breakpoint, max) {
+            font-size: $font-size-20;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__title {
+        color: $color-midnight;
+        font-style: normal;
+        font-weight: $medium-weight;
+        letter-spacing: 0.05rem;
+        width: 80%;
+    }
+
+    &__header {
+        border-radius: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        height: 70%;
+        justify-content: space-between;
+        min-height: 18rem;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    &__content {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        justify-content: center;
+        padding: 4rem;
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: space-between;
+        margin: $_content-margin;
+    }
+
+    &__categories {
+        align-self: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: $_content-margin;
+        max-height: 2.4rem;
+        overflow: hidden;
+    }
+
+    &__item {
+        color: $color-slate-gray;
+        font-size: $font-size-20; //for bullet points
+        font-weight: $medium-weight;
+        margin-right: 3.2rem;
+        text-transform: uppercase;
+    }
+
+    &__category {
+        bottom: 0.25rem;
+        font-size: $font-size-10;
+        position: relative;
+    }
+
+    &__categories li:nth-of-type(1) {
+        list-style: none;
+    }
+
+    &__subsection {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 2.4rem 0 1.6rem;
+    }
+
+    &__favorite-container {
+        height: 2.2rem;
+        width: 2.4rem;
+    }
+
+    &__favorite {
+        fill: $color-white;
+        height: 2.2rem;
+        stroke: $color-fiord;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+        width: 2.4rem;
+    }
+
+    &__favorite--active {
+        fill: $color-watermelon;
+        stroke: $color-watermelon;
+    }
+
+    &__time {
+        color: $color-slate-gray;
+        font-weight: $medium-weight;
+        margin: 0 $_content-margin;
+    }
+
+    &__favorite path:hover {
+        cursor: pointer;
+    }
+}
