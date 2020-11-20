@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import jsonserver from "../../../apis/jsonserver";
 
+import DropDownContent from "./DropdownContent";
 import Button from "../../../components/button/Button";
 import { ReactComponent as ArrowDown } from "../../../assets/icons/down-with-border.svg";
-
-import jsonserver from "../../../apis/jsonserver";
+import userIcon from "../../../assets/icons/user.svg";
 import "./userProfileWidget.scss";
-import DropDownContent from "./DropdownContent";
 
 function UserProfileWidget() {
   const [mounted, setMounted] = useState(false);
@@ -24,7 +24,7 @@ function UserProfileWidget() {
     const source = CancelToken.source();
     setMounted(true);
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick);
     const getImage = async () => {
       try {
         const { data } = await jsonserver.get("/userData", {
@@ -32,7 +32,7 @@ function UserProfileWidget() {
         });
         setImage(data.userImage);
       } catch (err) {
-        if (err) setImage("error");
+        if (err) setImage(userIcon);
       }
     };
 
@@ -45,11 +45,15 @@ function UserProfileWidget() {
 
   return (
     <div className="profile-widget" ref={drop}>
-      <Button dropdown={"true"} handleClick={handleClick}>
-        <img className="dropdown-btn__picture" src={image} alt="user profile" />
+      <Button dropdown={true} handleClick={handleClick}>
+        <img
+          className="profile-widget__picture"
+          src={image}
+          alt="user profile"
+        />
       </Button>
       <ArrowDown className="profile-widget__arrow " />
-      {open && <DropDownContent />}
+      <DropDownContent isOpen={open} />
     </div>
   );
 }

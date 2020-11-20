@@ -14,10 +14,10 @@ function Button({
 }) {
   const btnClass = classNames({
     button: true,
-    "button--large": large === "true",
-    "button--medium": medium === "true",
-    "button__icon-x": del === "true",
-    "dropdown-btn": dropdown === "true",
+    "button--large": large,
+    "button--medium": medium,
+    "button__icon-x": del,
+    "dropdown-btn": dropdown,
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>
@@ -30,10 +30,10 @@ Button.propTypes = {
   type: PropTypes.string,
   handleClick: PropTypes.func,
   children: PropTypes.object,
-  large: PropTypes.string,
-  del: PropTypes.string,
-  medium: PropTypes.string,
-  dropdown: PropTypes.string,
+  large: PropTypes.bool,
+  del: PropTypes.bool,
+  medium: PropTypes.bool,
+  dropdown: PropTypes.bool,
 };
 
 export default Button;

@@ -63,13 +63,6 @@
     outline: none;
     padding: 0;
 
-    &__picture {
-        border-radius: 50%;
-        height: 40px;
-        object-fit: cover;
-        width: 40px;
-    }
-
     &:hover,
     &:focus {
         background: none;

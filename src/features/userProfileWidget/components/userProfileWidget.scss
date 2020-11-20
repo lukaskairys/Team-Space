@@ -1,15 +1,24 @@
 @import '../../../styles/base/base';
-@import './dropdownContent.scss';
+@import './dropdownContent';
 
 .profile-widget {
     color: $color-fiord;
-    height: 76px;
     position: relative;
-    width: 58px;
 
     &__arrow {
-        bottom: 36px;
+        bottom: 7px;
         position: absolute;
-        right: 18px;
+        right: -2px;
+    }
+
+    &__picture {
+        border-radius: 50%;
+        height: 40px;
+        object-fit: cover;
+        width: 40px;
+
+        &:hover {
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
     }
 }
