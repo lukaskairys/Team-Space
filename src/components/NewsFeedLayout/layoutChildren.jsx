@@ -46,7 +46,11 @@ const layoutChildren = (data) => {
       return (
         <div
           key={index}
-          style={{ gridColumn: "2 / 3", gridRow: gridRowStyle.secondColumn }}
+          style={{
+            marginBottom: "3rem",
+            gridColumn: "2 / 3",
+            gridRow: gridRowStyle.secondColumn,
+          }}
         >
           {child}
         </div>
