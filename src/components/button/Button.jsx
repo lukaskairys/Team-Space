@@ -10,14 +10,12 @@ function Button({
   large,
   medium,
   del,
-  dropdown,
 }) {
   const btnClass = classNames({
     button: true,
     "button--large": large,
     "button--medium": medium,
     "button__icon-x": del,
-    "dropdown-btn": dropdown,
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>
@@ -33,7 +31,6 @@ Button.propTypes = {
   large: PropTypes.bool,
   del: PropTypes.bool,
   medium: PropTypes.bool,
-  dropdown: PropTypes.bool,
 };
 
 export default Button;

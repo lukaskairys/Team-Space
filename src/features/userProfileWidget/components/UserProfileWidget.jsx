@@ -3,14 +3,13 @@ import axios from "axios";
 import jsonserver from "../../../apis/jsonserver";
 
 import DropDownContent from "./DropdownContent";
-import Button from "../../../components/button/Button";
 import { ReactComponent as ArrowDown } from "../../../assets/icons/down-with-border.svg";
 import userIcon from "../../../assets/icons/user.svg";
 import "./userProfileWidget.scss";
 
 function UserProfileWidget() {
   const [mounted, setMounted] = useState(false);
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(userIcon);
   const [open, setOpen] = useState(false);
 
   const drop = useRef(null);
@@ -45,13 +44,13 @@ function UserProfileWidget() {
 
   return (
     <div className="profile-widget" ref={drop}>
-      <Button dropdown={true} handleClick={handleClick}>
+      <button onClick={handleClick} className="profile-widget__button">
         <img
           className="profile-widget__picture"
           src={image}
           alt="user profile"
         />
-      </Button>
+      </button>
       <ArrowDown className="profile-widget__arrow " />
       <DropDownContent isOpen={open} />
     </div>

@@ -55,16 +55,3 @@
         }
     }
 }
-
-.dropdown-btn {
-    background: none;
-    border: unset;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-
-    &:hover,
-    &:focus {
-        background: none;
-    }
-}
