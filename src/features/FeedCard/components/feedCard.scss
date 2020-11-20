@@ -1,4 +1,4 @@
-@import '../../styles/base/base';
+@import '../../../styles/base/base';
 
 .feed-card {
     background-color: $color-white;
@@ -59,9 +59,12 @@
 .interactions-container {
     align-items: center;
     color: $color-slate-gray;
+    display: flex;
     font-size: $font-size-12;
+    font-weight: $medium-weight;
     height: 4.7rem;
     line-height: 1.3rem;
+    overflow: hidden;
     vertical-align: middle;
 }
 

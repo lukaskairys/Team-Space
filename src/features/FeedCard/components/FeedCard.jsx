@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./feedCard.scss";
-import { ReactComponent as HeartIcon } from "../../assets/icons/heart-icon.svg";
-import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.svg";
-import FormInput from "../../components/form/input/FormInput";
+import FeedCardComments from "./FeedCardComments";
+import { ReactComponent as HeartIcon } from "../../../assets/icons/heart-icon.svg";
+import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
+import FormInput from "../../../components/form/input/FormInput";
 
 function FeedCard({
   authorUsername,
@@ -11,10 +12,11 @@ function FeedCard({
   city,
   time,
   imageUrl,
-  commenterUsername,
-  commentText,
   userPhoto,
   newComment,
+  comments,
+  commentCount,
+  likes,
 }) {
   return (
     <div className="feed-card">
@@ -34,19 +36,12 @@ function FeedCard({
       </div>
       <div className="interactions-container">
         <HeartIcon className="heart-icon" />
+        <p>{likes}</p>
         <CommentIcon className="comment-icon" />
+        <p>{commentCount}</p>
       </div>
       <div className="feed-card-divider"></div>
-      <div className="feed-card__comments">
-        <div className="comment">
-          <p className="commenter-username">{commenterUsername}</p>
-          <p className="comment-text">{commentText}</p>
-        </div>
-        <div className="comment">
-          <p className="commenter-username">{commenterUsername}</p>
-          <p className="comment-text">{commentText}</p>
-        </div>
-      </div>
+      <FeedCardComments comments={comments} />
       <div className="feed-card-divider"></div>
       <div className="new-comment-container">
         <img className="new-comment-image" src={userPhoto} alt="User" />
@@ -67,6 +62,9 @@ FeedCard.propTypes = {
   commentText: PropTypes.string,
   newComment: PropTypes.string,
   userPhoto: PropTypes.string,
+  likes: PropTypes.number,
+  commentCount: PropTypes.number,
+  comments: PropTypes.array,
 };
 
 export default FeedCard;

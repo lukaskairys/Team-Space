@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./birthdayCard.scss";
-import { ReactComponent as ConfettiLeft } from "../../assets/images/confetti-1.svg";
-import { ReactComponent as ConfettiRight } from "../../assets/images/confetti-2.svg";
-import { ReactComponent as Sparkles } from "../../assets/images/sparkles.svg";
-import { ReactComponent as GiftIcon } from "../../assets/icons/gift-icon.svg";
-import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.svg";
+import { ReactComponent as ConfettiLeft } from "../../../assets/images/confetti-1.svg";
+import { ReactComponent as ConfettiRight } from "../../../assets/images/confetti-2.svg";
+import { ReactComponent as Sparkles } from "../../../assets/images/sparkles.svg";
+import { ReactComponent as GiftIcon } from "../../../assets/icons/gift-icon.svg";
+import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
 
-function BirthdayCard({ title, imageUrl, body, date }) {
+function BirthdayCard({ title, imageUrl, body, date, wishes, comments }) {
   return (
     <div className="birthday-card">
       <div className="birthday-card__image-container">
@@ -33,7 +33,9 @@ function BirthdayCard({ title, imageUrl, body, date }) {
         <div className="feed-card-divider"></div>
         <div className="interactions-container">
           <GiftIcon className="gift-icon" />
+          <p>{wishes}</p>
           <CommentIcon className="comment-icon" />
+          <p>{comments}</p>
         </div>
         <ConfettiLeft className="confetti-left" />
         <ConfettiRight className="confetti-right" />
@@ -48,6 +50,8 @@ BirthdayCard.propTypes = {
   imageUrl: PropTypes.string,
   body: PropTypes.string,
   date: PropTypes.string,
+  wishes: PropTypes.number,
+  comments: PropTypes.number,
 };
 
 export default BirthdayCard;

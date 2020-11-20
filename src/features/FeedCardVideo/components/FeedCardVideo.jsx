@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactPlayer from "react-player";
-import "../FeedCard/feedCard.scss";
-import { ReactComponent as HeartIcon } from "../../assets/icons/heart-icon.svg";
-import { ReactComponent as CommentIcon } from "../../assets/icons/comment-icon.svg";
-import { ReactComponent as PlayButton } from "../../assets/images/play-button.svg";
-import FormInput from "../../components/form/input/FormInput";
+import "../../FeedCard/components/feedCard.scss";
+import { ReactComponent as HeartIcon } from "../../../assets/icons/heart-icon.svg";
+import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
+import { ReactComponent as PlayButton } from "../../../assets/images/play-button.svg";
+import FormInput from "../../../components/form/input/FormInput";
 
 function FeedCardVideo({
   authorUsername,
@@ -17,6 +17,10 @@ function FeedCardVideo({
   commentText,
   userPhoto,
   newComment,
+  comments,
+  likes,
+  videoUrl,
+  videoThumbnail,
 }) {
   return (
     <div className="feed-card">
@@ -33,8 +37,8 @@ function FeedCardVideo({
       </div>
       <div className="feed-card__content">
         <ReactPlayer
-          url="https://storage.coverr.co/videos/flYliO01fn8Zw5RH1O9hXlbKbCs02A01hKp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MTA2MzIyfQ.eHacEaqpHvG_dNz6lOVkNSG4cydWgrqYs9WDdhK82ks"
-          light="https://storage.coverr.co/t/Q4G3nDsk01ZRFR9o7HjBzTFkcgXE90101NA"
+          url={videoUrl}
+          light={videoThumbnail}
           width="100%"
           height="100%"
           playing="true"
@@ -43,14 +47,12 @@ function FeedCardVideo({
       </div>
       <div className="interactions-container">
         <HeartIcon className="heart-icon" />
+        <p>{likes}</p>
         <CommentIcon className="comment-icon" />
+        <p>{comments}</p>
       </div>
       <div className="feed-card-divider"></div>
       <div className="feed-card__comments">
-        <div className="comment">
-          <p className="commenter-username">{commenterUsername}</p>
-          <p className="comment-text">{commentText}</p>
-        </div>
         <div className="comment">
           <p className="commenter-username">{commenterUsername}</p>
           <p className="comment-text">{commentText}</p>
@@ -76,6 +78,10 @@ FeedCardVideo.propTypes = {
   commentText: PropTypes.string,
   newComment: PropTypes.string,
   userPhoto: PropTypes.string,
+  likes: PropTypes.number,
+  comments: PropTypes.number,
+  videoUrl: PropTypes.string,
+  videoThumbnail: PropTypes.string,
 };
 
 export default FeedCardVideo;
