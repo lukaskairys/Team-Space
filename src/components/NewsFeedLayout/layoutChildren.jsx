@@ -1,80 +1,99 @@
 import React from "react";
 
-let gridRowStyle = {
-  firstAndThirdColumn: "-1 / 1",
-  secondColumn: "-2 / 0",
-};
-
-const changeGridRowStyle = () => {
-  let res = gridRowStyle.firstAndThirdColumn
-    .split(" ")
-    .map((el) => {
-      const n = Number(el);
-      return isNaN(n) ? el : n;
-    })
-    .map((el) => (typeof el === "number" ? el + 3 : el))
-    .join(" ");
-  gridRowStyle.firstAndThirdColumn = res;
-
-  let res2 = gridRowStyle.secondColumn
-    .split(" ")
-    .map((el) => {
-      const n = Number(el);
-      return isNaN(n) ? el : n;
-    })
-    .map((el) => (typeof el === "number" ? el + 3 : el))
-    .join(" ");
-  gridRowStyle.secondColumn = res2;
-};
-
-const layoutChildren = (data) => {
-  let result = data.map((child, index) => {
-    if (child.props.type === "post1") {
-      return (
-        <div
-          key={index}
-          style={{
-            gridColumn: "1 / 2",
-            gridRow: gridRowStyle.firstAndThirdColumn,
-          }}
-        >
-          {child}
-        </div>
-      );
-    }
-    if (child.props.type === "post2") {
-      return (
-        <div
-          key={index}
-          style={{
-            marginBottom: "3rem",
-            gridColumn: "2 / 3",
-            gridRow: gridRowStyle.secondColumn,
-          }}
-        >
-          {child}
-        </div>
-      );
-    }
-    if (child.props.type === "post3") {
-      let result = (
-        <div
-          key={index}
-          style={{
-            gridColumn: "3 / 4",
-            gridRow: gridRowStyle.firstAndThirdColumn,
-          }}
-        >
-          {child}
-        </div>
-      );
-      changeGridRowStyle();
-      return result;
+const gridRowStyle = {
+  addRows: function (value, n) {
+    if (n === false) {
+      return "";
     } else {
-      return child;
+      return value
+        .split(" ")
+        .map((el) => {
+          const n = Number(el);
+          return isNaN(n) ? el : n;
+        })
+        .map((el) => (typeof el === "number" ? el + 3 * n : el))
+        .join(" ");
+    }
+  },
+};
+
+const useLayoutChildren = (data) => {
+  const smallCards = [];
+  let bigCards = [];
+
+  function chunkArrayInGroups(arr, size) {
+    let myArray = [];
+    for (var i = 0; i < arr.length; i += size) {
+      myArray.push(arr.slice(i, i + size));
+    }
+    return myArray;
+  }
+
+  data.forEach((item) => {
+    if (item.props.type === 1) {
+      bigCards.push(item);
+    } else {
+      smallCards.push(item);
     }
   });
-  return result;
+
+  bigCards = chunkArrayInGroups(bigCards, 3);
+
+  let neww = bigCards.map((child, indexOfParent) => {
+    return child.map((grandSon, index, childArr) => {
+      if (index === 0) {
+        return (
+          <div
+            key={index}
+            style={{
+              gridColumn: "1 / 2",
+              gridRow: gridRowStyle.addRows(
+                "2 / 4",
+                childArr.length === 3 ? indexOfParent : false
+              ),
+            }}
+          >
+            {grandSon}
+          </div>
+        );
+      } else if (index === 1) {
+        return (
+          <div
+            key={index}
+            style={{
+              marginBottom: "3rem",
+              gridColumn: "2 / 3",
+              gridRow: gridRowStyle.addRows(
+                "1 / 3",
+                childArr.length === 3 ? indexOfParent : false
+              ),
+            }}
+          >
+            {grandSon}
+          </div>
+        );
+      } else if (index === 2) {
+        return (
+          <div
+            key={index}
+            style={{
+              marginBottom: "3rem",
+              gridColumn: "3 / 4",
+              gridRow: gridRowStyle.addRows(
+                "2 / 4",
+                childArr.length === 3 ? indexOfParent : false
+              ),
+            }}
+          >
+            {grandSon}
+          </div>
+        );
+      } else {
+        return grandSon;
+      }
+    });
+  });
+  return [...smallCards, ...neww];
 };
 
-export default layoutChildren;
+export default useLayoutChildren;

@@ -2,15 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./NewsFeedLayout.scss";
-import layoutChildren from "./layoutChildren";
+import useLayoutChildren from "./layoutChildren";
 
 const NewsFeedLayout = ({ children }) => {
+  const child = useLayoutChildren(children);
   return (
     <section className="news-feed-section">
       <h2 className="news-feed-section__title">News and Stories</h2>
-      <section className="news-feed-section__content">
-        {layoutChildren(children)}
-      </section>
+      <section className="news-feed-section__content">{child}</section>
     </section>
   );
 };

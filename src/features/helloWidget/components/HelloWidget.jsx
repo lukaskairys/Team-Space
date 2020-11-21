@@ -27,7 +27,7 @@ const HelloWidget = () => {
         const { data } = await jsonserver.get("/userData", {
           cancelToken: source.token,
         });
-        setUserName(data.userName);
+        if (mounted) setUserName(data.userName);
       } catch (err) {
         if (err) {
           setUserName("Mr. Error");
@@ -35,16 +35,15 @@ const HelloWidget = () => {
       }
     };
 
-    if (mounted) {
-      getUserName();
-    }
+    getUserName();
 
     return () => {
       clearInterval(intervalID);
       source.cancel();
       setMounted(false);
     };
-  }, [mounted]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderGreeting = () => {
     const now = parseInt(currentTime.slice(0, 2));
