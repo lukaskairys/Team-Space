@@ -41,7 +41,9 @@ function FeedCard({
         <p>{commentCount}</p>
       </div>
       <div className="feed-card-divider"></div>
-      <FeedCardComments comments={comments} />
+      <div className="feed-card__comments-container">
+        <FeedCardComments comments={comments} />
+      </div>
       <div className="feed-card-divider"></div>
       <div className="new-comment-container">
         <img className="new-comment-image" src={userPhoto} alt="User" />

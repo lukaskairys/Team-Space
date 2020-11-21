@@ -45,8 +45,33 @@
         width: 39.5rem;
     }
 
+    &__comments-container {
+        display: inline-block;
+        height: 5rem;
+        margin: 0.5rem 1.6rem;
+        overflow: hidden;
+    }
+
     &__comments {
-        margin: 1.2rem 1.56rem;
+        margin: 0 1.56rem 0 0;
+    }
+
+    &__comment {
+        margin-bottom: 0.8rem;
+    }
+
+    &__commenter-username {
+        display: inline;
+        font-size: $font-size-10;
+        font-weight: $medium-weight;
+        line-height: 1.1;
+        margin-right: 0.8rem;
+        text-transform: uppercase;
+    }
+
+    &__comment-text {
+        display: inline;
+        font-size: $font-size-10;
     }
 
     &__content-img {
@@ -66,25 +91,6 @@
     line-height: 1.3rem;
     overflow: hidden;
     vertical-align: middle;
-}
-
-.commenter-username {
-    display: inline;
-    font-size: $font-size-10;
-    font-weight: $medium-weight;
-    line-height: 1.1;
-    margin-right: 0.8rem;
-
-    text-transform: uppercase;
-}
-
-.comment {
-    margin-bottom: 0.8rem;
-}
-
-.comment-text {
-    display: inline;
-    font-size: $font-size-10;
 }
 
 .comment-text::after {

@@ -54,10 +54,9 @@ function TemporaryLayout() {
             time="20h"
             videoUrl={story.postVideo}
             videoThumbnail={story.postCover}
-            commenterUsername="firstname lastname2"
-            commentText="A new comment on this post."
-            likes={story.likes}
-            comments={story.comments.length}
+            comments={story.comments}
+            likeCount={story.likes}
+            commentCount={story.comments.length}
             userPhoto="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
           />
         ) : (

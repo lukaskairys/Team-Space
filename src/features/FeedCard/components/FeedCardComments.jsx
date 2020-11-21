@@ -7,11 +7,9 @@ function FeedCardComments({ comments }) {
     <div>
       {comments.map((comment, i) => {
         return (
-          <div className="feed-card__comments" key={i}>
-            <div className="comment">
-              <p className="commenter-username">{comment.userName}</p>
-              <p className="comment-text">{comment.comment}</p>
-            </div>
+          <div className="feed-card__comment" key={i}>
+            <p className="feed-card__commenter-username">{comment.userName}</p>
+            <p className="feed-card__comment-text">{comment.comment}</p>
           </div>
         );
       })}

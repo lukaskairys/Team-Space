@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactPlayer from "react-player";
+import FeedCardComments from "../../FeedCard/components/FeedCardComments";
 import "../../FeedCard/components/feedCard.scss";
 import { ReactComponent as HeartIcon } from "../../../assets/icons/heart-icon.svg";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
@@ -13,12 +14,11 @@ function FeedCardVideo({
   city,
   time,
   imageUrl,
-  commenterUsername,
-  commentText,
+  comments,
   userPhoto,
   newComment,
-  comments,
-  likes,
+  commentCount,
+  likeCount,
   videoUrl,
   videoThumbnail,
 }) {
@@ -47,16 +47,13 @@ function FeedCardVideo({
       </div>
       <div className="interactions-container">
         <HeartIcon className="heart-icon" />
-        <p>{likes}</p>
+        <p>{likeCount}</p>
         <CommentIcon className="comment-icon" />
-        <p>{comments}</p>
+        <p>{commentCount}</p>
       </div>
       <div className="feed-card-divider"></div>
-      <div className="feed-card__comments">
-        <div className="comment">
-          <p className="commenter-username">{commenterUsername}</p>
-          <p className="comment-text">{commentText}</p>
-        </div>
+      <div className="feed-card__comments-container">
+        <FeedCardComments comments={comments} />
       </div>
       <div className="feed-card-divider"></div>
       <div className="new-comment-container">
@@ -78,10 +75,11 @@ FeedCardVideo.propTypes = {
   commentText: PropTypes.string,
   newComment: PropTypes.string,
   userPhoto: PropTypes.string,
-  likes: PropTypes.number,
-  comments: PropTypes.number,
+  likeCount: PropTypes.number,
+  commentCount: PropTypes.number,
   videoUrl: PropTypes.string,
   videoThumbnail: PropTypes.string,
+  comments: PropTypes.array,
 };
 
 export default FeedCardVideo;
