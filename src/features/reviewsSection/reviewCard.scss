@@ -1,0 +1,35 @@
+@import '../../styles/base/base';
+
+.review-card {
+    background: $color-white;
+    border-radius: 8px;
+    box-shadow: $card-shadow;
+    margin: 1.5rem 0;
+    position: relative;
+    width: 40rem;
+
+    &__title {
+        @include typography-body-2-bold;
+
+        font-weight: $bold-weight;
+        padding: 2rem;
+        padding-bottom: 0;
+        text-transform: uppercase;
+    }
+
+    &__content {
+        @include typography-body-2;
+
+        line-height: 1.5;
+        padding: 0.6rem 2rem 1.6rem;
+    }
+}
+
+.rating-container {
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: $z-index-base;
+}

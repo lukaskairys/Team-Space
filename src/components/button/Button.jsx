@@ -14,7 +14,7 @@ function Button({
   const btnClass = classNames({
     button: true,
     "button--large": large === "true",
-    "button--medium": medium === "true",
+    "button--medium": medium,
     "button__icon-x": del === "true",
   });
   return (
@@ -30,7 +30,7 @@ Button.propTypes = {
   children: PropTypes.object,
   large: PropTypes.string,
   del: PropTypes.string,
-  medium: PropTypes.string,
+  medium: PropTypes.bool,
 };
 
 export default Button;
