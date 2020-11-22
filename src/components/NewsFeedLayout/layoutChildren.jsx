@@ -4,7 +4,7 @@ import useWindowDimensions from "./useWindowDimensions";
 
 function groupArray(arr, size) {
   let groupedArr = [];
-  for (var i = 0; i < arr.length; i += size) {
+  for (let i = 0; i < arr.length; i += size) {
     groupedArr.push(arr.slice(i, i + size));
   }
   return groupedArr;
