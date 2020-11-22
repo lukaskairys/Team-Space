@@ -38,7 +38,7 @@ function FormInput(props) {
       {isError && (
         <Button
           type={"button"}
-          del={"true"}
+          del={true}
           handleClick={() => handleXclick(inputRef)}
         >
           <IconX />
@@ -51,10 +51,10 @@ function FormInput(props) {
 FormInput.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   value: PropTypes.any,
   className: PropTypes.string,
   onFocus: PropTypes.func,
