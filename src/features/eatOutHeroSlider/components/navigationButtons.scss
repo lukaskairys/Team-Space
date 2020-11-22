@@ -1,0 +1,13 @@
+@import '../../../styles/base/base';
+
+$_button-size: 2.4rem;
+
+.navigation-buttons {
+    display: flex;
+
+    &__left,
+    &__right {
+        height: $_button-size;
+        width: $_button-size;
+    }
+}

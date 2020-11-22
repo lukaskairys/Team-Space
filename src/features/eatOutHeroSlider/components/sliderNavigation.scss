@@ -1,0 +1,39 @@
+@import '../../../styles/base/base';
+
+$_bullet-point-size: 0.6rem;
+$_bullet-point-margin: 1rem;
+$_bullet-point-active-size: 0.8rem;
+
+.slider-navigation {
+    display: flex;
+    justify-content: space-between;
+    &__list {
+        display: flex;
+        list-style-type: none;
+    }
+
+    &__circle {
+        margin-right: $_bullet-point-margin;
+        height: $_bullet-point-size;
+        width: $_bullet-point-size;
+    }
+
+    &__circle path {
+        fill: #c4c4c4;
+        stroke: #c4c4c4;
+    }
+
+    &__circle.is_active {
+        position: relative;
+        height: $_bullet-point-active-size;
+        width: $_bullet-point-active-size;
+        bottom: 0.15rem;
+        path {
+            fill: #ff6e75;
+            stroke: #ff6e75;
+        }
+    }
+    &__circle:hover {
+        cursor: pointer;
+    }
+}
