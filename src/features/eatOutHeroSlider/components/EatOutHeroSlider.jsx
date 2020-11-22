@@ -3,6 +3,7 @@ import FetchBestRatedRestaurants from "../../eatOutSection/components/FetchBestR
 import { isObjectEmpty } from "../../../utils/objects";
 import "./eatOutHeroSlider.scss";
 // import Carousel from "./Carousel";
+import Button from "../../../components/button/Button";
 import SliderNavigation from "./SliderNavigation";
 
 const EatOutHeroSlider = () => {
@@ -22,24 +23,32 @@ const EatOutHeroSlider = () => {
   if (!isObjectEmpty(currentItem))
     return (
       <div className="eat-out-slider">
-        <img
-          className="eat-out-slider__image"
-          src={currentItem.image}
-          alt={currentItem.description}
-        />
+        <div className="eat-out-slider__container">
+          <img
+            className="eat-out-slider__image"
+            src={currentItem.image}
+            alt={currentItem.description}
+          />
+        </div>
         {/* <Carousel></Carousel> */}
         <div className="eat-out-slider__details">
-          <SliderNavigation
-            counter={5}
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
-            setFading={setFading}
-          />
-          <p className="eat-out-slider__caption">{currentItem.website}</p>
-          <h2 className="eat-out-slider__title">{currentItem.name}</h2>
-          <p className="eat-out-slider__content">{currentItem.description}</p>
-          {/* TODO research if this can be global */}
-          <button className="eat-out-slider__learn-more">Learn More</button>
+          <div className="eat-out-slider__main">
+            <SliderNavigation
+              counter={5}
+              currentIndex={currentIndex}
+              setCurrentIndex={setCurrentIndex}
+              setFading={setFading}
+            />
+            <p className="eat-out-slider__caption">
+              Feel the taste of my pi pi pizza
+            </p>
+            <h2 className="eat-out-slider__title">{currentItem.name}</h2>
+            <p className="eat-out-slider__content">{currentItem.description}</p>
+          </div>
+          <Button className="eat-out-slider__learn-more" medium={true}>
+            <span>Learn More</span>
+          </Button>
+          {/* <button >Learn More</button> */}
         </div>
       </div>
     );

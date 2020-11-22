@@ -1,13 +1,49 @@
 @import '../../../styles/base/base';
 
 $_button-size: 2.4rem;
+$_border-size: 0.5rem;
 
 .navigation-buttons {
     display: flex;
-
+    $this: &;
+    
     &__left,
     &__right {
         height: $_button-size;
         width: $_button-size;
+        background: #FFFFFF;
+        border: 0.1rem solid #DCDFE3;
+        outline: none;
+        text-align: center;
+        line-height: 0.5;
+
+        &:hover {
+            background: $color-watermelon;      
+
+            #{$this}__icon path {
+                stroke: #FFF;
+            }
+        }
+    }
+
+    &__icon {
+        width: 0.5rem;
+        height: 1rem;
+
+        path {
+        stroke: #3E5067;
+        stroke-width:  0.3rem;
+        }
+
+    }
+
+
+    &__left {
+        border-radius: $_border-size 0 0 $_border-size;
+        border-right:  0;
+    }
+
+    &__right {
+        border-radius: 0 $_border-size $_border-size 0;
     }
 }

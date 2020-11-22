@@ -10,6 +10,8 @@ $_bullet-point-active-size: 0.8rem;
     &__list {
         display: flex;
         list-style-type: none;
+        align-items: center;
+
     }
 
     &__circle {
@@ -21,13 +23,17 @@ $_bullet-point-active-size: 0.8rem;
     &__circle path {
         fill: #c4c4c4;
         stroke: #c4c4c4;
+
+        &:hover {
+            stroke: $color-watermelon;
+            fill: $color-watermelon;
+        }
     }
 
     &__circle.is_active {
         position: relative;
         height: $_bullet-point-active-size;
         width: $_bullet-point-active-size;
-        bottom: 0.15rem;
         path {
             fill: #ff6e75;
             stroke: #ff6e75;
