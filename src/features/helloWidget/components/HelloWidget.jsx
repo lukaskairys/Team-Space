@@ -11,7 +11,6 @@ const options = {
 const time = new Date().toLocaleTimeString("lt-LT", options);
 
 const HelloWidget = () => {
-  const [mounted, setMounted] = useState(false);
   const [currentTime, setCurrentTime] = useState(time);
   const [userName, setUserName] = useState("Wizard");
 
@@ -21,28 +20,26 @@ const HelloWidget = () => {
     }, 1000);
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
-    setMounted(true);
     const getUserName = async () => {
       try {
         const { data } = await jsonserver.get("/userData", {
           cancelToken: source.token,
         });
-        if (mounted) setUserName(data.userName);
+        setUserName(data.userName);
       } catch (err) {
-        if (err) {
+        if (axios.isCancel(err)) {
+          return;
+        } else {
           setUserName("Mr. Error");
         }
       }
     };
-
     getUserName();
 
     return () => {
       clearInterval(intervalID);
       source.cancel();
-      setMounted(false);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderGreeting = () => {
