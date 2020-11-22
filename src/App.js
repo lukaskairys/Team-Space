@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
+/* import RegistrationPage from "../src/features/registration/pages/RegistrationPage"; */
 import LoginPage from "../src/features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
+import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 
 function App() {
   return (
@@ -31,8 +32,9 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route path="/registration">
-            <RegistrationPage />
+          <Route exact path="/registration/:slugs">
+            <EatOutInfo />
+            {/* <RegistrationPage /> */}
           </Route>
 
           <Route path="/login">
