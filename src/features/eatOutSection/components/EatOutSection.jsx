@@ -15,7 +15,7 @@ const EatOutSection = () => {
           <h3 className="eat-out-card__suggestion">
             View all your favorite lunch spots and more
           </h3>
-          <Button medium={"true"}>
+          <Button medium={true}>
             <span>Browse List</span>
           </Button>
         </div>
