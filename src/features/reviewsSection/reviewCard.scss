@@ -5,6 +5,7 @@
     border-radius: 8px;
     box-shadow: $card-shadow;
     margin: 1.5rem 0;
+    min-width: 25rem;
     position: relative;
     width: 40rem;
 
@@ -22,6 +23,10 @@
 
         line-height: 1.5;
         padding: 0.6rem 2rem 1.6rem;
+    }
+
+    &--in-modal {
+        margin: 1.5rem auto;
     }
 }
 

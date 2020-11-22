@@ -4,9 +4,13 @@ import PropTypes from "prop-types";
 import RatingComponent from "../../components/Rating/Rating";
 import "./reviewCard.scss";
 
-function ReviewCard({ review }) {
+function ReviewCard({ review, inModal }) {
   return (
-    <div className="review-card">
+    <div
+      className={
+        !inModal ? "review-card" : "review-card review-card--in-modal "
+      }
+    >
       <h4 className="review-card__title">{review.userName}</h4>
       <p className="review-card__content">{review.comment}</p>
       {RatingComponent(review.rating)}
@@ -16,6 +20,7 @@ function ReviewCard({ review }) {
 
 ReviewCard.propTypes = {
   review: PropTypes.object,
+  inModal: PropTypes.bool,
 };
 
 export default ReviewCard;

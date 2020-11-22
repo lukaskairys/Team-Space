@@ -1,0 +1,35 @@
+@import '../../styles/base/base';
+
+$overly-color: rgba(0, 0, 0, 0.6);
+$overly-z-index: 5;
+
+.overlay {
+    background-color: $overly-color;
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    padding: 3rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $overly-z-index;
+}
+
+.modal {
+    background-color: $color-white;
+    border-radius: 8px;
+    box-shadow: $card-shadow;
+    left: 50%;
+    max-width: 100rem;
+    padding: 4rem 2rem;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &__content {
+        column-gap: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    }
+}
