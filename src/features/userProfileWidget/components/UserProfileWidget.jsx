@@ -13,7 +13,6 @@ function UserProfileWidget() {
   const drop = useRef(null);
 
   const { data, error } = useRequest("/userData");
-
   const handleClick = () => setOpen(!open);
   const handleOutsideClick = (event) => {
     if (drop.current && !drop.current.contains(event.target)) setOpen(false);
@@ -31,7 +30,7 @@ function UserProfileWidget() {
 
   return (
     <div className="profile-widget" ref={drop}>
-      <button onClick={handleClick} className="profile-widget__button">
+      <button onClick={handleClick}>
         <img
           className="profile-widget__picture"
           src={image}

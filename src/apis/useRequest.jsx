@@ -5,21 +5,24 @@ import jsonserver from "./jsonserver";
 export const useRequest = (endpoint) => {
   const [mounted, setMounted] = useState(false);
   const [data, setData] = useState({});
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     setMounted(true);
+
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const { data } = await jsonserver.get(endpoint, {
           cancelToken: source.token,
         });
         setData(data);
-        setIsLoaded(true);
+        setIsLoading(false);
       } catch (error) {
+        setIsLoading(false);
         setError(error);
       }
     };
@@ -32,5 +35,5 @@ export const useRequest = (endpoint) => {
     };
   }, [endpoint, mounted]);
 
-  return { data, error, isLoaded };
+  return { data, error, isLoading };
 };

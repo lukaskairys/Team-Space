@@ -11,15 +11,3 @@
         }
     }
 }
-
-@mixin reset-styles {
-    background: none;
-    border: unset;
-    outline: none;
-    padding: 0;
-
-    &:hover,
-    &:focus {
-        background: none;
-    }
-}
