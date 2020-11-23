@@ -32,7 +32,7 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route exact path="/registration/:slugs">
+          <Route exact path="/registration/">
             <EatOutInfo />
             {/* <RegistrationPage /> */}
           </Route>

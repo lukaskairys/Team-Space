@@ -1,47 +1,66 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { BrowserRouter as useParams } from "react-router-dom";
+import React from "react";
+
+import { useRequest } from "apis/useRequest";
+import { ReactComponent as PinIcon } from "assets/icons/map-pin.svg";
+import { ReactComponent as GlobeIcon } from "assets/icons/globe.svg";
+import { ReactComponent as PhoneIcon } from "assets/icons/phone.svg";
+import { ReactComponent as ClockIcon } from "assets/icons/clock.svg";
 
 import "./EatOutInfo.scss";
-import jsonserver from "apis/jsonserver";
 
 const EatOutInfo = () => {
-  const [mounted, setMounted] = useState(false);
-  const [userName, setUserName] = useState("Wizard");
-  const [address, setAddress] = useState("");
+  const { data } = useRequest("/restaurants");
+  const restaurantId = 0;
 
-  useEffect(() => {
-    const CancelToken = axios.CancelToken;
-    const source = CancelToken.source();
-    setMounted(true);
-    const getUserName = async () => {
-      try {
-        const { data } = await jsonserver.get("/restaurants", {
-          cancelToken: source.token,
-        });
-        setUserName(data.restaurantList[0].name);
-        setAddress(data.restaurantList[0].address);
-      } catch (err) {
-        if (err) {
-          setUserName("Mr. Error");
-        }
-      }
-    };
-
-    getUserName();
-
-    return () => {
-      source.cancel();
-      setMounted(false);
-    };
-  }, [mounted]);
-  let { slug } = useParams();
-
+  if (!data.restaurantList) {
+    return <div>Loading...</div>;
+  }
   return (
-    <div>
-      <p>{userName} </p>
-      <p>{address} </p>
-      <div>Now showing post {slug}</div>
+    <div className="eat-out-info">
+      <h2 className="eat-out-info__header">Information</h2>
+      <div className="eat-out-info__content">
+        <div className="eat-out-info__content-item">
+          <PinIcon className="eat-out-info__icon" />
+          <h3 className="eat-out-info__content-header">Address</h3>
+          <p className="eat-out-info__content-info">
+            {data.restaurantList[restaurantId].address}
+          </p>
+        </div>
+        <div className="eat-out-info__content-item">
+          <GlobeIcon className="eat-out-info__icon" />
+          <h3 className="eat-out-info__content-header">Website</h3>
+          <a
+            className="eat-out-info__content-info"
+            href={data.restaurantList[restaurantId].website}
+          >
+            {data.restaurantList[restaurantId].website.replace(
+              /www.|http:\/\/|https:\/\//gi,
+              ""
+            )}
+          </a>
+        </div>
+        <div className="eat-out-info__content-item">
+          <PhoneIcon className="eat-out-info__icon" />
+          <h3 className="eat-out-info__content-header">Phone number</h3>
+          <p className="eat-out-info__content-info">
+            {data.restaurantList[restaurantId].phone}
+          </p>
+        </div>
+        <div className="eat-out-info__content-item">
+          <ClockIcon className="eat-out-info__icon" />
+          <h3 className="eat-out-info__content-header">Work hours</h3>
+          <p className="eat-out-info__content-info">
+            {data.restaurantList[restaurantId].openingHours[0].days}&nbsp;
+            {data.restaurantList[restaurantId].openingHours[0].hours
+              .split(" - ")
+              .map((s) => {
+                return s.length > 2 ? s : s + ":00";
+              })
+              .join(" - ")}
+          </p>
+        </div>
+      </div>
+      <h2 className="eat-out-info__header">Location</h2>
     </div>
   );
 };
