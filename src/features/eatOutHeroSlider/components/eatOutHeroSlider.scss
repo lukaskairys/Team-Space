@@ -16,8 +16,8 @@ $_slider-border: 0.8rem;
     height: 32.2rem;
     overflow: hidden;
     width:100%;
-
-    &__container {
+    
+    &__image-container {
         flex: 2;
         height: 100%;
     }
@@ -71,6 +71,7 @@ $_slider-border: 0.8rem;
         color: $color-slate-gray;
         font-size: $font-size-16;
         font-weight: $regular-weight;
+        line-height: 1.5;
         width: 77%;
     }
 
@@ -104,7 +105,7 @@ $_slider-border: 0.8rem;
             margin-bottom: 0.6rem;
         }
 
-        &__container {
+        &__image-container {
             max-height: 45%;
         }
         

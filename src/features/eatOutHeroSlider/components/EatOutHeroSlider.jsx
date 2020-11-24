@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import FetchBestRatedRestaurants from "../../eatOutSection/components/FetchBestRatedRestaurants";
+import { FetchBestRatedRestaurants } from "../../../utils/Api";
 
 import "./eatOutHeroSlider.scss";
 import Button from "../../../components/button/Button";
 import SliderNavigation from "./SliderNavigation";
 import { roundNumber } from "utils/Math";
+import { ToggleAnimation } from "./ToggleAnimation";
 
 const EatOutHeroSlider = () => {
   const count = 5;
@@ -13,7 +14,7 @@ const EatOutHeroSlider = () => {
     roundNumber(count / 2, 0) - 1
   );
   const [currentItem, setCurrentItem] = useState({});
-  const [isFading, setFading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const cacheImages = async (restaurants) => {
     const promises = await restaurants.map((restaurant) => {
@@ -27,24 +28,30 @@ const EatOutHeroSlider = () => {
     await Promise.all(promises);
   };
 
+  const handleImageLoaded = () => {
+    if (isLoading) {
+      ToggleAnimation();
+    }
+    setLoading(false);
+  };
+
   useEffect(() => {
     cacheImages(restaurants);
   }, [restaurants]);
 
   useEffect(() => {
-    if (!isFading) {
-      const currentSingle =
-        restaurants.length > 0 ? restaurants[currentIndex] : {};
-      setCurrentItem(currentSingle);
-    }
-  }, [restaurants, currentIndex, isFading]);
+    const currentSingle =
+      restaurants.length > 0 ? restaurants[currentIndex] : {};
+    setCurrentItem(currentSingle);
+  }, [restaurants, currentIndex]);
 
   return (
     <div className="eat-out-slider">
-      <div className="eat-out-slider__container">
+      <div className="eat-out-slider__image-container">
         <img
           className="eat-out-slider__image"
           src={currentItem.image}
+          onLoad={handleImageLoaded}
           alt={currentItem.name}
         />
       </div>
@@ -54,7 +61,8 @@ const EatOutHeroSlider = () => {
             counter={count}
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}
-            setFading={setFading}
+            setLoading={setLoading}
+            isLoading={isLoading}
           />
           <p className="eat-out-slider__caption">Feel the taste of Italy</p>
           <h2 className="eat-out-slider__title">{currentItem.name}</h2>

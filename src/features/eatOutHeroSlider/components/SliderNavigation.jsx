@@ -4,53 +4,43 @@ import PropTypes from "prop-types";
 import NavigationButtons from "./NavigationButtons";
 import { ReactComponent as CircleIcon } from "assets/icons/circle.svg";
 import "./sliderNavigation.scss";
+import { ToggleAnimation } from "./ToggleAnimation";
 
 const SliderNavigation = ({
   counter,
   currentIndex,
   setCurrentIndex,
-  setFading,
+  setLoading,
+  isLoading,
 }) => {
   const captureEvent = (e, i) => {
     transitionRestaurant(i);
   };
 
-  const toggleAnimation = () => {
-    const heroSlider = document.getElementsByClassName("eat-out-slider")[0];
-
-    if (heroSlider.classList.contains("animate-out")) {
-      heroSlider.classList.remove("animate-out");
-      heroSlider.classList.add("animate-in");
-    } else {
-      heroSlider.classList.remove("animate-in");
-      heroSlider.classList.add("animate-out");
-    }
-  };
-
   const transitionRestaurant = (i) => {
-    toggleAnimation();
-    setFading(true);
+    if (!isLoading) {
+      ToggleAnimation();
+      setLoading(true);
 
-    setTimeout(function () {
-      toggleAnimation();
-      setFading(false);
+      setTimeout(function () {
+        setCurrentIndex(i);
+        const listBullets = document.getElementsByClassName(
+          "slider-navigation__circle"
+        );
 
-      const listBullets = document.getElementsByClassName(
-        "slider-navigation__circle"
-      );
+        for (const el of listBullets) el.classList.remove("is_active");
 
-      for (const el of listBullets) el.classList.remove("is_active");
-
-      setCurrentIndex(i);
-      listBullets[i].classList.add("is_active");
-    }, 260);
+        listBullets[i].classList.add("is_active");
+      }, 250);
+    }
   };
 
   const formEllipsis = (counter) => {
     const indents = [];
+
     for (let i = 0; i < counter; i++) {
       const className =
-        i === currentIndex
+        i === 2
           ? "slider-navigation__circle is_active"
           : "slider-navigation__circle";
       indents.push(
@@ -58,7 +48,6 @@ const SliderNavigation = ({
           key={i}
           className={className}
           onClick={(e) => captureEvent(e, i)}
-          style={{ pointerEvents: "bounding-box" }}
         />
       );
     }
@@ -89,8 +78,9 @@ const SliderNavigation = ({
 
 SliderNavigation.propTypes = {
   setCurrentIndex: PropTypes.func,
-  setFading: PropTypes.func,
+  setLoading: PropTypes.func,
   counter: PropTypes.number,
   currentIndex: PropTypes.number,
+  isLoading: PropTypes.bool,
 };
 export default SliderNavigation;

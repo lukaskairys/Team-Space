@@ -29,7 +29,7 @@ $_border-size: 0.5rem;
 
         &:hover {
             background: $color-watermelon;      
-
+            border-color: $color-watermelon;
             #{$this}__icon path {
                 stroke: #FFF;
             }
