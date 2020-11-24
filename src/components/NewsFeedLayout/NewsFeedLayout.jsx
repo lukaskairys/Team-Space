@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./NewsFeedLayout.scss";
-import LayoutChildren from "./LayoutChildren2";
+import LayoutChildren from "./LayoutChildren";
 
 const NewsFeedLayout = ({ children }) => {
   return (
