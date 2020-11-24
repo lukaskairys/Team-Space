@@ -54,26 +54,30 @@ const LayoutChildren = ({ children }) => {
 
   const smallCards = smallCardsTemp.map((setOfCards, setOfCardsIndex, arr) => {
     return setOfCards.map((card, index) => {
-      if (
-        (index === 2 && setOfCards.length === 3) ||
-        (index === 1 &&
-          setOfCards.length === 2 &&
-          arr[arr.length - 2].length !== 3) ||
-        (index === 0 &&
-          setOfCards.length === 1 &&
-          arr[arr.length - 2].length !== 2)
-      )
-        return (
-          <div
-            key={index}
-            style={{
-              marginTop: "3rem",
-            }}
-          >
-            {card}
-          </div>
-        );
-      else return card;
+      if (arr[arr.length - 2] !== undefined) {
+        if (
+          (index === 2 && setOfCards.length === 3) ||
+          (index === 1 &&
+            setOfCards.length === 2 &&
+            arr[arr.length - 2].length !== 3) ||
+          (index === 0 &&
+            setOfCards.length === 1 &&
+            arr[arr.length - 2].length !== 2)
+        )
+          return (
+            <div
+              key={index}
+              style={{
+                marginTop: "3rem",
+              }}
+            >
+              {card}
+            </div>
+          );
+        else return card;
+      } else {
+        return card;
+      }
     });
   });
 
