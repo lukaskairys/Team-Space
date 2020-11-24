@@ -47,35 +47,30 @@ $_slider-border: 0.8rem;
         flex: 1;
         flex-direction: column;
         justify-content: space-between;
-        padding: 2.4rem;
+        min-width: 0;
+        padding: 2.4rem; 
 
     }
 
     &__title {
         @include typography-h2;
-        -webkit-box-orient: vertical;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
+        @include trim;
+
         margin-bottom: $_margin-size-smaller;
-        overflow: hidden;
-        text-overflow: ellipsis;
         width: 77%;
     }
+
 
     &__main {
          width: 100%;
     }
 
     &__content {
-        -webkit-box-orient: vertical;
+        @include trim(4);
+        
         color: $color-slate-gray;
-        display: -webkit-box;
         font-size: $font-size-16;
         font-weight: $regular-weight;
-        -webkit-line-clamp: 4;
-        line-height: 1.5;
-        overflow: hidden;
-        text-overflow: ellipsis;
         width: 77%;
     }
 
@@ -92,36 +87,6 @@ $_slider-border: 0.8rem;
     
         &:active {
             background: $color-dark-watermelon;
-        }
-
-
-    }
-
-    &.animate-out {
-        animation: fadeOut 0.25s forwards ease-in-out;
-    }
-
-    &.animate-in {
-        animation: fadeIn 0.25s forwards ease-in-out;
-    }  
-    
-    @keyframes fadeOut {
-        0% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 0;
-        }
-    }
-    
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
         }
     }
 
@@ -157,8 +122,8 @@ $_slider-border: 0.8rem;
         }
 
         &__content{
+            @include trim(2);
             font-size: $font-size-16 * $_media-font-size-multiplier;
-            -webkit-line-clamp: 2;
         }
         
         .button {
@@ -166,4 +131,32 @@ $_slider-border: 0.8rem;
             width: 14.6rem * 0.7;
         }
       }
+      
+    &.animate-out {
+        animation: fadeOut 0.25s forwards ease-in-out;
+    }
+
+    &.animate-in {
+        animation: fadeIn 0.25s forwards ease-in-out;
+    }  
+       
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
 }
