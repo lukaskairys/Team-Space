@@ -6,6 +6,8 @@ import { ReactComponent as GlobeIcon } from "assets/icons/globe.svg";
 import { ReactComponent as PhoneIcon } from "assets/icons/phone.svg";
 import { ReactComponent as ClockIcon } from "assets/icons/clock.svg";
 
+import Map from "features/EatOut/components/Map/Map";
+
 import "./EatOutInfo.scss";
 
 const EatOutInfo = () => {
@@ -61,6 +63,7 @@ const EatOutInfo = () => {
         </div>
       </div>
       <h2 className="eat-out-info__header">Location</h2>
+      <Map />
     </div>
   );
 };

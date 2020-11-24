@@ -1,0 +1,25 @@
+@import '../../../../styles/base/base';
+
+.google-map {
+    box-shadow: $card-shadow;
+    height: 38.9rem;
+    margin: 4rem;
+    width: auto;
+}
+
+.pin {
+    align-items: center;
+    background-color: $color-white;
+    display: flex;
+    stroke: $color-fiord;
+    width: 180px;
+}
+
+.pin-icon {
+    height: 4rem;
+}
+
+.pin-text {
+    @include typography-body-2;
+    color: $color-fiord;
+}
