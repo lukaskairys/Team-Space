@@ -1,12 +1,16 @@
 @import '../../styles/base/base';
+$review-line-heigh: 1.5;
+$max-lines: 5;
+$color-black-transp: rgba(255, 255, 255, 0);
 
 .review-card {
     background: $color-white;
     border-radius: 8px;
     box-shadow: $card-shadow;
-    margin: 1.5rem 0;
+    line-height: $review-line-heigh;
+    margin: 2rem 0;
     max-width: 50rem;
-    // min-width: 25rem;
+    padding-bottom: 0.1rem;
     position: relative;
     width: 40rem;
 
@@ -22,8 +26,41 @@
     &__content {
         @include typography-body-2;
 
-        line-height: 1.5;
-        padding: 0.6rem 2rem 1.6rem;
+        line-height: $review-line-heigh;
+        margin: 0.6rem 2rem 1.6rem;
+
+        &--truncate {
+            max-height: 10.5rem;
+            overflow: hidden;
+            position: relative;
+
+            &::before {
+                background: linear-gradient(
+                    to right,
+                    $color-black-transp,
+                    $color-white 50%
+                );
+                content: '';
+                height: 2rem;
+                inset-block-end: 0;
+                inset-inline-end: 0;
+                position: absolute;
+                width: 8rem;
+            }
+
+            &::after {
+                background: linear-gradient(
+                    to right,
+                    $color-black-transp,
+                    $color-white 50%
+                );
+                content: '';
+                height: 2rem;
+                inset-inline-end: 0;
+                position: absolute;
+                width: 8rem;
+            }
+        }
     }
 
     &--in-modal {

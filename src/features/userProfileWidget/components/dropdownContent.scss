@@ -1,9 +1,5 @@
 $drop-border-radius: 5px;
 
-a {
-    color: $color-fiord;
-}
-
 .dropdown {
     display: inline-block;
     opacity: 0;
@@ -72,5 +68,9 @@ a {
     &.is-active {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    a {
+        color: $color-fiord;
     }
 }

@@ -11,3 +11,23 @@
         }
     }
 }
+
+@mixin custom-scrollbar {
+    /* The emerging W3C standard that is currently Firefox-only */
+    scrollbar-color: $color-iron $color-white;
+
+    /* Works on Chrome/Edge/Safari */
+    &::-webkit-scrollbar {
+        width: 2rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-iron;
+        border: 6px solid $color-white;
+        border-radius: 20px;
+    }
+}

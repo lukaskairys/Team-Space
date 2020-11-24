@@ -9,11 +9,19 @@ function ReviewCard({ review, inModal }) {
   return (
     <div
       className={classNames("review-card", {
+        "review-card--truncate": !inModal,
         "review-card--in-modal": inModal,
       })}
     >
       <h4 className="review-card__title">{review.userName}</h4>
-      <p className="review-card__content">{review.comment}</p>
+      <p
+        // className="review-card__content"
+        className={classNames("review-card__content", {
+          "review-card__content--truncate": !inModal,
+        })}
+      >
+        {review.comment}
+      </p>
       <RatingComponent average={review.rating} isStatic={true} />
     </div>
   );
