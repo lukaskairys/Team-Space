@@ -5,14 +5,20 @@ import "./feedCard.scss";
 function FeedCardComments({ comments }) {
   return (
     <div>
-      {comments.map((comment, i) => {
-        return (
-          <div className="feed-card__comment" key={i}>
-            <p className="feed-card__commenter-username">{comment.userName}</p>
-            <p className="feed-card__comment-text">{comment.comment}</p>
-          </div>
-        );
-      })}
+      {comments
+        .sort(function (firstCommant, secondComment) {
+          return new Date(firstCommant.date) - new Date(secondComment.date);
+        })
+        .map((comment, i) => {
+          return (
+            <div className="feed-card__comment" key={i}>
+              <p className="feed-card__commenter-username">
+                {comment.userName}
+              </p>
+              <p className="feed-card__comment-text">{comment.comment}</p>
+            </div>
+          );
+        })}
     </div>
   );
 }

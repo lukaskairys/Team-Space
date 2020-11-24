@@ -7,35 +7,35 @@ import { ReactComponent as Sparkles } from "../../../assets/images/sparkles.svg"
 import { ReactComponent as GiftIcon } from "../../../assets/icons/gift-icon.svg";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
 
-function BirthdayCard({ title, imageUrl, body, date, wishes, comments }) {
+function BirthdayCard({ story }) {
   return (
     <div className="birthday-card">
       <div className="birthday-card__image-container">
         <img
           className="birthday-card__image"
-          src={imageUrl}
+          src={story.userImage}
           alt="Birthday celebrant"
         />
       </div>
       <div className="birthday-card__content">
         <div className="birthday-card__title">
-          <p>{title}</p>
+          <p>{story.userName}</p>
         </div>
         <div className="birthday-card__date">
           <p>
             Celebrated a birthday on
-            <span className="birthday-card__date-day"> {date} </span>
+            <span className="birthday-card__date-day"> Sep 13th </span>
           </p>
         </div>
         <div className="birthday-card__body">
-          <p>{body}</p>
+          <p>Send a wish!</p>
         </div>
         <div className="feed-card-divider"></div>
         <div className="interactions-container">
           <GiftIcon className="gift-icon" />
-          <p>{wishes}</p>
+          <p>{story.wishes}</p>
           <CommentIcon className="comment-icon" />
-          <p>{comments}</p>
+          <p>{story.comments.length}</p>
         </div>
         <ConfettiLeft className="confetti-left" />
         <ConfettiRight className="confetti-right" />
@@ -46,12 +46,7 @@ function BirthdayCard({ title, imageUrl, body, date, wishes, comments }) {
 }
 
 BirthdayCard.propTypes = {
-  title: PropTypes.string,
-  imageUrl: PropTypes.string,
-  body: PropTypes.string,
-  date: PropTypes.string,
-  wishes: PropTypes.number,
-  comments: PropTypes.number,
+  story: PropTypes.object,
 };
 
 export default BirthdayCard;

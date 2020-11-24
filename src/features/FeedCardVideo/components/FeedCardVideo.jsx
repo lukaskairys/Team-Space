@@ -8,57 +8,53 @@ import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-ico
 import { ReactComponent as PlayButton } from "../../../assets/images/play-button.svg";
 import FormInput from "../../../components/form/input/FormInput";
 
-function FeedCardVideo({
-  authorUsername,
-  authorImg,
-  city,
-  time,
-  imageUrl,
-  comments,
-  userPhoto,
-  newComment,
-  commentCount,
-  likeCount,
-  videoUrl,
-  videoThumbnail,
-}) {
+function FeedCardVideo({ story }) {
   return (
     <div className="feed-card">
       <div className="feed-card__info">
         <img
           className="feed-card__info-img"
-          src={authorImg}
+          src={story.userImage}
           alt="Post author"
         />
-        <p>{authorUsername}</p>
+        <p>{story.userName}</p>
         <p>
-          {city} <span className="feed-card__time">{time}</span>
+          {story.postLocation} <span className="feed-card__time">20h</span>
         </p>
       </div>
       <div className="feed-card__content">
         <ReactPlayer
-          url={videoUrl}
-          light={videoThumbnail}
+          url={story.postVideo}
+          light={story.postCover}
           width="100%"
           height="100%"
-          playing="true"
+          playing
+          controls
           playIcon={<PlayButton />}
         />
       </div>
       <div className="interactions-container">
         <HeartIcon className="heart-icon" />
-        <p>{likeCount}</p>
+        <p>{story.likes}</p>
         <CommentIcon className="comment-icon" />
-        <p>{commentCount}</p>
+        <p>{story.comments.length}</p>
       </div>
       <div className="feed-card-divider"></div>
       <div className="feed-card__comments-container">
-        <FeedCardComments comments={comments} />
+        <FeedCardComments comments={story.comments} />
       </div>
       <div className="feed-card-divider"></div>
       <div className="new-comment-container">
-        <img className="new-comment-image" src={userPhoto} alt="User" />
-        <FormInput className="comment-input" placeholder="Leave a comment..." />
+        <img
+          className="new-comment-image"
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+          alt="User"
+        />
+        <FormInput
+          className="comment-input"
+          name={story.id}
+          placeholder="Leave a comment..."
+        />
         <button className="post-button">POST</button>
       </div>
     </div>
@@ -66,20 +62,7 @@ function FeedCardVideo({
 }
 
 FeedCardVideo.propTypes = {
-  authorUsername: PropTypes.string,
-  authorImg: PropTypes.string,
-  city: PropTypes.string,
-  time: PropTypes.string,
-  imageUrl: PropTypes.string,
-  commenterUsername: PropTypes.string,
-  commentText: PropTypes.string,
-  newComment: PropTypes.string,
-  userPhoto: PropTypes.string,
-  likeCount: PropTypes.number,
-  commentCount: PropTypes.number,
-  videoUrl: PropTypes.string,
-  videoThumbnail: PropTypes.string,
-  comments: PropTypes.array,
+  story: PropTypes.object,
 };
 
 export default FeedCardVideo;

@@ -19,50 +19,33 @@ function TemporaryLayout() {
       );
   }, []);
 
+  function GetPostTime(post) {
+    if (post.type === "birthday")
+      return new Date(post.birthdayDate).setFullYear(new Date().getFullYear());
+
+    return new Date(post.postDate);
+  }
+
   return (
     <div>
-      {stories.map((story, i) => {
-        return story.type === "birthday" ? (
-          <BirthdayCard
-            key={story.id}
-            title={story.userName}
-            imageUrl={story.userImage}
-            date="Sep 13th"
-            body="Send a wish!"
-            wishes={story.wishes}
-            comments={story.comments.length}
-          />
-        ) : story.type === "post" ? (
-          <FeedCard
-            key={story.id}
-            authorUsername={story.userName}
-            authorImg={story.userImage}
-            city={story.postLocation}
-            time="20h"
-            imageUrl={story.postImage}
-            comments={story.comments}
-            likes={story.likes}
-            commentCount={story.comments.length}
-            userPhoto="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-          />
-        ) : story.type === "video" ? (
-          <FeedCardVideo
-            key={story.id}
-            authorUsername={story.userName}
-            authorImg={story.userImage}
-            city={story.postLocation}
-            time="20h"
-            videoUrl={story.postVideo}
-            videoThumbnail={story.postCover}
-            comments={story.comments}
-            likeCount={story.likes}
-            commentCount={story.comments.length}
-            userPhoto="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-          />
-        ) : (
-          ""
-        );
-      })}
+      {stories
+        .sort(function (firstPost, secondPost) {
+          let firstDate = GetPostTime(firstPost);
+          let secondDate = GetPostTime(secondPost);
+
+          return secondDate - firstDate;
+        })
+        .map((story, i) => {
+          return story.type === "birthday" ? (
+            <BirthdayCard key={story.id} story={story} />
+          ) : story.type === "post" ? (
+            <FeedCard key={story.id} story={story} />
+          ) : story.type === "video" ? (
+            <FeedCardVideo key={story.id} story={story} />
+          ) : (
+            ""
+          );
+        })}
     </div>
   );
 }

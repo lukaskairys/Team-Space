@@ -6,48 +6,49 @@ import { ReactComponent as HeartIcon } from "../../../assets/icons/heart-icon.sv
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
 import FormInput from "../../../components/form/input/FormInput";
 
-function FeedCard({
-  authorUsername,
-  authorImg,
-  city,
-  time,
-  imageUrl,
-  userPhoto,
-  newComment,
-  comments,
-  commentCount,
-  likes,
-}) {
+function FeedCard({ story }) {
   return (
-    <div className="feed-card">
+    <div className="feed-card" type={story.type}>
       <div className="feed-card__info">
         <img
           className="feed-card__info-img"
-          src={authorImg}
+          src={story.userImage}
           alt="Post author"
         />
-        <p>{authorUsername}</p>
+        <p>{story.userName}</p>
         <p>
-          {city} <span className="feed-card__time">{time}</span>
+          {story.postLocation} <span className="feed-card__time">20h</span>
         </p>
       </div>
       <div className="feed-card__content">
-        <img className="feed-card__content-img" src={imageUrl} alt="Post" />
+        <img
+          className="feed-card__content-img"
+          src={story.postImage}
+          alt="Post"
+        />
       </div>
       <div className="interactions-container">
         <HeartIcon className="heart-icon" />
-        <p>{likes}</p>
+        <p>{story.likes}</p>
         <CommentIcon className="comment-icon" />
-        <p>{commentCount}</p>
+        <p>{story.comments.length}</p>
       </div>
       <div className="feed-card-divider"></div>
       <div className="feed-card__comments-container">
-        <FeedCardComments comments={comments} />
+        <FeedCardComments comments={story.comments} />
       </div>
       <div className="feed-card-divider"></div>
       <div className="new-comment-container">
-        <img className="new-comment-image" src={userPhoto} alt="User" />
-        <FormInput className="comment-input" placeholder="Leave a comment..." />
+        <img
+          className="new-comment-image"
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+          alt="User"
+        />
+        <FormInput
+          className="comment-input"
+          placeholder="Leave a comment..."
+          name={story.id}
+        />
         <button className="post-button">POST</button>
       </div>
     </div>
@@ -55,18 +56,7 @@ function FeedCard({
 }
 
 FeedCard.propTypes = {
-  authorUsername: PropTypes.string,
-  authorImg: PropTypes.string,
-  city: PropTypes.string,
-  time: PropTypes.string,
-  imageUrl: PropTypes.string,
-  commenterUsername: PropTypes.string,
-  commentText: PropTypes.string,
-  newComment: PropTypes.string,
-  userPhoto: PropTypes.string,
-  likes: PropTypes.number,
-  commentCount: PropTypes.number,
-  comments: PropTypes.array,
+  story: PropTypes.object,
 };
 
 export default FeedCard;
