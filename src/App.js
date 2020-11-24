@@ -6,6 +6,8 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
+import Hero from "../src/features/restaurantsPageHero/Hero";
+import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 
 function App() {
   return (
@@ -30,6 +32,14 @@ function App() {
           <Route exact path="/reservations/books">
             <MainLayout />
           </Route>
+
+          <MainLayout>
+            <Route exact path="/eat-out/:id">
+              <Hero>
+                <Breadcrumbs />
+              </Hero>
+            </Route>
+          </MainLayout>
 
           <Route path="/registration">
             <RegistrationPage />

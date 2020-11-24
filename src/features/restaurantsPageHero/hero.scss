@@ -1,0 +1,29 @@
+@import '../../styles/base/base';
+
+.HERO {
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 517px;
+    justify-content: flex-end;
+    margin-left: -50px;
+    margin-top: -50px;
+    max-width: 1440px;
+    padding-left: 50px;
+    padding-top: 50px;
+
+    .breadcrumbs {
+        margin-bottom: auto;
+    }
+
+    &__categories {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1.8rem;
+    }
+
+    &__title {
+        @include typography-h1;
+    }
+}

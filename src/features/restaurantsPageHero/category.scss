@@ -1,0 +1,13 @@
+@import '../../styles/base/base';
+
+.category {
+    background-color: $color-midnight;
+    border-radius: 8px;
+    margin-right: 1.1rem;
+    padding: 0.6rem 1.2rem;
+
+    &__name {
+        @include typography-tiny;
+        color: $color-white;
+    }
+}
