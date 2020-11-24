@@ -52,12 +52,16 @@ const LayoutChildren = ({ children }) => {
     smallCardsTemp = groupArray(smallCardsTemp, 3);
   }
 
-  const smallCards = smallCardsTemp.map((setOfCards) => {
+  const smallCards = smallCardsTemp.map((setOfCards, setOfCardsIndex, arr) => {
     return setOfCards.map((card, index) => {
       if (
         (index === 2 && setOfCards.length === 3) ||
-        (index === 1 && setOfCards.length === 2) ||
-        (index === 0 && setOfCards.length === 1)
+        (index === 1 &&
+          setOfCards.length === 2 &&
+          arr[arr.length - 2].length !== 3) ||
+        (index === 0 &&
+          setOfCards.length === 1 &&
+          arr[arr.length - 2].length !== 2)
       )
         return (
           <div
@@ -74,9 +78,7 @@ const LayoutChildren = ({ children }) => {
   });
 
   const bigCards = bigCardsTemp.map((setOfCards, setOfCardsIndex) => {
-    if (smallCards[setOfCardsIndex] === undefined) {
-      counter++;
-    }
+    if (smallCards[setOfCardsIndex] === undefined) counter++;
     return setOfCards.map((card, index, setOfCardsArr) => {
       switch (index) {
         case 0:
