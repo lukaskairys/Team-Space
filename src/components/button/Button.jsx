@@ -15,7 +15,7 @@ function Button({
     button: true,
     "button--large": large,
     "button--medium": medium,
-    "button__icon-x": del,
+    "button--icon-x": del,
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>

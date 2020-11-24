@@ -11,7 +11,7 @@ function ReviewsSection() {
   const [reviews, setReviews] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // TOTO - get ID from URL
+  // TODO - get ID from URL
   const id = "120wsdlpx4";
 
   const { data } = useRequest("/restaurants");
@@ -32,6 +32,31 @@ function ReviewsSection() {
 
   const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
 
+  const showModal = () => {
+    setModalOpen(true);
+    const scrollY = document.documentElement.style.getPropertyValue(
+      "--scroll-y"
+    );
+    const body = document.body;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}`;
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    const body = document.body;
+    const scrollY = body.style.top;
+    body.style.position = "";
+    body.style.top = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  };
+  window.addEventListener("scroll", () => {
+    document.documentElement.style.setProperty(
+      "--scroll-y",
+      `${window.scrollY}px`
+    );
+  });
+
   return (
     <>
       <section className="reviews">
@@ -43,13 +68,13 @@ function ReviewsSection() {
         </div>
 
         {reviews.length > 3 && (
-          <Button medium={true} handleClick={() => setModalOpen(true)}>
+          <Button medium={true} handleClick={showModal}>
             <span>Show more</span>
           </Button>
         )}
 
         {modalOpen && (
-          <Modal closeModal={() => setModalOpen(false)}>
+          <Modal closeModal={closeModal}>
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} inModal={true} />
             ))}

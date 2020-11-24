@@ -5,7 +5,8 @@
     border-radius: 8px;
     box-shadow: $card-shadow;
     margin: 1.5rem 0;
-    min-width: 25rem;
+    max-width: 50rem;
+    // min-width: 25rem;
     position: relative;
     width: 40rem;
 
@@ -28,13 +29,4 @@
     &--in-modal {
         margin: 1.5rem auto;
     }
-}
-
-.rating-container {
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: $z-index-base;
 }
