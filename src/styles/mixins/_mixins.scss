@@ -12,18 +12,19 @@
     }
 }
 
-@mixin trim($numLines: null){
+@mixin trim($numLines: null) {
     //95% support in caniuse.com/.
     @if $numLines != null {
-       -webkit-box-orient:vertical; 
-       display:-webkit-box; 
-       -webkit-line-clamp: $numLines;
-       overflow:hidden;
+        /* stylelint-disable */
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        /* stylelint-enable */
+        -webkit-line-clamp: $numLines;
+        overflow: hidden;
+    } @else {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
-    @else{
-       display:block;
-       overflow:hidden;
-       text-overflow:ellipsis;
-       white-space:nowrap;
-    }
- }
+}
