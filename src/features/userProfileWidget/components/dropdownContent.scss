@@ -10,7 +10,6 @@ a {
     position: relative;
     transform: translateY(-1rem);
     transition: all 0.4s ease;
-    visibility: hidden;
 
     &__content {
         @include typography-body-2;
@@ -73,6 +72,5 @@ a {
     &.is-active {
         opacity: 1;
         transform: translateY(0);
-        visibility: visible;
     }
 }
