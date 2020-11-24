@@ -43,15 +43,14 @@ const SliderNavigation = ({
 
       setCurrentIndex(i);
       listBullets[i].classList.add("is_active");
-    }, 250);
+    }, 260);
   };
 
   const formEllipsis = (counter) => {
     const indents = [];
-
     for (let i = 0; i < counter; i++) {
       const className =
-        i === 2
+        i === currentIndex
           ? "slider-navigation__circle is_active"
           : "slider-navigation__circle";
       indents.push(

@@ -7,38 +7,41 @@ $_bullet-point-active-size: 0.8rem;
 .slider-navigation {
     display: flex;
     justify-content: space-between;
+
     &__list {
+        align-items: center;
         display: flex;
         list-style-type: none;
-        align-items: center;
 
     }
 
     &__circle {
-        margin-right: $_bullet-point-margin;
         height: $_bullet-point-size;
+        margin-right: $_bullet-point-margin;
         width: $_bullet-point-size;
     }
 
     &__circle path {
-        fill: #c4c4c4;
-        stroke: #c4c4c4;
+        fill: $color-silver;
+        stroke: $color-silver;
 
         &:hover {
-            stroke: $color-watermelon;
-            fill: $color-watermelon;
+            fill: $color-silver;
+            stroke: $color-silver;
         }
     }
 
     &__circle.is_active {
-        position: relative;
         height: $_bullet-point-active-size;
+        position: relative;
         width: $_bullet-point-active-size;
+        
         path {
-            fill: #ff6e75;
-            stroke: #ff6e75;
+            fill: $color-watermelon;
+            stroke:$color-watermelon;
         }
     }
+
     &__circle:hover {
         cursor: pointer;
     }
