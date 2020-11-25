@@ -1,13 +1,13 @@
 @import '../../styles/base/base';
-$review-line-heigh: 1.5;
-$max-lines: 5;
-$color-black-transp: rgba(255, 255, 255, 0);
+
+$_review-line-heigh: 1.5;
+$_color-black-transp: rgba(255, 255, 255, 0);
 
 .review-card {
     background: $color-white;
-    border-radius: 8px;
+    border-radius: $review-border-radius;
     box-shadow: $card-shadow;
-    line-height: $review-line-heigh;
+    line-height: $_review-line-heigh;
     margin: 2rem 0;
     max-width: 50rem;
     padding-bottom: 0.1rem;
@@ -26,7 +26,7 @@ $color-black-transp: rgba(255, 255, 255, 0);
     &__content {
         @include typography-body-2;
 
-        line-height: $review-line-heigh;
+        line-height: $_review-line-heigh;
         margin: 0.6rem 2rem 1.6rem;
 
         &--truncate {
@@ -37,7 +37,7 @@ $color-black-transp: rgba(255, 255, 255, 0);
             &::before {
                 background: linear-gradient(
                     to right,
-                    $color-black-transp,
+                    $_color-black-transp,
                     $color-white 50%
                 );
                 content: '';
@@ -51,7 +51,7 @@ $color-black-transp: rgba(255, 255, 255, 0);
             &::after {
                 background: linear-gradient(
                     to right,
-                    $color-black-transp,
+                    $_color-black-transp,
                     $color-white 50%
                 );
                 content: '';

@@ -11,7 +11,7 @@ const Modal = ({ children, closeModal }) => {
     <div className="overlay">
       <div className="modal">
         {children}
-        <Button type={"button"} del={true} handleClick={closeModal}>
+        <Button type={"button"} iconX={true} handleClick={closeModal}>
           <IconX />
         </Button>
       </div>

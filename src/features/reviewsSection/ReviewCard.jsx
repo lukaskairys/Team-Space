@@ -15,7 +15,6 @@ function ReviewCard({ review, inModal }) {
     >
       <h4 className="review-card__title">{review.userName}</h4>
       <p
-        // className="review-card__content"
         className={classNames("review-card__content", {
           "review-card__content--truncate": !inModal,
         })}
@@ -28,7 +27,12 @@ function ReviewCard({ review, inModal }) {
 }
 
 ReviewCard.propTypes = {
-  review: PropTypes.object,
+  review: PropTypes.shape({
+    userName: PropTypes.string,
+    id: PropTypes.string,
+    comment: PropTypes.string,
+    rating: PropTypes.number,
+  }),
   inModal: PropTypes.bool,
 };
 

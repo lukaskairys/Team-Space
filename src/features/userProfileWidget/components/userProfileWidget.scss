@@ -13,7 +13,6 @@
     }
 
     &__picture {
-        // animation: fadeIn 1s ease-in forwards;
         @include animation('fadeIn 1s ease-in forwards');
         border-radius: 50%;
         height: 4rem;

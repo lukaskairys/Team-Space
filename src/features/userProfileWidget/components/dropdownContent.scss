@@ -65,12 +65,12 @@ $drop-border-radius: 5px;
         padding: 0.2rem;
     }
 
+    &__link {
+        color: $color-fiord;
+    }
+
     &.is-active {
         opacity: 1;
         transform: translateY(0);
-    }
-
-    a {
-        color: $color-fiord;
     }
 }
