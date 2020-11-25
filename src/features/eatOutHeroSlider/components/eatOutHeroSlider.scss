@@ -56,6 +56,7 @@ $_title-font-size: $font-size-32;
     }
 
     &__caption {
+        @include trim;
         color: $color-watermelon;
         font-size: $_caption-font-size;
         margin-bottom: 0.4rem;
@@ -87,6 +88,7 @@ $_title-font-size: $font-size-32;
     &__title {
         @include typography-h2;
         @include trim;
+
         font-size: $_title-font-size;
         margin-bottom: $_margin-size-smaller;
         width: $_typography-content-stretch;
@@ -103,6 +105,7 @@ $_title-font-size: $font-size-32;
 
     &__content {
         @include trim(4);
+
         color: $color-slate-gray;
         font-size: $_content-font-size;
         font-weight: $regular-weight;
@@ -111,6 +114,7 @@ $_title-font-size: $font-size-32;
 
         @include respond-to($_breakpoint, max) {
             @include trim(2);
+
             font-size: $_content-font-size * $_media-font-size-multiplier;
         }
     }
