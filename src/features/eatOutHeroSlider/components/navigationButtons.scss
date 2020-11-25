@@ -5,22 +5,22 @@ $_border-size: 0.5rem;
 
 .navigation-buttons {
     $this: &;
-    
+
     display: flex;
-    
+
     &__left {
         border-radius: $_border-size 0 0 $_border-size;
-        border-right:  0;
+        border-right: 0;
     }
 
     &__right {
         border-radius: 0 $_border-size $_border-size 0;
     }
-    
+
     &__left,
     &__right {
-        background: #FFF;
-        border: 0.1rem solid #DCDFE3;
+        background: $color-white;
+        border: 0.1rem solid $color-iron;
         height: $_button-size;
         line-height: 0.5;
         outline: none;
@@ -28,10 +28,10 @@ $_border-size: 0.5rem;
         width: $_button-size;
 
         &:hover {
-            background: $color-watermelon;      
+            background: $color-watermelon;
             border-color: $color-watermelon;
             #{$this}__icon path {
-                stroke: #FFF;
+                stroke: $color-white;
             }
         }
     }
@@ -41,9 +41,8 @@ $_border-size: 0.5rem;
         width: 0.5rem;
 
         path {
-        stroke: #3E5067;
-        stroke-width:  0.3rem;
+            stroke: $color-fiord;
+            stroke-width: 0.3rem;
         }
-
     }
 }

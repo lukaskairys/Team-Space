@@ -5,6 +5,7 @@
     &__header {
         @include typography-h1;
         @include trim;
+
         color: $color-fiord;
         margin-bottom: 3.2rem;
 

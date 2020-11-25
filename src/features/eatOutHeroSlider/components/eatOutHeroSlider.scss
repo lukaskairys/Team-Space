@@ -15,9 +15,9 @@ $_content-font-size: $font-size-16;
 $_title-font-size: $font-size-32;
 
 .eat-out-slider {
-    background: #fff;
+    background: $color-white;
     border-radius: $_slider-border;
-    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    box-shadow: $card-shadow;
     display: flex;
     height: 32.2rem;
     overflow: hidden;
@@ -41,7 +41,7 @@ $_title-font-size: $font-size-32;
         mask-image: linear-gradient(
             270deg,
             rgba(255, 255, 255, 0) 0%,
-            #fff 100%
+            $color-white 100%
         );
         object-fit: cover;
         width: $_image-stretch;
@@ -50,13 +50,14 @@ $_title-font-size: $font-size-32;
             mask-image: linear-gradient(
                 0deg,
                 rgba(255, 255, 255, 0) 0%,
-                #fff 100%
+                $color-white 100%
             );
         }
     }
 
     &__caption {
         @include trim;
+
         color: $color-watermelon;
         font-size: $_caption-font-size;
         margin-bottom: 0.4rem;
