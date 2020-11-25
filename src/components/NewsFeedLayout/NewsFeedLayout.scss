@@ -29,4 +29,13 @@
             grid-template-columns: repeat(1, minmax(300px, 1fr));
         }
     }
+
+    &__placeholder {
+        align-items: center;
+        display: flex;
+        font-size: $font-size-time;
+        height: 184px;
+        justify-content: center;
+        width: 395px;
+    }
 }
