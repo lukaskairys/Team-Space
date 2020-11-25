@@ -62,6 +62,7 @@ $_title-font-size: $font-size-32;
         margin-bottom: 0.4rem;
         margin-top: 1.2rem;
         text-transform: uppercase;
+        width: $_typography-content-stretch;
 
         @include respond-to($_breakpoint, max) {
             font-size: $_caption-font-size * $_media-font-size-multiplier;
