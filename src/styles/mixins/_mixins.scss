@@ -11,3 +11,50 @@
         }
     }
 }
+
+// scrollbar
+@mixin custom-scrollbar {
+    /* The emerging W3C standard that is currently Firefox-only */
+    scrollbar-color: $color-iron $color-white;
+
+    /* Works on Chrome/Edge/Safari */
+    &::-webkit-scrollbar {
+        width: 2rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-iron;
+        border: 6px solid $color-white;
+        border-radius: 20px;
+    }
+}
+
+/* ANIMATINOS
+    to use animations:
+    @include animation("animationName animationTime etc")
+*/
+
+@mixin keyframes($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    animation: #{$str};
+}
+
+// custom animations
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

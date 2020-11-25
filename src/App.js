@@ -7,6 +7,8 @@ import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
 
+import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
+
 function App() {
   return (
     <Router>
@@ -33,6 +35,10 @@ function App() {
 
           <Route path="/registration">
             <RegistrationPage />
+          </Route>
+
+          <Route path="/reviews">
+            <ReviewsSection />
           </Route>
 
           <Route path="/login">
