@@ -1,0 +1,14 @@
+@import '../../styles/base/base';
+
+.reviews {
+    &__title {
+        @include typography-h3;
+
+        color: $color-fiord;
+    }
+
+    &__content {
+        color: $color-midnight;
+        padding: 0.5rem 0;
+    }
+}
