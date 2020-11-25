@@ -64,7 +64,7 @@ const EatOutHeroSlider = () => {
             setLoading={setLoading}
             isLoading={isLoading}
           />
-          <p className="eat-out-slider__caption">Feel the taste of Italy</p>
+          <p className="eat-out-slider__caption">{currentItem.slogan}</p>
           <h2 className="eat-out-slider__title">{currentItem.name}</h2>
           <p className="eat-out-slider__content">{currentItem.description}</p>
         </div>
