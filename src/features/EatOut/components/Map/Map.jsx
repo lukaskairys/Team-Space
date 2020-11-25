@@ -7,7 +7,7 @@ const LocationPin = () => {
   return (
     <div className="pin">
       <PinIcon className="pin-icon" />
-      <p className="pin-text">Islandijos pl. 56</p>
+      <p className="pin-text">Islandijos pl. 32</p>
     </div>
   );
 };

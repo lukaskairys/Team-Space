@@ -1,49 +1,64 @@
 @import '../../../../styles/base/base';
 
+//Define minimum desired line width when making break points (recomenced higher than 25.3)
+$_linfo-line-width: 26rem;
+
+$_margin-size: 2.4rem;
+
 .eat-out-info {
+    min-width: $_linfo-line-width * 2+20;
+
     &__header {
         @include typography-h3;
+
         color: $color-fiord;
-        margin: 2.4rem 4rem;
+        margin: $_margin-size 4rem;
     }
 
     &__icon {
         align-self: center;
-        grid-row: 1 / 3;
+        grid-row: 1 / end;
+        height: $_margin-size;
         stroke: $color-malibu;
+        width: $_margin-size;
     }
 
     &__content {
         border-radius: 0.8rem;
         box-shadow: $card-shadow;
         display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%;
-        margin: 2.4rem 4rem;
-        padding: 2.4rem 2.4rem 0;
+        grid-template-columns: max-content max-content;
+        margin: $_margin-size 4rem;
+        padding: $_margin-size 0 0 $_margin-size;
     }
 
     &__content-item {
         align-self: center;
         display: grid;
-        grid-template-columns: 2.4rem auto;
-        grid-template-rows: 50% 50%;
-        margin-bottom: 2.4rem;
+        grid-template-columns: $_margin-size max-content;
+        grid-template-rows: max-content max-content;
+        margin-bottom: $_margin-size;
     }
 
     &__content-info {
         @include typography-caption;
-        align-self: center;
+
         color: $color-slate-gray;
+        display: grid;
         font-weight: $bold-weight;
-        margin-left: 1.2rem;
+        grid-template-columns: max-content max-content;
+        line-height: 2rem;
+        margin: 0 $_margin-size 0 1.2rem;
+        max-width: $_linfo-line-width;
+        min-height: $_margin-size;
+        padding: 0.4rem 0;
         text-transform: uppercase;
     }
 
     &__content-header {
         @include typography-h3-alternative;
-        align-self: center;
+
         color: $color-fiord;
-        margin-left: 1.2rem;
+        margin: 0 $_margin-size 0 1.3rem;
     }
 }

@@ -28,10 +28,14 @@
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "11 - 00"
+        },
+        {
+          "days": "Birthday - Deathday",
+          "hours": "11 - 00"
         }],
         "website": "http://grilllondon.lt",
         "address": "Islandijos pl. 32, Kaunas",
-        "phone": "+370 62793 122",
+        "phone": "+370 627 93122",
         "image": "https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
         "checkIns": 8,
         "reviews": [{
