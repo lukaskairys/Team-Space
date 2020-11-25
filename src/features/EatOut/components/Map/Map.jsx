@@ -29,10 +29,10 @@ const Map = (/* { location, zoomLevel } */) => {
         defaultZoom={15}
         options={{
           styles: [
-            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+            { elementType: "geometry", stylers: [{ color: "#08304b" }] },
             {
               elementType: "labels.text.stroke",
-              stylers: [{ color: "#242f3e" }],
+              stylers: [{ color: "#212121" }],
             },
             {
               elementType: "labels.text.fill",
@@ -46,7 +46,7 @@ const Map = (/* { location, zoomLevel } */) => {
             {
               featureType: "poi",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#d59563" }],
+              stylers: [{ color: "#FFFFFF" }],
             },
             {
               featureType: "poi.park",
@@ -61,27 +61,27 @@ const Map = (/* { location, zoomLevel } */) => {
             {
               featureType: "road",
               elementType: "geometry",
-              stylers: [{ color: "#38414e" }],
+              stylers: [{ color: "#000000" }],
             },
             {
               featureType: "road",
               elementType: "geometry.stroke",
-              stylers: [{ color: "#212a37" }],
+              stylers: [{ color: "#000000" }],
             },
             {
               featureType: "road",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#9ca5b3" }],
+              stylers: [{ color: "#FFFFFF" }],
             },
             {
               featureType: "road.highway",
               elementType: "geometry",
-              stylers: [{ color: "#746855" }],
+              stylers: [{ color: "#000000" }],
             },
             {
               featureType: "road.highway",
               elementType: "geometry.stroke",
-              stylers: [{ color: "#1f2835" }],
+              stylers: [{ color: "#1791AB" }],
             },
             {
               featureType: "road.highway",
@@ -106,12 +106,12 @@ const Map = (/* { location, zoomLevel } */) => {
             {
               featureType: "water",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#515c6d" }],
+              stylers: [{ color: "#cacfd5" }],
             },
             {
               featureType: "water",
               elementType: "labels.text.stroke",
-              stylers: [{ color: "#17263c" }],
+              stylers: [{ color: "#212121" }],
             },
           ],
         }}

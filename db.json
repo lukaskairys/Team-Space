@@ -26,12 +26,12 @@
         "id": "120wsdlpx4",
         "description": "„Grill London” is a chain of grill restaurants that visitors love because of its exceptional and responsible take on food quality. All of its steaks are grilled in unique ceramic grills using ecological fuels.",
         "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "11 - 00"
+          "days": "Monday - Friday",
+          "hours": "10 - 22"
         },
         {
-          "days": "Birthday - Deathday",
-          "hours": "11 - 00"
+          "days": "Saturday - Sunday",
+          "hours": "11 - 23"
         }],
         "website": "http://grilllondon.lt",
         "address": "Islandijos pl. 32, Kaunas",
@@ -63,7 +63,11 @@
             "rating": 4.0
           }
         ],
-        "categories": ["Burger", "Salads", "Grill"]
+        "categories": ["Burger", "Salads", "Grill"],
+        "coordinates": {
+          "lat": 54.93992587128105,
+          "lng": 23.892226341979587
+        }
       },
       {
         "name": "Jurgis ir Drakonas",
