@@ -2,7 +2,6 @@ $drop-border-radius: 5px;
 
 a {
     color: $color-fiord;
-    text-decoration: none;
 }
 
 .dropdown {
@@ -11,7 +10,6 @@ a {
     position: relative;
     transform: translateY(-1rem);
     transition: all 0.4s ease;
-    visibility: hidden;
 
     &__content {
         @include typography-body-2;
@@ -19,7 +17,6 @@ a {
         border: 1px solid $color-ghost;
         border-radius: $drop-border-radius;
         cursor: pointer;
-        list-style-type: none;
         position: absolute;
         right: 0;
         top: 1.5rem;
@@ -71,10 +68,9 @@ a {
         margin-right: 1rem;
         padding: 0.2rem;
     }
-}
 
-.dropdown.is-active {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
+    &.is-active {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
