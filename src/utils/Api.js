@@ -1,33 +1,15 @@
 import { useEffect, useState, useCallback } from "react";
-
+import { useRequest } from "../apis/useRequest";
 import { roundNumber } from "./Math";
-
-export const GetApiURL = (endpoint) => {
-  const URL = "http://localhost:3008";
-  const API_URL = `${URL}/${endpoint}`;
-  return API_URL;
-};
+import { isObjectEmpty } from "./objects";
 
 export const FetchBestRatedRestaurants = (count) => {
-  const API_URL = GetApiURL("restaurants");
   const [restaurants, setRestaurants] = useState([]);
-
-  const fetchAPI = () => {
-    fetch(API_URL)
-      .then((response) => {
-        if (!response.ok) {
-          return [];
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const filteredData = filter(data);
-        setRestaurants(filteredData);
-      });
-  };
+  const { data } = useRequest("/restaurants");
 
   const filter = useCallback(
     (restaurants) => {
+      if (isObjectEmpty(restaurants)) return [];
       const allCount = restaurants.restaurantList.length;
       const size = count > allCount ? allCount : count;
       const BestRatedRestaurants = [];
@@ -60,6 +42,9 @@ export const FetchBestRatedRestaurants = (count) => {
     [count]
   );
 
-  useEffect(fetchAPI, [filter, API_URL]);
+  useEffect(() => {
+    setRestaurants(filter(data));
+  }, [filter, data]);
+
   return restaurants;
 };
