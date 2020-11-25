@@ -9,6 +9,7 @@
 
     &__title {
         @include typography-h2-alternative;
+
         color: $color-fiord;
         margin-bottom: 7rem;
     }
