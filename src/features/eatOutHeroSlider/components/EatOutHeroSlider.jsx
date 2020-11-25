@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FetchBestRatedRestaurants } from "../../../utils/Api";
+import { FetchBestRatedRestaurants } from "utils/Api";
+import { roundNumber } from "utils/Math";
+import Button from "../../../components/button/Button";
 
 import "./eatOutHeroSlider.scss";
-import Button from "../../../components/button/Button";
 import SliderNavigation from "./SliderNavigation";
-import { roundNumber } from "utils/Math";
 import { ToggleAnimation } from "./ToggleAnimation";
 
 const EatOutHeroSlider = () => {

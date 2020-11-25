@@ -7,6 +7,12 @@ $_margin-size-smaller: 1.2rem;
 $_media-font-size-multiplier: 0.8;
 $_caption-font-size: 1rem;
 $_slider-border: 0.8rem;
+$_image-stretch: 100%;
+$_typography-content-stretch: 77%;
+$_details-padding: 2.4rem;
+$_animation-time: 0.25s;
+$_content-font-size: $font-size-16;
+$_title-font-size: $font-size-32;
 
 .eat-out-slider {
     background: #fff;
@@ -15,24 +21,24 @@ $_slider-border: 0.8rem;
     display: flex;
     height: 32.2rem;
     overflow: hidden;
-    width:100%;
-    
+    width: 100%;
+
     &__image-container {
         flex: 2;
-        height: 100%;
+        height: $_image-stretch;
     }
 
     &__image {
-        height:100%;
+        height: $_image-stretch;
         mask-image: linear-gradient(
             270deg,
             rgba(255, 255, 255, 0) 0%,
             #fff 100%
         );
-        object-fit: cover;  
-        width:100%;
+        object-fit: cover;
+        width: $_image-stretch;
     }
-    
+
     &__caption {
         color: $color-watermelon;
         font-size: $_caption-font-size;
@@ -43,41 +49,39 @@ $_slider-border: 0.8rem;
 
     &__details {
         align-items: flex-start;
-        display:flex;
+        display: flex;
         flex: 1;
         flex-direction: column;
         justify-content: space-between;
         min-width: 0;
-        padding: 2.4rem; 
-
+        padding: $_details-padding;
     }
 
     &__title {
         @include typography-h2;
         @include trim;
-
+        font-size: $_title-font-size;
         margin-bottom: $_margin-size-smaller;
-        width: 77%;
+        width: $_typography-content-stretch;
     }
 
-
     &__main {
-         width: 100%;
+        width: 100%;
     }
 
     &__content {
         @include trim(4);
-        
+
         color: $color-slate-gray;
-        font-size: $font-size-16;
+        font-size: $_content-font-size;
         font-weight: $regular-weight;
         line-height: 1.5;
-        width: 77%;
+        width: $_typography-content-stretch;
     }
 
-    .button  {
+    .button {
         background: $color-watermelon;
-        cursor:pointer;
+        cursor: pointer;
         font-size: $font-size-16;
         width: 14.6rem;
 
@@ -85,7 +89,7 @@ $_slider-border: 0.8rem;
         &:focus {
             background: $color-dark-watermelon;
         }
-    
+
         &:active {
             background: $color-dark-watermelon;
         }
@@ -101,14 +105,14 @@ $_slider-border: 0.8rem;
         }
 
         &__title {
-            font-size: $font-size-32 * $_media-font-size-multiplier;
+            font-size: $_title-font-size * $_media-font-size-multiplier;
             margin-bottom: 0.6rem;
         }
 
         &__image-container {
             max-height: 45%;
         }
-        
+
         &__image {
             mask-image: linear-gradient(
                 0deg,
@@ -122,25 +126,25 @@ $_slider-border: 0.8rem;
             padding-top: 0;
         }
 
-        &__content{
+        &__content {
             @include trim(2);
-            font-size: $font-size-16 * $_media-font-size-multiplier;
+            font-size: $_content-font-size * $_media-font-size-multiplier;
         }
-        
+
         .button {
-            font-size: $font-size-16 * 0.6;
-            width: 14.6rem * 0.7;
+            font-size: $font-size-10;
+            width: 10.2rem;
         }
-      }
-      
+    }
+
     &.animate-out {
-        animation: fadeOut 0.25s forwards ease-in-out;
+        animation: fadeOut $_animation-time forwards ease-in-out;
     }
 
     &.animate-in {
-        animation: fadeIn 0.25s forwards ease-in-out;
-    }  
-       
+        animation: fadeIn $_animation-time forwards ease-in-out;
+    }
+
     @keyframes fadeOut {
         0% {
             opacity: 1;
@@ -150,7 +154,7 @@ $_slider-border: 0.8rem;
             opacity: 0;
         }
     }
-    
+
     @keyframes fadeIn {
         0% {
             opacity: 0;

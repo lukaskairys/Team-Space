@@ -8,7 +8,6 @@ import EatOutSection from "features/eatOutSection/components/EatOutSection";
 import FeedCardVideo from "features/FeedCardVideo/FeedCardVideo";
 import FeedCard from "features/FeedCard/FeedCard";
 import BirthdayCard from "features/BirthdayCard/BirthdayCard";
-import EatOutHeroSlider from "features/eatOutHeroSlider/components/EatOutHeroSlider";
 
 import "./Dashboard.scss";
 
@@ -17,7 +16,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <MainLayout>
         <>
-          {/* <div className="dashboard__widgets">
+          <div className="dashboard__widgets">
             <HelloWidget />
             <WeatherWidget />
           </div>
@@ -52,8 +51,7 @@ const Dashboard = () => {
             commenterUsername="firstname lastname2"
             commentText="A new comment on this post."
             userPhoto="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-          />*/}
-          <EatOutHeroSlider />
+          />
         </>
       </MainLayout>
     </div>
