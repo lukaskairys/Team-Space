@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-/* import RegistrationPage from "../src/features/registration/pages/RegistrationPage"; */
+import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
 import LoginPage from "../src/features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
@@ -34,9 +34,12 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route exact path="/registration/:id">
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
+
+          <Route exact path="/eat-out/:id">
             <EatOutInfo />
-            {/* <RegistrationPage /> */}
           </Route>
 
           <Route path="/reviews">

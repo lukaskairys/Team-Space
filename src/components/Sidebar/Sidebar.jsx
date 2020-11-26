@@ -25,7 +25,7 @@ const sidebarData = [
   {
     title: "Eat-Out",
     icon: <CompassIcon className="sidebar__list-icon" />,
-    link: "/registration/120wsdlpx4",
+    link: "/eat-out/120wsdlpx4",
   },
 ];
 
