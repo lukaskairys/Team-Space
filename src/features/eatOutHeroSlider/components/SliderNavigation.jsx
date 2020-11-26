@@ -40,7 +40,7 @@ const SliderNavigation = ({
 
     for (let i = 0; i < counter; i++) {
       const className =
-        i === 2
+        i === currentIndex
           ? "slider-navigation__circle is_active"
           : "slider-navigation__circle";
       indents.push(
