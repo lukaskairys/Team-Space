@@ -19,7 +19,7 @@ function DropDownContent({ isOpen }) {
           <span>Settings</span>
         </li>
 
-        <Link to="/login">
+        <Link to="/login" className="dropdown__link">
           <li className="dropdown__item">
             <LogOutIcon className="dropdown__icon" />
             <span>Log out</span>

@@ -1,6 +1,9 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
-$button-rounding-size: 1.7rem;
+$_button-rounding-size: 1.7rem;
+$_toggle-size: 2.8rem;
+$_margin-size: 1.6rem;
 
 .sidebar {
     background-color: $color-bright-violet;
@@ -12,29 +15,33 @@ $button-rounding-size: 1.7rem;
 
     &__logo {
         fill: $color-white;
-        margin-bottom: 8.1rem;
-        margin-left: 2.4rem;
+        height: 4.8rem;
+        margin: 2.4rem 0 11rem 2.4rem;
         transition: fill 1500ms;
         transition-delay: 300ms;
-        width: 11.472rem;
+        width: 11.425rem;
     }
 
     &__toggle {
+        @include square-size($_toggle-size);
+
         background-color: $color-transparent;
         border: 0;
         border-radius: 50%;
         cursor: pointer;
-        height: 2.8rem;
         left: 19.2rem;
         outline: transparent;
         position: absolute;
         top: 12rem;
         transition: transform 1000ms;
-        width: 2.8rem;
 
         /*  &:focus {
             box-shadow: 0 0 0 3px $color-dark-violet;
         } */
+    }
+
+    &__toggle-icon {
+        @include square-size($_toggle-size);
     }
 
     &__list {
@@ -66,15 +73,20 @@ $button-rounding-size: 1.7rem;
         } */
     }
 
-    &__icon {
-        height: 2.4rem;
-        margin-left: 1.55rem;
-        stroke: $color-white;
-        width: 2.5rem;
+    &__list-icon-container {
+        @include square-size($icon-size);
+
+        margin-left: $_margin-size;
+    }
+
+    &__list-icon {
+        @include square-size($icon-size);
+
+        stroke: $color-light-porcelain;
     }
 
     &__item-title {
-        margin-left: 1.55rem;
+        margin-left: $_margin-size;
         transition: opacity 1500ms, visibility 1500ms;
         transition-delay: 300ms;
     }
@@ -84,55 +96,57 @@ $button-rounding-size: 1.7rem;
         box-shadow: inset 0.2rem 0.2rem rgba(0, 0, 0, 0.14);
         color: $color-fiord;
 
-        .sidebar__corner {
+        .sidebar__list-icon {
+            stroke: $color-fiord;
+        }
+
+        .sidebar__corner-top {
             &::before {
                 background-color: $color-light-porcelain;
                 content: '';
                 display: block;
-                height: $button-rounding-size;
+                height: $_button-rounding-size;
                 position: absolute;
                 right: 0;
-                top: -$button-rounding-size;
-                width: $button-rounding-size;
+                top: -$_button-rounding-size;
+                width: $_button-rounding-size;
             }
 
             &::after {
                 background-color: $color-bright-violet;
-                border-radius: 0 0 $button-rounding-size;
+                border-radius: 0 0 $_button-rounding-size;
                 box-shadow: 0 0.2rem rgba(0, 0, 0, 0.14);
                 content: '';
                 display: block;
-                height: $button-rounding-size;
+                height: $_button-rounding-size;
                 position: absolute;
                 right: 0;
-                top: -$button-rounding-size;
-                width: $button-rounding-size;
+                top: -$_button-rounding-size;
+                width: $_button-rounding-size;
                 z-index: $z-index-base;
             }
         }
 
-        .sidebar__icon {
-            stroke: $color-fiord;
-
+        .sidebar__corner-bottom {
             &::before {
                 background-color: $color-light-porcelain;
-                bottom: -$button-rounding-size;
+                bottom: -$_button-rounding-size;
                 content: '';
-                height: $button-rounding-size;
+                height: $_button-rounding-size;
                 position: absolute;
                 right: 0;
-                width: $button-rounding-size;
+                width: $_button-rounding-size;
             }
 
             &::after {
                 background-color: $color-bright-violet;
-                border-radius: 0 $button-rounding-size 0 0;
-                bottom: -$button-rounding-size;
+                border-radius: 0 $_button-rounding-size 0 0;
+                bottom: -$_button-rounding-size;
                 content: '';
-                height: $button-rounding-size;
+                height: $_button-rounding-size;
                 position: absolute;
                 right: 0;
-                width: $button-rounding-size;
+                width: $_button-rounding-size;
             }
         }
 
@@ -142,7 +156,7 @@ $button-rounding-size: 1.7rem;
             height: 5.5rem;
             position: absolute;
             right: 0;
-            width: $button-rounding-size;
+            width: $_button-rounding-size;
         }
     }
 }
