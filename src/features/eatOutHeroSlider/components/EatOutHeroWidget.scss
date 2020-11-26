@@ -1,0 +1,17 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+.eat-out-hero {
+    &__header {
+        @include typography-h1;
+        @include trim;
+
+        color: $color-fiord;
+        margin-bottom: 3.2rem;
+
+        @include respond-to(1000, max) {
+            font-size: $font-size-18;
+            margin-bottom: 1.6rem;
+        }
+    }
+}

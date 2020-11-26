@@ -11,7 +11,23 @@
         }
     }
 }
-
+//text overflow trim
+@mixin trim($numLines: null) {
+    //95% support in caniuse.com/.
+    @if $numLines != null {
+        /* stylelint-disable */
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        /* stylelint-enable */
+        -webkit-line-clamp: $numLines;
+        overflow: hidden;
+    } @else {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
 // scrollbar
 @mixin custom-scrollbar {
     /* The emerging W3C standard that is currently Firefox-only */
