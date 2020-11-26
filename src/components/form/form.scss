@@ -3,7 +3,7 @@
 
 .form {
     background-color: $color-white;
-    border-radius: 8px;
+    border-radius: $base-border-radius;
     box-shadow: $card-shadow;
     margin-top: 5rem;
     padding: 5rem 3rem;
@@ -28,7 +28,7 @@
 
         color: $color-gull-gray;
         display: grid;
-        grid-gap: 20px;
+        grid-gap: 2rem;
         grid-template-columns: 1fr 1fr;
         padding: 1rem 0;
         text-transform: uppercase;
@@ -60,7 +60,7 @@
 
     &__success-msg {
         background-color: $color-mint;
-        border-radius: 8px;
+        border-radius: $base-border-radius;
         margin-top: 2rem;
         padding: 1rem;
         text-align: center;
