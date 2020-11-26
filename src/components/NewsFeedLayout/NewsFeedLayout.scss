@@ -1,0 +1,42 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.news-feed-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10rem;
+
+    &__title {
+        @include typography-h2-alternative;
+
+        color: $color-fiord;
+        margin-bottom: 7rem;
+    }
+
+    &__content {
+        align-items: flex-start;
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        justify-content: space-between;
+        justify-items: center;
+
+        @include respond-to(1500, max) {
+            grid-template-columns: repeat(2, minmax(300px, 1fr));
+        }
+
+        @include respond-to(1080, max) {
+            grid-template-columns: repeat(1, minmax(300px, 1fr));
+        }
+    }
+
+    &__placeholder {
+        align-items: center;
+        display: flex;
+        font-size: $font-size-time;
+        height: 184px;
+        justify-content: center;
+        width: 395px;
+    }
+}

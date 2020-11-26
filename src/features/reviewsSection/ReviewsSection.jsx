@@ -15,6 +15,9 @@ function ReviewsSection() {
   const id = "120wsdlpx4";
 
   const { data } = useRequest("/restaurants");
+  const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
+  const reviewsToShow = reviews.slice(0, reviewCountToRender);
+  const maxCharToShow = 280;
 
   useEffect(() => {
     try {
@@ -29,8 +32,6 @@ function ReviewsSection() {
       }
     }
   }, [data.restaurantList]);
-
-  const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
 
   const showModal = () => {
     setModalOpen(true);
@@ -50,6 +51,7 @@ function ReviewsSection() {
     body.style.top = "";
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
   };
+
   window.addEventListener("scroll", () => {
     document.documentElement.style.setProperty(
       "--scroll-y",
@@ -57,21 +59,29 @@ function ReviewsSection() {
     );
   });
 
+  const renderButton = () => {
+    if (
+      reviews.length > 3 ||
+      reviewsToShow.some((rew) => rew.comment.length > maxCharToShow)
+    ) {
+      return (
+        <Button medium={true} handleClick={showModal}>
+          <span>Show more</span>
+        </Button>
+      );
+    }
+  };
   return (
     <>
       <section className="reviews">
         <h3 className="reviews__title">Reviews</h3>
         <div className="reviews__content">
-          {reviews.slice(0, reviewCountToRender).map((review) => (
+          {reviewsToShow.map((review) => (
             <ReviewCard review={review} key={review.id} />
           ))}
         </div>
 
-        {reviews.length > 3 && (
-          <Button medium={true} handleClick={showModal}>
-            <span>Show more</span>
-          </Button>
-        )}
+        {renderButton()}
 
         {modalOpen && (
           <Modal closeModal={closeModal}>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./eatOutSection.scss";
-import FetchBestRatedRestaurants from "./FetchBestRatedRestaurants";
+import { FetchBestRatedRestaurants } from "../../../utils/Api";
 import Button from "../../../components/button/Button";
 import CreateTopRestaurantColumn from "./CreateTopRestaurantColumn";
 
