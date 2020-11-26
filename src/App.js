@@ -6,7 +6,7 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
-import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
+import EatOut from "pages/EatOut/EatOut";
 
 import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
 
@@ -39,7 +39,7 @@ function App() {
           </Route>
 
           <Route exact path="/eat-out/:id">
-            <EatOutInfo />
+            <EatOut />
           </Route>
 
           <Route path="/reviews">

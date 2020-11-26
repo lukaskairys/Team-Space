@@ -19,6 +19,24 @@ const EatOutInfo = () => {
       .filter((restaurant) => restaurant.id === id)
       .shift();
 
+    const renderHours = () => {
+      return restaurant.openingHours.map((timeInfo, index) => {
+        return (
+          <React.Fragment key={index}>
+            <span>{timeInfo.days}&nbsp;&nbsp;</span>
+            <span>
+              {timeInfo.hours
+                .split(" - ")
+                .map((s) => {
+                  return s.length > 2 ? s : s + ":00";
+                })
+                .join(" - ")}
+            </span>
+          </React.Fragment>
+        );
+      });
+    };
+
     return (
       <div className="eat-out-info">
         <h2 className="eat-out-info__header">Information</h2>
@@ -44,21 +62,7 @@ const EatOutInfo = () => {
             <ClockIcon className="eat-out-info__icon" />
             <h3 className="eat-out-info__content-header">Work hours</h3>
             <p className="eat-out-info__content-info eat-out-info__content-info--hours">
-              {restaurant.openingHours.map((timeInfo, index) => {
-                return (
-                  <React.Fragment key={index}>
-                    <span>{timeInfo.days}&nbsp;&nbsp;</span>
-                    <span>
-                      {timeInfo.hours
-                        .split(" - ")
-                        .map((s) => {
-                          return s.length > 2 ? s : s + ":00";
-                        })
-                        .join(" - ")}
-                    </span>
-                  </React.Fragment>
-                );
-              })}
+              {renderHours()}
             </p>
           </div>
         </div>
@@ -69,7 +73,7 @@ const EatOutInfo = () => {
   } else if (error) {
     return <div>Error</div>;
   }
-  return <div>Loading...</div>;
+  return <div></div>;
 };
 
 export default EatOutInfo;
