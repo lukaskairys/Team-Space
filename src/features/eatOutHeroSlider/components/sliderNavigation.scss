@@ -1,0 +1,48 @@
+@import '../../../styles/base/base';
+
+$_bullet-point-size: 0.6rem;
+$_bullet-point-margin: 1rem;
+$_bullet-point-active-size: 0.8rem;
+
+.slider-navigation {
+    display: flex;
+    justify-content: space-between;
+
+    &__list {
+        align-items: center;
+        display: flex;
+        list-style-type: none;
+
+    }
+
+    &__circle {
+        height: $_bullet-point-size;
+        margin-right: $_bullet-point-margin;
+        width: $_bullet-point-size;
+    }
+
+    &__circle path {
+        fill: $color-silver;
+        stroke: $color-silver;
+
+        &:hover {
+            fill: $color-silver;
+            stroke: $color-silver;
+        }
+    }
+
+    &__circle.is_active {
+        height: $_bullet-point-active-size;
+        position: relative;
+        width: $_bullet-point-active-size;
+        
+        path {
+            fill: $color-watermelon;
+            stroke:$color-watermelon;
+        }
+    }
+
+    &__circle:hover {
+        cursor: pointer;
+    }
+}

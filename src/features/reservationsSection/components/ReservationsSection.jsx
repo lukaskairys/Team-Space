@@ -5,52 +5,31 @@ import ReservationCard from "../../../components/ReservationCard/ReservationCard
 import { ReactComponent as Phone } from "assets/images/phone-1.svg";
 import { ReactComponent as Door } from "assets/images/door-1.svg";
 import { ReactComponent as Book } from "assets/images/book-1.svg";
-import jsonserver from "../../../apis/jsonserver";
-import axios from "axios";
+import { isObjectEmpty } from "../../../utils/objects";
+import { useRequest } from "../../../apis/useRequest";
 
 const ReservationsSection = () => {
-  const [mounted, setMounted] = useState(false);
   const [reservations, setReservations] = useState({
     devices: "-",
     books: "-",
     rooms: 4,
   });
+  const { data, error } = useRequest("/userData");
 
   useEffect(() => {
-    const CancelToken = axios.CancelToken;
-    const source = CancelToken.source();
-    setMounted(true);
-
-    const getReservations = async () => {
-      try {
-        const { data } = await jsonserver.get("/userData", {
-          cancelToken: source.token,
-        });
-        setReservations((prevState) => ({
-          ...prevState,
-          devices: data.reservations.devices.length,
-          books: data.reservations.books.length,
-        }));
-      } catch (err) {
-        if (err) {
-          setReservations((prevState) => ({
-            ...prevState,
-            devices: "Err",
-            books: "Err",
-          }));
-        }
-      }
-    };
-
-    if (mounted) {
-      getReservations();
-    }
-
-    return () => {
-      source.cancel();
-      setMounted(false);
-    };
-  }, [mounted]);
+    if (!isObjectEmpty(data))
+      setReservations((prevState) => ({
+        ...prevState,
+        devices: data.reservations.devices.length,
+        books: data.reservations.books.length,
+      }));
+    else if (error)
+      setReservations((prevState) => ({
+        ...prevState,
+        devices: "Err",
+        books: "Err",
+      }));
+  }, [data, error]);
 
   return (
     <div className="RESERVATIONS">

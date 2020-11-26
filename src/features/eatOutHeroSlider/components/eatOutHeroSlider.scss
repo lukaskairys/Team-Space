@@ -1,0 +1,172 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$_breakpoint: 1000;
+$_margin-size: 2.4rem;
+$_margin-size-smaller: 1.2rem;
+$_media-font-size-multiplier: 0.8;
+$_caption-font-size: 1rem;
+$_slider-border: 0.8rem;
+$_image-stretch: 100%;
+$_typography-content-stretch: 77%;
+$_details-padding: 2.4rem;
+$_animation-time: 0.25s;
+$_content-font-size: $font-size-16;
+$_title-font-size: $font-size-32;
+
+.eat-out-slider {
+    background: $color-white;
+    border-radius: $_slider-border;
+    box-shadow: $card-shadow;
+    display: flex;
+    height: 32.2rem;
+    overflow: hidden;
+    width: 100%;
+
+    @include respond-to($_breakpoint, max) {
+        flex-direction: column;
+    }
+
+    &__image-container {
+        flex: 2;
+        height: $_image-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            max-height: 45%;
+        }
+    }
+
+    &__image {
+        height: $_image-stretch;
+        mask-image: linear-gradient(
+            270deg,
+            rgba(255, 255, 255, 0) 0%,
+            $color-white 100%
+        );
+        object-fit: cover;
+        width: $_image-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            mask-image: linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0) 0%,
+                $color-white 100%
+            );
+        }
+    }
+
+    &__caption {
+        @include trim;
+
+        color: $color-watermelon;
+        font-size: $_caption-font-size;
+        margin-bottom: 0.4rem;
+        margin-top: 1.2rem;
+        text-transform: uppercase;
+        width: $_typography-content-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            font-size: $_caption-font-size * $_media-font-size-multiplier;
+            margin-bottom: 0.4rem;
+            margin-top: 0.2rem;
+        }
+    }
+
+    &__details {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+        padding: $_details-padding;
+
+        @include respond-to($_breakpoint, max) {
+            max-height: 55%;
+            padding-top: 0;
+        }
+    }
+
+    &__title {
+        @include typography-h2;
+        @include trim;
+
+        font-size: $_title-font-size;
+        margin-bottom: $_margin-size-smaller;
+        width: $_typography-content-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            font-size: $_title-font-size * $_media-font-size-multiplier;
+            margin-bottom: 0.6rem;
+        }
+    }
+
+    &__main {
+        width: 100%;
+    }
+
+    &__content {
+        @include trim(4);
+
+        color: $color-slate-gray;
+        font-size: $_content-font-size;
+        font-weight: $regular-weight;
+        line-height: 1.5;
+        width: $_typography-content-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            @include trim(2);
+
+            font-size: $_content-font-size * $_media-font-size-multiplier;
+        }
+    }
+
+    .button {
+        background: $color-watermelon;
+        cursor: pointer;
+        font-size: $font-size-16;
+        width: 14.6rem;
+
+        @include respond-to($_breakpoint, max) {
+            font-size: $font-size-10;
+            width: 10.2rem;
+        }
+
+        &:hover,
+        &:focus {
+            background: $color-dark-watermelon;
+        }
+
+        &:active {
+            background: $color-dark-watermelon;
+        }
+    }
+
+    &.animate-out {
+        animation: fadeOut $_animation-time forwards ease-in-out;
+    }
+
+    &.animate-in {
+        animation: fadeIn $_animation-time forwards ease-in-out;
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}
