@@ -6,7 +6,7 @@ $_color-black-transp: rgba(255, 255, 255, 0);
 
 .review-card {
     background: $color-white;
-    border-radius: $review-border-radius;
+    border-radius: $base-border-radius;
     box-shadow: $card-shadow;
     line-height: $_review-line-heigh;
     margin: 2rem 0;
