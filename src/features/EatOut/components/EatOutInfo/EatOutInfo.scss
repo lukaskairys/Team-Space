@@ -1,12 +1,12 @@
 @import '../../../../styles/base/base';
 
 //Define minimum desired line width when making break points (recomenced higher than 25.3)
-$_linfo-line-width: 26rem;
+$_info-line-width: 28rem;
 
 $_margin-size: 2.4rem;
 
 .eat-out-info {
-    min-width: $_linfo-line-width * 2+20;
+    min-width: $_info-line-width * 2+20;
 
     &__header {
         @include typography-h3;
@@ -44,15 +44,18 @@ $_margin-size: 2.4rem;
         @include typography-caption;
 
         color: $color-slate-gray;
-        display: grid;
         font-weight: $bold-weight;
-        grid-template-columns: max-content max-content;
         line-height: 2rem;
         margin: 0 $_margin-size 0 1.2rem;
-        max-width: $_linfo-line-width;
+        max-width: $_info-line-width;
         min-height: $_margin-size;
         padding: 0.4rem 0;
         text-transform: uppercase;
+
+        &--hours {
+            display: grid;
+            grid-template-columns: max-content max-content;
+        }
     }
 
     &__content-header {

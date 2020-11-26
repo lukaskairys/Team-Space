@@ -1,34 +1,27 @@
 import React from "react";
+import PropTypes from "prop-types";
 import GoogleMapReact from "google-map-react";
-import "./Map.scss";
+
 import { ReactComponent as PinIcon } from "assets/icons/map-pin.svg";
 
-const LocationPin = () => {
-  return (
-    <div className="pin">
-      <PinIcon className="pin-icon" />
-      <p className="pin-text">Islandijos pl. 32</p>
-    </div>
-  );
-};
+import "./Map.scss";
 
-const Map = (/* { location, zoomLevel } */) => {
-  const location = {
-    address: "1600 Amphitheatre Parkway, Mountain View, california.",
-    lat: 54.93992587128105,
-    lng: 23.892226341979587,
-  };
-
+const Map = ({ location }) => {
   return (
-    <div className="google-map">
+    <div className="map">
       <GoogleMapReact
         bootstrapURLKeys={{
           key: "AIzaSyCDRxFPYq86_HUZim4xjUhjdjy4BrA_BgI",
         }}
-        defaultCenter={location}
+        defaultCenter={location.coordinates}
         defaultZoom={15}
         options={{
           styles: [
+            {
+              featureType: "poi",
+              elementType: "labels",
+              stylers: [{ visibility: "off" }],
+            },
             { elementType: "geometry", stylers: [{ color: "#08304b" }] },
             {
               elementType: "labels.text.stroke",
@@ -117,13 +110,39 @@ const Map = (/* { location, zoomLevel } */) => {
         }}
       >
         <LocationPin
-          lat={location.lat}
-          lng={location.lng}
-          text={location.address}
+          lat={location.coordinates.lat}
+          lng={location.coordinates.lng}
+          address={location.address}
         />
       </GoogleMapReact>
     </div>
   );
+};
+
+const LocationPin = ({ address }) => {
+  return (
+    <div className="pin">
+      <span>
+        <PinIcon className="pin__icon" />
+      </span>
+
+      <p className="pin__text">{address}</p>
+    </div>
+  );
+};
+
+LocationPin.propTypes = {
+  address: PropTypes.string,
+};
+
+Map.propTypes = {
+  location: PropTypes.shape({
+    address: PropTypes.string,
+    coordinates: PropTypes.shape({
+      lat: PropTypes.number,
+      lng: PropTypes.number,
+    }),
+  }),
 };
 
 export default Map;

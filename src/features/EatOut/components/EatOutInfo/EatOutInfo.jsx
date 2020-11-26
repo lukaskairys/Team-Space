@@ -43,7 +43,7 @@ const EatOutInfo = () => {
           <div className="eat-out-info__content-item">
             <ClockIcon className="eat-out-info__icon" />
             <h3 className="eat-out-info__content-header">Work hours</h3>
-            <p className="eat-out-info__content-info">
+            <p className="eat-out-info__content-info eat-out-info__content-info--hours">
               {restaurant.openingHours.map((timeInfo, index) => {
                 return (
                   <React.Fragment key={index}>
@@ -63,7 +63,7 @@ const EatOutInfo = () => {
           </div>
         </div>
         <h2 className="eat-out-info__header">Location</h2>
-        <Map />
+        <Map location={restaurant} />
       </div>
     );
   } else if (error) {

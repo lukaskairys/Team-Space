@@ -8,6 +8,8 @@ import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
 import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 
+import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
+
 function App() {
   return (
     <Router>
@@ -35,6 +37,10 @@ function App() {
           <Route exact path="/registration/:id">
             <EatOutInfo />
             {/* <RegistrationPage /> */}
+          </Route>
+
+          <Route path="/reviews">
+            <ReviewsSection />
           </Route>
 
           <Route path="/login">

@@ -1,6 +1,9 @@
 @import '../../../../styles/base/base';
+@import '../../../../styles/mixins/mixins';
 
-.google-map {
+$_pin-size: 4rem;
+
+.map {
     box-shadow: $card-shadow;
     height: 38.9rem;
     margin: 2.4rem 4rem;
@@ -9,17 +12,26 @@
 
 .pin {
     align-items: center;
-    background-color: $color-white;
     display: flex;
     stroke: $color-fiord;
-    width: 180px;
-}
+    transform: translate(-$_pin-size/2, -$_pin-size);
+    width: max-content;
 
-.pin-icon {
-    height: 4rem;
-}
+    &__icon {
+        @include square-size($_pin-size);
 
-.pin-text {
-    @include typography-body-2;
-    color: $color-fiord;
+        fill: $color-white;
+        stroke: $color-malibu;
+    }
+
+    &__text {
+        @include typography-body-2;
+
+        background-color: $color-white;
+        border: 0.1rem solid $color-black;
+        border-radius: 0.5rem;
+        color: $color-black;
+        margin-left: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
 }
