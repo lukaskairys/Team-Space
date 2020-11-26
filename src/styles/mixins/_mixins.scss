@@ -33,6 +33,13 @@
     }
 }
 
+//setting height and width of a square
+
+@mixin square-size($squareSize) {
+    height: $squareSize;
+    width: $squareSize;
+}
+
 /* ANIMATINOS
     to use animations:
     @include animation("animationName animationTime etc")
