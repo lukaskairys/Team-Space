@@ -1,8 +1,4 @@
-$drop-border-radius: 5px;
-
-a {
-    color: $color-fiord;
-}
+$drop-border-radius: 0.5rem;
 
 .dropdown {
     display: inline-block;
@@ -67,6 +63,10 @@ a {
     &__icon {
         margin-right: 1rem;
         padding: 0.2rem;
+    }
+
+    &__link {
+        color: $color-fiord;
     }
 
     &.is-active {

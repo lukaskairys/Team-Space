@@ -33,13 +33,10 @@
         flex-direction: row;
     }
 
-    &__icon {
-        stroke: $color-fiord;
-    }
-
     &__notifications {
-        height: 2.7rem;
+        height: 2.4rem;
         margin-right: 2.4rem;
+        stroke: $color-fiord;
         width: 2.4rem;
     }
 

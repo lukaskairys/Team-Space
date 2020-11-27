@@ -14,17 +14,17 @@ import "./Sidebar.scss";
 const sidebarData = [
   {
     title: "Dashboard",
-    icon: <HomeIcon />,
+    icon: <HomeIcon className="sidebar__list-icon" />,
     link: "/",
   },
   {
     title: "Reservations",
-    icon: <BookmarkIcon />,
+    icon: <BookmarkIcon className="sidebar__list-icon" />,
     link: "/reservations",
   },
   {
     title: "Eat-Out",
-    icon: <CompassIcon />,
+    icon: <CompassIcon className="sidebar__list-icon" />,
     link: "/registration",
   },
 ];
@@ -43,7 +43,7 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
           toggleSidebar();
         }}
       >
-        <ToggleIcon />
+        <ToggleIcon className="sidebar__toggle-icon" />
       </button>
       <div className="sidebar__list">
         {sidebarData.map((val, key) => {
@@ -56,8 +56,9 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
               })}
               to={val.link}
             >
-              <i className="sidebar__icon">{val.icon}</i>
-              <span className="sidebar__corner"></span>
+              <i className="sidebar__list-icon-container">{val.icon}</i>
+              <span className="sidebar__corner-top"></span>
+              <span className="sidebar__corner-bottom"></span>
               <span className="sidebar__item-title">{val.title}</span>
             </Link>
           );

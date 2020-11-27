@@ -1,0 +1,48 @@
+@import '../../../styles/base/base';
+
+$_button-size: 2.4rem;
+$_border-size: 0.5rem;
+
+.navigation-buttons {
+    $this: &;
+
+    display: flex;
+
+    &__left {
+        border-radius: $_border-size 0 0 $_border-size;
+        border-right: 0;
+    }
+
+    &__right {
+        border-radius: 0 $_border-size $_border-size 0;
+    }
+
+    &__left,
+    &__right {
+        background: $color-white;
+        border: 0.1rem solid $color-iron;
+        height: $_button-size;
+        line-height: 0.5;
+        outline: none;
+        text-align: center;
+        width: $_button-size;
+
+        &:hover {
+            background: $color-watermelon;
+            border-color: $color-watermelon;
+            #{$this}__icon path {
+                stroke: $color-white;
+            }
+        }
+    }
+
+    &__icon {
+        height: 1rem;
+        width: 0.5rem;
+
+        path {
+            stroke: $color-fiord;
+            stroke-width: 0.3rem;
+        }
+    }
+}
