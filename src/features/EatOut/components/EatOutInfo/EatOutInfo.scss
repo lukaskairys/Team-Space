@@ -1,0 +1,67 @@
+@import '../../../../styles/base/base';
+
+//Define minimum desired line width when making break points (recomenced higher than 25.3)
+$_info-line-width: 28rem;
+
+$_margin-size: 2.4rem;
+
+.eat-out-info {
+    min-width: $_info-line-width * 2+20;
+
+    &__header {
+        @include typography-h3;
+
+        color: $color-fiord;
+        margin: $_margin-size 4rem;
+    }
+
+    &__icon {
+        align-self: center;
+        grid-row: 1 / end;
+        height: $_margin-size;
+        stroke: $color-malibu;
+        width: $_margin-size;
+    }
+
+    &__content {
+        border-radius: 0.8rem;
+        box-shadow: $card-shadow;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        margin: $_margin-size 4rem;
+        padding: $_margin-size 0 0 $_margin-size;
+    }
+
+    &__content-item {
+        align-self: center;
+        display: grid;
+        grid-template-columns: $_margin-size max-content;
+        grid-template-rows: max-content max-content;
+        margin-bottom: $_margin-size;
+    }
+
+    &__content-info {
+        @include typography-caption;
+
+        color: $color-slate-gray;
+        font-weight: $bold-weight;
+        line-height: 2rem;
+        margin: 0 $_margin-size 0 1.2rem;
+        max-width: $_info-line-width;
+        min-height: $_margin-size;
+        padding: 0.4rem 0;
+        text-transform: uppercase;
+
+        &--hours {
+            display: grid;
+            grid-template-columns: max-content max-content;
+        }
+    }
+
+    &__content-header {
+        @include typography-h3-alternative;
+
+        color: $color-fiord;
+        margin: 0 $_margin-size 0 1.3rem;
+    }
+}

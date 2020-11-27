@@ -6,6 +6,7 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
+import EatOut from "pages/EatOut/EatOut";
 
 import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
 
@@ -33,8 +34,12 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route path="/registration">
+          <Route exact path="/registration">
             <RegistrationPage />
+          </Route>
+
+          <Route exact path="/eat-out/:id">
+            <EatOut />
           </Route>
 
           <Route path="/reviews">

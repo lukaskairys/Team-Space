@@ -8,7 +8,7 @@ import UserProfileWidget from "../../features/userProfileWidget/components/UserP
 
 import "./MainLayout.scss";
 
-const creationYear = "(dark ages)";
+const creationYear = 2020;
 const currentYear = new Date().getFullYear(); //getting current year
 let year;
 if (creationYear === currentYear) {
