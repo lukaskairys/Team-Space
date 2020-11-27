@@ -4,9 +4,9 @@ import "./feedCard.scss";
 import FeedCardComments from "./FeedCardComments";
 import { ReactComponent as HeartIcon } from "../../../assets/icons/heart-icon.svg";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
-import FormInput from "../../../components/form/input/FormInput";
+import PostComment from "./PostComment";
 
-function FeedCard({ story }) {
+function FeedCard({ story, userPhoto, userName }) {
   return (
     <div className="feed-card" type={story.type}>
       <div className="feed-card__info">
@@ -39,17 +39,8 @@ function FeedCard({ story }) {
       </div>
       <div className="feed-card-divider"></div>
       <div className="new-comment-container">
-        <img
-          className="new-comment-image"
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-          alt="User"
-        />
-        <FormInput
-          className="comment-input"
-          placeholder="Leave a comment..."
-          name={story.id}
-        />
-        <button className="post-button">POST</button>
+        <img className="new-comment-image" src={userPhoto} alt="User" />
+        <PostComment id={story.id} username={userName} />
       </div>
     </div>
   );
@@ -57,6 +48,8 @@ function FeedCard({ story }) {
 
 FeedCard.propTypes = {
   story: PropTypes.object,
+  userPhoto: PropTypes.string,
+  userName: PropTypes.string,
 };
 
 export default FeedCard;

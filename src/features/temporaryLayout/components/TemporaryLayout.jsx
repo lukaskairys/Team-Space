@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import FeedCardVideo from "features/FeedCardVideo/components/FeedCardVideo";
 import FeedCard from "features/FeedCard/components/FeedCard";
 import BirthdayCard from "features/BirthdayCard/components/BirthdayCard";
+import FetchStories from "../FetchStories";
+import FetchUserData from "../FetchUserData";
 
 function TemporaryLayout() {
-  const [stories, setStories] = useState([]);
+  // const [stories, setStories] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:3008/stories")
-      .then((res) => res.json())
-      .then(
-        (allStories) => {
-          setStories(allStories);
-        },
-        (error) => {
-          //handle error
-        }
-      );
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:3008/stories")
+  //     .then((res) => res.json())
+  //     .then((allStories) => {
+  //       setStories(allStories);
+  //     });
+  // }, []);
+
+  const stories = FetchStories();
+  const userData = FetchUserData();
 
   function GetPostTime(post) {
     if (post.type === "birthday")
@@ -39,9 +39,19 @@ function TemporaryLayout() {
           return story.type === "birthday" ? (
             <BirthdayCard key={story.id} story={story} />
           ) : story.type === "post" ? (
-            <FeedCard key={story.id} story={story} />
+            <FeedCard
+              key={story.id}
+              story={story}
+              userPhoto={userData.userImage}
+              userName={userData.userName}
+            />
           ) : story.type === "video" ? (
-            <FeedCardVideo key={story.id} story={story} />
+            <FeedCardVideo
+              key={story.id}
+              story={story}
+              userPhoto={userData.userImage}
+              userName={userData.userName}
+            />
           ) : (
             ""
           );
