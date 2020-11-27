@@ -48,7 +48,8 @@
         display: inline-block;
         height: 5rem;
         margin: 0.5rem 1.6rem;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 
     &__comments {
@@ -138,10 +139,27 @@
 
 .heart-icon {
     cursor: pointer;
-    margin: 1.5rem 0.55rem 1.477rem 1.755rem;
+    fill: $color-white;
+    height: 2.2rem;
+    margin: 1.5rem 0.6rem 1.5rem 1.8rem;
+    stroke: $color-gull-gray;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    width: 2.4rem;
 }
 
-.comment-icon {
+.heart-icon--active {
+    fill: $color-watermelon;
+    stroke: $color-watermelon;
+}
+
+.card-comment-icon {
     cursor: pointer;
+    fill: $color-white;
     margin: 1.5rem 0.6rem 1.6rem 1.4rem;
+}
+
+.card-comment-icon path:hover {
+    stroke: $color-fiord;
 }

@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
-import { GetApiURL } from "../../utils/Api";
+import { useEffect, useState, useCallback } from "react";
+import { useRequest } from "../../apis/useRequest";
+import { isObjectEmpty } from "../../utils/objects";
 
-const FetchStories = () => {
-  const API_URL = GetApiURL("stories");
+export const FetchStories = () => {
   const [stories, setStories] = useState([]);
+  const { data } = useRequest("/stories");
 
-  const fetchAPI = () => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((allStories) => {
-        setStories(allStories);
-      });
-  };
+  const filter = useCallback((data) => {
+    if (isObjectEmpty(data)) return [];
 
-  useEffect(fetchAPI, [API_URL]);
+    return data;
+  }, []);
+
+  useEffect(() => {
+    setStories(filter(data));
+  }, [filter, data]);
+
   return stories;
 };
 

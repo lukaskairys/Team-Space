@@ -76,7 +76,12 @@
 
 .gift-icon {
     cursor: pointer;
+    fill: $color-white;
     margin: 1.2rem 0.55rem 1.4rem 1.8rem;
+}
+
+.gift-icon--active {
+    fill: $color-yellow;
 }
 
 .sparkles {

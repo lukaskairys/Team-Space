@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
-import { GetApiURL } from "../../utils/Api";
+import { useEffect, useState, useCallback } from "react";
+import { useRequest } from "../../apis/useRequest";
+import { isObjectEmpty } from "../../utils/objects";
 
-const FetchUserData = () => {
-  const API_URL = GetApiURL("userData");
+export const FetchUserData = () => {
   const [userData, setUserData] = useState([]);
+  const { data } = useRequest("/userData");
 
-  const fetchAPI = () => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setUserData(data);
-      });
-  };
+  const filter = useCallback((data, i) => {
+    if (isObjectEmpty(data)) return [];
 
-  useEffect(fetchAPI, [API_URL]);
+    return data;
+  }, []);
+
+  useEffect(() => {
+    setUserData(filter(data));
+  }, [filter, data]);
+
   return userData;
 };
 

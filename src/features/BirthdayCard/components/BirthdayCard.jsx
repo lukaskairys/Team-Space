@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./birthdayCard.scss";
+import BirthdayInteractions from "./BirthdayInteractions";
 import { ReactComponent as ConfettiLeft } from "../../../assets/images/confetti-1.svg";
 import { ReactComponent as ConfettiRight } from "../../../assets/images/confetti-2.svg";
 import { ReactComponent as Sparkles } from "../../../assets/images/sparkles.svg";
-import { ReactComponent as GiftIcon } from "../../../assets/icons/gift-icon.svg";
-import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
 
 function BirthdayCard({ story }) {
   return (
@@ -31,12 +30,10 @@ function BirthdayCard({ story }) {
           <p>Send a wish!</p>
         </div>
         <div className="feed-card-divider"></div>
-        <div className="interactions-container">
-          <GiftIcon className="gift-icon" />
-          <p>{story.wishes}</p>
-          <CommentIcon className="comment-icon" />
-          <p>{story.comments.length}</p>
-        </div>
+        <BirthdayInteractions
+          wishes={story.wishes}
+          commentCount={story.comments.length}
+        />
         <ConfettiLeft className="confetti-left" />
         <ConfettiRight className="confetti-right" />
         <Sparkles className="sparkles" />
