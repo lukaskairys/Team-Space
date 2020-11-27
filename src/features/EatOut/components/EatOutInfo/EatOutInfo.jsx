@@ -38,7 +38,7 @@ const EatOutInfo = () => {
     };
 
     return (
-      <div className="eat-out-info">
+      <main className="eat-out-info">
         <h2 className="eat-out-info__header">Information</h2>
         <div className="eat-out-info__content">
           <div className="eat-out-info__content-item">
@@ -68,7 +68,7 @@ const EatOutInfo = () => {
         </div>
         <h2 className="eat-out-info__header">Location</h2>
         <Map location={restaurant} />
-      </div>
+      </main>
     );
   } else if (error) {
     return <div>Error</div>;
