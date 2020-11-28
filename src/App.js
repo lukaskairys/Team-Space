@@ -6,6 +6,7 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
+import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 
 import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
@@ -22,6 +23,14 @@ function App() {
             <Dashboard />
           </Route>
 
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
+
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+
           <Route exact path="/reservations">
             <Reservations />
           </Route>
@@ -34,20 +43,18 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route exact path="/registration">
-            <RegistrationPage />
-          </Route>
-
-          <Route exact path="/eat-out/:id">
+          <Route exact path="/eat-out/">
             <EatOut />
           </Route>
 
-          <Route path="/reviews">
-            <ReviewsSection />
+          <Route exact path="/eat-out/:id">
+            <Restaurant />
           </Route>
 
-          <Route path="/login">
-            <LoginPage />
+          {/* testing routes */}
+
+          <Route path="/reviews">
+            <ReviewsSection />
           </Route>
         </Switch>
       </>

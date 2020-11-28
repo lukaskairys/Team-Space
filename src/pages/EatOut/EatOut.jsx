@@ -2,7 +2,7 @@ import React from "react";
 
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
-import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
+import EatOutHeroWidget from "features/eatOutHeroSlider/components/EatOutHeroWidget";
 
 import "./EatOut.scss";
 
@@ -12,7 +12,7 @@ const EatOut = () => {
       <MainLayout>
         <>
           <Breadcrumbs />
-          <EatOutInfo />
+          <EatOutHeroWidget />
         </>
       </MainLayout>
     </div>

@@ -6,10 +6,12 @@
     align-items: center;
     display: flex;
     flex-direction: row;
+    margin: 0 0 0.8rem;
     stroke: $color-gull-gray;
 
     &__item {
         color: $color-gull-gray;
+        min-width: max-content;
         text-decoration: none;
 
         &:hover {
