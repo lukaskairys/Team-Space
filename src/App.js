@@ -6,11 +6,9 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
-import Hero from "./features/restaurantsPageHero/components/Hero";
-import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
-import ContextProvider from "./contexts/ContextProvider";
 import EatOut from "pages/EatOut/EatOut";
 import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
+import ContextProvider from "contexts/ContextProvider";
 
 function App() {
   return (
@@ -36,22 +34,15 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route exact path="/eat-out/:id">
-            <ContextProvider endpoint="/restaurants">
-              <MainLayout>
-                <Hero>
-                  <Breadcrumbs />
-                </Hero>
-              </MainLayout>
-            </ContextProvider>
-          </Route>
           <Route exact path="/registration">
             <RegistrationPage />
           </Route>
 
-          <Route exact path="/eat-out/:id">
-            <EatOut />
-          </Route>
+          <ContextProvider endpoint="/restaurants">
+            <Route exact path="/eat-out/:id">
+              <EatOut />
+            </Route>
+          </ContextProvider>
 
           <Route path="/reviews">
             <ReviewsSection />

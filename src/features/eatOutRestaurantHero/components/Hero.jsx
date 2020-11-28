@@ -35,7 +35,7 @@ function Hero({ children }) {
             backgroundImage: `linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 100%), url(${restaurant.image})`,
           }}
         >
-          <>{children}</>
+          {children}
           <div className="HERO__content">
             <div className="HERO__categories">{renderCategories()}</div>
             <h1 className="HERO__title">{restaurant.name}</h1>

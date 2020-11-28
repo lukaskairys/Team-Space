@@ -7,7 +7,7 @@
     flex-direction: column;
     height: 517px;
     justify-content: flex-end;
-    margin: -2.7rem -4rem 0;
+    margin: -2.7rem -4rem 6.4rem;
     padding-left: 50px;
     padding-top: 50px;
 
@@ -23,6 +23,8 @@
 
     &__title {
         @include typography-h1;
+
+        color: $color-midnight;
     }
 
     &__details {

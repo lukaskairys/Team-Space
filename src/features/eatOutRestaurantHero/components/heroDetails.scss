@@ -45,6 +45,7 @@
     &__invite-text {
         @include typography-caption-caps;
         color: $color-slate-gray;
+        cursor: pointer;
         padding: 0 1.6rem;
     }
 }
