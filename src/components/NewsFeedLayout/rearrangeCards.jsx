@@ -35,7 +35,10 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
 
   // If there's 2, 4, 6 and so on... small cards, add a placeholder
   if (smallCardsArr[smallCardsArr.length - 1]) {
-    if (smallCardsArr[smallCardsArr.length - 1].length === 2) {
+    if (
+      smallCardsArr[smallCardsArr.length - 1].length === 2 ||
+      smallCardsArr[smallCardsArr.length - 1].length === 1
+    ) {
       smallCardsArr[smallCardsArr.length - 1].push(<Placeholder />);
     }
   }
