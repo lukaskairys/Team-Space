@@ -35,7 +35,7 @@ function EatOutCardHeader({ restaurant, children }) {
         alt="restaurant food"
       />
       <div className="card-header__icons">
-        {children}
+        {children ? children : <span> </span>}
         <RatingComponent average={getRatingAverage(restaurant)} />
       </div>
       {formCategories(restaurant.categories)}
