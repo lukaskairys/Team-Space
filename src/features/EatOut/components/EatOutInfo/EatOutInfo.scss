@@ -1,18 +1,19 @@
 @import '../../../../styles/base/base';
 
 //Define minimum desired line width when making break points (recomenced higher than 25.3)
-$_info-line-width: 28rem;
+$_info-line-width: 25.4rem;
 
 $_margin-size: 2.4rem;
 
 .eat-out-info {
+    flex: auto;
     min-width: $_info-line-width * 2+20;
 
     &__header {
         @include typography-h3;
 
         color: $color-fiord;
-        margin: $_margin-size 4rem;
+        margin-bottom: $_margin-size;
     }
 
     &__icon {
@@ -24,11 +25,12 @@ $_margin-size: 2.4rem;
     }
 
     &__content {
+        background-color: $color-white;
         border-radius: 0.8rem;
         box-shadow: $card-shadow;
         display: grid;
         grid-template-columns: max-content max-content;
-        margin: $_margin-size 4rem;
+        margin: $_margin-size 0;
         padding: $_margin-size 0 0 $_margin-size;
     }
 

@@ -3,7 +3,7 @@ export const mapStyles = {
     {
       featureType: "poi",
       elementType: "labels",
-      stylers: [{ visibility: "off" }],
+      stylers: [{ visibility: "on" }],
     },
     { elementType: "geometry", stylers: [{ color: "#08304b" }] },
     {
