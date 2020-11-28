@@ -1,9 +1,9 @@
 @import '../../styles/base/base';
 
-$_content-margin: 1.6rem;
-
 .eat-out-card {
     border-radius: 0.8rem;
     box-shadow: $card-shadow;
-    width: 40rem;
+    height: 44.5rem;
+    min-width: 39.5rem;
+    width: 39.5rem;
 }

@@ -1,13 +1,11 @@
 @import '../../../styles/base/base';
 
-$_content-margin: 1.6rem;
-
 .card-subheader {
     &__section {
         align-items: baseline;
         display: flex;
         justify-content: space-between;
-        margin: 0 2.4rem 0 1.6rem;
+        margin: -0.3rem 2.4rem 0 1.6rem;
     }
 
     &__title {
@@ -22,6 +20,6 @@ $_content-margin: 1.6rem;
     &__time {
         color: $color-slate-gray;
         font-weight: $medium-weight;
-        margin: 0 $_content-margin;
+        margin: 0 1.6rem;
     }
 }
