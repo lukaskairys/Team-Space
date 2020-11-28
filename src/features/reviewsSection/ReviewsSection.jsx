@@ -71,11 +71,12 @@ function ReviewsSection() {
       );
     }
   };
+
   return (
     <>
       <section className="reviews">
         <h3 className="reviews__title">Reviews</h3>
-        <div className="reviews__content">
+        <div className="reviews__content ">
           {reviewsToShow.map((review) => (
             <ReviewCard review={review} key={review.id} />
           ))}
@@ -84,7 +85,7 @@ function ReviewsSection() {
         {renderButton()}
 
         {modalOpen && (
-          <Modal closeModal={closeModal}>
+          <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} inModal={true} />
             ))}
