@@ -1,0 +1,51 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_overlay-color: rgba(0, 0, 0, 0.5);
+$_overlay-z-index: 5;
+
+.overlay {
+    @include animation('fadeIn 0.5s');
+
+    align-items: center;
+    background-color: $_overlay-color;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    overflow: hidden;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $_overlay-z-index;
+}
+
+.modal {
+    @include custom-scrollbar;
+
+    align-items: start;
+    background-color: $color-white;
+    border-radius: $base-border-radius;
+    box-shadow: $card-shadow;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+    padding: 3rem 4rem;
+    position: relative;
+
+    button {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        transform: scale(1.5);
+
+        path {
+            stroke: $color-slate-gray;
+        }
+
+        &:hover {
+            transform: scale(1.7);
+        }
+    }
+}

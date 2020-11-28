@@ -1,8 +1,4 @@
-$drop-border-radius: 5px;
-
-a {
-    color: $color-fiord;
-}
+$drop-border-radius: 0.5rem;
 
 .dropdown {
     display: inline-block;
@@ -10,7 +6,6 @@ a {
     position: relative;
     transform: translateY(-1rem);
     transition: all 0.4s ease;
-    visibility: hidden;
 
     &__content {
         @include typography-body-2;
@@ -70,9 +65,12 @@ a {
         padding: 0.2rem;
     }
 
+    &__link {
+        color: $color-fiord;
+    }
+
     &.is-active {
         opacity: 1;
         transform: translateY(0);
-        visibility: visible;
     }
 }

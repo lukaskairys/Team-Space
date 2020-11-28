@@ -9,6 +9,8 @@ import Devices from "pages/Devices/Devices";
 import Hero from "./features/restaurantsPageHero/components/Hero";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import ContextProvider from "./contexts/ContextProvider";
+import EatOut from "pages/EatOut/EatOut";
+import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
 
 function App() {
   return (
@@ -43,9 +45,16 @@ function App() {
               </MainLayout>
             </ContextProvider>
           </Route>
-
-          <Route path="/registration">
+          <Route exact path="/registration">
             <RegistrationPage />
+          </Route>
+
+          <Route exact path="/eat-out/:id">
+            <EatOut />
+          </Route>
+
+          <Route path="/reviews">
+            <ReviewsSection />
           </Route>
 
           <Route path="/login">

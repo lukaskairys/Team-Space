@@ -22,8 +22,12 @@ export const useRequest = (endpoint) => {
         setData(data);
         setIsLoading(false);
       } catch (error) {
-        setIsLoading(false);
-        setError(error);
+        if (axios.isCancel(error)) {
+          return;
+        } else {
+          setIsLoading(false);
+          setError(error);
+        }
       }
     };
 

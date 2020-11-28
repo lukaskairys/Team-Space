@@ -9,13 +9,13 @@ function Button({
   children,
   large,
   medium,
-  del,
+  iconX,
 }) {
   const btnClass = classNames({
     button: true,
     "button--large": large,
     "button--medium": medium,
-    "button__icon-x": del,
+    "button--icon-x": iconX,
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>
@@ -29,7 +29,7 @@ Button.propTypes = {
   handleClick: PropTypes.func,
   children: PropTypes.object,
   large: PropTypes.bool,
-  del: PropTypes.bool,
+  iconX: PropTypes.bool,
   medium: PropTypes.bool,
 };
 

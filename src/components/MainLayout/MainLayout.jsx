@@ -8,7 +8,7 @@ import UserProfileWidget from "../../features/userProfileWidget/components/UserP
 
 import "./MainLayout.scss";
 
-const creationYear = "(dark ages)";
+const creationYear = 2020;
 const currentYear = new Date().getFullYear(); //getting current year
 let year;
 if (creationYear === currentYear) {
@@ -37,9 +37,7 @@ const MainLayout = ({ children }) => {
       >
         <header className="main-layout__header">
           <div className="main-layout__status">
-            <div className="main-layout__notifications">
-              <NotificationBell className="main-layout__icon" />
-            </div>
+            <NotificationBell className="main-layout__notifications" />
             <div className="main-layout__profile">
               <UserProfileWidget />
             </div>

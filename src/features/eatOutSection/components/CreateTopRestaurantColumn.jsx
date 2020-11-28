@@ -16,7 +16,7 @@ const CreateTopRestaurantColumn = (restaurant) => {
         />
         <div className="eat-out-card__icons">
           {PersonComponent(restaurant.checkIns)}
-          {RatingComponent(restaurant.ratingAverage)}
+          <RatingComponent average={restaurant.ratingAverage} />
         </div>
         {formCategories(restaurant.categories)}
       </div>

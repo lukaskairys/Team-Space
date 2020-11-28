@@ -1,7 +1,7 @@
 {
   "userData": {
     "userName": "Aubrey Plaza",
-    "userImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
     "birthdayDate": "1990-05-18",
     "location": "Vilnius, Lithuania",
     "reservations": {
@@ -24,14 +24,19 @@
     "restaurantList": [{
         "name": "Grill London (Kaunas, PLC Mega)",
         "id": "120wsdlpx4",
+        "slogan": "Best burgers in the town",
         "description": "„Grill London” is a chain of grill restaurants that visitors love because of its exceptional and responsible take on food quality. All of its steaks are grilled in unique ceramic grills using ecological fuels.",
         "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "11 - 00"
+          "days": "Monday - Friday",
+          "hours": "10 - 22"
+        },
+        {
+          "days": "Saturday - Sunday",
+          "hours": "11 - 23"
         }],
         "website": "http://grilllondon.lt",
         "address": "Islandijos pl. 32, Kaunas",
-        "phone": "+370 62793 122",
+        "phone": "+370 627 93122",
         "image": "https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
         "checkIns": 8,
         "reviews": [{
@@ -59,11 +64,16 @@
             "rating": 4.0
           }
         ],
-        "categories": ["Burger", "Salads", "Grill"]
+        "categories": ["Burger", "Salads", "Grill"],
+        "coordinates": {
+          "lat": 54.94013552838086,
+          "lng": 23.891938359698315
+        }
       },
       {
         "name": "Jurgis ir Drakonas",
         "id": "wtlztmw3rr",
+        "slogan": "Fire up the taste",
         "description": "Jurgis ir Drakonas make pizza for the real heroes. Real heroes understand the best quality. Our authenitic Neapolitan tradition pizza are made from real Italian 00 flour. Tomatoes grown under the hot Italian sun are ripe and rich, and Italian fior di latte mozzarella melts in your mouth.",
         "openingHours": [{
           "days": "Monday - Sunday",
@@ -111,18 +121,24 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Salads", "Pizza", "Pancakes", "Soups"]
+        "categories": ["Salads", "Pizza", "Pancakes", "Soups"],
+        "coordinates": {
+
+          "lat": 54.895815575566495,
+          "lng": 23.895146363387344
+        }
       },
       {
         "name": "Mamma Pizza",
         "id": "7et2tk3ih1",
+        "slogan": "Like from your mom - just better",
         "description": "Small, but very cozy place in the center of Kaunas, very tasty food with vegetarian options, vegan too. Super friendly staff.",
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "10 - 23"
         }],
         "website": "http://www.mammapizza.lt",
-        "address": "Vytauto prospektas 37, Kaunas",
+        "address": "Vytauto pr. 37, Kaunas",
         "phone": "+370 680 97977",
         "image": "https://images.unsplash.com/photo-1589906493606-a6ca2a06078b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyNjA3NH0&auto=format&fit=crop&w=2550&q=80",
         "checkIns": 6,
@@ -151,18 +167,23 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Pizza"]
+        "categories": ["Pizza"],
+        "coordinates": {
+          "lat": 54.88976231771571,
+          "lng": 23.92600737177067
+        }
       },
       {
         "name": "MOMO Grill Kaunas",
         "id": "x8bd7ozuj6",
+        "slogan": "Grilled up",
         "description": "Chef and owner of MOMO GRILL is widely known for his international experience, but what he’s actually FEELING can only be revealed after taking a bite, a spoonful or otherwise sampling his cooking. Knowledge AND feelings. Seasons AND emotions. Flavour AND memories. Sometimes it’s so simple that it can even be complicated.",
         "openingHours": [{
           "days": "Tuesday - Sunday",
           "hours": "11 - 23"
         }],
         "website": "https://momogrill.lt",
-        "address": "Karaliaus Mindaugo avenue 18a, Kaunas",
+        "address": "Karaliaus Mindaugo pr. 18a, Kaunas",
         "phone": "+370 37 297488",
         "image": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
         "checkIns": 18,
@@ -215,18 +236,23 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Grill", "Sweets", "Brunch"]
+        "categories": ["Grill", "Sweets", "Brunch"],
+        "coordinates": {
+          "lat": 54.894580590225445,
+          "lng": 23.89727312317586
+        }
       },
       {
         "name": "Restoranas Siesta",
         "id": "3gogeanl0p",
+        "slogan": "Too delicious",
         "description": "Delicious food, cozy atmosphere, family friendly",
         "openingHours": [{
           "days": "Monday - Saturday",
           "hours": "12 - 22"
         }],
         "website": "https://restoranassiesta.lt",
-        "address": "Pakrantes g. 4 Vareikonys, Kauno r., Kaunas",
+        "address": "Pakrantės g. 4, Vareikonys, Kauno r., Kaunas",
         "phone": "+370 614 98198",
         "image": "https://images.unsplash.com/photo-1598343214618-dd202db9ad20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
         "checkIns": 5,
@@ -249,18 +275,23 @@
             "rating": 5
           }
         ],
-        "categories": ["Salads", "Grill", "Soup"]
+        "categories": ["Salads", "Grill", "Soup"],
+        "coordinates": {
+          "lat": 55.10545044712004,
+          "lng": 23.781182670278557
+        }
       },
       {
         "name": "Restoranas DIA",
         "id": "porhch2lam",
+        "slogan": "Oh so tasty!",
         "description": "We are ready to arrange you an unforgettable celebration, restaurant staff will take care about all the smolest details: decorate the hall, arrange musicians, agree the celebration menu with the customer, will make all kinds of world cuisine dishes.",
         "openingHours": [{
           "days": "Wednesday - Sunday",
           "hours": "11 - 23"
         }],
         "website": "http://restoranasdia.lt",
-        "address": "Maironio G. 9, Kaunas",
+        "address": "Maironio g. 9, Kaunas",
         "phone": "+370 655 80308",
         "image": "https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         "checkIns": 15,
@@ -307,18 +338,23 @@
             "rating": 4.5
           }
         ],
-        "categories": ["Salads", "Grill", "Brunch", "Soups"]
+        "categories": ["Salads", "Grill", "Brunch", "Soups"],
+        "coordinates": {
+          "lat": 54.896552052485234, 
+          "lng": 23.909268634336954
+        }
       },
       {
         "name": "Agave",
         "id": "tk3ih1o0qt",
+        "slogan": "Ayyy tasty",
         "description": "An exceptional mexican restaurant.",
         "openingHours": [{
           "days": "Monday - Friday",
           "hours": "12 - 22"
         }],
         "website": "https://www.facebook.com/agaverestoranas",
-        "address": "Rotuses a. 3 Rotuses Square, Kaunas",
+        "address": "Rotušės a. 3, Kaunas",
         "phone": "+370 616 98496",
         "image": "https://images.unsplash.com/photo-1584208632869-05fa2b2a5934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80",
         "checkIns": 9,
@@ -335,11 +371,16 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Salads", "Grill", "Pancakes"]
+        "categories": ["Salads", "Grill", "Pancakes"],
+        "coordinates": {
+          "lat": 54.89667728673178, 
+          "lng": 23.887710506872565
+        }
       },
       {
         "name": "Moksha",
         "id": "h3hlqj5bcb",
+        "slogan": "Spice it up",
         "description": "Moksha is small restaurant serving pescatarian (fish & vegan) pan-asian food with a healthy twist. Majority of the food we serve is vegan. We make non traditional kimchis, kombuchas, lemonades, vegan ice-creams and vegan cakes free from added sugar.",
         "openingHours": [{
           "days": "Monday - Friday",
@@ -375,11 +416,16 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Salads", "Ramen"]
+        "categories": ["Salads", "Ramen"],
+        "coordinates": {
+          "lat": 54.89844302951122, 
+          "lng": 23.908251872519394
+        }
       },
       {
         "name": "Avilys",
         "id": "pelpnv6hmn",
+        "slogan": "Pursuit the traditions",
         "description": "To enjoy the beer made in restaurant’s cellar’s brewery. Avilys produce LIVE, unfiltered, unpasteurized beer. Our brand is beer with Lithuanian honey. During the beer tour and tasting we‘ll introduce you with all the specifics of AVILYS beer making. We’ll show you the inside of the brewery too.",
         "openingHours": [{
           "days": "Monday - Sunday",
@@ -403,18 +449,23 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Burger", "Sandwich"]
+        "categories": ["Burger", "Sandwich"],
+        "coordinates": {
+          "lat": 54.89639923054928, 
+          "lng": 23.89255349830976
+        }
       },
       {
-        "name": "Katpedele",
+        "name": "Katpėdėlė",
         "id": "9kdf9qawui",
+        "slogan": "Best lithuanian cuisine in the town",
         "description": "Traditional Lithuanian cuisine - experience the most popular national meals, discover new tastes! The interior and the atmosphere is created to resemble unique old village style.",
         "openingHours": [{
           "days": "Monday - Friday",
           "hours": "10 - 22"
         }],
-        "website": "https://www.katpedele.lt/",
-        "address": "V. Kreves pr. 57, Kaunas",
+        "website": "https://www.katpedele.lt",
+        "address": "V. Krėvės pr. 57, Kaunas",
         "phone": "+370 620 66323",
         "image": "https://images.unsplash.com/photo-1571139318929-bb90d382dbd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         "checkIns": 2,
@@ -449,18 +500,23 @@
             "rating": 4.5
           }
         ],
-        "categories": ["Kebab", "Sweets"]
+        "categories": ["Kebab", "Sweets"],
+        "coordinates": {
+          "lat": 54.92086524047006, 
+          "lng": 23.97353685065208
+        }
       },
       {
         "name": "Sushi Masters",
         "id": "ch2lamoqk2",
-        "description": "A great suhi place.",
+        "slogan": "Sushi sushi sushi",
+        "description": "A great sushi place.",
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "11 - 22"
         }],
         "website": "https://www.facebook.com/sushimasterskaunas",
-        "address": "Sv. Gertrudos g. 39a 39a, Kaunas",
+        "address": "Šv. Gertrūdos g. 39a, Kaunas",
         "phone": "+370 635 09000",
         "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
         "checkIns": 8,
@@ -470,12 +526,17 @@
           "comment": "Taste is perfect, but prices are very high and portions too small for this price.",
           "rating": 4.0
         }],
-        "categories": ["Sushi", "Soups"]
+        "categories": ["Sushi", "Soups"],
+        "coordinates": {
+          "lat": 54.89896259395091, 
+          "lng": 23.890748094165108
+        }
       },
       {
         "name": "Talutti - Fresh and Tasty",
         "id": "rri8r7gpdp",
         "description": "Nothing can be better than eating good pancakes.",
+        "slogan": "Oh so fresh",
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "11 - 23"
@@ -504,12 +565,17 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Burger", "Brunch", "Pancakes"]
+        "categories": ["Burger", "Brunch", "Pancakes"],
+        "coordinates": {
+          "lat": 54.91107306570668, 
+          "lng": 23.940096128333412
+        }
       },
       {
-        "name": "ieti",
+        "name": "IETI",
         "id": "0z3snsdmmx",
         "description": "Relax and enjoy old town.",
+        "slogan": "We make it better",
         "openingHours": [{
           "days": "Monday - Friday",
           "hours": "12 - 22"
@@ -550,11 +616,16 @@
             "rating": 5
           }
         ],
-        "categories": ["Sweets"]
+        "categories": ["Sweets"],
+        "coordinates": {
+          "lat": 54.8961994217457, 
+          "lng": 23.887269049345885
+        }
       },
       {
         "name": "Pas Stanley",
         "id": "qj5bcbeuz4",
+        "slogan": "Warm & friendly",
         "description": "Welcome to our house! We are humble and honoured for your stay at our place – a place which, we hope, will give you a warm and friendly experience and where you want to return to!",
         "openingHours": [{
           "days": "Monday - Friday",
@@ -578,11 +649,16 @@
             "rating": 4.5
           }
         ],
-        "categories": ["Kebab", "Ramen", "Burger"]
+        "categories": ["Kebab", "Ramen", "Burger"],
+        "coordinates": {
+          "lat":  54.89632325207335, 
+          "lng": 23.89093591792127
+        }
       },
       {
         "name": "Lithuanian Pub Entry",
         "id": "vvektcqbs4",
+        "slogan": "Tasty & cheap food",
         "description": "Full plates. Reasonable prices. Good vibes only. Come and see!",
         "openingHours": [{
           "days": "Wednesday - Sunday",
@@ -599,27 +675,37 @@
           "comment": "Best chicken wings in town, quite big drinks assortiment. Good music.",
           "rating": 4.5
         }],
-        "categories": ["Salads", "Sandwich", "Kebab"]
+        "categories": ["Salads", "Sandwich", "Kebab"],
+        "coordinates": {
+          "lat":  54.89642795361554, 
+          "lng": 23.891496055156875
+        }
       },
       {
         "name": "Casa Della Pasta, pizzeria - restaurant",
         "id": "nv6hmnta6r",
+        "slogan": "True italian restaurant",
         "description": "A story based on sacrifice, hard work and energy… Fabio Manconi started life with few privileges in his home town in Italy. Working in a family restaurant from a very young age, after school he waited for the right moment to get his first experiences abroad… From London, Sydney and Hong Kong, following his heart, he arrived in Kaunas, where he settled down and decided to pursue his dream. A dream called Casa della pasta.",
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "10 - 23"
         }],
-        "website": "http://www.italurestoranas.lt/",
-        "address": "Laisves al. 27, Kaunas",
+        "website": "http://www.italurestoranas.lt",
+        "address": "Laisvės al. 27, Kaunas",
         "phone": "+370 633 44255",
         "image": "https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
         "checkIns": 13,
         "reviews": [],
-        "categories": ["Salads", "Sandwich", "Kebab"]
+        "categories": ["Salads", "Sandwich", "Kebab"],
+        "coordinates": {
+          "lat":  54.89699180730873, 
+          "lng": 23.919581032720416
+        }
       },
       {
-        "name": "Vista Puode",
+        "name": "Višta Puode",
         "id": "sejw2ugddc",
+        "slogan": "Chicken? Oh yes!",
         "description": "Which side of a chicken has the most feathers?",
         "openingHours": [{
           "days": "Monday - Sunday",
@@ -655,18 +741,23 @@
             "rating": 4.0
           }
         ],
-        "categories": ["Burger", "Grill", "Sweets"]
+        "categories": ["Burger", "Grill", "Sweets"],
+        "coordinates": {
+          "lat":  54.89833463403161, 
+          "lng": 23.91349155805629
+        }
       },
       {
         "name": "Hop Doc Gastropub",
         "id": "0px1y6iixy",
+        "slogan": "Modern & new",
         "description": "HOP DOC GASTROPUB - brand new addition to Kaunas Old Town. Located few steps from a main Vilnius street, we serve you modern interior, more than 100 kinds of beers, full bar & grill. Lunch specials from 12:00 till 15:00 on work days. Fresh oysters come in every Friday. Kitchen is open till 23:00 on weekdays and till 24:00 on weekends. We recommend You to book in advance.",
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "17 - 00"
         }],
         "website": "https://www.hopdoc.lt",
-        "address": "M. Dauksos g. 23, Kaunas",
+        "address": "M. Daukšos g. 23, Kaunas",
         "phone": "+370 37 227656",
         "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80",
         "checkIns": 17,
@@ -683,18 +774,23 @@
             "rating": 4.5
           }
         ],
-        "categories": ["Salads", "Sandwich", "Kebab"]
+        "categories": ["Salads", "Sandwich", "Kebab"],
+        "coordinates": {
+          "lat":  54.89730786156492, 
+          "lng": 23.89116509699445
+        }
       },
       {
         "name": "Al Cantuccio",
         "id": "hvoirynmd4",
         "description": "A family place.",
+        "slogan": "Family place restaurant",
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "13 - 19"
         }],
         "website": "https://www.facebook.com/Alcanntucio",
-        "address": "Muitines g. 1-2, Kaunas",
+        "address": "Muitinės g. 1-2, Kaunas",
         "phone": "+370 606 74114",
         "image": "https://images.unsplash.com/photo-1559948271-7d5c98d2e951?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
         "checkIns": 0,
@@ -723,18 +819,23 @@
             "rating": 5.0
           }
         ],
-        "categories": ["Sweets", "Pancakes", "Ramen"]
+        "categories": ["Sweets", "Pancakes", "Ramen"],
+        "coordinates": {
+          "lat": 54.896026484847326,
+          "lng": 23.887752260207876
+        }
       },
       {
         "name": "ManGi",
         "id": "jo9ihsvxr8",
         "description": "Bar, fast food, street food",
+        "slogan": "Everything you ever wanted",
         "openingHours": [{
           "days": "Monday - Sunday",
           "hours": "12 - 18"
         }],
-        "website": "https://mangi.lt/",
-        "address": "Vilniaus gatve 36, Kaunas",
+        "website": "https://mangi.lt",
+        "address": "Vilniaus g. 36, Kaunas",
         "phone": "+370 603 46129",
         "image": "https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
         "checkIns": 2,
@@ -751,7 +852,11 @@
             "rating": 4.5
           }
         ],
-        "categories": ["Grill", "Kebab", "Burger", "Sushi"]
+        "categories": ["Grill", "Kebab", "Burger", "Sushi"],
+        "coordinates": {
+          "lat": 54.896471906444866, 
+          "lng": 23.893462943386695
+        }
       }
     ],
     "categories": [
