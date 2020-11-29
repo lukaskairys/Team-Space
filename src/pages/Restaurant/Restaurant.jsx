@@ -6,13 +6,16 @@ import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 import ReviewsSection from "features/reviewsSection/ReviewsSection";
 
 import "./Restaurant.scss";
+import Hero from "features/eatOutRestaurantHero/components/Hero";
 
 const Restaurant = () => {
   return (
     <div className="restaurant">
       <MainLayout>
         <>
-          <Breadcrumbs />
+          <Hero>
+            <Breadcrumbs />
+          </Hero>
           <div className="restaurant__middle">
             <EatOutInfo />
             <ReviewsSection />
