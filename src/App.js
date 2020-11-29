@@ -43,11 +43,10 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route exact path="/eat-out/">
-            <EatOut />
-          </Route>
-
           <ContextProvider endpoint="/restaurants">
+            <Route exact path="/eat-out/">
+              <EatOut />
+            </Route>
             <Route exact path="/eat-out/:id">
               <Restaurant />
             </Route>

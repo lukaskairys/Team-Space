@@ -6,5 +6,12 @@
 
     &__title {
         @include typography-h3;
+
+        color: $color-midnight;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
