@@ -1,16 +1,16 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
 
-$_breakpoint: 1000;
+$_breakpoint: 900;
 $_margin-size: 2.4rem;
 $_margin-size-smaller: 1.2rem;
-$_media-font-size-multiplier: 0.8;
 $_caption-font-size: 1rem;
 $_slider-border: 0.8rem;
 $_image-stretch: 100%;
-$_typography-content-stretch: 77%;
+$_typography-content-stretch: 85%;
 $_details-padding: 2.4rem;
 $_animation-time: 0.25s;
+$_loader-fade-time: 6s;
 $_content-font-size: $font-size-16;
 $_title-font-size: $font-size-32;
 
@@ -25,6 +25,19 @@ $_title-font-size: $font-size-32;
 
     @include respond-to($_breakpoint, max) {
         flex-direction: column;
+    }
+
+    &.is_disabled h2 {
+        @include typography-h4;
+
+        color: $color-fiord;
+        margin: auto;
+    }
+
+    &__loader {
+        animation: fadeIn $_loader-fade-time forwards ease-in-out;
+        margin: auto;
+        opacity: 0;
     }
 
     &__image-container {
@@ -66,7 +79,6 @@ $_title-font-size: $font-size-32;
         width: $_typography-content-stretch;
 
         @include respond-to($_breakpoint, max) {
-            font-size: $_caption-font-size * $_media-font-size-multiplier;
             margin-bottom: 0.4rem;
             margin-top: 0.2rem;
         }
@@ -83,6 +95,7 @@ $_title-font-size: $font-size-32;
 
         @include respond-to($_breakpoint, max) {
             max-height: 55%;
+            padding-bottom: 1.4rem;
             padding-top: 0;
         }
     }
@@ -91,13 +104,14 @@ $_title-font-size: $font-size-32;
         @include typography-h2;
         @include trim;
 
+        color: $color-midnight;
         font-size: $_title-font-size;
         margin-bottom: $_margin-size-smaller;
         width: $_typography-content-stretch;
 
         @include respond-to($_breakpoint, max) {
-            font-size: $_title-font-size * $_media-font-size-multiplier;
             margin-bottom: 0.6rem;
+            width: 95%;
         }
     }
 
@@ -116,8 +130,8 @@ $_title-font-size: $font-size-32;
 
         @include respond-to($_breakpoint, max) {
             @include trim(2);
-
-            font-size: $_content-font-size * $_media-font-size-multiplier;
+            line-height: 1.2;
+            width: 95%;
         }
     }
 
