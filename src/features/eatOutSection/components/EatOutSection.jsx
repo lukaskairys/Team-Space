@@ -6,7 +6,7 @@ import Button from "../../../components/button/Button";
 import CreateTopRestaurantColumn from "./CreateTopRestaurantColumn";
 
 const EatOutSection = () => {
-  const restaurants = FetchBestRatedRestaurants(2);
+  const { restaurants } = FetchBestRatedRestaurants(2);
 
   return (
     <section className="eat-out-card">

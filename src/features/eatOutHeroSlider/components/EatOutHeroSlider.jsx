@@ -3,6 +3,7 @@ import { FetchBestRatedRestaurants } from "utils/Api";
 import { roundNumber } from "utils/Math";
 import Button from "../../../components/button/Button";
 import Loader from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 import "./eatOutHeroSlider.scss";
 import SliderNavigation from "./SliderNavigation";
@@ -10,6 +11,7 @@ import { ToggleAnimation } from "./ToggleAnimation";
 
 const EatOutHeroSlider = () => {
   const count = 5;
+  let path = "/eat-out/";
   const { restaurants, error } = FetchBestRatedRestaurants(count);
   const [currentIndex, setCurrentIndex] = useState(
     roundNumber(count / 2, 0) - 1
@@ -96,9 +98,11 @@ const EatOutHeroSlider = () => {
           <h2 className="eat-out-slider__title">{currentItem.name}</h2>
           <p className="eat-out-slider__content">{currentItem.description}</p>
         </div>
-        <Button className="eat-out-slider__learn-more" medium={true}>
-          <span>Learn More</span>
-        </Button>
+        <Link to={path + currentItem.id}>
+          <Button className="eat-out-slider__learn-more" medium={true}>
+            <span>Learn More</span>
+          </Button>
+        </Link>
       </div>
     </div>
   );
