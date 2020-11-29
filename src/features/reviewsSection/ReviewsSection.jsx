@@ -71,6 +71,7 @@ function ReviewsSection() {
       );
     }
   };
+  if (reviews.length === 0) return null;
 
   return (
     <section className="reviews">
