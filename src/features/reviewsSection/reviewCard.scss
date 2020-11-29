@@ -1,14 +1,15 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 $_review-line-heigh: 1.5;
 $_color-black-transp: rgba(255, 255, 255, 0);
 
 .review-card {
     background: $color-white;
-    border-radius: $review-border-radius;
+    border-radius: $base-border-radius;
     box-shadow: $card-shadow;
     line-height: $_review-line-heigh;
-    margin: 2rem 0;
+    margin: 1.6rem 0;
     max-width: 50rem;
     padding-bottom: 0.1rem;
     position: relative;
@@ -30,36 +31,7 @@ $_color-black-transp: rgba(255, 255, 255, 0);
         margin: 0.6rem 2rem 1.6rem;
 
         &--truncate {
-            max-height: 10.5rem;
-            overflow: hidden;
-            position: relative;
-
-            &::before {
-                background: linear-gradient(
-                    to right,
-                    $_color-black-transp,
-                    $color-white 50%
-                );
-                content: '';
-                height: 2rem;
-                inset-block-end: 0;
-                inset-inline-end: 0;
-                position: absolute;
-                width: 8rem;
-            }
-
-            &::after {
-                background: linear-gradient(
-                    to right,
-                    $_color-black-transp,
-                    $color-white 50%
-                );
-                content: '';
-                height: 2rem;
-                inset-inline-end: 0;
-                position: absolute;
-                width: 8rem;
-            }
+            @include trim(5);
         }
     }
 

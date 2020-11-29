@@ -13,8 +13,11 @@ function ReviewsSection() {
 
   // TODO - get ID from URL
   const id = "120wsdlpx4";
+  const { data, error, isLoading } = useRequest("/restaurants");
 
-  const { data } = useRequest("/restaurants");
+  const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
+  const reviewsToShow = reviews.slice(0, reviewCountToRender);
+  const maxCharToShow = 280;
 
   useEffect(() => {
     try {
@@ -29,8 +32,6 @@ function ReviewsSection() {
       }
     }
   }, [data.restaurantList]);
-
-  const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
 
   const showModal = () => {
     setModalOpen(true);
@@ -50,6 +51,7 @@ function ReviewsSection() {
     body.style.top = "";
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
   };
+
   window.addEventListener("scroll", () => {
     document.documentElement.style.setProperty(
       "--scroll-y",
@@ -57,31 +59,42 @@ function ReviewsSection() {
     );
   });
 
+  const renderButton = () => {
+    if (
+      reviews.length > 3 ||
+      reviewsToShow.some((rew) => rew.comment.length > maxCharToShow)
+    ) {
+      return (
+        <Button medium={true} handleClick={showModal}>
+          <span>Show more</span>
+        </Button>
+      );
+    }
+  };
+  if (reviews.length === 0) return null;
+
   return (
-    <>
-      <section className="reviews">
-        <h3 className="reviews__title">Reviews</h3>
-        <div className="reviews__content">
-          {reviews.slice(0, reviewCountToRender).map((review) => (
-            <ReviewCard review={review} key={review.id} />
+    <section className="reviews">
+      <h3 className="reviews__title">Reviews</h3>
+      <div className="reviews__content">
+        {isLoading && <span></span>}
+        {error && <span>Error</span>}
+
+        {reviewsToShow.map((review) => (
+          <ReviewCard review={review} key={review.id} />
+        ))}
+      </div>
+
+      {renderButton()}
+
+      {modalOpen && (
+        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+          {reviews.map((review) => (
+            <ReviewCard key={review.id} review={review} inModal={true} />
           ))}
-        </div>
-
-        {reviews.length > 3 && (
-          <Button medium={true} handleClick={showModal}>
-            <span>Show more</span>
-          </Button>
-        )}
-
-        {modalOpen && (
-          <Modal closeModal={closeModal}>
-            {reviews.map((review) => (
-              <ReviewCard key={review.id} review={review} inModal={true} />
-            ))}
-          </Modal>
-        )}
-      </section>
-    </>
+        </Modal>
+      )}
+    </section>
   );
 }
 

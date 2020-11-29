@@ -1,0 +1,50 @@
+@import '../../../styles/base/base';
+
+.HERO {
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 51.7rem;
+    justify-content: flex-end;
+    margin: -2.7rem -4rem 6.4rem;
+    padding-left: 4rem;
+    padding-top: 4rem;
+
+    .breadcrumbs {
+        margin-bottom: auto;
+    }
+
+    &__categories {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1.8rem;
+    }
+
+    &__title {
+        @include typography-h1;
+
+        color: $color-midnight;
+    }
+
+    &__details {
+        align-items: center;
+        background-color: $color-light-porcelain;
+        border-radius: $secondary-border-radius;
+        box-shadow: $card-shadow;
+        display: flex;
+        height: 6.4rem;
+        justify-content: space-between;
+        margin-right: 4rem;
+        padding: 1.6rem;
+        position: relative;
+        transform: translateY(50%);
+    }
+
+    &__loader {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

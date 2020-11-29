@@ -6,8 +6,10 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
-
+import Restaurant from "pages/Restaurant/Restaurant";
+import EatOut from "pages/EatOut/EatOut";
 import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
+import ContextProvider from "contexts/ContextProvider";
 
 function App() {
   return (
@@ -19,6 +21,14 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Dashboard />
+          </Route>
+
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
+
+          <Route path="/login">
+            <LoginPage />
           </Route>
 
           <Route exact path="/reservations">
@@ -33,16 +43,20 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route path="/registration">
-            <RegistrationPage />
+          <Route exact path="/eat-out/">
+            <EatOut />
           </Route>
+
+          <ContextProvider endpoint="/restaurants">
+            <Route exact path="/eat-out/:id">
+              <Restaurant />
+            </Route>
+          </ContextProvider>
+
+          {/* testing routes */}
 
           <Route path="/reviews">
             <ReviewsSection />
-          </Route>
-
-          <Route path="/login">
-            <LoginPage />
           </Route>
         </Switch>
       </>

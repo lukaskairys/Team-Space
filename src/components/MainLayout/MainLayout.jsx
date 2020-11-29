@@ -8,7 +8,7 @@ import UserProfileWidget from "../../features/userProfileWidget/components/UserP
 
 import "./MainLayout.scss";
 
-const creationYear = "(dark ages)";
+const creationYear = 2020;
 const currentYear = new Date().getFullYear(); //getting current year
 let year;
 if (creationYear === currentYear) {
@@ -17,13 +17,23 @@ if (creationYear === currentYear) {
   year = `${creationYear} - ${currentYear}`;
 }
 
+const checkSidebarState = () => {
+  let initialState;
+  if (sessionStorage.sidebarState === undefined) {
+    initialState = false;
+  } else {
+    initialState = sessionStorage.sidebarState;
+  }
+  return JSON.parse(initialState);
+};
+
 const MainLayout = ({ children }) => {
-  const [isSidebarClosed, setIsSidebarClosed] = useState(false);
+  const [isSidebarClosed, setIsSidebarClosed] = useState(checkSidebarState());
 
   const toggleSidebar = () => {
     setIsSidebarClosed(!isSidebarClosed);
   };
-
+  sessionStorage.sidebarState = isSidebarClosed;
   return (
     <div className="main-layout">
       <Sidebar

@@ -1,0 +1,54 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$_margin-padding-primary: 1.6rem;
+$_margin-padding-secondary: 1.2rem;
+
+.hero-details {
+    align-items: center;
+    background-color: $color-light-porcelain;
+    border-radius: $secondary-border-radius;
+    box-shadow: $card-shadow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 4rem;
+    padding: $_margin-padding-primary;
+    position: relative;
+    transform: translateY(50%);
+
+    @include respond-to(779, max) {
+        padding: $_margin-padding-secondary;
+    }
+
+    .heart-icon {
+        margin: 0 $_margin-padding-primary;
+    }
+
+    &__rating-box,
+    &__cta-box {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__check-ins {
+        @include typography-caption;
+        color: $color-fiord;
+        font-weight: $bold-weight;
+        text-transform: uppercase;
+
+        @include respond-to(770, max) {
+            margin: 0 auto;
+            margin-top: $_margin-padding-secondary;
+            order: 1;
+        }
+    }
+
+    &__invite-text {
+        @include typography-caption-caps;
+        color: $color-slate-gray;
+        cursor: pointer;
+        padding: 0 $_margin-padding-primary;
+    }
+}

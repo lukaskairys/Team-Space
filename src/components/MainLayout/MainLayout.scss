@@ -1,5 +1,7 @@
 @import '../../styles/base/base';
 
+$_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
+
 .main-layout {
     display: flex;
     flex-direction: row;
@@ -18,7 +20,7 @@
     &__header {
         align-items: center;
         background-color: $color-white;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        box-shadow: $_box-shadow;
         display: flex;
         flex-direction: row;
         flex-shrink: 0;
@@ -51,12 +53,12 @@
     &__main {
         background-color: $color-light-porcelain;
         flex: 1;
-        padding: 50px;
+        padding: 2.7rem 4rem 6.4rem;
     }
 
     &__footer {
         background-color: $color-white;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        box-shadow: $_box-shadow;
         height: 7.2rem;
         text-align: end;
     }

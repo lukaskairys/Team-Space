@@ -23,10 +23,10 @@ const LayoutChildren = ({ children }) => {
   });
 
   // Take an array of children and group it by screen size
-  if (width < 1500 && width > 1080) {
+  if (width <= 1500 && width > 1090) {
     bigCardsTemp = groupArray(bigCardsTemp, 2);
     smallCardsTemp = groupArray(smallCardsTemp, 2);
-  } else if (width <= 1080) {
+  } else if (width <= 1090) {
     bigCardsTemp = groupArray(bigCardsTemp, 1);
     smallCardsTemp = groupArray(smallCardsTemp, 1);
   } else {
