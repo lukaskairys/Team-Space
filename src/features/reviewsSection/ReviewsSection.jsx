@@ -13,8 +13,8 @@ function ReviewsSection() {
 
   // TODO - get ID from URL
   const id = "120wsdlpx4";
+  const { data, error, isLoading } = useRequest("/restaurants");
 
-  const { data } = useRequest("/restaurants");
   const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
   const reviewsToShow = reviews.slice(0, reviewCountToRender);
   const maxCharToShow = 280;
@@ -71,28 +71,30 @@ function ReviewsSection() {
       );
     }
   };
+  if (reviews.length === 0) return null;
 
   return (
-    <>
-      <section className="reviews">
-        <h3 className="reviews__title">Reviews</h3>
-        <div className="reviews__content ">
-          {reviewsToShow.map((review) => (
-            <ReviewCard review={review} key={review.id} />
+    <section className="reviews">
+      <h3 className="reviews__title">Reviews</h3>
+      <div className="reviews__content">
+        {isLoading && <span></span>}
+        {error && <span>Error</span>}
+
+        {reviewsToShow.map((review) => (
+          <ReviewCard review={review} key={review.id} />
+        ))}
+      </div>
+
+      {renderButton()}
+
+      {modalOpen && (
+        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+          {reviews.map((review) => (
+            <ReviewCard key={review.id} review={review} inModal={true} />
           ))}
-        </div>
-
-        {renderButton()}
-
-        {modalOpen && (
-          <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
-            {reviews.map((review) => (
-              <ReviewCard key={review.id} review={review} inModal={true} />
-            ))}
-          </Modal>
-        )}
-      </section>
-    </>
+        </Modal>
+      )}
+    </section>
   );
 }
 
