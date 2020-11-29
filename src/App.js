@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
-import LoginPage from "../src/features/login/pages/LoginPage";
+import RegistrationPage from "features/registration/pages/RegistrationPage";
+import LoginPage from "features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
-import EatOutCard from "../src/components/EatOutCard/EatOutCard";
+import EatOutCard from "components/EatOutCard/EatOutCard";
 import ContextProvider from "contexts/ContextProvider";
 
 function App() {
@@ -47,17 +47,16 @@ function App() {
             <EatOut />
           </Route>
 
+          {/* testing routes */}
+          <Route exact path="/eat-out-card">
+            <EatOutCard />
+          </Route>
+
           <ContextProvider endpoint="/restaurants">
             <Route exact path="/eat-out/:id">
               <Restaurant />
             </Route>
           </ContextProvider>
-
-          {/* testing routes */}
-
-          <Route path="/eat-out-card">
-            <EatOutCard />
-          </Route>
         </Switch>
       </>
     </Router>
