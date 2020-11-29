@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+
 import { useRequest } from "../../apis/useRequest";
+import { isObjectEmpty } from "../../utils/objects";
 import EatOutCardHeader from "./components/EatOutCardHeader";
 import EatOutCardSubheader from "./components/EatOutCardSubheader";
 import EatOutCardContent from "./components/EatOutCardContent";
 import EatOutCardFooter from "./components/EatOutCardFooter";
+
 import "./eatOutCard.scss";
-import { isObjectEmpty } from "../../utils/objects";
 
 function EatOutCard() {
   const [restaurant, setRestaurant] = useState({});
