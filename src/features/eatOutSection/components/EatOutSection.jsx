@@ -9,10 +9,10 @@ const EatOutSection = () => {
   const { restaurants } = FetchBestRatedRestaurants(2);
 
   return (
-    <section className="eat-out-card">
-      <div className="eat-out-card__column">
-        <div className="eat-out-card__content">
-          <h3 className="eat-out-card__suggestion">
+    <section className="eat-out-section">
+      <div className="eat-out-section__column">
+        <div className="eat-out-section__content">
+          <h3 className="eat-out-section__suggestion">
             View all your favorite lunch spots and more
           </h3>
           <Button medium={true}>

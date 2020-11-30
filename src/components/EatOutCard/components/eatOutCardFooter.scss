@@ -1,0 +1,10 @@
+@import '../../../styles/base/base';
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    &__buttons {
+        margin: 0 2.4rem 2.4rem;
+    }
+}
