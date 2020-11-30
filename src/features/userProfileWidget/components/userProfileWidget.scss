@@ -14,13 +14,20 @@
 
     &__picture {
         @include animation('fadeIn 1s ease-in forwards');
-        border-radius: 50%;
-        height: 4rem;
-        object-fit: cover;
-        width: 4rem;
+        @include square-size(100%);
 
-        &:hover {
+        border-radius: 50%;
+        object-fit: cover;
+
+        &:hover,
+        &:focus {
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         }
+    }
+
+    button {
+        @include square-size(4rem);
+
+        border-radius: 50%;
     }
 }

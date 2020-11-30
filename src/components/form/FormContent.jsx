@@ -32,6 +32,7 @@ function FormContent(props) {
             type={field.type}
             value={values[field.name] || ""}
             name={field.name}
+            placeholder={field.placeholder}
             onChange={handleChange}
             onFocus={handleFocus}
             className={`form__input ${

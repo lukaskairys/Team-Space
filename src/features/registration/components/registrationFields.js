@@ -3,27 +3,32 @@ const fields = {
     type: "text",
     name: "firstName",
     text: "First Name",
+    placeholder: "Wizard",
   },
   lastName: {
     type: "text",
     name: "lastName",
     text: "Last Name",
+    placeholder: "Supermagic",
   },
   email: {
     type: "email",
     name: "email",
     text: "Email",
+    placeholder: "email@example.com",
     inputLong: true,
   },
   password: {
     type: "password",
     name: "password",
     text: "Password",
+    placeholder: "******",
   },
   repeatPassword: {
     type: "password",
     name: "repeatPassword",
     text: "Repeat Password",
+    placeholder: "******",
   },
 };
 
