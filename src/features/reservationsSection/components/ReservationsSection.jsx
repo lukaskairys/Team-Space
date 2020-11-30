@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import "./reservationsSection.scss";
-import ReservationCard from "../../../components/ReservationCard/ReservationCard";
+import ReservationCard from "components/ReservationCard/ReservationCard";
 import { ReactComponent as Phone } from "assets/images/phone-1.svg";
 import { ReactComponent as Door } from "assets/images/door-1.svg";
 import { ReactComponent as Book } from "assets/images/book-1.svg";
-import { isObjectEmpty } from "../../../utils/objects";
-import { context } from "../../../contexts/Context";
+import { isObjectEmpty } from "utils/objects";
+import { context } from "contexts/Context";
+
+import "./reservationsSection.scss";
 
 const ReservationsSection = () => {
   const [reservations, setReservations] = useState({

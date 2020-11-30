@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { useRequest } from "apis/useRequest";
+
 import { context } from "./Context";
-import { useRequest } from "../apis/useRequest";
 
 const ContextProvider = ({ children, endpoint }) => {
   const { data, error, isLoading } = useRequest(endpoint);

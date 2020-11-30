@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 
+import { context } from "contexts/Context";
+import { isObjectEmpty } from "utils/objects";
+
 import "./helloWidget.scss";
-import { context } from "../../../contexts/Context";
-import { isObjectEmpty } from "../../../utils/objects";
 
 const options = {
   hour: "numeric",

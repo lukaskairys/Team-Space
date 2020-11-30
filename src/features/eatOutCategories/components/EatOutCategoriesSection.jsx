@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 
-import "./eatOutCategoriesSection.scss";
-import { context } from "../../../contexts/Context";
+import { context } from "contexts/Context";
 import ReservationsCard from "components/ReservationCard/ReservationCard";
+
+import "./eatOutCategoriesSection.scss";
 import filteredRestaurants from "./filteredRestaurants";
 
 function EatOutCategoriesSection() {
