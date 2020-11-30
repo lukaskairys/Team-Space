@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import "./reservationsSection.scss";
 import ReservationCard from "../../../components/ReservationCard/ReservationCard";
@@ -6,15 +6,15 @@ import { ReactComponent as Phone } from "assets/images/phone-1.svg";
 import { ReactComponent as Door } from "assets/images/door-1.svg";
 import { ReactComponent as Book } from "assets/images/book-1.svg";
 import { isObjectEmpty } from "../../../utils/objects";
-import { useRequest } from "../../../apis/useRequest";
+import { context } from "../../../contexts/Context";
 
 const ReservationsSection = () => {
   const [reservations, setReservations] = useState({
-    devices: "-",
-    books: "-",
-    rooms: 4,
+    devices: 0,
+    books: 0,
+    rooms: 0,
   });
-  const { data, error } = useRequest("/userData");
+  const { data, error } = useContext(context);
 
   useEffect(() => {
     if (!isObjectEmpty(data))
@@ -22,12 +22,14 @@ const ReservationsSection = () => {
         ...prevState,
         devices: data.reservations.devices.length,
         books: data.reservations.books.length,
+        rooms: 4,
       }));
     else if (error)
       setReservations((prevState) => ({
         ...prevState,
         devices: "Err",
         books: "Err",
+        rooms: "Err",
       }));
   }, [data, error]);
 
@@ -37,25 +39,28 @@ const ReservationsSection = () => {
       <div className="RESERVATIONS__cards">
         <ReservationCard
           name={"Devices"}
+          caption={"Reserved"}
           path={"/reservations/devices"}
-          reserved={reservations.devices}
-          size={"big"}
+          count={reservations.devices}
+          big
         >
           <Phone />
         </ReservationCard>
         <ReservationCard
           name={"Books"}
+          caption={"Reserved"}
           path={"/reservations/books"}
-          reserved={reservations.books}
-          size={"big"}
+          count={reservations.books}
+          big
         >
           <Book />
         </ReservationCard>
         <ReservationCard
           name={"Meeting rooms"}
+          caption={"Reserved"}
           path={"/"}
-          reserved={reservations.rooms}
-          size={"big"}
+          count={reservations.rooms}
+          big
         >
           <Door />
         </ReservationCard>

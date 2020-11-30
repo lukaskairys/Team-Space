@@ -1,6 +1,8 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
 
+$_breakpoint: 886;
+
 .categories-section {
     margin: 5rem 0;
 
@@ -8,10 +10,19 @@
         @include typography-h3;
 
         color: $color-midnight;
+
+        @include respond-to($_breakpoint, max) {
+            text-align: center;
+        }
     }
 
     &__content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        row-gap: 2rem;
+
+        @include respond-to($_breakpoint, max) {
+            justify-items: center;
+        }
     }
 }

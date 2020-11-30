@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
 import LoginPage from "../src/features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
@@ -9,7 +10,6 @@ import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
-import ContextProvider from "contexts/ContextProvider";
 
 function App() {
   return (
@@ -43,14 +43,12 @@ function App() {
             <MainLayout />
           </Route>
 
-          <ContextProvider endpoint="/restaurants">
-            <Route exact path="/eat-out/">
-              <EatOut />
-            </Route>
-            <Route exact path="/eat-out/:id">
-              <Restaurant />
-            </Route>
-          </ContextProvider>
+          <Route exact path="/eat-out/">
+            <EatOut />
+          </Route>
+          <Route exact path="/eat-out/:id">
+            <Restaurant />
+          </Route>
 
           {/* testing routes */}
 

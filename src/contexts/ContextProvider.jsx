@@ -13,7 +13,7 @@ const ContextProvider = ({ children, endpoint }) => {
 };
 
 ContextProvider.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
   endpoint: PropTypes.string,
 };
 
