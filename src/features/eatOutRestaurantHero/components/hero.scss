@@ -1,15 +1,21 @@
 @import '../../../styles/base/base';
 
+$_height: 51.7rem;
+$_animation: fadeIn 0.5s 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+$_margin: -2.7rem -4rem 6.4rem;
+$_padding-left: 4rem;
+$_padding-top: 4rem;
+
 .HERO {
     background-position: center;
     background-size: cover;
     display: flex;
     flex-direction: column;
-    height: 51.7rem;
+    height: $_height;
     justify-content: flex-end;
-    margin: -2.7rem -4rem 6.4rem;
-    padding-left: 4rem;
-    padding-top: 4rem;
+    margin: $_margin;
+    padding-left: $_padding-left;
+    padding-top: $_padding-top;
 
     .breadcrumbs {
         margin-bottom: auto;
@@ -25,6 +31,7 @@
         @include typography-h1;
 
         color: $color-midnight;
+        font-size: $font-size-48;
     }
 
     &__details {
@@ -42,9 +49,12 @@
     }
 
     &__loader {
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        animation: $_animation;
+        display: grid;
+        height: $_height;
+        margin: $_margin;
+        padding-left: $_padding-left;
+        padding-top: $_padding-top;
+        place-items: center;
     }
 }
