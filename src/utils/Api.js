@@ -48,3 +48,37 @@ export const FetchBestRatedRestaurants = (count) => {
 
   return restaurants;
 };
+
+export const FetchStories = () => {
+  const [stories, setStories] = useState([]);
+  const { data } = useRequest("/stories");
+
+  const filter = useCallback((data) => {
+    if (isObjectEmpty(data)) return [];
+
+    return data;
+  }, []);
+
+  useEffect(() => {
+    setStories(filter(data));
+  }, [filter, data]);
+
+  return stories;
+};
+
+export const FetchUserData = () => {
+  const [userData, setUserData] = useState([]);
+  const { data } = useRequest("/userData");
+
+  const filter = useCallback((data, i) => {
+    if (isObjectEmpty(data)) return [];
+
+    return data;
+  }, []);
+
+  useEffect(() => {
+    setUserData(filter(data));
+  }, [filter, data]);
+
+  return userData;
+};

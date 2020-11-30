@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./birthdayCard.scss";
 import BirthdayInteractions from "./BirthdayInteractions";
+import { getBirthdayDate } from "./getBirthdayDate";
 import { ReactComponent as ConfettiLeft } from "../../../assets/images/confetti-1.svg";
 import { ReactComponent as ConfettiRight } from "../../../assets/images/confetti-2.svg";
 import { ReactComponent as Sparkles } from "../../../assets/images/sparkles.svg";
@@ -23,7 +24,9 @@ function BirthdayCard({ story }) {
         <div className="birthday-card__date">
           <p>
             Celebrated a birthday on
-            <span className="birthday-card__date-day"> Sep 13th </span>
+            <span className="birthday-card__date-day">
+              {getBirthdayDate(story.birthdayDate)}
+            </span>
           </p>
         </div>
         <div className="birthday-card__body">

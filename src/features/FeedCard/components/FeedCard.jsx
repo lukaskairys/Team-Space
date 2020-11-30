@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./feedCard.scss";
+import { timeDifference } from "./getTimeDifference";
 import FeedCardComments from "./FeedCardComments";
 
 function FeedCard({ story, userPhoto, userName, type }) {
@@ -14,7 +15,10 @@ function FeedCard({ story, userPhoto, userName, type }) {
         />
         <p>{story.userName}</p>
         <p>
-          {story.postLocation} <span className="feed-card__time">20h</span>
+          {story.postLocation}{" "}
+          <span className="feed-card__time">
+            {timeDifference(new Date(), new Date(story.postDate))}
+          </span>
         </p>
       </div>
       <div className="feed-card__content">

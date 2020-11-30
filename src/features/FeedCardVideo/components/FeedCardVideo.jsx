@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import ReactPlayer from "react-player";
 import FeedCardComments from "../../FeedCard/components/FeedCardComments";
 import "../../FeedCard/components/feedCard.scss";
+import { timeDifference } from "../../FeedCard/components/getTimeDifference";
 import { ReactComponent as PlayButton } from "../../../assets/images/play-button.svg";
 
 function FeedCardVideo({ story, userPhoto, userName }) {
@@ -16,7 +17,10 @@ function FeedCardVideo({ story, userPhoto, userName }) {
         />
         <p>{story.userName}</p>
         <p>
-          {story.postLocation} <span className="feed-card__time">20h</span>
+          {story.postLocation}{" "}
+          <span className="feed-card__time">
+            {timeDifference(new Date(), new Date(story.postDate))}
+          </span>
         </p>
       </div>
       <div className="feed-card__content">

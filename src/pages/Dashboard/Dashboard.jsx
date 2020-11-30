@@ -9,8 +9,9 @@ import EatOutSection from "features/eatOutSection/components/EatOutSection";
 import FeedCard from "features/FeedCard/components/FeedCard";
 import FeedCardVideo from "features/FeedCardVideo/components/FeedCardVideo";
 import BirthdayCard from "features/BirthdayCard/components/BirthdayCard";
-import FetchStories from "../../features/temporaryLayout/FetchStories";
-import FetchUserData from "../../features/temporaryLayout/FetchUserData";
+
+import { FetchStories, FetchUserData } from "../../utils/Api";
+import { getPostTime } from "../../components/NewsFeedLayout/getPostTime";
 
 import "./Dashboard.scss";
 
@@ -33,29 +34,36 @@ const Dashboard = () => {
             <EatOutSection />
           </div>
           <NewsFeedLayout>
-            {stories.map((story) => {
-              return story.type === "birthday" ? (
-                <BirthdayCard key={story.id} story={story} />
-              ) : story.type === "post" ? (
-                <FeedCard
-                  key={story.id}
-                  story={story}
-                  userPhoto={userData.userImage}
-                  userName={userData.userName}
-                  type={1}
-                />
-              ) : story.type === "video" ? (
-                <FeedCardVideo
-                  key={story.id}
-                  story={story}
-                  userPhoto={userData.userImage}
-                  userName={userData.userName}
-                  type={1}
-                />
-              ) : (
-                ""
-              );
-            })}
+            {stories
+              .sort(function (firstPost, secondPost) {
+                let firstDate = getPostTime(firstPost);
+                let secondDate = getPostTime(secondPost);
+
+                return secondDate - firstDate;
+              })
+              .map((story) => {
+                return story.type === "birthday" ? (
+                  <BirthdayCard key={story.id} story={story} />
+                ) : story.type === "post" ? (
+                  <FeedCard
+                    key={story.id}
+                    story={story}
+                    userPhoto={userData.userImage}
+                    userName={userData.userName}
+                    type={1}
+                  />
+                ) : story.type === "video" ? (
+                  <FeedCardVideo
+                    key={story.id}
+                    story={story}
+                    userPhoto={userData.userImage}
+                    userName={userData.userName}
+                    type={1}
+                  />
+                ) : (
+                  ""
+                );
+              })}
           </NewsFeedLayout>
         </>
       </MainLayout>
