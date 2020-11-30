@@ -12,9 +12,9 @@ function EatOutCardContent({ address, website, description }) {
       <div className="card-content__contact-info">
         <p className="card-content__contact-item">
           <Globe className="card-content__icon" />
-          <span className="card-content__info">
+          <a href={website} className="card-content__info">
             {website.replace(/www.|http:\/\/|https:\/\//gi, "")}
-          </span>
+          </a>
         </p>
         <p className="card-content__contact-item">
           <MapPin className="card-content__icon" />
