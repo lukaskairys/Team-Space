@@ -10,17 +10,17 @@ const SliderNavigation = ({
   counter,
   currentIndex,
   setCurrentIndex,
-  setLoading,
-  isLoading,
+  setAnimationLoading,
+  isAnimationLoading,
 }) => {
   const captureEvent = (e, i) => {
     transitionRestaurant(i);
   };
 
   const transitionRestaurant = (i) => {
-    if (!isLoading) {
+    if (!isAnimationLoading) {
       ToggleAnimation();
-      setLoading(true);
+      setAnimationLoading(true);
 
       setTimeout(function () {
         setCurrentIndex(i);
@@ -78,9 +78,9 @@ const SliderNavigation = ({
 
 SliderNavigation.propTypes = {
   setCurrentIndex: PropTypes.func,
-  setLoading: PropTypes.func,
+  setAnimationLoading: PropTypes.func,
   counter: PropTypes.number,
   currentIndex: PropTypes.number,
-  isLoading: PropTypes.bool,
+  isAnimationLoading: PropTypes.bool,
 };
 export default SliderNavigation;

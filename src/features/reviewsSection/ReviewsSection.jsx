@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { useRequest } from "../../apis/useRequest";
 import Button from "../../components/button/Button";
@@ -11,8 +12,7 @@ function ReviewsSection() {
   const [reviews, setReviews] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // TODO - get ID from URL
-  const id = "120wsdlpx4";
+  const { id } = useParams();
   const { data, error, isLoading } = useRequest("/restaurants");
 
   const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
@@ -31,7 +31,7 @@ function ReviewsSection() {
         setReviews([]);
       }
     }
-  }, [data.restaurantList]);
+  }, [data.restaurantList, id]);
 
   const showModal = () => {
     setModalOpen(true);
@@ -79,7 +79,6 @@ function ReviewsSection() {
       <div className="reviews__content">
         {isLoading && <span></span>}
         {error && <span>Error</span>}
-
         {reviewsToShow.map((review) => (
           <ReviewCard review={review} key={review.id} />
         ))}

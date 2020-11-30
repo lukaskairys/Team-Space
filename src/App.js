@@ -9,7 +9,7 @@ import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
-import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
+import EatOutCard from "components/EatOutCard/EatOutCard";
 
 function App() {
   return (
@@ -52,8 +52,8 @@ function App() {
 
           {/* testing routes */}
 
-          <Route path="/reviews">
-            <ReviewsSection />
+          <Route exact path="/eat-out-card">
+            <EatOutCard />
           </Route>
         </Switch>
       </>

@@ -10,12 +10,14 @@ function Button({
   large,
   medium,
   iconX,
+  blank,
 }) {
   const btnClass = classNames({
     button: true,
     "button--large": large,
     "button--medium": medium,
     "button--icon-x": iconX,
+    "button--blank": blank,
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>
@@ -31,6 +33,7 @@ Button.propTypes = {
   large: PropTypes.bool,
   iconX: PropTypes.bool,
   medium: PropTypes.bool,
+  blank: PropTypes.bool,
 };
 
 export default Button;
