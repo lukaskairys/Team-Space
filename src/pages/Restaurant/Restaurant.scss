@@ -1,0 +1,8 @@
+@import '../../styles/base/base';
+
+.restaurant {
+    &__middle {
+        display: flex;
+        gap: 4rem;
+    }
+}

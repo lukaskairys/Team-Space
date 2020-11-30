@@ -25,7 +25,7 @@ const sidebarData = [
   {
     title: "Eat-Out",
     icon: <CompassIcon className="sidebar__list-icon" />,
-    link: "/registration",
+    link: "/eat-out/120wsdlpx4",
   },
 ];
 
@@ -52,7 +52,8 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
               key={key}
               className={classNames("sidebar__list-item", {
                 "sidebar__list-item--active":
-                  window.location.pathname === val.link,
+                  window.location.pathname === val.link ||
+                  window.location.pathname.includes(val.title.toLowerCase()),
               })}
               to={val.link}
             >

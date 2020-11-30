@@ -35,5 +35,9 @@ $_icon-size: 1.2rem;
         right: 0;
         top: 0;
         z-index: $z-index-base;
+
+        &:hover {
+            cursor: auto;
+        }
     }
 }

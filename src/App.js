@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
-import LoginPage from "../src/features/login/pages/LoginPage";
+import RegistrationPage from "features/registration/pages/RegistrationPage";
+import LoginPage from "features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
-
-import ReviewsSection from "../src/features/reviewsSection/ReviewsSection";
+import Restaurant from "pages/Restaurant/Restaurant";
+import EatOut from "pages/EatOut/EatOut";
+import EatOutCard from "components/EatOutCard/EatOutCard";
+import ContextProvider from "contexts/ContextProvider";
 
 function App() {
   return (
@@ -19,6 +21,14 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Dashboard />
+          </Route>
+
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
+
+          <Route path="/login">
+            <LoginPage />
           </Route>
 
           <Route exact path="/reservations">
@@ -33,17 +43,20 @@ function App() {
             <MainLayout />
           </Route>
 
-          <Route path="/registration">
-            <RegistrationPage />
+          <Route exact path="/eat-out/">
+            <EatOut />
           </Route>
 
-          <Route path="/reviews">
-            <ReviewsSection />
+          {/* testing routes */}
+          <Route exact path="/eat-out-card">
+            <EatOutCard />
           </Route>
 
-          <Route path="/login">
-            <LoginPage />
-          </Route>
+          <ContextProvider endpoint="/restaurants">
+            <Route exact path="/eat-out/:id">
+              <Restaurant />
+            </Route>
+          </ContextProvider>
         </Switch>
       </>
     </Router>

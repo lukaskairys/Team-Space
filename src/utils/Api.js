@@ -5,8 +5,7 @@ import { isObjectEmpty } from "./objects";
 
 export const FetchBestRatedRestaurants = (count) => {
   const [restaurants, setRestaurants] = useState([]);
-  const { data } = useRequest("/restaurants");
-
+  const { data, error } = useRequest("/restaurants");
   const filter = useCallback(
     (restaurants) => {
       if (isObjectEmpty(restaurants)) return [];
@@ -46,7 +45,7 @@ export const FetchBestRatedRestaurants = (count) => {
     setRestaurants(filter(data));
   }, [filter, data]);
 
-  return restaurants;
+  return { restaurants, error };
 };
 
 export const FetchStories = () => {

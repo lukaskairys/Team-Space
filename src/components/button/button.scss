@@ -35,6 +35,28 @@
         padding: 0.9rem 1.8rem;
     }
 
+    &--blank {
+        background: none;
+        color: $color-slate-gray;
+        font-weight: $medium-weight;
+
+        &:hover,
+        &:focus {
+            background: none;
+            color: $color-fiord;
+        }
+
+        &:active {
+            background: none;
+            color: $color-midnight;
+        }
+
+        &:disabled {
+            background: none;
+            color: $color-gull-gray;
+        }
+    }
+
     &--icon-x {
         background: none;
         line-height: 0;

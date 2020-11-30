@@ -9,8 +9,7 @@
         color: $color-fiord;
         margin-bottom: 3.2rem;
 
-        @include respond-to(1000, max) {
-            font-size: $font-size-18;
+        @include respond-to(900, max) {
             margin-bottom: 1.6rem;
         }
     }
