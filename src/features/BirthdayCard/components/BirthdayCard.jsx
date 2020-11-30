@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import "./birthdayCard.scss";
-import BirthdayInteractions from "./BirthdayInteractions";
+import BirthdayComments from "./BirthdayComments";
 import { getBirthdayDate } from "./getBirthdayDate";
 import { ReactComponent as ConfettiLeft } from "../../../assets/images/confetti-1.svg";
 import { ReactComponent as ConfettiRight } from "../../../assets/images/confetti-2.svg";
 import { ReactComponent as Sparkles } from "../../../assets/images/sparkles.svg";
 
-function BirthdayCard({ story }) {
+function BirthdayCard({ story, userPhoto, userName }) {
+  const [active, setActive] = useState(false);
+
+  const heartClass = classNames({
+    "birthday-card": true,
+    "birthday-card--comments-displayed": active,
+  });
+
+  const toggleFavorite = () => {
+    setActive(!active);
+  };
+
   return (
-    <div className="birthday-card">
+    <div className={heartClass} id={story.id}>
       <div className="birthday-card__image-container">
         <img
           className="birthday-card__image"
@@ -32,14 +44,18 @@ function BirthdayCard({ story }) {
         <div className="birthday-card__body">
           <p>Send a wish!</p>
         </div>
+        <ConfettiLeft id="confettiLeft" className="confetti-left" />
+        <ConfettiRight id="confettiRight" className="confetti-right" />
+        <Sparkles id="sparkles" className="sparkles" />
         <div className="feed-card-divider"></div>
-        <BirthdayInteractions
+        <BirthdayComments
+          comments={story.comments}
+          username={userName}
+          userPhoto={userPhoto}
           wishes={story.wishes}
-          commentCount={story.comments.length}
+          containerId={story.id}
+          onCommentClick={toggleFavorite}
         />
-        <ConfettiLeft className="confetti-left" />
-        <ConfettiRight className="confetti-right" />
-        <Sparkles className="sparkles" />
       </div>
     </div>
   );
@@ -47,6 +63,8 @@ function BirthdayCard({ story }) {
 
 BirthdayCard.propTypes = {
   story: PropTypes.object,
+  userPhoto: PropTypes.string,
+  userName: PropTypes.string,
 };
 
 export default BirthdayCard;

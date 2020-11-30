@@ -5,8 +5,12 @@
     border-radius: 8px;
     box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
     font-family: $font-family;
-    height: 18.4rem;
+    height: 18.8rem;
     width: 39.5rem;
+
+    &--comments-displayed {
+        height: 30.4rem;
+    }
 
     &__content {
         bottom: 14rem;
@@ -85,19 +89,24 @@
 }
 
 .sparkles {
-    bottom: 13rem;
     left: 3.5rem;
     position: absolute;
+    top: -5.2rem;
 }
 
 .confetti-left {
-    bottom: 6rem;
     left: 2rem;
     position: absolute;
+    top: -0.4rem;
 }
 
 .confetti-right {
-    bottom: 6rem;
     position: absolute;
     right: 2rem;
+    top: -0.4rem;
+}
+
+.birthday-comment-display {
+    border-radius: 0.8rem;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
 }

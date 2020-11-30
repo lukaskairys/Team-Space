@@ -43,7 +43,12 @@ const Dashboard = () => {
               })
               .map((story) => {
                 return story.type === "birthday" ? (
-                  <BirthdayCard key={story.id} story={story} />
+                  <BirthdayCard
+                    key={story.id}
+                    story={story}
+                    userPhoto={userData.userImage}
+                    userName={userData.userName}
+                  />
                 ) : story.type === "post" ? (
                   <FeedCard
                     key={story.id}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import "./feedCard.scss";
 import FeedCardInteractions from "./FeedCardInteractions";
@@ -10,6 +10,12 @@ function FeedCardComments({ comments, username, userPhoto, likes }) {
   });
 
   const [allComments, setAllComments] = useState(comments);
+
+  const textInput = useRef(null);
+
+  function handleCommentIconClick() {
+    textInput.current.focus();
+  }
 
   const handleCommentChange = (event) => {
     const { value } = event.target;
@@ -23,16 +29,23 @@ function FeedCardComments({ comments, username, userPhoto, likes }) {
       comment: inputValues.commentInput,
       date: date,
     };
-    setAllComments((allComments) => [...allComments, newComment]);
+    if (newComment.comment.length >= 1) {
+      setAllComments((allComments) => [...allComments, newComment]);
+      setInputValues({ commentInput: "" });
+    }
   };
 
   return (
     <div>
       <div className="interactions-container">
         <FeedCardInteractions likes={likes} />
-        <CommentIcon className="card-comment-icon" />
+        <CommentIcon
+          className="card-comment-icon"
+          onClick={handleCommentIconClick}
+        />
         <p>{allComments.length}</p>
       </div>
+      <div className="feed-card-divider"></div>
       <div className="feed-card__comments-container">
         {allComments
           .sort(function (firstComment, secondComment) {
@@ -56,11 +69,12 @@ function FeedCardComments({ comments, username, userPhoto, likes }) {
       <div className="new-comment-container">
         <img className="new-comment-image" src={userPhoto} alt="User" />
         <input
+          ref={textInput}
           name="commentInput"
           type="text"
           placeholder="Leave a comment..."
           onChange={handleCommentChange}
-          comment={inputValues.commentInput}
+          value={inputValues.commentInput}
           className="comment-input"
           username={username}
           date={new Date()}
