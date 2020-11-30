@@ -3,6 +3,9 @@ import { useRequest } from "../apis/useRequest";
 import { roundNumber } from "./Math";
 import { isObjectEmpty } from "./objects";
 
+export const FetchNearYou = () => {};
+export const FetchNewPlaces = () => {};
+export const SimilarCategories = () => {};
 export const FetchBestRatedRestaurants = (count) => {
   const [restaurants, setRestaurants] = useState([]);
   const { data, error } = useRequest("/restaurants");

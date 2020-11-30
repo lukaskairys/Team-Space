@@ -4,6 +4,7 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 import ReviewsSection from "features/reviewsSection/ReviewsSection";
+import RestaurantCardsSection from "components/RestaurantsCardsSection/RestaurantCardsSection";
 
 import "./Restaurant.scss";
 import Hero from "features/eatOutRestaurantHero/components/Hero";
@@ -20,6 +21,7 @@ const Restaurant = () => {
             <EatOutInfo />
             <ReviewsSection />
           </div>
+          <RestaurantCardsSection title="Also you could like" />
         </>
       </MainLayout>
     </div>
