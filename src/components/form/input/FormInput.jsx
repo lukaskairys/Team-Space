@@ -5,11 +5,11 @@ import "./formInput.scss";
 import Button from "../../button/Button";
 
 function FormInput(props) {
-  let {
+  const {
     name,
     label,
     type,
-    placeholder = label,
+    placeholder,
     id = name,
     onChange,
     className,
@@ -28,9 +28,9 @@ function FormInput(props) {
         id={id}
         name={name}
         type={type}
-        placeholder={placeholder}
         onChange={onChange}
         value={value}
+        placeholder={placeholder}
         className={className}
         onFocus={onFocus}
         ref={inputRef}

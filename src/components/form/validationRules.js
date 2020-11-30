@@ -37,6 +37,20 @@ export function validateRegistration(values) {
   return errors;
 }
 
-export function noValidation() {
-  return {};
+export function validateLogin(values) {
+  const { email, password } = values;
+  let errors = {};
+  // email
+  if (!email) {
+    errors.email = "Email address is required";
+  } else if (!/\S+@\S+\.\S+/.test(email)) {
+    errors.email = "Email address is invalid";
+  }
+  // password
+  if (!password) {
+    errors.password = "Password is required";
+  } else if (password.length < 6) {
+    errors.password = "Password must be 6 or more characters";
+  }
+  return errors;
 }

@@ -3,12 +3,14 @@ const fields = {
     type: "email",
     name: "email",
     text: "Email",
+    placeholder: "email@example.com",
     inputLong: true,
   },
   password: {
     type: "password",
     name: "password",
     text: "Password",
+    placeholder: "******",
     inputLong: true,
   },
 };
