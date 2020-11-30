@@ -10,14 +10,14 @@ import "./Reservations.scss";
 const Reservations = () => {
   return (
     <div className="reservationsPage">
-      <ContextProvider endpoint="/userData">
-        <MainLayout>
-          <>
-            <Breadcrumbs />
+      <MainLayout>
+        <>
+          <Breadcrumbs />
+          <ContextProvider endpoint="/userData">
             <ReservationSection className="reservationsPage__widget" />
-          </>
-        </MainLayout>
-      </ContextProvider>
+          </ContextProvider>
+        </>
+      </MainLayout>
     </div>
   );
 };

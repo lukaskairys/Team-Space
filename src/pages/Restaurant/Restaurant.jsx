@@ -11,9 +11,9 @@ import ContextProvider from "contexts/ContextProvider";
 const Restaurant = () => {
   return (
     <div className="restaurant">
-      <ContextProvider endpoint="/restaurants">
-        <MainLayout>
-          <>
+      <MainLayout>
+        <>
+          <ContextProvider endpoint="/restaurants">
             <Hero>
               <Breadcrumbs />
             </Hero>
@@ -21,9 +21,9 @@ const Restaurant = () => {
               <EatOutInfo />
               <ReviewsSection />
             </div>
-          </>
-        </MainLayout>
-      </ContextProvider>
+          </ContextProvider>
+        </>
+      </MainLayout>
     </div>
   );
 };

@@ -11,15 +11,15 @@ import "./EatOut.scss";
 const EatOut = () => {
   return (
     <div className="eat-out">
-      <ContextProvider endpoint="/restaurants">
-        <MainLayout>
-          <>
+      <MainLayout>
+        <>
+          <ContextProvider endpoint="/restaurants">
             <Breadcrumbs />
             <EatOutHeroWidget />
             <EatOutCategoriesSection />
-          </>
-        </MainLayout>
-      </ContextProvider>
+          </ContextProvider>
+        </>
+      </MainLayout>
     </div>
   );
 };
