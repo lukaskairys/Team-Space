@@ -20,6 +20,9 @@
     }
 
     &__info {
+        @include trim(1);
+
+        color: $color-fiord;
         padding-left: 0.8rem;
     }
 
