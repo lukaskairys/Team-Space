@@ -1,14 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./restaurantCardsSection.scss";
+import "./sectionTitle.scss";
 
 const SectionTitle = ({ title }) => {
-  return (
-    <div className="restaurants-section-title">
-      <h3>{title}</h3>
-    </div>
-  );
+  return <h3 className="restaurants-section-title">{title}</h3>;
 };
 
 SectionTitle.propTypes = {

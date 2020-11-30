@@ -1,0 +1,11 @@
+@import '../../styles/base/base';
+
+.restaurants-section-title {
+    @include typography-h3;
+
+    align-items: center;
+    color: $color-midnight;
+    display: flex;
+    letter-spacing: 0.05rem;
+    line-height: 28px;
+}

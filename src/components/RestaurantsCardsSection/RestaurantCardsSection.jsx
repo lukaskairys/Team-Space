@@ -1,58 +1,67 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import PropTypes from "prop-types";
-import { FetchBestRateddata } from "utils/Api";
 import Loader from "react-loader-spinner";
 import { context } from "../../contexts/Context";
-import { roundNumber } from "utils/Math";
+import EatOutCard from "../EatOutCard/EatOutCard";
 
 import "./restaurantCardsSection.scss";
 import SectionTitle from "./SectionTitle.jsx";
 import Pagination from "../Pagination/Pagination";
 import Error from "./Error";
+import { useCurrentWidth } from "./useCurrentWidth";
 
 const RestaurantCardsSection = ({ title }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 3;
-  const { id } = useParams();
-  const { data, error } = useContext(context);
+  const [width, ref] = useCurrentWidth();
 
-  const slicePart = (data, page) => {
-    return data.slice(
-      currentPage * itemsPerPage,
-      itemsPerPage * page + itemsPerPage
-    );
-  };
+  const { data, error } = useContext(context);
 
   const [visibleData, setVisibleData] = useState([]);
 
   const paginate = (page) => {
     setCurrentPage(page);
-    setVisibleData(slicePart(data.restaurantList));
   };
 
+  const itemsPerPage = useCallback(() => {
+    const cardSize = 250 + 30;
+    return Math.floor(width / cardSize);
+  }, [width]);
+
   useEffect(() => {
+    const slicePart = (data, page) => {
+      return data.slice(
+        currentPage * itemsPerPage(),
+        itemsPerPage() * page + itemsPerPage()
+      );
+    };
+
     if (data.restaurantList) {
       setVisibleData(slicePart(data.restaurantList, currentPage));
-      console.log(data.restaurantList);
     }
-  }, [data, currentPage]);
+  }, [data, currentPage, width, itemsPerPage]);
 
   if (data.restaurantList) {
     if (visibleData.length > 0) {
       return (
-        <div className="restaurant-cards-section">
+        <div ref={ref} className="restaurant-cards-section">
           <div className="restaurant-cards-section__header">
             <SectionTitle title={title} />
             <Pagination
               currentPage={currentPage}
-              totalPages={Math.ceil(data.restaurantList.length / itemsPerPage)}
+              totalPages={Math.ceil(
+                data.restaurantList.length / itemsPerPage()
+              )}
               paginate={paginate}
             />
           </div>
-          <div className="restaurant-cards__list">
+          <div className="restaurant-cards-section__list">
             {visibleData.map((restaurant) => (
-              <div key={restaurant.id} className="card"></div>
+              <div
+                key={restaurant.id}
+                className="restaurant-cards-section__single"
+              >
+                <EatOutCard restaurant={restaurant} />
+              </div>
             ))}
           </div>
         </div>

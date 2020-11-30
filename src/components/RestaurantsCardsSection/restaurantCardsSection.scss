@@ -1,20 +1,24 @@
-.restaurants-cards-section div {
-    background-color: yellowgreen;
-}
+@import '../../styles/base/base';
 
-.restaurant-cards__list {
-    display: flex;
-    height: 200px;
-    width: 100%;
-}
+.restaurant-cards-section {
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+    }
 
-.restaurant-cards__list div:first-child {
-    background-color: blue;
-}
-.restaurant-cards__list div:last-child {
-    background-color: yellowgreen;
-}
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.restaurant-cards__list div {
-    flex:1;
+    &__single {
+        flex: 1;
+        max-width: 39.5rem;
+        min-width: 25rem;
+    }
+
+    &__single:not(:last-child) {
+        margin-right: 4rem;
+    }
 }
