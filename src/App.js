@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import RegistrationPage from "../src/features/registration/pages/RegistrationPage";
-import LoginPage from "../src/features/login/pages/LoginPage";
+import RegistrationPage from "features/registration/pages/RegistrationPage";
+import LoginPage from "features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
