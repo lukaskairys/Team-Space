@@ -13,7 +13,7 @@ export default function HeroDetails({ checkIns }) {
         <Rating average={4.5} isStatic={false} />
         <HeartIcon />
       </div>
-      <span className="hero-details__check-ins">{`${checkIns} People already checked-in`}</span>
+      <span className="hero-details__check-ins">{`${checkIns} People already checked-in!`}</span>
       <div className="hero-details__cta-box">
         <span className="hero-details__invite-text">Invite</span>
         <Button medium={true}>CHECK-IN</Button>
