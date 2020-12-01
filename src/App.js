@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import RegistrationPage from "features/registration/pages/RegistrationPage";
 import LoginPage from "features/login/pages/LoginPage";
 import MainLayout from "components/MainLayout/MainLayout";
@@ -47,8 +48,12 @@ function App() {
           <Route exact path="/eat-out/">
             <EatOut />
           </Route>
+          <Route exact path="/eat-out/:id">
+            <Restaurant />
+          </Route>
 
           {/* testing routes */}
+
           <Route exact path="/eat-out-card">
             <EatOutCard />
           </Route>
