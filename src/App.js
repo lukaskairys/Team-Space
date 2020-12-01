@@ -9,7 +9,6 @@ import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
-import EatOutCard from "components/EatOutCard/EatOutCard";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
 import ContextProvider from "contexts/ContextProvider";
 
@@ -50,12 +49,6 @@ function App() {
           </Route>
           <Route exact path="/eat-out/:id">
             <Restaurant />
-          </Route>
-
-          {/* testing routes */}
-
-          <Route exact path="/eat-out-card">
-            <EatOutCard id="h3hlqj5bcb" />
           </Route>
 
           <ContextProvider endpoint="/restaurants">
