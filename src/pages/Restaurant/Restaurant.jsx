@@ -21,7 +21,7 @@ const Restaurant = () => {
             <EatOutInfo />
             <ReviewsSection />
           </div>
-          <RestaurantCardsSection title="Also you could like" />
+          <RestaurantCardsSection title="Also you could like" mode="similar" />
         </>
       </MainLayout>
     </div>

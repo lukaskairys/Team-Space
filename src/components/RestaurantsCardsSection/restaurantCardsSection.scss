@@ -1,24 +1,21 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 .restaurant-cards-section {
     &__list {
         display: flex;
-        justify-content: space-between;
-        overflow: hidden;
+        gap: 4rem;
     }
 
     &__header {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 2.4rem;
     }
 
     &__single {
         flex: 1;
         max-width: 39.5rem;
         min-width: 25rem;
-    }
-
-    &__single:not(:last-child) {
-        margin-right: 4rem;
     }
 }
