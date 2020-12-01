@@ -55,7 +55,7 @@ function App() {
           {/* testing routes */}
 
           <Route exact path="/eat-out-card">
-            <EatOutCard />
+            <EatOutCard id="h3hlqj5bcb" />
           </Route>
 
           <ContextProvider endpoint="/restaurants">

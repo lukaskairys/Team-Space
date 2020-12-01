@@ -36,6 +36,7 @@
 
     &__icon {
         @include square-size(1.9rem);
+        flex-shrink: 0;
 
         path {
             stroke: $color-fiord;
