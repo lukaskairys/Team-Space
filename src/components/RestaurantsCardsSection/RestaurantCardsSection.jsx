@@ -48,11 +48,12 @@ const RestaurantCardsSection = ({ title, mode }) => {
           calculateItemsPerPage = i;
         }
       }
-
-      setItemsPerPage(calculateItemsPerPage);
-      return calculateItemsPerPage;
+      const perPage = calculateItemsPerPage > 0 ? calculateItemsPerPage : 1;
+      setItemsPerPage(perPage);
+      return perPage;
     };
-    const smallestCard = 250;
+
+    const smallestCard = 330;
     const biggestCard = 390;
     const countOfBigCards = Math.floor(width / biggestCard); //minimum amount of cards in the page
     const countOfSmallCards = Math.floor(width / smallestCard); //maximum amount of cards in the page
