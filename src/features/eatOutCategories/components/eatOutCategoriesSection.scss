@@ -19,7 +19,7 @@ $_breakpoint-md: 886;
 
     &__content {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
         row-gap: 2rem;
 
         @include respond-to($_breakpoint-lg, max) {
@@ -29,5 +29,10 @@ $_breakpoint-md: 886;
         @include respond-to($_breakpoint-md, max) {
             justify-items: center;
         }
+    }
+
+    &__image {
+        height: 15rem;
+        width: 15rem;
     }
 }

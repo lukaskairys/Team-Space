@@ -25,7 +25,11 @@ function EatOutCategoriesSection() {
               count={count}
               small
             >
-              <img src={icon} alt={category} />
+              <img
+                src={icon}
+                alt={category}
+                className="categories-section__image"
+              />
             </ReservationsCard>
           </React.Fragment>
         );
