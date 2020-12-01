@@ -39,7 +39,7 @@ function Hero({ children }) {
           <div className="HERO__content">
             <div className="HERO__categories">{renderCategories()}</div>
             <h1 className="HERO__title">{restaurant.name}</h1>
-            <HeroDetails checkIns={restaurant.checkIns} />
+            <HeroDetails restaurant={restaurant} />
           </div>
         </section>
       );

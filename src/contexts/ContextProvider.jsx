@@ -14,7 +14,7 @@ const ContextProvider = ({ children, endpoint }) => {
 };
 
 ContextProvider.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   endpoint: PropTypes.string,
 };
 
