@@ -39,7 +39,7 @@ function EatOutCategoriesPage() {
         )}
         {restaurants &&
           restaurants.map((restaurant) => (
-            <EatOutCard id={restaurant.id} key={restaurant.id} />
+            <EatOutCard restaurant={restaurant} key={restaurant.id} />
           ))}
       </section>
     </main>
