@@ -20,6 +20,9 @@
     }
 
     &__info {
+        @include trim(1);
+
+        color: $color-fiord;
         padding-left: 0.8rem;
     }
 
@@ -33,6 +36,7 @@
 
     &__icon {
         @include square-size(1.9rem);
+        flex-shrink: 0;
 
         path {
             stroke: $color-fiord;

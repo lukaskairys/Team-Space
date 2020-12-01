@@ -28,8 +28,9 @@ function EatOutCard({ restaurant }) {
   );
 }
 
-//   return "";
-// }
+EatOutCard.propTypes = {
+  id: PropTypes.string,
+};
 
 EatOutCard.propTypes = {
   restaurant: PropTypes.object,

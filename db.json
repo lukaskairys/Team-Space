@@ -5,41 +5,51 @@
     "birthdayDate": "1990-05-18",
     "location": "Vilnius, Lithuania",
     "reservations": {
-      "books": [{
-        "title": "Don't Make Me Think",
-        "id": "1jd85opw82"
-      }],
-      "devices": [{
-        "name": "iPhone X",
-        "id": "193ywpe740"
-      }]
+      "books": [
+        {
+          "title": "Don't Make Me Think",
+          "id": "1jd85opw82"
+        }
+      ],
+      "devices": [
+        {
+          "name": "iPhone X",
+          "id": "193ywpe740"
+        }
+      ]
     },
-    "notifications": [{
-      "userName": "Sara Lars",
-      "actionType": "Like",
-      "postId": "10972har27"
-    }]
+    "notifications": [
+      {
+        "userName": "Sara Lars",
+        "actionType": "Like",
+        "postId": "10972har27"
+      }
+    ]
   },
   "restaurants": {
-    "restaurantList": [{
+    "restaurantList": [
+      {
         "name": "Grill London (Kaunas, PLC Mega)",
         "id": "120wsdlpx4",
         "slogan": "Best burgers in the town",
         "description": "„Grill London” is a chain of grill restaurants that visitors love because of its exceptional and responsible take on food quality. All of its steaks are grilled in unique ceramic grills using ecological fuels.",
-        "openingHours": [{
-          "days": "Monday - Friday",
-          "hours": "10 - 22"
-        },
-        {
-          "days": "Saturday - Sunday",
-          "hours": "11 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Friday",
+            "hours": "10 - 22"
+          },
+          {
+            "days": "Saturday - Sunday",
+            "hours": "11 - 23"
+          }
+        ],
         "website": "http://grilllondon.lt",
         "address": "Islandijos pl. 32, Kaunas",
         "phone": "+370 627 93122",
         "image": "https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
         "checkIns": 8,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Luke Skywalker",
             "id": "730tybsl12",
             "comment": "Tasty burgers, but had to wait a long line.",
@@ -75,16 +85,19 @@
         "id": "wtlztmw3rr",
         "slogan": "Fire up the taste",
         "description": "Jurgis ir Drakonas make pizza for the real heroes. Real heroes understand the best quality. Our authenitic Neapolitan tradition pizza are made from real Italian 00 flour. Tomatoes grown under the hot Italian sun are ripe and rich, and Italian fior di latte mozzarella melts in your mouth.",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "12 - 20"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "12 - 20"
+          }
+        ],
         "website": "https://jurgisirdrakonas.lt",
         "address": "Kurpių g. 26, Kaunas",
         "phone": "+370 672 00320",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2514&q=80",
         "checkIns": 12,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Jefferson Gutierrez",
             "id": "i8r7gpdpfi",
             "comment": "Cosy outside seating, tasty food. Recommended for everyone who’s looking for nice dinner both inside or outside.",
@@ -123,7 +136,6 @@
         ],
         "categories": ["Salads", "Pizza", "Pancakes", "Soups"],
         "coordinates": {
-
           "lat": 54.895815575566495,
           "lng": 23.895146363387344
         }
@@ -133,16 +145,19 @@
         "id": "7et2tk3ih1",
         "slogan": "Like from your mom - just better",
         "description": "Small, but very cozy place in the center of Kaunas, very tasty food with vegetarian options, vegan too. Super friendly staff.",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "10 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "10 - 23"
+          }
+        ],
         "website": "http://www.mammapizza.lt",
         "address": "Vytauto pr. 37, Kaunas",
         "phone": "+370 680 97977",
         "image": "https://images.unsplash.com/photo-1589906493606-a6ca2a06078b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyNjA3NH0&auto=format&fit=crop&w=2550&q=80",
         "checkIns": 6,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Eloise Matthews",
             "id": "o0qtbt1x97",
             "comment": "One of The best Pizza in town. Good fresh juice. Family friendly and quite nice music.",
@@ -178,16 +193,19 @@
         "id": "x8bd7ozuj6",
         "slogan": "Grilled up",
         "description": "Chef and owner of MOMO GRILL is widely known for his international experience, but what he’s actually FEELING can only be revealed after taking a bite, a spoonful or otherwise sampling his cooking. Knowledge AND feelings. Seasons AND emotions. Flavour AND memories. Sometimes it’s so simple that it can even be complicated.",
-        "openingHours": [{
-          "days": "Tuesday - Sunday",
-          "hours": "11 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Tuesday - Sunday",
+            "hours": "11 - 23"
+          }
+        ],
         "website": "https://momogrill.lt",
         "address": "Karaliaus Mindaugo pr. 18a, Kaunas",
         "phone": "+370 37 297488",
         "image": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
         "checkIns": 18,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Derek Daves",
             "id": "8m69jg4evv",
             "comment": "Very tasty, good service, nice ambience, good location. 10 points ;) Mimosas, soups, beef, coffee, ice cream.",
@@ -247,16 +265,19 @@
         "id": "3gogeanl0p",
         "slogan": "Too delicious",
         "description": "Delicious food, cozy atmosphere, family friendly",
-        "openingHours": [{
-          "days": "Monday - Saturday",
-          "hours": "12 - 22"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Saturday",
+            "hours": "12 - 22"
+          }
+        ],
         "website": "https://restoranassiesta.lt",
         "address": "Pakrantės g. 4, Vareikonys, Kauno r., Kaunas",
         "phone": "+370 614 98198",
         "image": "https://images.unsplash.com/photo-1598343214618-dd202db9ad20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
         "checkIns": 5,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Rocky Thornton",
             "id": "x1y6iixy5l",
             "comment": "Beautiful restaurant in the centre of Lithuania next to highway Klaipėda-Kaunas. Delicious food, nice choice, good local and imported drinks.",
@@ -286,16 +307,19 @@
         "id": "porhch2lam",
         "slogan": "Oh so tasty!",
         "description": "We are ready to arrange you an unforgettable celebration, restaurant staff will take care about all the smolest details: decorate the hall, arrange musicians, agree the celebration menu with the customer, will make all kinds of world cuisine dishes.",
-        "openingHours": [{
-          "days": "Wednesday - Sunday",
-          "hours": "11 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Wednesday - Sunday",
+            "hours": "11 - 23"
+          }
+        ],
         "website": "http://restoranasdia.lt",
         "address": "Maironio g. 9, Kaunas",
         "phone": "+370 655 80308",
         "image": "https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         "checkIns": 15,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Blossom Schuman",
             "id": "oqk2m7wtlz",
             "comment": "We visited with friends. Great service, very tasty food, cozy environment. The prices are quite high but the quality is good.",
@@ -340,7 +364,7 @@
         ],
         "categories": ["Salads", "Grill", "Brunch", "Soups"],
         "coordinates": {
-          "lat": 54.896552052485234, 
+          "lat": 54.896552052485234,
           "lng": 23.909268634336954
         }
       },
@@ -349,16 +373,19 @@
         "id": "tk3ih1o0qt",
         "slogan": "Ayyy tasty",
         "description": "An exceptional mexican restaurant.",
-        "openingHours": [{
-          "days": "Monday - Friday",
-          "hours": "12 - 22"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Friday",
+            "hours": "12 - 22"
+          }
+        ],
         "website": "https://www.facebook.com/agaverestoranas",
         "address": "Rotušės a. 3, Kaunas",
         "phone": "+370 616 98496",
         "image": "https://images.unsplash.com/photo-1584208632869-05fa2b2a5934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80",
         "checkIns": 9,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Laura Palmer",
             "id": "bt1x97n2je",
             "comment": "Best Mexican place in Kaunas for sure. Appetizers, main course, dessert, all are on the high level.",
@@ -373,7 +400,7 @@
         ],
         "categories": ["Salads", "Grill", "Pancakes"],
         "coordinates": {
-          "lat": 54.89667728673178, 
+          "lat": 54.89667728673178,
           "lng": 23.887710506872565
         }
       },
@@ -382,16 +409,19 @@
         "id": "h3hlqj5bcb",
         "slogan": "Spice it up",
         "description": "Moksha is small restaurant serving pescatarian (fish & vegan) pan-asian food with a healthy twist. Majority of the food we serve is vegan. We make non traditional kimchis, kombuchas, lemonades, vegan ice-creams and vegan cakes free from added sugar.",
-        "openingHours": [{
-          "days": "Monday - Friday",
-          "hours": "11 - 21"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Friday",
+            "hours": "11 - 21"
+          }
+        ],
         "website": "https://www.facebook.com/CafeMoksha",
         "address": "Vasario 16-osios g. 6-1, Kaunas",
         "phone": "+370 676 71649",
         "image": "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
         "checkIns": 19,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Pandora Burns",
             "id": "euz4pyx8bd",
             "comment": "I would never usually consider going to a vegan/vegetarian restaurant but now I will because this place was so good!",
@@ -418,7 +448,7 @@
         ],
         "categories": ["Salads", "Ramen"],
         "coordinates": {
-          "lat": 54.89844302951122, 
+          "lat": 54.89844302951122,
           "lng": 23.908251872519394
         }
       },
@@ -427,16 +457,19 @@
         "id": "pelpnv6hmn",
         "slogan": "Pursuit the traditions",
         "description": "To enjoy the beer made in restaurant’s cellar’s brewery. Avilys produce LIVE, unfiltered, unpasteurized beer. Our brand is beer with Lithuanian honey. During the beer tour and tasting we‘ll introduce you with all the specifics of AVILYS beer making. We’ll show you the inside of the brewery too.",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "12 - 00"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "12 - 00"
+          }
+        ],
         "website": "https://avilys.lt",
         "address": "Vilniaus g. 34, Kaunas",
         "phone": "+370 699 66239",
         "image": "https://images.unsplash.com/photo-1586999763660-2a8730809450?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
         "checkIns": 10,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Samantha Pena",
             "id": "ta6rsejw2u",
             "comment": "Went twice in a week, and would go again.",
@@ -451,7 +484,7 @@
         ],
         "categories": ["Burger", "Sandwich"],
         "coordinates": {
-          "lat": 54.89639923054928, 
+          "lat": 54.89639923054928,
           "lng": 23.89255349830976
         }
       },
@@ -460,16 +493,19 @@
         "id": "9kdf9qawui",
         "slogan": "Best lithuanian cuisine in the town",
         "description": "Traditional Lithuanian cuisine - experience the most popular national meals, discover new tastes! The interior and the atmosphere is created to resemble unique old village style.",
-        "openingHours": [{
-          "days": "Monday - Friday",
-          "hours": "10 - 22"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Friday",
+            "hours": "10 - 22"
+          }
+        ],
         "website": "https://www.katpedele.lt",
         "address": "V. Krėvės pr. 57, Kaunas",
         "phone": "+370 620 66323",
         "image": "https://images.unsplash.com/photo-1571139318929-bb90d382dbd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         "checkIns": 2,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Carl Rodriquez",
             "id": "aohbksgf77",
             "comment": "Very tasty food, nice place, good service, tasty coctails.",
@@ -502,7 +538,7 @@
         ],
         "categories": ["Kebab", "Sweets"],
         "coordinates": {
-          "lat": 54.92086524047006, 
+          "lat": 54.92086524047006,
           "lng": 23.97353685065208
         }
       },
@@ -511,24 +547,28 @@
         "id": "ch2lamoqk2",
         "slogan": "Sushi sushi sushi",
         "description": "A great sushi place.",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "11 - 22"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "11 - 22"
+          }
+        ],
         "website": "https://www.facebook.com/sushimasterskaunas",
         "address": "Šv. Gertrūdos g. 39a, Kaunas",
         "phone": "+370 635 09000",
         "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
         "checkIns": 8,
-        "reviews": [{
-          "userName": "Vania Walters",
-          "id": "m7wtlztmw3",
-          "comment": "Taste is perfect, but prices are very high and portions too small for this price.",
-          "rating": 4.0
-        }],
+        "reviews": [
+          {
+            "userName": "Vania Walters",
+            "id": "m7wtlztmw3",
+            "comment": "Taste is perfect, but prices are very high and portions too small for this price.",
+            "rating": 4.0
+          }
+        ],
         "categories": ["Sushi", "Soups"],
         "coordinates": {
-          "lat": 54.89896259395091, 
+          "lat": 54.89896259395091,
           "lng": 23.890748094165108
         }
       },
@@ -537,16 +577,19 @@
         "id": "rri8r7gpdp",
         "description": "Nothing can be better than eating good pancakes.",
         "slogan": "Oh so fresh",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "11 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "11 - 23"
+          }
+        ],
         "website": "https://talutti.lt",
         "address": "Taikos pr. 12, Kaunas",
         "phone": "+370 656 68999",
         "image": "https://images.unsplash.com/photo-1519676867240-f03562e64548?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
         "checkIns": 12,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Emily Tyler",
             "id": "fi0rqlywcr",
             "comment": "Cozy and nice place to have a brunch :) Tasty and fresh food, a lot of different options in the menu, prices not so high as well.",
@@ -567,7 +610,7 @@
         ],
         "categories": ["Burger", "Brunch", "Pancakes"],
         "coordinates": {
-          "lat": 54.91107306570668, 
+          "lat": 54.91107306570668,
           "lng": 23.940096128333412
         }
       },
@@ -576,16 +619,19 @@
         "id": "0z3snsdmmx",
         "description": "Relax and enjoy old town.",
         "slogan": "We make it better",
-        "openingHours": [{
-          "days": "Monday - Friday",
-          "hours": "12 - 22"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Friday",
+            "hours": "12 - 22"
+          }
+        ],
         "website": "http://www.ieti.lt",
         "address": "Rotušės a. 6, Kaunas",
         "phone": "+370 626 85228",
         "image": "https://images.unsplash.com/photo-1581755386038-f959f0d4a1dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80",
         "checkIns": 4,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Herbert Madron",
             "id": "z1wdni7vwb",
             "comment": "Almost all other reviews about this restaurant praise it very highly indeed. And they are quite correct!",
@@ -618,7 +664,7 @@
         ],
         "categories": ["Sweets"],
         "coordinates": {
-          "lat": 54.8961994217457, 
+          "lat": 54.8961994217457,
           "lng": 23.887269049345885
         }
       },
@@ -627,16 +673,19 @@
         "id": "qj5bcbeuz4",
         "slogan": "Warm & friendly",
         "description": "Welcome to our house! We are humble and honoured for your stay at our place – a place which, we hope, will give you a warm and friendly experience and where you want to return to!",
-        "openingHours": [{
-          "days": "Monday - Friday",
-          "hours": "10 - 22"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Friday",
+            "hours": "10 - 22"
+          }
+        ],
         "website": "http://pas-stanley.com",
         "address": "Vilniaus g. 24, Kaunas",
         "phone": "+370 650 36506",
         "image": "https://images.unsplash.com/photo-1588168333986-5078d3ae3976?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
         "checkIns": 11,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Zach Robinson",
             "id": "pyx8bd7ozu",
             "comment": "Delicious homemade lemonade.",
@@ -651,7 +700,7 @@
         ],
         "categories": ["Kebab", "Ramen", "Burger"],
         "coordinates": {
-          "lat":  54.89632325207335, 
+          "lat": 54.89632325207335,
           "lng": 23.89093591792127
         }
       },
@@ -660,24 +709,28 @@
         "id": "vvektcqbs4",
         "slogan": "Tasty & cheap food",
         "description": "Full plates. Reasonable prices. Good vibes only. Come and see!",
-        "openingHours": [{
-          "days": "Wednesday - Sunday",
-          "hours": "11 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Wednesday - Sunday",
+            "hours": "11 - 23"
+          }
+        ],
         "website": "https://lithuanianpub.lt",
         "address": "Vilniaus g. 26, Kaunas",
         "phone": "+370 614 43332",
         "image": "https://images.unsplash.com/photo-1559847844-d9d2bc807d82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         "checkIns": 3,
-        "reviews": [{
-          "userName": "Anastasia Norris",
-          "id": "m5c8l9pelp",
-          "comment": "Best chicken wings in town, quite big drinks assortiment. Good music.",
-          "rating": 4.5
-        }],
+        "reviews": [
+          {
+            "userName": "Anastasia Norris",
+            "id": "m5c8l9pelp",
+            "comment": "Best chicken wings in town, quite big drinks assortiment. Good music.",
+            "rating": 4.5
+          }
+        ],
         "categories": ["Salads", "Sandwich", "Kebab"],
         "coordinates": {
-          "lat":  54.89642795361554, 
+          "lat": 54.89642795361554,
           "lng": 23.891496055156875
         }
       },
@@ -686,10 +739,12 @@
         "id": "nv6hmnta6r",
         "slogan": "True italian restaurant",
         "description": "A story based on sacrifice, hard work and energy… Fabio Manconi started life with few privileges in his home town in Italy. Working in a family restaurant from a very young age, after school he waited for the right moment to get his first experiences abroad… From London, Sydney and Hong Kong, following his heart, he arrived in Kaunas, where he settled down and decided to pursue his dream. A dream called Casa della pasta.",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "10 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "10 - 23"
+          }
+        ],
         "website": "http://www.italurestoranas.lt",
         "address": "Laisvės al. 27, Kaunas",
         "phone": "+370 633 44255",
@@ -698,7 +753,7 @@
         "reviews": [],
         "categories": ["Salads", "Sandwich", "Kebab"],
         "coordinates": {
-          "lat":  54.89699180730873, 
+          "lat": 54.89699180730873,
           "lng": 23.919581032720416
         }
       },
@@ -707,16 +762,19 @@
         "id": "sejw2ugddc",
         "slogan": "Chicken? Oh yes!",
         "description": "Which side of a chicken has the most feathers?",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "7 - 23"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "7 - 23"
+          }
+        ],
         "website": "https://vistapuode.lt",
         "address": "S. Daukanto g. 23, Kaunas",
         "phone": "+370 693 63777",
         "image": "https://images.unsplash.com/photo-1597667079555-78f5c6a05d2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
         "checkIns": 7,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Lisa Lambert",
             "id": "g5afr99kdf",
             "comment": "Nice place to eat. Food is nothing special, but it's good.",
@@ -743,7 +801,7 @@
         ],
         "categories": ["Burger", "Grill", "Sweets"],
         "coordinates": {
-          "lat":  54.89833463403161, 
+          "lat": 54.89833463403161,
           "lng": 23.91349155805629
         }
       },
@@ -752,16 +810,19 @@
         "id": "0px1y6iixy",
         "slogan": "Modern & new",
         "description": "HOP DOC GASTROPUB - brand new addition to Kaunas Old Town. Located few steps from a main Vilnius street, we serve you modern interior, more than 100 kinds of beers, full bar & grill. Lunch specials from 12:00 till 15:00 on work days. Fresh oysters come in every Friday. Kitchen is open till 23:00 on weekdays and till 24:00 on weekends. We recommend You to book in advance.",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "17 - 00"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "17 - 00"
+          }
+        ],
         "website": "https://www.hopdoc.lt",
         "address": "M. Daukšos g. 23, Kaunas",
         "phone": "+370 37 227656",
         "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80",
         "checkIns": 17,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Bob Morales",
             "id": "0h4ozlq391",
             "comment": "Brilliant food and tasty beer.",
@@ -776,7 +837,7 @@
         ],
         "categories": ["Salads", "Sandwich", "Kebab"],
         "coordinates": {
-          "lat":  54.89730786156492, 
+          "lat": 54.89730786156492,
           "lng": 23.89116509699445
         }
       },
@@ -785,16 +846,19 @@
         "id": "hvoirynmd4",
         "description": "A family place.",
         "slogan": "Family place restaurant",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "13 - 19"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "13 - 19"
+          }
+        ],
         "website": "https://www.facebook.com/Alcanntucio",
         "address": "Muitinės g. 1-2, Kaunas",
         "phone": "+370 606 74114",
         "image": "https://images.unsplash.com/photo-1559948271-7d5c98d2e951?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
         "checkIns": 0,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Selena Jimenez",
             "id": "n2bl8kadvn",
             "comment": "Food was delicious. Staff efficient and well mannered.",
@@ -830,16 +894,19 @@
         "id": "jo9ihsvxr8",
         "description": "Bar, fast food, street food",
         "slogan": "Everything you ever wanted",
-        "openingHours": [{
-          "days": "Monday - Sunday",
-          "hours": "12 - 18"
-        }],
+        "openingHours": [
+          {
+            "days": "Monday - Sunday",
+            "hours": "12 - 18"
+          }
+        ],
         "website": "https://mangi.lt",
         "address": "Vilniaus g. 36, Kaunas",
         "phone": "+370 603 46129",
         "image": "https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
         "checkIns": 2,
-        "reviews": [{
+        "reviews": [
+          {
             "userName": "Wilona Burke",
             "id": "je3qs6qt3a",
             "comment": "Best hot dogs in the Universe.",
@@ -854,7 +921,7 @@
         ],
         "categories": ["Grill", "Kebab", "Burger", "Sushi"],
         "coordinates": {
-          "lat": 54.896471906444866, 
+          "lat": 54.896471906444866,
           "lng": 23.893462943386695
         }
       }
@@ -875,7 +942,8 @@
     ]
   },
   "devices": {
-    "deviceList": [{
+    "deviceList": [
+      {
         "name": "iPhone X",
         "id": "193ywpe740",
         "deviceType": "Mobile",
@@ -1827,7 +1895,8 @@
     }
   },
   "books": {
-    "bookList": [{
+    "bookList": [
+      {
         "title": "Clean Code",
         "id": "137420wgf0",
         "author": "Robert Cecil Martin",
@@ -3227,7 +3296,8 @@
       ]
     }
   },
-  "weather": [{
+  "weather": [
+    {
       "weekDay": "Monday",
       "type": "Cloudy",
       "location": "Vilnius, Lithuania",
@@ -3284,14 +3354,16 @@
       "precipitation": "13 mm"
     }
   ],
-  "stories": [{
+  "stories": [
+    {
       "type": "birthday",
       "id": "a402h593er",
       "userName": "Uncle Roger",
       "userImage": "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
       "birthdayDate": "1987-10-31",
       "wishes": 15,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Sara Lars",
           "comment": "Congrads! And Best wishes",
           "date": "2020-10-31T14:48:00.000Z"
@@ -3312,7 +3384,8 @@
       "postDate": "2020-11-05T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1573339886518-264aa6f194b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
       "likes": 15,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Uncle Roger",
           "comment": "Cool!",
           "date": "2020-11-06T14:48:00.000Z"
@@ -3349,7 +3422,8 @@
       "postCover": "https://storage.coverr.co/t/Q4G3nDsk01ZRFR9o7HjBzTFkcgXE90101NA",
       "postVideo": "https://storage.coverr.co/videos/Q4G3nDsk01ZRFR9o7HjBzTFkcgXE90101NA?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MTAzNjE2fQ.c7AVDx6JgY1Rv9rSiUqxM47dMzTrmzOsFEJWxd5wK8k",
       "likes": 27,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Uncle Roger",
           "comment": "Cool!",
           "date": "2020-11-06T14:48:00.000Z"
@@ -3375,11 +3449,13 @@
       "postDate": "2020-11-13T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1605073503373-24ea357e74c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
       "likes": 15,
-      "comments": [{
-        "userName": "Aubrey Plaza",
-        "comment": "Beautiful! Where did you hike?",
-        "date": "2020-11-16T14:48:00.000Z"
-      }]
+      "comments": [
+        {
+          "userName": "Aubrey Plaza",
+          "comment": "Beautiful! Where did you hike?",
+          "date": "2020-11-16T14:48:00.000Z"
+        }
+      ]
     },
     {
       "type": "post",
@@ -3390,7 +3466,8 @@
       "postDate": "2020-11-14T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1604609624367-a799bf3d5acd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=989&q=80",
       "likes": 15,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Dale Cooper",
           "comment": "Let's visit this again!",
           "date": "2020-11-14T14:48:00.000Z"
@@ -3409,7 +3486,8 @@
       "userImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
       "birthdayDate": "1992-11-15",
       "wishes": 8,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Sara Lars",
           "comment": "Congrads! And Best wishes",
           "date": "2020-11-16T14:48:00.000Z"
@@ -3430,11 +3508,13 @@
       "postDate": "2020-11-16T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1604851880472-376ce53d3244?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
       "likes": 9,
-      "comments": [{
-        "userName": "Dale Cooper",
-        "comment": "Let's visit this again!",
-        "date": "2020-11-16T14:48:00.000Z"
-      }]
+      "comments": [
+        {
+          "userName": "Dale Cooper",
+          "comment": "Let's visit this again!",
+          "date": "2020-11-16T14:48:00.000Z"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3446,7 +3526,8 @@
       "postCover": "https://storage.coverr.co/p/flYliO01fn8Zw5RH1O9hXlbKbCs02A01hKp",
       "postVideo": "https://storage.coverr.co/videos/flYliO01fn8Zw5RH1O9hXlbKbCs02A01hKp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MTA2MzIyfQ.eHacEaqpHvG_dNz6lOVkNSG4cydWgrqYs9WDdhK82ks",
       "likes": 27,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Uncle Roger",
           "comment": "Cool!",
           "date": "2020-11-17T14:48:00.000Z"
@@ -3470,7 +3551,8 @@
       "userImage": "https://images.unsplash.com/photo-1546672741-d327539d5f13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
       "birthdayDate": "1981-11-17",
       "wishes": 28,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Sara Lars",
           "comment": "Congrads! And Best wishes",
           "date": "2020-11-17T14:48:00.000Z"
@@ -3491,11 +3573,13 @@
       "postDate": "2020-11-18T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1605041354474-9ee7d63deb21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
       "likes": 9,
-      "comments": [{
-        "userName": "Derek Daves",
-        "comment": "Looks very pretty",
-        "date": "2020-11-19T14:48:00.000Z"
-      }]
+      "comments": [
+        {
+          "userName": "Derek Daves",
+          "comment": "Looks very pretty",
+          "date": "2020-11-19T14:48:00.000Z"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3507,7 +3591,8 @@
       "postCover": "https://storage.coverr.co/p/NaCaWWgFD8C4OGUi7qgMYvifvTeuiB024",
       "postVideo": "https://storage.coverr.co/videos/NaCaWWgFD8C4OGUi7qgMYvifvTeuiB024?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MTExMDY4fQ.aBe-kKHW6ytU_q2zcbmJ_4YJh-o8rcAtcpV978jok8s",
       "likes": 17,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Uncle Roger",
           "comment": "Cool!",
           "date": "2020-11-18T14:48:00.000Z"
@@ -3531,7 +3616,8 @@
       "userImage": "https://images.unsplash.com/photo-1583264277147-6efc00e438a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
       "birthdayDate": "1998-11-19",
       "wishes": 14,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Sara Lars",
           "comment": "Congrads! And Best wishes",
           "date": "2020-11-19T14:48:00.000Z"
@@ -3552,11 +3638,13 @@
       "postDate": "2020-11-21T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1605089637409-dbd54d83b269?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
       "likes": 9,
-      "comments": [{
-        "userName": "Derek Daves",
-        "comment": "When did you have your holiday? I thought you're planning on visiting Amsterdam only next month... Time definitely flies 😅",
-        "date": "2020-11-21T14:48:00.000Z"
-      }]
+      "comments": [
+        {
+          "userName": "Derek Daves",
+          "comment": "When did you have your holiday? I thought you're planning on visiting Amsterdam only next month... Time definitely flies 😅",
+          "date": "2020-11-21T14:48:00.000Z"
+        }
+      ]
     },
     {
       "type": "birthday",
@@ -3565,7 +3653,8 @@
       "userImage": "https://images.unsplash.com/photo-1521146764736-56c929d59c83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
       "birthdayDate": "1998-11-22",
       "wishes": 24,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Sara Lars",
           "comment": "Congrads! And Best wishes",
           "date": "2020-11-19T14:48:00.000Z"
@@ -3586,11 +3675,13 @@
       "postDate": "2020-11-24T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1560971017-e22e6a4fbefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=947&q=80",
       "likes": 19,
-      "comments": [{
-        "userName": "Derek Daves",
-        "comment": "Did not expect to see you there, but I am glad you've finally went for lunch there. I've told you their meals are the best 🍔",
-        "date": "2020-11-24T14:48:00.000Z"
-      }]
+      "comments": [
+        {
+          "userName": "Derek Daves",
+          "comment": "Did not expect to see you there, but I am glad you've finally went for lunch there. I've told you their meals are the best 🍔",
+          "date": "2020-11-24T14:48:00.000Z"
+        }
+      ]
     },
     {
       "type": "post",
@@ -3601,7 +3692,8 @@
       "postDate": "2020-11-26T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1601974222604-f8c88fc836fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
       "likes": 25,
-      "comments": [{
+      "comments": [
+        {
           "userName": "Uncle Roger",
           "comment": "Cool!",
           "date": "2020-11-26T14:48:00.000Z"
