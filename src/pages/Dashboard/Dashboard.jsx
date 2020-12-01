@@ -8,6 +8,7 @@ import ReservationsSection from "features/reservationsSection/components/Reserva
 import EatOutSection from "features/eatOutSection/components/EatOutSection";
 import FeedCard from "features/FeedCard/FeedCard";
 import BirthdayCard from "features/BirthdayCard/BirthdayCard";
+import ContextProvider from "contexts/ContextProvider";
 
 import "./Dashboard.scss";
 
@@ -16,16 +17,23 @@ const Dashboard = () => {
     <div className="dashboard">
       <MainLayout>
         <>
-          <div className="dashboard__widgets">
-            <HelloWidget />
-            <WeatherWidget />
-          </div>
-          <div className="dashboard__reservations-section">
-            <ReservationsSection />
-          </div>
+          <ContextProvider endpoint="/userData">
+            <div className="dashboard__widgets">
+              <HelloWidget />
+              <WeatherWidget />
+            </div>
+
+            <div className="dashboard__reservations-section">
+              <ReservationsSection />
+            </div>
+          </ContextProvider>
+
           <div className="dashboard__eat-out-section">
-            <EatOutSection />
+            <ContextProvider endpoint="/restaurants">
+              <EatOutSection />
+            </ContextProvider>
           </div>
+
           <NewsFeedLayout>
             <BirthdayCard
               title="firstname lastname"
