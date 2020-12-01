@@ -12,16 +12,18 @@ function EatOutCard({ restaurant }) {
   return (
     <>
       <div className="eat-out-card">
-        <EatOutCardHeader restaurant={restaurant} />
-        <EatOutCardSubheader
-          restaurantName={restaurant.name}
-          openingHours={restaurant.openingHours}
-        />
-        <EatOutCardContent
-          address={restaurant.address}
-          website={restaurant.website}
-          description={restaurant.description}
-        />
+        <div>
+          <EatOutCardHeader restaurant={restaurant} />
+          <EatOutCardSubheader
+            restaurantName={restaurant.name}
+            openingHours={restaurant.openingHours}
+          />
+          <EatOutCardContent
+            address={restaurant.address}
+            website={restaurant.website}
+            description={restaurant.description}
+          />
+        </div>
         <EatOutCardFooter restaurantID={restaurant.id} />
       </div>
     </>
