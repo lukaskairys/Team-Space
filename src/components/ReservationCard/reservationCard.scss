@@ -58,12 +58,14 @@ $_breakpoint: 1515;
     }
 
     &__image-box {
-        height: 15rem;
         position: absolute;
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        width: 15rem;
+
+        &--big {
+            right: 12%;
+        }
 
         &--small {
             right: -12%;

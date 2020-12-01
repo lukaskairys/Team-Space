@@ -24,6 +24,7 @@ function ReservationsCard({
   });
   const cardImageClassnames = classNames({
     "reservations-card__image-box": true,
+    "reservations-card__image-box--big": big,
     "reservations-card__image-box--small": small,
   });
   return (
