@@ -33,7 +33,7 @@ function EatOutCard({ restaurant }) {
 EatOutCard.propTypes = {
   restaurant: PropTypes.shape({
     name: PropTypes.string,
-    openingHours: PropTypes.string,
+    openingHours: PropTypes.array,
     address: PropTypes.string,
     website: PropTypes.string,
     description: PropTypes.string,
