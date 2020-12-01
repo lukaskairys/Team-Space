@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import { useRequest } from "../../apis/useRequest";
 import { isObjectEmpty } from "../../utils/objects";
@@ -9,12 +10,9 @@ import EatOutCardFooter from "./components/EatOutCardFooter";
 
 import "./eatOutCard.scss";
 
-function EatOutCard() {
+function EatOutCard({ id }) {
   const [restaurant, setRestaurant] = useState({});
   const { data, isLoading, error } = useRequest("/restaurants");
-
-  // TODO - get ID from section or page
-  const id = "120wsdlpx4";
 
   useEffect(() => {
     try {
@@ -52,5 +50,9 @@ function EatOutCard() {
     </>
   );
 }
+
+EatOutCard.propTypes = {
+  id: PropTypes.string,
+};
 
 export default EatOutCard;
