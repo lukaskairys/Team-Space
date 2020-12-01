@@ -3,37 +3,6 @@ import { useRequest } from "../apis/useRequest";
 import { roundNumber } from "./Math";
 import { isObjectEmpty } from "./objects";
 
-const FetchNearYou = (data) => {
-  return [];
-};
-
-const FetchNewPlaces = (data) => {
-  return [];
-};
-
-const FetchSimilar = (data, currentId) => {
-  const currentRestaurant = data.find((single) => {
-    return single.id === currentId;
-  });
-
-  data = data.filter((single) => {
-    return (
-      single.id !== currentId &&
-      single.categories.some(
-        (r) => currentRestaurant.categories.indexOf(r) >= 0
-      )
-    );
-  });
-  return data;
-};
-
-export const filterByMode = (mode, data, currentId = null) => {
-  if (mode === "new") return FetchNewPlaces(data);
-  else if (mode === "near") return FetchNearYou(data);
-  else if (mode === "similar") return FetchSimilar(data, currentId);
-  return [];
-};
-
 export const FetchBestRatedRestaurants = (count) => {
   const [restaurants, setRestaurants] = useState([]);
   const { data, error } = useRequest("/restaurants");

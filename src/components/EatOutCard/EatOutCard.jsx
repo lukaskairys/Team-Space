@@ -31,11 +31,14 @@ function EatOutCard({ restaurant }) {
 }
 
 EatOutCard.propTypes = {
-  id: PropTypes.string,
-};
-
-EatOutCard.propTypes = {
-  restaurant: PropTypes.object,
+  restaurant: PropTypes.shape({
+    id: PropTypes.string,
+    openingHours: PropTypes.array,
+    description: PropTypes.string,
+    name: PropTypes.string,
+    address: PropTypes.string,
+    website: PropTypes.string,
+  }),
 };
 
 export default EatOutCard;

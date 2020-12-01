@@ -9,7 +9,7 @@ import SectionTitle from "./SectionTitle.jsx";
 import Pagination from "../Pagination/Pagination";
 import Error from "./Error";
 import { useCurrentWidth } from "./useCurrentWidth";
-import { filterByMode } from "utils/Api";
+import { FilterByMode } from "./FilterByMode";
 
 const RestaurantCardsSection = ({ title, mode }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -76,7 +76,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
     };
 
     if (data.restaurantList) {
-      const filteredData = filterByMode(mode, data.restaurantList, id);
+      const filteredData = FilterByMode(mode, data.restaurantList, id);
       const currentTotalPages = Math.ceil(filteredData.length / itemsPerPage);
       setTotalPages(currentTotalPages);
       setVisibleData(slicePart(filteredData));
