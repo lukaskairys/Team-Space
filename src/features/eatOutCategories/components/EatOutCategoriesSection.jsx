@@ -21,7 +21,7 @@ function EatOutCategoriesSection() {
             <ReservationsCard
               name={category}
               caption={"Places"}
-              path={`/eat-out/${category}`}
+              path={`/eat-out/categories/${category.toLowerCase()}`}
               count={count}
               small
             >
@@ -39,7 +39,7 @@ function EatOutCategoriesSection() {
       </section>
     );
   }
-  return <div></div>;
+  return null;
 }
 
 export default EatOutCategoriesSection;
