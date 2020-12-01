@@ -6,6 +6,7 @@ import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 import ReviewsSection from "features/reviewsSection/ReviewsSection";
 import Hero from "features/eatOutRestaurantHero/components/Hero";
 import ContextProvider from "contexts/ContextProvider";
+import RestaurantCardsSection from "components/RestaurantsCardsSection/RestaurantCardsSection";
 
 import "./Restaurant.scss";
 
@@ -22,6 +23,10 @@ const Restaurant = () => {
               <EatOutInfo />
               <ReviewsSection />
             </div>
+            <RestaurantCardsSection
+              title="Also you could like"
+              mode="similar"
+            />
           </ContextProvider>
         </>
       </MainLayout>
