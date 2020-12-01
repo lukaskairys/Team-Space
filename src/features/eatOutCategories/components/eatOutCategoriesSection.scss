@@ -10,7 +10,7 @@ $_breakpoint-md: 886;
     &__title {
         @include typography-h3;
 
-        color: $color-midnight;
+        color: $color-fiord;
 
         @include respond-to($_breakpoint-lg, max) {
             text-align: center;
