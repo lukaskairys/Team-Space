@@ -29,10 +29,10 @@ function Hero({ children }) {
 
     if (restaurant) {
       return (
-        <div
+        <section
           className="HERO"
           style={{
-            backgroundImage: `linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.3) 100%), url(${restaurant.image})`,
+            backgroundImage: `linear-gradient(98.06deg, #F6F7F8 18.8%, rgba(255, 255, 255, 0) 103.31%), url(${restaurant.image})`,
           }}
         >
           {children}
@@ -41,7 +41,7 @@ function Hero({ children }) {
             <h1 className="HERO__title">{restaurant.name}</h1>
             <HeroDetails checkIns={restaurant.checkIns} />
           </div>
-        </div>
+        </section>
       );
     } else return <Error message={"Restaurant not found"} />;
   } else if (error) {
