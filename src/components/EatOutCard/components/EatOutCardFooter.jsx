@@ -9,7 +9,11 @@ function EatOutCardFooter({ restaurantID }) {
   return (
     <div className="card-footer">
       <div className="card-footer__buttons">
-        <Link to={`/eat-out/${restaurantID}`}>
+        <Link
+          to={`/eat-out/${restaurantID}`}
+          className="card-footer__link"
+          tabIndex={-1}
+        >
           <Button medium={true} blank={true}>
             <span>read more</span>
           </Button>
