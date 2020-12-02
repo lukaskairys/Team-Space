@@ -21,7 +21,7 @@ function ReviewCard({ review, inModal }) {
       >
         {review.comment}
       </p>
-      <RatingComponent average={review.rating} isStatic={true} />
+      <RatingComponent ratingValue={review.rating} isStatic={true} />
     </div>
   );
 }
