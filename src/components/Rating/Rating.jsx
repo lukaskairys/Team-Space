@@ -46,10 +46,12 @@ const Rating = ({ restaurant, isStatic, ratingValue }) => {
                 />
                 <StarIcon
                   className={classNames(
-                    `rating-container__icon--${ratingValue}`,
                     "rating-container__icon",
                     {
                       "is-filled": ratingValue <= (hover || rating),
+                    },
+                    {
+                      "is-expandable": ratingValue > 1,
                     }
                   )}
                   onMouseEnter={() => setHover(ratingValue)}

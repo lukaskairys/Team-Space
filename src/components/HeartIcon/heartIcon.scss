@@ -2,6 +2,7 @@
 
 .heart-icon {
     fill: $color-transparent;
+    flex-shrink: 0;
     height: 2.2rem;
     stroke-linecap: round;
     stroke-linejoin: round;

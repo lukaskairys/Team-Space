@@ -39,36 +39,16 @@ $_transition-speed: 0.5s;
         @include square-size(1.2rem);
 
         cursor: pointer;
+        flex-shrink: 0;
     }
 
     .is-filled {
         fill: $color-dark-fiord;
     }
 
-    &__icon--1 {
-        flex-shrink: 0;
-    }
-
-    &__icon--2,
-    &__icon--3,
-    &__icon--4,
-    &__icon--5 {
+    .is-expandable {
         opacity: 0;
         transition: opacity 0.3s;
-    }
-
-    &:hover {
-        cursor: pointer;
-        transition: width $_transition-speed;
-        width: 14.5rem;
-
-        @for $i from 2 through 5 {
-            #{$_this}__icon--#{$i} {
-                opacity: 1;
-                transition: opacity $_transition-speed;
-                transition-delay: 0.1s + (($i - 2) * 0.04s);
-            }
-        }
     }
 
     &--is-static {
@@ -85,16 +65,29 @@ $_transition-speed: 0.5s;
         }
 
         #{$_this} {
-            &__icon--1 {
+            &__icon {
                 cursor: auto;
                 fill: $color-dark-fiord;
             }
+        }
 
-            &__icon--2,
-            &__icon--3,
-            &__icon--4,
-            &__icon--5 {
-                display: none;
+        .is-expandable {
+            display: none;
+        }
+    }
+}
+
+.rating-container:hover {
+    cursor: pointer;
+    transition: width $_transition-speed;
+    width: 14.5rem;
+
+    @for $i from 2 through 5 {
+        .rating-container__label:nth-of-type(#{$i}) {
+            .is-expandable {
+                opacity: 1;
+                transition: opacity $_transition-speed;
+                transition-delay: 0.1s + (($i - 2) * 0.04s);
             }
         }
     }
