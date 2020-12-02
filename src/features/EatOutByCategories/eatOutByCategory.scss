@@ -14,15 +14,13 @@
     }
 
     &__section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        margin-left: -1rem;
-        margin-right: -1rem;
+        display: grid;
+        grid-column-gap: 4rem;
+        grid-row-gap: 3.2rem;
+        grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
     }
 
     .eat-out-card {
-        flex: 1 0 33rem;
-        margin: 1rem;
+        max-width: 43rem;
     }
 }
