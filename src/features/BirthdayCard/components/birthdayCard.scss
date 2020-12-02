@@ -1,12 +1,16 @@
-@import '../../styles/base/base';
+@import '../../../styles/base/base';
 
 .birthday-card {
     background-color: $color-white;
-    border-radius: 8px;
-    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    border-radius: $base-border-radius;
+    box-shadow: $card-shadow;
     font-family: $font-family;
-    height: 18.4rem;
+    height: 18.8rem;
     width: 39.5rem;
+
+    &--comments-displayed {
+        height: 31.4rem;
+    }
 
     &__content {
         bottom: 14rem;
@@ -38,18 +42,15 @@
     }
 
     &__title {
-        font-size: $font-size-12;
-        font-weight: $medium-weight;
-        line-height: 1.3rem;
+        @include typography-caption-caps;
+
         margin-bottom: 0.4rem;
         text-align: center;
-        text-transform: uppercase;
     }
 
     &__date {
-        font-size: $font-size-12;
-        font-weight: $regular-weight;
-        line-height: 1.6rem;
+        @include typography-tiny;
+
         margin-bottom: 0.4rem;
         text-align: center;
     }
@@ -61,7 +62,7 @@
     &__body {
         font-size: $font-size-12;
         font-weight: $medium-weight;
-        line-height: 1.6rem;
+        line-height: 1.6;
         margin-bottom: 1.6rem;
         text-align: center;
     }
@@ -76,23 +77,28 @@
 
 .gift-icon {
     cursor: pointer;
+    fill: $color-white;
     margin: 1.2rem 0.55rem 1.4rem 1.8rem;
 }
 
+.gift-icon--active {
+    fill: $color-yellow;
+}
+
 .sparkles {
-    bottom: 13rem;
     left: 3.5rem;
     position: absolute;
+    top: -5.2rem;
 }
 
 .confetti-left {
-    bottom: 6rem;
     left: 2rem;
     position: absolute;
+    top: -0.4rem;
 }
 
 .confetti-right {
-    bottom: 6rem;
     position: absolute;
     right: 2rem;
+    top: -0.4rem;
 }
