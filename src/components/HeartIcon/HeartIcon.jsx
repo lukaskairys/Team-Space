@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import "./heartIcon.scss";
 import { ReactComponent as Heart } from "assets/icons/heart.svg";
 
-function HeartIcon() {
+function HeartIcon({ clickEvent }) {
   const [active, setActive] = useState(false);
 
   const heartClass = classNames({
@@ -14,6 +15,9 @@ function HeartIcon() {
 
   const toggleFavorite = () => {
     setActive(!active);
+    if (clickEvent !== undefined) {
+      clickEvent(active);
+    }
   };
 
   return (
@@ -22,5 +26,9 @@ function HeartIcon() {
     </>
   );
 }
+
+HeartIcon.propTypes = {
+  clickEvent: PropTypes.func,
+};
 
 export default HeartIcon;
