@@ -4,3 +4,5 @@ export const getPostTime = (post) => {
 
   return new Date(post.postDate);
 };
+
+export default getPostTime;

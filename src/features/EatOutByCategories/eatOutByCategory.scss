@@ -1,0 +1,28 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.categories-page {
+    &__title {
+        @include typography-h1;
+
+        color: $color-fiord;
+        margin-bottom: 3.2rem;
+
+        &--uppercase {
+            text-transform: uppercase;
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    .eat-out-card {
+        flex: 1 0 33rem;
+        margin: 1rem;
+    }
+}
