@@ -51,6 +51,20 @@ $_transition-speed: 0.5s;
         transition: opacity 0.3s;
     }
 
+    &:hover {
+        cursor: pointer;
+        transition: width $_transition-speed;
+        width: 14.5rem;
+
+        @for $i from 2 through 5 {
+            #{$_this}__label:nth-of-type(#{$i}) .is-expandable {
+                opacity: 1;
+                transition: opacity $_transition-speed;
+                transition-delay: 0.1s + (($i - 2) * 0.04s);
+            }
+        }
+    }
+
     &--is-static {
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
@@ -73,22 +87,6 @@ $_transition-speed: 0.5s;
 
         .is-expandable {
             display: none;
-        }
-    }
-}
-
-.rating-container:hover {
-    cursor: pointer;
-    transition: width $_transition-speed;
-    width: 14.5rem;
-
-    @for $i from 2 through 5 {
-        .rating-container__label:nth-of-type(#{$i}) {
-            .is-expandable {
-                opacity: 1;
-                transition: opacity $_transition-speed;
-                transition-delay: 0.1s + (($i - 2) * 0.04s);
-            }
         }
     }
 }
