@@ -1,18 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { roundNumber, countAverage } from "../../../utils/Math";
 import RatingComponent from "../../../components/Rating/Rating";
 import "./eatOutCardHeader.scss";
 
 function EatOutCardHeader({ restaurant, children }) {
-  const getRatingAverage = (restaurant) => {
-    //map all specific restaurant ratings into one array
-    const ratingsArray = restaurant.reviews.map((x) => x.rating);
-    const ratingAverages = countAverage(ratingsArray);
-    return roundNumber(ratingAverages);
-  };
-
   const formCategories = (categories) => {
     return (
       <ul className="card-header__categories">
@@ -36,7 +28,7 @@ function EatOutCardHeader({ restaurant, children }) {
       />
       <div className="card-header__icons">
         {children ? children : <span> </span>}
-        <RatingComponent average={getRatingAverage(restaurant)} />
+        <RatingComponent restaurant={restaurant} />
       </div>
       {formCategories(restaurant.categories)}
     </div>

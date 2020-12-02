@@ -1,31 +1,68 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
-$_icon-size: 1.2rem;
+$_transition-speed: 0.5s;
 
 .rating-container {
+    $_this: &;
+
+    @include typography-caption;
+
     background: $color-yellow;
     border-radius: 0.8rem;
-    font-size: $font-size-14;
     font-weight: $bold-weight;
     height: 3.2rem;
+    padding: 0 1.2rem;
     position: relative;
+    stroke: $color-dark-fiord;
+    transition: width $_transition-speed;
     width: 6.5rem;
 
     &__items {
         align-items: center;
+        color: $color-dark-fiord;
         display: flex;
         height: 100%;
-        justify-content: space-evenly;
-        width: 100%;
+        justify-content: space-between;
+    }
+
+    &__label {
+        padding-top: 0.2rem;
+        width: 0;
+    }
+
+    &__input {
+        display: none;
     }
 
     &__icon {
-        height: $_icon-size;
-        width: $_icon-size;
+        @include square-size(1.2rem);
+
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .is-filled {
+        fill: $color-dark-fiord;
+    }
+
+    .is-expandable {
+        opacity: 0;
+        transition: opacity 0.3s;
     }
 
     &:hover {
         cursor: pointer;
+        transition: width $_transition-speed;
+        width: 14.5rem;
+
+        @for $i from 2 through 5 {
+            #{$_this}__label:nth-of-type(#{$i}) .is-expandable {
+                opacity: 1;
+                transition: opacity $_transition-speed;
+                transition-delay: 0.1s + (($i - 2) * 0.04s);
+            }
+        }
     }
 
     &--is-static {
@@ -38,6 +75,18 @@ $_icon-size: 1.2rem;
 
         &:hover {
             cursor: auto;
+            width: 6.5rem;
+        }
+
+        #{$_this} {
+            &__icon {
+                cursor: auto;
+                fill: $color-dark-fiord;
+            }
+        }
+
+        .is-expandable {
+            display: none;
         }
     }
 }
