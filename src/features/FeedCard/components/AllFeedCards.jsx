@@ -13,7 +13,7 @@ import "./feedCard.scss";
 
 function AllFeedCards() {
   const stories = sortStories(FetchStories());
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({});
   const { data, error } = useContext(context);
 
   useEffect(() => {
