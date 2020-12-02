@@ -6,14 +6,14 @@ import HeartIcon from "components/HeartIcon/HeartIcon";
 import Button from "components/button/Button";
 import Rating from "components/Rating/Rating";
 
-export default function HeroDetails({ checkIns }) {
+export default function HeroDetails({ restaurant }) {
   return (
     <div className="hero-details">
       <div className="hero-details__rating-box">
-        <Rating average={4.5} isStatic={false} />
+        <Rating restaurant={restaurant} isStatic={false} />
         <HeartIcon />
       </div>
-      <span className="hero-details__check-ins">{`${checkIns} People already checked-in!`}</span>
+      <span className="hero-details__check-ins">{`${restaurant.checkIns} People already checked-in!`}</span>
       <div className="hero-details__cta-box">
         <span className="hero-details__invite-text">Invite</span>
         <Button medium={true}>CHECK-IN</Button>
@@ -23,5 +23,7 @@ export default function HeroDetails({ checkIns }) {
 }
 
 HeroDetails.propTypes = {
-  checkIns: PropTypes.number,
+  restaurant: PropTypes.shape({
+    checkIns: PropTypes.number,
+  }),
 };

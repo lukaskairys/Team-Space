@@ -8,7 +8,7 @@ import { ReactComponent as Arrow } from "assets/icons/right.svg";
 import "./Breadcrumbs.scss";
 
 const Breadcrumbs = () => {
-  const pathnames = window.location.pathname.split("/").filter((x) => x);
+  const pathNames = window.location.pathname.split("/").filter((x) => x);
   const { id } = useParams();
   const { data, error } = useRequest("/restaurants");
 
@@ -22,28 +22,31 @@ const Breadcrumbs = () => {
         <Link className="breadcrumbs__item" to="/">
           dashboard
         </Link>
-        {pathnames.map((pathItem, index) => {
-          const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+        {pathNames.map((pathItem, index) => {
+          const routeTo = `/${pathNames.slice(0, index + 1).join("/")}`;
 
           if (id === pathItem) {
             pathItem = restaurant.name;
           }
 
-          return (
-            <React.Fragment key={index}>
-              <Arrow className="breadcrumbs__icon" />
-              <Link
-                className={classNames("breadcrumbs__item", {
-                  "breadcrumbs__item--last":
-                    pathItem === pathnames[pathnames.length - 1] ||
-                    !pathnames.includes(pathItem),
-                })}
-                to={routeTo}
-              >
-                {pathItem}
-              </Link>
-            </React.Fragment>
-          );
+          if (pathItem !== "categories") {
+            return (
+              <React.Fragment key={index}>
+                <Arrow className="breadcrumbs__icon" />
+                <Link
+                  className={classNames("breadcrumbs__item", {
+                    "breadcrumbs__item--last":
+                      pathItem === pathNames[pathNames.length - 1] ||
+                      !pathNames.includes(pathItem),
+                  })}
+                  to={routeTo}
+                >
+                  {pathItem}
+                </Link>
+              </React.Fragment>
+            );
+          }
+          return <React.Fragment key={index} />;
         })}
       </nav>
     );

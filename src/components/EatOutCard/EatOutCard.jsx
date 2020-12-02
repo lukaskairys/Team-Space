@@ -34,7 +34,7 @@ EatOutCard.propTypes = {
   restaurant: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
-    openingHours: PropTypes.string,
+    openingHours: PropTypes.array,
     address: PropTypes.string,
     website: PropTypes.string,
     description: PropTypes.string,

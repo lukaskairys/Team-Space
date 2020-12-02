@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./eatOutSection.scss";
 import { FetchBestRatedRestaurants } from "../../../utils/Api";
@@ -15,9 +16,11 @@ const EatOutSection = () => {
           <h3 className="eat-out-section__suggestion">
             View all your favorite lunch spots and more
           </h3>
-          <Button medium={true}>
-            <span>Browse List</span>
-          </Button>
+          <Link to={"/eat-out"}>
+            <Button medium={true}>
+              <span>Browse List</span>
+            </Button>
+          </Link>
         </div>
       </div>
       {restaurants.map((restaurant) => {

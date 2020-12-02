@@ -29,7 +29,7 @@ function Button({
 Button.propTypes = {
   type: PropTypes.string,
   handleClick: PropTypes.func,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   large: PropTypes.bool,
   iconX: PropTypes.bool,
   medium: PropTypes.bool,
