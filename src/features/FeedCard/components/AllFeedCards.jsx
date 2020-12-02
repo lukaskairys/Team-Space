@@ -6,13 +6,12 @@ import FeedCard from "features/FeedCard/components/FeedCard";
 import NewsFeedLayout from "components/NewsFeedLayout/NewsFeedLayout";
 import { context } from "contexts/Context";
 import { isObjectEmpty } from "utils/objects";
-import { sortStories } from "../../../components/NewsFeedLayout/sortStories";
-import { FetchStories } from "../../../utils/Api";
+import { FetchSortedStories } from "./getSortedStories";
 
 import "./feedCard.scss";
 
 function AllFeedCards() {
-  const stories = sortStories(sortStories(FetchStories()));
+  const stories = FetchSortedStories();
   const [userData, setUserData] = useState({});
   const { data } = useContext(context);
 

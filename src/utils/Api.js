@@ -47,20 +47,3 @@ export const FetchBestRatedRestaurants = (count) => {
 
   return { restaurants, error };
 };
-
-export const FetchStories = () => {
-  const [stories, setStories] = useState([]);
-  const { data } = useRequest("/stories");
-
-  const filter = useCallback((data) => {
-    if (isObjectEmpty(data)) return [];
-
-    return data;
-  }, []);
-
-  useEffect(() => {
-    setStories(filter(data));
-  }, [filter, data]);
-
-  return stories;
-};
