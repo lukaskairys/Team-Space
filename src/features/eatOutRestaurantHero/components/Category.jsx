@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import "./category.scss";
-import { Link } from "react-router-dom";
 
 export default function Category({ category }) {
   return (
