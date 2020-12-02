@@ -65,14 +65,16 @@
     &__commenter-username {
         @include typography-tiny-caps;
 
+        color: $color-fiord;
         display: inline;
         margin-right: 0.8rem;
-        text-transform: uppercase;
     }
 
     &__comment-text {
+        color: $color-fiord;
         display: inline;
         font-size: $font-size-10;
+        line-height: 1.4;
     }
 
     &__content-img {
@@ -113,8 +115,17 @@
 
 .comment-input {
     border: 0;
+    color: $color-fiord;
+    font-family: $font-family;
     line-height: 1.1;
     width: 27rem;
+
+    &::placeholder {
+        color: $color-gull-gray;
+        font-family: $font-family;
+        font-size: $font-size-10;
+        line-height: 1.1;
+    }
 
     &:focus {
         outline: none;
