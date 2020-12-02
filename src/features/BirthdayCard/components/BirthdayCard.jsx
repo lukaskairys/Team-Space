@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+
 import "./birthdayCard.scss";
 import BirthdayComments from "./BirthdayComments";
 import { getBirthdayDate } from "./getBirthdayDate";
@@ -62,9 +63,17 @@ function BirthdayCard({ story, userPhoto, userName }) {
 }
 
 BirthdayCard.propTypes = {
-  story: PropTypes.object,
-  userPhoto: PropTypes.string,
+  story: PropTypes.shape({
+    id: PropTypes.string,
+    userImage: PropTypes.string,
+    userName: PropTypes.string,
+    userPhoto: PropTypes.string,
+    birthdayDate: PropTypes.string,
+    comments: PropTypes.array,
+    wishes: PropTypes.number,
+  }),
   userName: PropTypes.string,
+  userPhoto: PropTypes.string,
 };
 
 export default BirthdayCard;

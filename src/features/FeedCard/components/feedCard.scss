@@ -3,20 +3,18 @@
 
 .feed-card {
     background-color: $color-white;
-    border-radius: 0.8rem;
-    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    border-radius: $base-border-radius;
+    box-shadow: $card-shadow;
     font-family: $font-family;
     height: 61.2rem;
     width: 39.5rem;
 
     &__info {
+        @include typography-caption-caps;
+
         align-items: center;
         color: $color-midnight;
         display: flex;
-        font-family: $font-family;
-        font-size: $font-size-12;
-        font-weight: $medium-weight;
-        text-transform: uppercase;
     }
 
     &__info-img {
@@ -65,10 +63,9 @@
     }
 
     &__commenter-username {
+        @include typography-tiny-caps;
+
         display: inline;
-        font-size: $font-size-10;
-        font-weight: $medium-weight;
-        line-height: 1.1;
         margin-right: 0.8rem;
         text-transform: uppercase;
     }
@@ -86,13 +83,12 @@
 }
 
 .interactions-container {
+    @include typography-caption-caps;
+
     align-items: center;
     color: $color-slate-gray;
     display: flex;
-    font-size: $font-size-12;
-    font-weight: $medium-weight;
     height: 4.7rem;
-    line-height: 1.3rem;
     overflow: hidden;
     vertical-align: middle;
 }
@@ -117,27 +113,10 @@
 
 .comment-input {
     border: 0;
-    line-height: 1.1rem;
-    margin-right: 2rem;
+    line-height: 1.1;
     width: 27rem;
 
     &:focus {
-        outline: none;
-    }
-}
-
-.post-button {
-    background-color: $color-white;
-    border-radius: 0.8rem;
-    color: $color-slate-gray;
-    cursor: pointer;
-    font-size: $font-size-12;
-    font-weight: $medium-weight;
-    line-height: 1.3rem;
-    width: 4.7rem;
-
-    &:focus {
-        color: $color-midnight;
         outline: none;
     }
 }

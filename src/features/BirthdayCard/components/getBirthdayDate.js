@@ -16,5 +16,5 @@ export const getBirthdayDate = (date) => {
         return "th";
     }
   };
-  return " " + month + " " + day + nth(day);
+  return ` ${month} ${day}${nth(day)}`;
 };

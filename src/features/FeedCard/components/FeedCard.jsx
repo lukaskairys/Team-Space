@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import "./feedCard.scss";
 import { timeDifference } from "./getTimeDifference";
 import FeedCardComments from "./FeedCardComments";
@@ -40,7 +41,17 @@ function FeedCard({ story, userPhoto, userName, type }) {
 }
 
 FeedCard.propTypes = {
-  story: PropTypes.object,
+  story: PropTypes.shape({
+    id: PropTypes.string,
+    userImage: PropTypes.string,
+    userName: PropTypes.string,
+    postDate: PropTypes.string,
+    comments: PropTypes.array,
+    likes: PropTypes.number,
+    type: PropTypes.string,
+    postLocation: PropTypes.string,
+    postImage: PropTypes.string,
+  }),
   userPhoto: PropTypes.string,
   userName: PropTypes.string,
   type: PropTypes.number,

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactPlayer from "react-player";
+
 import FeedCardComments from "../../FeedCard/components/FeedCardComments";
 import "../../FeedCard/components/feedCard.scss";
 import { timeDifference } from "../../FeedCard/components/getTimeDifference";
@@ -46,7 +47,18 @@ function FeedCardVideo({ story, userPhoto, userName }) {
 }
 
 FeedCardVideo.propTypes = {
-  story: PropTypes.object,
+  story: PropTypes.shape({
+    id: PropTypes.string,
+    userImage: PropTypes.string,
+    userName: PropTypes.string,
+    postDate: PropTypes.string,
+    comments: PropTypes.array,
+    likes: PropTypes.number,
+    type: PropTypes.string,
+    postLocation: PropTypes.string,
+    postVideo: PropTypes.string,
+    postCover: PropTypes.string,
+  }),
   userPhoto: PropTypes.string,
   userName: PropTypes.string,
 };

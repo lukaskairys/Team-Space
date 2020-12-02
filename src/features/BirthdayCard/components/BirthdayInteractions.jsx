@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+
 import "./birthdayCard.scss";
 import { ReactComponent as GiftIcon } from "../../../assets/icons/gift-icon.svg";
 

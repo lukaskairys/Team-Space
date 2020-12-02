@@ -1,8 +1,11 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+
 import "./feedCard.scss";
 import FeedCardInteractions from "./FeedCardInteractions";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
+import FeedCardCommentsRenderer from "./FeedCardCommentsRenderer";
+import Button from "../../../components/button/Button";
 
 function FeedCardComments({ comments, username, userPhoto, likes }) {
   const [inputValues, setInputValues] = useState({
@@ -46,25 +49,7 @@ function FeedCardComments({ comments, username, userPhoto, likes }) {
         <p>{allComments.length}</p>
       </div>
       <div className="feed-card-divider"></div>
-      <div className="feed-card__comments-container">
-        {allComments
-          .sort(function (firstComment, secondComment) {
-            return new Date(firstComment.date) - new Date(secondComment.date);
-          })
-          .map((comment, i) => {
-            return (
-              <>
-                {" "}
-                <div className="feed-card__comment" key={i}>
-                  <p className="feed-card__commenter-username">
-                    {comment.userName}
-                  </p>
-                  <p className="feed-card__comment-text">{comment.comment}</p>
-                </div>
-              </>
-            );
-          })}
-      </div>
+      <FeedCardCommentsRenderer comments={allComments} />
       <div className="feed-card-divider"></div>
       <div className="new-comment-container">
         <img className="new-comment-image" src={userPhoto} alt="User" />
@@ -79,9 +64,14 @@ function FeedCardComments({ comments, username, userPhoto, likes }) {
           username={username}
           date={new Date()}
         />
-        <button className="post-button" onClick={handlePostClick}>
+        <Button
+          medium={true}
+          blank={true}
+          className="post-button"
+          handleClick={handlePostClick}
+        >
           POST
-        </button>
+        </Button>
       </div>
     </div>
   );

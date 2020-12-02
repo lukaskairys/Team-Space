@@ -1,8 +1,11 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+
 import "../../FeedCard/components/feedCard.scss";
 import BirthdayInteractions from "./BirthdayInteractions";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
+import BirthdayCommentsRenderer from "./BirthdayCommentsRenderer";
+import Button from "../../../components/button/Button";
 
 function BirthdayComments({
   comments,
@@ -62,25 +65,7 @@ function BirthdayComments({
         className="d-none"
       >
         <div className="feed-card-divider"></div>
-        <div className="feed-card__comments-container">
-          {allComments
-            .sort(function (firstComment, secondComment) {
-              return new Date(firstComment.date) - new Date(secondComment.date);
-            })
-            .map((comment, i) => {
-              return (
-                <>
-                  {" "}
-                  <div className="feed-card__comment" key={i}>
-                    <p className="feed-card__commenter-username">
-                      {comment.userName}
-                    </p>
-                    <p className="feed-card__comment-text">{comment.comment}</p>
-                  </div>
-                </>
-              );
-            })}
-        </div>
+        <BirthdayCommentsRenderer comments={allComments} />
         <div className="feed-card-divider"></div>
         <div className="new-comment-container">
           <img className="new-comment-image" src={userPhoto} alt="User" />
@@ -95,9 +80,14 @@ function BirthdayComments({
             username={username}
             date={new Date()}
           />
-          <button className="post-button" onClick={handlePostClick}>
+          <Button
+            medium={true}
+            blank={true}
+            className="post-button"
+            handleClick={handlePostClick}
+          >
             POST
-          </button>
+          </Button>
         </div>
       </div>
     </div>

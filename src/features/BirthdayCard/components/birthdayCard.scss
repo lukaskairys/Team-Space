@@ -2,14 +2,14 @@
 
 .birthday-card {
     background-color: $color-white;
-    border-radius: 8px;
-    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
+    border-radius: $base-border-radius;
+    box-shadow: $card-shadow;
     font-family: $font-family;
     height: 18.8rem;
     width: 39.5rem;
 
     &--comments-displayed {
-        height: 30.4rem;
+        height: 31.4rem;
     }
 
     &__content {
@@ -42,18 +42,15 @@
     }
 
     &__title {
-        font-size: $font-size-12;
-        font-weight: $medium-weight;
-        line-height: 1.3rem;
+        @include typography-caption-caps;
+
         margin-bottom: 0.4rem;
         text-align: center;
-        text-transform: uppercase;
     }
 
     &__date {
-        font-size: $font-size-12;
-        font-weight: $regular-weight;
-        line-height: 1.6rem;
+        @include typography-tiny;
+
         margin-bottom: 0.4rem;
         text-align: center;
     }
@@ -65,7 +62,7 @@
     &__body {
         font-size: $font-size-12;
         font-weight: $medium-weight;
-        line-height: 1.6rem;
+        line-height: 1.6;
         margin-bottom: 1.6rem;
         text-align: center;
     }
@@ -104,9 +101,4 @@
     position: absolute;
     right: 2rem;
     top: -0.4rem;
-}
-
-.birthday-comment-display {
-    border-radius: 0.8rem;
-    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
 }
