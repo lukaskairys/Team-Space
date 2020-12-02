@@ -1,0 +1,46 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+.card-content {
+    margin: 1.2rem 2.4rem 1.8rem 1.6rem;
+
+    &__contact-info {
+        @include typography-caption-caps;
+
+        color: $color-fiord;
+    }
+
+    &__contact-item {
+        align-items: center;
+        display: flex;
+
+        &:first-child {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__info {
+        @include trim(1);
+
+        color: $color-fiord;
+        padding-left: 0.8rem;
+    }
+
+    &__description {
+        @include typography-body;
+        @include trim(3);
+
+        color: $color-slate-gray;
+        margin: 1rem 0;
+    }
+
+    &__icon {
+        @include square-size(1.9rem);
+        flex-shrink: 0;
+
+        path {
+            stroke: $color-fiord;
+            stroke-width: 2.5px;
+        }
+    }
+}

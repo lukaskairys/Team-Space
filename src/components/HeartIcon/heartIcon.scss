@@ -1,0 +1,23 @@
+@import '../../styles/base/base';
+
+.heart-icon {
+    fill: $color-transparent;
+    flex-shrink: 0;
+    height: 2.2rem;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    width: 2.4rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &--active {
+        fill: $color-watermelon;
+
+        path {
+            stroke: $color-watermelon;
+        }
+    }
+}

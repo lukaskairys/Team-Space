@@ -12,7 +12,6 @@ $_bullet-point-active-size: 0.8rem;
         align-items: center;
         display: flex;
         list-style-type: none;
-
     }
 
     &__circle {
@@ -35,10 +34,10 @@ $_bullet-point-active-size: 0.8rem;
         height: $_bullet-point-active-size;
         position: relative;
         width: $_bullet-point-active-size;
-        
+
         path {
             fill: $color-watermelon;
-            stroke:$color-watermelon;
+            stroke: $color-watermelon;
         }
     }
 
