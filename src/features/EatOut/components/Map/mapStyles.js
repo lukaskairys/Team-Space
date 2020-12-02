@@ -1,4 +1,5 @@
 export const mapStyles = {
+  gestureHandling: "cooperative",
   styles: [
     {
       featureType: "poi",
