@@ -21,11 +21,15 @@ function EatOutCategoriesSection() {
             <ReservationsCard
               name={category}
               caption={"Places"}
-              path={`/eat-out/${category}`}
+              path={`/eat-out/categories/${category.toLowerCase()}`}
               count={count}
               small
             >
-              <img src={icon} alt={category} />
+              <img
+                src={icon}
+                alt={category}
+                className="categories-section__image"
+              />
             </ReservationsCard>
           </React.Fragment>
         );
@@ -39,7 +43,7 @@ function EatOutCategoriesSection() {
       </section>
     );
   }
-  return <div></div>;
+  return null;
 }
 
 export default EatOutCategoriesSection;

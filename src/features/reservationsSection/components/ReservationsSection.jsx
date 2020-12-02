@@ -45,7 +45,7 @@ const ReservationsSection = () => {
           count={reservations.devices}
           big
         >
-          <Phone />
+          <Phone className="RESERVATIONS__image" />
         </ReservationCard>
         <ReservationCard
           name={"Books"}
@@ -54,7 +54,7 @@ const ReservationsSection = () => {
           count={reservations.books}
           big
         >
-          <Book />
+          <Book className="RESERVATIONS__image" />
         </ReservationCard>
         <ReservationCard
           name={"Meeting rooms"}
@@ -63,7 +63,7 @@ const ReservationsSection = () => {
           count={reservations.rooms}
           big
         >
-          <Door />
+          <Door className="RESERVATIONS__image" />
         </ReservationCard>
       </div>
     </div>

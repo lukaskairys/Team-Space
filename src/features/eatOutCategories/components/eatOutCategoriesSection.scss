@@ -1,7 +1,8 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
 
-$_breakpoint: 886;
+$_breakpoint-lg: 1186;
+$_breakpoint-md: 886;
 
 .categories-section {
     margin: 5rem 0;
@@ -9,20 +10,29 @@ $_breakpoint: 886;
     &__title {
         @include typography-h3;
 
-        color: $color-midnight;
+        color: $color-fiord;
 
-        @include respond-to($_breakpoint, max) {
+        @include respond-to($_breakpoint-lg, max) {
             text-align: center;
         }
     }
 
     &__content {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
         row-gap: 2rem;
 
-        @include respond-to($_breakpoint, max) {
+        @include respond-to($_breakpoint-lg, max) {
             justify-items: center;
         }
+
+        @include respond-to($_breakpoint-md, max) {
+            justify-items: center;
+        }
+    }
+
+    &__image {
+        height: 15rem;
+        width: 15rem;
     }
 }
