@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 import RegistrationPage from "features/registration/pages/RegistrationPage";
 import LoginPage from "features/login/pages/LoginPage";
@@ -42,6 +47,15 @@ function App() {
 
           <Route exact path="/reservations/books">
             <MainLayout />
+          </Route>
+
+          <Route exact path="/eat-out/categories">
+            <Redirect
+              to={{
+                pathname: "/eat-out",
+                isRedirected: true,
+              }}
+            />
           </Route>
 
           <Route exact path="/eat-out/">
