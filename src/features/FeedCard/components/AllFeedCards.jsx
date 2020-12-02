@@ -12,15 +12,15 @@ import { FetchStories } from "../../../utils/Api";
 import "./feedCard.scss";
 
 function AllFeedCards() {
-  const stories = sortStories(FetchStories());
+  const stories = sortStories(sortStories(FetchStories()));
   const [userData, setUserData] = useState({});
-  const { data, error } = useContext(context);
+  const { data } = useContext(context);
 
   useEffect(() => {
     if (!isObjectEmpty(data)) {
       setUserData(data);
     }
-  }, [data, error]);
+  }, [data, stories]);
 
   return (
     <NewsFeedLayout>

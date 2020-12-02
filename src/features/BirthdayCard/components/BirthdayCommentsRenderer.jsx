@@ -12,15 +12,12 @@ function BirthdayCommentsRenderer({ comments }) {
         })
         .map((comment, i) => {
           return (
-            <>
-              {" "}
-              <div className="feed-card__comment" key={i}>
-                <p className="feed-card__commenter-username">
-                  {comment.userName}
-                </p>
-                <p className="feed-card__comment-text">{comment.comment}</p>
-              </div>
-            </>
+            <div className="feed-card__comment" key={i}>
+              <p className="feed-card__commenter-username">
+                {comment.userName}
+              </p>
+              <p className="feed-card__comment-text">{comment.comment}</p>
+            </div>
           );
         })}
     </div>
