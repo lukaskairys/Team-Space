@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
@@ -9,6 +10,14 @@ import ContextProvider from "contexts/ContextProvider";
 import "./EatOut.scss";
 
 const EatOut = () => {
+  const location = useLocation();
+
+  const scrollToCategories = () => {
+    // TODO: make auto-scroll
+  };
+
+  if (location.isRedirected) scrollToCategories();
+
   return (
     <div className="eat-out">
       <MainLayout>
