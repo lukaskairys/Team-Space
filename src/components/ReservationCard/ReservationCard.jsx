@@ -5,25 +5,33 @@ import { Link } from "react-router-dom";
 
 import "./reservationCard.scss";
 /**
- * Use size "big" for a big card (39.6rem)
- * & Use size "small" for a small card (25rem).
+ * Use size big for a big card (39.3rem)
+ * & Use size small for a small card (25rem).
  */
-function ReservationsCard({ name, path, reserved, size, children }) {
+function ReservationsCard({
+  name,
+  caption,
+  path,
+  count,
+  small,
+  big,
+  children,
+}) {
   const cardClassNames = classNames({
     "reservations-card": true,
-    "reservations-card--big": size === "big" ? true : false,
-    "reservations-card--small": size === "big" ? false : true,
+    "reservations-card--big": big,
+    "reservations-card--small": small,
   });
   const cardImageClassnames = classNames({
-    "reservations-card__image": true,
-    "reservations-card__image--big": size === "big" ? true : false,
-    "reservations-card__image--small": size === "big" ? false : true,
+    "reservations-card__image-box": true,
+    "reservations-card__image-box--big": big,
+    "reservations-card__image-box--small": small,
   });
   return (
     <Link to={path} className={cardClassNames}>
       <div>
         <h2 className="reservations-card__title">{name}</h2>
-        <span className="reservations-card__caption">{`${reserved} Reserved`}</span>
+        <span className="reservations-card__caption">{`${count} ${caption}`}</span>
       </div>
       <div className={cardImageClassnames}>{children}</div>
     </Link>
@@ -32,9 +40,12 @@ function ReservationsCard({ name, path, reserved, size, children }) {
 
 ReservationsCard.propTypes = {
   name: PropTypes.string,
+  caption: PropTypes.string,
   path: PropTypes.string,
+  count: PropTypes.number,
+  small: PropTypes.bool,
+  big: PropTypes.bool,
   size: PropTypes.string,
-  reserved: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   children: PropTypes.object,
 };
 

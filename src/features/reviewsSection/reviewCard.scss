@@ -1,0 +1,41 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_review-line-heigh: 1.5;
+$_color-black-transp: rgba(255, 255, 255, 0);
+
+.review-card {
+    background: $color-white;
+    border-radius: $base-border-radius;
+    box-shadow: $card-shadow;
+    line-height: $_review-line-heigh;
+    margin: 1.6rem 0;
+    max-width: 50rem;
+    padding-bottom: 0.1rem;
+    position: relative;
+    width: 40rem;
+
+    &__title {
+        @include typography-body-2-bold;
+
+        font-weight: $bold-weight;
+        padding: 2rem;
+        padding-bottom: 0;
+        text-transform: uppercase;
+    }
+
+    &__content {
+        @include typography-body-2;
+
+        line-height: $_review-line-heigh;
+        margin: 0.6rem 2rem 1.6rem;
+
+        &--truncate {
+            @include trim(5);
+        }
+    }
+
+    &--in-modal {
+        margin: 1.5rem auto;
+    }
+}

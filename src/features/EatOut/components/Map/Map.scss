@@ -1,0 +1,36 @@
+@import '../../../../styles/base/base';
+@import '../../../../styles/mixins/mixins';
+
+$_pin-size: 4rem;
+
+.map {
+    box-shadow: $card-shadow;
+    height: 38.9rem;
+    width: auto;
+}
+
+.pin {
+    align-items: center;
+    display: flex;
+    stroke: $color-fiord;
+    transform: translate(-$_pin-size/2, -$_pin-size);
+    width: max-content;
+
+    &__icon {
+        @include square-size($_pin-size);
+
+        fill: $color-white;
+        stroke: $color-malibu;
+    }
+
+    &__text {
+        @include typography-body-2;
+
+        background-color: $color-white;
+        border: 0.1rem solid $color-black;
+        border-radius: 0.5rem;
+        color: $color-black;
+        margin-left: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+}

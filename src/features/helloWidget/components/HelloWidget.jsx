@@ -1,5 +1,9 @@
+import React, { useState, useEffect, useContext } from "react";
+
+import { context } from "contexts/Context";
+import { isObjectEmpty } from "utils/objects";
+
 import "./helloWidget.scss";
-import React, { useState, useEffect } from "react";
 
 const options = {
   hour: "numeric",
@@ -8,19 +12,26 @@ const options = {
 const time = new Date().toLocaleTimeString("lt-LT", options);
 
 const HelloWidget = () => {
-  const name = "Wizard";
-  const [state, setState] = useState(time);
+  const [currentTime, setCurrentTime] = useState(time);
+  const [userName, setUserName] = useState("Wizard");
+
+  const { data, error } = useContext(context);
 
   useEffect(() => {
     let intervalID = setInterval(() => {
-      setState(new Date().toLocaleTimeString("lt-LT", options));
+      setCurrentTime(new Date().toLocaleTimeString("lt-LT", options));
     }, 1000);
 
-    return () => clearInterval(intervalID);
-  }, []);
+    if (!isObjectEmpty(data)) setUserName(data.userName);
+    else if (error) setUserName("Mr. Error");
+
+    return () => {
+      clearInterval(intervalID);
+    };
+  }, [data, error]);
 
   const renderGreeting = () => {
-    const now = parseInt(state.slice(0, 2));
+    const now = parseInt(currentTime.slice(0, 2));
     if (now < 12) {
       return "Good morning";
     } else if (now < 18) {
@@ -32,8 +43,8 @@ const HelloWidget = () => {
 
   return (
     <div className="hello-widget">
-      <time className="hello-widget__time">{state}</time>
-      <h1 className="hello-widget__greeting">{`${renderGreeting()}, ${name}`}</h1>
+      <time className="hello-widget__time">{currentTime}</time>
+      <h1 className="hello-widget__greeting">{`${renderGreeting()}, ${userName}`}</h1>
     </div>
   );
 };

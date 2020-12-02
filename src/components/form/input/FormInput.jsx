@@ -5,11 +5,11 @@ import "./formInput.scss";
 import Button from "../../button/Button";
 
 function FormInput(props) {
-  let {
+  const {
     name,
     label,
     type,
-    placeholder = label,
+    placeholder,
     id = name,
     onChange,
     className,
@@ -28,9 +28,9 @@ function FormInput(props) {
         id={id}
         name={name}
         type={type}
-        placeholder={placeholder}
         onChange={onChange}
         value={value}
+        placeholder={placeholder}
         className={className}
         onFocus={onFocus}
         ref={inputRef}
@@ -38,7 +38,7 @@ function FormInput(props) {
       {isError && (
         <Button
           type={"button"}
-          del={"true"}
+          iconX={true}
           handleClick={() => handleXclick(inputRef)}
         >
           <IconX />
@@ -51,10 +51,10 @@ function FormInput(props) {
 FormInput.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   value: PropTypes.any,
   className: PropTypes.string,
   onFocus: PropTypes.func,

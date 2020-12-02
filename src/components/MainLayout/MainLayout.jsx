@@ -4,10 +4,11 @@ import classNames from "classnames";
 
 import { ReactComponent as NotificationBell } from "assets/icons/notification-bell.svg";
 import Sidebar from "components/Sidebar/Sidebar";
+import UserProfileWidget from "../../features/userProfileWidget/components/UserProfileWidget";
 
 import "./MainLayout.scss";
 
-const creationYear = "(dark ages)";
+const creationYear = 2020;
 const currentYear = new Date().getFullYear(); //getting current year
 let year;
 if (creationYear === currentYear) {
@@ -16,13 +17,23 @@ if (creationYear === currentYear) {
   year = `${creationYear} - ${currentYear}`;
 }
 
+const checkSidebarState = () => {
+  let initialState;
+  if (sessionStorage.sidebarState === undefined) {
+    initialState = false;
+  } else {
+    initialState = sessionStorage.sidebarState;
+  }
+  return JSON.parse(initialState);
+};
+
 const MainLayout = ({ children }) => {
-  const [isSidebarClosed, setIsSidebarClosed] = useState(false);
+  const [isSidebarClosed, setIsSidebarClosed] = useState(checkSidebarState());
 
   const toggleSidebar = () => {
     setIsSidebarClosed(!isSidebarClosed);
   };
-
+  sessionStorage.sidebarState = isSidebarClosed;
   return (
     <div className="main-layout">
       <Sidebar
@@ -36,10 +47,10 @@ const MainLayout = ({ children }) => {
       >
         <header className="main-layout__header">
           <div className="main-layout__status">
-            <div className="main-layout__notifications">
-              <NotificationBell className="main-layout__icon" />
+            <NotificationBell className="main-layout__notifications" />
+            <div className="main-layout__profile">
+              <UserProfileWidget />
             </div>
-            <div className="main-layout__profile"></div>
           </div>
         </header>
         <main className="main-layout__main">{children}</main>

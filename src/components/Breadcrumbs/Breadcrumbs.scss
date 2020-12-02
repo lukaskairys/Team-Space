@@ -1,0 +1,32 @@
+@import '../../styles/base/base';
+
+.breadcrumbs {
+    @include typography-caption-caps;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0.8rem;
+    stroke: $color-gull-gray;
+
+    &__item {
+        color: $color-gull-gray;
+        min-width: max-content;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-fiord;
+        }
+    }
+
+    &__item--last {
+        color: $color-fiord;
+        cursor: default;
+    }
+
+    &__icon {
+        display: flex;
+        flex-shrink: 0;
+        height: 1rem;
+    }
+}

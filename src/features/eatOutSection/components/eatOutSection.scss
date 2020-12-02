@@ -1,0 +1,64 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$_title-color: rgba(0, 0, 0, 0.7);
+$_breakpoint: 1200;
+
+.eat-out-section {
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-areas: 'suggestion  firstRestaurant secondRestaurant';
+    grid-template-columns: repeat(3, 1fr);
+
+    @include respond-to($_breakpoint, max) {
+        grid-template-areas:
+            '. suggestion suggestion .'
+            'firstRestaurant firstRestaurant secondRestaurant secondRestaurant';
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__column {
+        background-color: $color-white;
+        border-radius: 0.8rem;
+        padding-bottom: 2rem;
+    }
+
+    &__column:nth-child(n + 2) {
+        box-shadow: $card-shadow;
+    }
+
+    &__column:first-child {
+        grid-area: suggestion;
+    }
+
+    &__column:nth-child(2) {
+        grid-area: firstRestaurant;
+    }
+
+    &__column:last-child {
+        grid-area: secondRestaurant;
+    }
+
+    &__suggestion {
+        @include typography-h2-alternative;
+
+        color: $_title-color;
+        font-weight: $heavy-weight;
+        text-align: center;
+        width: 90%;
+
+        @include respond-to($_breakpoint, max) {
+            font-size: $font-size-20;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__content {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        justify-content: center;
+        padding: 4rem;
+    }
+}

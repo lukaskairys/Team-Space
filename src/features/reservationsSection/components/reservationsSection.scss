@@ -10,7 +10,7 @@
         @include typography-h2-alternative;
         color: $color-fiord;
 
-        @include respond-to(1265, max) {
+        @include respond-to(1515, max) {
             text-align: center;
         }
     }
@@ -20,12 +20,16 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
-        @include respond-to(1365, max) {
+        @include respond-to(1515, max) {
             justify-content: center;
         }
 
         a {
             text-decoration: none;
         }
+    }
+
+    &__image {
+        width: 12rem;
     }
 }

@@ -1,0 +1,33 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+@import './dropdownContent';
+
+.profile-widget {
+    color: $color-fiord;
+    position: relative;
+
+    &__arrow {
+        bottom: 0.7rem;
+        position: absolute;
+        right: -0.2rem;
+    }
+
+    &__picture {
+        @include animation('fadeIn 1s ease-in forwards');
+        @include square-size(100%);
+
+        border-radius: 50%;
+        object-fit: cover;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    button {
+        @include square-size(4rem);
+
+        border-radius: 50%;
+    }
+}

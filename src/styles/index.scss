@@ -20,4 +20,26 @@ html {
 
 body {
     font-family: $font-family, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background: none;
+    border: unset;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+
+    &:hover,
+    &:focus {
+        background: none;
+    }
+
+    &:focus {
+        box-shadow: 0 0 2px 2px $color-fiord;
+    }
 }
