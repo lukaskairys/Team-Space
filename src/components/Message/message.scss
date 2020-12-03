@@ -2,14 +2,13 @@
 
 $_message-spacing: 1.6rem;
 
-.success-message {
+.message {
     @include typography-body-2-medium;
 
     align-items: center;
-    background-color: $color-mint;
     border-radius: $secondary-border-radius;
     display: flex;
-    font-weight: 700;
+    font-weight: $bold-weight;
     justify-content: flex-start;
     padding: $_message-spacing;
     position: relative;
@@ -25,6 +24,19 @@ $_message-spacing: 1.6rem;
 
         path {
             stroke: $color-fiord;
+        }
+    }
+
+    &--success {
+        background-color: $color-mint;
+    }
+
+    &--error {
+        background-color: $color-watermelon;
+        color: $color-white;
+
+        .button path {
+            stroke: $color-white;
         }
     }
 }
