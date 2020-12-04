@@ -22,7 +22,7 @@ const FetchSimilar = (data, currentId) => {
   return data;
 };
 
-export const FilterByMode = (mode, data, currentId = null) => {
+export const FilterByMode = (mode, data, currentId = "120wsdlpx4") => {
   if (mode === "new") return FetchNewPlaces(data);
   else if (mode === "near") return FetchNearYou(data);
   else if (mode === "similar") return FetchSimilar(data, currentId);
