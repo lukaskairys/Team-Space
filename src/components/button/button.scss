@@ -75,4 +75,23 @@
             background: none;
         }
     }
+
+    &--pagination {
+        background-color: $color-white;
+        border: 1px solid $color-ghost;
+        border-radius: $secondary-border-radius;
+        color: $color-fiord;
+        display: grid;
+        height: 3.2rem;
+        margin-left: 1.6rem;
+        padding: 0;
+        place-items: center;
+        width: 3.2rem;
+
+        &:focus,
+        &:hover {
+            background-color: $color-bright-violet;
+            color: $color-white;
+        }
+    }
 }

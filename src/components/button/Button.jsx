@@ -11,6 +11,7 @@ function Button({
   medium,
   iconX,
   blank,
+  pagination,
 }) {
   const btnClass = classNames({
     button: true,
@@ -18,6 +19,7 @@ function Button({
     "button--medium": medium,
     "button--icon-x": iconX,
     "button--blank": blank,
+    "button--pagination": pagination,
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>
@@ -34,6 +36,7 @@ Button.propTypes = {
   iconX: PropTypes.bool,
   medium: PropTypes.bool,
   blank: PropTypes.bool,
+  pagination: PropTypes.bool,
 };
 
 export default Button;
