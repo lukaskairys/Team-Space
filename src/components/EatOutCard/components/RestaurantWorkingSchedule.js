@@ -1,86 +1,131 @@
-export const createWorkingSchedule = (workingSchedule) => {
-  const weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+const weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
+export const createWorkingSchedule = (workingSchedule) => {
   const schedule = [];
-  for (let i = 0; i < workingSchedule.length; i++) {
-    const daysOpen = workingSchedule[i].days.split(" - ");
-    const hoursOpen = workingSchedule[i].hours.split(" - ");
-    const openingHours = hoursOpen[0];
-    const closingHours = hoursOpen[1];
+  workingSchedule.forEach((entry) => {
+    const daySheet = entry.days.split(" - ");
+    const timeSheet = entry.hours.split(" - ").map((s) => {
+      return s.length > 2 ? s : s + ":00";
+    });
+
+    const [dayStartWorking, dayStopWorking] = daySheet;
+    const [timeStartWorking, timeStopWorking] = timeSheet;
     let startAdding = false;
 
-    weekDays.forEach((weekday) => {
-      if (daysOpen[1] === weekday) {
-        addFormattedEntry(schedule, weekday, openingHours, closingHours);
-        startAdding = false;
-      } else if (startAdding) {
-        addFormattedEntry(schedule, weekday, openingHours, closingHours);
-      } else if (daysOpen[0] === weekday) {
+    for (let i = 0; i < weekDays.length; i++) {
+      const weekday = weekDays[i];
+      if (weekday === dayStartWorking) {
         startAdding = true;
-        addFormattedEntry(schedule, weekday, openingHours, closingHours);
-      } else {
-        addFormattedEntry(schedule, weekday);
+        addFormattedEntry(i, schedule, timeStartWorking, timeStopWorking);
+      } else if (weekday === dayStopWorking) {
+        startAdding = false;
+        addFormattedEntry(i, schedule, timeStartWorking, timeStopWorking);
+      } else if (startAdding) {
+        addFormattedEntry(i, schedule, timeStartWorking, timeStopWorking);
       }
-    });
-  }
+    }
+  });
   return schedule;
 };
 
 const addFormattedEntry = (
+  dayIndex,
   schedule,
-  weekDay,
-  openingHours = 0,
-  closingHours = 0,
-
-  doesWork = openingHours === 0 && closingHours === 0 ? false : true
+  timeStartWorking = "",
+  timeStopWorking = ""
 ) => {
-  schedule.push({
-    day: weekDay,
-    openingHours: parseInt(openingHours),
-    closingHours: parseInt(closingHours),
-    text: `${openingHours}:00 - ${closingHours}:00`,
-    doesWork: doesWork,
-  });
+  const [openingHours, openingMinutes] = timeStartWorking
+    .split(":")
+    .map(Number);
+  const [closingHours, closingMinutes] = timeStopWorking.split(":").map(Number);
+
+  schedule[dayIndex] = {
+    weekday: weekDays[dayIndex],
+    openingHours,
+    openingMinutes,
+    closingHours,
+    closingMinutes,
+    text: `${timeStartWorking} - ${timeStopWorking}`,
+  };
 };
 
-export const isOpen = (schedule) => {
+export const formatOpeningDate = (schedule) => {
   const currentDate = new Date();
   const currentDay = currentDate.getDay();
   const currentHours = currentDate.getHours();
+  const currentMinutes = currentDate.getMinutes();
   const scheduleDay = schedule[currentDate.getDay()];
-
-  if (
-    scheduleDay.doesWork &&
-    scheduleDay.openingHours <= currentHours &&
-    scheduleDay.closingHours > currentHours
-  ) {
+  if (isOpenNow(scheduleDay, currentHours, currentMinutes)) {
     return scheduleDay.text;
   }
 
-  return findNextOpeningDate(schedule, currentDay);
+  return findNextOpeningDate(
+    schedule,
+    currentDay,
+    currentHours,
+    currentMinutes
+  );
+};
+const isOpenNow = (scheduleDay, currentHours, currentMinutes) => {
+  if (
+    ((scheduleDay.openingHours < currentHours ||
+      (scheduleDay.openingHours === currentHours &&
+        scheduleDay.openingMinutes <= currentMinutes)) &&
+      scheduleDay.closingHours > currentHours) ||
+    (scheduleDay.closingHours === currentHours &&
+      scheduleDay.closingMinutes > currentMinutes)
+  ) {
+    return true;
+  }
+
+  return false;
+};
+const willStillOpen = (scheduleDay, currentHours, currentMinutes) => {
+  if (
+    scheduleDay.openingHours > currentHours ||
+    (scheduleDay.openingHours === currentHours &&
+      scheduleDay.openingMinutes > currentMinutes)
+  )
+    return true;
+
+  return false;
 };
 
-export const findNextOpeningDate = (schedule, currentDay) => {
-  let count = 0;
+const changeDay = (currentDay, schedule) => {
+  if (currentDay === schedule.length - 1) {
+    currentDay = 0;
+  } else {
+    currentDay += 1;
+  }
+  return currentDay;
+};
 
+export const findNextOpeningDate = (
+  schedule,
+  currentDay,
+  currentHours,
+  currentMinutes
+) => {
+  if (willStillOpen(schedule[currentDay], currentHours, currentMinutes))
+    return `Opens today at  ${schedule[currentDay].text.split(" - ")[0]}`;
+
+  currentDay = changeDay(currentDay, schedule);
+  let count = 0;
   while (schedule.length > count) {
-    if (schedule[currentDay].doesWork)
+    if (schedule[currentDay]) {
       return count === 0
-        ? `Opens today at ${schedule[currentDay].openingHours}:00`
-        : `Opens at ${schedule[currentDay].day} ${schedule[currentDay].openingHours}:00`;
-    if (currentDay === schedule.length - 1) {
-      currentDay = 0;
-    } else {
-      currentDay += 1;
+        ? `Opens tommorow at ${schedule[currentDay].text}`
+        : `Opens at ${schedule[currentDay].weekday} ${schedule[currentDay].text}`;
     }
+    currentDay = changeDay(currentDay, schedule);
     count++;
   }
 };
