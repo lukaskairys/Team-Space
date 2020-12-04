@@ -4,6 +4,8 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 
 import "./Devices.scss";
+import ReservationsList from "features/reservationsPageList/components/ReservationsList";
+import ContextProvider from "contexts/ContextProvider";
 
 const Devices = () => {
   return (
@@ -11,6 +13,9 @@ const Devices = () => {
       <MainLayout>
         <>
           <Breadcrumbs />
+          <ContextProvider endpoint="/devices">
+            <ReservationsList />
+          </ContextProvider>
         </>
       </MainLayout>
     </div>

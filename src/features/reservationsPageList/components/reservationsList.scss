@@ -1,0 +1,12 @@
+@import '../../../styles/base/base';
+
+.reservations-list {
+    margin: 0 auto;
+    max-width: 938px;
+
+    &__cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1.6rem;
+    }
+}

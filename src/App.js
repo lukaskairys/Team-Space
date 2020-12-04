@@ -15,7 +15,6 @@ import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
-import ContextProvider from "contexts/ContextProvider";
 
 function App() {
   return (
@@ -65,14 +64,12 @@ function App() {
             <Restaurant />
           </Route>
 
-          <ContextProvider endpoint="/restaurants">
-            <Route exact path="/eat-out/:id">
-              <Restaurant />
-            </Route>
-            <Route exact path="/eat-out/categories/:category">
-              <EatOutCategoriesPage />
-            </Route>
-          </ContextProvider>
+          <Route exact path="/eat-out/:id">
+            <Restaurant />
+          </Route>
+          <Route exact path="/eat-out/categories/:category">
+            <EatOutCategoriesPage />
+          </Route>
         </Switch>
       </>
     </Router>
