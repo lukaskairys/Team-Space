@@ -14,7 +14,6 @@ import "./EatOut.scss";
 const EatOut = () => {
   const location = useLocation();
   const scrollRef = useRef(null);
-
   const condition = location.isRedirected;
 
   MakeScroll(scrollRef, condition);
@@ -26,8 +25,7 @@ const EatOut = () => {
           <ContextProvider endpoint="/restaurants">
             <Breadcrumbs />
             <EatOutHeroWidget />
-            <div ref={scrollRef}></div>
-            <EatOutCategoriesSection />
+            <EatOutCategoriesSection ref={scrollRef} />
             <RestaurantCardsSection title="Discover near you" mode="similar" />
             <RestaurantCardsSection title="New places" mode="similar" />
           </ContextProvider>

@@ -1,19 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const MakeScroll = (scrollRef, condition) => {
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
-    const scroll = (scrollRef) => {
+    const scroll = () => {
       if (scrollRef.current !== null && condition) {
         scrollRef.current.scrollIntoView({ behavior: "smooth" });
       }
     };
-    // window.addEventListener("load", () => scroll(scrollRef));
-    const timer = setTimeout(() => {
-      scroll(scrollRef);
-    }, 500);
+    if ((mounted, condition))
+      setTimeout(() => {
+        scroll();
+      }, 400);
+
     return () => {
-      // window.removeEventListener("load", () => scroll(scrollRef));
-      clearTimeout(timer);
+      setMounted(false);
     };
-  }, [scrollRef, condition]);
+  }, [mounted, condition, scrollRef]);
 };
