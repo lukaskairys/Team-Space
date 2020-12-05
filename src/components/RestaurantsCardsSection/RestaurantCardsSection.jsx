@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  useCallback,
+} from "react";
 import PropTypes from "prop-types";
 import { context } from "../../contexts/Context";
 import EatOutCard from "../EatOutCard/EatOutCard";
@@ -32,6 +38,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
   const animationLoading = useRef(false);
   const cardRef = useRef(null);
   const imagesLoaded = useRef(0);
+  const prevId = useRef(id);
 
   //callback from custom resize hook
   const observeWidthCallback = (width) => {
@@ -53,6 +60,16 @@ const RestaurantCardsSection = ({ title, mode }) => {
     }
   };
 
+  //filter data only on page change or first load.
+  const handleDataFiltering = useCallback(() => {
+    if (!filteredData.current || prevId.current !== id) {
+      const restaurants = data.restaurantList;
+      prevId.current = id;
+      // filtering data by mode { near you, you could also like, new restaurants }
+      filteredData.current = FilterByMode(mode, restaurants, id, location);
+    }
+  }, [data.restaurantList, id, location, mode]);
+
   useEffect(() => {
     const slicePart = (data) => {
       const index = currentPage * visibleData.length;
@@ -66,18 +83,20 @@ const RestaurantCardsSection = ({ title, mode }) => {
     };
     if (data.restaurantList) {
       //set filtered data on first load
-      if (!filteredData.current) {
-        const restaurants = data.restaurantList;
-        // filtering data by mode { near you, you could also like, new restaurants }
-        filteredData.current = FilterByMode(mode, restaurants, id, location);
-      }
+      handleDataFiltering();
       const currentTotalPages = Math.ceil(
         filteredData.current.length / itemsPerPage
       );
       setTotalPages(currentTotalPages);
       setVisibleData(slicePart(filteredData.current));
     }
-  }, [data, currentPage, mode, id, itemsPerPage, location, visibleData.length]);
+  }, [
+    data.restaurantList,
+    currentPage,
+    itemsPerPage,
+    visibleData.length,
+    handleDataFiltering,
+  ]);
 
   //listen to the img load event - starts fade in animation when all images load.
   const handleImageLoad = () => {
@@ -119,7 +138,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
           </div>
         </div>
       );
-    } else return <Error message={"No restaurants to suggest"} />;
+    } else return <Error message={"No restaurants matched"} />;
   } else if (error) {
     return <Error message={"Failed to fetch  restaurants"} />;
   }
