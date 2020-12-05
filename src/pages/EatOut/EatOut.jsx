@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-import { MakeScroll } from "utils/useScroll.jsx";
+import { HandleScroll } from "utils/HandleScroll.js";
 import ContextProvider from "contexts/ContextProvider";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
@@ -16,7 +16,7 @@ const EatOut = () => {
   const scrollRef = useRef(null);
   const condition = location.isRedirected;
 
-  MakeScroll(scrollRef, condition);
+  HandleScroll(scrollRef, condition);
 
   return (
     <div className="eat-out">
@@ -25,7 +25,7 @@ const EatOut = () => {
           <ContextProvider endpoint="/restaurants">
             <Breadcrumbs />
             <EatOutHeroWidget />
-            <EatOutCategoriesSection ref={scrollRef} />
+            <EatOutCategoriesSection ref={scrollRef} id="categories" />
             <RestaurantCardsSection title="Discover near you" mode="similar" />
             <RestaurantCardsSection title="New places" mode="similar" />
           </ContextProvider>
