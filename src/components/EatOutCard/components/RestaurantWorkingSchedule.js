@@ -51,7 +51,7 @@ const addFormattedEntry = (
     weekday: weekDays[dayIndex],
     openingHours,
     openingMinutes,
-    closingHours,
+    closingHours: closingHours === 0 ? 24 : closingHours,
     closingMinutes,
     text: `${timeStartWorking} - ${timeStopWorking}`,
   };
@@ -90,6 +90,7 @@ const isOpenNow = (scheduleDay, currentHours, currentMinutes) => {
 
   return false;
 };
+
 const willStillOpen = (scheduleDay, currentHours, currentMinutes) => {
   if (!scheduleDay) return false;
 
@@ -104,7 +105,7 @@ const willStillOpen = (scheduleDay, currentHours, currentMinutes) => {
 };
 
 const changeDay = (currentDay, schedule) => {
-  if (currentDay === schedule.length - 1) {
+  if (currentDay === weekDays.length - 1) {
     currentDay = 0;
   } else {
     currentDay += 1;
@@ -126,8 +127,10 @@ export const findNextOpeningDate = (
   while (schedule.length > count) {
     if (schedule[currentDay]) {
       return count === 0
-        ? `Opens tommorow at ${schedule[currentDay].text}`
-        : `Opens at ${schedule[currentDay].weekday} ${schedule[currentDay].text}`;
+        ? `Opens tommorow at ${schedule[currentDay].text.split(" - ")[0]}`
+        : `Opens at ${schedule[currentDay].weekday} ${
+            schedule[currentDay].text.split(" - ")[0]
+          }`;
     }
     currentDay = changeDay(currentDay, schedule);
     count++;

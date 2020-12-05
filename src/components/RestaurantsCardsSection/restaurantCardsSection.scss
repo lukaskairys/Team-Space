@@ -1,7 +1,7 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_animation-time: 0.2s;
+$_animation-time: 0.25s;
 
 .restaurant-cards-section {
     &__list {
@@ -9,11 +9,11 @@ $_animation-time: 0.2s;
         gap: 4rem;
 
         &.animate-out {
-            animation: fadeOut 0.2s forwards ease-in-out;
+            animation: fadeOut 0.25s forwards ease-in-out;
         }
 
         &.animate-in {
-            animation: fadeIn 0.1s forwards ease-in-out;
+            animation: fadeIn 0.25s forwards ease-in-out;
         }
 
         @keyframes fadeOut {

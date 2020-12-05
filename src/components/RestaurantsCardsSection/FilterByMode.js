@@ -2,35 +2,35 @@ const FetchNearYou = (data, location) => {
   location = renameKey(location, "latitude", "lat");
   location = renameKey(location, "longitude", "lng");
 
-  data
-    .filter((e) => e)
-    .map(
-      (single) =>
-        (single["distance"] = distanceBetweenTwoPointsOnEarth(
-          location,
-          single.coordinates,
-          "km"
-        ))
-    );
-  data.sort((a, b) => a.distance - b.distance);
-
-  return data;
+  const filtered = [...data];
+  filtered.map(
+    (single) =>
+      (single["distance"] = distanceBetweenTwoPointsOnEarth(
+        location,
+        single.coordinates,
+        "km"
+      ))
+  );
+  filtered.sort((a, b) => a.distance - b.distance);
+  return filtered.slice(0, 10);
 };
 
 const FetchNewPlaces = (data) => {
-  data
-    .filter((e) => e)
-    .map((single) => (single["dateToNumber"] = dateToNum(single.createdDate)));
-
-  data.sort((b, a) => a.dateToNumber - b.dateToNumber);
-  return data;
+  const filtered = [...data];
+  filtered.map(
+    (single) => (single["dateToNumber"] = dateToNum(single.createdDate))
+  );
+  filtered.sort((b, a) => a.dateToNumber - b.dateToNumber);
+  return filtered.slice(0, 10);
 };
 
+//convert date to integer representation
 function dateToNum(d) {
   d = d.split("-");
-  return Number(d[0] + d[2] + d[1]);
+  return Number(d[0] + d[1] + d[2]);
 }
 
+//Fetching similar restaurants by having same categories
 const FetchSimilar = (data, currentId) => {
   const currentRestaurant = data.find((single) => {
     return single.id === currentId;
@@ -65,6 +65,7 @@ export const FilterByMode = (mode, data, currentId = null, location) => {
   return [];
 };
 
+//Haversine formula for calculating shortest distance over earths surface.
 const distanceBetweenTwoPointsOnEarth = (firstPoint, secondPoint, unit) => {
   let Radius;
   switch (unit) {

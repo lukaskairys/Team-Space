@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useContext,
-  useCallback,
-  useRef,
-} from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import { context } from "../../contexts/Context";
 import EatOutCard from "../EatOutCard/EatOutCard";
@@ -19,83 +13,50 @@ import { FilterByMode } from "./FilterByMode";
 import useCurrentLocation from "../../utils/useCurrentLocation";
 import { geolocationOptions } from "../../utils/geolocationOptions";
 import { toggleAnimation } from "../../utils/toggleAnimation";
+import { LayoutHandler } from "./LayoutHandler";
 
 const RestaurantCardsSection = ({ title, mode }) => {
-  const { location } = useCurrentLocation(geolocationOptions);
-
-  const [currentPage, setCurrentPage] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(1440);
   const { data, error } = useContext(context);
+  const { location } = useCurrentLocation(geolocationOptions);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const itemsPerPage = LayoutHandler(containerWidth);
+
   const [visibleData, setVisibleData] = useState([]);
   const { id } = useParams("id");
-  const [itemsPerPage, setItemsPerPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [imageLoadCount, setImageLoadCount] = useState(0);
-  const [animationLoading, setAnimationLoading] = useState(false);
+
   const sectionRef = useRef(null);
   const listRef = useRef(null);
+  const filteredData = useRef(null);
+  const animationLoading = useRef(false);
+  const cardRef = useRef(null);
+  const imagesLoaded = useRef(0);
 
-  const paginate = (page) => {
-    if (!animationLoading) {
-      toggleAnimation(listRef);
-      setAnimationLoading(true);
-      setTimeout(() => {
-        setCurrentPage(page);
-        setAnimationLoading(false);
-      }, 200);
-    }
-  };
-
+  //callback from custom resize hook
   const observeWidthCallback = (width) => {
     if (width) setContainerWidth(width);
   };
 
+  //custok hook for listening to resize of the container
   useObserver({ callback: observeWidthCallback, element: sectionRef });
 
-  const calculateItemsPerPage = useCallback(() => {
-    const calculateSmallCardScore = (
-      countOfBigCards,
-      countOfSmallCards,
-      biggestCard
-    ) => {
-      let maxSmallCardScore = 0;
-      let calculateItemsPerPage = 0;
-      for (let i = countOfBigCards; i <= countOfSmallCards; i++) {
-        let score = 0;
-        const expandedCardWidth = containerWidth / i;
+  //pagination method - sets current animation and toggles fade out animation loading.
+  const paginate = (page) => {
+    if (!animationLoading.current) {
+      toggleAnimation(listRef);
+      animationLoading.current = true;
 
-        const smallerCardWith =
-          expandedCardWidth > biggestCard ? biggestCard : expandedCardWidth;
-        score += smallerCardWith / biggestCard;
-
-        const fillScoreSmallCard = (smallerCardWith * i) / containerWidth;
-        score += fillScoreSmallCard;
-
-        if (score > maxSmallCardScore) {
-          maxSmallCardScore = score;
-          calculateItemsPerPage = i;
-        }
-      }
-      const perPage = calculateItemsPerPage > 0 ? calculateItemsPerPage : 1;
-      setItemsPerPage(perPage);
-      return perPage;
-    };
-
-    const smallestCard = 330;
-    const biggestCard = 390;
-    const countOfBigCards = Math.floor(containerWidth / biggestCard); //minimum amount of cards in the page
-    const countOfSmallCards = Math.floor(containerWidth / smallestCard); //maximum amount of cards in the page
-    return calculateSmallCardScore(
-      countOfBigCards,
-      countOfSmallCards,
-      biggestCard
-    );
-  }, [containerWidth]);
+      setTimeout(function () {
+        setCurrentPage(page);
+      }, 250);
+    }
+  };
 
   useEffect(() => {
     const slicePart = (data) => {
-      const index = currentPage * itemsPerPage;
-      const currentItemsPerPage = calculateItemsPerPage();
+      const index = currentPage * visibleData.length;
+      const currentItemsPerPage = itemsPerPage;
       const newCurrentPage = Math.floor(index / currentItemsPerPage);
       setCurrentPage(newCurrentPage);
       return data.slice(
@@ -104,35 +65,29 @@ const RestaurantCardsSection = ({ title, mode }) => {
       );
     };
     if (data.restaurantList) {
-      const filteredData = FilterByMode(
-        mode,
-        data.restaurantList,
-        id,
-        location
+      //set filtered data on first load
+      if (!filteredData.current) {
+        const restaurants = data.restaurantList;
+        // filtering data by mode { near you, you could also like, new restaurants }
+        filteredData.current = FilterByMode(mode, restaurants, id, location);
+      }
+      const currentTotalPages = Math.ceil(
+        filteredData.current.length / itemsPerPage
       );
-      const currentTotalPages = Math.ceil(filteredData.length / itemsPerPage);
       setTotalPages(currentTotalPages);
-      setVisibleData(slicePart(filteredData));
+      setVisibleData(slicePart(filteredData.current));
     }
-  }, [
-    data,
-    currentPage,
-    calculateItemsPerPage,
-    mode,
-    id,
-    itemsPerPage,
-    location,
-  ]);
-  const handleImageLoad = () => {
-    const imagesLoaded = imageLoadCount + 1;
-    const needsToLoad = visibleData.length;
-    setImageLoadCount(imagesLoaded);
-    if (imagesLoaded === needsToLoad) {
-      setTimeout(() => {
-        toggleAnimation(listRef);
-      }, 100);
+  }, [data, currentPage, mode, id, itemsPerPage, location, visibleData.length]);
 
-      setImageLoadCount(0);
+  //listen to the img load event - starts fade in animation when all images load.
+  const handleImageLoad = () => {
+    imagesLoaded.current = imagesLoaded.current + 1;
+    if (imagesLoaded.current >= visibleData.length) {
+      if (animationLoading.current) {
+        toggleAnimation(listRef);
+      }
+      animationLoading.current = false;
+      imagesLoaded.current = 0;
     }
   };
 
@@ -153,6 +108,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
               <div
                 key={restaurant.id}
                 className="restaurant-cards-section__single"
+                ref={cardRef}
               >
                 <EatOutCard
                   restaurant={restaurant}
