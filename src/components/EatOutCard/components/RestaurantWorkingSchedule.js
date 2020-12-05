@@ -75,6 +75,8 @@ export const formatOpeningDate = (schedule) => {
   );
 };
 const isOpenNow = (scheduleDay, currentHours, currentMinutes) => {
+  if (!scheduleDay) return false;
+
   if (
     ((scheduleDay.openingHours < currentHours ||
       (scheduleDay.openingHours === currentHours &&
@@ -89,6 +91,8 @@ const isOpenNow = (scheduleDay, currentHours, currentMinutes) => {
   return false;
 };
 const willStillOpen = (scheduleDay, currentHours, currentMinutes) => {
+  if (!scheduleDay) return false;
+
   if (
     scheduleDay.openingHours > currentHours ||
     (scheduleDay.openingHours === currentHours &&

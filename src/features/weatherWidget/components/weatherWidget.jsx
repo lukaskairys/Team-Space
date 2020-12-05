@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import useCurrentLocation from "./useCurrentLocation";
+import useCurrentLocation from "../../../utils/useCurrentLocation";
 import { isObjectEmpty } from "../../../utils/objects";
 import { translateIdToImage } from "./translateIdToImage";
-import { geolocationOptions } from "./geolocationOptions";
+import { geolocationOptions } from "../../../utils/geolocationOptions";
 import { getDateFormat } from "./getDateFormat";
 import { deconstructAPI } from "./deconstructAPI";
 import "./weatherWidget.scss";
