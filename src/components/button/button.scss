@@ -94,4 +94,18 @@
             color: $color-white;
         }
     }
+
+    &.is-active {
+        background-color: $color-bright-violet;
+        color: $color-white;
+    }
+
+    &.is-static {
+        &:hover,
+        &:focus {
+            background-color: $color-white;
+            box-shadow: none;
+            cursor: default;
+        }
+    }
 }

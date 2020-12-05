@@ -8,10 +8,6 @@ import Button from "components/button/Button";
 import "./pagination.scss";
 
 export default function Pagination({ page, setPage, pageCount }) {
-  const handleNext = () => {
-    setPage(page + 1);
-  };
-
   const handlePrev = () => {
     setPage(page - 1);
   };
@@ -20,20 +16,17 @@ export default function Pagination({ page, setPage, pageCount }) {
     setPage(0);
   };
 
+  const handleCurrentPage = () => {
+    setPage(page);
+  };
+
   const handleLastPage = () => {
     setPage(pageCount);
   };
 
-  const handleSpecific = () => {
-    setPage(page);
+  const handleNext = () => {
+    setPage(page + 1);
   };
-
-  const renderButtonNext =
-    page === pageCount ? null : (
-      <Button handleClick={handleNext} pagination>
-        <ChevronRight className="reservations-pagination__chevron" />
-      </Button>
-    );
 
   const renderButtonPrev =
     page === 0 ? null : (
@@ -43,32 +36,55 @@ export default function Pagination({ page, setPage, pageCount }) {
     );
 
   const renderFirstPage =
-    page === 0 ? null : (
-      <Button handleClick={handleFirstPage} pagination>
-        {1}
+    page > 1 || page < pageCount ? (
+      <Button
+        handleClick={handleFirstPage}
+        pagination
+        isActive={page === 0 && true}
+      >
+        <span className="reservations-pagination__page-number">{1}</span>
+      </Button>
+    ) : null;
+
+  const renderCurrentPage =
+    page === 0 || page === pageCount ? null : (
+      <Button handleClick={handleCurrentPage} pagination isActive>
+        <span className="reservations-pagination__page-number">{page + 1}</span>
       </Button>
     );
 
-  const renderPlaceholder =
-    page > 0 && page < pageCount ? (
-      <Button pagination>
-        <span className="reservations-pagination__placeholder">...</span>
+  const renderPlaceholder = (
+    <Button pagination isStatic>
+      <span className="reservations-pagination__placeholder">...</span>
+    </Button>
+  );
+
+  const renderLastPage = (
+    <Button
+      handleClick={handleLastPage}
+      pagination
+      isActive={page === pageCount && true}
+    >
+      <span className="reservations-pagination__page-number">
+        {pageCount + 1}
+      </span>
+    </Button>
+  );
+
+  const renderButtonNext =
+    page === pageCount ? null : (
+      <Button handleClick={handleNext} pagination>
+        <ChevronRight className="reservations-pagination__chevron" />
       </Button>
-    ) : null;
+    );
 
   return (
     <div className="reservations-pagination">
       {renderButtonPrev}
       {renderFirstPage}
-      {page === 0 ? null : (
-        <Button handleClick={handleSpecific} pagination>
-          {page}
-        </Button>
-      )}
+      {renderCurrentPage}
       {renderPlaceholder}
-      <Button handleClick={handleLastPage} pagination>
-        <span>{pageCount}</span>
-      </Button>
+      {renderLastPage}
       {renderButtonNext}
     </div>
   );

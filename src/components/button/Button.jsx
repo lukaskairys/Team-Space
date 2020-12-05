@@ -12,6 +12,8 @@ function Button({
   iconX,
   blank,
   pagination,
+  isStatic,
+  isActive,
 }) {
   const btnClass = classNames({
     button: true,
@@ -20,9 +22,16 @@ function Button({
     "button--icon-x": iconX,
     "button--blank": blank,
     "button--pagination": pagination,
+    "is-static": isStatic,
+    "is-active": isActive,
   });
   return (
-    <button type={type} onClick={handleClick} className={btnClass}>
+    <button
+      type={type}
+      onClick={handleClick}
+      className={btnClass}
+      tabIndex={isStatic && "-1"}
+    >
       {children}
     </button>
   );
@@ -37,6 +46,8 @@ Button.propTypes = {
   medium: PropTypes.bool,
   blank: PropTypes.bool,
   pagination: PropTypes.bool,
+  isStatic: PropTypes.bool,
+  isActive: PropTypes.bool,
 };
 
 export default Button;
