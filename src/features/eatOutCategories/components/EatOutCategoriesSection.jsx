@@ -1,5 +1,4 @@
 import React, { useContext, forwardRef } from "react";
-import PropTypes from "prop-types";
 
 import { context } from "contexts/Context";
 import ReservationsCard from "components/ReservationCard/ReservationCard";
@@ -48,8 +47,5 @@ const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
 });
 
 EatOutCategoriesSection.displayName = "EatOutCategoriesSection";
-EatOutCategoriesSection.propTypes = {
-  setMounted: PropTypes.func,
-};
 
 export default EatOutCategoriesSection;

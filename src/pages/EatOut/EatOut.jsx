@@ -25,7 +25,7 @@ const EatOut = () => {
           <ContextProvider endpoint="/restaurants">
             <Breadcrumbs />
             <EatOutHeroWidget />
-            <EatOutCategoriesSection ref={scrollRef} id="categories" />
+            <EatOutCategoriesSection ref={scrollRef} />
             <RestaurantCardsSection title="Discover near you" mode="similar" />
             <RestaurantCardsSection title="New places" mode="similar" />
           </ContextProvider>
