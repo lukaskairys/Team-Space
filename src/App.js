@@ -17,8 +17,6 @@ import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
 import ContextProvider from "contexts/ContextProvider";
 
-import SideFilters from "features/sideFilters/SideFilters";
-
 function App() {
   return (
     <Router>
@@ -58,10 +56,6 @@ function App() {
                 isRedirected: true,
               }}
             />
-          </Route>
-
-          <Route path="/test">
-            <SideFilters />
           </Route>
 
           <Route exact path="/eat-out/">

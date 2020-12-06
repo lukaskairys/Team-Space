@@ -33,7 +33,7 @@ Button.propTypes = {
   handleClick: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.object,
+    PropTypes.element,
     PropTypes.array,
   ]),
   large: PropTypes.bool,

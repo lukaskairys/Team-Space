@@ -3,28 +3,29 @@
 .side-filter {
     border-radius: $base-border-radius;
     box-shadow: $card-shadow;
-    padding: 1.4rem 2.4rem;
+    margin: 4rem 0;
+    padding: 1.4rem 2.4rem 1rem;
     width: 28.6rem;
 
     &__top {
         @include typography-caption;
 
         align-items: center;
+        border-bottom: 1px solid $color-ghost;
         color: $color-gull-gray;
         display: flex;
         justify-content: space-between;
+        padding-bottom: 2rem;
         text-transform: uppercase;
-    }
-
-    &__line {
-        margin: 2rem 0 0.5rem;
     }
 
     &__list {
         @include typography-body-2;
 
+        border: unset;
         color: $color-fiord;
-        margin: 0;
+        margin-left: -0.5rem;
+        padding-top: 0.5rem;
     }
 
     button {
