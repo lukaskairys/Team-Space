@@ -53,12 +53,11 @@ export default function Pagination({ page, setPage, pageCount }) {
       </Button>
     );
 
-  const renderPlaceholder =
-    page === 0 ? null : (
-      <Button pagination isStatic>
-        <span className="reservations-pagination__placeholder">...</span>
-      </Button>
-    );
+  const renderPlaceholder = (
+    <Button pagination isStatic>
+      <span className="reservations-pagination__placeholder">...</span>
+    </Button>
+  );
 
   const renderLastPage = (
     <Button

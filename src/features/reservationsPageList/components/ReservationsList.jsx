@@ -25,7 +25,7 @@ function ReservationsList({ searchTerm, tags }) {
   };
 
   if (data?.deviceList) {
-    const filteredData = dataFilter(data.deviceList, tags);
+    const filteredData = dataFilter(data.deviceList, tags, searchTerm);
     const devices = groupArray(filteredData, 6);
     const pageCount = devices.length - 1;
     if (devices.length > 0) {

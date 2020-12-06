@@ -2,20 +2,20 @@ import React from "react";
 
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
-
-import "./Devices.scss";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 import ContextProvider from "contexts/ContextProvider";
 
-const Devices = () => {
-  const placeholders = {
-    searchTerm: "Apple",
-  };
+import "./Devices.scss";
 
-  const tags = {
-    deviceType: ["Desktop"],
-    os: [],
-    brand: [],
+const Devices = () => {
+  // Placeholders to be replaced by state changing items
+  const placeholders = {
+    searchTerm: "",
+    tags: {
+      deviceType: [],
+      os: [],
+      brand: [],
+    },
   };
 
   return (
@@ -26,7 +26,7 @@ const Devices = () => {
           <ContextProvider endpoint="/devices">
             <ReservationsList
               searchTerm={placeholders.searchTerm}
-              tags={tags}
+              tags={placeholders.tags}
             />
           </ContextProvider>
         </>
