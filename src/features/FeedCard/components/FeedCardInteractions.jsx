@@ -17,7 +17,7 @@ function FeedCardInteractions({ likes }) {
 
   return (
     <>
-      <HeartIcon clickEvent={toggleLike} />
+      <HeartIcon clickEvent={toggleLike} strokeColor={"slate-gray"} />
       <p>{liked}</p>
     </>
   );
