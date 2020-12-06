@@ -39,9 +39,9 @@ function BirthdayCard({ story, userPhoto, userName }) {
           </span>
         </div>
         <div className="birthday-card__body">Send a wish!</div>
-        <ConfettiLeft id="confettiLeft" className="confetti-left" />
-        <ConfettiRight id="confettiRight" className="confetti-right" />
-        <Sparkles id="sparkles" className="sparkles" />
+        <ConfettiLeft className="confetti-left" />
+        <ConfettiRight className="confetti-right" />
+        <Sparkles className="sparkles" />
         <div className="feed-card-divider"></div>
         <BirthdayComments
           comments={story.comments}

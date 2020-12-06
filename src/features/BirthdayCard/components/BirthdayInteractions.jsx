@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import "./birthdayCard.scss";
 import { ReactComponent as GiftIcon } from "../../../assets/icons/gift-icon.svg";
@@ -9,20 +10,20 @@ function BirthdayInteractions({ wishes }) {
   const [isWished, setIsWished] = useState(false);
 
   const toggleWish = (event) => {
-    const classes = event.target.classList;
     if (isWished) {
       setWished(wished - 1);
-      classes.remove("gift-icon--active");
     } else {
       setWished(wished + 1);
-      classes.add("gift-icon--active");
     }
     setIsWished(!isWished);
   };
 
   return (
     <div className="interactions-container">
-      <GiftIcon className="gift-icon" onClick={toggleWish} />
+      <GiftIcon
+        className={classNames("gift-icon", { "gift-icon--active": isWished })}
+        onClick={toggleWish}
+      />
       <p>{wished}</p>
     </div>
   );
