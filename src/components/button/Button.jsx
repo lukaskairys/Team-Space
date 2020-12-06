@@ -12,6 +12,7 @@ function Button({
   iconX,
   blank,
   pagination,
+  empty,
   isStatic,
   isActive,
 }) {
@@ -22,6 +23,7 @@ function Button({
     "button--icon-x": iconX,
     "button--blank": blank,
     "button--pagination": pagination,
+    "button--empty": empty,
     "is-static": isStatic,
     "is-active": isActive,
   });
@@ -46,6 +48,7 @@ Button.propTypes = {
   medium: PropTypes.bool,
   blank: PropTypes.bool,
   pagination: PropTypes.bool,
+  empty: PropTypes.bool,
   isStatic: PropTypes.bool,
   isActive: PropTypes.bool,
 };

@@ -1,8 +1,26 @@
 @import '../../../styles/base/base';
 
 .reservations-list {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-top: 6.4rem;
     max-width: 938px;
+
+    &__details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.6rem;
+    }
+
+    &__title {
+        @include typography-h3-alternative;
+        margin-bottom: 1.8rem;
+    }
+
+    &__search-term {
+        @include typography-h3-alternative;
+        font-style: italic;
+        margin-left: 1.6rem;
+    }
 
     &__cards {
         display: grid;

@@ -5,35 +5,71 @@ import groupArray from "utils/groupArray";
 import "./reservationsList.scss";
 import ReservationCard from "./ReservationCard";
 import Pagination from "./Pagination";
+import Tag from "./Tag";
+import dataFilter from "./dataFilter";
 
-export default function ReservationsList() {
+function ReservationsList({ searchTerm, tags }) {
   const { data } = useContext(context);
   const [page, setPage] = useState(0);
 
-  if (data?.deviceList) {
-    const devices = groupArray(data.deviceList, 6);
-    const pageCount = devices.length - 1;
-    const renderDevices = () => {
-      return devices[page].map((device, index) => {
-        return (
-          <ReservationCard
-            key={index}
-            image={device.image}
-            alt={device.deviceType}
-            topCaption={device.brand}
-            title={device.name}
-            quantityOrRating={device.quantity}
-          />
-        );
+  const renderTags = () => {
+    const tagArr = [];
+    for (const tag in tags) {
+      tags[tag].forEach((item) => {
+        tagArr.push(item);
       });
-    };
+    }
+    return tagArr.map((tag) => {
+      return <Tag key={tag} name={tag} />;
+    });
+  };
 
-    return (
-      <div className="reservations-list">
-        <div className="reservations-list__cards">{renderDevices()}</div>
-        <Pagination page={page} setPage={setPage} pageCount={pageCount} />
-      </div>
-    );
+  if (data?.deviceList) {
+    const filteredData = dataFilter(data.deviceList, tags);
+    const devices = groupArray(filteredData, 6);
+    const pageCount = devices.length - 1;
+    if (devices.length > 0) {
+      const renderDevices = () => {
+        return devices[page].map((device, index) => {
+          return (
+            <ReservationCard
+              key={index}
+              image={device.image}
+              alt={device.deviceType}
+              topCaption={device.brand}
+              title={device.name}
+              quantityOrRating={device.quantity}
+            />
+          );
+        });
+      };
+
+      return (
+        <div className="reservations-list">
+          <div className="reservations-list__details">
+            <h3 className="reservations-list__title">
+              {`${filteredData.length} results for:`}
+              <span className="reservations-list__search-term">{`${searchTerm}`}</span>
+            </h3>
+            {renderTags()}
+          </div>
+          <div className="reservations-list__cards">{renderDevices()}</div>
+          <Pagination page={page} setPage={setPage} pageCount={pageCount} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="reservations-list">
+          <div className="reservations-list__details">
+            <h3 className="reservations-list__title">
+              {`${filteredData.length} results for:`}
+              <span className="reservations-list__search-term">{`${searchTerm}`}</span>
+            </h3>
+            {renderTags()}
+          </div>
+        </div>
+      );
+    }
   } else if (data?.bookList) {
     const renderBooks = () => {
       return data.bookList.map((book, index) => {
@@ -53,6 +89,10 @@ export default function ReservationsList() {
 
     return (
       <div className="reservations-list">
+        <h3 className="reservations-list__title">
+          {`${data.bookList.length} results for:`}
+          <span className="reservations-list__search-term">{`${searchTerm}`}</span>
+        </h3>
         <div className="reservations-list__cards">{renderBooks()}</div>
         <Pagination />
       </div>
@@ -61,3 +101,5 @@ export default function ReservationsList() {
     return null;
   }
 }
+
+export default ReservationsList;

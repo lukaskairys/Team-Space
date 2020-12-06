@@ -83,7 +83,7 @@
         color: $color-fiord;
         display: grid;
         height: 3.2rem;
-        margin-left: 1.6rem;
+        margin-right: 1.6rem;
         padding: 0;
         place-items: center;
         width: 3.2rem;
@@ -92,6 +92,21 @@
         &:hover {
             background-color: $color-bright-violet;
             color: $color-white;
+        }
+    }
+
+    &--empty {
+        background: none;
+        border-radius: 0;
+        padding: 0;
+
+        &:hover,
+        &:focus {
+            background: none;
+        }
+
+        &:active {
+            background: none;
         }
     }
 

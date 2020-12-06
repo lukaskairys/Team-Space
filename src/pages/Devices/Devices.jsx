@@ -8,13 +8,26 @@ import ReservationsList from "features/reservationsPageList/components/Reservati
 import ContextProvider from "contexts/ContextProvider";
 
 const Devices = () => {
+  const placeholders = {
+    searchTerm: "Apple",
+  };
+
+  const tags = {
+    deviceType: ["Desktop"],
+    os: [],
+    brand: [],
+  };
+
   return (
     <div className="devices">
       <MainLayout>
         <>
           <Breadcrumbs />
           <ContextProvider endpoint="/devices">
-            <ReservationsList />
+            <ReservationsList
+              searchTerm={placeholders.searchTerm}
+              tags={tags}
+            />
           </ContextProvider>
         </>
       </MainLayout>
