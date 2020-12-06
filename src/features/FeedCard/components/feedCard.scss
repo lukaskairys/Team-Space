@@ -48,7 +48,7 @@
         @include custom-scrollbar;
 
         display: inline-block;
-        height: 5rem;
+        height: 5.7rem;
         margin: 0.5rem 1.6rem;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -92,7 +92,7 @@
     border-radius: $base-border-radius;
     color: $color-slate-gray;
     display: flex;
-    height: 4.6rem;
+    height: 4.8rem;
     margin-left: 0.2rem;
     overflow: hidden;
     vertical-align: middle;
@@ -104,15 +104,15 @@
 }
 
 .new-comment-container {
+    align-items: center;
     display: flex;
-    margin-top: 0.3rem;
     width: 39.5rem;
 }
 
 .new-comment-image {
     border-radius: 50%;
     height: 2.4rem;
-    margin: 0.8rem 1.2rem 0.8rem 1.6rem;
+    margin: 1.2rem 1.2rem 1.2rem 1.6rem;
     object-fit: cover;
     width: 2.4rem;
 }
@@ -140,7 +140,7 @@
     cursor: pointer;
     fill: $color-white;
     height: 2.2rem;
-    margin: 1.5rem 0.6rem 1.5rem 1.5rem;
+    margin: 0 0.6rem 0 1.5rem;
     stroke: $color-gull-gray;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -157,7 +157,7 @@
     cursor: pointer;
     fill: $color-white;
     height: 2.1rem;
-    margin: 1.3rem 0.6rem 1.6rem 1.4rem;
+    margin: 0 0.6rem 0 1.4rem;
     width: 2.4rem;
 }
 
