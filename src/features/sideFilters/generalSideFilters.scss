@@ -1,0 +1,33 @@
+@import '../../styles/base/base';
+
+.side-filter {
+    border-radius: $base-border-radius;
+    box-shadow: $card-shadow;
+    padding: 1.4rem 2.4rem;
+    width: 28.6rem;
+
+    &__top {
+        @include typography-caption;
+
+        align-items: center;
+        color: $color-gull-gray;
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+    }
+
+    &__line {
+        margin: 2rem 0 0.5rem;
+    }
+
+    &__list {
+        @include typography-body-2;
+
+        color: $color-fiord;
+        margin: 0;
+    }
+
+    button {
+        width: 9rem;
+    }
+}

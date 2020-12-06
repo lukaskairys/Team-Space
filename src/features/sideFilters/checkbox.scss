@@ -1,0 +1,70 @@
+@import '../../styles/base/base';
+
+.checkbox-item {
+    margin: 1.1rem 0;
+
+    label {
+        cursor: pointer;
+        display: block;
+        min-height: 2rem;
+        padding-left: 3.4rem;
+        position: relative;
+
+        span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &::before {
+            border: 1px solid $color-ghost;
+            border-radius: $secondary-border-radius;
+            content: '';
+            height: 1.6rem;
+            left: 0;
+            margin: 4px;
+            position: absolute;
+            top: 0;
+            transition: transform 0.2s ease;
+            width: 1.6rem;
+        }
+
+        &::after {
+            border-bottom: 2px solid $color-white;
+            border-left: 2px solid $color-white;
+            content: '';
+            display: block;
+            height: 5px;
+            left: 7px;
+            position: absolute;
+            top: 8px;
+            transform: rotate(-45deg) scale(0);
+            transition: transform ease 0.25s;
+            width: 9px;
+        }
+    }
+
+    input {
+        left: 0;
+        margin-left: -20px;
+        position: absolute;
+        width: auto;
+
+        &:checked ~ label {
+            font-weight: $medium-weight;
+
+            &::before {
+                background: $color-bright-violet;
+                border: 1px solid $color-bright-violet;
+            }
+
+            &::after {
+                transform: rotate(-45deg) scale(1);
+            }
+        }
+
+        &:focus + label::before {
+            box-shadow: 0 0 1px 1px $color-fiord;
+        }
+    }
+}
