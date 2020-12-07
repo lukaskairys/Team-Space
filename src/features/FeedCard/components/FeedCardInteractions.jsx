@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 
 import "./feedCard.scss";
 import HeartIcon from "../../../components/HeartIcon/HeartIcon";
 
-function FeedCardInteractions({ likes }) {
+function FeedCardInteractions({ likes, id }) {
   const [liked, setLiked] = useState(likes);
 
   const toggleLike = (active) => {
@@ -14,10 +15,14 @@ function FeedCardInteractions({ likes }) {
       setLiked(liked + 1);
     }
   };
-
   return (
     <>
-      <HeartIcon clickEvent={toggleLike} strokeColor={"slate-gray"} />
+      <HeartIcon
+        itemType={FavoriteTypes.STORY}
+        itemId={id}
+        clickEvent={toggleLike}
+        strokeColor={"slate-gray"}
+      />
       <p>{liked}</p>
     </>
   );
@@ -25,6 +30,7 @@ function FeedCardInteractions({ likes }) {
 
 FeedCardInteractions.propTypes = {
   likes: PropTypes.number,
+  id: PropTypes.string,
 };
 
 export default FeedCardInteractions;

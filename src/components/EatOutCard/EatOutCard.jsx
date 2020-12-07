@@ -18,6 +18,7 @@ function EatOutCard({ restaurant, handleImageLoad }) {
             handleImageLoad={handleImageLoad}
           />
           <EatOutCardSubheader
+            id={restaurant.id}
             restaurantName={restaurant.name}
             openingHours={restaurant.openingHours}
           />
