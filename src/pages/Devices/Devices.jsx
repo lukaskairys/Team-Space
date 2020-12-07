@@ -9,18 +9,13 @@ import ReservationsList from "features/reservationsPageList/components/Reservati
 import ContextProvider from "contexts/ContextProvider";
 import SideFilters from "features/sideFilters/SideFilters";
 
-import "./devices.scss";
+import "./Devices.scss";
 
 const Devices = () => {
   // Placeholders to be replaced by state changing items
   const placeholders = {
-    searchTerm: "apple",
+    searchTerm: "",
     date: "",
-    tags: {
-      deviceType: [],
-      os: [],
-      brand: [],
-    },
   };
   const [refs, setRefs] = useState(undefined);
   const [dataCount, setDataCount] = useState(0);
@@ -48,36 +43,38 @@ const Devices = () => {
   const filtersToRender = getFiltersToRender();
 
   return (
-    <div className="devices">
+    <>
       <MainLayout>
         <>
           <Breadcrumbs />
-          <ContextProvider endpoint="/devices">
-            <ReservationsList
-              searchTerm={placeholders.searchTerm}
-              date={placeholders.date}
-              tags={placeholders.tags}
-            />
-          </ContextProvider>
-          <div className="devices__side-filters">
-            {filtersToRender !== undefined &&
-              filtersToRender.map((item, i) => (
-                <SideFilters
-                  key={item[0]}
-                  title={item[0]}
-                  filterItems={item[1]}
-                  filterTags={tags}
-                  clearAll={clearAll}
-                  tags={tags}
-                  handleChange={handleChange}
-                  ref={refs && refs[i]}
-                  value={item}
-                />
-              ))}
+          <div className="devices">
+            <div className="devices__side-filters">
+              {filtersToRender !== undefined &&
+                filtersToRender.map((item, i) => (
+                  <SideFilters
+                    key={item[0]}
+                    title={item[0]}
+                    filterItems={item[1]}
+                    filterTags={tags}
+                    clearAll={clearAll}
+                    tags={tags}
+                    handleChange={handleChange}
+                    ref={refs && refs[i]}
+                    value={item}
+                  />
+                ))}
+            </div>
+            <ContextProvider endpoint="/devices">
+              <ReservationsList
+                searchTerm={placeholders.searchTerm}
+                date={placeholders.date}
+                tags={tags}
+              />
+            </ContextProvider>
           </div>
         </>
       </MainLayout>
-    </div>
+    </>
   );
 };
 
