@@ -17,6 +17,7 @@ function Button({
   isActive,
   disabled,
   blankWithBorder,
+  dataTagName,
 }) {
   const btnClass = classNames({
     button: true,
@@ -37,6 +38,7 @@ function Button({
       className={btnClass}
       tabIndex={isStatic && "-1"}
       disabled={disabled}
+      data-tag-name={dataTagName}
     >
       {children}
     </button>
@@ -61,6 +63,7 @@ Button.propTypes = {
   isActive: PropTypes.bool,
   disabled: PropTypes.bool,
   blankWithBorder: PropTypes.bool,
+  dataTagName: PropTypes.string,
 };
 
 export default Button;

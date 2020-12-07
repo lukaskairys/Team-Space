@@ -9,7 +9,7 @@ import Pagination from "./Pagination";
 import Tag from "./Tag";
 import dataFilter from "./dataFilter";
 
-function ReservationsList({ searchTerm, tags, date }) {
+function ReservationsList({ searchTerm, tags, date, handleSingleTag }) {
   const { data } = useContext(context);
   const [page, setPage] = useState(0);
 
@@ -21,7 +21,7 @@ function ReservationsList({ searchTerm, tags, date }) {
       });
     }
     return tagArr.map((tag) => {
-      return <Tag key={tag} name={tag} />;
+      return <Tag key={tag} name={tag} handleSingleTag={handleSingleTag} />;
     });
   };
 

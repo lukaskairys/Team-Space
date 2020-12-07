@@ -17,10 +17,11 @@ const Devices = () => {
     searchTerm: "",
     date: "",
   };
+
   const [refs, setRefs] = useState(undefined);
   const [dataCount, setDataCount] = useState(0);
   const { data } = useRequest("/devices");
-  const { handleChange, clearAll, tags } = useSideFilter();
+  const { handleChange, clearAll, tags, handleSingleTag } = useSideFilter();
 
   const filterData = data.filterCategories;
 
@@ -69,6 +70,7 @@ const Devices = () => {
                 searchTerm={placeholders.searchTerm}
                 date={placeholders.date}
                 tags={tags}
+                handleSingleTag={handleSingleTag}
               />
             </ContextProvider>
           </div>
