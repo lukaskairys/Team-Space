@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import RatingComponent from "../../../components/Rating/Rating";
 import "./eatOutCardHeader.scss";
 
-function EatOutCardHeader({ restaurant, children }) {
+function EatOutCardHeader({ restaurant, children, handleImageLoad }) {
   const formCategories = (categories) => {
     return (
       <ul className="card-header__categories">
@@ -18,13 +18,13 @@ function EatOutCardHeader({ restaurant, children }) {
       </ul>
     );
   };
-
   return (
     <div className="card-header">
       <img
         src={restaurant.image}
         className="card-header__image"
         alt="restaurant food"
+        onLoad={handleImageLoad}
       />
       <div className="card-header__icons">
         {children ? children : <span> </span>}
@@ -43,6 +43,7 @@ EatOutCardHeader.propTypes = {
     ratingAverage: PropTypes.string,
     reviews: PropTypes.array,
   }),
+  handleImageLoad: PropTypes.func,
 };
 
 export default EatOutCardHeader;
