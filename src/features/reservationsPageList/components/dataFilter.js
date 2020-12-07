@@ -3,11 +3,12 @@ export default function dataFilter(data, tags, searchTerm) {
   searchTerm = searchTerm.toLowerCase();
 
   const filterBySearchTerm = () => {
-    filterData = filterData.filter((object, index) => {
-      const match = Object.values(object).find((property) => {
-        if (typeof property === "string") {
-          return property.toLowerCase().includes(searchTerm);
-        } else return null;
+    filterData = filterData.filter((object) => {
+      const searchableAttributes = Object.values(object).filter(
+        (value) => typeof value === "string"
+      );
+      const match = searchableAttributes.find((property) => {
+        return property.toLowerCase().includes(searchTerm);
       });
       if (Object.values(object).includes(match)) {
         return object;
@@ -29,6 +30,5 @@ export default function dataFilter(data, tags, searchTerm) {
 
   filterByTags();
   filterBySearchTerm();
-
   return filterData;
 }

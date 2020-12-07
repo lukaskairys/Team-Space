@@ -1,5 +1,7 @@
 @import '../../../styles/base/base';
 
+$_gap: 1.6rem;
+
 .reservations-list {
     margin-left: auto;
     margin-top: 6.4rem;
@@ -8,7 +10,7 @@
     &__details {
         display: flex;
         flex-wrap: wrap;
-        gap: 1.6rem;
+        gap: $_gap;
     }
 
     &__title {
@@ -19,12 +21,12 @@
     &__search-term {
         @include typography-h3-alternative;
         font-style: italic;
-        margin-left: 1.6rem;
+        margin-left: $_gap;
     }
 
     &__cards {
         display: grid;
         grid-template-columns: 1fr;
-        row-gap: 1.6rem;
+        row-gap: $_gap;
     }
 }

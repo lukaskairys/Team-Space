@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+
 import { context } from "contexts/Context";
 import groupArray from "utils/groupArray";
 
@@ -8,7 +9,7 @@ import Pagination from "./Pagination";
 import Tag from "./Tag";
 import dataFilter from "./dataFilter";
 
-function ReservationsList({ searchTerm, tags }) {
+function ReservationsList({ searchTerm, tags, date }) {
   const { data } = useContext(context);
   const [page, setPage] = useState(0);
 
@@ -39,6 +40,8 @@ function ReservationsList({ searchTerm, tags }) {
               topCaption={device.brand}
               title={device.name}
               quantityOrRating={device.quantity}
+              bookedUntil={device?.bookedUntil ? device.bookedUntil : null}
+              date={date}
             />
           );
         });
@@ -71,32 +74,51 @@ function ReservationsList({ searchTerm, tags }) {
       );
     }
   } else if (data?.bookList) {
-    const renderBooks = () => {
-      return data.bookList.map((book, index) => {
-        return (
-          <ReservationCard
-            key={index}
-            image={book.image}
-            alt={"Book"}
-            topCaption={book.author}
-            title={book.title}
-            quantityOrRating={book.rating.score}
-            book
-          />
-        );
-      });
-    };
+    const filteredData = dataFilter(data.bookList, tags, searchTerm);
+    const books = groupArray(filteredData, 6);
+    const pageCount = books.length - 1;
+    if (books.length > 0) {
+      const renderBooks = () => {
+        return books[page].map((book, index) => {
+          return (
+            <ReservationCard
+              key={index}
+              image={book.image}
+              alt={"Book"}
+              topCaption={book.author}
+              title={book.title}
+              quantityOrRating={book.rating.score}
+              bookedUntil={book?.bookedUntil ? book.bookedUntil : null}
+              date={date}
+              book
+            />
+          );
+        });
+      };
 
-    return (
-      <div className="reservations-list">
-        <h3 className="reservations-list__title">
-          {`${data.bookList.length} results for:`}
-          <span className="reservations-list__search-term">{`${searchTerm}`}</span>
-        </h3>
-        <div className="reservations-list__cards">{renderBooks()}</div>
-        <Pagination />
-      </div>
-    );
+      return (
+        <div className="reservations-list">
+          <h3 className="reservations-list__title">
+            {`${filteredData.length} results for:`}
+            <span className="reservations-list__search-term">{`${searchTerm}`}</span>
+          </h3>
+          <div className="reservations-list__cards">{renderBooks()}</div>
+          <Pagination page={page} setPage={setPage} pageCount={pageCount} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="reservations-list">
+          <div className="reservations-list__details">
+            <h3 className="reservations-list__title">
+              {`${filteredData.length} results for:`}
+              <span className="reservations-list__search-term">{`${searchTerm}`}</span>
+            </h3>
+            {renderTags()}
+          </div>
+        </div>
+      );
+    }
   } else {
     return null;
   }

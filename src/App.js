@@ -8,7 +8,7 @@ import {
 
 import RegistrationPage from "features/registration/pages/RegistrationPage";
 import LoginPage from "features/login/pages/LoginPage";
-import MainLayout from "components/MainLayout/MainLayout";
+import Books from "pages/Books/Books";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
@@ -45,7 +45,7 @@ function App() {
           </Route>
 
           <Route exact path="/reservations/books">
-            <MainLayout />
+            <Books />
           </Route>
 
           <Route exact path="/eat-out/categories">

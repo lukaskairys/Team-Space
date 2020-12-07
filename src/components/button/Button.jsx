@@ -15,6 +15,7 @@ function Button({
   empty,
   isStatic,
   isActive,
+  disabled,
 }) {
   const btnClass = classNames({
     button: true,
@@ -33,6 +34,7 @@ function Button({
       onClick={handleClick}
       className={btnClass}
       tabIndex={isStatic && "-1"}
+      disabled={disabled}
     >
       {children}
     </button>
@@ -51,6 +53,7 @@ Button.propTypes = {
   empty: PropTypes.bool,
   isStatic: PropTypes.bool,
   isActive: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default Button;

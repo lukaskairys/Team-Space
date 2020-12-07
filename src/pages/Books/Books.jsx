@@ -5,26 +5,24 @@ import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 import ContextProvider from "contexts/ContextProvider";
 
-import "./devices.scss";
+import "./books.scss";
 
 const Devices = () => {
   // Placeholders to be replaced by state changing items
   const placeholders = {
-    searchTerm: "apple",
+    searchTerm: "react",
     date: "",
     tags: {
-      deviceType: [],
-      os: [],
-      brand: [],
+      genres: [],
     },
   };
 
   return (
-    <div className="devices">
+    <div className="books">
       <MainLayout>
         <>
           <Breadcrumbs />
-          <ContextProvider endpoint="/devices">
+          <ContextProvider endpoint="/books">
             <ReservationsList
               searchTerm={placeholders.searchTerm}
               date={placeholders.date}
