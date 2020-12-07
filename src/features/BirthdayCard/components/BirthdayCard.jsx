@@ -31,23 +31,17 @@ function BirthdayCard({ story, userPhoto, userName }) {
         />
       </div>
       <div className="birthday-card__content">
-        <div className="birthday-card__title">
-          <p>{story.userName}</p>
-        </div>
+        <div className="birthday-card__title">{story.userName}</div>
         <div className="birthday-card__date">
-          <p>
-            Celebrated a birthday on
-            <span className="birthday-card__date-day">
-              {getBirthdayDate(story.birthdayDate)}
-            </span>
-          </p>
+          Celebrated a birthday on
+          <span className="birthday-card__date-day">
+            {getBirthdayDate(story.birthdayDate)}
+          </span>
         </div>
-        <div className="birthday-card__body">
-          <p>Send a wish!</p>
-        </div>
-        <ConfettiLeft id="confettiLeft" className="confetti-left" />
-        <ConfettiRight id="confettiRight" className="confetti-right" />
-        <Sparkles id="sparkles" className="sparkles" />
+        <div className="birthday-card__body">Send a wish!</div>
+        <ConfettiLeft className="confetti-left" />
+        <ConfettiRight className="confetti-right" />
+        <Sparkles className="sparkles" />
         <div className="feed-card-divider"></div>
         <BirthdayComments
           comments={story.comments}
