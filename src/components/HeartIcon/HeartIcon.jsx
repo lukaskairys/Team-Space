@@ -11,7 +11,7 @@ import { update } from "./patchService";
 function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
   const [active, setActive] = useState(false);
   ///TODO after login functionality fetch user user from session or SMTH. (Right now gets the user currently set in the context)
-  const { data } = useContext(UserContext);
+  const { data, likeState, setLikeState } = useContext(UserContext);
 
   const heartClass = classNames({
     "heart-icon": true,
@@ -20,13 +20,9 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
   });
 
   const toggleFavorite = () => {
-    if (active) {
-      remove(itemId, data);
-      setActive(!active);
-    } else {
-      add(itemId, data);
-      setActive(!active);
-    }
+    active === true ? remove(itemId, data) : add(itemId, data);
+    setActive(!active);
+    setLikeState(`${itemId}-${active}`);
     if (clickEvent !== undefined) {
       clickEvent(active);
     }
@@ -68,7 +64,7 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
     if (!isObjectEmpty(data)) {
       genericHandler(data, itemId, InitialHandler);
     }
-  }, [data, genericHandler, itemId, active]);
+  }, [data, genericHandler, itemId, likeState]);
 
   const removeHandler = (userLikeduser, id) => {
     if (!userLikeduser) return;
@@ -88,6 +84,7 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
     if (!userLikeduser) return;
     const doesContain = userLikeduser.some((liked) => liked.id === id);
     if (doesContain) setActive(true);
+    else setActive(false);
   };
 
   return (

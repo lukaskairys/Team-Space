@@ -20,8 +20,8 @@ import UserContextProvider from "contexts/UserContextProvider";
 
 function App() {
   return (
-    <UserContextProvider endpoint="/users/1">
-      <Router>
+    <Router>
+      <UserContextProvider endpoint="/users/1">
         <>
           {/* A <Switch> looks through its <Route>s and
             renders the first one that matches the path. */}
@@ -77,8 +77,8 @@ function App() {
             </ContextProvider>
           </Switch>
         </>
-      </Router>
-    </UserContextProvider>
+      </UserContextProvider>
+    </Router>
   );
 }
 

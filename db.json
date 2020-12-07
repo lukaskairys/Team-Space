@@ -30,15 +30,6 @@
       "liked": {
         "restaurants": [
           {
-            "id": "3gogeanl0p"
-          },
-          {
-            "id": "rri8r7gpdp"
-          },
-          {
-            "id": "sejw2ugddc"
-          },
-          {
             "id": "x8bd7ozuj6"
           },
           {
@@ -48,10 +39,13 @@
             "id": "porhch2lam"
           },
           {
-            "id": "7et2tk3ih1"
+            "id": "9kdf9qawui"
           },
           {
-            "id": "9kdf9qawui"
+            "id": "sejw2ugddc"
+          },
+          {
+            "id": "120wsdlpx4"
           }
         ],
         "books": [],
@@ -59,9 +53,6 @@
         "stories": [
           {
             "id": "10197o9h40"
-          },
-          {
-            "id": "10au0o9280"
           }
         ]
       }
