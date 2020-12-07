@@ -30,7 +30,6 @@ const RestaurantCardsSection = ({ title, mode }) => {
 
   const [visibleData, setVisibleData] = useState([]);
   const { id } = useParams("id");
-  // const [totalPages, setTotalPages] = useState(0);
 
   const sectionRef = useRef(null);
   const listRef = useRef(null);
