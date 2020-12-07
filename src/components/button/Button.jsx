@@ -16,6 +16,7 @@ function Button({
   isStatic,
   isActive,
   disabled,
+  blankWithBorder,
 }) {
   const btnClass = classNames({
     button: true,
@@ -27,6 +28,7 @@ function Button({
     "button--empty": empty,
     "is-static": isStatic,
     "is-active": isActive,
+    "button--blank-with-border": blankWithBorder,
   });
   return (
     <button
@@ -44,7 +46,11 @@ function Button({
 Button.propTypes = {
   type: PropTypes.string,
   handleClick: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.array,
+  ]),
   large: PropTypes.bool,
   iconX: PropTypes.bool,
   medium: PropTypes.bool,
@@ -54,6 +60,7 @@ Button.propTypes = {
   isStatic: PropTypes.bool,
   isActive: PropTypes.bool,
   disabled: PropTypes.bool,
+  blankWithBorder: PropTypes.bool,
 };
 
 export default Button;

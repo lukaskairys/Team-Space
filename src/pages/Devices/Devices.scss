@@ -2,4 +2,8 @@
 
 .devices {
     display: block;
+
+    &__side-filters {
+        width: 28.6rem;
+    }
 }
