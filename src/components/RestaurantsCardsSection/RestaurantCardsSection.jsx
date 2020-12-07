@@ -30,7 +30,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
 
   const [visibleData, setVisibleData] = useState([]);
   const { id } = useParams("id");
-  const [totalPages, setTotalPages] = useState(0);
+  // const [totalPages, setTotalPages] = useState(0);
 
   const sectionRef = useRef(null);
   const listRef = useRef(null);
@@ -39,13 +39,14 @@ const RestaurantCardsSection = ({ title, mode }) => {
   const cardRef = useRef(null);
   const imagesLoaded = useRef(0);
   const prevId = useRef(id);
+  let prevItemsPerPage = useRef(itemsPerPage);
 
   //callback from custom resize hook
   const observeWidthCallback = (width) => {
     if (width) setContainerWidth(width);
   };
 
-  //custok hook for listening to resize of the container
+  //custom hook for listening to resize of the container
   useObserver({ callback: observeWidthCallback, element: sectionRef });
 
   //pagination method - sets current animation and toggles fade out animation loading.
@@ -72,31 +73,26 @@ const RestaurantCardsSection = ({ title, mode }) => {
 
   useEffect(() => {
     const slicePart = (data) => {
-      const index = currentPage * visibleData.length;
-      const currentItemsPerPage = itemsPerPage;
-      const newCurrentPage = Math.floor(index / currentItemsPerPage);
+      const index = currentPage * prevItemsPerPage.current;
+      const newCurrentPage = Math.floor(index / itemsPerPage);
       setCurrentPage(newCurrentPage);
+      prevItemsPerPage.current = itemsPerPage;
+
       return data.slice(
-        newCurrentPage * currentItemsPerPage,
-        currentItemsPerPage * newCurrentPage + currentItemsPerPage
+        newCurrentPage * itemsPerPage,
+        itemsPerPage * newCurrentPage + itemsPerPage
       );
     };
     if (data.restaurantList) {
       //set filtered data on first load
       handleDataFiltering();
-      const currentTotalPages = Math.ceil(
-        filteredData.current.length / itemsPerPage
-      );
-      setTotalPages(currentTotalPages);
       setVisibleData(slicePart(filteredData.current));
     }
-  }, [
-    data.restaurantList,
-    currentPage,
-    itemsPerPage,
-    visibleData.length,
-    handleDataFiltering,
-  ]);
+  }, [data.restaurantList, currentPage, itemsPerPage, handleDataFiltering]);
+
+  const getTotalPages = () => {
+    return Math.ceil(filteredData.current.length / itemsPerPage);
+  };
 
   //listen to the img load event - starts fade in animation when all images load.
   const handleImageLoad = () => {
@@ -118,7 +114,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
             <SectionTitle title={title} />
             <Pagination
               currentPage={currentPage}
-              totalPages={totalPages}
+              totalPages={getTotalPages()}
               paginate={paginate}
             />
           </div>
