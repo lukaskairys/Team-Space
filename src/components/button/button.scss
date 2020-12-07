@@ -57,6 +57,35 @@
         }
     }
 
+    &--blank-with-border {
+        align-items: center;
+        background: none;
+        border: 1px solid $color-ghost;
+        border-radius: $base-border-radius;
+        color: $color-fiord;
+        display: flex;
+        font-weight: $medium-weight;
+        justify-content: space-between;
+        padding: 0.6rem 1.2rem;
+        text-transform: none;
+
+        &:hover,
+        &:focus {
+            background: none;
+            color: $color-fiord;
+        }
+
+        &:active {
+            background: none;
+            color: $color-midnight;
+        }
+
+        &:disabled {
+            background: none;
+            color: $color-gull-gray;
+        }
+    }
+
     &--icon-x {
         background: none;
         line-height: 0;

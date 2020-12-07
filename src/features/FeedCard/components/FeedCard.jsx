@@ -29,7 +29,6 @@ function FeedCard({ story, userPhoto, userName, type }) {
           alt="Post"
         />
       </div>
-      <div className="feed-card-divider"></div>
       <FeedCardComments
         comments={story.comments}
         username={userName}

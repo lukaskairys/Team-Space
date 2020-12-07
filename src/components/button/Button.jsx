@@ -11,6 +11,7 @@ function Button({
   medium,
   iconX,
   blank,
+  blankWithBorder,
 }) {
   const btnClass = classNames({
     button: true,
@@ -18,6 +19,7 @@ function Button({
     "button--medium": medium,
     "button--icon-x": iconX,
     "button--blank": blank,
+    "button--blank-with-border": blankWithBorder,
   });
   return (
     <button type={type} onClick={handleClick} className={btnClass}>
@@ -29,11 +31,16 @@ function Button({
 Button.propTypes = {
   type: PropTypes.string,
   handleClick: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.array,
+  ]),
   large: PropTypes.bool,
   iconX: PropTypes.bool,
   medium: PropTypes.bool,
   blank: PropTypes.bool,
+  blankWithBorder: PropTypes.bool,
 };
 
 export default Button;
