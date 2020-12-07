@@ -16,7 +16,7 @@ const EatOut = () => {
   const scrollRef = useRef(null);
   const condition = location.isRedirected;
 
-  HandleScroll(scrollRef, condition);
+  HandleScroll(scrollRef, condition, "#categories");
 
   return (
     <div className="eat-out">
