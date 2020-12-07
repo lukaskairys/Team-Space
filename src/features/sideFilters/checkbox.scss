@@ -1,0 +1,71 @@
+@import '../../styles/base/base';
+
+.checkbox {
+    margin: 1.1rem 0;
+
+    &__label {
+        cursor: pointer;
+        display: block;
+        min-height: 2.1rem;
+        padding-left: 3.4rem;
+        position: relative;
+        user-select: none;
+
+        &::before {
+            border: 1px solid $color-ghost;
+            border-radius: $secondary-border-radius;
+            content: '';
+            height: 1.6rem;
+            left: 0;
+            margin: 0.4rem;
+            position: absolute;
+            top: 0;
+            transition: transform 0.2s ease;
+            width: 1.6rem;
+        }
+
+        &::after {
+            border-bottom: 2px solid $color-white;
+            border-left: 2px solid $color-white;
+            content: '';
+            display: block;
+            height: 0.45rem;
+            left: 0.7rem;
+            position: absolute;
+            top: 0.8rem;
+            transform: rotate(-45deg) scale(0);
+            transition: transform ease 0.25s;
+            width: 0.9rem;
+        }
+    }
+
+    &__label-text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__input {
+        left: 0;
+        margin-left: -2rem;
+        position: absolute;
+        width: auto;
+
+        &:checked ~ label {
+            font-weight: $medium-weight;
+
+            &::before {
+                background: $color-bright-violet;
+                border: 1px solid $color-bright-violet;
+            }
+
+            &::after {
+                transform: rotate(-45deg) scale(1);
+            }
+        }
+
+        &:focus + label::before {
+            box-shadow: 0 0 1px 1px $color-fiord;
+        }
+    }
+}

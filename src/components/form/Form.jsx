@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 import useForm from "./useForm";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
-import SuccessMessage from "components/SuccessMessage/SuccessMessage";
+import Message from "components/Message/Message";
 
 import { validateRegistration, validateLogin } from "./validationRules";
 
@@ -19,6 +18,9 @@ function Form({ title, subtitle, action }) {
     handleFocus,
     handleXclick,
   } = useForm(getCallback(), getValidation());
+
+  // eslint-disable-next-line
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   let history = useHistory();
 
@@ -33,25 +35,24 @@ function Form({ title, subtitle, action }) {
   }
 
   function register() {
-    history.push("/login", {
+    // TODO: logic what happens when submit (form here is already validated) - send data to db.json, auto-login
+    // if failed to post data in json - setShowError(true)
+    history.push("/", {
       message: "Your registration was successful.",
     });
-    // logic what happens when submit - probably send data into db.json
   }
 
   function login() {
+    // TODO: logic what happens when submit - check email & password on db.json
+    // if failed to check data in json - setShowError(true)
     history.push("/");
-    // logic what happens when submit - probably send data into db.json
   }
-  const location = useLocation();
 
   return (
     <>
       <div className="form">
-        {location.state ? (
-          <SuccessMessage message={location.state.message} />
-        ) : (
-          ""
+        {showErrorMessage && (
+          <Message message={"Something went wrong"} type={"error"} />
         )}
         <div className="form__header">
           <h2 className="form__title">{title}</h2>
