@@ -8,23 +8,27 @@ import EatOutCardFooter from "./components/EatOutCardFooter";
 
 import "./eatOutCard.scss";
 
-function EatOutCard({ restaurant }) {
+function EatOutCard({ restaurant, handleImageLoad }) {
+  const { name, openingHours, address, website, id, description } = restaurant;
   return (
     <>
       <div className="eat-out-card">
         <div>
-          <EatOutCardHeader restaurant={restaurant} />
+          <EatOutCardHeader
+            restaurant={restaurant}
+            handleImageLoad={handleImageLoad}
+          />
           <EatOutCardSubheader
-            restaurantName={restaurant.name}
-            openingHours={restaurant.openingHours}
+            restaurantName={name}
+            openingHours={openingHours}
           />
           <EatOutCardContent
-            address={restaurant.address}
-            website={restaurant.website}
-            description={restaurant.description}
+            address={address}
+            website={website}
+            description={description}
           />
         </div>
-        <EatOutCardFooter restaurantID={restaurant.id} />
+        <EatOutCardFooter restaurantID={id} />
       </div>
     </>
   );
@@ -39,6 +43,7 @@ EatOutCard.propTypes = {
     website: PropTypes.string,
     description: PropTypes.string,
   }),
+  handleImageLoad: PropTypes.func,
 };
 
 export default EatOutCard;
