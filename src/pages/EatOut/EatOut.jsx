@@ -21,15 +21,13 @@ const EatOut = () => {
   return (
     <div className="eat-out">
       <MainLayout>
-        <>
-          <ContextProvider endpoint="/restaurants">
-            <Breadcrumbs />
-            <EatOutHeroWidget />
-            <EatOutCategoriesSection ref={scrollRef} />
-            <RestaurantCardsSection title="Near you" mode="near" />
-            <RestaurantCardsSection title="New Places" mode="new" />
-          </ContextProvider>
-        </>
+        <ContextProvider endpoint="/restaurants">
+          <Breadcrumbs />
+          <EatOutHeroWidget />
+          <EatOutCategoriesSection ref={scrollRef} />
+          <RestaurantCardsSection title="Discover near you" mode="near" />
+          <RestaurantCardsSection title="New Places" mode="new" />
+        </ContextProvider>
       </MainLayout>
     </div>
   );
