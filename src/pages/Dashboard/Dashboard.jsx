@@ -16,7 +16,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <MainLayout>
         <>
-          <ContextProvider endpoint="/userData">
+          <ContextProvider endpoint="/users/1">
             <div className="dashboard__widgets">
               <HelloWidget />
               <WeatherWidget />
@@ -32,7 +32,7 @@ const Dashboard = () => {
               <EatOutSection />
             </ContextProvider>
           </div>
-          <ContextProvider endpoint="/userData">
+          <ContextProvider endpoint="/users/1">
             <AllFeedCards></AllFeedCards>
           </ContextProvider>
         </>

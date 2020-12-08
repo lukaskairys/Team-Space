@@ -7,6 +7,7 @@ import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
 
+import { post } from "apis/postData";
 import { validateRegistration, validateLogin } from "./validationRules";
 
 function Form({ title, subtitle, action }) {
@@ -19,10 +20,39 @@ function Form({ title, subtitle, action }) {
     handleXclick,
   } = useForm(getCallback(), getValidation());
 
-  // eslint-disable-next-line
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   let history = useHistory();
+
+  const dataToPost = {
+    userName: `${values.firstName} ${values.lastName}`,
+    email: values.email,
+    password: values.password,
+    userImage: "https://i.ibb.co/6WtwM35/Untitled.jpg",
+    birthdayDate: "1990-05-18",
+    location: "Vilnius, Lithuania",
+    reservations: {
+      books: [
+        {
+          title: "Don't Make Me Think",
+          id: "1jd85opw82",
+        },
+      ],
+      devices: [
+        {
+          name: "iPhone X",
+          id: "193ywpe740",
+        },
+      ],
+    },
+    notifications: [
+      {
+        userName: "Sara Lars",
+        actionType: "Like",
+        postId: "10972har27",
+      },
+    ],
+  };
 
   function getCallback() {
     if (action === "register") return register;
@@ -34,12 +64,15 @@ function Form({ title, subtitle, action }) {
     else if (action === "login") return validateLogin;
   }
 
-  function register() {
-    // TODO: logic what happens when submit (form here is already validated) - send data to db.json, auto-login
-    // if failed to post data in json - setShowError(true)
-    history.push("/", {
-      message: "Your registration was successful.",
-    });
+  async function register() {
+    try {
+      await post("/users/", dataToPost);
+      history.push("/", {
+        message: "Your registration was successful.",
+      });
+    } catch (error) {
+      setShowErrorMessage(true);
+    }
   }
 
   function login() {
