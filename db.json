@@ -42,7 +42,7 @@
         "reviews": [{
             "userName": "Luke Skywalker",
             "id": "730tybsl12",
-            "comment": "Tasty burgers, but had to wait a long line.",
+            "comment": "Tasty burgers, but had to wait a long line. Tasty burgers, but had to wait a long line. Tasty burgers, but had to wait a long line. Tasty burgers, but had to wait a long line.",
             "rating": 4.0
           },
           {
@@ -52,9 +52,9 @@
             "rating": 3.5
           },
           {
-            "userName": "Sara Lars",
+            "userName": "Sara Lars Sara Lars Sara Lars Sara Lars Sara Lars",
             "id": "183gstwpl6",
-            "comment": "Food didn’t meet my expectations, but it was fine. But the customer experience was flawless!",
+            "comment": "Food didn’t meet my expectations, but it was fine. But the customer experience was flawless Food didn’t meet my expectations, but it was fine. But the customer experience was flawless Food didn’t meet my expectations, but it was fine. But the customer experience was flawless Food didn’t meet my expectations, but it was fine. But the customer experience was flawless Food didn’t meet my expectations, but it was fine. But the customer experience was flawless Food didn’t meet my expectations, but it was fine. But the customer experience was flawless!",
             "rating": 5.0
           },
           {

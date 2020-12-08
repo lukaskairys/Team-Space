@@ -11,12 +11,21 @@ import "./reviewsSection.scss";
 function ReviewsSection() {
   const [reviews, setReviews] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
   const { id } = useParams();
   const { data, error, isLoading } = useRequest("/restaurants");
 
-  const reviewCountToRender = reviews.length > 3 ? 3 : reviews.length;
-  const reviewsToShow = reviews.slice(0, reviewCountToRender);
+  const reviewCountToRender = () => {
+    if (width < 1293) {
+      return 2;
+    } else if (reviews.length > 3) {
+      return 3;
+    } else {
+      return reviews.length;
+    }
+  };
+  const reviewsToShow = reviews.slice(0, reviewCountToRender());
   const maxCharToShow = 280;
 
   useEffect(() => {
@@ -25,7 +34,15 @@ function ReviewsSection() {
         (restaurant) => restaurant.id === id
       );
       const reviews = restaurant[0].reviews;
+
       setReviews(reviews);
+
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
     } catch (err) {
       if (err) {
         setReviews([]);

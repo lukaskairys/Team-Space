@@ -1,8 +1,85 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.HERO {
+    @include respond-to(900, max) {
+        margin-bottom: 6.9rem;
+    }
+}
 
 .restaurant {
     &__middle {
         display: flex;
         gap: 4rem;
+
+        @include respond-to(1455, max) {
+            flex-direction: column;
+            gap: 2.4rem;
+        }
     }
 }
+
+.eat-out-info {
+    @include respond-to(1011, max) {
+        min-width: 45.4rem;
+
+        &__content {
+            grid-template-columns: auto;
+        }
+    }
+}
+
+.reviews {
+    &__content {
+        /* @include respond-to(1455, max) {
+        
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+            row-gap: 2rem;
+            column-gap: 4rem;
+
+        } */
+
+        @include respond-to(1455, max) {
+            display: flex;
+            flex-direction: row;
+            gap: 4rem;
+
+            .review-card {
+                min-width: 25rem;
+            }
+        }
+
+        @include respond-to(1292, max) {
+            display: grid;
+            grid-column-gap: 4rem;
+            grid-row-gap: 0;
+            grid-template-columns: repeat(
+                auto-fill,
+                minmax(40rem, max-content)
+            );
+
+            .review-card {
+                justify-self: start;
+            }
+        }
+    }
+}
+
+/* &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    row-gap: 2rem;
+
+    @include respond-to($_breakpoint-lg, max) {
+        justify-items: center;
+    }
+
+ */
+
+/*  &__section {
+    display: grid;
+    grid-column-gap: 4rem;
+    grid-row-gap: 3.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
+} */
