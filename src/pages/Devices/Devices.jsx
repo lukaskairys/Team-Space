@@ -8,6 +8,7 @@ import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 
 import "./Devices.scss";
 import SideFilters from "features/sideFilters/SideFilters";
+import Search from "features/search/Search";
 
 const Devices = () => {
   const [refs, setRefs] = useState(undefined);
@@ -40,6 +41,7 @@ const Devices = () => {
       <MainLayout>
         <>
           <Breadcrumbs />
+          <Search />
           <div className="devices__side-filters">
             {filtersToRender !== undefined &&
               filtersToRender.map((item, i) => (
