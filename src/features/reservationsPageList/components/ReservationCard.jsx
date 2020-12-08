@@ -49,7 +49,6 @@ export default function Card({
       );
     }
   };
-
   return (
     <div className="reservation-card">
       <figure className="reservation-card__img-box">

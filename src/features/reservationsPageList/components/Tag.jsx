@@ -11,11 +11,7 @@ function Tag({ name, handleSingleTag }) {
     <div className="tag">
       <span className="tag__name">{name}</span>
       <Button empty dataTagName={name} handleClick={handleSingleTag}>
-        <IconX
-          className="tag__icon"
-          data-tag-name={name}
-          onClick={handleSingleTag}
-        />
+        <IconX className="tag__icon" />
       </Button>
     </div>
   );

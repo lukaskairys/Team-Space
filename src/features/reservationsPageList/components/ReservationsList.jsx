@@ -29,6 +29,7 @@ function ReservationsList({ searchTerm, tags, date, handleSingleTag }) {
     const filteredData = dataFilter(data.deviceList, tags, searchTerm);
     const devices = groupArray(filteredData, 6);
     const pageCount = devices.length - 1;
+
     if (devices.length > 0) {
       const renderDevices = () => {
         return devices[page].map((device, index) => {
@@ -77,6 +78,7 @@ function ReservationsList({ searchTerm, tags, date, handleSingleTag }) {
     const filteredData = dataFilter(data.bookList, tags, searchTerm);
     const books = groupArray(filteredData, 6);
     const pageCount = books.length - 1;
+
     if (books.length > 0) {
       const renderBooks = () => {
         return books[page].map((book, index) => {

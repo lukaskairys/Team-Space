@@ -5,11 +5,6 @@
     display: flex;
     margin-top: 4.8rem;
 
-    &__chevron {
-        height: 6px;
-        width: 12px;
-    }
-
     &__page-number {
         @include typography-body-2-bold;
     }

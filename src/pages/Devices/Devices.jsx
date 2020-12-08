@@ -22,7 +22,6 @@ const Devices = () => {
   const [dataCount, setDataCount] = useState(0);
   const { data } = useRequest("/devices");
   const { handleChange, clearAll, tags, handleSingleTag } = useSideFilter();
-
   const filterData = data.filterCategories;
 
   useEffect(() => {

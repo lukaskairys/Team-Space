@@ -25,14 +25,13 @@ export const useSideFilter = () => {
   };
 
   const handleSingleTag = (event) => {
-    const tag = event.target.getAttribute("data-tag-name");
+    const tag = event.currentTarget.getAttribute("data-tag-name");
     let newArray;
     for (const prop in tags) {
       if (tags[prop].includes(tag)) {
         newArray = tags[prop].filter((item) => {
           return item !== tag;
         });
-        tags[prop] = newArray;
         setTags({ ...tags, [prop]: newArray });
       }
     }
