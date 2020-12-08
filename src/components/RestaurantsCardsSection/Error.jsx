@@ -5,8 +5,8 @@ import "./error.scss";
 
 export default function Error({ message }) {
   return (
-    <div className="error">
-      <span className="error__message">
+    <div className="restaurant-section-error">
+      <span className="restaurant-section-error__message">
         {message}{" "}
         <span role="img" aria-label="sad face">
           &#128533;
