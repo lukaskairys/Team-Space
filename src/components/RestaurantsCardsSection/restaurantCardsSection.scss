@@ -5,6 +5,14 @@
     &__list {
         display: flex;
         gap: 4rem;
+
+        &.animate-out {
+            @include animation('fadeOut 0.25s ease-in forwards');
+        }
+
+        &.animate-in {
+            @include animation('fadeIn 0.25s ease-in forwards');
+        }
     }
 
     &__header {

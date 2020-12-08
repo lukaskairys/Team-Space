@@ -26,8 +26,8 @@ const EatOut = () => {
             <Breadcrumbs />
             <EatOutHeroWidget />
             <EatOutCategoriesSection ref={scrollRef} />
-            <RestaurantCardsSection title="Discover near you" mode="similar" />
-            <RestaurantCardsSection title="New places" mode="similar" />
+            <RestaurantCardsSection title="Near you" mode="near" />
+            <RestaurantCardsSection title="New Places" mode="new" />
           </ContextProvider>
         </>
       </MainLayout>
