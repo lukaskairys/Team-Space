@@ -11,12 +11,9 @@ function EatOutCardFooter({ restaurantID }) {
       <div className="card-footer__buttons">
         <Link
           to={`/eat-out/${restaurantID}`}
-          className="card-footer__link"
-          tabIndex={-1}
+          className="button button--medium button--blank"
         >
-          <Button medium={true} blank={true}>
-            <span>read more</span>
-          </Button>
+          <span>read more</span>
         </Link>
 
         <Button medium={true}>
