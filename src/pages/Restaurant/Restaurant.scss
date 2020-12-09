@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_reviews-jump-breakpoint: 1455;
+
 .HERO {
     @include respond-to(900, max) {
         margin-bottom: 6.9rem;
@@ -11,8 +13,9 @@
     &__middle {
         display: flex;
         gap: 4rem;
+        margin-top: 9.6rem;
 
-        @include respond-to(1455, max) {
+        @include respond-to($_reviews-jump-breakpoint, max) {
             flex-direction: column;
             gap: 2.4rem;
         }
@@ -30,8 +33,10 @@
 }
 
 .reviews {
-    &__content {
-        @include respond-to(1455, max) {
+    @include respond-to($_reviews-jump-breakpoint, max) {
+        margin-top: 1.6rem;
+
+        &__content {
             display: flex;
             flex-direction: row;
             gap: 4rem;
@@ -50,6 +55,14 @@
 
         .review-card {
             margin: 1.6rem 0 0;
+        }
+    }
+}
+
+.restaurant-cards-section {
+    &__header {
+        @include respond-to($_reviews-jump-breakpoint, max) {
+            margin-top: 4rem;
         }
     }
 }
