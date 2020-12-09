@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
 import DropDownContent from "./DropdownContent";
 import userIcon from "../../../assets/icons/user.svg";
@@ -7,13 +7,19 @@ import { useRequest } from "../../../apis/useRequest";
 import { useOnClickOutside } from "../../../utils/useOnClickOutside";
 import { isObjectEmpty } from "../../../utils/objects";
 
+import { AuthContext } from "contexts/AuthContext";
 import "./userProfileWidget.scss";
 
 function UserProfileWidget() {
   const [image, setImage] = useState(userIcon);
   const [open, setOpen] = useState(false);
 
-  const { data, error } = useRequest("/userData");
+  const { currentUserId, getCurrentUser, logout } = useContext(AuthContext);
+  const userFromLocal = getCurrentUser();
+  const { data, error } = useRequest(
+    `/users/${currentUserId ? currentUserId : userFromLocal.id}`
+  );
+
   const dropRef = useRef(null);
 
   useOnClickOutside(dropRef, () => setOpen(false));
@@ -34,7 +40,7 @@ function UserProfileWidget() {
         <ArrowDown className="profile-widget__arrow " />
       </button>
 
-      <DropDownContent isOpen={open} />
+      <DropDownContent isOpen={open} logout={logout} />
     </div>
   );
 }

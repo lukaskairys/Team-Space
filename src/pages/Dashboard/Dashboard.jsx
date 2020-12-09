@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { AuthContext } from "contexts/AuthContext";
 import MainLayout from "components/MainLayout/MainLayout";
 
 import HelloWidget from "features/helloWidget/components/HelloWidget";
@@ -12,11 +12,17 @@ import ContextProvider from "contexts/ContextProvider";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
+  const { currentUserId, getCurrentUser } = useContext(AuthContext);
+  const userFromLocal = getCurrentUser();
   return (
     <div className="dashboard">
       <MainLayout>
         <>
-          <ContextProvider endpoint="/users/1">
+          <ContextProvider
+            endpoint={`/users/${
+              currentUserId ? currentUserId : userFromLocal.id
+            }`}
+          >
             <div className="dashboard__widgets">
               <HelloWidget />
               <WeatherWidget />

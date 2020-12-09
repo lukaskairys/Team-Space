@@ -1,7 +1,8 @@
 {
   "users": [
     {
-      "userName": "Aubrey Plaza",
+      "userName": "name surname",
+      "email": "asd@asd.l",
       "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
       "birthdayDate": "1990-05-18",
       "location": "Vilnius, Lithuania",
@@ -26,12 +27,41 @@
           "postId": "10972har27"
         }
       ],
+      "liked": {
+        "restaurants": [
+          {
+            "id": "x8bd7ozuj6"
+          },
+          {
+            "id": "h3hlqj5bcb"
+          },
+          {
+            "id": "porhch2lam"
+          },
+          {
+            "id": "9kdf9qawui"
+          },
+          {
+            "id": "sejw2ugddc"
+          },
+          {
+            "id": "120wsdlpx4"
+          }
+        ],
+        "books": [],
+        "devices": [],
+        "stories": [
+          {
+            "id": "10197o9h40"
+          }
+        ]
+      },
+      "password": "$2a$10$q3dqliWS9She6J0WLuxI7uoJgoHztDG7y5PSF3BEDM/4XZ/Zb1ODu",
       "id": 1
     },
     {
       "userName": "vardas pavarde",
-      "email": "email@adresas.com",
-      "password": "qweqwe",
+      "email": "qwe@qwe.l",
       "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
       "birthdayDate": "1990-05-18",
       "location": "Vilnius, Lithuania",
@@ -56,7 +86,96 @@
           "postId": "10972har27"
         }
       ],
+      "liked": {
+        "restaurants": [
+          {
+            "id": "x8bd7ozuj6"
+          },
+          {
+            "id": "h3hlqj5bcb"
+          },
+          {
+            "id": "porhch2lam"
+          },
+          {
+            "id": "9kdf9qawui"
+          },
+          {
+            "id": "sejw2ugddc"
+          },
+          {
+            "id": "120wsdlpx4"
+          }
+        ],
+        "books": [],
+        "devices": [],
+        "stories": [
+          {
+            "id": "10197o9h40"
+          }
+        ]
+      },
+      "password": "$2a$10$iraAZUdkngyYCuIbhJDlve32YJE31x0KJ1djcf5JklGFcuJ6n1.8e",
       "id": 2
+    },
+    {
+      "userName": "labas vakaras",
+      "email": "ewq@ewq.e",
+      "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
+      "birthdayDate": "1990-05-18",
+      "location": "Vilnius, Lithuania",
+      "reservations": {
+        "books": [
+          {
+            "title": "Don't Make Me Think",
+            "id": "1jd85opw82"
+          }
+        ],
+        "devices": [
+          {
+            "name": "iPhone X",
+            "id": "193ywpe740"
+          }
+        ]
+      },
+      "notifications": [
+        {
+          "userName": "Sara Lars",
+          "actionType": "Like",
+          "postId": "10972har27"
+        }
+      ],
+      "liked": {
+        "restaurants": [
+          {
+            "id": "x8bd7ozuj6"
+          },
+          {
+            "id": "h3hlqj5bcb"
+          },
+          {
+            "id": "porhch2lam"
+          },
+          {
+            "id": "9kdf9qawui"
+          },
+          {
+            "id": "sejw2ugddc"
+          },
+          {
+            "id": "120wsdlpx4"
+          }
+        ],
+        "books": [],
+        "devices": [],
+        "stories": [
+          {
+            "id": "10197o9h40"
+          }
+        ]
+      },
+      "password": "$2a$10$dRxtqsFB5JqWmS.p.QM21elxoLLvji3UPJPgNzRfdiCXaAkybkoWa",
+      "id": 3
     }
   ],
   "restaurants": {

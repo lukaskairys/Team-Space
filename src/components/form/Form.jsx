@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { useHistory } from "react-router-dom";
 
 import useForm from "./useForm";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
 
-import { post } from "apis/postData";
+import { AuthContext } from "contexts/AuthContext";
 import { validateRegistration, validateLogin } from "./validationRules";
 
 function Form({ title, subtitle, action }) {
@@ -20,14 +19,16 @@ function Form({ title, subtitle, action }) {
     handleXclick,
   } = useForm(getCallback(), getValidation());
 
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  // const [showErrorMessage, setShowErrorMessage] = useState(false);
+  // const [messageText, setMessageText] = useState("Something went wrong");
 
-  let history = useHistory();
+  const { login, register, messageText, showErrorMessage } = useContext(
+    AuthContext
+  );
 
   const dataToPost = {
     userName: `${values.firstName} ${values.lastName}`,
     email: values.email,
-    password: values.password,
     userImage: "https://i.ibb.co/6WtwM35/Untitled.jpg",
     birthdayDate: "1990-05-18",
     location: "Vilnius, Lithuania",
@@ -52,11 +53,42 @@ function Form({ title, subtitle, action }) {
         postId: "10972har27",
       },
     ],
+    liked: {
+      restaurants: [
+        {
+          id: "x8bd7ozuj6",
+        },
+        {
+          id: "h3hlqj5bcb",
+        },
+        {
+          id: "porhch2lam",
+        },
+        {
+          id: "9kdf9qawui",
+        },
+        {
+          id: "sejw2ugddc",
+        },
+        {
+          id: "120wsdlpx4",
+        },
+      ],
+      books: [],
+      devices: [],
+      stories: [
+        {
+          id: "10197o9h40",
+        },
+      ],
+    },
   };
 
   function getCallback() {
-    if (action === "register") return register;
-    else if (action === "login") return login;
+    if (action === "register")
+      return () => register(values.password, dataToPost);
+    else if (action === "login")
+      return () => login(values.email, values.password);
   }
 
   function getValidation() {
@@ -64,29 +96,12 @@ function Form({ title, subtitle, action }) {
     else if (action === "login") return validateLogin;
   }
 
-  async function register() {
-    try {
-      await post("/users/", dataToPost);
-      history.push("/", {
-        message: "Your registration was successful.",
-      });
-    } catch (error) {
-      setShowErrorMessage(true);
-    }
-  }
-
-  function login() {
-    // TODO: logic what happens when submit - check email & password on db.json
-    // if failed to check data in json - setShowError(true)
-    history.push("/");
-  }
+  // TODO: show some errors like validation
 
   return (
     <>
       <div className="form">
-        {showErrorMessage && (
-          <Message message={"Something went wrong"} type={"error"} />
-        )}
+        {showErrorMessage && <Message message={messageText} type={"error"} />}
         <div className="form__header">
           <h2 className="form__title">{title}</h2>
           <p className="form__subtitle">{subtitle}</p>
