@@ -31,55 +31,25 @@
 
 .reviews {
     &__content {
-        /* @include respond-to(1455, max) {
-        
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-            row-gap: 2rem;
-            column-gap: 4rem;
-
-        } */
-
         @include respond-to(1455, max) {
             display: flex;
             flex-direction: row;
             gap: 4rem;
 
             .review-card {
-                min-width: 25rem;
+                max-width: 100rem;
+                min-width: 33rem;
             }
         }
+    }
 
-        @include respond-to(1292, max) {
-            display: grid;
-            grid-column-gap: 4rem;
-            grid-row-gap: 0;
-            grid-template-columns: repeat(
-                auto-fill,
-                minmax(40rem, max-content)
-            );
+    .is-narrow {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 1.6rem;
 
-            .review-card {
-                justify-self: start;
-            }
+        .review-card {
+            margin: 1.6rem 0 0;
         }
     }
 }
-
-/* &__content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    row-gap: 2rem;
-
-    @include respond-to($_breakpoint-lg, max) {
-        justify-items: center;
-    }
-
- */
-
-/*  &__section {
-    display: grid;
-    grid-column-gap: 4rem;
-    grid-row-gap: 3.2rem;
-    grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
-} */
