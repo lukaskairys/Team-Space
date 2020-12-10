@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import PropTypes from "prop-types";
-import { context } from "../../contexts/Context";
+import { RestaurantContext } from "../../contexts/RestaurantContext";
 import EatOutCard from "../EatOutCard/EatOutCard";
 import { useParams } from "react-router-dom";
 
@@ -22,7 +22,7 @@ import { toggleAnimation } from "../../utils/toggleAnimation";
 import { LayoutHandler } from "./LayoutHandler";
 
 const RestaurantCardsSection = ({ title, mode }) => {
-  const { data, error } = useContext(context);
+  const { data, error } = useContext(RestaurantContext);
   const { location } = useCurrentLocation(geolocationOptions);
   const [currentPage, setCurrentPage] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);

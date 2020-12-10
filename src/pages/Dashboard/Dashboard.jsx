@@ -1,28 +1,22 @@
-import React, { useContext } from "react";
-import { AuthContext } from "contexts/AuthContext";
-import MainLayout from "components/MainLayout/MainLayout";
+import React from "react";
 
+import RestaurantContextProvider from "contexts/RestaurantContextProvider";
+import UserContextProvider from "contexts/UserContextProvider";
+import MainLayout from "components/MainLayout/MainLayout";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import WeatherWidget from "features/weatherWidget/components/weatherWidget";
 import ReservationsSection from "features/reservationsSection/components/ReservationsSection";
 import EatOutSection from "features/eatOutSection/components/EatOutSection";
 import AllFeedCards from "features/FeedCard/components/AllFeedCards";
-import ContextProvider from "contexts/ContextProvider";
 
 import "./Dashboard.scss";
 
 const Dashboard = () => {
-  const { currentUserId, getCurrentUser } = useContext(AuthContext);
-  const userFromLocal = getCurrentUser();
   return (
     <div className="dashboard">
       <MainLayout>
         <>
-          <ContextProvider
-            endpoint={`/users/${
-              currentUserId ? currentUserId : userFromLocal.id
-            }`}
-          >
+          <UserContextProvider>
             <div className="dashboard__widgets">
               <HelloWidget />
               <WeatherWidget />
@@ -31,16 +25,16 @@ const Dashboard = () => {
             <div className="dashboard__reservations-section">
               <ReservationsSection />
             </div>
-          </ContextProvider>
+          </UserContextProvider>
 
           <div className="dashboard__eat-out-section">
-            <ContextProvider endpoint="/restaurants">
+            <RestaurantContextProvider endpoint="/restaurants">
               <EatOutSection />
-            </ContextProvider>
+            </RestaurantContextProvider>
           </div>
-          <ContextProvider endpoint="/users/1">
+          <UserContextProvider>
             <AllFeedCards></AllFeedCards>
-          </ContextProvider>
+          </UserContextProvider>
         </>
       </MainLayout>
     </div>

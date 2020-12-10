@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import { context } from "contexts/Context";
+import { RestaurantContext } from "contexts/RestaurantContext";
 import EatOutCard from "components/EatOutCard/EatOutCard";
 import "./eatOutByCategory.scss";
 
 function EatOutCategoriesPage() {
   const { category } = useParams();
-  const { data, error, isLoading } = useContext(context);
+  const { data, error, isLoading } = useContext(RestaurantContext);
 
   const getRestaurants = () => {
     if (Object.keys(data).length !== 0) {

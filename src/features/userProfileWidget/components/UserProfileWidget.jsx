@@ -14,8 +14,8 @@ function UserProfileWidget() {
   const [image, setImage] = useState(userIcon);
   const [open, setOpen] = useState(false);
 
-  const { currentUserId, getCurrentUser, logout } = useContext(AuthContext);
-  const userFromLocal = getCurrentUser();
+  const { currentUserId, logout } = useContext(AuthContext);
+  const userFromLocal = JSON.parse(localStorage.getItem("user"));
   const { data, error } = useRequest(
     `/users/${currentUserId ? currentUserId : userFromLocal.id}`
   );

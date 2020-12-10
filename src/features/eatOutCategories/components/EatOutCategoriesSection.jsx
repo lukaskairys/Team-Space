@@ -1,13 +1,13 @@
 import React, { useContext, forwardRef } from "react";
 
-import { context } from "contexts/Context";
+import { RestaurantContext } from "contexts/RestaurantContext";
 import ReservationsCard from "components/ReservationCard/ReservationCard";
 
 import "./eatOutCategoriesSection.scss";
 import filteredRestaurants from "./filteredRestaurants";
 
 const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
-  const { data } = useContext(context);
+  const { data } = useContext(RestaurantContext);
   const { categories, restaurantList } = data;
 
   if (categories && restaurantList) {

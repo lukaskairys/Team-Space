@@ -5,7 +5,7 @@ import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 import ReviewsSection from "features/reviewsSection/ReviewsSection";
 import Hero from "features/eatOutRestaurantHero/components/Hero";
-import ContextProvider from "contexts/ContextProvider";
+import RestaurantContextProvider from "contexts/RestaurantContextProvider";
 import RestaurantCardsSection from "components/RestaurantsCardsSection/RestaurantCardsSection";
 
 import "./Restaurant.scss";
@@ -15,7 +15,7 @@ const Restaurant = () => {
     <div className="restaurant">
       <MainLayout>
         <>
-          <ContextProvider endpoint="/restaurants">
+          <RestaurantContextProvider endpoint="/restaurants">
             <Hero>
               <Breadcrumbs />
             </Hero>
@@ -27,7 +27,7 @@ const Restaurant = () => {
               title="Also you could like"
               mode="similar"
             />
-          </ContextProvider>
+          </RestaurantContextProvider>
         </>
       </MainLayout>
     </div>

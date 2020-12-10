@@ -15,39 +15,29 @@ import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
-import ContextProvider from "contexts/ContextProvider";
+import RestaurantContextProvider from "contexts/RestaurantContextProvider";
 import UserContextProvider from "contexts/UserContextProvider";
 import AuthContextProvider from "contexts/AuthContextProvider";
+
+import PrivateRoute from "./authentication/PrivateRoute.jsx";
 
 function App() {
   return (
     <Router>
-      <AuthContextProvider endpoint="/users">
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/registration">
-          <RegistrationPage />
-        </Route>
+      <Switch>
+        <AuthContextProvider>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
 
-        <UserContextProvider>
-          {/* endpoint=`/users/${currentUserId}` */}
-          <>
-            {/* A <Switch> looks through its <Route>s and
-            renders the first one that matches the path. */}
-            {/* If you want to render something everywhere (in each page), render it outside the <Switch>, but inside the <Router> */}
-            <Switch>
+          <UserContextProvider>
+            <PrivateRoute path="/">
               <Route exact path="/">
                 <Dashboard />
               </Route>
-
-              {/* <Route exact path="/registration">
-              <RegistrationPage />
-            </Route> */}
-
-              {/* <Route path="/login">
-              <LoginPage />
-            </Route> */}
 
               <Route exact path="/reservations">
                 <Reservations />
@@ -77,18 +67,18 @@ function App() {
                 <Restaurant />
               </Route>
 
-              <ContextProvider endpoint="/restaurants">
+              <RestaurantContextProvider>
                 <Route exact path="/eat-out/:id">
                   <Restaurant />
                 </Route>
                 <Route exact path="/eat-out/categories/:category">
                   <EatOutCategoriesPage />
                 </Route>
-              </ContextProvider>
-            </Switch>
-          </>
-        </UserContextProvider>
-      </AuthContextProvider>
+              </RestaurantContextProvider>
+            </PrivateRoute>
+          </UserContextProvider>
+        </AuthContextProvider>
+      </Switch>
     </Router>
   );
 }
