@@ -44,7 +44,9 @@ function ReviewsSection() {
       const restaurant = data.restaurantList.filter(
         (restaurant) => restaurant.id === id
       );
-      const reviews = restaurant[0].reviews;
+      const reviews = restaurant[0].reviews.filter(
+        (review) => review.comment !== ""
+      );
       setReviews(reviews);
     } catch (err) {
       if (err) {
