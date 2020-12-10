@@ -15,7 +15,7 @@ const Restaurant = () => {
     <div className="restaurant">
       <MainLayout>
         <>
-          <RestaurantContextProvider endpoint="/restaurants">
+          <RestaurantContextProvider>
             <Hero>
               <Breadcrumbs />
             </Hero>

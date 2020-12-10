@@ -21,7 +21,7 @@ const EatOut = () => {
   return (
     <div className="eat-out">
       <MainLayout>
-        <RestaurantContextProvider endpoint="/restaurants">
+        <RestaurantContextProvider>
           <Breadcrumbs />
           <EatOutHeroWidget />
           <EatOutCategoriesSection ref={scrollRef} />

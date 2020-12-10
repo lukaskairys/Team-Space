@@ -63,14 +63,12 @@ function App() {
               <Route exact path="/eat-out/">
                 <EatOut />
               </Route>
+
               <Route exact path="/eat-out/:id">
                 <Restaurant />
               </Route>
 
               <RestaurantContextProvider>
-                <Route exact path="/eat-out/:id">
-                  <Restaurant />
-                </Route>
                 <Route exact path="/eat-out/categories/:category">
                   <EatOutCategoriesPage />
                 </Route>
