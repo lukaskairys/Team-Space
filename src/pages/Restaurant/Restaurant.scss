@@ -34,7 +34,7 @@ $_reviews-jump-breakpoint: 1455;
 
 .reviews {
     @include respond-to($_reviews-jump-breakpoint, max) {
-        margin-top: 1.6rem;
+        margin-top: 4rem;
 
         &__content {
             display: flex;
@@ -55,14 +55,6 @@ $_reviews-jump-breakpoint: 1455;
 
         .review-card {
             margin: 1.6rem 0 0;
-        }
-    }
-}
-
-.restaurant-cards-section {
-    &__header {
-        @include respond-to($_reviews-jump-breakpoint, max) {
-            margin-top: 4rem;
         }
     }
 }
