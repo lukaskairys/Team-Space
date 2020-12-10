@@ -15,9 +15,9 @@ const Devices = () => {
   // Placeholders to be replaced by state changing items
   const placeholders = {
     searchTerm: "",
-    date: "",
+    date: "03/02/2021",
+    availabilityOn: true,
   };
-
   const [refs, setRefs] = useState(undefined);
   const [dataCount, setDataCount] = useState(0);
   const { data } = useRequest("/devices");
@@ -70,6 +70,7 @@ const Devices = () => {
                 date={placeholders.date}
                 tags={tags}
                 handleSingleTag={handleSingleTag}
+                available={placeholders.availabilityOn}
               />
             </ContextProvider>
           </div>

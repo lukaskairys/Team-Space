@@ -1,4 +1,12 @@
-export default function dataFilter(data, tags, searchTerm) {
+// import { formatDateToGB, parseDateFromGB, isLater } from "./dateFormatter";
+
+export default function dataFilter(
+  data,
+  tags,
+  searchTerm,
+  date,
+  availabilityOn
+) {
   let filterData = data;
   searchTerm = searchTerm.toLowerCase();
 
@@ -27,6 +35,15 @@ export default function dataFilter(data, tags, searchTerm) {
       }
     }
   };
+
+  // const filterByAvailability = () => {
+  //   filterData = filterData.filter((item) => {
+  //     const selectedDate = formatDateToGB(parseDateFromGB(date));
+  //     const unavailableDate = formatDateToGB(item.bookedUntil);
+  //     if (unavailableDate && isLater(unavailableDate, selectedDate)) {
+  //     }
+  //   });
+  // };
 
   filterByTags();
   filterBySearchTerm();

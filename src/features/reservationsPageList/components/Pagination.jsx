@@ -31,7 +31,7 @@ export default function Pagination({ page, setPage, pageCount }) {
   const renderButtonPrev =
     page === 0 ? null : (
       <Button handleClick={handlePrev} pagination>
-        <ChevronLeft />
+        <ChevronLeft className="chevron-left" />
       </Button>
     );
 
@@ -76,7 +76,7 @@ export default function Pagination({ page, setPage, pageCount }) {
   const renderButtonNext =
     page === pageCount ? null : (
       <Button handleClick={handleNext} pagination>
-        <ChevronRight />
+        <ChevronRight className="chevron-right" />
       </Button>
     );
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import { context } from "contexts/Context";
 import groupArray from "utils/groupArray";
@@ -9,9 +9,17 @@ import Pagination from "./Pagination";
 import Tag from "./Tag";
 import dataFilter from "./dataFilter";
 
-function ReservationsList({ searchTerm, tags, date, handleSingleTag }) {
+function ReservationsList({
+  searchTerm,
+  tags,
+  date,
+  handleSingleTag,
+  availabilityOn,
+}) {
   const { data } = useContext(context);
   const [page, setPage] = useState(0);
+  const listName = Object.keys(data)[0];
+  const listData = Object.values(data)[0];
 
   const renderTags = () => {
     const tagArr = [];
@@ -25,105 +33,70 @@ function ReservationsList({ searchTerm, tags, date, handleSingleTag }) {
     });
   };
 
-  if (data?.deviceList) {
-    const filteredData = dataFilter(data.deviceList, tags, searchTerm);
-    const devices = groupArray(filteredData, 6);
-    const pageCount = devices.length - 1;
+  useEffect(() => {
+    for (const tag in tags) {
+      if (tags[tag].length > 0) {
+        setPage(0);
+      }
+    }
+  }, [tags]);
 
-    if (devices.length > 0) {
-      const renderDevices = () => {
-        return devices[page].map((device, index) => {
+  if (listData) {
+    const filteredData = dataFilter(
+      listData,
+      tags,
+      searchTerm,
+      date,
+      availabilityOn
+    );
+    const items = groupArray(filteredData, 6);
+    const pageCount = items.length - 1;
+
+    const renderDevices = () => {
+      if (items[page]) {
+        return items[page].map((item, index) => {
           return (
             <ReservationCard
               key={index}
-              image={device.image}
-              alt={device.deviceType}
-              topCaption={device.brand}
-              title={device.name}
-              quantityOrRating={device.quantity}
-              bookedUntil={device?.bookedUntil ? device.bookedUntil : null}
+              image={item.image}
+              alt={listName === "deviceList" ? item.deviceType : "Book"}
+              topCaption={listName === "deviceList" ? item.brand : item.author}
+              title={listName === "deviceList" ? item.name : item.title}
+              quantityOrRating={
+                listName === "deviceList" ? item.quantity : item.rating.score
+              }
+              bookedUntil={item?.bookedUntil ? item.bookedUntil : null}
               date={date}
+              book={listName === "deviceList" ? false : true}
+              availabilityOn={availabilityOn}
             />
           );
         });
-      };
+      } else return null;
+    };
 
+    const renderCards = () => {
       return (
-        <div className="reservations-list">
-          <div className="reservations-list__details">
-            <h3 className="reservations-list__title">
-              {`${filteredData.length} results for:`}
-              <span className="reservations-list__search-term">{`${searchTerm}`}</span>
-            </h3>
-            {renderTags()}
-          </div>
+        <>
           <div className="reservations-list__cards">{renderDevices()}</div>
           <Pagination page={page} setPage={setPage} pageCount={pageCount} />
-        </div>
+        </>
       );
-    } else {
-      return (
-        <div className="reservations-list">
-          <div className="reservations-list__details">
-            <h3 className="reservations-list__title">
-              {`${filteredData.length} results for:`}
-              <span className="reservations-list__search-term">{`${searchTerm}`}</span>
-            </h3>
-            {renderTags()}
-          </div>
-        </div>
-      );
-    }
-  } else if (data?.bookList) {
-    const filteredData = dataFilter(data.bookList, tags, searchTerm);
-    const books = groupArray(filteredData, 6);
-    const pageCount = books.length - 1;
+    };
 
-    if (books.length > 0) {
-      const renderBooks = () => {
-        return books[page].map((book, index) => {
-          return (
-            <ReservationCard
-              key={index}
-              image={book.image}
-              alt={"Book"}
-              topCaption={book.author}
-              title={book.title}
-              quantityOrRating={book.rating.score}
-              bookedUntil={book?.bookedUntil ? book.bookedUntil : null}
-              date={date}
-              book
-            />
-          );
-        });
-      };
-
-      return (
-        <div className="reservations-list">
+    return (
+      <div className="reservations-list">
+        <div className="reservations-list__details">
           <h3 className="reservations-list__title">
             {`${filteredData.length} results for:`}
             <span className="reservations-list__search-term">{`${searchTerm}`}</span>
           </h3>
-          <div className="reservations-list__cards">{renderBooks()}</div>
-          <Pagination page={page} setPage={setPage} pageCount={pageCount} />
+          {renderTags()}
         </div>
-      );
-    } else {
-      return (
-        <div className="reservations-list">
-          <div className="reservations-list__details">
-            <h3 className="reservations-list__title">
-              {`${filteredData.length} results for:`}
-              <span className="reservations-list__search-term">{`${searchTerm}`}</span>
-            </h3>
-            {renderTags()}
-          </div>
-        </div>
-      );
-    }
-  } else {
-    return null;
-  }
+        {items.length > 0 ? renderCards() : null}
+      </div>
+    );
+  } else return null;
 }
 
 export default ReservationsList;

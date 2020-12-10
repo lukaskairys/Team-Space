@@ -121,6 +121,11 @@
         &:hover {
             background-color: $color-bright-violet;
             color: $color-white;
+
+            .chevron-left path,
+            .chevron-right path {
+                fill: $color-white;
+            }
         }
     }
 
