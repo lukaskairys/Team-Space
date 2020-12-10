@@ -5,23 +5,23 @@ import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import SideFilters from "features/sideFilters/SideFilters";
 
 import { useReservationPages } from "components/ReservationPages/useReservationPages";
-import "./Devices.scss";
+import "./Books.scss";
 
-const Devices = () => {
+const Books = () => {
   const {
     filtersToRender,
     refs,
     handleChange,
     clearAll,
     tags,
-  } = useReservationPages("/devices");
+  } = useReservationPages("/books");
 
   return (
-    <div className="devices">
+    <div className="books">
       <MainLayout>
         <>
           <Breadcrumbs />
-          <div className="devices__side-filters">
+          <div className="books__side-filters">
             {filtersToRender !== undefined &&
               filtersToRender.map((item, i) => (
                 <SideFilters
@@ -43,4 +43,4 @@ const Devices = () => {
   );
 };
 
-export default Devices;
+export default Books;
