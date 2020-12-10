@@ -1,6 +1,9 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_breakpoint: 1490;
+$_breakpoint2: 910;
+
 .search-bar {
     background-color: $color-white;
     border-radius: 0.4rem;
@@ -8,8 +11,14 @@
     color: $color-fiord;
     height: 23rem;
     margin-top: 2.4rem;
+    overflow: hidden;
     padding: 3.6rem 4rem 4rem;
-    width: 126.4rem;
+    width: 100%;
+
+    @include respond-to($_breakpoint2, max) {
+        padding: 3.6rem 3rem 4rem;
+        width: 105%;
+    }
 
     &__title {
         @include typography-h2;
@@ -20,37 +29,14 @@
 
     &__filter {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
+        margin-bottom: 1rem;
         width: 25rem;
-    }
 
-    &__inputs {
-        align-items: center;
-        color: $color-fiord;
-        display: flex;
-        height: 4rem;
-        justify-content: space-between;
-    }
-
-    &__text-input {
-        @include typography-body-2;
-
-        background-image: url('../../assets/icons/magnifying-glass.svg');
-        background-position: 2% 50%;
-        background-repeat: no-repeat;
-        background-size: 1.6rem;
-        height: 4.8rem;
-        line-height: 2.2;
-        padding-left: 4.1rem;
-        width: 68.1rem;
-    }
-
-    &__date-input {
-        @include typography-body-2;
-
-        height: 4.8rem;
-        line-height: 2.2;
-        width: 29rem;
+        @include respond-to($_breakpoint2, max) {
+            margin-bottom: 1.6rem;
+        }
     }
 
     &__check-icon {
@@ -64,26 +50,8 @@
         margin-right: 0.9rem;
         width: 1.3rem;
     }
-
-    &__search-icon {
-        bottom: -0.2rem;
-        height: 1.6rem;
-        margin-right: 0.4rem;
-        position: relative;
-        width: 1.6rem;
-
-        path {
-            stroke: $color-white;
-        }
-    }
 }
 
-.reservation-date-label {
-    @include typography-caption;
-
-    bottom: 0.6rem;
-    color: $color-gull-gray;
-    left: 73.1rem;
-    line-height: 1.6;
-    position: relative;
+.button {
+    display: flex;
 }

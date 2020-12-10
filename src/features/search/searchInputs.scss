@@ -1,0 +1,100 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_breakpoint: 1490;
+$_breakpoint2: 910;
+
+.search-bar__inputs {
+    align-items: center;
+    color: $color-fiord;
+    display: flex;
+    flex-direction: row;
+    height: 4rem;
+    justify-content: space-between;
+    width: 100%;
+
+    &-button {
+        padding-top: 2.2rem;
+    }
+
+    &-date {
+        width: 29rem;
+    }
+
+    &-text {
+        padding-top: 2.2rem;
+        width: 68.1rem;
+    }
+
+    &-text-input {
+        @include typography-body-2;
+
+        background-image: url('../../assets/icons/magnifying-glass.svg');
+        background-position: 1rem 50%;
+        background-repeat: no-repeat;
+        background-size: 1.6rem;
+        height: 4.8rem;
+        line-height: 2.2;
+        padding-left: 4.1rem;
+        width: 100%;
+
+        @include respond-to($_breakpoint, max) {
+            width: 95%;
+        }
+
+        @include respond-to($_breakpoint2, max) {
+            height: 4rem;
+        }
+
+        &::-webkit-search-cancel-button {
+            appearance: none;
+            background-image: url('../../assets/icons/x-circle.svg');
+            background-size: cover;
+            filter: invert(70%) sepia(15%) saturate(1057%) hue-rotate(174deg)
+                brightness(94%) contrast(87%);
+            height: 1.6rem;
+            width: 1.6rem;
+        }
+    }
+
+    &-date-input {
+        @include typography-body-2;
+
+        height: 4.8rem;
+        line-height: 2.2;
+        width: 100%;
+
+        @include respond-to($_breakpoint, max) {
+            width: 92%;
+        }
+        @include respond-to($_breakpoint2, max) {
+            height: 4rem;
+        }
+
+        &-label {
+            @include typography-caption;
+
+            color: $color-gull-gray;
+            line-height: 1.6;
+            position: relative;
+
+            @include respond-to($_breakpoint2, max) {
+                font-size: $font-size-12;
+                line-height: 1.96;
+                top: 0.4rem;
+            }
+        }
+    }
+
+    &-search-button-icon {
+        bottom: -0.2rem;
+        height: 1.6rem;
+        margin-right: 0.4rem;
+        position: relative;
+        width: 1.6rem;
+
+        path {
+            stroke: $color-white;
+        }
+    }
+}
