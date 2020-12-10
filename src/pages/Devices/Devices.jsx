@@ -1,14 +1,12 @@
-import React, { useState, useEffect, createRef } from "react";
+import React from "react";
 
-import { isObjectEmpty } from "utils/objects";
-import { useSideFilter } from "features/sideFilters/useSideFilter";
-import { useRequest } from "apis/useRequest";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 import ContextProvider from "contexts/ContextProvider";
 import SideFilters from "features/sideFilters/SideFilters";
 
+import { useReservationPages } from "components/ReservationPages/useReservationPages";
 import "./Devices.scss";
 
 const Devices = () => {
@@ -18,29 +16,14 @@ const Devices = () => {
     date: "03/02/2021",
     availabilityOn: true,
   };
-  const [refs, setRefs] = useState(undefined);
-  const [dataCount, setDataCount] = useState(0);
-  const { data } = useRequest("/devices");
-  const { handleChange, clearAll, tags, handleSingleTag } = useSideFilter();
-  const filterData = data.filterCategories;
-
-  useEffect(() => {
-    if (filterData && !isObjectEmpty(filterData)) {
-      setDataCount(Object.keys(filterData).length);
-      let refs = {};
-      for (let i = 0; i <= dataCount; i++) {
-        refs[i] = createRef();
-      }
-      setRefs(refs);
-    }
-  }, [filterData, dataCount]);
-
-  const getFiltersToRender = () => {
-    if (filterData) {
-      return Object.entries(filterData);
-    }
-  };
-  const filtersToRender = getFiltersToRender();
+  const {
+    filtersToRender,
+    refs,
+    handleChange,
+    clearAll,
+    tags,
+    handleSingleTag,
+  } = useReservationPages("/devices");
 
   return (
     <>

@@ -64,6 +64,7 @@ SideFilters.propTypes = {
     deviceType: PropTypes.array,
     os: PropTypes.array,
     brand: PropTypes.array,
+    genres: PropTypes.array,
   }),
   handleChange: PropTypes.func,
 };

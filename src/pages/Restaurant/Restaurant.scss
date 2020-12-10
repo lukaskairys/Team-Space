@@ -1,8 +1,68 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_reviews-jump-breakpoint: 1455;
+
+.HERO {
+    @include respond-to(900, max) {
+        margin-bottom: 6.9rem;
+    }
+}
 
 .restaurant {
     &__middle {
         display: flex;
         gap: 4rem;
+        margin-top: 9.6rem;
+
+        @include respond-to($_reviews-jump-breakpoint, max) {
+            flex-direction: column;
+            gap: 2.4rem;
+        }
+    }
+}
+
+.eat-out-info {
+    @include respond-to(1011, max) {
+        min-width: 45.4rem;
+
+        &__content {
+            grid-template-columns: auto;
+        }
+    }
+}
+
+.reviews {
+    @include respond-to($_reviews-jump-breakpoint, max) {
+        margin-top: 1.6rem;
+
+        &__content {
+            display: flex;
+            flex-direction: row;
+            gap: 4rem;
+
+            .review-card {
+                max-width: 100rem;
+                min-width: 33rem;
+            }
+        }
+    }
+
+    .is-narrow {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 1.6rem;
+
+        .review-card {
+            margin: 1.6rem 0 0;
+        }
+    }
+}
+
+.restaurant-cards-section {
+    &__header {
+        @include respond-to($_reviews-jump-breakpoint, max) {
+            margin-top: 4rem;
+        }
     }
 }
