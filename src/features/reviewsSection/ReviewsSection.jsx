@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import classNames from "classnames";
 
@@ -8,17 +8,21 @@ import ReviewCard from "./ReviewCard";
 import Modal from "./Modal";
 import "./reviewsSection.scss";
 
+import useObserver from "utils/useObserver";
+
 function ReviewsSection() {
   const [reviews, setReviews] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
-  const [containerWidth, SetContainerWidth] = useState();
+  const [containerWidth, setContainerWidth] = useState(0);
 
-  const containerRef = (node) => {
-    if (node !== null) {
-      SetContainerWidth(node.getBoundingClientRect().width);
-    }
+  const containerRef = useRef(null);
+
+  const observeWidthCallback = (width) => {
+    if (width) setContainerWidth(width);
   };
+
+  useObserver({ callback: observeWidthCallback, element: containerRef });
 
   const { id } = useParams();
   const { data, error, isLoading } = useRequest("/restaurants");
