@@ -17,7 +17,12 @@ const SideFilters = forwardRef(
     return (
       <div className="side-filter" ref={filterRef} data-filtertype={title}>
         <div className="side-filter__top">
-          <span>{title}</span>
+          <span>
+            {title
+              .replace(/([A-Z])/g, " $1")
+              .trim()
+              .toLowerCase()}
+          </span>
           <Button
             blankWithBorder={true}
             medium={true}
@@ -28,7 +33,12 @@ const SideFilters = forwardRef(
           </Button>
         </div>
         <fieldset className="side-filter__list">
-          <legend aria-label={title}></legend>
+          <legend
+            aria-label={title
+              .replace(/([A-Z])/g, " $1")
+              .trim()
+              .toLowerCase()}
+          ></legend>
           {checkboxes.map((item) => (
             <Checkbox
               key={item.name}

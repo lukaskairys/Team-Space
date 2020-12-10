@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  useCallback,
+} from "react";
 import PropTypes from "prop-types";
 import { context } from "../../contexts/Context";
 import EatOutCard from "../EatOutCard/EatOutCard";
@@ -8,107 +14,126 @@ import "./restaurantCardsSection.scss";
 import SectionTitle from "./SectionTitle.jsx";
 import Pagination from "../Pagination/Pagination";
 import Error from "./Error";
-import { useCurrentWidth } from "./useCurrentWidth";
+import useObserver from "../../utils/useObserver";
 import { FilterByMode } from "./FilterByMode";
+import useCurrentLocation from "../../utils/useCurrentLocation";
+import { geolocationOptions } from "../../utils/geolocationOptions";
+import { toggleAnimation } from "../../utils/toggleAnimation";
+import { LayoutHandler } from "./LayoutHandler";
 
 const RestaurantCardsSection = ({ title, mode }) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [width, ref] = useCurrentWidth();
   const { data, error } = useContext(context);
+  const { location } = useCurrentLocation(geolocationOptions);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const itemsPerPage = LayoutHandler(containerWidth);
+
   const [visibleData, setVisibleData] = useState([]);
   const { id } = useParams("id");
-  const [itemsPerPage, setItemsPerPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
 
-  const paginate = (page) => {
-    setCurrentPage(page);
+  const sectionRef = useRef(null);
+  const listRef = useRef(null);
+  const filteredData = useRef(null);
+  const animationLoading = useRef(false);
+  const cardRef = useRef(null);
+  const imagesLoaded = useRef(0);
+  const prevId = useRef(id);
+  let prevItemsPerPage = useRef(itemsPerPage);
+
+  //callback from custom resize hook
+  const observeWidthCallback = (width) => {
+    if (width) setContainerWidth(width);
   };
 
-  const calculateItemsPerPage = useCallback(() => {
-    const calculateSmallCardScore = (
-      countOfBigCards,
-      countOfSmallCards,
-      biggestCard
-    ) => {
-      let maxSmallCardScore = 0;
-      let calculateItemsPerPage = 0;
-      for (let i = countOfBigCards; i <= countOfSmallCards; i++) {
-        let score = 0;
-        const expandedCardWidth = width / i;
+  //custom hook for listening to resize of the container
+  useObserver({ callback: observeWidthCallback, element: sectionRef });
 
-        const smallerCardWith =
-          expandedCardWidth > biggestCard ? biggestCard : expandedCardWidth;
-        score += smallerCardWith / biggestCard;
+  //pagination method - sets current animation and toggles fade out animation loading.
+  const paginate = (page) => {
+    if (!animationLoading.current) {
+      toggleAnimation(listRef);
+      animationLoading.current = true;
 
-        const fillScoreSmallCard = (smallerCardWith * i) / width;
-        score += fillScoreSmallCard;
+      setTimeout(function () {
+        setCurrentPage(page);
+      }, 250);
+    }
+  };
 
-        if (score > maxSmallCardScore) {
-          maxSmallCardScore = score;
-          calculateItemsPerPage = i;
-        }
-      }
-      const perPage = calculateItemsPerPage > 0 ? calculateItemsPerPage : 1;
-      setItemsPerPage(perPage);
-      return perPage;
-    };
-
-    const smallestCard = 330;
-    const biggestCard = 390;
-    const countOfBigCards = Math.floor(width / biggestCard); //minimum amount of cards in the page
-    const countOfSmallCards = Math.floor(width / smallestCard); //maximum amount of cards in the page
-    return calculateSmallCardScore(
-      countOfBigCards,
-      countOfSmallCards,
-      biggestCard
-    );
-  }, [width]);
+  //filter data only on page change or first load.
+  const handleDataFiltering = useCallback(() => {
+    if (!filteredData.current || prevId.current !== id) {
+      const restaurants = data.restaurantList;
+      prevId.current = id;
+      // filtering data by mode { near you, you could also like, new restaurants }
+      filteredData.current = FilterByMode(mode, restaurants, id, location);
+    }
+  }, [data.restaurantList, id, location, mode]);
 
   useEffect(() => {
     const slicePart = (data) => {
-      const index = currentPage * itemsPerPage;
-      const currentItemsPerPage = calculateItemsPerPage();
-      const newCurrentPage = Math.floor(index / currentItemsPerPage);
+      const index = currentPage * prevItemsPerPage.current;
+      const newCurrentPage = Math.floor(index / itemsPerPage);
       setCurrentPage(newCurrentPage);
+      prevItemsPerPage.current = itemsPerPage;
+
       return data.slice(
-        newCurrentPage * currentItemsPerPage,
-        currentItemsPerPage * newCurrentPage + currentItemsPerPage
+        newCurrentPage * itemsPerPage,
+        itemsPerPage * newCurrentPage + itemsPerPage
       );
     };
-
     if (data.restaurantList) {
-      const filteredData = FilterByMode(mode, data.restaurantList, id);
-      const currentTotalPages = Math.ceil(filteredData.length / itemsPerPage);
-      setTotalPages(currentTotalPages);
-      setVisibleData(slicePart(filteredData));
+      //set filtered data on first load
+      handleDataFiltering();
+      setVisibleData(slicePart(filteredData.current));
     }
-  }, [data, currentPage, width, calculateItemsPerPage, mode, id, itemsPerPage]);
+  }, [data.restaurantList, currentPage, itemsPerPage, handleDataFiltering]);
+
+  const getTotalPages = () => {
+    return Math.ceil(filteredData.current.length / itemsPerPage);
+  };
+
+  //listen to the img load event - starts fade in animation when all images load.
+  const handleImageLoad = () => {
+    imagesLoaded.current = imagesLoaded.current + 1;
+    if (imagesLoaded.current >= visibleData.length) {
+      if (animationLoading.current) {
+        toggleAnimation(listRef);
+      }
+      animationLoading.current = false;
+      imagesLoaded.current = 0;
+    }
+  };
 
   if (data.restaurantList) {
     if (visibleData.length > 0) {
       return (
-        <div ref={ref} className="restaurant-cards-section">
+        <div ref={sectionRef} className="restaurant-cards-section">
           <div className="restaurant-cards-section__header">
             <SectionTitle title={title} />
             <Pagination
               currentPage={currentPage}
-              totalPages={totalPages}
+              totalPages={getTotalPages()}
               paginate={paginate}
             />
           </div>
-          <div className="restaurant-cards-section__list">
+          <div ref={listRef} className="restaurant-cards-section__list">
             {visibleData.map((restaurant) => (
               <div
                 key={restaurant.id}
                 className="restaurant-cards-section__single"
+                ref={cardRef}
               >
-                <EatOutCard restaurant={restaurant} />
+                <EatOutCard
+                  restaurant={restaurant}
+                  handleImageLoad={handleImageLoad}
+                />
               </div>
             ))}
           </div>
         </div>
       );
-    } else return <Error message={"No restaurants to suggest"} />;
+    } else return <Error message={"No restaurants matched"} />;
   } else if (error) {
     return <Error message={"Failed to fetch  restaurants"} />;
   }

@@ -2,13 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import HeartIcon from "../../HeartIcon/HeartIcon";
-import { createWorkingSchedule, isOpen } from "./RestaurantWorkingSchedule";
+import {
+  createWorkingSchedule,
+  formatOpeningDate,
+} from "./RestaurantWorkingSchedule";
 import "./eatOutCardSubheader.scss";
 
 function EatOutCardSubheader({ restaurantName, openingHours }) {
   const formTime = (workingSchedule) => {
     const schedule = createWorkingSchedule(workingSchedule);
-    return <time className="card-subheader__time">{isOpen(schedule)}</time>;
+    return (
+      <time className="card-subheader__time">
+        {formatOpeningDate(schedule)}
+      </time>
+    );
   };
 
   return (

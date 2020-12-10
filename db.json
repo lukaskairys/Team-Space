@@ -32,11 +32,12 @@
         "name": "Grill London (Kaunas, PLC Mega)",
         "id": "120wsdlpx4",
         "slogan": "Best burgers in the town",
+        "createdDate": "2019-06-05",
         "description": "„Grill London” is a chain of grill restaurants that visitors love because of its exceptional and responsible take on food quality. All of its steaks are grilled in unique ceramic grills using ecological fuels.",
         "openingHours": [
           {
             "days": "Monday - Friday",
-            "hours": "10 - 22"
+            "hours": "10:30 - 22:15"
           },
           {
             "days": "Saturday - Sunday",
@@ -84,6 +85,7 @@
         "name": "Jurgis ir Drakonas",
         "id": "wtlztmw3rr",
         "slogan": "Fire up the taste",
+        "createdDate": "2019-06-07",
         "description": "Jurgis ir Drakonas make pizza for the real heroes. Real heroes understand the best quality. Our authenitic Neapolitan tradition pizza are made from real Italian 00 flour. Tomatoes grown under the hot Italian sun are ripe and rich, and Italian fior di latte mozzarella melts in your mouth.",
         "openingHours": [
           {
@@ -144,6 +146,7 @@
         "name": "Mamma Pizza",
         "id": "7et2tk3ih1",
         "slogan": "Like from your mom - just better",
+        "createdDate": "2019-06-02",
         "description": "Small, but very cozy place in the center of Kaunas, very tasty food with vegetarian options, vegan too. Super friendly staff.",
         "openingHours": [
           {
@@ -192,6 +195,7 @@
         "name": "MOMO Grill Kaunas",
         "id": "x8bd7ozuj6",
         "slogan": "Grilled up",
+        "createdDate": "2018-06-05",
         "description": "Chef and owner of MOMO GRILL is widely known for his international experience, but what he’s actually FEELING can only be revealed after taking a bite, a spoonful or otherwise sampling his cooking. Knowledge AND feelings. Seasons AND emotions. Flavour AND memories. Sometimes it’s so simple that it can even be complicated.",
         "openingHours": [
           {
@@ -264,6 +268,7 @@
         "name": "Restoranas Siesta",
         "id": "3gogeanl0p",
         "slogan": "Too delicious",
+        "createdDate": "2020-06-05",
         "description": "Delicious food, cozy atmosphere, family friendly",
         "openingHours": [
           {
@@ -306,6 +311,7 @@
         "name": "Restoranas DIA",
         "id": "porhch2lam",
         "slogan": "Oh so tasty!",
+        "createdDate": "2012-06-05",
         "description": "We are ready to arrange you an unforgettable celebration, restaurant staff will take care about all the smolest details: decorate the hall, arrange musicians, agree the celebration menu with the customer, will make all kinds of world cuisine dishes.",
         "openingHours": [
           {
@@ -372,6 +378,7 @@
         "name": "Agave",
         "id": "tk3ih1o0qt",
         "slogan": "Ayyy tasty",
+        "createdDate": "2009-06-05",
         "description": "An exceptional mexican restaurant.",
         "openingHours": [
           {
@@ -408,6 +415,7 @@
         "name": "Moksha",
         "id": "h3hlqj5bcb",
         "slogan": "Spice it up",
+        "createdDate": "2013-06-05",
         "description": "Moksha is small restaurant serving pescatarian (fish & vegan) pan-asian food with a healthy twist. Majority of the food we serve is vegan. We make non traditional kimchis, kombuchas, lemonades, vegan ice-creams and vegan cakes free from added sugar.",
         "openingHours": [
           {
@@ -456,6 +464,7 @@
         "name": "Avilys",
         "id": "pelpnv6hmn",
         "slogan": "Pursuit the traditions",
+        "createdDate": "2019-06-05",
         "description": "To enjoy the beer made in restaurant’s cellar’s brewery. Avilys produce LIVE, unfiltered, unpasteurized beer. Our brand is beer with Lithuanian honey. During the beer tour and tasting we‘ll introduce you with all the specifics of AVILYS beer making. We’ll show you the inside of the brewery too.",
         "openingHours": [
           {
@@ -492,6 +501,7 @@
         "name": "Katpėdėlė",
         "id": "9kdf9qawui",
         "slogan": "Best lithuanian cuisine in the town",
+        "createdDate": "2019-08-05",
         "description": "Traditional Lithuanian cuisine - experience the most popular national meals, discover new tastes! The interior and the atmosphere is created to resemble unique old village style.",
         "openingHours": [
           {
@@ -546,6 +556,7 @@
         "name": "Sushi Masters",
         "id": "ch2lamoqk2",
         "slogan": "Sushi sushi sushi",
+        "createdDate": "2019-04-05",
         "description": "A great sushi place.",
         "openingHours": [
           {
@@ -577,6 +588,7 @@
         "id": "rri8r7gpdp",
         "description": "Nothing can be better than eating good pancakes.",
         "slogan": "Oh so fresh",
+        "createdDate": "2019-03-05",
         "openingHours": [
           {
             "days": "Monday - Sunday",
@@ -619,6 +631,7 @@
         "id": "0z3snsdmmx",
         "description": "Relax and enjoy old town.",
         "slogan": "We make it better",
+        "createdDate": "2019-02-05",
         "openingHours": [
           {
             "days": "Monday - Friday",
@@ -672,6 +685,7 @@
         "name": "Pas Stanley",
         "id": "qj5bcbeuz4",
         "slogan": "Warm & friendly",
+        "createdDate": "2017-06-05",
         "description": "Welcome to our house! We are humble and honoured for your stay at our place – a place which, we hope, will give you a warm and friendly experience and where you want to return to!",
         "openingHours": [
           {
@@ -708,6 +722,7 @@
         "name": "Lithuanian Pub Entry",
         "id": "vvektcqbs4",
         "slogan": "Tasty & cheap food",
+        "createdDate": "2012-06-05",
         "description": "Full plates. Reasonable prices. Good vibes only. Come and see!",
         "openingHours": [
           {
@@ -738,6 +753,7 @@
         "name": "Casa Della Pasta, pizzeria - restaurant",
         "id": "nv6hmnta6r",
         "slogan": "True italian restaurant",
+        "createdDate": "2014-06-05",
         "description": "A story based on sacrifice, hard work and energy… Fabio Manconi started life with few privileges in his home town in Italy. Working in a family restaurant from a very young age, after school he waited for the right moment to get his first experiences abroad… From London, Sydney and Hong Kong, following his heart, he arrived in Kaunas, where he settled down and decided to pursue his dream. A dream called Casa della pasta.",
         "openingHours": [
           {
@@ -761,6 +777,7 @@
         "name": "Višta Puode",
         "id": "sejw2ugddc",
         "slogan": "Chicken? Oh yes!",
+        "createdDate": "2020-06-05",
         "description": "Which side of a chicken has the most feathers?",
         "openingHours": [
           {
@@ -809,6 +826,7 @@
         "name": "Hop Doc Gastropub",
         "id": "0px1y6iixy",
         "slogan": "Modern & new",
+        "createdDate": "2019-06-05",
         "description": "HOP DOC GASTROPUB - brand new addition to Kaunas Old Town. Located few steps from a main Vilnius street, we serve you modern interior, more than 100 kinds of beers, full bar & grill. Lunch specials from 12:00 till 15:00 on work days. Fresh oysters come in every Friday. Kitchen is open till 23:00 on weekdays and till 24:00 on weekends. We recommend You to book in advance.",
         "openingHours": [
           {
@@ -846,6 +864,7 @@
         "id": "hvoirynmd4",
         "description": "A family place.",
         "slogan": "Family place restaurant",
+        "createdDate": "2019-06-05",
         "openingHours": [
           {
             "days": "Monday - Sunday",
@@ -894,6 +913,7 @@
         "id": "jo9ihsvxr8",
         "description": "Bar, fast food, street food",
         "slogan": "Everything you ever wanted",
+        "createdDate": "2019-06-05",
         "openingHours": [
           {
             "days": "Monday - Sunday",
