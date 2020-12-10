@@ -4,3 +4,8 @@ export const isObjectEmpty = (objectData) => {
 
   return false;
 };
+
+export const getObjectEntries = (object) => {
+  if (object !== undefined && !isObjectEmpty(object))
+    return Object.entries(object);
+};
