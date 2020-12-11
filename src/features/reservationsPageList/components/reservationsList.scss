@@ -15,7 +15,7 @@ $_gap: 1.6rem;
 
     &__title {
         @include typography-h3-alternative;
-        margin-bottom: 1.8rem;
+        margin-bottom: $_gap;
     }
 
     &__search-term {
@@ -27,6 +27,6 @@ $_gap: 1.6rem;
     &__cards {
         display: grid;
         grid-template-columns: 1fr;
-        row-gap: $_gap;
+        row-gap: 2.4rem;
     }
 }
