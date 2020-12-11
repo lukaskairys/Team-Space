@@ -54,7 +54,7 @@ export default function Pagination({ page, setPage, pageCount }) {
     );
 
   const renderPlaceholder =
-    pageCount === 0 || pageCount - 1 === page ? null : (
+    pageCount === 0 ? null : (
       <Button pagination isStatic>
         <span className="reservations-pagination__placeholder">...</span>
       </Button>
@@ -79,13 +79,13 @@ export default function Pagination({ page, setPage, pageCount }) {
         <ChevronRight className="chevron-right" />
       </Button>
     );
-
   return (
     <div className="reservations-pagination">
       {renderButtonPrev}
       {renderFirstPage}
+      {page > 1 && page !== pageCount ? renderPlaceholder : null}
       {renderCurrentPage}
-      {renderPlaceholder}
+      {pageCount - 1 === page ? null : renderPlaceholder}
       {renderLastPage}
       {renderButtonNext}
     </div>
