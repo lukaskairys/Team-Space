@@ -1,64 +1,67 @@
-import React, { useState, useEffect, createRef } from "react";
+import React from "react";
 
-import { isObjectEmpty } from "utils/objects";
-import { useSideFilter } from "features/sideFilters/useSideFilter";
-import { useRequest } from "apis/useRequest";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
-
-import "./Devices.scss";
+import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 import SideFilters from "features/sideFilters/SideFilters";
 
+import { useReservationPages } from "components/ReservationPages/useReservationPages";
+import "./devices.scss";
+
 const Devices = () => {
-  const [refs, setRefs] = useState(undefined);
-  const [dataCount, setDataCount] = useState(0);
-  const { data } = useRequest("/devices");
-  const { handleChange, clearAll, tags } = useSideFilter();
-
-  const filterData = data.filterCategories;
-
-  useEffect(() => {
-    if (filterData && !isObjectEmpty(filterData)) {
-      setDataCount(Object.keys(filterData).length);
-      let refs = {};
-      for (let i = 0; i <= dataCount; i++) {
-        refs[i] = createRef();
-      }
-      setRefs(refs);
-    }
-  }, [filterData, dataCount]);
-
-  const getFiltersToRender = () => {
-    if (filterData) {
-      return Object.entries(filterData);
-    }
+  // Placeholders to be replaced by state changing items
+  const placeholders = {
+    searchTerm: "", // User search term
+    date: "22/01/2021", // Date that comes from the calendar in the search component (must be DD/MM/YYYY to work)
+    availabilityOn: false, // If true displays only available items, if false displays all items
   };
-  const filtersToRender = getFiltersToRender();
+
+  const {
+    filtersToRender,
+    refs,
+    handleChange,
+    clearAll,
+    tags,
+    handleSingleTag,
+    listName,
+    listData,
+  } = useReservationPages("/devices");
 
   return (
-    <div className="devices">
+    <>
       <MainLayout>
         <>
           <Breadcrumbs />
-          <div className="devices__side-filters">
-            {filtersToRender !== undefined &&
-              filtersToRender.map((item, i) => (
-                <SideFilters
-                  key={item[0]}
-                  title={item[0]}
-                  filterItems={item[1]}
-                  filterTags={tags}
-                  clearAll={clearAll}
-                  tags={tags}
-                  handleChange={handleChange}
-                  ref={refs && refs[i]}
-                  value={item}
-                />
-              ))}
+          <div className="devices">
+            <div className="devices__side-filters">
+              {filtersToRender !== undefined &&
+                filtersToRender.map((item, i) => (
+                  <SideFilters
+                    key={item[0]}
+                    title={item[0]}
+                    filterItems={item[1]}
+                    filterTags={tags}
+                    clearAll={clearAll}
+                    tags={tags}
+                    handleChange={handleChange}
+                    ref={refs && refs[i]}
+                    value={item}
+                  />
+                ))}
+            </div>
+            <ReservationsList
+              searchTerm={placeholders.searchTerm}
+              date={placeholders.date}
+              tags={tags}
+              handleSingleTag={handleSingleTag}
+              availabilityOn={placeholders.availabilityOn}
+              listName={listName}
+              listData={listData}
+            />
           </div>
         </>
       </MainLayout>
-    </div>
+    </>
   );
 };
 

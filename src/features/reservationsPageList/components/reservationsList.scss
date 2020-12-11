@@ -1,0 +1,32 @@
+@import '../../../styles/base/base';
+
+$_gap: 1.6rem;
+
+.reservations-list {
+    margin-left: 4rem;
+    width: 100%;
+
+    &__details {
+        align-items: flex-start;
+        column-gap: $_gap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        @include typography-h3-alternative;
+        margin-bottom: $_gap;
+    }
+
+    &__search-term {
+        @include typography-h3-alternative;
+        font-style: italic;
+        margin-left: $_gap;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2.4rem;
+    }
+}

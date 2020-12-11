@@ -5,44 +5,50 @@ export const LayoutHandler = (containerWidth) => {
   const [itemsPerPage, setItemsPerPage] = useState(0);
 
   const calculateItemsPerPage = useCallback(() => {
-    const calculateSmallCardScore = (
-      countOfBigCards,
-      countOfSmallCards,
-      biggestCard
-    ) => {
-      let maxSmallCardScore = 0;
-      let calculateItemsPerPage = 0;
+    const findBestLayout = (smallestCard, biggestCard) => {
+      let highestScore = 0;
+      let highestScoreLayout = 0;
+      const gap = 40;
+      const minLength = Math.floor(containerWidth / biggestCard); //minimum amount of cards in the page
+      const maxLength = Math.floor(containerWidth / smallestCard); //maximum amount of cards in the page
 
-      for (let i = countOfBigCards; i <= countOfSmallCards; i++) {
+      for (let i = minLength; i <= maxLength; i++) {
         let score = 0;
-        const expandedCardWidth = containerWidth / i;
+        const currentCardWidth = (containerWidth - gap * (i - 1)) / i;
 
-        const smallerCardWith =
-          expandedCardWidth > biggestCard ? biggestCard : expandedCardWidth;
-        score += smallerCardWith / biggestCard;
+        //score for the card size in the layout.
+        const layoutCardWidth =
+          currentCardWidth > biggestCard ? biggestCard : currentCardWidth;
+        score += layoutCardWidth / biggestCard;
 
-        const fillScoreSmallCard = (smallerCardWith * i) / containerWidth;
-        score += fillScoreSmallCard;
+        //Score for the filled space of whole container for specific card layout
+        const fillScore =
+          (layoutCardWidth * i) / (containerWidth - gap * (i - 1));
+        score += fillScore;
 
-        if (score > maxSmallCardScore) {
-          maxSmallCardScore = score;
-          calculateItemsPerPage = i;
+        if (score >= highestScore && layoutCardWidth >= smallestCard) {
+          highestScore = score;
+          highestScoreLayout = i;
         }
       }
-      const perPage = calculateItemsPerPage > 0 ? calculateItemsPerPage : 1;
+
+      const perPage = highestScoreLayout > 0 ? highestScoreLayout : 1;
       setItemsPerPage(perPage);
       return perPage;
     };
 
-    const smallestCard = 330;
-    const biggestCard = 390;
-    const countOfBigCards = Math.floor(containerWidth / biggestCard); //minimum amount of cards in the page
-    const countOfSmallCards = Math.floor(containerWidth / smallestCard); //maximum amount of cards in the page
-    return calculateSmallCardScore(
-      countOfBigCards,
-      countOfSmallCards,
-      biggestCard
+    const el = document.getElementsByClassName("restaurant-cards-section")[0];
+    const el2 = document.getElementsByClassName("eat-out-card")[0];
+    if (!el || !el2) return 1;
+
+    const smallestCard = parseInt(
+      window.getComputedStyle(el2, null).getPropertyValue("min-width")
     );
+    const biggestCard = parseInt(
+      window.getComputedStyle(el2, null).getPropertyValue("max-width")
+    );
+
+    return findBestLayout(smallestCard, biggestCard);
   }, [containerWidth]);
 
   useEffect(() => {

@@ -66,7 +66,7 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
                 <div
                   key={index}
                   style={{
-                    marginTop: "3rem",
+                    marginTop: "4rem",
                   }}
                 >
                   {card}

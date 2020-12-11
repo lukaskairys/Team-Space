@@ -36,9 +36,6 @@
             "id": "porhch2lam"
           },
           {
-            "id": "9kdf9qawui"
-          },
-          {
             "id": "sejw2ugddc"
           },
           {
@@ -49,6 +46,9 @@
           },
           {
             "id": "tk3ih1o0qt"
+          },
+          {
+            "id": "7et2tk3ih1"
           }
         ],
         "books": [],
@@ -3476,7 +3476,7 @@
       }
     ],
     "filterCategories": {
-      "genres": [
+      "genre": [
         "True Crime",
         "Romance",
         "Technology",
