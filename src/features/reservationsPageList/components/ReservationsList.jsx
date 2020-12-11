@@ -1,13 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-import { context } from "contexts/Context";
 import groupArray from "utils/groupArray";
 
 import "./reservationsList.scss";
 import ReservationCard from "./ReservationCard";
 import Pagination from "./Pagination";
 import Tag from "./Tag";
-import dataFilter from "./dataFilter";
+import dataFilter from "../utils/dataFilter";
 
 function ReservationsList({
   searchTerm,
@@ -15,11 +14,10 @@ function ReservationsList({
   date,
   handleSingleTag,
   availabilityOn,
+  listName,
+  listData,
 }) {
-  const { data } = useContext(context);
   const [page, setPage] = useState(0);
-  const listName = Object.keys(data)[0];
-  const listData = Object.values(data)[0];
 
   const renderTags = () => {
     const tagArr = [];
@@ -52,7 +50,7 @@ function ReservationsList({
     const items = groupArray(filteredData, 6);
     const pageCount = items.length - 1;
 
-    const renderDevices = () => {
+    const renderCards = () => {
       if (items[page]) {
         return items[page].map((item, index) => {
           return (
@@ -68,17 +66,16 @@ function ReservationsList({
               bookedUntil={item?.bookedUntil ? item.bookedUntil : null}
               date={date}
               book={listName === "deviceList" ? false : true}
-              availabilityOn={availabilityOn}
             />
           );
         });
       } else return null;
     };
 
-    const renderCards = () => {
+    const renderCardsAndPagination = () => {
       return (
         <>
-          <div className="reservations-list__cards">{renderDevices()}</div>
+          <div className="reservations-list__cards">{renderCards()}</div>
           <Pagination page={page} setPage={setPage} pageCount={pageCount} />
         </>
       );
@@ -88,12 +85,14 @@ function ReservationsList({
       <div className="reservations-list">
         <div className="reservations-list__details">
           <h3 className="reservations-list__title">
-            {`${filteredData.length} results for:`}
+            {`${filteredData.length} results${
+              searchTerm === "" && renderTags().length === 0 ? "" : " for"
+            }:`}
             <span className="reservations-list__search-term">{`${searchTerm}`}</span>
           </h3>
           {renderTags()}
         </div>
-        {items.length > 0 ? renderCards() : null}
+        {items.length > 0 ? renderCardsAndPagination() : null}
       </div>
     );
   } else return null;

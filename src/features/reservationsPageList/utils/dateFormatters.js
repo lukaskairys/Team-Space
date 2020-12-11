@@ -24,3 +24,11 @@ export function isLater(dateString1, dateString2) {
   const dS2 = Date.parse(parseDateFromGB(dateString2));
   return dS1 > dS2;
 }
+
+export function isUnavailable(date, bookedUntil) {
+  const selectedDate = formatDateToGB(parseDateFromGB(date));
+  const unavailableDate = formatDateToGB(bookedUntil);
+  const itemUnavailable =
+    unavailableDate && isLater(unavailableDate, selectedDate);
+  return itemUnavailable;
+}

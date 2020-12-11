@@ -8,7 +8,7 @@ import HeartIcon from "components/HeartIcon/HeartIcon";
 import Rating from "components/Rating/Rating";
 
 import "./reservationCard.scss";
-import { formatDateToGB, parseDateFromGB, isLater } from "./dateFormatter";
+import { formatDateToGB, isUnavailable } from "../utils/dateFormatters";
 export default function Card({
   image,
   alt,
@@ -21,9 +21,9 @@ export default function Card({
 }) {
   let buttonDisabled = false;
   const renderStatus = () => {
-    const selectedDate = formatDateToGB(parseDateFromGB(date));
     const unavailableDate = formatDateToGB(bookedUntil);
-    if (unavailableDate && isLater(unavailableDate, selectedDate)) {
+    const itemUnavailable = isUnavailable(date, bookedUntil);
+    if (itemUnavailable) {
       buttonDisabled = true;
       return (
         <>
@@ -31,7 +31,7 @@ export default function Card({
           <span className="reservation-card__caption">{`Booked until ${unavailableDate}`}</span>
         </>
       );
-    } else if (typeof quantityOrRating == "number" && quantityOrRating === 0) {
+    } else if (typeof quantityOrRating === "number" && quantityOrRating === 0) {
       buttonDisabled = true;
       return (
         <>

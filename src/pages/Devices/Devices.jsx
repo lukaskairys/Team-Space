@@ -3,7 +3,6 @@ import React from "react";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
-import ContextProvider from "contexts/ContextProvider";
 import SideFilters from "features/sideFilters/SideFilters";
 
 import { useReservationPages } from "components/ReservationPages/useReservationPages";
@@ -12,10 +11,11 @@ import "./Devices.scss";
 const Devices = () => {
   // Placeholders to be replaced by state changing items
   const placeholders = {
-    searchTerm: "",
-    date: "03/02/2021",
-    availabilityOn: true,
+    searchTerm: "", // User search term
+    date: "22/01/2021", // Date that comes from the calendar in the search component (must be DD/MM/YYYY to work)
+    availabilityOn: false, // If true displays only available items, if false displays all items
   };
+
   const {
     filtersToRender,
     refs,
@@ -23,6 +23,8 @@ const Devices = () => {
     clearAll,
     tags,
     handleSingleTag,
+    listName,
+    listData,
   } = useReservationPages("/devices");
 
   return (
@@ -47,15 +49,15 @@ const Devices = () => {
                   />
                 ))}
             </div>
-            <ContextProvider endpoint="/devices">
-              <ReservationsList
-                searchTerm={placeholders.searchTerm}
-                date={placeholders.date}
-                tags={tags}
-                handleSingleTag={handleSingleTag}
-                available={placeholders.availabilityOn}
-              />
-            </ContextProvider>
+            <ReservationsList
+              searchTerm={placeholders.searchTerm}
+              date={placeholders.date}
+              tags={tags}
+              handleSingleTag={handleSingleTag}
+              availabilityOn={placeholders.availabilityOn}
+              listName={listName}
+              listData={listData}
+            />
           </div>
         </>
       </MainLayout>

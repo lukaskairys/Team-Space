@@ -3,7 +3,6 @@ import React from "react";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import SideFilters from "features/sideFilters/SideFilters";
-import ContextProvider from "contexts/ContextProvider";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 
 import { useReservationPages } from "components/ReservationPages/useReservationPages";
@@ -13,8 +12,10 @@ const Books = () => {
   // Placeholders to be replaced by state changing items
   const placeholders = {
     searchTerm: "",
-    date: "",
+    date: "03/02/2021",
+    availabilityOn: true,
   };
+
   const {
     filtersToRender,
     refs,
@@ -22,22 +23,15 @@ const Books = () => {
     clearAll,
     tags,
     handleSingleTag,
+    listName,
+    listData,
   } = useReservationPages("/books");
 
   return (
-    <div className="books">
-      <MainLayout>
-        <>
-          <Breadcrumbs />
-          <ContextProvider endpoint="/books">
-            <ReservationsList
-              searchTerm={placeholders.searchTerm}
-              date={placeholders.date}
-              tags={tags}
-              handleSingleTag={handleSingleTag}
-              available={placeholders.availabilityOn}
-            />
-          </ContextProvider>
+    <MainLayout>
+      <>
+        <Breadcrumbs />
+        <div className="books">
           <div className="books__side-filters">
             {filtersToRender !== undefined &&
               filtersToRender.map((item, i) => (
@@ -54,9 +48,18 @@ const Books = () => {
                 />
               ))}
           </div>
-        </>
-      </MainLayout>
-    </div>
+          <ReservationsList
+            searchTerm={placeholders.searchTerm}
+            date={placeholders.date}
+            tags={tags}
+            handleSingleTag={handleSingleTag}
+            availabilityOn={placeholders.availabilityOn}
+            listName={listName}
+            listData={listData}
+          />
+        </div>
+      </>
+    </MainLayout>
   );
 };
 

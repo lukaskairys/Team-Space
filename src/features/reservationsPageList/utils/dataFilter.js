@@ -1,4 +1,4 @@
-// import { formatDateToGB, parseDateFromGB, isLater } from "./dateFormatter";
+import { isUnavailable } from "./dateFormatters";
 
 export default function dataFilter(
   data,
@@ -36,16 +36,18 @@ export default function dataFilter(
     }
   };
 
-  // const filterByAvailability = () => {
-  //   filterData = filterData.filter((item) => {
-  //     const selectedDate = formatDateToGB(parseDateFromGB(date));
-  //     const unavailableDate = formatDateToGB(item.bookedUntil);
-  //     if (unavailableDate && isLater(unavailableDate, selectedDate)) {
-  //     }
-  //   });
-  // };
+  const filterByAvailability = () => {
+    filterData = filterData.filter((item) => {
+      const itemUnavailable =
+        isUnavailable(date, item.bookedUntil) || item.quantity === 0;
+      if (availabilityOn && itemUnavailable) return null;
+      else return item;
+    });
+  };
 
-  filterByTags();
   filterBySearchTerm();
+  filterByTags();
+  filterByAvailability();
+
   return filterData;
 }

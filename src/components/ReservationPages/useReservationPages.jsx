@@ -8,6 +8,8 @@ export const useReservationPages = (endpoint) => {
   const [refs, setRefs] = useState(undefined);
   const [dataCount, setDataCount] = useState(0);
   const { data } = useRequest(endpoint);
+  const listName = Object.keys(data)[0];
+  const listData = Object.values(data)[0];
 
   const filterCategories = data.filterCategories;
   const filtersToRender = getObjectEntries(filterCategories);
@@ -45,5 +47,7 @@ export const useReservationPages = (endpoint) => {
     clearAll,
     tags,
     handleSingleTag,
+    listName,
+    listData,
   };
 };
