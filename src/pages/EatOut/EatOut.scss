@@ -1,1 +1,11 @@
 @import '../../styles/base/base';
+
+.eat-out {
+    &__hero {
+        margin-bottom: 6.6rem;
+    }
+
+    &__categories {
+        margin-bottom: 7.5rem;
+    }
+}
