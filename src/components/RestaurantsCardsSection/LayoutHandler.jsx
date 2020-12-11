@@ -37,16 +37,8 @@ export const LayoutHandler = (containerWidth) => {
       return perPage;
     };
 
-    const el = document.getElementsByClassName("restaurant-cards-section")[0];
-    const el2 = document.getElementsByClassName("eat-out-card")[0];
-    if (!el || !el2) return 1;
-
-    const smallestCard = parseInt(
-      window.getComputedStyle(el2, null).getPropertyValue("min-width")
-    );
-    const biggestCard = parseInt(
-      window.getComputedStyle(el2, null).getPropertyValue("max-width")
-    );
+    const smallestCard = "250";
+    const biggestCard = "390";
 
     return findBestLayout(smallestCard, biggestCard);
   }, [containerWidth]);
