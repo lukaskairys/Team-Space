@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { post } from "apis/postData";
 
-export const useAuthentication = (setCurrentUserId, data) => {
+export const useAuthentication = (setId, data) => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
   const history = useHistory();
@@ -12,7 +12,7 @@ export const useAuthentication = (setCurrentUserId, data) => {
   const userFromLocal = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    userFromLocal && setCurrentUserId(userFromLocal);
+    userFromLocal && setId(userFromLocal);
     // eslint-disable-next-line
   }, [data]);
 
@@ -24,7 +24,7 @@ export const useAuthentication = (setCurrentUserId, data) => {
         .compare(password, currentUser[0].password)
         .then((result) => {
           if (result) {
-            setCurrentUserId(currentUser[0].id);
+            setId(currentUser[0].id);
 
             localStorage.setItem("user", JSON.stringify(currentUser[0].id));
 

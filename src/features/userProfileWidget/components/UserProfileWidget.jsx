@@ -7,18 +7,16 @@ import { useRequest } from "../../../apis/useRequest";
 import { useOnClickOutside } from "../../../utils/useOnClickOutside";
 import { isObjectEmpty } from "../../../utils/objects";
 
-import { AuthContext } from "contexts/AuthContext";
+import { UserContext } from "contexts/UserContext";
 import "./userProfileWidget.scss";
 
 function UserProfileWidget() {
   const [image, setImage] = useState(userIcon);
   const [open, setOpen] = useState(false);
 
-  const { currentUserId, logout } = useContext(AuthContext);
+  const { id, logout } = useContext(UserContext);
   const userFromLocal = JSON.parse(localStorage.getItem("user"));
-  const { data, error } = useRequest(
-    `/users/${currentUserId ? currentUserId : userFromLocal.id}`
-  );
+  const { data, error } = useRequest(`/users/${id ? id : userFromLocal.id}`);
 
   const dropRef = useRef(null);
 

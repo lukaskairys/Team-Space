@@ -3,16 +3,16 @@ import React from "react";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutByCategories from "features/EatOutByCategories/EatOutByCategories";
-import ContextProvider from "contexts/ContextProvider";
+import RestaurantContextProvider from "contexts/RestaurantContextProvider";
 
 function EatOutCategoriesPage() {
   return (
     <MainLayout>
       <>
         <Breadcrumbs />
-        <ContextProvider endpoint="/restaurants">
+        <RestaurantContextProvider>
           <EatOutByCategories />
-        </ContextProvider>
+        </RestaurantContextProvider>
       </>
     </MainLayout>
   );
