@@ -8,14 +8,13 @@ import {
 
 import RegistrationPage from "features/registration/pages/RegistrationPage";
 import LoginPage from "features/login/pages/LoginPage";
+import Books from "pages/Books/Books";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
-import Books from "pages/Books/Books";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
-import ContextProvider from "contexts/ContextProvider";
 
 function App() {
   return (
@@ -65,14 +64,12 @@ function App() {
             <Restaurant />
           </Route>
 
-          <ContextProvider endpoint="/restaurants">
-            <Route exact path="/eat-out/:id">
-              <Restaurant />
-            </Route>
-            <Route exact path="/eat-out/categories/:category">
-              <EatOutCategoriesPage />
-            </Route>
-          </ContextProvider>
+          <Route exact path="/eat-out/:id">
+            <Restaurant />
+          </Route>
+          <Route exact path="/eat-out/categories/:category">
+            <EatOutCategoriesPage />
+          </Route>
         </Switch>
       </>
     </Router>

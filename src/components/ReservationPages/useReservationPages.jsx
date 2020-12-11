@@ -8,6 +8,8 @@ export const useReservationPages = (endpoint) => {
   const [refs, setRefs] = useState(undefined);
   const [dataCount, setDataCount] = useState(0);
   const { data } = useRequest(endpoint);
+  const listName = Object.keys(data)[0];
+  const listData = Object.values(data)[0];
 
   const filterCategories = data.filterCategories;
   const filtersToRender = getObjectEntries(filterCategories);
@@ -17,12 +19,12 @@ export const useReservationPages = (endpoint) => {
     if (endpoint === "/devices") {
       initialState = { deviceType: [], os: [], brand: [] };
     } else if (endpoint === "/books") {
-      initialState = { genres: [] };
+      initialState = { genre: [] };
     }
     return initialState;
   };
 
-  const { handleChange, clearAll, tags } = useSideFilter(
+  const { handleChange, clearAll, tags, handleSingleTag } = useSideFilter(
     filtersToRender,
     getInitialState()
   );
@@ -38,5 +40,14 @@ export const useReservationPages = (endpoint) => {
     }
   }, [filterCategories, dataCount]);
 
-  return { filtersToRender, refs, handleChange, clearAll, tags };
+  return {
+    filtersToRender,
+    refs,
+    handleChange,
+    clearAll,
+    tags,
+    handleSingleTag,
+    listName,
+    listData,
+  };
 };

@@ -11,6 +11,7 @@ $_breakpoint-md: 886;
         @include typography-h3;
 
         color: $color-fiord;
+        margin-bottom: -1.8rem;
 
         @include respond-to($_breakpoint-lg, max) {
             text-align: center;

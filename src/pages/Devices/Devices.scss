@@ -1,7 +1,8 @@
 @import '../../styles/base/base';
 
 .devices {
-    display: block;
+    display: flex;
+    margin-top: 5rem;
 
     &__side-filters {
         width: 28.6rem;
