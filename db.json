@@ -645,6 +645,7 @@
             "userName": "Vania Walters",
             "id": "m7wtlztmw3",
             "comment": "Taste is perfect, but prices are very high and portions too small for this price.",
+<<<<<<< HEAD
             "rating": 4
           }
         ],
@@ -652,6 +653,12 @@
           "Sushi",
           "Soups"
         ],
+=======
+            "rating": 4.0
+          }
+        ],
+        "categories": ["Sushi", "Soups"],
+>>>>>>> 7e8ebf1f5a10ad94a3353da02c20f558caa00a62
         "coordinates": {
           "lat": 54.89896259395091,
           "lng": 23.890748094165108
@@ -827,11 +834,15 @@
             "rating": 4.5
           }
         ],
+<<<<<<< HEAD
         "categories": [
           "Salads",
           "Sandwich",
           "Kebab"
         ],
+=======
+        "categories": ["Salads", "Sandwich", "Kebab"],
+>>>>>>> 7e8ebf1f5a10ad94a3353da02c20f558caa00a62
         "coordinates": {
           "lat": 54.89642795361554,
           "lng": 23.891496055156875
@@ -3411,7 +3422,7 @@
       }
     ],
     "filterCategories": {
-      "genres": [
+      "genre": [
         "True Crime",
         "Romance",
         "Technology",

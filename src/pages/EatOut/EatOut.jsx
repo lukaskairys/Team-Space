@@ -23,8 +23,13 @@ const EatOut = () => {
       <MainLayout>
         <RestaurantContextProvider>
           <Breadcrumbs />
-          <EatOutHeroWidget />
-          <EatOutCategoriesSection ref={scrollRef} />
+          <div className="eat-out__hero">
+            <EatOutHeroWidget />
+          </div>
+          <div className="eat-out__categories">
+            <EatOutCategoriesSection ref={scrollRef} />
+          </div>
+
           <RestaurantCardsSection title="Discover near you" mode="near" />
           <RestaurantCardsSection title="New Places" mode="new" />
         </RestaurantContextProvider>
