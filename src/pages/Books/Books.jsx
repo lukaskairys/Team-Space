@@ -6,7 +6,7 @@ import SideFilters from "features/sideFilters/SideFilters";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 
 import { useReservationPages } from "components/ReservationPages/useReservationPages";
-import "./Books.scss";
+import "./books.scss";
 
 const Books = () => {
   // Placeholders to be replaced by state changing items
