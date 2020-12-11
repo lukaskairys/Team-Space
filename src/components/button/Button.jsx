@@ -11,7 +11,13 @@ function Button({
   medium,
   iconX,
   blank,
+  pagination,
+  empty,
+  isStatic,
+  isActive,
+  disabled,
   blankWithBorder,
+  dataTagName,
 }) {
   const btnClass = classNames({
     button: true,
@@ -19,10 +25,21 @@ function Button({
     "button--medium": medium,
     "button--icon-x": iconX,
     "button--blank": blank,
+    "button--pagination": pagination,
+    "button--empty": empty,
+    "is-static": isStatic,
+    "is-active": isActive,
     "button--blank-with-border": blankWithBorder,
   });
   return (
-    <button type={type} onClick={handleClick} className={btnClass}>
+    <button
+      type={type}
+      onClick={handleClick}
+      className={btnClass}
+      tabIndex={isStatic && "-1"}
+      disabled={disabled}
+      data-tag-name={dataTagName}
+    >
       {children}
     </button>
   );
@@ -40,7 +57,13 @@ Button.propTypes = {
   iconX: PropTypes.bool,
   medium: PropTypes.bool,
   blank: PropTypes.bool,
+  pagination: PropTypes.bool,
+  empty: PropTypes.bool,
+  isStatic: PropTypes.bool,
+  isActive: PropTypes.bool,
+  disabled: PropTypes.bool,
   blankWithBorder: PropTypes.bool,
+  dataTagName: PropTypes.string,
 };
 
 export default Button;

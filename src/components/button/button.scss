@@ -104,4 +104,57 @@
             background: none;
         }
     }
+
+    &--pagination {
+        background-color: $color-white;
+        border: 1px solid $color-ghost;
+        border-radius: $secondary-border-radius;
+        color: $color-fiord;
+        display: grid;
+        height: 3.2rem;
+        margin-right: 1.6rem;
+        padding: 0;
+        place-items: center;
+        width: 3.2rem;
+
+        &:focus,
+        &:hover {
+            background-color: $color-bright-violet;
+            color: $color-white;
+
+            .chevron-left path,
+            .chevron-right path {
+                fill: $color-white;
+            }
+        }
+    }
+
+    &--empty {
+        background: none;
+        border-radius: 0;
+        padding: 0;
+
+        &:hover,
+        &:focus {
+            background: none;
+        }
+
+        &:active {
+            background: none;
+        }
+    }
+
+    &.is-active {
+        background-color: $color-bright-violet;
+        color: $color-white;
+    }
+
+    &.is-static {
+        &:hover,
+        &:focus {
+            background-color: $color-white;
+            box-shadow: none;
+            cursor: default;
+        }
+    }
 }
