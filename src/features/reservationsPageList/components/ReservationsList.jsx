@@ -65,7 +65,7 @@ function ReservationsList({
               }
               bookedUntil={item?.bookedUntil ? item.bookedUntil : null}
               date={date}
-              book={listName === "deviceList" ? false : true}
+              book={listName === "bookList" ? true : false}
             />
           );
         });
