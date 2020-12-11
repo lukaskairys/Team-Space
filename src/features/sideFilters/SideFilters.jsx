@@ -10,7 +10,7 @@ import "./sideFilters.scss";
 const SideFilters = forwardRef(
   ({ filterItems, title, clearAll, tags, handleChange }, filterRef) => {
     const checkboxes = filterItems.map((item) => ({
-      name: item.replace(/\s+/g, "-").toLowerCase(),
+      name: item,
       label: item,
     }));
 
