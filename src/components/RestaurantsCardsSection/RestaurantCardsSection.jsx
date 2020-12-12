@@ -111,11 +111,13 @@ const RestaurantCardsSection = ({ title, mode }) => {
         <div ref={sectionRef} className="restaurant-cards-section">
           <div className="restaurant-cards-section__header">
             <SectionTitle title={title} />
-            <Pagination
-              currentPage={currentPage}
-              totalPages={getTotalPages()}
-              paginate={paginate}
-            />
+            {getTotalPages() > 1 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={getTotalPages()}
+                paginate={paginate}
+              />
+            )}
           </div>
           <div ref={listRef} className="restaurant-cards-section__list">
             {visibleData.map((restaurant) => (
