@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import jsonserver from "./jsonserver";
 
-export const useRequest = (endpoint) => {
+export const useRequest = (endpoint, isActive) => {
   const [mounted, setMounted] = useState(false);
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +12,6 @@ export const useRequest = (endpoint) => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     setMounted(true);
-
     const fetchData = async () => {
       try {
         setIsLoading(true);
@@ -37,7 +36,6 @@ export const useRequest = (endpoint) => {
       source.cancel();
       setMounted(false);
     };
-  }, [endpoint, mounted]);
-
+  }, [endpoint, mounted, isActive]);
   return { data, error, isLoading };
 };

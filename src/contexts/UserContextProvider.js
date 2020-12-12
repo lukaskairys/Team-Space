@@ -6,10 +6,21 @@ import { useRequest } from "apis/useRequest";
 import { UserContext } from "./UserContext";
 
 const UserContextProvider = ({ children, endpoint }) => {
-  const { data, error, isLoading } = useRequest(endpoint);
   const { Provider } = UserContext;
   const [likeState, setLikeState] = useState("initial");
-  const store = { data, setLikeState, likeState, error, isLoading };
+  const [currentCheckIn, setCurrentCheckIn] = useState("initial");
+  const { data, error, isLoading } = useRequest(endpoint);
+  const { data: users } = useRequest("/users", currentCheckIn);
+  const store = {
+    data,
+    users,
+    setLikeState,
+    setCurrentCheckIn,
+    currentCheckIn,
+    likeState,
+    error,
+    isLoading,
+  };
 
   return <Provider value={store}>{children}</Provider>;
 };
