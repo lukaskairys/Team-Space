@@ -7,7 +7,12 @@ import "./eatOutCardFooter.scss";
 
 function EatOutCardFooter({ restaurantID }) {
   const handleScroll = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const element = document.querySelector("header");
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
   };
 
   return (
