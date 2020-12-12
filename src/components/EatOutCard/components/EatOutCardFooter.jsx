@@ -6,10 +6,15 @@ import Button from "../../button/Button";
 import "./eatOutCardFooter.scss";
 
 function EatOutCardFooter({ restaurantID }) {
+  const handleScroll = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="card-footer">
       <div className="card-footer__buttons">
         <Link
+          onClick={handleScroll}
           to={`/eat-out/${restaurantID}`}
           className="card-footer__link"
           tabIndex={-1}
