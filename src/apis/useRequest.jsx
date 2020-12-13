@@ -12,6 +12,7 @@ export const useRequest = (endpoint) => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
     setMounted(true);
+
     const fetchData = async () => {
       try {
         setIsLoading(true);
@@ -37,5 +38,6 @@ export const useRequest = (endpoint) => {
       setMounted(false);
     };
   }, [endpoint, mounted]);
+
   return { data, error, isLoading };
 };
