@@ -18,6 +18,8 @@ function Button({
   disabled,
   blankWithBorder,
   dataTagName,
+  filterButton,
+  activeFilter,
 }) {
   const btnClass = classNames({
     button: true,
@@ -30,6 +32,8 @@ function Button({
     "is-static": isStatic,
     "is-active": isActive,
     "button--blank-with-border": blankWithBorder,
+    "button--filter-button": filterButton,
+    "button--filter-button-active": activeFilter,
   });
   return (
     <button
@@ -64,6 +68,8 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   blankWithBorder: PropTypes.bool,
   dataTagName: PropTypes.string,
+  filterButton: PropTypes.bool,
+  activeFilter: PropTypes.bool,
 };
 
 export default Button;
