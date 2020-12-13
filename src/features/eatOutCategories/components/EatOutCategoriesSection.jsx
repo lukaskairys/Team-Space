@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, forwardRef } from "react";
 
 import { context } from "contexts/Context";
 import ReservationsCard from "components/ReservationCard/ReservationCard";
@@ -6,7 +6,7 @@ import ReservationsCard from "components/ReservationCard/ReservationCard";
 import "./eatOutCategoriesSection.scss";
 import filteredRestaurants from "./filteredRestaurants";
 
-function EatOutCategoriesSection() {
+const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
   const { data } = useContext(context);
   const { categories, restaurantList } = data;
 
@@ -37,13 +37,15 @@ function EatOutCategoriesSection() {
     };
 
     return (
-      <section className="categories-section">
+      <section className="categories-section" ref={scrollRef}>
         <h3 className="categories-section__title">Categories</h3>
         <div className="categories-section__content">{renderCategories()}</div>
       </section>
     );
   }
   return null;
-}
+});
+
+EatOutCategoriesSection.displayName = "EatOutCategoriesSection";
 
 export default EatOutCategoriesSection;

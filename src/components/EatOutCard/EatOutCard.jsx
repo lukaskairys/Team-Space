@@ -9,6 +9,7 @@ import EatOutCardFooter from "./components/EatOutCardFooter";
 import "./eatOutCard.scss";
 
 function EatOutCard({ restaurant, handleImageLoad }) {
+  const { name, openingHours, address, website, id, description } = restaurant;
   return (
     <>
       <div className="eat-out-card">
@@ -19,16 +20,16 @@ function EatOutCard({ restaurant, handleImageLoad }) {
           />
           <EatOutCardSubheader
             id={restaurant.id}
-            restaurantName={restaurant.name}
-            openingHours={restaurant.openingHours}
+            restaurantName={name}
+            openingHours={openingHours}
           />
           <EatOutCardContent
-            address={restaurant.address}
-            website={restaurant.website}
-            description={restaurant.description}
+            address={address}
+            website={website}
+            description={description}
           />
         </div>
-        <EatOutCardFooter restaurantID={restaurant.id} />
+        <EatOutCardFooter restaurantID={id} />
       </div>
     </>
   );

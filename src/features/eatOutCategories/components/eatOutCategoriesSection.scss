@@ -5,12 +5,13 @@ $_breakpoint-lg: 1186;
 $_breakpoint-md: 886;
 
 .categories-section {
-    margin: 5rem 0;
+    margin: 3rem 0;
 
     &__title {
         @include typography-h3;
 
         color: $color-fiord;
+        margin-bottom: -1.8rem;
 
         @include respond-to($_breakpoint-lg, max) {
             text-align: center;

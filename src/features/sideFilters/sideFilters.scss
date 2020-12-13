@@ -1,6 +1,7 @@
 @import '../../styles/base/base';
 
 .side-filter {
+    background-color: $color-white;
     border-radius: $base-border-radius;
     box-shadow: $card-shadow;
     margin: 4rem 0;
@@ -30,5 +31,9 @@
 
     button {
         width: 9rem;
+    }
+
+    &__clearX {
+        width: 1.2rem;
     }
 }

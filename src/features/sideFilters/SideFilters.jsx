@@ -10,14 +10,19 @@ import "./sideFilters.scss";
 const SideFilters = forwardRef(
   ({ filterItems, title, clearAll, tags, handleChange }, filterRef) => {
     const checkboxes = filterItems.map((item) => ({
-      name: item.replace(/\s+/g, "-").toLowerCase(),
+      name: item,
       label: item,
     }));
 
     return (
       <div className="side-filter" ref={filterRef} data-filtertype={title}>
         <div className="side-filter__top">
-          <span>{title}</span>
+          <span>
+            {title
+              .replace(/([A-Z])/g, " $1")
+              .trim()
+              .toLowerCase()}
+          </span>
           <Button
             blankWithBorder={true}
             medium={true}
@@ -28,7 +33,12 @@ const SideFilters = forwardRef(
           </Button>
         </div>
         <fieldset className="side-filter__list">
-          <legend aria-label={title}></legend>
+          <legend
+            aria-label={title
+              .replace(/([A-Z])/g, " $1")
+              .trim()
+              .toLowerCase()}
+          ></legend>
           {checkboxes.map((item) => (
             <Checkbox
               key={item.name}
@@ -54,6 +64,7 @@ SideFilters.propTypes = {
     deviceType: PropTypes.array,
     os: PropTypes.array,
     brand: PropTypes.array,
+    genres: PropTypes.array,
   }),
   handleChange: PropTypes.func,
 };

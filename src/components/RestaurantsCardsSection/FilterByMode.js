@@ -1,3 +1,5 @@
+import { distanceBetweenTwoPointsOnEarth } from "./distanceCalculator";
+
 const FetchNearYou = (data, location) => {
   location = renameKey(location, "latitude", "lat");
   location = renameKey(location, "longitude", "lng");
@@ -12,7 +14,7 @@ const FetchNearYou = (data, location) => {
       ))
   );
   filtered.sort((a, b) => a.distance - b.distance);
-  return filtered.slice(0, 10);
+  return filtered.slice(0, 12);
 };
 
 const FetchNewPlaces = (data) => {
@@ -21,7 +23,7 @@ const FetchNewPlaces = (data) => {
     (single) => (single["dateToNumber"] = dateToNum(single.createdDate))
   );
   filtered.sort((b, a) => a.dateToNumber - b.dateToNumber);
-  return filtered.slice(0, 10);
+  return filtered.slice(0, 12);
 };
 
 //convert date to integer representation
@@ -63,38 +65,4 @@ export const FilterByMode = (mode, data, currentId = null, location) => {
   else if (mode === "near") return FetchNearYou(data, location);
   else if (mode === "similar") return FetchSimilar(data, currentId);
   return [];
-};
-
-//Haversine formula for calculating shortest distance over earths surface.
-const distanceBetweenTwoPointsOnEarth = (firstPoint, secondPoint, unit) => {
-  let Radius;
-  switch (unit) {
-    case "mile":
-      Radius = 3968;
-      break;
-    case "km":
-      Radius = 6371;
-      break;
-    default:
-      Radius = 3968;
-      break;
-  }
-  const rLat1 = toRad(firstPoint.lat);
-  const rLon1 = toRad(firstPoint.lng);
-  const rLat2 = toRad(secondPoint.lat);
-  const rLon2 = toRad(secondPoint.lng);
-
-  const dLat = rLat2 - rLat1;
-  const dLon = rLon2 - rLon1;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(rLat1) * Math.cos(rLat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const d = Radius * c;
-
-  return d;
-};
-
-const toRad = (number) => {
-  return (number * Math.PI) / 180;
 };

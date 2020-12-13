@@ -1,0 +1,15 @@
+@import '../../../styles/base/base';
+
+.reservations-pagination {
+    align-items: center;
+    display: flex;
+    margin-top: 4.8rem;
+
+    &__page-number {
+        @include typography-body-2-bold;
+    }
+
+    &__placeholder {
+        color: $color-fiord;
+    }
+}

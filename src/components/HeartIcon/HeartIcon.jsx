@@ -6,7 +6,7 @@ import { isObjectEmpty } from "../../utils/objects";
 import "./heartIcon.scss";
 import { ReactComponent as Heart } from "assets/icons/heart.svg";
 import { UserContext } from "../../contexts/UserContext";
-import { update } from "./patchService";
+import { update } from "../../apis/services";
 
 function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
   const [active, setActive] = useState(false);
@@ -66,23 +66,23 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
     }
   }, [data, genericHandler, itemId, likeState]);
 
-  const removeHandler = (userLikeduser, id) => {
-    if (!userLikeduser) return;
-    const removeIndex = userLikeduser.map((like) => like.id).indexOf(id);
+  const removeHandler = (user, id) => {
+    if (!user) return;
+    const removeIndex = user.map((like) => like.id).indexOf(id);
 
-    ~removeIndex && userLikeduser.splice(removeIndex, 1);
+    ~removeIndex && user.splice(removeIndex, 1);
   };
 
-  const addHandler = (userLikeduser, id) => {
-    if (!userLikeduser) return;
-    if (!userLikeduser.some((e) => e.id === id)) {
-      userLikeduser.push({ id });
+  const addHandler = (user, id) => {
+    if (!user) return;
+    if (!user.some((e) => e.id === id)) {
+      user.push({ id });
     }
   };
 
-  const InitialHandler = (userLikeduser, id) => {
-    if (!userLikeduser) return;
-    const doesContain = userLikeduser.some((liked) => liked.id === id);
+  const InitialHandler = (user, id) => {
+    if (!user) return;
+    const doesContain = user.some((liked) => liked.id === id);
     if (doesContain) setActive(true);
     else setActive(false);
   };
@@ -97,7 +97,7 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
 HeartIcon.propTypes = {
   clickEvent: PropTypes.func,
   strokeColor: PropTypes.string,
-  itemType: PropTypes.string,
+  itemType: PropTypes.oneOf(Object.values(FavoriteTypes)),
   itemId: PropTypes.string,
 };
 

@@ -1,47 +1,24 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_animation-time: 0.25s;
-
 .restaurant-cards-section {
     &__list {
         display: flex;
         gap: 4rem;
 
         &.animate-out {
-            animation: fadeOut 0.25s forwards ease-in-out;
+            @include animation('fadeOut 0.25s ease-in forwards');
         }
 
         &.animate-in {
-            animation: fadeIn 0.25s forwards ease-in-out;
-        }
-
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
+            @include animation('fadeIn 0.25s ease-in forwards');
         }
     }
 
     &__header {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2.4rem;
-        margin-top: 6.4rem;
+        margin: 6.4rem 0 2.4rem;
     }
 
     &__single {

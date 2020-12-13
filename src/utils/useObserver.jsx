@@ -31,7 +31,12 @@ const useObserver = ({ callback, element }) => {
 };
 
 useObserver.propTypes = {
-  element: PropTypes.object,
+  element: PropTypes.oneOfType([
+    // Either a function
+    PropTypes.func,
+    // Or the instance of a DOM native element
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
   callback: PropTypes.func,
 };
 
