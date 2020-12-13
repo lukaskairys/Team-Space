@@ -21,6 +21,4 @@ const useCurrentTime = () => {
   return currentTime;
 };
 
-useCurrentTime.propTypes = {};
-
 export default useCurrentTime;
