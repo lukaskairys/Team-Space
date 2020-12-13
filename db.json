@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-13"
+    "date": "2020-12-14"
   },
   "users": [
     {
@@ -31,7 +31,7 @@
         }
       ],
       "checkIn": {
-        "id": "9kdf9qawui"
+        "id": "tk3ih1o0qt"
       },
       "liked": {
         "restaurants": [
@@ -54,7 +54,10 @@
             "id": "tk3ih1o0qt"
           },
           {
-            "id": "7et2tk3ih1"
+            "id": "rri8r7gpdp"
+          },
+          {
+            "id": "9kdf9qawui"
           }
         ],
         "books": [],

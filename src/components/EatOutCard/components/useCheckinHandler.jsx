@@ -1,29 +1,25 @@
 import { useContext, useState, useEffect, useCallback } from "react";
 
 import { isObjectEmpty } from "../../../utils/objects";
-import jsonserver from "../../../apis/jsonserver";
 import { UserContext } from "../../../contexts/UserContext";
-import { useRequest } from "../../../apis/useRequest";
 import useCurrentTime from "../../../utils/useCurrentTime";
 import { warnToast } from "../../Toasts/ToastHandler";
+import { patch, put, putCollection } from "../../../apis/services";
 
 const useCheckinHandler = (restaurant) => {
-  const { data, users, setCurrentCheckIn, currentCheckIn } = useContext(
-    UserContext
-  );
+  const {
+    data,
+    users,
+    isClearingNow,
+    lastClearDate,
+    setCurrentCheckIn,
+    currentCheckIn,
+  } = useContext(UserContext);
+
   const [active, setActive] = useState(false);
   const [checkIns, setCheckIns] = useState(0);
   const currenTime = useCurrentTime();
-  const { data: lastClearDate } = useRequest("/lastClearDate", currenTime);
   const clearTime = "0:00";
-
-  const updateDB = async (user) => {
-    await jsonserver.patch(`/users/${user.id}`, user);
-  };
-
-  const updateUser = async (user, id) => {
-    await jsonserver.put(`/users/${id}`, user);
-  };
 
   const toggleCheckIn = () => {
     active === true ? remove(data) : add(data, restaurant);
@@ -35,15 +31,15 @@ const useCheckinHandler = (restaurant) => {
       warnToast(`You have rechecked to ${restaurant.name}`);
   };
 
+  const update = (user) => {
+    users.find((thisUser) => thisUser.id === user.id).checkIn = user.checkIn;
+    patch("/users", data, data.id);
+    setCurrentCheckIn(user.checkIn);
+  };
+
   const remove = (user) => {
     user.checkIn = {};
     update(user);
-  };
-
-  const update = async (user) => {
-    users.find((thisUser) => thisUser.id === user.id).checkIn = user.checkIn;
-    await updateDB(user);
-    setCurrentCheckIn(user.checkIn);
   };
 
   const add = (user, restaurant) => {
@@ -60,8 +56,10 @@ const useCheckinHandler = (restaurant) => {
           return user.checkIn.id === restaurantId ? sum + 1 : sum;
         }, 0);
       };
+
       const newCheckIns = InitializeCheckInCount(restaurantId, users);
       setCheckIns(newCheckIns);
+
       if (!userData.checkIn || !restaurant) return;
       if (userData.checkIn.id === restaurantId) {
         setActive(true);
@@ -71,8 +69,11 @@ const useCheckinHandler = (restaurant) => {
   );
 
   const EndOfDayHandler = useCallback(() => {
-    const updateClearDate = async (newClearDate) => {
-      await jsonserver.put(`/lastClearDate/`, newClearDate);
+    const updateClearDate = (newClearDate) => {
+      putCollection("/lastClearDate", newClearDate);
+      if (lastClearDate.date !== newClearDate.date) {
+        lastClearDate.date = newClearDate.date;
+      }
     };
 
     const isClearedToday = (currentDate) => {
@@ -83,19 +84,24 @@ const useCheckinHandler = (restaurant) => {
 
     if (isObjectEmpty(users)) return;
 
-    const currentDate = new Date().toISOString().substring(0, 10);
+    const currentDate = new Date()
+      .toLocaleString("LT", { timeZone: "EET" })
+      .substring(0, 10);
 
-    if (currenTime === clearTime || !isClearedToday(currentDate)) {
+    if (
+      (currenTime === clearTime || !isClearedToday(currentDate)) &&
+      isClearingNow.current !== true
+    ) {
       users.forEach((user) => {
         user.checkIn = {};
-        updateUser(user, user.id);
+        put("/users", user, user.id);
       });
-
       const newClearDate = { date: currentDate };
       updateClearDate(newClearDate);
       data.checkIn = {};
+      isClearingNow.current = true;
     }
-  }, [currenTime, data, lastClearDate, users]);
+  }, [currenTime, data, users, lastClearDate, isClearingNow]);
 
   useEffect(() => {
     EndOfDayHandler();
