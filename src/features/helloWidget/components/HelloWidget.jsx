@@ -16,6 +16,7 @@ const HelloWidget = () => {
   const [userName, setUserName] = useState("Wizard");
 
   const { data, error } = useContext(context);
+
   useEffect(() => {
     let intervalID = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString("lt-LT", options));
