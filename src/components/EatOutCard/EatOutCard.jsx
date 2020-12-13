@@ -9,7 +9,7 @@ import EatOutCardFooter from "./components/EatOutCardFooter";
 import "./eatOutCard.scss";
 
 function EatOutCard({ restaurant, handleImageLoad }) {
-  const { name, openingHours, address, website, id, description } = restaurant;
+  const { id, name, openingHours, address, website, description } = restaurant;
   return (
     <>
       <div className="eat-out-card">
@@ -19,7 +19,7 @@ function EatOutCard({ restaurant, handleImageLoad }) {
             handleImageLoad={handleImageLoad}
           />
           <EatOutCardSubheader
-            id={restaurant.id}
+            id={id}
             restaurantName={name}
             openingHours={openingHours}
           />
