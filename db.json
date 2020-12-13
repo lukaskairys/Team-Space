@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-12"
+    "date": "2020-12-13"
   },
   "users": [
     {
@@ -30,7 +30,9 @@
           "postId": "10972har27"
         }
       ],
-      "checkIn": {},
+      "checkIn": {
+        "id": "9kdf9qawui"
+      },
       "liked": {
         "restaurants": [
           {

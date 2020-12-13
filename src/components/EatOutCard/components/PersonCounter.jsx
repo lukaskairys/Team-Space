@@ -7,6 +7,9 @@ import jsonserver from "../../../apis/jsonserver";
 import { useRequest } from "../../../apis/useRequest";
 import useCurrentTime from "../../../utils/useCurrentTime";
 
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./personCounter.scss";
 import { ReactComponent as PersonIcon } from "assets/icons/person.svg";
 
@@ -44,7 +47,23 @@ const Person = ({ restaurant }) => {
     setCurrentCheckIn(user.checkIn);
   };
 
+  const isRecheckining = (userCheckIn) => {
+    if (!isObjectEmpty(userCheckIn))
+      toast.info(
+        `You have changed your checkined restaurant to ${restaurant.name}!`,
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+  };
   const add = async (user, restaurant) => {
+    isRecheckining(user.checkIn);
     user.checkIn = { id: restaurant.id };
     await update(user);
     setCurrentCheckIn(user.checkIn);
@@ -70,13 +89,10 @@ const Person = ({ restaurant }) => {
 
   const isEndOfDay = useCallback(() => {
     const updateClearDate = async (newClearDate) => {
-      // console.log(lastClearDate);
-      // lastClearDate.current = newClearDate;
       await jsonserver.put(`/lastClearDate/`, newClearDate);
     };
 
     const isClearedToday = (currentDate) => {
-      // console.log(lastClearDate);
       if (isObjectEmpty(lastClearDate)) return true;
 
       return currentDate === lastClearDate.date ? true : false;
@@ -105,16 +121,31 @@ const Person = ({ restaurant }) => {
   }, [data, restaurant, InitialHandler, isEndOfDay, currentCheckIn, active]);
 
   return (
-    <div
-      onClick={toggleFavorite}
-      onKeyDown={toggleFavorite}
-      role="button"
-      tabIndex="0"
-      className={PersonClass}
-    >
-      <div className="person-container__items">
-        <PersonIcon className="person-container__icon" />
-        <span className="person-container__counter">{checkIns}</span>
+    <div>
+      {" "}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        transition={Zoom}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+      />
+      <div
+        onClick={toggleFavorite}
+        onKeyDown={toggleFavorite}
+        role="button"
+        tabIndex="0"
+        className={PersonClass}
+      >
+        <div className="person-container__items">
+          <PersonIcon className="person-container__icon" />
+          <span className="person-container__counter">{checkIns}</span>
+        </div>
       </div>
     </div>
   );
