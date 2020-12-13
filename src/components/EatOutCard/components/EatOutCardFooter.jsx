@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Button from "../../button/Button";
 import "./eatOutCardFooter.scss";
 
-function EatOutCardFooter({ restaurantID }) {
+function EatOutCardFooter({ restaurantID, handleCheckIns, isCheckinActive }) {
   return (
     <div className="card-footer">
       <div className="card-footer__buttons">
@@ -16,8 +16,8 @@ function EatOutCardFooter({ restaurantID }) {
           <span>read more</span>
         </Link>
 
-        <Button medium={true}>
-          <span>check-in</span>
+        <Button handleClick={handleCheckIns} medium={true}>
+          {isCheckinActive ? <span>check-out</span> : <span>check-in</span>}
         </Button>
       </div>
     </div>
@@ -26,6 +26,8 @@ function EatOutCardFooter({ restaurantID }) {
 
 EatOutCardFooter.propTypes = {
   restaurantID: PropTypes.string,
+  handleCheckIns: PropTypes.func,
+  isCheckinActive: PropTypes.bool,
 };
 
 export default EatOutCardFooter;

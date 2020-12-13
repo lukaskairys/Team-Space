@@ -5,7 +5,7 @@ import RatingComponent from "../../../components/Rating/Rating";
 import PersonComponent from "./PersonCounter";
 import "./eatOutCardHeader.scss";
 
-function EatOutCardHeader({ restaurant, handleImageLoad }) {
+function EatOutCardHeader({ restaurant, handleImageLoad, checkinHandler }) {
   const formCategories = (categories) => {
     return (
       <ul className="card-header__categories">
@@ -28,7 +28,7 @@ function EatOutCardHeader({ restaurant, handleImageLoad }) {
         onLoad={handleImageLoad}
       />
       <div className="card-header__icons">
-        <PersonComponent restaurant={restaurant} />
+        <PersonComponent checkinHandler={checkinHandler} />
         <RatingComponent restaurant={restaurant} />
       </div>
       {formCategories(restaurant.categories)}
@@ -45,6 +45,11 @@ EatOutCardHeader.propTypes = {
     reviews: PropTypes.array,
   }),
   handleImageLoad: PropTypes.func,
+  checkinHandler: PropTypes.shape({
+    toggleCheckIn: PropTypes.func,
+    checkIns: PropTypes.number,
+    active: PropTypes.bool,
+  }),
 };
 
 export default EatOutCardHeader;

@@ -32,10 +32,11 @@ $_background-color: #31465e;
     }
 
     &--active {
-        background: $color-watermelon;
+        background: $color-bright-violet;
+        color: $color-white;
 
-        // path {
-        //     stroke: $color-watermelon;
-        // }
+        path {
+            fill: $color-white;
+        }
     }
 }

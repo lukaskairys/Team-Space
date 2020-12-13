@@ -7,7 +7,14 @@ import Button from "../../../components/button/Button";
 import CreateTopRestaurantColumn from "./CreateTopRestaurantColumn";
 
 const EatOutSection = () => {
-  const { restaurants } = FetchBestRatedRestaurants(2);
+  const count = 2;
+  const { restaurants } = FetchBestRatedRestaurants(count);
+
+  const renderRestaurants = (restaurants) => {
+    return restaurants.map((restaurant) =>
+      CreateTopRestaurantColumn(restaurant)
+    );
+  };
 
   return (
     <section className="eat-out-section">
@@ -23,9 +30,7 @@ const EatOutSection = () => {
           </Link>
         </div>
       </div>
-      {restaurants.map((restaurant) => {
-        return CreateTopRestaurantColumn(restaurant);
-      })}
+      {renderRestaurants(restaurants)}
     </section>
   );
 };

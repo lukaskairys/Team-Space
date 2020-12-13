@@ -10,7 +10,7 @@ const UserContextProvider = ({ children, endpoint }) => {
   const [likeState, setLikeState] = useState("initial");
   const [currentCheckIn, setCurrentCheckIn] = useState("initial");
   const { data, error, isLoading } = useRequest(endpoint);
-  const { data: users } = useRequest("/users", currentCheckIn);
+  const { data: users } = useRequest("/users");
   const store = {
     data,
     users,
