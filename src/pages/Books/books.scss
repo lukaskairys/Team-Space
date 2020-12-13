@@ -1,0 +1,9 @@
+@import '../../styles/base/base';
+
+.books {
+    display: flex;
+
+    &__side-filters {
+        width: 28.6rem;
+    }
+}
