@@ -143,7 +143,7 @@
 
     &--pagination {
         background-color: $color-white;
-        border: 1px solid $color-ghost;
+        border: 0.1rem solid $color-ghost;
         border-radius: $secondary-border-radius;
         color: $color-fiord;
         display: grid;
@@ -152,6 +152,12 @@
         padding: 0;
         place-items: center;
         width: 3.2rem;
+
+        .chevron-left,
+        .chevron-right {
+            height: 1.2rem;
+            width: 0.6rem;
+        }
 
         &:focus,
         &:hover {

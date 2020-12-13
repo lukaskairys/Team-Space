@@ -8,6 +8,7 @@ import Search from "features/search/Search";
 
 import { useReservationPages } from "components/ReservationPages/useReservationPages";
 import { useSearch } from "features/search/useSearch";
+
 import "./Devices.scss";
 
 const Devices = () => {
