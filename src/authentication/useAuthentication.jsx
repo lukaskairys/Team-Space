@@ -1,47 +1,48 @@
 import { useState, useEffect } from "react";
 import bcrypt from "bcryptjs";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
+import { useRequest } from "apis/useRequest";
+import { generateID } from "utils/generateID";
 import { post } from "apis/postData";
 
-export const useAuthentication = (setId, data) => {
+export const useAuthentication = () => {
+  const [userId, setUserId] = useState();
   const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [isPosting, setIsPosting] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
+  const { data } = useRequest("/users");
   const history = useHistory();
-
-  const userFromLocal = JSON.parse(localStorage.getItem("user"));
+  const location = useLocation();
 
   useEffect(() => {
-    userFromLocal && setId(userFromLocal);
-    // eslint-disable-next-line
+    const userFromLocal = JSON.parse(localStorage.getItem("user"));
+    if (userFromLocal) setUserId(userFromLocal);
   }, [data]);
 
   function login(email, password) {
-    if (showErrorMessage) return;
-    const currentUser = data.filter((user) => user.email === email);
-    if (currentUser && currentUser.length === 1) {
-      bcrypt
-        .compare(password, currentUser[0].password)
-        .then((result) => {
+    try {
+      // check email in db, and if exists - compare hashed passwords with bcrypt librarie
+      const currentUser = data.filter((user) => user.email === email);
+      if (currentUser && currentUser.length === 1) {
+        bcrypt.compare(password, currentUser[0].password).then((result) => {
           if (result) {
-            setId(currentUser[0].id);
-
+            setUserId(currentUser[0].id);
             localStorage.setItem("user", JSON.stringify(currentUser[0].id));
-
-            history.push("/", {
+            history.push(location.from ? location.from : "/", {
               message: "Your are successfully logged in. Welcome back!",
             });
           } else {
             setShowErrorMessage(true);
             setMessageText("Wrong password. Please try again.");
           }
-        })
-        .catch((error) => {
-          setShowErrorMessage(true);
         });
-    } else {
+      } else {
+        setShowErrorMessage(true);
+        setMessageText("User with such email address does not exist.");
+      }
+    } catch (err) {
       setShowErrorMessage(true);
-      setMessageText("User with such email address does not exist.");
     }
   }
 
@@ -52,20 +53,23 @@ export const useAuthentication = (setId, data) => {
   };
 
   async function register(password, dataToPost) {
+    const hashedPassword = hash(password);
+    dataToPost.password = hashedPassword;
+    dataToPost.id = generateID();
     try {
-      const hashedPassword = hash(password);
-      dataToPost.password = hashedPassword;
+      // post user object to db --> auto-login:
+      // set user id for context, save id to localStorage and redirect to dashboard
+      setIsPosting(true);
       await post("/users/", dataToPost);
-
-      // TODO: make auto-login
-      // dabar loginasi belekuris useris??????
-      // jei cia iskvieciu login() - meta klaidas kad tokie email ir password neegzistuoja
+      setIsPosting(false);
+      setUserId(dataToPost.id);
+      localStorage.setItem("user", JSON.stringify(dataToPost.id));
       history.push("/", {
-        message:
-          "Your registration was successful. For a better experience of using Team Space, please fill in extra information in your account settings.",
+        message: "You are successfully on board. Welcome!",
       });
-    } catch (error) {
+    } catch (err) {
       setShowErrorMessage(true);
+      setIsPosting(false);
     }
   }
 
@@ -77,7 +81,9 @@ export const useAuthentication = (setId, data) => {
     login,
     logout,
     register,
+    isPosting,
     showErrorMessage,
     messageText,
+    userId,
   };
 };

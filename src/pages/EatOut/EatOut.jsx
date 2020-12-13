@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 import { HandleScroll } from "utils/HandleScroll.js";
-import RestaurantContextProvider from "contexts/RestaurantContextProvider";
+import ContextProvider from "contexts/ContextProvider";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutHeroWidget from "features/eatOutHeroSlider/components/EatOutHeroWidget";
@@ -21,7 +21,7 @@ const EatOut = () => {
   return (
     <div className="eat-out">
       <MainLayout>
-        <RestaurantContextProvider>
+        <ContextProvider endpoint="/restaurants">
           <Breadcrumbs />
           <div className="eat-out__hero">
             <EatOutHeroWidget />
@@ -32,7 +32,7 @@ const EatOut = () => {
 
           <RestaurantCardsSection title="Discover near you" mode="near" />
           <RestaurantCardsSection title="New Places" mode="new" />
-        </RestaurantContextProvider>
+        </ContextProvider>
       </MainLayout>
     </div>
   );

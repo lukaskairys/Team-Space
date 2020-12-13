@@ -15,9 +15,8 @@ import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
-import RestaurantContextProvider from "contexts/RestaurantContextProvider";
+import ContextProvider from "contexts/ContextProvider";
 import UserContextProvider from "contexts/UserContextProvider";
-// import AuthContextProvider from "contexts/AuthContextProvider";
 
 import PrivateRoute from "./authentication/PrivateRoute.jsx";
 
@@ -25,15 +24,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        {/* <AuthContextProvider> */}
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/registration">
-          <RegistrationPage />
-        </Route>
-
         <UserContextProvider>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
           <PrivateRoute path="/">
             <Route exact path="/">
               <Dashboard />
@@ -68,14 +65,13 @@ function App() {
               <Restaurant />
             </Route>
 
-            <RestaurantContextProvider>
+            <ContextProvider endpoint="/restaurants">
               <Route exact path="/eat-out/categories/:category">
                 <EatOutCategoriesPage />
               </Route>
-            </RestaurantContextProvider>
+            </ContextProvider>
           </PrivateRoute>
         </UserContextProvider>
-        {/* </AuthContextProvider> */}
       </Switch>
     </Router>
   );

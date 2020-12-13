@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { isObjectEmpty } from "utils/objects";
@@ -9,7 +9,8 @@ function PrivateRoute({ children, ...rest }) {
   const { data } = useContext(UserContext);
   const currentUser = data;
   const currentFromLocalStorage = JSON.parse(localStorage.getItem("user"));
-  // const location = useLocation();
+  const location = useLocation();
+
   return (
     <Route
       {...rest}
@@ -20,6 +21,7 @@ function PrivateRoute({ children, ...rest }) {
           <Redirect
             to={{
               pathname: "/login",
+              from: location.pathname,
             }}
           />
         )

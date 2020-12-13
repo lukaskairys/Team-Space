@@ -1,15 +1,23 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import useForm from "./useForm";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
-
-import { AuthContext } from "contexts/AuthContext";
+import Loader from "react-loader-spinner";
 import { validateRegistration, validateLogin } from "./validationRules";
+import { useAuthentication } from "authentication/useAuthentication.jsx";
 
 function Form({ title, subtitle, action }) {
+  const {
+    login,
+    register,
+    showErrorMessage,
+    messageText,
+    isPosting,
+  } = useAuthentication();
+
   const {
     values,
     errors,
@@ -19,69 +27,24 @@ function Form({ title, subtitle, action }) {
     handleXclick,
   } = useForm(getCallback(), getValidation());
 
-  // const [showErrorMessage, setShowErrorMessage] = useState(false);
-  // const [messageText, setMessageText] = useState("Something went wrong");
-
-  const { login, register, messageText, showErrorMessage } = useContext(
-    AuthContext
-  );
-
   const dataToPost = {
     userName: `${values.firstName} ${values.lastName}`,
     email: values.email,
     userImage: "https://i.ibb.co/6WtwM35/Untitled.jpg",
-    birthdayDate: "1990-05-18",
-    location: "Vilnius, Lithuania",
+    birthdayDate: "",
+    location: "",
     reservations: {
-      books: [
-        {
-          title: "Don't Make Me Think",
-          id: "1jd85opw82",
-        },
-      ],
-      devices: [
-        {
-          name: "iPhone X",
-          id: "193ywpe740",
-        },
-      ],
-    },
-    notifications: [
-      {
-        userName: "Sara Lars",
-        actionType: "Like",
-        postId: "10972har27",
-      },
-    ],
-    liked: {
-      restaurants: [
-        {
-          id: "x8bd7ozuj6",
-        },
-        {
-          id: "h3hlqj5bcb",
-        },
-        {
-          id: "porhch2lam",
-        },
-        {
-          id: "9kdf9qawui",
-        },
-        {
-          id: "sejw2ugddc",
-        },
-        {
-          id: "120wsdlpx4",
-        },
-      ],
       books: [],
       devices: [],
-      stories: [
-        {
-          id: "10197o9h40",
-        },
-      ],
     },
+    notifications: [],
+    liked: {
+      restaurants: [],
+      books: [],
+      devices: [],
+      stories: [],
+    },
+    checkIn: {},
   };
 
   function getCallback() {
@@ -96,8 +59,6 @@ function Form({ title, subtitle, action }) {
     else if (action === "login") return validateLogin;
   }
 
-  // TODO: show some errors like validation
-
   return (
     <>
       <div className="form">
@@ -108,16 +69,23 @@ function Form({ title, subtitle, action }) {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="form__content">
-            <FormContent
-              values={values}
-              errors={errors}
-              handleChange={handleChange}
-              handleFocus={handleFocus}
-              action={action}
-              handleXclick={handleXclick}
-            />
-          </div>
+          {isPosting ? (
+            <div className="form__loader">
+              <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
+            </div>
+          ) : (
+            <div className="form__content">
+              <FormContent
+                values={values}
+                errors={errors}
+                handleChange={handleChange}
+                handleFocus={handleFocus}
+                action={action}
+                handleXclick={handleXclick}
+              />
+            </div>
+          )}
+
           <div className="form__footer">
             <FormFooter action={action} />
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import RestaurantContextProvider from "contexts/RestaurantContextProvider";
+import ContextProvider from "contexts/ContextProvider";
 import UserContextProvider from "contexts/UserContextProvider";
 import MainLayout from "components/MainLayout/MainLayout";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
@@ -14,9 +14,9 @@ import "./Dashboard.scss";
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <MainLayout>
-        <>
-          <UserContextProvider>
+      <UserContextProvider>
+        <MainLayout>
+          <>
             <div className="dashboard__widgets">
               <HelloWidget />
               <WeatherWidget />
@@ -25,18 +25,17 @@ const Dashboard = () => {
             <div className="dashboard__reservations-section">
               <ReservationsSection />
             </div>
-          </UserContextProvider>
 
-          <div className="dashboard__eat-out-section">
-            <RestaurantContextProvider endpoint="/restaurants">
-              <EatOutSection />
-            </RestaurantContextProvider>
-          </div>
-          <UserContextProvider>
+            <div className="dashboard__eat-out-section">
+              <ContextProvider endpoint="/restaurants">
+                <EatOutSection />
+              </ContextProvider>
+            </div>
+
             <AllFeedCards></AllFeedCards>
-          </UserContextProvider>
-        </>
-      </MainLayout>
+          </>
+        </MainLayout>
+      </UserContextProvider>
     </div>
   );
 };

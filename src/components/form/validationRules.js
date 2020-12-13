@@ -1,4 +1,4 @@
-export function validateRegistration(values) {
+export function validateRegistration(values, data) {
   const { firstName, lastName, email, password, repeatPassword } = values;
   let errors = {};
   // first name
@@ -18,6 +18,8 @@ export function validateRegistration(values) {
     errors.email = "Email address is required";
   } else if (!/\S+@\S+\.\S+/.test(email)) {
     errors.email = "Email address is invalid";
+  } else if (data && data.some((user) => user.email === email)) {
+    errors.email = "This email address is already taken.";
   }
   // password
   if (!password) {

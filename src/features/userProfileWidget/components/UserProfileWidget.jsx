@@ -3,33 +3,38 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import DropDownContent from "./DropdownContent";
 import userIcon from "../../../assets/icons/user.svg";
 import { ReactComponent as ArrowDown } from "../../../assets/icons/down-with-border.svg";
-import { useRequest } from "../../../apis/useRequest";
 import { useOnClickOutside } from "../../../utils/useOnClickOutside";
 import { isObjectEmpty } from "../../../utils/objects";
 
+import { useAuthentication } from "authentication/useAuthentication.jsx";
 import { UserContext } from "contexts/UserContext";
 import "./userProfileWidget.scss";
 
 function UserProfileWidget() {
-  const [image, setImage] = useState(userIcon);
+  const [image, setImage] = useState(null);
   const [open, setOpen] = useState(false);
-
-  const { id, logout } = useContext(UserContext);
-  const userFromLocal = JSON.parse(localStorage.getItem("user"));
-  const { data, error } = useRequest(`/users/${id ? id : userFromLocal.id}`);
-
-  const dropRef = useRef(null);
-
-  useOnClickOutside(dropRef, () => setOpen(false));
+  const { data, error } = useContext(UserContext);
+  const { logout } = useAuthentication();
+  const dropdownRef = useRef(null);
+  const pictureRef = useRef(null);
+  useOnClickOutside(dropdownRef, () => setOpen(false));
 
   useEffect(() => {
-    if (!isObjectEmpty(data)) setImage(data.userImage);
-    if (error !== null) setImage(userIcon);
+    if (!isObjectEmpty(data)) {
+      setImage(data.userImage);
+      pictureRef.current.style.visibility = "visible";
+    } else {
+      pictureRef.current.style.visibility = "hidden";
+    }
+    if (error !== null) {
+      setImage(userIcon);
+      pictureRef.current.style.visibility = "visible";
+    }
   }, [data, error]);
 
   return (
-    <div className="profile-widget" ref={dropRef}>
-      <button onClick={() => setOpen(!open)}>
+    <div className="profile-widget" ref={dropdownRef}>
+      <button onClick={() => setOpen(!open)} ref={pictureRef}>
         <img
           className="profile-widget__picture"
           src={image}
