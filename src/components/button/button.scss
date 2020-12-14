@@ -35,6 +35,10 @@
         padding: 0.9rem 1.8rem;
     }
 
+    &--with-icon {
+        display: flex;
+    }
+
     &--blank {
         background: none;
         color: $color-slate-gray;

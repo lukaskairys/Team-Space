@@ -47,7 +47,7 @@ function SearchInputs({ searchBtnClick }) {
         ></input>
       </div>
       <div className="search-bar__inputs-button">
-        <Button handleClick={search}>
+        <Button withIcon handleClick={search}>
           <SearchIcon className="search-bar__inputs-search-button-icon" />
           Search
         </Button>

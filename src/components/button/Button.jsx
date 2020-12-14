@@ -20,6 +20,7 @@ function Button({
   dataTagName,
   filterButton,
   activeFilter,
+  withIcon,
 }) {
   const btnClass = classNames({
     button: true,
@@ -34,6 +35,7 @@ function Button({
     "button--blank-with-border": blankWithBorder,
     "button--filter-button": filterButton,
     "button--filter-button-active": activeFilter,
+    "button--with-icon": withIcon,
   });
   return (
     <button
@@ -70,6 +72,7 @@ Button.propTypes = {
   dataTagName: PropTypes.string,
   filterButton: PropTypes.bool,
   activeFilter: PropTypes.bool,
+  withIcon: PropTypes.bool,
 };
 
 export default Button;
