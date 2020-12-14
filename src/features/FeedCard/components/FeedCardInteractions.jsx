@@ -4,6 +4,7 @@ import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 
 import "./feedCard.scss";
 import HeartIcon from "../../../components/HeartIcon/HeartIcon";
+import { patch } from "../../../apis/services";
 
 function FeedCardInteractions({ likes, id }) {
   const [liked, setLiked] = useState(likes);
@@ -11,8 +12,10 @@ function FeedCardInteractions({ likes, id }) {
   const toggleLike = (active) => {
     if (active) {
       setLiked(liked - 1);
+      patch("/stories", { likes: liked - 1 }, id);
     } else {
       setLiked(liked + 1);
+      patch("/stories", { likes: liked + 1 }, id);
     }
   };
   return (
