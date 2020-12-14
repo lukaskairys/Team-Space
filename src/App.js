@@ -16,12 +16,14 @@ import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
 import UserContextProvider from "contexts/UserContextProvider";
+import Toast from "../src/components/Toasts/Toast";
 
 function App() {
   return (
     <Router>
       <UserContextProvider endpoint="/users/1">
         <>
+          <Toast />
           {/* A <Switch> looks through its <Route>s and
             renders the first one that matches the path. */}
           {/* If you want to render something everywhere (in each page), render it outside the <Switch>, but inside the <Router> */}

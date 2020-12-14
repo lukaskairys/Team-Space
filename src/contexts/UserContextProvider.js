@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { useRequest } from "apis/useRequest";
@@ -6,10 +6,26 @@ import { useRequest } from "apis/useRequest";
 import { UserContext } from "./UserContext";
 
 const UserContextProvider = ({ children, endpoint }) => {
-  const { data, error, isLoading } = useRequest(endpoint);
   const { Provider } = UserContext;
   const [likeState, setLikeState] = useState("initial");
-  const store = { data, setLikeState, likeState, error, isLoading };
+  const [currentCheckIn, setCurrentCheckIn] = useState("initial");
+  const { data, error, isLoading } = useRequest(endpoint);
+  const { data: users } = useRequest("/users");
+  const { data: lastClearDate } = useRequest("lastClearDate");
+  const isClearingNow = useRef(false);
+
+  const store = {
+    data,
+    users,
+    lastClearDate,
+    isClearingNow,
+    setLikeState,
+    setCurrentCheckIn,
+    currentCheckIn,
+    likeState,
+    error,
+    isLoading,
+  };
 
   return <Provider value={store}>{children}</Provider>;
 };
