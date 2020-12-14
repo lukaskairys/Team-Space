@@ -7,7 +7,7 @@
     box-shadow: $card-shadow;
     font-family: $font-family;
     height: 61.2rem;
-    width: 39.5rem;
+    width: 100%;
 
     &__info {
         @include typography-caption-caps;
@@ -41,7 +41,7 @@
         background-color: $color-black;
         height: 40.5rem;
         object-fit: cover;
-        width: 39.5rem;
+        width: 100%;
     }
 
     &__comments-container {
@@ -49,9 +49,10 @@
 
         display: inline-block;
         height: 5.7rem;
-        margin: 0.5rem 1.6rem;
+        margin: 0.5rem 0;
         overflow-x: hidden;
         overflow-y: scroll;
+        width: 100%;
     }
 
     &__comments {
@@ -81,7 +82,7 @@
     &__content-img {
         height: 40.5rem;
         object-fit: cover;
-        width: 39.5rem;
+        width: 100%;
     }
 }
 
@@ -106,13 +107,23 @@
 .new-comment-container {
     align-items: center;
     display: flex;
-    width: 39.5rem;
+    width: 100%;
+
+    .button {
+        align-items: center;
+        border-radius: $base-border-radius;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+        padding: 0.5rem;
+    }
 }
 
 .new-comment-image {
     border-radius: 50%;
     height: 2.4rem;
-    margin: 1.2rem 1.2rem 1.2rem 1.6rem;
+    margin: 1.2rem;
+    margin-left: 0;
     object-fit: cover;
     width: 2.4rem;
 }
@@ -137,15 +148,7 @@
 }
 
 .heart-icon {
-    cursor: pointer;
-    fill: $color-white;
-    height: 2.2rem;
-    margin: 0 0.6rem 0 1.5rem;
-    stroke: $color-gull-gray;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 2;
-    width: 2.4rem;
+    margin-right: 0.6rem;
 }
 
 .heart-icon--active {
@@ -167,9 +170,23 @@
 
 .birthday-comments-container {
     margin-bottom: 4rem;
-    width: 39.5rem;
+    width: 100%;
 }
 
 .d-none {
     display: none;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fade-in 0.1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }

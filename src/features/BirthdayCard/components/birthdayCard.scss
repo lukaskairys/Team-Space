@@ -1,20 +1,29 @@
 @import '../../../styles/base/base';
 
 .birthday-card {
+    backface-visibility: hidden;
     background-color: $color-white;
     border-radius: $base-border-radius;
     box-shadow: $card-shadow;
     font-family: $font-family;
     height: 18.4rem;
-    width: 39.5rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out,
+        height 0.1s ease-out;
+    width: 100%;
 
     &--comments-displayed {
+        box-shadow: 0 3rem 0.6rem 1rem rgba(246, 247, 248, 1);
         height: 30.5rem;
+        transform: scale(1.05) translateY(-10px);
     }
 
     &__content {
         bottom: 14rem;
         margin-bottom: 0.4rem;
+        padding: 0 1.6rem;
         position: relative;
     }
 
@@ -75,14 +84,14 @@
     background-color: $color-iron;
     height: 0.1rem;
     margin: auto;
-    width: 36.3rem;
+    width: 100%;
 }
 
 .gift-icon {
     cursor: pointer;
     fill: $color-white;
     height: 2.4rem;
-    margin: 1.2rem 0.6rem 1.2rem 1.2rem;
+    margin: 1.2rem 0.6rem 1.2rem 0;
     width: 2.4rem;
 }
 
@@ -100,9 +109,10 @@
 
 .sparkles {
     height: 3.9rem;
-    left: 3.5rem;
+    left: 47%;
     position: absolute;
     top: -5.2rem;
+    transform: translateX(-50%);
     width: 31.2rem;
 }
 

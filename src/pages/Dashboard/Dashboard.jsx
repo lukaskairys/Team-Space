@@ -33,7 +33,7 @@ const Dashboard = () => {
             </ContextProvider>
           </div>
           <ContextProvider endpoint="/userData">
-            <AllFeedCards></AllFeedCards>
+            <AllFeedCards />
           </ContextProvider>
         </>
       </MainLayout>

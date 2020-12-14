@@ -39,7 +39,7 @@ function FeedCardComments({ comments, username, userPhoto, likes }) {
   };
 
   return (
-    <div>
+    <div style={{ padding: "0 1.6rem" }}>
       <div className="interactions-container">
         <FeedCardInteractions likes={likes} />
         <CommentIcon
