@@ -28,5 +28,15 @@ $_background-color: #31465e;
 
     &:hover {
         cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    &--active {
+        background: $color-bright-violet;
+        color: $color-white;
+
+        path {
+            fill: $color-white;
+        }
     }
 }

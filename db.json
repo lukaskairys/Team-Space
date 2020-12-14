@@ -1,4 +1,7 @@
 {
+  "lastClearDate": {
+    "date": "2020-12-14"
+  },
   "users": [
     {
       "id": "1",
@@ -27,6 +30,9 @@
           "postId": "10972har27"
         }
       ],
+      "checkIn": {
+        "id": "tk3ih1o0qt"
+      },
       "liked": {
         "restaurants": [
           {
@@ -42,32 +48,71 @@
             "id": "120wsdlpx4"
           },
           {
-            "id": "h3hlqj5bcb"
-          },
-          {
             "id": "7et2tk3ih1"
           },
           {
-            "id": "tk3ih1o0qt"
-          },
-          {
-            "id": "3gogeanl0p"
+            "id": "h3hlqj5bcb"
           },
           {
             "id": "wtlztmw3rr"
           }
         ],
-        "books": [],
+        "books": [
+          {
+            "id": "137420wgf0"
+          },
+          {
+            "id": "rri8r7gpdp"
+          },
+          {
+            "id": "9kdf9qawui"
+          }
+        ],
         "devices": [],
         "stories": [
-          {
-            "id": "10197o9h40"
-          },
           {
             "id": "10au0o9280"
           }
         ]
-      }
+      },
+      "name": "Agave",
+      "slogan": "Ayyy tasty",
+      "createdDate": "2009-06-05",
+      "description": "An exceptional mexican restaurant.",
+      "openingHours": [
+        {
+          "days": "Monday - Friday",
+          "hours": "12 - 22"
+        }
+      ],
+      "website": "https://www.facebook.com/agaverestoranas",
+      "address": "Rotušės a. 3, Kaunas",
+      "phone": "+370 616 98496",
+      "image": "https://images.unsplash.com/photo-1584208632869-05fa2b2a5934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80",
+      "reviews": [
+        {
+          "userName": "Laura Palmer",
+          "id": "bt1x97n2je",
+          "comment": "Best Mexican place in Kaunas for sure. Appetizers, main course, dessert, all are on the high level.",
+          "rating": 5
+        },
+        {
+          "userName": "Dale Cooper",
+          "id": "bjv5kciyvf",
+          "comment": "We had a pleasant experience.",
+          "rating": 5
+        }
+      ],
+      "categories": [
+        "Salads",
+        "Grill",
+        "Pancakes"
+      ],
+      "coordinates": {
+        "lat": 54.89667728673178,
+        "lng": 23.887710506872565
+      },
+      "ratingAverage": "5.0"
     },
     {
       "id": "2",
@@ -96,6 +141,7 @@
           "postId": "10972har27"
         }
       ],
+      "checkIn": {},
       "liked": {
         "restaurants": [],
         "books": [],
@@ -3776,7 +3822,7 @@
       "postLocation": "TO",
       "postDate": "2020-11-18T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1605041354474-9ee7d63deb21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-      "likes": 9,
+      "likes": 8,
       "comments": [
         {
           "userName": "Derek Daves",
@@ -3878,7 +3924,7 @@
       "postLocation": "TO",
       "postDate": "2020-11-24T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1560971017-e22e6a4fbefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=947&q=80",
-      "likes": 19,
+      "likes": 20,
       "comments": [
         {
           "userName": "Derek Daves",
@@ -3895,7 +3941,7 @@
       "postLocation": "LDN",
       "postDate": "2020-11-26T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1601974222604-f8c88fc836fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-      "likes": 25,
+      "likes": 24,
       "comments": [
         {
           "userName": "Uncle Roger",
