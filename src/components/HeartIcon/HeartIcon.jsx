@@ -10,7 +10,7 @@ import { patch } from "../../apis/services";
 
 function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
   const [active, setActive] = useState(false);
-  ///TODO after login functionality fetch user user from session or SMTH. (Right now gets the user currently set in the context)
+
   const { data, likeState, setLikeState } = useContext(UserContext);
 
   const heartClass = classNames({
