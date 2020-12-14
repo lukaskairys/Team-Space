@@ -37,7 +37,7 @@ function SearchInputs({ searchBtnClick }) {
           htmlFor="reservationDate"
           className="search-bar__inputs-date-input-label"
         >
-          RESERVATION DATE
+          Reservation date
         </label>
         <input
           type="date"
