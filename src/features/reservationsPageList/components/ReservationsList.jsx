@@ -56,6 +56,7 @@ function ReservationsList({
           return (
             <ReservationCard
               key={index}
+              id={item.id}
               image={item.image}
               alt={listName === "deviceList" ? item.deviceType : "Book"}
               topCaption={listName === "deviceList" ? item.brand : item.author}

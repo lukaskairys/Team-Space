@@ -5,11 +5,14 @@ import EatOutCardHeader from "./components/EatOutCardHeader";
 import EatOutCardSubheader from "./components/EatOutCardSubheader";
 import EatOutCardContent from "./components/EatOutCardContent";
 import EatOutCardFooter from "./components/EatOutCardFooter";
+import useCheckinHandler from "./components/useCheckinHandler";
 
 import "./eatOutCard.scss";
 
 function EatOutCard({ restaurant, handleImageLoad }) {
-  const { name, openingHours, address, website, id, description } = restaurant;
+  const { id, name, openingHours, address, website, description } = restaurant;
+  const { toggleCheckIn, checkIns, active } = useCheckinHandler(restaurant);
+
   return (
     <>
       <div className="eat-out-card">
@@ -17,8 +20,10 @@ function EatOutCard({ restaurant, handleImageLoad }) {
           <EatOutCardHeader
             restaurant={restaurant}
             handleImageLoad={handleImageLoad}
+            checkinHandler={{ toggleCheckIn, checkIns, active }}
           />
           <EatOutCardSubheader
+            id={id}
             restaurantName={name}
             openingHours={openingHours}
           />
@@ -28,7 +33,11 @@ function EatOutCard({ restaurant, handleImageLoad }) {
             description={description}
           />
         </div>
-        <EatOutCardFooter restaurantID={id} />
+        <EatOutCardFooter
+          handleCheckIns={toggleCheckIn}
+          isCheckinActive={active}
+          restaurantID={id}
+        />
       </div>
     </>
   );

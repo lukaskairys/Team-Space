@@ -17,12 +17,13 @@ import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
 import ContextProvider from "contexts/ContextProvider";
 import UserContextProvider from "contexts/UserContextProvider";
-
 import PrivateRoute from "./authentication/PrivateRoute.jsx";
+import Toast from "../src/components/Toasts/Toast";
 
 function App() {
   return (
     <Router>
+      <Toast />
       <Switch>
         <UserContextProvider>
           <Route path="/login">
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/registration">
             <RegistrationPage />
           </Route>
+
           <PrivateRoute path="/">
             <Route exact path="/">
               <Dashboard />
