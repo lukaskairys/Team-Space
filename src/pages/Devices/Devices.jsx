@@ -4,17 +4,15 @@ import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 import SideFilters from "features/sideFilters/SideFilters";
+import Search from "features/search/Search";
 
 import { useReservationPages } from "components/ReservationPages/useReservationPages";
-import "./devices.scss";
+import { useSearch } from "features/search/useSearch";
+
+import "./Devices.scss";
 
 const Devices = () => {
-  // Placeholders to be replaced by state changing items
-  const placeholders = {
-    searchTerm: "", // User search term
-    date: "22/01/2021", // Date that comes from the calendar in the search component (must be DD/MM/YYYY to work)
-    availabilityOn: false, // If true displays only available items, if false displays all items
-  };
+  const { searchData, searchBtnClick, availableFilter } = useSearch();
 
   const {
     filtersToRender,
@@ -32,6 +30,10 @@ const Devices = () => {
       <MainLayout>
         <>
           <Breadcrumbs />
+          <Search
+            searchBtnClick={searchBtnClick}
+            availableFilter={availableFilter}
+          />
           <div className="devices">
             <div className="devices__side-filters">
               {filtersToRender !== undefined &&
@@ -50,11 +52,11 @@ const Devices = () => {
                 ))}
             </div>
             <ReservationsList
-              searchTerm={placeholders.searchTerm}
-              date={placeholders.date}
+              searchTerm={searchData.searchTerm}
+              date={searchData.date}
               tags={tags}
               handleSingleTag={handleSingleTag}
-              availabilityOn={placeholders.availabilityOn}
+              availabilityOn={searchData.availabilityOn}
               listName={listName}
               listData={listData}
             />
