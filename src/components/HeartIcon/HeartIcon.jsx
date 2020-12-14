@@ -52,12 +52,12 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
 
   const remove = (itemId, data) => {
     genericHandler(data, itemId, removeHandler);
-    update(data.id, data);
+    update(data.id, data, "users");
   };
 
   const add = (itemId, user) => {
     genericHandler(user, itemId, addHandler);
-    update(user.id, user);
+    update(user.id, user, "users");
   };
 
   useEffect(() => {

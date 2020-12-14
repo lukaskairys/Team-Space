@@ -1,5 +1,5 @@
 import jsonserver from "./jsonserver";
 
-export const update = async (id, data) => {
-  await jsonserver.patch(`/users/${id}`, data);
+export const update = async (id, data, endpoint) => {
+  await jsonserver.patch(`/${endpoint}/${id}`, data);
 };
