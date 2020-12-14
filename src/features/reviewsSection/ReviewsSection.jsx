@@ -41,9 +41,7 @@ function ReviewsSection() {
 
   useEffect(() => {
     try {
-      const restaurant = data.restaurantList.filter(
-        (restaurant) => restaurant.id === id
-      );
+      const restaurant = data.filter((restaurant) => restaurant.id === id);
       const reviews = restaurant[0].reviews.filter(
         (review) => review.comment !== ""
       );
@@ -53,7 +51,7 @@ function ReviewsSection() {
         setReviews([]);
       }
     }
-  }, [data.restaurantList, id]);
+  }, [data, id]);
 
   useEffect(() => {
     const handleResize = () => {

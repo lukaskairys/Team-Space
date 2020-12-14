@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import { useRequest } from "apis/useRequest";
+import { context } from "contexts/Context";
+import { isObjectEmpty } from "utils/objects";
 import { ReactComponent as PinIcon } from "assets/icons/map-pin.svg";
 import { ReactComponent as GlobeIcon } from "assets/icons/globe.svg";
 import { ReactComponent as PhoneIcon } from "assets/icons/phone.svg";
@@ -12,10 +13,10 @@ import "./EatOutInfo.scss";
 
 const EatOutInfo = () => {
   const { id } = useParams();
-  const { data, error } = useRequest("/restaurants");
+  const { data, error } = useContext(context);
 
-  if (data.restaurantList) {
-    const restaurant = data.restaurantList
+  if (!isObjectEmpty(data)) {
+    const restaurant = data
       .filter((restaurant) => restaurant.id === id)
       .shift();
 

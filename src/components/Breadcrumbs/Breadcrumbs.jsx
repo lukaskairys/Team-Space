@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { Link, useParams } from "react-router-dom";
 
+import { isObjectEmpty } from "utils/objects";
 import { useRequest } from "apis/useRequest";
 import { ReactComponent as Arrow } from "assets/icons/right.svg";
 
@@ -12,7 +13,7 @@ const Breadcrumbs = () => {
   const { id } = useParams();
   const { data, error } = useRequest("/restaurants");
 
-  if (data) {
+  if (!isObjectEmpty(data)) {
     const restaurant = data
       .filter((restaurant) => restaurant.id === id)
       .shift();

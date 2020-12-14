@@ -11,7 +11,7 @@ function EatOutCategoriesPage() {
 
   const getRestaurants = () => {
     if (Object.keys(data).length !== 0) {
-      const restaurants = data.restaurantList.filter((restaurant) =>
+      const restaurants = data.filter((restaurant) =>
         restaurant.categories.includes(
           category.charAt(0).toUpperCase() + category.slice(1)
         )
