@@ -6,10 +6,20 @@ import Button from "../../button/Button";
 import "./eatOutCardFooter.scss";
 
 function EatOutCardFooter({ restaurantID, handleCheckIns, isCheckinActive }) {
+  const handleScroll = () => {
+    const element = document.querySelector("header");
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  };
+
   return (
     <div className="card-footer">
       <div className="card-footer__buttons">
         <Link
+          onClick={handleScroll}
           to={`/eat-out/${restaurantID}`}
           className="button button--medium button--blank"
         >
