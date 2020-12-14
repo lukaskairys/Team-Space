@@ -34,6 +34,7 @@ function FeedCard({ story, userPhoto, userName, type }) {
         username={userName}
         userPhoto={userPhoto}
         likes={story.likes}
+        id={story.id}
       />
     </div>
   );

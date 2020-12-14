@@ -11,6 +11,7 @@ const CreateTopRestaurantColumn = (restaurant) => {
         {PersonComponent(restaurant.checkIns)}
       </EatOutCardHeader>
       <EatOutCardSubheader
+        id={restaurant.id}
         restaurantName={restaurant.name}
         openingHours={restaurant.openingHours}
       />

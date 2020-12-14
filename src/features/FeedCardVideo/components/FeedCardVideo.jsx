@@ -41,6 +41,7 @@ function FeedCardVideo({ story, userPhoto, userName }) {
         username={userName}
         userPhoto={userPhoto}
         likes={story.likes}
+        id={story.id}
       />
     </div>
   );

@@ -11,7 +11,7 @@ export default function HeroDetails({ restaurant }) {
     <div className="hero-details">
       <div className="hero-details__rating-box">
         <Rating restaurant={restaurant} isStatic={false} />
-        <HeartIcon />
+        <HeartIcon requestData={restaurant} />
       </div>
       <span className="hero-details__check-ins">{`${restaurant.checkIns} People already checked-in!`}</span>
       <div className="hero-details__cta-box">
