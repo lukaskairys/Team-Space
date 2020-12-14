@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "react-toastify/dist/ReactToastify.css";
+import { ReactComponent as PersonIcon } from "assets/icons/person.svg";
 
 import "./personCounter.scss";
-import { ReactComponent as PersonIcon } from "assets/icons/person.svg";
 
 const Person = ({ checkinHandler }) => {
   const { active, toggleCheckIn, checkIns } = checkinHandler;
