@@ -35,6 +35,10 @@
         padding: 0.9rem 1.8rem;
     }
 
+    &--with-icon {
+        display: flex;
+    }
+
     &--blank {
         background: none;
         color: $color-slate-gray;
@@ -102,6 +106,42 @@
 
         &:active {
             background: none;
+        }
+    }
+
+    &--filter-button {
+        align-items: center;
+        background: none;
+        border: 0.1rem solid $color-ghost;
+        border-radius: $base-border-radius;
+        color: $color-fiord;
+        display: flex;
+        font-weight: $medium-weight;
+        justify-content: space-between;
+        padding: 0.6rem 1.2rem;
+        text-transform: none;
+
+        &-active {
+            background: $color-fiord;
+            box-shadow: none;
+            color: $color-white;
+
+            .search-bar__check-icon path,
+            .search-bar__heart-icon path {
+                stroke: $color-white;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            background: $color-fiord;
+            box-shadow: none;
+            color: $color-white;
+
+            .search-bar__heart-icon path,
+            .search-bar__check-icon path {
+                stroke: $color-white;
+            }
         }
     }
 

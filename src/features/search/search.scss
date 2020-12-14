@@ -1,0 +1,48 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_breakpoint: 1490;
+$_breakpoint2: 910;
+
+.search-bar {
+    background-color: $color-white;
+    border-radius: 0.4rem;
+    box-shadow: $card-shadow;
+    color: $color-fiord;
+    height: 23rem;
+    margin-top: 2.4rem;
+    overflow: hidden;
+    padding: 3.6rem 4rem 4rem;
+    width: 100%;
+
+    @include respond-to($_breakpoint2, max) {
+        padding: 3.6rem 3rem 4rem;
+        width: 105%;
+    }
+
+    &__title {
+        @include typography-h2;
+
+        color: $color-fiord;
+        margin-bottom: 2.4rem;
+    }
+
+    &__filter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        width: 25rem;
+
+        @include respond-to($_breakpoint2, max) {
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    &__check-icon,
+    &__heart-icon {
+        height: 1.3rem;
+        margin-right: 0.9rem;
+        width: 1.3rem;
+    }
+}
