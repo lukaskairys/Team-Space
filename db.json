@@ -42,23 +42,30 @@
             "id": "120wsdlpx4"
           },
           {
+            "id": "7et2tk3ih1"
+          },
+          {
             "id": "h3hlqj5bcb"
           },
           {
-            "id": "tk3ih1o0qt"
-          },
-          {
-            "id": "7et2tk3ih1"
+            "id": "wtlztmw3rr"
           }
         ],
-        "books": [],
+        "books": [
+          {
+            "id": "137420wgf0"
+          },
+          {
+            "id": "9781484212615"
+          }
+        ],
         "devices": [],
         "stories": [
           {
             "id": "10197o9h40"
           },
           {
-            "id": "10au0o9280"
+            "id": "10187tep27"
           }
         ]
       }

@@ -6,6 +6,7 @@ import { ReactComponent as IconReserved } from "assets/icons/icon-reserved.svg";
 import Button from "components/button/Button";
 import HeartIcon from "components/HeartIcon/HeartIcon";
 import Rating from "components/Rating/Rating";
+import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 
 import "./reservationCard.scss";
 import { formatDateToGB, isUnavailable } from "../utils/dateFormatters";
@@ -18,6 +19,7 @@ export default function Card({
   bookedUntil,
   date,
   book,
+  id,
 }) {
   let buttonDisabled = false;
   const renderStatus = () => {
@@ -56,7 +58,7 @@ export default function Card({
       </figure>
       <div className="reservation-card__content">
         <span className="reservation-card__caption">{topCaption}</span>
-        <HeartIcon />
+        <HeartIcon itemType={FavoriteTypes.BOOK} itemId={id} />
         <h3 className="reservation-card__title">{title}</h3>
         <div className="reservation-card__status">{renderStatus()}</div>
         <div className="reservation-card__cta">
@@ -86,4 +88,5 @@ Card.propTypes = {
   bookedUntil: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   date: PropTypes.string,
   book: PropTypes.bool,
+  id: PropTypes.string,
 };
