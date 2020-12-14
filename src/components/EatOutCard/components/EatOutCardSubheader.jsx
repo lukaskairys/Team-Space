@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 
 import HeartIcon from "../../HeartIcon/HeartIcon";
 import {
@@ -8,7 +9,7 @@ import {
 } from "./RestaurantWorkingSchedule";
 import "./eatOutCardSubheader.scss";
 
-function EatOutCardSubheader({ restaurantName, openingHours }) {
+function EatOutCardSubheader({ id, restaurantName, openingHours }) {
   const formTime = (workingSchedule) => {
     const schedule = createWorkingSchedule(workingSchedule);
     return (
@@ -22,7 +23,7 @@ function EatOutCardSubheader({ restaurantName, openingHours }) {
     <div className="card-subheader">
       <div className="card-subheader__section">
         <h3 className="card-subheader__title">{restaurantName}</h3>
-        <HeartIcon />
+        <HeartIcon itemType={FavoriteTypes.RESTAURANT} itemId={id} />
       </div>
       {formTime(openingHours)}
     </div>
@@ -32,6 +33,7 @@ function EatOutCardSubheader({ restaurantName, openingHours }) {
 EatOutCardSubheader.propTypes = {
   restaurantName: PropTypes.string,
   openingHours: PropTypes.array,
+  id: PropTypes.string,
 };
 
 export default EatOutCardSubheader;
