@@ -45,21 +45,13 @@ $_breakpoint2: 910;
         @include respond-to($_breakpoint2, max) {
             height: 4rem;
         }
-
-        &::-webkit-search-cancel-button {
-            appearance: none;
-            background-image: url('../../assets/icons/x-circle.svg');
-            background-size: cover;
-            filter: invert(70%) sepia(15%) saturate(1057%) hue-rotate(174deg)
-                brightness(94%) contrast(87%);
-            height: 1.6rem;
-            width: 1.6rem;
-        }
     }
 
     &-date-input {
         @include typography-body-2;
 
+        font-family: $font-family;
+        font-size: $font-size-14;
         height: 4.8rem;
         line-height: 2.2;
         width: 100%;
@@ -84,6 +76,14 @@ $_breakpoint2: 910;
                 line-height: 1.96;
                 top: 0.4rem;
             }
+        }
+
+        &::-webkit-calendar-picker-indicator {
+            appearance: none;
+            background-image: url('../../assets/icons/calendar.svg');
+            background-size: cover;
+            height: 1.6rem;
+            width: 1.6rem;
         }
     }
 

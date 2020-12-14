@@ -21,9 +21,10 @@ function Button({
   filterButton,
   activeFilter,
   withIcon,
+  excludeMainClass,
 }) {
   const btnClass = classNames({
-    button: true,
+    button: !excludeMainClass,
     "button--large": large,
     "button--medium": medium,
     "button--icon-x": iconX,
@@ -73,6 +74,7 @@ Button.propTypes = {
   filterButton: PropTypes.bool,
   activeFilter: PropTypes.bool,
   withIcon: PropTypes.bool,
+  excludeMainClass: PropTypes.bool,
 };
 
 export default Button;

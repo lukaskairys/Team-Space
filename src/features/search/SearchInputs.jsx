@@ -20,16 +20,23 @@ function SearchInputs({ searchBtnClick }) {
   };
 
   const search = (e) => {
-    searchBtnClick(term, date);
+    searchBtnClick({ searchText: term, searchDate: date });
+  };
+
+  const searchWithEnter = (e) => {
+    if (e.key === "Enter") {
+      search();
+    }
   };
 
   return (
     <div className="search-bar__inputs">
       <div className="search-bar__inputs-text">
         <input
-          type="search"
+          type="text"
           className="form__input search-bar__inputs-text-input"
           onChange={handleSearchInputChange}
+          onKeyPress={searchWithEnter}
         ></input>
       </div>
       <div className="search-bar__inputs-date">
