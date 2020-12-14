@@ -9,10 +9,9 @@ export const FetchBestRatedRestaurants = (count) => {
   const filter = useCallback(
     (restaurants) => {
       if (isObjectEmpty(restaurants)) return [];
-      const allCount = restaurants.restaurantList.length;
+      const allCount = restaurants.length;
       const size = count > allCount ? allCount : count;
       const BestRatedRestaurants = [];
-      restaurants = restaurants.restaurantList;
       //map all specific restaurant ratings into one array
       const Ratings = restaurants.map((x) =>
         [...x.reviews].map((x) => x.rating)

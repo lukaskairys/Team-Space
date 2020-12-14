@@ -12,8 +12,8 @@ const Breadcrumbs = () => {
   const { id } = useParams();
   const { data, error } = useRequest("/restaurants");
 
-  if (data.restaurantList) {
-    const restaurant = data.restaurantList
+  if (data) {
+    const restaurant = data
       .filter((restaurant) => restaurant.id === id)
       .shift();
 
