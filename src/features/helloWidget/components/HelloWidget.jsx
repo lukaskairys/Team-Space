@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import { context } from "contexts/Context";
+import { UserContext } from "contexts/UserContext";
 import { isObjectEmpty } from "utils/objects";
 
 import "./helloWidget.scss";
@@ -15,7 +15,7 @@ const HelloWidget = () => {
   const [currentTime, setCurrentTime] = useState(time);
   const [userName, setUserName] = useState("Wizard");
 
-  const { data, error } = useContext(context);
+  const { data, error } = useContext(UserContext);
 
   useEffect(() => {
     let intervalID = setInterval(() => {

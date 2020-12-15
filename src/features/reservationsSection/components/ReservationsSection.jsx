@@ -5,7 +5,7 @@ import { ReactComponent as Phone } from "assets/images/phone-1.svg";
 import { ReactComponent as Door } from "assets/images/door-1.svg";
 import { ReactComponent as Book } from "assets/images/book-1.svg";
 import { isObjectEmpty } from "utils/objects";
-import { context } from "contexts/Context";
+import { UserContext } from "contexts/UserContext";
 
 import "./reservationsSection.scss";
 
@@ -15,7 +15,7 @@ const ReservationsSection = () => {
     books: 0,
     rooms: 0,
   });
-  const { data, error } = useContext(context);
+  const { data, error } = useContext(UserContext);
 
   useEffect(() => {
     if (!isObjectEmpty(data))
