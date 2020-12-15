@@ -1,11 +1,11 @@
 {
   "lastClearDate": {
-    "date": "2020-12-14"
+    "date": "2020-12-15"
   },
   "users": [
     {
-      "id": "1",
-      "userName": "Aubrey Plaza",
+      "userName": "Frontend Wizard",
+      "email": "wizard@email.com",
       "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
       "birthdayDate": "1990-05-18",
       "location": "Vilnius, Lithuania",
@@ -30,153 +30,40 @@
           "postId": "10972har27"
         }
       ],
-      "checkIn": {
-        "id": "tk3ih1o0qt"
-      },
       "liked": {
         "restaurants": [
           {
             "id": "x8bd7ozuj6"
           },
           {
+            "id": "h3hlqj5bcb"
+          },
+          {
             "id": "porhch2lam"
+          },
+          {
+            "id": "9kdf9qawui"
           },
           {
             "id": "sejw2ugddc"
           },
           {
             "id": "120wsdlpx4"
-          },
-          {
-            "id": "7et2tk3ih1"
-          },
-          {
-            "id": "h3hlqj5bcb"
-          },
-          {
-            "id": "wtlztmw3rr"
           }
         ],
-        "books": [
-          {
-            "id": "137420wgf0"
-          },
-          {
-            "id": "rri8r7gpdp"
-          },
-          {
-            "id": "9kdf9qawui"
-          }
-        ],
+        "books": [],
         "devices": [],
         "stories": [
           {
-            "id": "10au0o9280"
+            "id": "10197o9h40"
           }
         ]
       },
-      "name": "Agave",
-      "slogan": "Ayyy tasty",
-      "createdDate": "2009-06-05",
-      "description": "An exceptional mexican restaurant.",
-      "openingHours": [
-        {
-          "days": "Monday - Friday",
-          "hours": "12 - 22"
-        }
-      ],
-      "website": "https://www.facebook.com/agaverestoranas",
-      "address": "Rotušės a. 3, Kaunas",
-      "phone": "+370 616 98496",
-      "image": "https://images.unsplash.com/photo-1584208632869-05fa2b2a5934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80",
-      "reviews": [
-        {
-          "userName": "Laura Palmer",
-          "id": "bt1x97n2je",
-          "comment": "Best Mexican place in Kaunas for sure. Appetizers, main course, dessert, all are on the high level.",
-          "rating": 5
-        },
-        {
-          "userName": "Dale Cooper",
-          "id": "bjv5kciyvf",
-          "comment": "We had a pleasant experience.",
-          "rating": 5
-        }
-      ],
-      "categories": [
-        "Salads",
-        "Grill",
-        "Pancakes"
-      ],
-      "coordinates": {
-        "lat": 54.89667728673178,
-        "lng": 23.887710506872565
-      },
-      "ratingAverage": "5.0"
-    },
-    {
-      "id": "2",
-      "userName": "Christ Jesus",
-      "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
-      "birthdayDate": "1990-05-18",
-      "location": "Vilnius, Lithuania",
-      "reservations": {
-        "books": [
-          {
-            "title": "Don't Make Me Think",
-            "id": "1jd85opw82"
-          }
-        ],
-        "devices": [
-          {
-            "name": "iPhone X",
-            "id": "193ywpe740"
-          }
-        ]
-      },
-      "notifications": [
-        {
-          "userName": "Sara Lars",
-          "actionType": "Like",
-          "postId": "10972har27"
-        }
-      ],
       "checkIn": {},
-      "liked": {
-        "restaurants": [],
-        "books": [],
-        "devices": [],
-        "stories": []
-      }
+      "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
+      "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     }
   ],
-  "userData": {
-    "userName": "Aubrey Plaza",
-    "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
-    "birthdayDate": "1990-05-18",
-    "location": "Vilnius, Lithuania",
-    "reservations": {
-      "books": [
-        {
-          "title": "Don't Make Me Think",
-          "id": "1jd85opw82"
-        }
-      ],
-      "devices": [
-        {
-          "name": "iPhone X",
-          "id": "193ywpe740"
-        }
-      ]
-    },
-    "notifications": [
-      {
-        "userName": "Sara Lars",
-        "actionType": "Like",
-        "postId": "10972har27"
-      }
-    ]
-  },
   "restaurants": {
     "restaurantList": [
       {

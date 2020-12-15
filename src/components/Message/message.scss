@@ -1,9 +1,11 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 $_message-spacing: 1.6rem;
 
 .message {
     @include typography-body-2-medium;
+    @include animation('fadeIn 0.3s ease-in forwards');
 
     align-items: center;
     border-radius: $secondary-border-radius;

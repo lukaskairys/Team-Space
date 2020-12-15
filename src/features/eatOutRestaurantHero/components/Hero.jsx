@@ -5,14 +5,14 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
 import "./hero.scss";
-import { context } from "../../../contexts/Context";
+import { Context } from "../../../contexts/Context";
 import Category from "./Category";
 import HeroDetails from "./HeroDetails";
 import Error from "./Error";
 
 function Hero({ children }) {
   const { id } = useParams();
-  const { data, error } = useContext(context);
+  const { data, error } = useContext(Context);
 
   if (data.restaurantList) {
     const restaurant = data.restaurantList

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -9,20 +9,19 @@ import { ReactComponent as CircleX } from "assets/icons/x-circle.svg";
 
 import "./message.scss";
 
-function Message({ type, message }) {
+function Message({ type, message, setShowMessage }) {
   const messageClass = classNames({
     message: true,
     "message--success": type === "success",
     "message--error": type === "error",
   });
 
-  const ref = useRef();
   const closeMessage = () => {
-    ref.current.style.display = "none";
+    setShowMessage(false);
   };
 
   return (
-    <p className={messageClass} ref={ref}>
+    <p className={messageClass}>
       {type === "success" && <Check className="message__icon" />}
       {type === "error" && <CircleX className="message__icon" />}
       {message}
@@ -36,6 +35,7 @@ function Message({ type, message }) {
 Message.propTypes = {
   type: PropTypes.string,
   message: PropTypes.string,
+  setShowMessage: PropTypes.func,
 };
 
 export default Message;
