@@ -1,16 +1,20 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { v4 as generateID } from "uuid";
 
 import { roundNumber, countAverage } from "utils/Math";
 import { patch } from "apis/services";
+import { UserContext } from "contexts/UserContext";
 import { ReactComponent as StarIcon } from "assets/icons/star.svg";
 
 import "./rating.scss";
 
-const currentUser = "John";
+const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
+  //Getting current user name
+  const { data } = useContext(UserContext);
+  const currentUser = data.userName;
 
-const Rating = ({ restaurant, isStatic, ratingValue }) => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
 
@@ -21,10 +25,10 @@ const Rating = ({ restaurant, isStatic, ratingValue }) => {
   };
 
   const handleNewRating = useCallback(() => {
-    if (!isStatic) {
+    if (!isStatic && !isFromBooks) {
       const newComment = {
         userName: currentUser,
-        id: Math.random().toString(36).substr(2, 10),
+        id: generateID(),
         comment: "",
         rating: rating,
       };
@@ -36,21 +40,19 @@ const Rating = ({ restaurant, isStatic, ratingValue }) => {
         const dataToUpdate = { reviews: [...newCommentArray] };
         patch("restaurants", dataToUpdate, restaurant.id);
       } else {
-        const dataToUpdate = newCommentArray.map((review) => {
+        const updatedArray = newCommentArray.map((review) => {
           if (review.userName === currentUser) {
             review.rating = rating;
           }
           return review;
         });
+        const dataToUpdate = { reviews: [...updatedArray] };
         patch("restaurants", dataToUpdate, restaurant.id);
       }
     }
-  }, [isStatic, rating, restaurant]);
+  }, [isStatic, rating, restaurant, currentUser, isFromBooks]);
 
-  useEffect(() => {
-    if (rating) handleNewRating();
-  }, [rating, handleNewRating]);
-
+  //setting initial value from current user ratings
   useEffect(() => {
     if (
       restaurant &&
@@ -61,7 +63,11 @@ const Rating = ({ restaurant, isStatic, ratingValue }) => {
       )[0].rating;
       setRating(rating);
     }
-  }, [restaurant]);
+  }, [restaurant, currentUser]);
+
+  useEffect(() => {
+    if (rating) handleNewRating();
+  }, [rating, handleNewRating]);
 
   if (restaurant || ratingValue) {
     let displayedRating;
@@ -88,7 +94,7 @@ const Rating = ({ restaurant, isStatic, ratingValue }) => {
                   type="radio"
                   name="rating"
                   value={ratingValue}
-                  onClick={() => {
+                  onChange={() => {
                     setRating(ratingValue);
                   }}
                 />
@@ -118,6 +124,7 @@ const Rating = ({ restaurant, isStatic, ratingValue }) => {
 
 Rating.propTypes = {
   isStatic: PropTypes.bool,
+  isFromBooks: PropTypes.bool,
   ratingValue: PropTypes.number,
   restaurant: PropTypes.shape({
     reviews: PropTypes.array,

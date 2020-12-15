@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import { context } from "contexts/Context";
+import { Context } from "contexts/Context";
 import { isObjectEmpty } from "utils/objects";
 import { ReactComponent as PinIcon } from "assets/icons/map-pin.svg";
 import { ReactComponent as GlobeIcon } from "assets/icons/globe.svg";
@@ -13,7 +13,7 @@ import "./EatOutInfo.scss";
 
 const EatOutInfo = () => {
   const { id } = useParams();
-  const { data, error } = useContext(context);
+  const { data, error } = useContext(Context);
 
   if (!isObjectEmpty(data)) {
     const restaurant = data

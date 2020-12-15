@@ -80,45 +80,7 @@
             "id": "10187tep27"
           }
         ]
-      },
-      "name": "Agave",
-      "slogan": "Ayyy tasty",
-      "createdDate": "2009-06-05",
-      "description": "An exceptional mexican restaurant.",
-      "openingHours": [
-        {
-          "days": "Monday - Friday",
-          "hours": "12 - 22"
-        }
-      ],
-      "website": "https://www.facebook.com/agaverestoranas",
-      "address": "Rotušės a. 3, Kaunas",
-      "phone": "+370 616 98496",
-      "image": "https://images.unsplash.com/photo-1584208632869-05fa2b2a5934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80",
-      "reviews": [
-        {
-          "userName": "Laura Palmer",
-          "id": "bt1x97n2je",
-          "comment": "Best Mexican place in Kaunas for sure. Appetizers, main course, dessert, all are on the high level.",
-          "rating": 5
-        },
-        {
-          "userName": "Dale Cooper",
-          "id": "bjv5kciyvf",
-          "comment": "We had a pleasant experience.",
-          "rating": 5
-        }
-      ],
-      "categories": [
-        "Salads",
-        "Grill",
-        "Pancakes"
-      ],
-      "coordinates": {
-        "lat": 54.89667728673178,
-        "lng": 23.887710506872565
-      },
-      "ratingAverage": "5.0"
+      }
     },
     {
       "id": "2",
@@ -154,6 +116,31 @@
         "devices": [],
         "stories": []
       }
+    },
+    {
+      "userName": "Lukas Kairys",
+      "email": "lukaskairys@gmail.com",
+      "userImage": "https://scontent.fkun1-1.fna.fbcdn.net/v/t1.0-9/50015944_10217647426368640_6451510752309149696_o.jpg?_nc_cat=101&ccb=2&_nc_sid=09cbfe&_nc_ohc=sUrRxUTvnwIAX9jXFTs&_nc_ht=scontent.fkun1-1.fna&oh=80bd3aa9e9430033293d4a3eef21543b&oe=600000E2",
+      "birthdayDate": "",
+      "location": "",
+      "reservations": {
+        "books": [],
+        "devices": []
+      },
+      "notifications": [],
+      "liked": {
+        "restaurants": [
+          {
+            "id": "120wsdlpx4"
+          }
+        ],
+        "books": [],
+        "devices": [],
+        "stories": []
+      },
+      "checkIn": {},
+      "password": "$2a$10$/j67t6BDAIEUCszmLkL7teKqFFs3V/J0Puk.yU0DMjQkzFWh.PRjm",
+      "id": "a0a58de9-a849-48ff-b66c-595686909963"
     }
   ],
   "userData": {
@@ -185,36 +172,6 @@
   },
   "restaurants": [
     {
-      "0": {
-        "userName": "Luke Skywalker",
-        "id": "730tybsl12",
-        "comment": "Tasty burgers, but had to wait a long line.",
-        "rating": 4
-      },
-      "1": {
-        "userName": "Uncle Roger",
-        "id": "10f836s0pw",
-        "comment": "Didn't have fried rice, a bit disappointed.",
-        "rating": 3.5
-      },
-      "2": {
-        "userName": "Sara Lars",
-        "id": "183gstwpl6",
-        "comment": "Food didn’t meet my expectations, but it was fine. But the customer experience was flawless!",
-        "rating": 5
-      },
-      "3": {
-        "userName": "Wade Owen Watts",
-        "id": "183620uer",
-        "comment": "Good burgers, good price",
-        "rating": 4
-      },
-      "4": {
-        "userName": "John",
-        "id": "zhn5se87bp",
-        "comment": "",
-        "rating": 2
-      },
       "name": "Grill London (Kaunas, PLC Mega)",
       "id": "120wsdlpx4",
       "slogan": "Best burgers in the town",
@@ -265,6 +222,12 @@
           "id": "zhn5se87bp",
           "comment": "",
           "rating": 2
+        },
+        {
+          "userName": "Lukas Kairys",
+          "id": "02b3150d-c1f6-41d7-9abe-c845fba08e1e",
+          "comment": "",
+          "rating": 2
         }
       ],
       "categories": [
@@ -278,48 +241,6 @@
       }
     },
     {
-      "0": {
-        "userName": "Jefferson Gutierrez",
-        "id": "i8r7gpdpfi",
-        "comment": "Cosy outside seating, tasty food. Recommended for everyone who’s looking for nice dinner both inside or outside.",
-        "rating": 4.5
-      },
-      "1": {
-        "userName": "Edgar Abbott",
-        "id": "0rqlywcr8c",
-        "comment": "Nice place, a lot of natural food, exclusive pizza. Ice cream which you can get only in this restaurant. Good place for children.",
-        "rating": 5
-      },
-      "2": {
-        "userName": "Samantha Henry",
-        "id": "9hku9agnj4",
-        "comment": "Ok pizza, good beer. Environment is better for family than for business traveler attempting to relax over dinner. Lots of kids.",
-        "rating": 3
-      },
-      "3": {
-        "userName": "Edric Ingram",
-        "id": "fs6jf8u00z",
-        "comment": "Nice pizza, but not the best I had. Friendly staff, reasonably priced menu. Was very quiet when we visited.",
-        "rating": 4
-      },
-      "4": {
-        "userName": "Valerie Jordan",
-        "id": "3snsdmmxz1",
-        "comment": "Hated it.",
-        "rating": 1
-      },
-      "5": {
-        "userName": "Samuel Frost",
-        "id": "wdni7vwbuy",
-        "comment": "Most awesome pizza I ever had!",
-        "rating": 5
-      },
-      "6": {
-        "userName": "John",
-        "id": "rkt6jbi1tb",
-        "comment": "",
-        "rating": 1
-      },
       "name": "Jurgis ir Drakonas",
       "id": "wtlztmw3rr",
       "slogan": "Fire up the taste",
@@ -372,12 +293,6 @@
           "id": "wdni7vwbuy",
           "comment": "Most awesome pizza I ever had!",
           "rating": 5
-        },
-        {
-          "userName": "John",
-          "id": "rkt6jbi1tb",
-          "comment": "",
-          "rating": 1
         }
       ],
       "categories": [
@@ -443,60 +358,6 @@
       }
     },
     {
-      "0": {
-        "userName": "Derek Daves",
-        "id": "8m69jg4evv",
-        "comment": "Very tasty, good service, nice ambience, good location. 10 points ;) Mimosas, soups, beef, coffee, ice cream.",
-        "rating": 5
-      },
-      "1": {
-        "userName": "Chase Oliver",
-        "id": "ektcqbs4m5",
-        "comment": "Nice place in downtown of Kaunas. Tasty food. Cosy accomodation. Perfect dishes. Highly reccomend for friends, business and family.",
-        "rating": 4.5
-      },
-      "2": {
-        "userName": "Frank Hurlbutt",
-        "id": "c8l9pelpnv",
-        "comment": "I don't really like meat.",
-        "rating": 2.5
-      },
-      "3": {
-        "userName": "Samson Jensen",
-        "id": "6hmnta6rse",
-        "comment": "My favorite restaurant in Kaunas for brunch, lunch, dinner or sweet dessert!",
-        "rating": 4
-      },
-      "4": {
-        "userName": "Matt Hodges",
-        "id": "jw2ugddcg5",
-        "comment": "Great service, very good food. Every time it is worth to come back.",
-        "rating": 4.5
-      },
-      "5": {
-        "userName": "Nina Bowen",
-        "id": "afr99kdf9q",
-        "comment": "I love good steak and this is the best one i can get in Kaunas city.",
-        "rating": 4
-      },
-      "6": {
-        "userName": "Lance Marrow",
-        "id": "awuiaohbks",
-        "comment": "I like the food there. The meat is so nicely grilled!",
-        "rating": 4.5
-      },
-      "7": {
-        "userName": "Tommy Nelson",
-        "id": "gf77pv4o1n",
-        "comment": "Best brunch in town! Egg Benedicts and English breakfast was really very delicious! Best wishes, can't wait to come back!",
-        "rating": 5
-      },
-      "8": {
-        "userName": "John",
-        "id": "vbapfgetqk",
-        "comment": "",
-        "rating": 5
-      },
       "name": "MOMO Grill Kaunas",
       "id": "x8bd7ozuj6",
       "slogan": "Grilled up",
@@ -560,12 +421,6 @@
           "userName": "Tommy Nelson",
           "id": "gf77pv4o1n",
           "comment": "Best brunch in town! Egg Benedicts and English breakfast was really very delicious! Best wishes, can't wait to come back!",
-          "rating": 5
-        },
-        {
-          "userName": "John",
-          "id": "vbapfgetqk",
-          "comment": "",
           "rating": 5
         }
       ],
