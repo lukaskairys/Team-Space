@@ -21,9 +21,11 @@ function Button({
   filterButton,
   activeFilter,
   withIcon,
+  excludeMainClass,
+  clearInput,
 }) {
   const btnClass = classNames({
-    button: true,
+    button: !excludeMainClass,
     "button--large": large,
     "button--medium": medium,
     "button--icon-x": iconX,
@@ -36,6 +38,7 @@ function Button({
     "button--filter-button": filterButton,
     "button--filter-button-active": activeFilter,
     "button--with-icon": withIcon,
+    "button--clear-input": clearInput,
   });
   return (
     <button
@@ -73,6 +76,8 @@ Button.propTypes = {
   filterButton: PropTypes.bool,
   activeFilter: PropTypes.bool,
   withIcon: PropTypes.bool,
+  excludeMainClass: PropTypes.bool,
+  clearInput: PropTypes.bool,
 };
 
 export default Button;

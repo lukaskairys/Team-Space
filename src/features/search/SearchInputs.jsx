@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Button from "components/button/Button";
 import { formatDateToGB } from "features/reservationsPageList/utils/dateFormatters";
 import { ReactComponent as SearchIcon } from "assets/icons/magnifying-glass.svg";
+import { ReactComponent as CircleX } from "assets/icons/x-circle.svg";
 
 import "./searchInputs.scss";
 
@@ -20,17 +21,35 @@ function SearchInputs({ searchBtnClick }) {
   };
 
   const search = (e) => {
-    searchBtnClick(term, date);
+    searchBtnClick({ searchText: term, searchDate: date });
+  };
+
+  const searchWithEnter = (e) => {
+    if (e.key === "Enter") {
+      search();
+    }
+  };
+
+  const handleXclick = (e) => {
+    setTerm("");
+    searchBtnClick({ searchText: "" });
   };
 
   return (
     <div className="search-bar__inputs">
       <div className="search-bar__inputs-text">
         <input
-          type="search"
+          type="text"
           className="form__input search-bar__inputs-text-input"
           onChange={handleSearchInputChange}
+          onKeyPress={searchWithEnter}
+          value={term}
         ></input>
+        {term !== "" && term !== undefined && (
+          <Button excludeMainClass={true} clearInput handleClick={handleXclick}>
+            <CircleX className="search-bar__inputs-circle-x-icon" />
+          </Button>
+        )}
       </div>
       <div className="search-bar__inputs-date">
         <label

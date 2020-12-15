@@ -25,18 +25,20 @@ function SearchFilters({ availableFilter }) {
     <div className="search-bar__filter">
       <Button
         filterButton
+        excludeMainClass={true}
         medium
         handleClick={showAll}
         activeFilter={available ? false : true}
       >
         All
       </Button>
-      <Button filterButton medium>
+      <Button filterButton excludeMainClass={true} medium>
         <HeartIcon className="search-bar__heart-icon" />
         Favorites
       </Button>
       <Button
         filterButton
+        excludeMainClass={true}
         activeFilter={available ? true : false}
         medium
         handleClick={showAvailable}
