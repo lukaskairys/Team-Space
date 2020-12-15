@@ -25,14 +25,14 @@ function App() {
     <Router>
       <Toast />
       <Switch>
-        <UserContextProvider>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
-          <Route exact path="/registration">
-            <RegistrationPage />
-          </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route exact path="/registration">
+          <RegistrationPage />
+        </Route>
 
+        <UserContextProvider>
           <PrivateRoute path="/">
             <Route exact path="/">
               <Dashboard />

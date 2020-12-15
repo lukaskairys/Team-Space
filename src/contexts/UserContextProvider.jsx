@@ -9,9 +9,7 @@ const UserContextProvider = ({ children }) => {
   const [likeState, setLikeState] = useState("initial");
   const [currentCheckIn, setCurrentCheckIn] = useState("initial");
   const { userId } = useAuthentication();
-  const { data, error, isLoading } = useRequest(
-    `/users/${userId ? userId : ""}`
-  );
+  const { data, error, isLoading } = useRequest(`/users/${userId}`);
   const { data: lastClearDate } = useRequest("lastClearDate");
   const { data: users } = useRequest("/users");
 

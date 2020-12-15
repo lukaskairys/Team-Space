@@ -29,9 +29,12 @@ export const useAuthentication = () => {
           if (result) {
             setUserId(currentUser[0].id);
             localStorage.setItem("user", JSON.stringify(currentUser[0].id));
-            history.push(location.from ? location.from : "/", {
-              message: "Your are successfully logged in. Welcome back!",
-            });
+            history.push(
+              location.from && location.from !== "/login" ? location.from : "/",
+              {
+                message: "Your are successfully logged in. Welcome back!",
+              }
+            );
           } else {
             setShowErrorMessage(true);
             setMessageText("Wrong password. Please try again.");
