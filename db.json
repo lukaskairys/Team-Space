@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-14"
+    "date": "2020-12-15"
   },
   "users": [
     {
@@ -31,13 +31,10 @@
         }
       ],
       "checkIn": {
-        "id": "tk3ih1o0qt"
+        "id": "9kdf9qawui"
       },
       "liked": {
         "restaurants": [
-          {
-            "id": "x8bd7ozuj6"
-          },
           {
             "id": "porhch2lam"
           },
@@ -66,12 +63,21 @@
           },
           {
             "id": "9kdf9qawui"
+          },
+          {
+            "id": "193ywpe740"
+          },
+          {
+            "id": "1563175150"
           }
         ],
         "devices": [],
         "stories": [
           {
             "id": "10au0o9280"
+          },
+          {
+            "id": "10187tep27"
           }
         ]
       },
@@ -179,6 +185,36 @@
   },
   "restaurants": [
     {
+      "0": {
+        "userName": "Luke Skywalker",
+        "id": "730tybsl12",
+        "comment": "Tasty burgers, but had to wait a long line.",
+        "rating": 4
+      },
+      "1": {
+        "userName": "Uncle Roger",
+        "id": "10f836s0pw",
+        "comment": "Didn't have fried rice, a bit disappointed.",
+        "rating": 3.5
+      },
+      "2": {
+        "userName": "Sara Lars",
+        "id": "183gstwpl6",
+        "comment": "Food didn’t meet my expectations, but it was fine. But the customer experience was flawless!",
+        "rating": 5
+      },
+      "3": {
+        "userName": "Wade Owen Watts",
+        "id": "183620uer",
+        "comment": "Good burgers, good price",
+        "rating": 4
+      },
+      "4": {
+        "userName": "John",
+        "id": "zhn5se87bp",
+        "comment": "",
+        "rating": 2
+      },
       "name": "Grill London (Kaunas, PLC Mega)",
       "id": "120wsdlpx4",
       "slogan": "Best burgers in the town",
@@ -223,6 +259,12 @@
           "id": "183620uer",
           "comment": "Good burgers, good price",
           "rating": 4
+        },
+        {
+          "userName": "John",
+          "id": "zhn5se87bp",
+          "comment": "",
+          "rating": 2
         }
       ],
       "categories": [
@@ -236,6 +278,48 @@
       }
     },
     {
+      "0": {
+        "userName": "Jefferson Gutierrez",
+        "id": "i8r7gpdpfi",
+        "comment": "Cosy outside seating, tasty food. Recommended for everyone who’s looking for nice dinner both inside or outside.",
+        "rating": 4.5
+      },
+      "1": {
+        "userName": "Edgar Abbott",
+        "id": "0rqlywcr8c",
+        "comment": "Nice place, a lot of natural food, exclusive pizza. Ice cream which you can get only in this restaurant. Good place for children.",
+        "rating": 5
+      },
+      "2": {
+        "userName": "Samantha Henry",
+        "id": "9hku9agnj4",
+        "comment": "Ok pizza, good beer. Environment is better for family than for business traveler attempting to relax over dinner. Lots of kids.",
+        "rating": 3
+      },
+      "3": {
+        "userName": "Edric Ingram",
+        "id": "fs6jf8u00z",
+        "comment": "Nice pizza, but not the best I had. Friendly staff, reasonably priced menu. Was very quiet when we visited.",
+        "rating": 4
+      },
+      "4": {
+        "userName": "Valerie Jordan",
+        "id": "3snsdmmxz1",
+        "comment": "Hated it.",
+        "rating": 1
+      },
+      "5": {
+        "userName": "Samuel Frost",
+        "id": "wdni7vwbuy",
+        "comment": "Most awesome pizza I ever had!",
+        "rating": 5
+      },
+      "6": {
+        "userName": "John",
+        "id": "rkt6jbi1tb",
+        "comment": "",
+        "rating": 1
+      },
       "name": "Jurgis ir Drakonas",
       "id": "wtlztmw3rr",
       "slogan": "Fire up the taste",
@@ -288,6 +372,12 @@
           "id": "wdni7vwbuy",
           "comment": "Most awesome pizza I ever had!",
           "rating": 5
+        },
+        {
+          "userName": "John",
+          "id": "rkt6jbi1tb",
+          "comment": "",
+          "rating": 1
         }
       ],
       "categories": [
@@ -353,6 +443,60 @@
       }
     },
     {
+      "0": {
+        "userName": "Derek Daves",
+        "id": "8m69jg4evv",
+        "comment": "Very tasty, good service, nice ambience, good location. 10 points ;) Mimosas, soups, beef, coffee, ice cream.",
+        "rating": 5
+      },
+      "1": {
+        "userName": "Chase Oliver",
+        "id": "ektcqbs4m5",
+        "comment": "Nice place in downtown of Kaunas. Tasty food. Cosy accomodation. Perfect dishes. Highly reccomend for friends, business and family.",
+        "rating": 4.5
+      },
+      "2": {
+        "userName": "Frank Hurlbutt",
+        "id": "c8l9pelpnv",
+        "comment": "I don't really like meat.",
+        "rating": 2.5
+      },
+      "3": {
+        "userName": "Samson Jensen",
+        "id": "6hmnta6rse",
+        "comment": "My favorite restaurant in Kaunas for brunch, lunch, dinner or sweet dessert!",
+        "rating": 4
+      },
+      "4": {
+        "userName": "Matt Hodges",
+        "id": "jw2ugddcg5",
+        "comment": "Great service, very good food. Every time it is worth to come back.",
+        "rating": 4.5
+      },
+      "5": {
+        "userName": "Nina Bowen",
+        "id": "afr99kdf9q",
+        "comment": "I love good steak and this is the best one i can get in Kaunas city.",
+        "rating": 4
+      },
+      "6": {
+        "userName": "Lance Marrow",
+        "id": "awuiaohbks",
+        "comment": "I like the food there. The meat is so nicely grilled!",
+        "rating": 4.5
+      },
+      "7": {
+        "userName": "Tommy Nelson",
+        "id": "gf77pv4o1n",
+        "comment": "Best brunch in town! Egg Benedicts and English breakfast was really very delicious! Best wishes, can't wait to come back!",
+        "rating": 5
+      },
+      "8": {
+        "userName": "John",
+        "id": "vbapfgetqk",
+        "comment": "",
+        "rating": 5
+      },
       "name": "MOMO Grill Kaunas",
       "id": "x8bd7ozuj6",
       "slogan": "Grilled up",
@@ -416,6 +560,12 @@
           "userName": "Tommy Nelson",
           "id": "gf77pv4o1n",
           "comment": "Best brunch in town! Egg Benedicts and English breakfast was really very delicious! Best wishes, can't wait to come back!",
+          "rating": 5
+        },
+        {
+          "userName": "John",
+          "id": "vbapfgetqk",
+          "comment": "",
           "rating": 5
         }
       ],
@@ -3941,7 +4091,7 @@
       "postLocation": "LDN",
       "postDate": "2020-11-26T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1601974222604-f8c88fc836fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-      "likes": 24,
+      "likes": 25,
       "comments": [
         {
           "userName": "Uncle Roger",

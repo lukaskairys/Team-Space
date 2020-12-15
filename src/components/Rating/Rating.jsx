@@ -3,7 +3,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 
 import { roundNumber, countAverage } from "utils/Math";
-import { update } from "apis/services";
+import { patch } from "apis/services";
 import { ReactComponent as StarIcon } from "assets/icons/star.svg";
 
 import "./rating.scss";
@@ -30,19 +30,38 @@ const Rating = ({ restaurant, isStatic, ratingValue }) => {
       };
 
       const newCommentArray = restaurant.reviews;
-      newCommentArray.push(newComment);
-      const dataToUpdate = { reviews: [...newCommentArray] };
 
-      /*  console.log("restaurant id", restaurant.id);
-      console.log("data to update", dataToUpdate);
-      console.log("restaurants endpoint", rating); */
-      update(restaurant.id, dataToUpdate, "restaurants");
+      if (!newCommentArray.some((review) => review.userName === currentUser)) {
+        newCommentArray.push(newComment);
+        const dataToUpdate = { reviews: [...newCommentArray] };
+        patch("restaurants", dataToUpdate, restaurant.id);
+      } else {
+        const dataToUpdate = newCommentArray.map((review) => {
+          if (review.userName === currentUser) {
+            review.rating = rating;
+          }
+          return review;
+        });
+        patch("restaurants", dataToUpdate, restaurant.id);
+      }
     }
   }, [isStatic, rating, restaurant]);
 
   useEffect(() => {
     if (rating) handleNewRating();
   }, [rating, handleNewRating]);
+
+  useEffect(() => {
+    if (
+      restaurant &&
+      restaurant.reviews.some((review) => review.userName === currentUser)
+    ) {
+      const rating = restaurant.reviews.filter(
+        (review) => review.userName === currentUser
+      )[0].rating;
+      setRating(rating);
+    }
+  }, [restaurant]);
 
   if (restaurant || ratingValue) {
     let displayedRating;
