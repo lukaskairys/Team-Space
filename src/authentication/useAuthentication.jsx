@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import bcrypt from "bcryptjs";
+import { v4 as generateID } from "uuid";
 import { useHistory, useLocation } from "react-router-dom";
 
 import { useRequest } from "apis/useRequest";
-import { generateID } from "utils/generateID";
 import { post } from "apis/postData";
 
 export const useAuthentication = () => {
