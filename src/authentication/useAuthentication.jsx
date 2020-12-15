@@ -8,7 +8,7 @@ import { post } from "apis/postData";
 
 export const useAuthentication = () => {
   const [userId, setUserId] = useState();
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
   const { data } = useRequest("/users");
@@ -36,16 +36,16 @@ export const useAuthentication = () => {
               }
             );
           } else {
-            setShowErrorMessage(true);
+            setShowMessage(true);
             setMessageText("Wrong password. Please try again.");
           }
         });
       } else {
-        setShowErrorMessage(true);
+        setShowMessage(true);
         setMessageText("User with such email address does not exist.");
       }
     } catch (err) {
-      setShowErrorMessage(true);
+      setShowMessage(true);
     }
   }
 
@@ -71,7 +71,7 @@ export const useAuthentication = () => {
         message: "You are successfully on board. Welcome!",
       });
     } catch (err) {
-      setShowErrorMessage(true);
+      setShowMessage(true);
       setIsPosting(false);
     }
   }
@@ -85,7 +85,8 @@ export const useAuthentication = () => {
     logout,
     register,
     isPosting,
-    showErrorMessage,
+    setShowMessage,
+    showMessage,
     messageText,
     userId,
   };

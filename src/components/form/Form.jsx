@@ -13,7 +13,8 @@ function Form({ title, subtitle, action }) {
   const {
     login,
     register,
-    showErrorMessage,
+    showMessage,
+    setShowMessage,
     messageText,
     isPosting,
   } = useAuthentication();
@@ -62,7 +63,6 @@ function Form({ title, subtitle, action }) {
   return (
     <>
       <div className="form">
-        {showErrorMessage && <Message message={messageText} type={"error"} />}
         <div className="form__header">
           <h2 className="form__title">{title}</h2>
           <p className="form__subtitle">{subtitle}</p>
@@ -84,6 +84,13 @@ function Form({ title, subtitle, action }) {
                 handleXclick={handleXclick}
               />
             </div>
+          )}
+          {showMessage && (
+            <Message
+              message={messageText}
+              type={"error"}
+              setShowMessage={setShowMessage}
+            />
           )}
 
           <div className="form__footer">
