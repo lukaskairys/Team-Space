@@ -1,10 +1,16 @@
 @import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
 
 $_gap: 1.6rem;
 
 .reservations-list {
     margin-left: 4rem;
     width: 100%;
+
+    @include respond-to(1200, max) {
+        margin-left: 0;
+        width: unset;
+    }
 
     &__details {
         align-items: flex-start;
