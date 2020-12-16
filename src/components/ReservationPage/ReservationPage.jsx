@@ -31,36 +31,42 @@ const ReservationPage = ({ page }) => {
       <MainLayout>
         <>
           <Breadcrumbs />
-          <Search
-            searchBtnClick={searchBtnClick}
-            availableFilter={availableFilter}
-          />
           <div className="reservation-page">
-            <div className="reservation-page__side-filters">
-              {filtersToRender !== undefined &&
-                filtersToRender.map((item, i) => (
-                  <SideFilters
-                    key={item[0]}
-                    title={item[0]}
-                    filterItems={item[1]}
-                    filterTags={tags}
-                    clearAll={clearAll}
-                    tags={tags}
-                    handleChange={handleChange}
-                    ref={refs && refs[i]}
-                    value={item}
-                  />
-                ))}
-            </div>
-            <ReservationsList
-              searchTerm={searchData.searchTerm}
-              date={searchData.date}
-              tags={tags}
-              handleSingleTag={handleSingleTag}
-              availabilityOn={searchData.availabilityOn}
-              listName={listName}
-              listData={listData}
+            <h1 className="reservation-page__title">{`${page.slice(
+              0,
+              -1
+            )} Reservations`}</h1>
+            <Search
+              searchBtnClick={searchBtnClick}
+              availableFilter={availableFilter}
             />
+            <div className="reservation-page__content">
+              <div className="reservation-page__side-filters">
+                {filtersToRender !== undefined &&
+                  filtersToRender.map((item, i) => (
+                    <SideFilters
+                      key={item[0]}
+                      title={item[0]}
+                      filterItems={item[1]}
+                      filterTags={tags}
+                      clearAll={clearAll}
+                      tags={tags}
+                      handleChange={handleChange}
+                      ref={refs && refs[i]}
+                      value={item}
+                    />
+                  ))}
+              </div>
+              <ReservationsList
+                searchTerm={searchData.searchTerm}
+                date={searchData.date}
+                tags={tags}
+                handleSingleTag={handleSingleTag}
+                availabilityOn={searchData.availabilityOn}
+                listName={listName}
+                listData={listData}
+              />
+            </div>
           </div>
         </>
       </MainLayout>
