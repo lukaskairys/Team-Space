@@ -5,7 +5,6 @@ import classNames from "classnames";
 import { ReactComponent as NotificationBell } from "assets/icons/notification-bell.svg";
 import Sidebar from "components/Sidebar/Sidebar";
 import UserProfileWidget from "../../features/userProfileWidget/components/UserProfileWidget";
-import UserContextProvider from "contexts/UserContextProvider";
 
 import "./MainLayout.scss";
 
@@ -47,15 +46,13 @@ const MainLayout = ({ children }) => {
         })}
       >
         <header className="main-layout__header">
-          <UserContextProvider>
-            <div className="main-layout__status">
-              <NotificationBell className="main-layout__notifications" />
+          <div className="main-layout__status">
+            <NotificationBell className="main-layout__notifications" />
 
-              <div className="main-layout__profile">
-                <UserProfileWidget />
-              </div>
+            <div className="main-layout__profile">
+              <UserProfileWidget />
             </div>
-          </UserContextProvider>
+          </div>
         </header>
         <main className="main-layout__main">{children}</main>
         <footer className="main-layout__footer">
