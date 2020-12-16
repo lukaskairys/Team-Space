@@ -46,12 +46,13 @@
           },
           {
             "id": "sejw2ugddc"
-          },
-          {
-            "id": "120wsdlpx4"
           }
         ],
-        "books": [],
+        "books": [
+          {
+            "id": "1563182708"
+          }
+        ],
         "devices": [],
         "stories": [
           {
@@ -91,33 +92,6 @@
       "id": "a0a58de9-a849-48ff-b66c-595686909963"
     }
   ],
-  "userData": {
-    "userName": "Aubrey Plaza",
-    "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
-    "birthdayDate": "1990-05-18",
-    "location": "Vilnius, Lithuania",
-    "reservations": {
-      "books": [
-        {
-          "title": "Don't Make Me Think",
-          "id": "1jd85opw82"
-        }
-      ],
-      "devices": [
-        {
-          "name": "iPhone X",
-          "id": "193ywpe740"
-        }
-      ]
-    },
-    "notifications": [
-      {
-        "userName": "Sara Lars",
-        "actionType": "Like",
-        "postId": "10972har27"
-      }
-    ]
-  },
   "restaurants": [
     {
       "name": "Grill London (Kaunas, PLC Mega)",
