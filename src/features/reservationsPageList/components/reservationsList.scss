@@ -15,7 +15,7 @@ $_gap: 1.6rem;
 
     &__title {
         @include typography-h3-alternative;
-        margin-bottom: $_gap;
+        margin-bottom: 1.8rem;
     }
 
     &__search-term {
