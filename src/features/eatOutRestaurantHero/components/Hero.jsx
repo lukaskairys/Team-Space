@@ -8,11 +8,10 @@ import "./hero.scss";
 import { Context } from "../../../contexts/Context";
 import Category from "./Category";
 import HeroDetails from "./HeroDetails";
-import Error from "./Error";
 
 function Hero({ children }) {
   const { id } = useParams();
-  const { data, error } = useContext(Context);
+  const { data } = useContext(Context);
 
   if (data) {
     const restaurant = data
@@ -43,9 +42,7 @@ function Hero({ children }) {
           </div>
         </section>
       );
-    } else return <Error message={"Restaurant not found"} />;
-  } else if (error) {
-    return <Error message={"Failed to fetch a restaurant"} />;
+    } else return null;
   }
   return (
     <div className="HERO__loader">

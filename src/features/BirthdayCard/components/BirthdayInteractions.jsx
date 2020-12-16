@@ -19,13 +19,13 @@ function BirthdayInteractions({ wishes }) {
   };
 
   return (
-    <div className="interactions-container">
+    <>
       <GiftIcon
         className={classNames("gift-icon", { "gift-icon--active": isWished })}
         onClick={toggleWish}
       />
       <p>{wished}</p>
-    </div>
+    </>
   );
 }
 

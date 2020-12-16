@@ -1,8 +1,9 @@
 import useWindowDimensions from "utils/useWindowDimensions";
 import groupArray from "utils/groupArray";
+
 import rearrangeCards from "./rearrangeCards";
 
-const LayoutChildren = ({ children }) => {
+const useLayoutChildren = (children) => {
   const { width } = useWindowDimensions();
   let smallCardsTemp = [];
   let bigCardsTemp = [];
@@ -35,4 +36,4 @@ const LayoutChildren = ({ children }) => {
   }
 };
 
-export default LayoutChildren;
+export default useLayoutChildren;
