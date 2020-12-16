@@ -1,11 +1,11 @@
 {
   "lastClearDate": {
-    "date": "2020-12-15"
+    "date": "2020-12-16"
   },
   "users": [
     {
-      "id": "1",
-      "userName": "Aubrey Plaza",
+      "userName": "Frontend Wizard",
+      "email": "wizard@email.com",
       "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
       "birthdayDate": "1990-05-18",
       "location": "Vilnius, Lithuania",
@@ -30,92 +30,38 @@
           "postId": "10972har27"
         }
       ],
-      "checkIn": {
-        "id": "9kdf9qawui"
-      },
       "liked": {
         "restaurants": [
           {
+            "id": "x8bd7ozuj6"
+          },
+          {
+            "id": "h3hlqj5bcb"
+          },
+          {
             "id": "porhch2lam"
+          },
+          {
+            "id": "9kdf9qawui"
           },
           {
             "id": "sejw2ugddc"
           },
           {
             "id": "120wsdlpx4"
-          },
-          {
-            "id": "7et2tk3ih1"
-          },
-          {
-            "id": "h3hlqj5bcb"
-          },
-          {
-            "id": "wtlztmw3rr"
           }
         ],
-        "books": [
-          {
-            "id": "137420wgf0"
-          },
-          {
-            "id": "rri8r7gpdp"
-          },
-          {
-            "id": "9kdf9qawui"
-          },
-          {
-            "id": "193ywpe740"
-          },
-          {
-            "id": "1563175150"
-          }
-        ],
+        "books": [],
         "devices": [],
         "stories": [
           {
-            "id": "10au0o9280"
-          },
-          {
-            "id": "10187tep27"
-          }
-        ]
-      }
-    },
-    {
-      "id": "2",
-      "userName": "Christ Jesus",
-      "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
-      "birthdayDate": "1990-05-18",
-      "location": "Vilnius, Lithuania",
-      "reservations": {
-        "books": [
-          {
-            "title": "Don't Make Me Think",
-            "id": "1jd85opw82"
-          }
-        ],
-        "devices": [
-          {
-            "name": "iPhone X",
-            "id": "193ywpe740"
+            "id": "10197o9h40"
           }
         ]
       },
-      "notifications": [
-        {
-          "userName": "Sara Lars",
-          "actionType": "Like",
-          "postId": "10972har27"
-        }
-      ],
       "checkIn": {},
-      "liked": {
-        "restaurants": [],
-        "books": [],
-        "devices": [],
-        "stories": []
-      }
+      "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
+      "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },
     {
       "userName": "Lukas Kairys",
@@ -227,7 +173,7 @@
           "userName": "Lukas Kairys",
           "id": "02b3150d-c1f6-41d7-9abe-c845fba08e1e",
           "comment": "",
-          "rating": 2
+          "rating": 1
         }
       ],
       "categories": [
