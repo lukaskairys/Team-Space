@@ -31,7 +31,8 @@ function Form({ title, subtitle, action }) {
   const dataToPost = {
     userName: `${values.firstName} ${values.lastName}`,
     email: values.email,
-    userImage: "https://i.ibb.co/6WtwM35/Untitled.jpg",
+    userImage:
+      "https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png",
     birthdayDate: "",
     location: "",
     reservations: {
