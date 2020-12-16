@@ -48,6 +48,7 @@ const MainLayout = ({ children }) => {
         <header className="main-layout__header">
           <div className="main-layout__status">
             <NotificationBell className="main-layout__notifications" />
+
             <div className="main-layout__profile">
               <UserProfileWidget />
             </div>

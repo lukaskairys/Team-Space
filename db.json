@@ -1,8 +1,11 @@
 {
+  "lastClearDate": {
+    "date": "2020-12-16"
+  },
   "users": [
     {
-      "id": "1",
-      "userName": "Aubrey Plaza",
+      "userName": "Frontend Wizard",
+      "email": "wizard@email.com",
       "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
       "birthdayDate": "1990-05-18",
       "location": "Vilnius, Lithuania",
@@ -33,28 +36,19 @@
             "id": "x8bd7ozuj6"
           },
           {
+            "id": "h3hlqj5bcb"
+          },
+          {
             "id": "porhch2lam"
+          },
+          {
+            "id": "9kdf9qawui"
           },
           {
             "id": "sejw2ugddc"
           },
           {
             "id": "120wsdlpx4"
-          },
-          {
-            "id": "h3hlqj5bcb"
-          },
-          {
-            "id": "tk3ih1o0qt"
-          },
-          {
-            "id": "7et2tk3ih1"
-          },
-          {
-            "id": "9kdf9qawui"
-          },
-          {
-            "id": "3gogeanl0p"
           }
         ],
         "books": [],
@@ -62,75 +56,16 @@
         "stories": [
           {
             "id": "10197o9h40"
-          },
-          {
-            "id": "10au0o9280"
-          }
-        ]
-      }
-    },
-    {
-      "id": "2",
-      "userName": "Christ Jesus",
-      "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
-      "birthdayDate": "1990-05-18",
-      "location": "Vilnius, Lithuania",
-      "reservations": {
-        "books": [
-          {
-            "title": "Don't Make Me Think",
-            "id": "1jd85opw82"
-          }
-        ],
-        "devices": [
-          {
-            "name": "iPhone X",
-            "id": "193ywpe740"
           }
         ]
       },
-      "notifications": [
-        {
-          "userName": "Sara Lars",
-          "actionType": "Like",
-          "postId": "10972har27"
-        }
-      ],
-      "liked": {
-        "restaurants": [],
-        "books": [],
-        "devices": [],
-        "stories": []
-      }
+      "checkIn": {
+        "id": "tk3ih1o0qt"
+      },
+      "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
+      "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     }
   ],
-  "userData": {
-    "userName": "Aubrey Plaza",
-    "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
-    "birthdayDate": "1990-05-18",
-    "location": "Vilnius, Lithuania",
-    "reservations": {
-      "books": [
-        {
-          "title": "Don't Make Me Think",
-          "id": "1jd85opw82"
-        }
-      ],
-      "devices": [
-        {
-          "name": "iPhone X",
-          "id": "193ywpe740"
-        }
-      ]
-    },
-    "notifications": [
-      {
-        "userName": "Sara Lars",
-        "actionType": "Like",
-        "postId": "10972har27"
-      }
-    ]
-  },
   "restaurants": {
     "restaurantList": [
       {
@@ -153,7 +88,7 @@
         "address": "Islandijos pl. 32, Kaunas",
         "phone": "+370 627 93122",
         "image": "https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
-        "checkIns": 8,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Luke Skywalker",
@@ -206,7 +141,7 @@
         "address": "Kurpių g. 26, Kaunas",
         "phone": "+370 672 00320",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2514&q=80",
-        "checkIns": 12,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Jefferson Gutierrez",
@@ -272,7 +207,7 @@
         "address": "Vytauto pr. 37, Kaunas",
         "phone": "+370 680 97977",
         "image": "https://images.unsplash.com/photo-1589906493606-a6ca2a06078b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyNjA3NH0&auto=format&fit=crop&w=2550&q=80",
-        "checkIns": 6,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Eloise Matthews",
@@ -323,7 +258,7 @@
         "address": "Karaliaus Mindaugo pr. 18a, Kaunas",
         "phone": "+370 37 297488",
         "image": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-        "checkIns": 18,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Derek Daves",
@@ -400,7 +335,7 @@
         "address": "Pakrantės g. 4, Vareikonys, Kauno r., Kaunas",
         "phone": "+370 614 98198",
         "image": "https://images.unsplash.com/photo-1598343214618-dd202db9ad20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
-        "checkIns": 5,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Rocky Thornton",
@@ -447,7 +382,7 @@
         "address": "Maironio g. 9, Kaunas",
         "phone": "+370 655 80308",
         "image": "https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-        "checkIns": 15,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Blossom Schuman",
@@ -519,7 +454,11 @@
         "address": "Rotušės a. 3, Kaunas",
         "phone": "+370 616 98496",
         "image": "https://images.unsplash.com/photo-1584208632869-05fa2b2a5934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80",
-        "checkIns": 9,
+        "checkIns": [
+          {
+            "id": "1"
+          }
+        ],
         "reviews": [
           {
             "userName": "Laura Palmer",
@@ -560,7 +499,7 @@
         "address": "Vasario 16-osios g. 6-1, Kaunas",
         "phone": "+370 676 71649",
         "image": "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
-        "checkIns": 19,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Pandora Burns",
@@ -612,7 +551,7 @@
         "address": "Vilniaus g. 34, Kaunas",
         "phone": "+370 699 66239",
         "image": "https://images.unsplash.com/photo-1586999763660-2a8730809450?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-        "checkIns": 10,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Samantha Pena",
@@ -652,7 +591,7 @@
         "address": "V. Krėvės pr. 57, Kaunas",
         "phone": "+370 620 66323",
         "image": "https://images.unsplash.com/photo-1571139318929-bb90d382dbd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-        "checkIns": 2,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Carl Rodriquez",
@@ -710,7 +649,7 @@
         "address": "Šv. Gertrūdos g. 39a, Kaunas",
         "phone": "+370 635 09000",
         "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
-        "checkIns": 8,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Vania Walters",
@@ -744,7 +683,7 @@
         "address": "Taikos pr. 12, Kaunas",
         "phone": "+370 656 68999",
         "image": "https://images.unsplash.com/photo-1519676867240-f03562e64548?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-        "checkIns": 12,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Emily Tyler",
@@ -791,7 +730,7 @@
         "address": "Rotušės a. 6, Kaunas",
         "phone": "+370 626 85228",
         "image": "https://images.unsplash.com/photo-1581755386038-f959f0d4a1dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1971&q=80",
-        "checkIns": 4,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Herbert Madron",
@@ -848,7 +787,7 @@
         "address": "Vilniaus g. 24, Kaunas",
         "phone": "+370 650 36506",
         "image": "https://images.unsplash.com/photo-1588168333986-5078d3ae3976?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80",
-        "checkIns": 11,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Zach Robinson",
@@ -889,7 +828,7 @@
         "address": "Vilniaus g. 26, Kaunas",
         "phone": "+370 614 43332",
         "image": "https://images.unsplash.com/photo-1559847844-d9d2bc807d82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-        "checkIns": 3,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Anastasia Norris",
@@ -924,7 +863,7 @@
         "address": "Laisvės al. 27, Kaunas",
         "phone": "+370 633 44255",
         "image": "https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "checkIns": 13,
+        "checkIns": [],
         "reviews": [],
         "categories": [
           "Salads",
@@ -952,7 +891,7 @@
         "address": "S. Daukanto g. 23, Kaunas",
         "phone": "+370 693 63777",
         "image": "https://images.unsplash.com/photo-1597667079555-78f5c6a05d2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-        "checkIns": 7,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Lisa Lambert",
@@ -1005,7 +944,7 @@
         "address": "M. Daukšos g. 23, Kaunas",
         "phone": "+370 37 227656",
         "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80",
-        "checkIns": 17,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Bob Morales",
@@ -1046,7 +985,7 @@
         "address": "Muitinės g. 1-2, Kaunas",
         "phone": "+370 606 74114",
         "image": "https://images.unsplash.com/photo-1559948271-7d5c98d2e951?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-        "checkIns": 0,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Selena Jimenez",
@@ -1099,7 +1038,7 @@
         "address": "Vilniaus g. 36, Kaunas",
         "phone": "+370 603 46129",
         "image": "https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-        "checkIns": 2,
+        "checkIns": [],
         "reviews": [
           {
             "userName": "Wilona Burke",
@@ -3778,7 +3717,7 @@
       "postLocation": "TO",
       "postDate": "2020-11-18T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1605041354474-9ee7d63deb21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-      "likes": 9,
+      "likes": 8,
       "comments": [
         {
           "userName": "Derek Daves",
@@ -3880,7 +3819,7 @@
       "postLocation": "TO",
       "postDate": "2020-11-24T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1560971017-e22e6a4fbefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=947&q=80",
-      "likes": 19,
+      "likes": 20,
       "comments": [
         {
           "userName": "Derek Daves",
@@ -3897,7 +3836,7 @@
       "postLocation": "LDN",
       "postDate": "2020-11-26T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1601974222604-f8c88fc836fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-      "likes": 25,
+      "likes": 24,
       "comments": [
         {
           "userName": "Uncle Roger",

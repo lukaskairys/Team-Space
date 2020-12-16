@@ -4,7 +4,8 @@ import FeedCardVideo from "features/FeedCardVideo/components/FeedCardVideo";
 import BirthdayCard from "features/BirthdayCard/components/BirthdayCard";
 import FeedCard from "features/FeedCard/components/FeedCard";
 import NewsFeedLayout from "components/NewsFeedLayout/NewsFeedLayout";
-import { context } from "contexts/Context";
+
+import { UserContext } from "contexts/UserContext";
 import { isObjectEmpty } from "utils/objects";
 import { FetchSortedStories } from "./getSortedStories";
 
@@ -13,7 +14,7 @@ import "./feedCard.scss";
 function AllFeedCards() {
   const stories = FetchSortedStories();
   const [userData, setUserData] = useState({});
-  const { data } = useContext(context);
+  const { data } = useContext(UserContext);
 
   useEffect(() => {
     if (!isObjectEmpty(data)) {
