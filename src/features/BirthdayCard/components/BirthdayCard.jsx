@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -8,21 +8,19 @@ import { getBirthdayDate } from "./getBirthdayDate";
 import { ReactComponent as ConfettiLeft } from "../../../assets/images/confetti-1.svg";
 import { ReactComponent as ConfettiRight } from "../../../assets/images/confetti-2.svg";
 import { ReactComponent as Sparkles } from "../../../assets/images/sparkles.svg";
-
 function BirthdayCard({ story, userPhoto, userName }) {
-  const [active, setActive] = useState(false);
+  const birthdayCard = useRef(null);
 
   const heartClass = classNames({
     "birthday-card": true,
-    "birthday-card--comments-displayed": active,
   });
 
   const toggleFavorite = () => {
-    setActive(!active);
+    birthdayCard.current.classList.toggle("birthday-card--comments-displayed");
   };
 
   return (
-    <div className={heartClass} id={story.id}>
+    <div className={heartClass} id={story.id} ref={birthdayCard}>
       <div className="birthday-card__image-container">
         <img
           className="birthday-card__image"

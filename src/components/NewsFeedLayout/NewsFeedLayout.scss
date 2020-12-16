@@ -18,8 +18,7 @@
         align-items: flex-start;
         display: grid;
         gap: 4rem;
-        grid-template-columns: repeat(3, minmax(30rem, 1fr));
-        justify-content: space-between;
+        grid-template-columns: repeat(3, minmax(15rem, 1fr));
         justify-items: center;
 
         @include respond-to(1500, max) {
@@ -27,16 +26,24 @@
         }
 
         @include respond-to(1091, max) {
-            grid-template-columns: repeat(1, minmax(30rem, 1fr));
+            grid-template-columns: repeat(1, minmax(30rem, 60rem));
+            justify-content: center;
         }
     }
 
     &__placeholder {
         align-items: center;
+        color: $color-iron;
         display: flex;
         font-size: $font-size-time;
         height: 184px;
         justify-content: center;
         width: 395px;
     }
+}
+
+.birthday-card-wrapper {
+    height: 18.4rem;
+    position: relative;
+    width: 100%;
 }
