@@ -4,7 +4,7 @@ import jsonserver from "./jsonserver";
 
 export const useRequest = (endpoint) => {
   const [mounted, setMounted] = useState(false);
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
