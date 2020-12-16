@@ -1,4 +1,5 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 .side-filter {
     background-color: $color-white;
@@ -7,6 +8,15 @@
     margin: 4rem 0;
     padding: 1.4rem 2.4rem 1rem;
     width: 28.6rem;
+
+    @include respond-to(1200, max) {
+        padding-bottom: 1.4rem;
+        width: 100%;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
 
     &__top {
         @include typography-caption;
@@ -20,6 +30,16 @@
         text-transform: uppercase;
     }
 
+    &__list-wrapper {
+        @include respond-to(1200, max) {
+            column-gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 13rem));
+            margin-top: 0.5rem;
+            row-gap: 0.5rem;
+        }
+    }
+
     &__list {
         @include typography-body-2;
 
@@ -27,6 +47,15 @@
         color: $color-fiord;
         margin-left: -0.5rem;
         padding-top: 0.5rem;
+        position: relative;
+
+        @include respond-to(1200, max) {
+            display: contents;
+        }
+
+        legend {
+            position: absolute;
+        }
     }
 
     button {
