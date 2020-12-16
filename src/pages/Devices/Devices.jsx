@@ -9,7 +9,7 @@ import Search from "features/search/Search";
 import { useReservationPages } from "components/ReservationPages/useReservationPages";
 import { useSearch } from "features/search/useSearch";
 
-import "./devices.scss";
+import "./Devices.scss";
 
 const Devices = () => {
   const { searchData, searchBtnClick, availableFilter } = useSearch();
