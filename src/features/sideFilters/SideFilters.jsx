@@ -32,24 +32,26 @@ const SideFilters = forwardRef(
             <Clear className="side-filter__clearX" />
           </Button>
         </div>
-        <fieldset className="side-filter__list">
-          <legend
-            aria-label={title
-              .replace(/([A-Z])/g, " $1")
-              .trim()
-              .toLowerCase()}
-          ></legend>
-          {checkboxes.map((item) => (
-            <Checkbox
-              key={item.name}
-              name={item.name}
-              checked={tags[title].includes(item.name)}
-              onChange={handleChange}
-              label={item.label}
-              dataFilterType={title}
-            />
-          ))}
-        </fieldset>
+        <div className="side-filter__list-wrapper">
+          <fieldset className="side-filter__list">
+            <legend
+              aria-label={title
+                .replace(/([A-Z])/g, " $1")
+                .trim()
+                .toLowerCase()}
+            ></legend>
+            {checkboxes.map((item) => (
+              <Checkbox
+                key={item.name}
+                name={item.name}
+                checked={tags[title].includes(item.name)}
+                onChange={handleChange}
+                label={item.label}
+                dataFilterType={title}
+              />
+            ))}
+          </fieldset>
+        </div>
       </div>
     );
   }

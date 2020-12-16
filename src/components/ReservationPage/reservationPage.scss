@@ -1,0 +1,19 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.reservation-page {
+    display: flex;
+    margin-top: 5rem;
+
+    @include respond-to(1200, max) {
+        flex-direction: column;
+    }
+
+    &__side-filters {
+        width: 28.6rem;
+
+        @include respond-to(1200, max) {
+            width: 100%;
+        }
+    }
+}
