@@ -106,7 +106,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
     }
   };
 
-  if (data) {
+  if (data.length > 0) {
     if (visibleData.length > 0) {
       return (
         <div ref={sectionRef} className="restaurant-cards-section">
