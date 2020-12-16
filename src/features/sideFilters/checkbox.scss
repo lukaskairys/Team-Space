@@ -1,4 +1,5 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 .checkbox {
     margin: 1.1rem 0;
@@ -50,6 +51,7 @@
         margin-left: -2rem;
         position: absolute;
         width: auto;
+        z-index: $z-index-hidden;
 
         &:checked ~ label {
             font-weight: $medium-weight;
