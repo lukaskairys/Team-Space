@@ -1,10 +1,13 @@
 import { useState } from "react";
+
+import { useRequest } from "apis/useRequest";
 import { isObjectEmpty } from "../../utils/objects";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
+  const { data } = useRequest("/users");
 
   const handleXclick = (inputRef) => {
     const inputName = inputRef.current.name;
@@ -14,7 +17,7 @@ const useForm = (callback, validate) => {
       [inputName]: "",
     });
   };
-  const err = validate(values);
+  const err = validate(values, data);
   const validateForm = () => {
     setErrors(err);
     if (isObjectEmpty(err)) {
