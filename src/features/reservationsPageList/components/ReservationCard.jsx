@@ -63,7 +63,7 @@ export default function Card({
         <div className="reservation-card__status">{renderStatus()}</div>
         <div className="reservation-card__cta">
           {book ? (
-            <Rating ratingValue={quantityOrRating} />
+            <Rating ratingValue={quantityOrRating} isFromBooks={true} />
           ) : (
             <span className="reservation-card__caption">{`Quantity: ${quantityOrRating}`}</span>
           )}

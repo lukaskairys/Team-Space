@@ -13,8 +13,8 @@ function Hero({ children }) {
   const { id } = useParams();
   const { data } = useContext(Context);
 
-  if (data.restaurantList) {
-    const restaurant = data.restaurantList
+  if (data) {
+    const restaurant = data
       .filter((restaurant) => {
         return restaurant.id === id;
       })

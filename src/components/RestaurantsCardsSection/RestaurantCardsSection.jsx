@@ -20,6 +20,7 @@ import useCurrentLocation from "../../utils/useCurrentLocation";
 import { geolocationOptions } from "../../utils/geolocationOptions";
 import { toggleAnimation } from "../../utils/toggleAnimation";
 import { LayoutHandler } from "./LayoutHandler";
+import { isObjectEmpty } from "utils/objects";
 
 const RestaurantCardsSection = ({ title, mode }) => {
   const { data, error } = useContext(Context);
@@ -63,12 +64,12 @@ const RestaurantCardsSection = ({ title, mode }) => {
   //filter data only on page change or first load.
   const handleDataFiltering = useCallback(() => {
     if (!filteredData.current || prevId.current !== id) {
-      const restaurants = data.restaurantList;
+      const restaurants = data;
       prevId.current = id;
       // filtering data by mode { near you, you could also like, new restaurants }
       filteredData.current = FilterByMode(mode, restaurants, id, location);
     }
-  }, [data.restaurantList, id, location, mode]);
+  }, [data, id, location, mode]);
 
   useEffect(() => {
     const slicePart = (data) => {
@@ -82,12 +83,12 @@ const RestaurantCardsSection = ({ title, mode }) => {
         itemsPerPage * newCurrentPage + itemsPerPage
       );
     };
-    if (data.restaurantList) {
+    if (!isObjectEmpty(data)) {
       //set filtered data on first load
       handleDataFiltering();
       setVisibleData(slicePart(filteredData.current));
     }
-  }, [data.restaurantList, currentPage, itemsPerPage, handleDataFiltering]);
+  }, [data, currentPage, itemsPerPage, handleDataFiltering]);
 
   const getTotalPages = () => {
     return Math.ceil(filteredData.current.length / itemsPerPage);
