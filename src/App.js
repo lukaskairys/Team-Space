@@ -6,6 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import ContextProvider from "contexts/ContextProvider";
 import RegistrationPage from "features/registration/pages/RegistrationPage";
 import LoginPage from "features/login/pages/LoginPage";
 import Books from "pages/Books/Books";
@@ -75,7 +76,9 @@ function App() {
           </Route>
 
           <Route exact path="/eat-out/:id">
-            <Restaurant />
+            <ContextProvider endpoint="/restaurants">
+              <Restaurant />
+            </ContextProvider>
           </Route>
 
           <Route exact path="/eat-out/categories/:category">
