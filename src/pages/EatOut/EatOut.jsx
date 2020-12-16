@@ -8,6 +8,7 @@ import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutHeroWidget from "features/eatOutHeroSlider/components/EatOutHeroWidget";
 import EatOutCategoriesSection from "features/eatOutCategories/components/EatOutCategoriesSection";
 import RestaurantCardsSection from "components/RestaurantsCardsSection/RestaurantCardsSection";
+import UserContextProvider from "contexts/UserContextProvider";
 
 import "./EatOut.scss";
 
@@ -20,20 +21,22 @@ const EatOut = () => {
 
   return (
     <div className="eat-out">
-      <MainLayout>
-        <ContextProvider endpoint="/restaurants">
-          <Breadcrumbs />
-          <div className="eat-out__hero">
-            <EatOutHeroWidget />
-          </div>
-          <div className="eat-out__categories">
-            <EatOutCategoriesSection ref={scrollRef} />
-          </div>
+      <UserContextProvider>
+        <MainLayout>
+          <ContextProvider endpoint="/restaurants">
+            <Breadcrumbs />
+            <div className="eat-out__hero">
+              <EatOutHeroWidget />
+            </div>
+            <div className="eat-out__categories">
+              <EatOutCategoriesSection ref={scrollRef} />
+            </div>
 
-          <RestaurantCardsSection title="Discover near you" mode="near" />
-          <RestaurantCardsSection title="New Places" mode="new" />
-        </ContextProvider>
-      </MainLayout>
+            <RestaurantCardsSection title="Discover near you" mode="near" />
+            <RestaurantCardsSection title="New Places" mode="new" />
+          </ContextProvider>
+        </MainLayout>
+      </UserContextProvider>
     </div>
   );
 };
