@@ -16,9 +16,9 @@ import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
-import UserContextProvider from "contexts/UserContextProvider";
 import PrivateRoute from "./authentication/PrivateRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
+import Page404 from "pages/Page404/Page404";
 
 function App() {
   return (
@@ -32,48 +32,47 @@ function App() {
         <Route exact path="/registration">
           <RegistrationPage />
         </Route>
-        <UserContextProvider>
-          <PrivateRoute path="/">
-            <Route exact path="/">
-              <Dashboard />
-            </Route>
 
-            <Route exact path="/reservations">
-              <Reservations />
-            </Route>
+        <PrivateRoute exact path="/">
+          <Dashboard />
+        </PrivateRoute>
 
-            <Route exact path="/reservations/devices">
-              <Devices />
-            </Route>
+        <PrivateRoute exact path="/reservations">
+          <Reservations />
+        </PrivateRoute>
 
-            <Route exact path="/reservations/books">
-              <Books />
-            </Route>
+        <PrivateRoute exact path="/reservations/devices">
+          <Devices />
+        </PrivateRoute>
 
-            <Route exact path="/eat-out/categories">
-              <Redirect
-                to={{
-                  pathname: "/eat-out",
-                  isRedirected: true,
-                }}
-              />
-            </Route>
+        <PrivateRoute exact path="/reservations/books">
+          <Books />
+        </PrivateRoute>
 
-            <Route exact path="/eat-out/">
-              <EatOut />
-            </Route>
+        <PrivateRoute exact path="/eat-out/categories">
+          <Redirect
+            to={{
+              pathname: "/eat-out",
+              isRedirected: true,
+            }}
+          />
+        </PrivateRoute>
 
-            <Route exact path="/eat-out/:id">
-              <ContextProvider endpoint="/restaurants">
-                <Restaurant />
-              </ContextProvider>
-            </Route>
+        <PrivateRoute exact path="/eat-out/">
+          <EatOut />
+        </PrivateRoute>
 
-            <Route exact path="/eat-out/categories/:category">
-              <EatOutCategoriesPage />
-            </Route>
-          </PrivateRoute>
-        </UserContextProvider>
+        <PrivateRoute exact path="/eat-out/:id">
+          <ContextProvider endpoint="/restaurants">
+            <Restaurant />
+          </ContextProvider>
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/eat-out/categories/:category">
+          <EatOutCategoriesPage />
+        </PrivateRoute>
+
+        <Route component={Page404} />
       </Switch>
     </Router>
   );

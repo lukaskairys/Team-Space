@@ -9,6 +9,7 @@ import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 import ReviewsSection from "features/reviewsSection/ReviewsSection";
 import Hero from "features/eatOutRestaurantHero/components/Hero";
 import RestaurantCardsSection from "components/RestaurantsCardsSection/RestaurantCardsSection";
+import UserContextProvider from "contexts/UserContextProvider";
 
 import "./Restaurant.scss";
 
@@ -33,18 +34,23 @@ const Restaurant = () => {
 
   return (
     <div className="restaurant">
-      <MainLayout>
-        <>
-          <Hero>
-            <Breadcrumbs />
-          </Hero>
-          <div className="restaurant__middle">
-            <EatOutInfo />
-            <ReviewsSection />
-          </div>
-          <RestaurantCardsSection title="Also you could like" mode="similar" />
-        </>
-      </MainLayout>
+      <UserContextProvider>
+        <MainLayout>
+          <>
+            <Hero>
+              <Breadcrumbs />
+            </Hero>
+            <div className="restaurant__middle">
+              <EatOutInfo />
+              <ReviewsSection />
+            </div>
+            <RestaurantCardsSection
+              title="Also you could like"
+              mode="similar"
+            />
+          </>
+        </MainLayout>
+      </UserContextProvider>
     </div>
   );
 };

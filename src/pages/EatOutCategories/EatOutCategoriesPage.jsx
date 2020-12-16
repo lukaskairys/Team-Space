@@ -4,15 +4,18 @@ import ContextProvider from "contexts/ContextProvider";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutByCategories from "features/EatOutByCategories/EatOutByCategories";
+import UserContextProvider from "contexts/UserContextProvider";
 
 function EatOutCategoriesPage() {
   return (
-    <MainLayout>
-      <ContextProvider endpoint="/restaurants">
-        <Breadcrumbs />
-        <EatOutByCategories />
-      </ContextProvider>
-    </MainLayout>
+    <UserContextProvider>
+      <MainLayout>
+        <ContextProvider endpoint="/restaurants">
+          <Breadcrumbs />
+          <EatOutByCategories />
+        </ContextProvider>
+      </MainLayout>
+    </UserContextProvider>
   );
 }
 
