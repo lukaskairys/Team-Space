@@ -6,6 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import ContextProvider from "contexts/ContextProvider";
 import RegistrationPage from "features/registration/pages/RegistrationPage";
 import LoginPage from "features/login/pages/LoginPage";
 import Books from "pages/Books/Books";
@@ -15,66 +16,78 @@ import Devices from "pages/Devices/Devices";
 import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
-import ContextProvider from "contexts/ContextProvider";
 import UserContextProvider from "contexts/UserContextProvider";
 import PrivateRoute from "./authentication/PrivateRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
+import Page404 from "pages/Page404/Page404";
 
 function App() {
   return (
     <Router>
       <Toast />
-      <Switch>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/registration">
-          <RegistrationPage />
-        </Route>
+      <UserContextProvider>
+        <Switch>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
 
-        <UserContextProvider>
-          <PrivateRoute path="/">
-            <Route exact path="/">
+          <Route exact path="/">
+            <PrivateRoute path="/">
               <Dashboard />
-            </Route>
+            </PrivateRoute>
+          </Route>
 
-            <Route exact path="/reservations">
+          <Route exact path="/reservations">
+            <PrivateRoute path="/">
               <Reservations />
-            </Route>
+            </PrivateRoute>
+          </Route>
 
-            <Route exact path="/reservations/devices">
+          <Route exact path="/reservations/devices">
+            <PrivateRoute path="/">
               <Devices />
-            </Route>
+            </PrivateRoute>
+          </Route>
 
-            <Route exact path="/reservations/books">
+          <Route exact path="/reservations/books">
+            <PrivateRoute path="/">
               <Books />
-            </Route>
+            </PrivateRoute>
+          </Route>
 
-            <Route exact path="/eat-out/categories">
+          <Route exact path="/eat-out/categories">
+            <PrivateRoute path="/">
               <Redirect
                 to={{
                   pathname: "/eat-out",
                   isRedirected: true,
                 }}
               />
-            </Route>
+            </PrivateRoute>
+          </Route>
 
-            <Route exact path="/eat-out/">
+          <Route exact path="/eat-out/">
+            <PrivateRoute path="/">
               <EatOut />
-            </Route>
+            </PrivateRoute>
+          </Route>
 
-            <Route exact path="/eat-out/:id">
-              <Restaurant />
-            </Route>
-
+          <Route exact path="/eat-out/:id">
             <ContextProvider endpoint="/restaurants">
-              <Route exact path="/eat-out/categories/:category">
-                <EatOutCategoriesPage />
-              </Route>
+              <Restaurant />
             </ContextProvider>
-          </PrivateRoute>
-        </UserContextProvider>
-      </Switch>
+          </Route>
+
+          <Route exact path="/eat-out/categories/:category">
+            <EatOutCategoriesPage />
+          </Route>
+
+          <Route component={Page404} />
+        </Switch>
+      </UserContextProvider>
     </Router>
   );
 }

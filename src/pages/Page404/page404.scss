@@ -1,0 +1,44 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.page404 {
+    align-items: center;
+    background-color: $color-light-porcelain;
+    color: $color-midnight;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    padding: 0 10rem;
+
+    @include respond-to(880, max) {
+        flex-direction: column;
+    }
+
+    &__animation {
+        visibility: visible;
+        width: 50rem;
+    }
+
+    &__instructions {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__404 {
+        @include typography-h1;
+
+        font-size: $font-size-100;
+    }
+
+    &__title {
+        @include typography-h2;
+    }
+
+    &__text {
+        @include typography-body-2;
+
+        max-width: 48rem;
+        min-width: 30rem;
+    }
+}
