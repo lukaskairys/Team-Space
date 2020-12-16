@@ -9,7 +9,7 @@ import Rating from "components/Rating/Rating";
 import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 
 export default function HeroDetails({ restaurant }) {
-  const { toggleCheckIn, active } = useCheckinHandler(restaurant);
+  const { toggleCheckIn, active, checkIns } = useCheckinHandler(restaurant);
 
   return (
     <div className="hero-details">
@@ -17,7 +17,7 @@ export default function HeroDetails({ restaurant }) {
         <Rating restaurant={restaurant} isStatic={false} />
         <HeartIcon itemType={FavoriteTypes.RESTAURANT} itemId={restaurant.id} />
       </div>
-      <span className="hero-details__check-ins">{`${restaurant.checkIns} People already checked-in!`}</span>
+      <span className="hero-details__check-ins">{`${checkIns} People already checked-in!`}</span>
       <div className="hero-details__cta-box">
         <span className="hero-details__invite-text">Invite</span>
         <Button handleClick={toggleCheckIn} medium={true}>
@@ -30,7 +30,6 @@ export default function HeroDetails({ restaurant }) {
 
 HeroDetails.propTypes = {
   restaurant: PropTypes.shape({
-    checkIns: PropTypes.number,
     id: PropTypes.string,
   }),
 };
