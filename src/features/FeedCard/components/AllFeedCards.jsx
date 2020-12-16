@@ -48,9 +48,7 @@ function AllFeedCards() {
             userName={userData.userName}
             type={1}
           />
-        ) : (
-          ""
-        );
+        ) : null;
       })}
     </NewsFeedLayout>
   );

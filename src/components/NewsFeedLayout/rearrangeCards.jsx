@@ -64,6 +64,7 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
             ) {
               return (
                 <div
+                  className="birthday-card-wrapper"
                   key={index}
                   style={{
                     marginTop: "4rem",
@@ -73,13 +74,25 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
                 </div>
               );
             } else {
-              return card;
+              return (
+                <div className="birthday-card-wrapper" key={index}>
+                  {card}
+                </div>
+              );
             }
           } else {
-            return card;
+            return (
+              <div className="birthday-card-wrapper" key={index}>
+                {card}
+              </div>
+            );
           }
         } else {
-          return card;
+          return (
+            <div className="birthday-card-wrapper" key={index}>
+              {card}
+            </div>
+          );
         }
       });
     }
@@ -101,6 +114,7 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
                   incrementStatus ? setOfCardsIndex : false,
                   counter
                 ),
+                width: "100%",
               }}
             >
               {card}
@@ -126,6 +140,7 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
                     : false,
                   counter
                 ),
+                width: "100%",
               }}
             >
               {card}
@@ -151,6 +166,7 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
                     : false,
                   counter
                 ),
+                width: "100%",
               }}
             >
               {card}
