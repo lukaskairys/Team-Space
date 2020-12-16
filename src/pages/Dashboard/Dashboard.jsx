@@ -31,7 +31,6 @@ const Dashboard = () => {
                 <EatOutSection />
               </ContextProvider>
             </div>
-
             <AllFeedCards></AllFeedCards>
           </>
         </MainLayout>

@@ -8,7 +8,6 @@ import { getBirthdayDate } from "./getBirthdayDate";
 import { ReactComponent as ConfettiLeft } from "../../../assets/images/confetti-1.svg";
 import { ReactComponent as ConfettiRight } from "../../../assets/images/confetti-2.svg";
 import { ReactComponent as Sparkles } from "../../../assets/images/sparkles.svg";
-
 function BirthdayCard({ story, userPhoto, userName }) {
   const birthdayCard = useRef(null);
 

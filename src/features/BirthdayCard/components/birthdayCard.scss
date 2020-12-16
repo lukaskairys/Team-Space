@@ -13,6 +13,7 @@
     transition: transform 0.1s ease-out, box-shadow 0.1s ease-out,
         height 0.1s ease-out;
     width: 100%;
+    z-index: $z-index-base;
 
     &--comments-displayed {
         box-shadow: 0 3rem 0.6rem 1rem rgba(246, 247, 248, 1);
@@ -122,6 +123,7 @@
     position: absolute;
     top: -0.5rem;
     width: 5.6rem;
+    z-index: $z-index-behind;
 }
 
 .confetti-right {
@@ -130,4 +132,5 @@
     right: 2rem;
     top: -2rem;
     width: 6.5rem;
+    z-index: $z-index-behind;
 }
