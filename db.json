@@ -97,27 +97,6 @@
       "checkIn": {},
       "password": "$2a$10$/j67t6BDAIEUCszmLkL7teKqFFs3V/J0Puk.yU0DMjQkzFWh.PRjm",
       "id": "a0a58de9-a849-48ff-b66c-595686909963"
-    },
-    {
-      "userName": "vardenis pavardenis",
-      "email": "senis@besmegenis.lt",
-      "userImage": "https://i.ibb.co/6WtwM35/Untitled.jpg",
-      "birthdayDate": "",
-      "location": "",
-      "reservations": {
-        "books": [],
-        "devices": []
-      },
-      "notifications": [],
-      "liked": {
-        "restaurants": [],
-        "books": [],
-        "devices": [],
-        "stories": []
-      },
-      "checkIn": {},
-      "password": "$2a$10$tIX69rwp3EoalRKdCpFEBuNBFXrpm30PeCreXhVRS3wOFbiqZVNTO",
-      "id": "3bd37db8-6381-47e6-8898-4e0545837b11"
     }
   ],
   "restaurants": [
