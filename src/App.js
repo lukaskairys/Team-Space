@@ -19,6 +19,7 @@ import ContextProvider from "contexts/ContextProvider";
 import UserContextProvider from "contexts/UserContextProvider";
 import PrivateRoute from "./authentication/PrivateRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
+import Page404 from "pages/Page404/Page404";
 
 function App() {
   return (
@@ -72,6 +73,7 @@ function App() {
                 <EatOutCategoriesPage />
               </Route>
             </ContextProvider>
+            <Route component={Page404} />
           </PrivateRoute>
         </UserContextProvider>
       </Switch>
