@@ -6,7 +6,7 @@ import { ReactComponent as ArrowDown } from "../../../assets/icons/down-with-bor
 import { useOnClickOutside } from "../../../utils/useOnClickOutside";
 import { isObjectEmpty } from "../../../utils/objects";
 
-import { useAuthentication } from "authentication/useAuthentication.jsx";
+import { useAuthentication } from "authentication/useAuthentication";
 import { UserContext } from "contexts/UserContext";
 import "./userProfileWidget.scss";
 

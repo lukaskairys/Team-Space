@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 
 import ContextProvider from "contexts/ContextProvider";
-import RegistrationPage from "features/registration/pages/RegistrationPage";
-import LoginPage from "features/login/pages/LoginPage";
+import RegistrationPage from "pages/Registration/RegistrationPage";
+import LoginPage from "pages/Login/LoginPage";
 import Books from "pages/Books/Books";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
