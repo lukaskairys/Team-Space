@@ -18,6 +18,13 @@ const fields = {
     placeholder: "email@example.com",
     inputLong: true,
   },
+  passwordLong: {
+    type: "password",
+    name: "password",
+    text: "Password",
+    placeholder: "******",
+    inputLong: true,
+  },
   password: {
     type: "password",
     name: "password",
@@ -32,6 +39,7 @@ const fields = {
   },
 };
 
+export const loginForm = [fields.email, fields.passwordLong];
 export const registerForm = [
   fields.firstName,
   fields.lastName,
