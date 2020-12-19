@@ -6,6 +6,7 @@ import FeedCardInteractions from "./FeedCardInteractions";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
 import FeedCardCommentsRenderer from "./FeedCardCommentsRenderer";
 import Button from "../../../components/button/Button";
+import { patch } from "../../../apis/services";
 
 function FeedCardComments({ comments, username, userPhoto, likes, id }) {
   const [inputValues, setInputValues] = useState({
@@ -32,7 +33,9 @@ function FeedCardComments({ comments, username, userPhoto, likes, id }) {
       date: date,
     };
     if (newComment.comment.length >= 1) {
-      setAllComments((allComments) => [...allComments, newComment]);
+      const newComments = [...allComments, newComment];
+      setAllComments((allComments) => newComments);
+      patch("stories", { comments: newComments }, id);
       setInputValues({ commentInput: "" });
     }
   };
