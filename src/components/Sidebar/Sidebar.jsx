@@ -36,7 +36,9 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
         "sidebar--closed": isSidebarClosed,
       })}
     >
-      <Logo className="sidebar__logo" />
+      <Link to="/">
+        <Logo className="sidebar__logo" />
+      </Link>
       <button
         className="sidebar__toggle"
         onClick={() => {

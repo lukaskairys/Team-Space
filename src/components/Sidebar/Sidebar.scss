@@ -42,17 +42,27 @@ $_margin-size: 1.6rem;
 
     &__toggle-icon {
         @include square-size($_toggle-size);
+        fill: $color-fiord;
+
+        &:hover {
+            fill: $color-dark-fiord;
+        }
     }
 
     &__list {
         margin-left: 2rem;
     }
 
+    &__list-icon {
+        @include square-size($icon-size);
+
+        stroke: $color-light-porcelain;
+    }
+
     &__list-item {
         @include typography-h4-alternative;
 
         align-items: center;
-        background-color: $color-bright-violet;
         border: 0;
         border-radius: 2.75rem 0 0 2.75rem;
         color: $color-light-porcelain;
@@ -77,12 +87,6 @@ $_margin-size: 1.6rem;
         @include square-size($icon-size);
 
         margin-left: $_margin-size;
-    }
-
-    &__list-icon {
-        @include square-size($icon-size);
-
-        stroke: $color-light-porcelain;
     }
 
     &__item-title {
@@ -178,5 +182,11 @@ $_margin-size: 1.6rem;
     .sidebar__logo {
         fill: $color-transparent;
         transition: fill 500ms;
+    }
+}
+
+.sidebar__list-item:hover {
+    .sidebar__list-icon {
+        animation: shake 0.5s;
     }
 }
