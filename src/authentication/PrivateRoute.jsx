@@ -27,26 +27,8 @@ function PrivateRoute({ children, ...rest }) {
       }}
     />
   );
-
-  // return (
-  //   <Route
-  //     {...rest}
-  //     render={() =>
-  //       loggedIn ? (
-  //         children
-  //       ) : (
-  //         <Redirect
-  //           to={{
-  //             pathname: "/login",
-  //             from: location.pathname,
-  //             message: "You need to login first!",
-  //           }}
-  //         />
-  //       )
-  //     }
-  //   />
-  // );
 }
+
 PrivateRoute.propTypes = {
   children: PropTypes.object,
 };
