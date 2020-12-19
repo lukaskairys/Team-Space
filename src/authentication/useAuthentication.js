@@ -20,15 +20,20 @@ export const useAuthentication = () => {
     if (userFromLocal) setUserId(userFromLocal);
   }, [data]);
 
+  function getLoggingUser(email) {
+    const user = data.filter((user) => user.email === email);
+    return user;
+  }
+
   function login(email, password) {
-    try {
+    if (data.length !== 0) {
       // check email in db, and if exists - compare hashed passwords with bcrypt librarie
-      const currentUser = data.filter((user) => user.email === email);
-      if (currentUser && currentUser.length === 1) {
-        bcrypt.compare(password, currentUser[0].password).then((result) => {
+      const loggingUser = getLoggingUser(email);
+      if (loggingUser && loggingUser.length === 1) {
+        bcrypt.compare(password, loggingUser[0].password).then((result) => {
           if (result) {
-            setUserId(currentUser[0].id);
-            localStorage.setItem("user", JSON.stringify(currentUser[0].id));
+            setUserId(loggingUser[0].id);
+            localStorage.setItem("user", JSON.stringify(loggingUser[0].id));
             history.push(
               location.from && location.from !== "/login" ? location.from : "/",
               {
@@ -44,7 +49,7 @@ export const useAuthentication = () => {
         setShowMessage(true);
         setMessageText("User with such email address does not exist.");
       }
-    } catch (err) {
+    } else {
       setShowMessage(true);
     }
   }
