@@ -85,10 +85,20 @@ export const useAuthentication = () => {
     localStorage.removeItem("user");
   };
 
+  const changeAccountSettings = (dataToChange) => {
+    // console.log(dataToChange);
+  };
+
+  const changePassword = (password) => {
+    // console.log(password);
+  };
+
   return {
     login,
     logout,
     register,
+    changePassword,
+    changeAccountSettings,
     isPosting,
     setShowMessage,
     showMessage,

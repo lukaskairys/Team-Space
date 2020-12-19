@@ -1,0 +1,25 @@
+@import '../../styles/base/base';
+
+.profile-settings {
+    &__title {
+        @include typography-h2-alternative;
+
+        margin-left: -32rem;
+        position: relative;
+        top: 11rem;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 3rem;
+        position: relative;
+        top: 13rem;
+        width: 100%;
+    }
+
+    .form {
+        margin-top: -1rem;
+        padding-top: 14rem;
+    }
+}

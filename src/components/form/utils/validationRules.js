@@ -56,3 +56,11 @@ export function validateLogin(values) {
   }
   return errors;
 }
+
+export function validateSettings(values) {
+  return {};
+}
+
+export function validatePasswords(values) {
+  return {};
+}

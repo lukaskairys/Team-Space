@@ -1,8 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FormInput from "../input/FormInput";
-import { registerForm } from "../utils/formFields";
-import { loginForm } from "../utils/formFields";
+import {
+  registerForm,
+  loginForm,
+  accountForm,
+  passwordsForm,
+} from "../utils/formFields";
 
 function FormContent(props) {
   const {
@@ -18,14 +22,16 @@ function FormContent(props) {
   function getFormStructure() {
     if (action === "register") return registerForm;
     else if (action === "login") return loginForm;
+    else if (action === "account") return accountForm;
+    else if (action === "passwords") return passwordsForm;
   }
 
   return (
     <>
-      {formStructure.map((field) => (
+      {formStructure.map((field, i) => (
         <div
           className={`form__item ${field.inputLong && "form__item--long"}`}
-          key={field.name}
+          key={i}
         >
           <FormInput
             label={field.text}

@@ -6,13 +6,20 @@ import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
 import Loader from "react-loader-spinner";
-import { validateRegistration, validateLogin } from "../utils/validationRules";
+import {
+  validateRegistration,
+  validateLogin,
+  validateSettings,
+  validatePasswords,
+} from "../utils/validationRules";
 import { useAuthentication } from "authentication/useAuthentication";
 
 function Form({ title, subtitle, action }) {
   const {
     login,
     register,
+    changeAccountSettings,
+    changePassword,
     showMessage,
     setShowMessage,
     messageText,
@@ -49,16 +56,29 @@ function Form({ title, subtitle, action }) {
     checkIn: {},
   };
 
+  const dataToChange = {
+    username: values.username,
+    email: values.email,
+    location: values.location,
+    birthday: values.birthday,
+  };
+
   function getCallback() {
     if (action === "register")
       return () => register(values.password, dataToPost);
     else if (action === "login")
       return () => login(values.email, values.password);
+    else if (action === "account")
+      return () => changeAccountSettings(dataToChange);
+    else if (action === "passwords")
+      return () => changePassword(values.password);
   }
 
   function getValidation() {
     if (action === "register") return validateRegistration;
     else if (action === "login") return validateLogin;
+    else if (action === "account") return validateSettings;
+    else if (action === "passwords") return validatePasswords;
   }
 
   return (

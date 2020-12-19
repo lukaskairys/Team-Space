@@ -90,6 +90,21 @@
         }
     }
 
+    &--blank-no-border {
+        background: none;
+        border-radius: unset;
+        color: $color-slate-gray;
+        font-weight: $medium-weight;
+        padding: 0.6rem;
+        text-transform: none;
+
+        &:hover,
+        &:focus {
+            background: none;
+            color: $color-midnight;
+        }
+    }
+
     &--icon-x {
         background: none;
         line-height: 0;
@@ -210,5 +225,11 @@
             box-shadow: none;
             cursor: default;
         }
+    }
+
+    &.is-active-setting {
+        // background-color: $color-light-porcelain;
+        // border-bottom: 2px solid $color-iron;
+        color: $color-dark-violet;
     }
 }
