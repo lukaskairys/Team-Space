@@ -97,7 +97,7 @@ const ReviewsSection = () => {
       {renderButton()}
 
       {modalOpen && (
-        <Modal setModalOpen={setModalOpen} closeModal={closeModal}>
+        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} inModal={true} />
           ))}

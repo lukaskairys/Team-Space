@@ -31,7 +31,7 @@ const Modal = (props) => {
 
 Modal.propTypes = {
   children: PropTypes.array,
-  setModalOpen: PropTypes.func,
   closeModal: PropTypes.func,
+  setModalOpen: PropTypes.func,
 };
 export default Modal;
