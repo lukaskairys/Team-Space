@@ -5,7 +5,8 @@ export default function dataFilter(
   tags,
   searchTerm,
   date,
-  availabilityOn
+  availabilityOn,
+  count
 ) {
   let filterData = data;
   searchTerm = searchTerm.toLowerCase();
@@ -45,9 +46,18 @@ export default function dataFilter(
     });
   };
 
+  const filterByCount = () => {
+    filterData = filterData.filter((item) => {
+      const filterByNumber =
+        item?.rating === undefined ? item.seatCount : item.rating;
+      return filterByNumber >= count;
+    });
+  };
+
   filterBySearchTerm();
   filterByTags();
   filterByAvailability();
+  filterByCount();
 
   return filterData;
 }

@@ -10,6 +10,7 @@ import ContextProvider from "contexts/ContextProvider";
 import RegistrationPage from "features/registration/pages/RegistrationPage";
 import LoginPage from "features/login/pages/LoginPage";
 import Books from "pages/Books/Books";
+import Rooms from "pages/Rooms/Rooms";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
@@ -47,6 +48,10 @@ function App() {
 
         <PrivateRoute exact path="/reservations/books">
           <Books />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/reservations/rooms">
+          <Rooms />
         </PrivateRoute>
 
         <PrivateRoute exact path="/eat-out/categories">

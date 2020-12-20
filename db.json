@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-17"
+    "date": "2020-12-20"
   },
   "users": [
     {
@@ -60,9 +60,30 @@
           },
           {
             "id": "rri8r7gpdp"
+          },
+          {
+            "id": "193ywpe740"
+          },
+          {
+            "id": "137420wgf0"
           }
         ],
-        "devices": [],
+        "devices": [
+          {
+            "id": "193ywpe740"
+          },
+          {
+            "id": "1563175150"
+          }
+        ],
+        "rooms": [
+          {
+            "id": "497ee32e-bd90-4515-94dc-4bc408345845"
+          },
+          {
+            "id": "1914c51b-d752-4770-86ea-c628a9040b60"
+          }
+        ],
         "stories": [
           {
             "id": "10197o9h40"
@@ -3864,6 +3885,11 @@
           "userName": "Derek Daves",
           "comment": "Did not expect to see you there, but I am glad you've finally went for lunch there. I've told you their meals are the best 🍔",
           "date": "2020-11-24T14:48:00.000Z"
+        },
+        {
+          "userName": "Frontend Wizard",
+          "comment": "dd",
+          "date": "2020-12-19T13:36:42.621Z"
         }
       ]
     },
@@ -3904,5 +3930,107 @@
         }
       ]
     }
-  ]
+  ],
+  "rooms": {
+    "roomList": [
+      {
+        "id": "497ee32e-bd90-4515-94dc-4bc408345845",
+        "name": "132",
+        "image": "https://images.unsplash.com/photo-1595317428853-7d4b208b7192?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "type": "Auditorium",
+        "hasProjector": true,
+        "socketCount": 98,
+        "seatCount": 100,
+        "bookedUntil": "12/16/2021"
+      },
+      {
+        "id": "1914c51b-d752-4770-86ea-c628a9040b60",
+        "name": "212",
+        "image": "https://images.unsplash.com/photo-1568304603980-85ff55550db2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1385&q=80",
+        "type": "Auditorium",
+        "hasProjector": true,
+        "socketCount": 14,
+        "seatCount": 100,
+        "bookedUntil": "10/16/2020"
+      },
+      {
+        "id": "a6a50faf-eb3d-4c7f-ab7c-143ec9fa7ffb",
+        "name": "313",
+        "image": "https://images.unsplash.com/photo-1577791464704-3bbd2da56803?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80",
+        "type": "U-Shape",
+        "hasProjector": true,
+        "socketCount": 12,
+        "seatCount": 12,
+        "bookedUntil": "02/07/2020"
+      },
+      {
+        "id": "0138bd14-cb96-410e-9036-b20afb268311",
+        "name": "304",
+        "image": "https://images.unsplash.com/photo-1579488081757-b212dbd6ee72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "type": "U-Shape",
+        "hasProjector": true,
+        "socketCount": 2,
+        "seatCount": 15,
+        "bookedUntil": "11/28/2020"
+      },
+      {
+        "id": "675aeeb9-6c42-4d81-bc7e-30b5dfc18c2d",
+        "name": "202",
+        "image": "https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "type": "Boardroom",
+        "hasProjector": false,
+        "socketCount": 72,
+        "seatCount": 93,
+        "bookedUntil": "10/08/2020"
+      },
+      {
+        "id": "ba4f6a14-b692-4e58-9f6c-333d9bd7b06d",
+        "name": "204",
+        "image": "https://images.unsplash.com/photo-1542089078-9086d071d8da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "type": "Boardroom",
+        "hasProjector": false,
+        "socketCount": 7,
+        "seatCount": 26,
+        "bookedUntil": "03/23/2020"
+      },
+      {
+        "id": "04dc8d96-b911-4839-ac51-9cb0827d9fc6",
+        "name": "167",
+        "image": "https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "type": "Boardroom",
+        "hasProjector": false,
+        "socketCount": 24,
+        "seatCount": 38,
+        "bookedUntil": "11/27/2020"
+      },
+      {
+        "id": "1144b75b-f2f7-4a37-adb0-4a0b059201dc",
+        "name": "451",
+        "image": "https://images.unsplash.com/photo-1590374585152-ca0e8194c0d6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "type": "Classroom",
+        "hasProjector": true,
+        "socketCount": 20,
+        "seatCount": 14,
+        "bookedUntil": "10/08/2020"
+      },
+      {
+        "id": "a1fd706e-52cd-44b3-80a4-33ece433596b",
+        "name": "111",
+        "image": "https://images.unsplash.com/photo-1591587495187-e6cdd5a98e60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
+        "type": "Classroom",
+        "hasProjector": true,
+        "socketCount": 31,
+        "seatCount": 4,
+        "bookedUntil": "11/20/2020"
+      }
+    ],
+    "filterCategories": {
+      "type": [
+        "Boardroom",
+        "U-Shape",
+        "Auditorium",
+        "Classroom"
+      ]
+    }
+  }
 }

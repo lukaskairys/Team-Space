@@ -8,7 +8,11 @@ import { ReactComponent as Clear } from "assets/icons/x.svg";
 import "./sideFilters.scss";
 
 const SideFilters = forwardRef(
-  ({ filterItems, title, clearAll, tags, handleChange }, filterRef) => {
+  (
+    // eslint-disable-next-line react/prop-types
+    { filterItems, title, clearAll, tags, handleChange, counter, setCounter },
+    filterRef
+  ) => {
     const checkboxes = filterItems.map((item) => ({
       name: item,
       label: item,
