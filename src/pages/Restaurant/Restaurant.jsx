@@ -6,7 +6,7 @@ import { isObjectEmpty } from "utils/objects";
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
-import ReviewsSection from "features/reviewsSection/ReviewsSection";
+import ReviewsSection from "features/Reviews/ReviewsSection";
 import Hero from "features/eatOutRestaurantHero/components/Hero";
 import RestaurantCardsSection from "components/RestaurantsCardsSection/RestaurantCardsSection";
 import UserContextProvider from "contexts/UserContextProvider";
