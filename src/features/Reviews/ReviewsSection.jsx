@@ -1,21 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import classNames from "classnames";
+import { useParams } from "react-router-dom";
 
-import { useRequest } from "../../apis/useRequest";
-import Button from "../../components/button/Button";
+import { Context } from "contexts/Context";
+import { useModal } from "utils/useModal";
+import useObserver from "utils/useObserver";
+import Button from "components/button/Button";
 import ReviewCard from "./ReviewCard";
-import Modal from "./Modal";
+import Modal from "components/Modal/Modal";
+
 import "./reviewsSection.scss";
 
-import useObserver from "utils/useObserver";
-
-function ReviewsSection() {
+const ReviewsSection = () => {
   const [reviews, setReviews] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [containerWidth, setContainerWidth] = useState(0);
 
+  const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
+  const { id } = useParams();
+
+  const { data, error, isLoading } = useContext(Context);
   const containerRef = useRef(null);
 
   const observeWidthCallback = (width) => {
@@ -23,9 +27,6 @@ function ReviewsSection() {
   };
 
   useObserver({ callback: observeWidthCallback, element: containerRef });
-
-  const { id } = useParams();
-  const { data, error, isLoading } = useRequest("/restaurants");
 
   const reviewCountToRender = () => {
     if (containerWidth < 1070 && width < 1455) {
@@ -63,32 +64,6 @@ function ReviewsSection() {
     };
   });
 
-  const showModal = () => {
-    setModalOpen(true);
-    const scrollY = document.documentElement.style.getPropertyValue(
-      "--scroll-y"
-    );
-    const body = document.body;
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}`;
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-    const body = document.body;
-    const scrollY = body.style.top;
-    body.style.position = "";
-    body.style.top = "";
-    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  };
-
-  window.addEventListener("scroll", () => {
-    document.documentElement.style.setProperty(
-      "--scroll-y",
-      `${window.scrollY}px`
-    );
-  });
-
   const renderButton = () => {
     if (
       reviews.length > 3 ||
@@ -101,6 +76,7 @@ function ReviewsSection() {
       );
     }
   };
+
   if (reviews.length === 0) return null;
 
   return (
@@ -121,7 +97,7 @@ function ReviewsSection() {
       {renderButton()}
 
       {modalOpen && (
-        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+        <Modal setModalOpen={setModalOpen} closeModal={closeModal}>
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} inModal={true} />
           ))}
@@ -129,6 +105,6 @@ function ReviewsSection() {
       )}
     </section>
   );
-}
+};
 
 export default ReviewsSection;
