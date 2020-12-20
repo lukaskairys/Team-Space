@@ -93,7 +93,7 @@
     &--blank-no-border {
         background: none;
         border-radius: unset;
-        color: $color-slate-gray;
+        color: $color-fiord;
         font-weight: $medium-weight;
         padding: 0.6rem;
         text-transform: none;
@@ -228,8 +228,7 @@
     }
 
     &.is-active-setting {
-        // background-color: $color-light-porcelain;
-        // border-bottom: 2px solid $color-iron;
         color: $color-dark-violet;
+        font-weight: $bold-weight;
     }
 }

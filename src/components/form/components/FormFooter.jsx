@@ -1,11 +1,9 @@
 import React from "react";
 import Button from "components/button/Button";
 import PropTypes from "prop-types";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function FormFooter({ action }) {
-  const history = useHistory();
-
   const getFormFooterData = () => {
     let data = {
       label: "",
@@ -29,8 +27,7 @@ function FormFooter({ action }) {
       case "account":
       case "passwords":
         data.label = "Change";
-        data.textBeforeLink = "Don't want to change anything?";
-        data.linkText = "Go back";
+        data.linkText = "Delete my account";
         break;
       default:
         return data;
@@ -47,11 +44,7 @@ function FormFooter({ action }) {
       </Button>
       <p>
         {textBeforeLink}
-        <Link
-          to={linkPath}
-          onClick={() => history.goBack()}
-          className="form__link"
-        >
+        <Link to={linkPath} className="form__link">
           {linkText}
         </Link>
       </p>

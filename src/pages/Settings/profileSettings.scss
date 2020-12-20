@@ -1,25 +1,29 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 .profile-settings {
-    &__title {
-        @include typography-h2-alternative;
+    @include typography-body-2;
 
-        margin-left: -32rem;
-        position: relative;
-        top: 11rem;
-    }
+    color: $color-fiord;
+    display: flex;
+    justify-content: center;
 
     &__buttons {
         display: flex;
         justify-content: space-between;
         padding: 0 3rem;
         position: relative;
-        top: 13rem;
+        top: 12rem;
         width: 100%;
     }
 
     .form {
-        margin-top: -1rem;
-        padding-top: 14rem;
+        margin-top: 1rem;
+        padding-top: 7rem;
+
+        &__title {
+            position: relative;
+            top: -3rem;
+        }
     }
 }

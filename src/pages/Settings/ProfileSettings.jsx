@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
+import MainLayout from "components/MainLayout/MainLayout";
 import Button from "components/button/Button";
 import UserContextProvider from "contexts/UserContextProvider";
 import Form from "components/form/components/Form";
-import { ReactComponent as Logo } from "assets/logo165.svg";
 
-import "components/form/formPage.scss";
 import "./profileSettings.scss";
 
 function ProfileSettings() {
@@ -21,33 +20,37 @@ function ProfileSettings() {
   };
   return (
     <UserContextProvider>
-      <div className="page-container">
-        <div className="form-container profile-settings">
-          <Logo className="logo" />
-          <h2 className="profile-settings__title">Profile settings</h2>
-          <div className="profile-settings__buttons">
-            <div>
-              <Button
-                blankNoBorder={true}
-                isMarked={whichForm === "account" && true}
-                handleClick={makeActive}
-              >
-                Account
-              </Button>
-              <Button
-                blankNoBorder={true}
-                isMarked={whichForm === "passwords" && true}
-                handleClick={makeActive}
-              >
-                Change password
-              </Button>
+      <MainLayout>
+        <div className="profile-settings">
+          <div className="form-container">
+            <div className="profile-settings__buttons">
+              <div>
+                <Button
+                  blankNoBorder={true}
+                  isMarked={whichForm === "account" && true}
+                  handleClick={makeActive}
+                >
+                  Account Details
+                </Button>
+                <Button
+                  blankNoBorder={true}
+                  isMarked={whichForm === "passwords" && true}
+                  handleClick={makeActive}
+                >
+                  Change password
+                </Button>
+              </div>
+              <Button blankNoBorder={true}>Profile picture</Button>
             </div>
-            <Button blankNoBorder={true}>Delete account</Button>
+            {whichForm === "account" && (
+              <Form action={"account"} title={"Profile settings"} />
+            )}
+            {whichForm === "passwords" && (
+              <Form action={"passwords"} title={"Profile settings"} />
+            )}
           </div>
-          {whichForm === "account" && <Form action={"account"} />}
-          {whichForm === "passwords" && <Form action={"passwords"} />}
         </div>
-      </div>
+      </MainLayout>
     </UserContextProvider>
   );
 }
