@@ -6,6 +6,7 @@ import BirthdayInteractions from "./BirthdayInteractions";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
 import BirthdayCommentsRenderer from "./BirthdayCommentsRenderer";
 import Button from "../../../components/button/Button";
+import { patch } from "../../../apis/services";
 
 function BirthdayComments({
   comments,
@@ -13,6 +14,7 @@ function BirthdayComments({
   userPhoto,
   wishes,
   onCommentClick,
+  id,
 }) {
   const [inputValues, setInputValues] = useState({
     commentInput: "",
@@ -45,7 +47,9 @@ function BirthdayComments({
       date: date,
     };
     if (newComment.comment.length >= 1) {
-      setAllComments((allComments) => [...allComments, newComment]);
+      const newComments = [...allComments, newComment];
+      setAllComments(newComments);
+      patch("stories", { comments: newComments }, id);
       setInputValues({ commentInput: "" });
     }
     onCommentClick();
@@ -103,6 +107,7 @@ BirthdayComments.propTypes = {
   userPhoto: PropTypes.string,
   wishes: PropTypes.number,
   onCommentClick: PropTypes.func,
+  id: PropTypes.string,
 };
 
 export default BirthdayComments;
