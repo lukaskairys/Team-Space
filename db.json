@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-20"
+    "date": "2020-12-21"
   },
   "users": [
     {
@@ -3940,6 +3940,7 @@
         "type": "Auditorium",
         "hasProjector": true,
         "socketCount": 98,
+        "features": "TV",
         "seatCount": 100,
         "bookedUntil": "12/16/2021"
       },
@@ -3950,6 +3951,7 @@
         "type": "Auditorium",
         "hasProjector": true,
         "socketCount": 14,
+        "features": "TV",
         "seatCount": 100,
         "bookedUntil": "10/16/2020"
       },
@@ -3959,6 +3961,7 @@
         "image": "https://images.unsplash.com/photo-1577791464704-3bbd2da56803?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80",
         "type": "U-Shape",
         "hasProjector": true,
+        "features": "TV",
         "socketCount": 12,
         "seatCount": 12,
         "bookedUntil": "02/07/2020"
@@ -3968,6 +3971,7 @@
         "name": "304",
         "image": "https://images.unsplash.com/photo-1579488081757-b212dbd6ee72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
         "type": "U-Shape",
+        "features": "TV",
         "hasProjector": true,
         "socketCount": 2,
         "seatCount": 15,
@@ -3978,6 +3982,7 @@
         "name": "202",
         "image": "https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "type": "Boardroom",
+        "features": "TV",
         "hasProjector": false,
         "socketCount": 72,
         "seatCount": 93,
@@ -3988,6 +3993,7 @@
         "name": "204",
         "image": "https://images.unsplash.com/photo-1542089078-9086d071d8da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         "type": "Boardroom",
+        "features": "TV",
         "hasProjector": false,
         "socketCount": 7,
         "seatCount": 26,
@@ -3998,6 +4004,7 @@
         "name": "167",
         "image": "https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         "type": "Boardroom",
+        "features": "TV",
         "hasProjector": false,
         "socketCount": 24,
         "seatCount": 38,
@@ -4008,6 +4015,7 @@
         "name": "451",
         "image": "https://images.unsplash.com/photo-1590374585152-ca0e8194c0d6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         "type": "Classroom",
+        "features": "TV",
         "hasProjector": true,
         "socketCount": 20,
         "seatCount": 14,
@@ -4018,6 +4026,7 @@
         "name": "111",
         "image": "https://images.unsplash.com/photo-1591587495187-e6cdd5a98e60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
         "type": "Classroom",
+        "features": "TV",
         "hasProjector": true,
         "socketCount": 31,
         "seatCount": 4,
@@ -4030,6 +4039,12 @@
         "U-Shape",
         "Auditorium",
         "Classroom"
+      ],
+      "features":[
+        "TV",
+        "Phone",
+        "Snacks",
+        "Projector"
       ]
     }
   }

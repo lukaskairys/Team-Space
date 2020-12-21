@@ -25,7 +25,7 @@ export const useReservationPages = (endpoint) => {
         initialState = { genre: [] };
         break;
       case "/rooms":
-        initialState = { type: [] };
+        initialState = { type: [], features: [] };
         break;
       default:
         initialState = [];
@@ -46,6 +46,7 @@ export const useReservationPages = (endpoint) => {
       for (let i = 0; i <= dataCount; i++) {
         refs[i] = createRef();
       }
+
       setRefs(refs);
     }
   }, [filterCategories, dataCount]);

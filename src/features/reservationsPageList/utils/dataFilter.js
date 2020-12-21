@@ -1,4 +1,5 @@
 import { isUnavailable } from "./dateFormatters";
+import { roundNumber } from "utils/Math";
 
 export default function dataFilter(
   data,
@@ -48,16 +49,16 @@ export default function dataFilter(
 
   const filterByCount = () => {
     filterData = filterData.filter((item) => {
-      const filterByNumber =
-        item?.rating === undefined ? item.seatCount : item.rating;
-      return filterByNumber >= count;
+      return item?.rating === undefined
+        ? item.seatCount >= count
+        : roundNumber(item.rating.score) >= count;
     });
   };
 
   filterBySearchTerm();
   filterByTags();
   filterByAvailability();
-  filterByCount();
+  if (filterData[0]?.rating || filterData[0]?.seatCount) filterByCount();
 
   return filterData;
 }
