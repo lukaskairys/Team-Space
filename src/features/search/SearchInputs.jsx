@@ -35,6 +35,8 @@ function SearchInputs({ searchBtnClick }) {
     searchBtnClick({ searchText: "" });
   };
 
+  let today = new Date().toISOString().split("T")[0];
+
   return (
     <div className="search-bar__inputs">
       <div className="search-bar__inputs-text">
@@ -43,7 +45,7 @@ function SearchInputs({ searchBtnClick }) {
           className="form__input search-bar__inputs-text-input"
           onChange={handleSearchInputChange}
           onKeyPress={searchWithEnter}
-          value={term}
+          value={term || ""}
         ></input>
         {term !== "" && term !== undefined && (
           <Button excludeMainClass={true} clearInput handleClick={handleXclick}>
@@ -63,6 +65,7 @@ function SearchInputs({ searchBtnClick }) {
           name="reservationDate"
           className="form__input search-bar__inputs-date-input"
           onChange={handleDateChange}
+          min={today}
         ></input>
       </div>
       <div className="search-bar__inputs-button">

@@ -7,16 +7,28 @@ import { ReactComponent as CheckIcon } from "assets/icons/check.svg";
 
 import "./search.scss";
 
-function SearchFilters({ availableFilter }) {
+function SearchFilters({ availableFilter, favoritesFilter }) {
   const [available, setAvailable] = useState(false);
+  const [favorite, setFavorite] = useState(false);
 
   const showAvailable = (e) => {
     let setFilter = !available;
+    setFavorite(false);
+    favoritesFilter(false);
     setAvailable(setFilter);
     availableFilter(setFilter);
   };
 
   const showAll = (e) => {
+    setAvailable(false);
+    availableFilter(false);
+    setFavorite(false);
+  };
+
+  const showFavorites = (e) => {
+    let setFilter = !favorite;
+    setFavorite(setFilter);
+    favoritesFilter(setFilter);
     setAvailable(false);
     availableFilter(false);
   };
@@ -28,11 +40,17 @@ function SearchFilters({ availableFilter }) {
         excludeMainClass={true}
         medium
         handleClick={showAll}
-        activeFilter={available ? false : true}
+        activeFilter={available || favorite ? false : true}
       >
         All
       </Button>
-      <Button filterButton excludeMainClass={true} medium>
+      <Button
+        filterButton
+        excludeMainClass={true}
+        medium
+        handleClick={showFavorites}
+        activeFilter={favorite ? true : false}
+      >
         <HeartIcon className="search-bar__heart-icon" />
         Favorites
       </Button>
@@ -51,6 +69,7 @@ function SearchFilters({ availableFilter }) {
 
 SearchFilters.propTypes = {
   availableFilter: PropTypes.func,
+  favoritesFilter: PropTypes.func,
 };
 
 export default SearchFilters;
