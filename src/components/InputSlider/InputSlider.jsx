@@ -14,11 +14,11 @@ const InputSlider = ({ min, max, step, setCounter }) => {
 
   const handleChange = (e) => {
     setInternalCount(e.target.value);
-    setValue();
+    moveContainer();
     handleGlobalChange(e);
   };
 
-  const setValue = () => {
+  const moveContainer = () => {
     const newValue = Number(
         ((range.current.value - range.current.min) * 100) /
           (range.current.max - range.current.min)
@@ -28,7 +28,7 @@ const InputSlider = ({ min, max, step, setCounter }) => {
   };
 
   useEffect(() => {
-    setValue();
+    moveContainer();
   }, []);
 
   return (
