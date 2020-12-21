@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-20"
+    "date": "2020-12-21"
   },
   "users": [
     {
@@ -69,7 +69,9 @@
           }
         ]
       },
-      "checkIn": {},
+      "checkIn": {
+        "id": "vvektcqbs4"
+      },
       "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },

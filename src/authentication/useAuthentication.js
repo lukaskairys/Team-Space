@@ -5,6 +5,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import { useRequest } from "apis/useRequest";
 import { post } from "apis/postData";
+import { patch } from "apis/services";
 
 export const useAuthentication = () => {
   const [userId, setUserId] = useState();
@@ -85,12 +86,24 @@ export const useAuthentication = () => {
     localStorage.removeItem("user");
   };
 
-  const changeAccountSettings = (dataToChange) => {
-    // console.log(dataToChange);
+  const changeAccountDetails = (dataToChange) => {
+    for (const prop in dataToChange) {
+      const newData = { [prop]: dataToChange[prop] };
+      if (dataToChange[prop]) {
+        patch("/users", newData, userId);
+      }
+    }
   };
 
-  const changePassword = (password) => {
-    // console.log(password);
+  const changePassword = (passwords) => {
+    const newHashed = hash(passwords.new);
+    bcrypt.compare(passwords.repeat, newHashed).then((result) => {
+      if (result) {
+        // console.log("same");
+      } else {
+        // console.log("different");
+      }
+    });
   };
 
   return {
@@ -98,7 +111,7 @@ export const useAuthentication = () => {
     logout,
     register,
     changePassword,
-    changeAccountSettings,
+    changeAccountDetails,
     isPosting,
     setShowMessage,
     showMessage,

@@ -18,7 +18,7 @@ function Form({ title, subtitle, action }) {
   const {
     login,
     register,
-    changeAccountSettings,
+    changeAccountDetails,
     changePassword,
     showMessage,
     setShowMessage,
@@ -57,10 +57,16 @@ function Form({ title, subtitle, action }) {
   };
 
   const dataToChange = {
-    username: values.username,
+    userName: values.username,
     email: values.email,
     location: values.location,
-    birthday: values.birthday,
+    birthdayDate: values.birthday,
+  };
+
+  const passwords = {
+    old: values.oldPassword,
+    new: values.newPassword,
+    repeat: values.repeatPassword,
   };
 
   function getCallback() {
@@ -69,9 +75,8 @@ function Form({ title, subtitle, action }) {
     else if (action === "login")
       return () => login(values.email, values.password);
     else if (action === "account")
-      return () => changeAccountSettings(dataToChange);
-    else if (action === "passwords")
-      return () => changePassword(values.password);
+      return () => changeAccountDetails(dataToChange);
+    else if (action === "passwords") return () => changePassword(passwords);
   }
 
   function getValidation() {
