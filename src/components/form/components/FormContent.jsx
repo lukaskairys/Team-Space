@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FormInput from "./input/FormInput";
-import { registerForm } from "../../features/registration/components/registrationFields";
-import { loginForm } from "../../features/login/loginFields";
+import FormInput from "../input/FormInput";
+import { registerForm } from "../utils/formFields";
+import { loginForm } from "../utils/formFields";
 
 function FormContent(props) {
   const {

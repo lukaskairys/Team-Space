@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 
 import ContextProvider from "contexts/ContextProvider";
-import RegistrationPage from "features/registration/pages/RegistrationPage";
-import LoginPage from "features/login/pages/LoginPage";
+import RegistrationPage from "pages/Registration/RegistrationPage";
+import LoginPage from "pages/Login/LoginPage";
 import Books from "pages/Books/Books";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
@@ -17,6 +17,7 @@ import Restaurant from "pages/Restaurant/Restaurant";
 import EatOut from "pages/EatOut/EatOut";
 import EatOutCategoriesPage from "pages/EatOutCategories/EatOutCategoriesPage";
 import PrivateRoute from "./authentication/PrivateRoute.jsx";
+import PublicRoute from "./authentication/PublicRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
 import Page404 from "pages/Page404/Page404";
 
@@ -26,12 +27,12 @@ function App() {
       <Toast />
 
       <Switch>
-        <Route exact path="/login">
+        <PublicRoute exact path="/login">
           <LoginPage />
-        </Route>
-        <Route exact path="/registration">
+        </PublicRoute>
+        <PublicRoute exact path="/registration">
           <RegistrationPage />
-        </Route>
+        </PublicRoute>
 
         <PrivateRoute exact path="/">
           <Dashboard />
