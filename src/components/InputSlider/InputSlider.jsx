@@ -48,8 +48,8 @@ const InputSlider = ({ min, max, step, setCounter }) => {
         onChange={handleChange}
       />
       <div className="range-slider__min-max">
-        <label htmlFor="input-range__slider">{min}</label>
-        <label htmlFor="input-range__slider">{max}</label>
+        <label htmlFor="input-range__min">{min}</label>
+        <label htmlFor="input-range__max">{max}</label>
       </div>
     </div>
   );
