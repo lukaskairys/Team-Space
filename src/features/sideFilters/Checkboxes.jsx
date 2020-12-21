@@ -35,7 +35,6 @@ const Checkboxes = ({ filterItems, title, clearAll, tags, handleChange }) => {
   );
 };
 
-Checkboxes.displayName = "Checkboxes";
 Checkboxes.propTypes = {
   filterItems: PropTypes.array,
   title: PropTypes.string,
