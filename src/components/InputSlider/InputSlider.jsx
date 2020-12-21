@@ -9,7 +9,7 @@ const InputSlider = ({ min, max, step, setCounter }) => {
   let rangeV = useRef(null);
   let range = useRef(null);
   const handleGlobalChange = debounce((e) => {
-    setCounter(parseInt(e.target.value));
+    setCounter(parseFloat(e.target.value));
   }, 250);
 
   const handleChange = (e) => {
@@ -34,7 +34,7 @@ const InputSlider = ({ min, max, step, setCounter }) => {
   return (
     <div className="range-slider">
       <div ref={rangeV} className="range-slider__value-container" id="rangeV">
-        <span className="range-slider__value">{internalCount} </span>
+        <span className="range-slider__value">{internalCount}+ </span>
       </div>
       <input
         ref={range}
@@ -48,8 +48,8 @@ const InputSlider = ({ min, max, step, setCounter }) => {
         onChange={handleChange}
       />
       <div className="range-slider__min-max">
-        <label htmlFor="input-range__min">{min}</label>
-        <label htmlFor="input-range__max">{max}</label>
+        <label htmlFor="range-slider__min">{min}</label>
+        <label htmlFor="range-slider__max">{max}</label>
       </div>
     </div>
   );

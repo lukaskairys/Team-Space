@@ -30,7 +30,12 @@ export default function dataFilter(
     for (const tag in tags) {
       if (tags[tag].length !== 0) {
         filterData = filterData.filter((item) => {
-          if (tags[tag].some((currentTag) => item[tag].includes(currentTag))) {
+          if (!item[tag]) return null;
+          if (
+            tags[tag].some((currentTag) =>
+              currentTag ? item[tag].includes(currentTag) : null
+            )
+          ) {
             return item;
           } else return null;
         });

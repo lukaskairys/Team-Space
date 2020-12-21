@@ -22,7 +22,7 @@
         position: absolute;
         text-align: center;
         transform: translate(-50%, 0);
-        width: 3rem;
+        width: 3.5rem;
 
         &::before {
             border-left: 0.5rem solid transparent;
@@ -41,7 +41,8 @@
 
     &__input {
         appearance: none;
-        margin: 2rem 0;
+        margin-bottom: 1.5rem;
+        margin-top: 2rem;
         width: 100%;
 
         &:focus {
