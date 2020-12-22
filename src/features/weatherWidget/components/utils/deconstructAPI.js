@@ -1,4 +1,4 @@
-import { isObjectEmpty } from "../../../../utils/objects";
+import { isObjectEmpty } from "utils/objects";
 export const deconstructAPI = (
   data,
   setError,
