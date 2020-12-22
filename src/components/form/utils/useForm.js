@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useRequest } from "apis/useRequest";
-import { isObjectEmpty } from "../../utils/objects";
+import { isObjectEmpty } from "utils/objects";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({});

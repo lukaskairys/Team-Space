@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import RatingComponent from "../../components/Rating/Rating";
+import RatingComponent from "components/Rating/Rating";
 import "./reviewCard.scss";
 
 function ReviewCard({ review, inModal }) {
