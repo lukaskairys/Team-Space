@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import useForm from "../utils/useForm.js";
@@ -13,18 +13,22 @@ import {
   validatePasswords,
 } from "../utils/validationRules";
 import { useAuthentication } from "authentication/useAuthentication";
+import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
 
-function Form({ title, subtitle, action }) {
-  const {
-    login,
-    register,
-    changeAccountDetails,
-    changePassword,
-    showMessage,
+function Form({ title, subtitle, action, user, showModal }) {
+  const [showMessage, setShowMessage] = useState(false);
+  const [messageText, setMessageText] = useState("Something went wrong");
+
+  const { login, register, isPosting } = useAuthentication(
     setShowMessage,
-    messageText,
-    isPosting,
-  } = useAuthentication();
+    setMessageText
+  );
+
+  const { changeAccountDetails, changePassword } = useProfileSettings(
+    user,
+    setShowMessage,
+    setMessageText
+  );
 
   const {
     values,
@@ -76,7 +80,8 @@ function Form({ title, subtitle, action }) {
       return () => login(values.email, values.password);
     else if (action === "account")
       return () => changeAccountDetails(dataToChange);
-    else if (action === "passwords") return () => changePassword(passwords);
+    else if (action === "passwords")
+      return () => changePassword(passwords, user);
   }
 
   function getValidation() {
@@ -120,7 +125,11 @@ function Form({ title, subtitle, action }) {
           )}
 
           <div className="form__footer">
-            <FormFooter action={action} />
+            <FormFooter
+              action={action}
+              showModal={showModal}
+              email={dataToChange.email}
+            />
           </div>
         </form>
       </div>
@@ -133,6 +142,9 @@ Form.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   buttonLabel: PropTypes.string,
+  // TODO:  change object
+  user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  showModal: PropTypes.func,
 };
 
 export default Form;

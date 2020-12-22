@@ -1,9 +1,10 @@
 import React from "react";
-import Button from "components/button/Button";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function FormFooter({ action }) {
+import Button from "components/button/Button";
+
+function FormFooter({ action, showModal }) {
   const getFormFooterData = () => {
     let data = {
       label: "",
@@ -27,7 +28,6 @@ function FormFooter({ action }) {
       case "account":
       case "passwords":
         data.label = "Change";
-        data.linkText = "Delete my account";
         break;
       default:
         return data;
@@ -44,9 +44,15 @@ function FormFooter({ action }) {
       </Button>
       <p>
         {textBeforeLink}
-        <Link to={linkPath} className="form__link">
-          {linkText}
-        </Link>
+        {action === "account" ? (
+          <Button handleClick={showModal} blankNoBorder>
+            Delete my account
+          </Button>
+        ) : (
+          <Link to={linkPath} className="form__link">
+            {linkText}
+          </Link>
+        )}
       </p>
     </>
   );
@@ -54,6 +60,7 @@ function FormFooter({ action }) {
 
 FormFooter.propTypes = {
   action: PropTypes.string,
+  showModal: PropTypes.func,
 };
 
 export default FormFooter;

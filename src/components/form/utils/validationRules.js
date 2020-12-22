@@ -57,10 +57,42 @@ export function validateLogin(values) {
   return errors;
 }
 
-export function validateSettings(values) {
-  return {};
+export function validateSettings(values, data) {
+  const { email } = values;
+  let errors = {};
+  // email
+  if (email && !/\S+@\S+\.\S+/.test(email)) {
+    errors.email = "Email address is invalid";
+  } else if (email && data && data.some((user) => user.email === email)) {
+    errors.email = "This email address is already taken.";
+  }
+  return errors;
 }
 
 export function validatePasswords(values) {
-  return {};
+  const { oldPassword, newPassword, repeatPassword } = values;
+  let errors = {};
+  //old password
+  if (!oldPassword) {
+    errors.oldPassword = "Current password is required";
+  } else if (oldPassword.length < 6) {
+    errors.oldPassword = "Password must be 6 or more characters";
+  }
+  // new password
+  if (!newPassword) {
+    errors.newPassword = "Password is required";
+  } else if (newPassword.length < 6) {
+    errors.newPassword = "Password must be 6 or more characters";
+  }
+  // password repeat
+  if (!repeatPassword) {
+    errors.repeatPassword = "Repeat Password is required";
+  } else if (newPassword.length < 6) {
+    errors.repeatPassword = "Password must be 6 or more characters";
+  } else if (newPassword !== repeatPassword) {
+    errors.repeatPassword = "Passwords must match";
+    errors.newPassword = "Passwords must match";
+  }
+
+  return errors;
 }

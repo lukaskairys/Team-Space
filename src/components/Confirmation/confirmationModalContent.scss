@@ -1,0 +1,21 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.confirmation {
+    @include typography-body;
+
+    &__question {
+        @include typography-h4;
+        padding: 2rem 0;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+
+        .button--blank {
+            margin-left: 1rem;
+        }
+    }
+}
