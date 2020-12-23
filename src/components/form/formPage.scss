@@ -1,6 +1,6 @@
 @import '../../styles/base/base';
 @import '../../styles/index';
-@import './form';
+@import './components/form';
 
 .page-container {
     @include typography-body;

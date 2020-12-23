@@ -48,6 +48,7 @@ function BirthdayCard({ story, userPhoto, userName }) {
           wishes={story.wishes}
           containerId={story.id}
           onCommentClick={toggleFavorite}
+          id={story.id}
         />
       </div>
     </div>

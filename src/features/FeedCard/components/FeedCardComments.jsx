@@ -34,7 +34,7 @@ function FeedCardComments({ comments, username, userPhoto, likes, id }) {
     };
     if (newComment.comment.length >= 1) {
       const newComments = [...allComments, newComment];
-      setAllComments((allComments) => newComments);
+      setAllComments(newComments);
       patch("stories", { comments: newComments }, id);
       setInputValues({ commentInput: "" });
     }

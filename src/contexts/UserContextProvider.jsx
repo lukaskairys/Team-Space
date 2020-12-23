@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { useRequest } from "apis/useRequest";
-import { useAuthentication } from "authentication/useAuthentication.jsx";
+import { useAuthentication } from "authentication/useAuthentication";
 import { UserContext } from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
