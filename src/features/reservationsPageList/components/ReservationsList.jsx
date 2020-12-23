@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import { FavoriteTypes } from "utils/FavoriteTypes";
 import groupArray from "utils/groupArray";
 
 import "./reservationsList.scss";
@@ -7,7 +8,6 @@ import ReservationCard from "./ReservationCard";
 import Pagination from "./Pagination";
 import Tag from "./Tag";
 import dataFilter from "../utils/dataFilter";
-import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 
 function ReservationsList({
   searchTerm,

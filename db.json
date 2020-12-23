@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-21"
+    "date": "2020-12-23"
   },
   "users": [
     {
@@ -3953,7 +3953,9 @@
         "address": "Karaliaus Mindaugo pr. 50",
         "hasProjector": true,
         "socketCount": 14,
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector"
+        ],
         "seatCount": 100,
         "bookedUntil": "10/16/2020"
       },
@@ -3964,7 +3966,9 @@
         "type": "U-Shape",
         "address": "Pramonės pr. 8E",
         "hasProjector": true,
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector"
+        ],
         "socketCount": 12,
         "seatCount": 12,
         "bookedUntil": "02/07/2020"
@@ -3975,7 +3979,9 @@
         "image": "https://images.unsplash.com/photo-1579488081757-b212dbd6ee72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
         "type": "U-Shape",
         "address": "Pramonės pr. 8E",
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector"
+        ],
         "hasProjector": true,
         "socketCount": 2,
         "seatCount": 15,
@@ -3987,7 +3993,9 @@
         "image": "https://cdn.pixabay.com/photo/2020/07/31/15/12/boardroom-5453288__340.jpg",
         "type": "Boardroom",
         "address": "Pramonės pr. 8E",
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector"
+        ],
         "hasProjector": false,
         "socketCount": 72,
         "seatCount": 93,
@@ -3999,7 +4007,9 @@
         "image": "https://images.unsplash.com/photo-1581887300455-5eb259f6eac0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
         "type": "Boardroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector"
+        ],
         "hasProjector": false,
         "socketCount": 7,
         "seatCount": 26,
@@ -4011,7 +4021,9 @@
         "image": "https://images.unsplash.com/photo-1590660116447-3e58e29c2e29?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
         "type": "Boardroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["Phone"],
+        "features": [
+          "Phone"
+        ],
         "hasProjector": false,
         "socketCount": 24,
         "seatCount": 38,
@@ -4023,7 +4035,10 @@
         "image": "https://images.unsplash.com/photo-1569682535081-3e826bee049b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
         "type": "Classroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["TV/Projector", "Whiteboard"],
+        "features": [
+          "TV/Projector",
+          "Whiteboard"
+        ],
         "hasProjector": true,
         "socketCount": 20,
         "seatCount": 14,
@@ -4035,7 +4050,10 @@
         "image": "https://images.unsplash.com/photo-1591587495187-e6cdd5a98e60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
         "type": "Classroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["TV/Projector", "Food"],
+        "features": [
+          "TV/Projector",
+          "Food"
+        ],
         "hasProjector": true,
         "socketCount": 31,
         "seatCount": 4,
@@ -4049,7 +4067,7 @@
         "Auditorium",
         "Classroom"
       ],
-      "features":[
+      "features": [
         "TV/Projector",
         "Phone",
         "Food",

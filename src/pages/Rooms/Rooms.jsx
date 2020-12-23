@@ -16,13 +16,13 @@ const Rooms = () => {
       />
     );
   };
+
   return (
     <UserContextProvider>
       <ReservationPage
         page={"rooms"}
         inputSliderRenderer={inputSliderRenderer}
       />
-      ;
     </UserContextProvider>
   );
 };

@@ -8,6 +8,7 @@ const InputSlider = ({ min, max, step, setCounter }) => {
   const [internalCount, setInternalCount] = useState(min);
   let rangeV = useRef(null);
   let range = useRef(null);
+
   const handleGlobalChange = debounce((e) => {
     setCounter(parseFloat(e.target.value));
   }, 250);
