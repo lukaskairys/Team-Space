@@ -89,6 +89,7 @@ export default function dataFilter(
   const getFavorites = () => {
     if (endpoint === "books") return userData.liked.books;
     if (endpoint === "devices") return userData.liked.devices;
+    if (endpoint === "rooms") return userData.liked.rooms;
   };
 
   const filterByCount = () => {
