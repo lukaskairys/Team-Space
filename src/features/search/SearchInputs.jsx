@@ -9,19 +9,23 @@ import { ReactComponent as CircleX } from "assets/icons/x-circle.svg";
 import "./searchInputs.scss";
 
 function SearchInputs({ searchBtnClick }) {
+  const todaysDate = () => {
+    return new Date().toISOString().split("T")[0];
+  };
+
   const [term, setTerm] = useState();
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(todaysDate);
 
   const handleSearchInputChange = (event) => {
     setTerm(event.target.value);
   };
 
   const handleDateChange = (event) => {
-    setDate(formatDateToGB(event.target.value));
+    setDate(event.target.value);
   };
 
   const search = (e) => {
-    searchBtnClick({ searchText: term, searchDate: date });
+    searchBtnClick({ searchText: term, searchDate: formatDateToGB(date) });
   };
 
   const searchWithEnter = (e) => {
@@ -34,8 +38,6 @@ function SearchInputs({ searchBtnClick }) {
     setTerm("");
     searchBtnClick({ searchText: "" });
   };
-
-  let today = new Date().toISOString().split("T")[0];
 
   return (
     <div className="search-bar__inputs">
@@ -65,7 +67,8 @@ function SearchInputs({ searchBtnClick }) {
           name="reservationDate"
           className="form__input search-bar__inputs-date-input"
           onChange={handleDateChange}
-          min={today}
+          min={todaysDate()}
+          value={date}
         ></input>
       </div>
       <div className="search-bar__inputs-button">

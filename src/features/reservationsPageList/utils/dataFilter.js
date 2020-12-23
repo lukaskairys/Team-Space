@@ -7,7 +7,7 @@ export default function dataFilter(
   date,
   availabilityOn
 ) {
-  const searchableProperties = ["name", "brand"];
+  const searchableProperties = ["name", "brand", "title", "author"];
   let filterData = data;
   searchTerm = searchTerm.toLowerCase();
 
