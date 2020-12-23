@@ -59,7 +59,7 @@ const ReservationsSection = () => {
         <ReservationCard
           name={"Meeting rooms"}
           caption={"Reserved"}
-          path={"/"}
+          path={"/reservations/rooms"}
           count={reservations.rooms}
           big
         >
