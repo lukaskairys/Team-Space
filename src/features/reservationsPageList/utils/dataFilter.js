@@ -1,4 +1,5 @@
 import { isUnavailable } from "./dateFormatters";
+import { roundNumber } from "utils/Math";
 
 export default function dataFilter(
   data,
@@ -8,7 +9,8 @@ export default function dataFilter(
   availabilityOn,
   favoritesOn,
   userData,
-  endpoint
+  endpoint,
+  count
 ) {
   const searchableProperties = ["name", "brand", "title", "author"];
 
@@ -52,7 +54,8 @@ export default function dataFilter(
     for (const tag in tags) {
       if (tags[tag].length !== 0) {
         filterData = filterData.filter((item) => {
-          if (tags[tag].includes(item[tag])) {
+          if (!item[tag]) return null;
+          if (tags[tag].some((currentTag) => item[tag].includes(currentTag))) {
             return item;
           } else return null;
         });
@@ -88,10 +91,19 @@ export default function dataFilter(
     if (endpoint === "devices") return userData.liked.devices;
   };
 
+  const filterByCount = () => {
+    filterData = filterData.filter((item) => {
+      return item?.rating === undefined
+        ? item.seatCount >= count
+        : roundNumber(item.rating.score) >= count;
+    });
+  };
+
   filterBySearchTerm();
   filterByTags();
   filterByAvailability();
   filterByFavorite();
+  if (filterData[0]?.rating || filterData[0]?.seatCount) filterByCount();
 
   return filterData;
 }

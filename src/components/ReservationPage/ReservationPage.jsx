@@ -12,7 +12,7 @@ import { useSearch } from "features/search/useSearch";
 
 import "./reservationPage.scss";
 
-const ReservationPage = ({ page }) => {
+const ReservationPage = ({ page, inputSliderRenderer }) => {
   const { searchData, searchBtnClick, activeFilter } = useSearch();
 
   const {
@@ -24,8 +24,9 @@ const ReservationPage = ({ page }) => {
     handleSingleTag,
     listName,
     listData,
+    counter,
+    setCounter,
   } = useReservationPages(`/${page}`);
-
   return (
     <>
       <MainLayout>
@@ -52,10 +53,12 @@ const ReservationPage = ({ page }) => {
                       clearAll={clearAll}
                       tags={tags}
                       handleChange={handleChange}
-                      ref={refs && refs[i]}
+                      filterRef={refs && refs[i]}
                       value={item}
+                      counter={counter}
                     />
                   ))}
+                {inputSliderRenderer ? inputSliderRenderer(setCounter) : ""}
               </div>
               <ReservationsList
                 searchTerm={searchData.searchTerm}
@@ -67,6 +70,7 @@ const ReservationPage = ({ page }) => {
                 listName={listName}
                 listData={listData}
                 endpoint={page}
+                counter={counter}
               />
             </div>
           </div>
@@ -78,6 +82,7 @@ const ReservationPage = ({ page }) => {
 
 ReservationPage.propTypes = {
   page: PropTypes.string,
+  inputSliderRenderer: PropTypes.func,
 };
 
 export default ReservationPage;

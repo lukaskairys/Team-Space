@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
+import { FavoriteTypes } from "utils/FavoriteTypes";
 import groupArray from "utils/groupArray";
 
 import "./reservationsList.scss";
@@ -19,6 +20,7 @@ function ReservationsList({
   listName,
   listData,
   endpoint,
+  counter,
 }) {
   const [page, setPage] = useState(0);
   const { data } = useContext(UserContext);
@@ -52,7 +54,8 @@ function ReservationsList({
       availabilityOn,
       favoritesOn,
       data,
-      endpoint
+      endpoint,
+      counter
     );
     const items = groupArray(filteredData, 6);
     const pageCount = items.length - 1;
@@ -60,24 +63,53 @@ function ReservationsList({
     const renderCards = () => {
       if (items[page]) {
         return items[page].map((item, index) => {
+          const renderableItemData = constructRenderable(item);
           return (
             <ReservationCard
               key={index}
               id={item.id}
               image={item.image}
-              alt={listName === "deviceList" ? item.deviceType : "Book"}
-              topCaption={listName === "deviceList" ? item.brand : item.author}
-              title={listName === "deviceList" ? item.name : item.title}
-              quantityOrRating={
-                listName === "deviceList" ? item.quantity : item.rating.score
-              }
+              alt={renderableItemData.alt}
+              topCaption={renderableItemData.topCaption}
+              title={renderableItemData.title}
+              quantityOrRating={renderableItemData.bottomCaption}
               bookedUntil={item?.bookedUntil ? item.bookedUntil : null}
               date={date}
-              book={listName === "bookList" ? true : false}
+              listName={listName}
+              favoriteType={renderableItemData.favoriteType}
             />
           );
         });
       } else return null;
+    };
+
+    const constructRenderable = (item) => {
+      const renderingData = {};
+      switch (listName) {
+        case "deviceList":
+          renderingData.alt = item.deviceType;
+          renderingData.topCaption = item.brand;
+          renderingData.title = item.name;
+          renderingData.bottomCaption = item.quantity;
+          renderingData.favoriteType = FavoriteTypes.DEVICE;
+          break;
+        case "bookList":
+          renderingData.alt = "Book";
+          renderingData.topCaption = item.author;
+          renderingData.title = item.title;
+          renderingData.bottomCaption = item.rating.score;
+          renderingData.favoriteType = FavoriteTypes.BOOK;
+          break;
+        case "roomList":
+          renderingData.alt = "Meeting room";
+          renderingData.topCaption = item.type;
+          renderingData.title = item.name;
+          renderingData.bottomCaption = item.seatCount;
+          renderingData.favoriteType = FavoriteTypes.ROOM;
+          break;
+        default:
+      }
+      return renderingData;
     };
 
     const renderCardsAndPagination = () => {
