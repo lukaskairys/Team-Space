@@ -1,0 +1,44 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.profile-settings {
+    @include typography-body-2;
+
+    align-items: center;
+    color: $color-fiord;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        @include typography-h1;
+
+        text-align: center;
+    }
+
+    &__nav {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 3rem;
+        position: relative;
+        top: 8rem;
+        width: 90%;
+    }
+
+    &__nav-left {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form {
+        margin-top: -4rem;
+        padding-top: 12rem;
+        width: 50rem;
+    }
+
+    .profile-widget__picture {
+        height: 7rem;
+        width: 7rem;
+    }
+}

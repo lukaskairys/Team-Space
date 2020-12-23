@@ -6,6 +6,7 @@ import {
   loginForm,
   accountForm,
   passwordsForm,
+  emailForm,
 } from "../utils/formFields";
 
 function FormContent(props) {
@@ -24,6 +25,7 @@ function FormContent(props) {
     else if (action === "login") return loginForm;
     else if (action === "account") return accountForm;
     else if (action === "passwords") return passwordsForm;
+    else if (action === "email") return emailForm;
   }
 
   return (

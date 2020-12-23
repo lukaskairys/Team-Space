@@ -4,10 +4,16 @@
 .confirmation {
     @include typography-body;
 
+    color: $color-fiord;
+
     &__question {
         @include typography-h4;
 
-        padding: 2rem 0;
+        padding: 2rem 0 0;
+    }
+
+    &__text {
+        margin-bottom: 2rem;
     }
 
     &__buttons {
@@ -18,5 +24,15 @@
         .button--blank {
             margin-left: 1rem;
         }
+    }
+
+    .form__input {
+        display: block;
+        width: 100%;
+    }
+
+    .button--icon-x {
+        right: 6rem;
+        top: 16.5rem;
     }
 }

@@ -9,8 +9,9 @@ import Loader from "react-loader-spinner";
 import {
   validateRegistration,
   validateLogin,
-  validateSettings,
+  noValidation,
   validatePasswords,
+  validateEmail,
 } from "../utils/validationRules";
 import { useAuthentication } from "authentication/useAuthentication";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
@@ -24,11 +25,11 @@ function Form({ title, subtitle, action, user, showModal }) {
     setMessageText
   );
 
-  const { changeAccountDetails, changePassword } = useProfileSettings(
-    user,
-    setShowMessage,
-    setMessageText
-  );
+  const {
+    changeAccountDetails,
+    changePassword,
+    changeEmail,
+  } = useProfileSettings(user, setShowMessage, setMessageText);
 
   const {
     values,
@@ -82,13 +83,16 @@ function Form({ title, subtitle, action, user, showModal }) {
       return () => changeAccountDetails(dataToChange);
     else if (action === "passwords")
       return () => changePassword(passwords, user);
+    else if (action === "email")
+      return () => changeEmail(values.email, values.oldPassword, user);
   }
 
   function getValidation() {
     if (action === "register") return validateRegistration;
     else if (action === "login") return validateLogin;
-    else if (action === "account") return validateSettings;
+    else if (action === "account") return noValidation;
     else if (action === "passwords") return validatePasswords;
+    else if (action === "email") return validateEmail;
   }
 
   return (

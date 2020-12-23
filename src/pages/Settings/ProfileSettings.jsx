@@ -1,30 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 import MainLayout from "components/MainLayout/MainLayout";
 import Settings from "features/ProfileSettings/Settings";
 import UserContextProvider from "contexts/UserContextProvider";
 
-import "./profileSettings.scss";
-
 function ProfileSettings() {
-  const [whichForm, setWhichForm] = useState("account");
-
-  const switchSettingsForm = (event) => {
-    if (!event.target.classList.contains("is-active-setting")) {
-      if (whichForm !== "passwords") {
-        setWhichForm("passwords");
-      }
-      if (whichForm !== "account") setWhichForm("account");
-    }
-  };
-
   return (
     <UserContextProvider>
       <MainLayout>
-        <Settings
-          whichForm={whichForm}
-          switchSettingsForm={switchSettingsForm}
-        />
+        <Settings />
       </MainLayout>
     </UserContextProvider>
   );

@@ -57,16 +57,8 @@ export function validateLogin(values) {
   return errors;
 }
 
-export function validateSettings(values, data) {
-  const { email } = values;
-  let errors = {};
-  // email
-  if (email && !/\S+@\S+\.\S+/.test(email)) {
-    errors.email = "Email address is invalid";
-  } else if (email && data && data.some((user) => user.email === email)) {
-    errors.email = "This email address is already taken.";
-  }
-  return errors;
+export function noValidation() {
+  return {};
 }
 
 export function validatePasswords(values) {
@@ -94,5 +86,17 @@ export function validatePasswords(values) {
     errors.newPassword = "Passwords must match";
   }
 
+  return errors;
+}
+
+export function validateEmail(values, data) {
+  const { email } = values;
+  let errors = {};
+  // email
+  if (email && !/\S+@\S+\.\S+/.test(email)) {
+    errors.email = "Email address is invalid";
+  } else if (email && data && data.some((user) => user.email === email)) {
+    errors.email = "This email address is already taken.";
+  }
   return errors;
 }

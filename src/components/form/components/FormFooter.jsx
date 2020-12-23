@@ -27,6 +27,7 @@ function FormFooter({ action, showModal }) {
         break;
       case "account":
       case "passwords":
+      case "email":
         data.label = "Change";
         break;
       default:
