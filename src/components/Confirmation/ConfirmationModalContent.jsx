@@ -4,12 +4,18 @@ import PropTypes from "prop-types";
 import Button from "components/button/Button";
 import "./confirmationModalContent.scss";
 
-const ConfirmationModalContent = ({ confirm, cancel, title, content }) => {
+const ConfirmationModalContent = ({
+  children,
+  confirm,
+  cancel,
+  title,
+  content,
+}) => {
   return (
     <div className="confirmation">
       <h4 className="confirmation__question">{title}</h4>
       <p className="confirmation__text">{content}</p>
-
+      {children}
       <div className="confirmation__buttons">
         <Button medium handleClick={confirm}>
           confirm
@@ -23,6 +29,7 @@ const ConfirmationModalContent = ({ confirm, cancel, title, content }) => {
 };
 
 ConfirmationModalContent.propTypes = {
+  children: PropTypes.object,
   confirm: PropTypes.func,
   cancel: PropTypes.func,
   title: PropTypes.string,

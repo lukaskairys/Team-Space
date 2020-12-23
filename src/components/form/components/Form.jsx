@@ -142,7 +142,6 @@ Form.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   buttonLabel: PropTypes.string,
-  // TODO:  change object
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   showModal: PropTypes.func,
 };
