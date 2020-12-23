@@ -6,21 +6,17 @@ import SearchInputs from "./SearchInputs";
 
 import "./search.scss";
 
-function Search({ searchBtnClick, availableFilter, favoritesFilter }) {
+function Search({ searchBtnClick, activeFilter }) {
   return (
     <div className="search-bar">
       <h2 className="search-bar__title">Search</h2>
-      <SearchFilters
-        availableFilter={availableFilter}
-        favoritesFilter={favoritesFilter}
-      />
+      <SearchFilters activeFilter={activeFilter} />
       <SearchInputs searchBtnClick={searchBtnClick} />
     </div>
   );
 }
 Search.propTypes = {
   searchBtnClick: PropTypes.func,
-  availableFilter: PropTypes.func,
-  favoritesFilter: PropTypes.func,
+  activeFilter: PropTypes.func,
 };
 export default Search;

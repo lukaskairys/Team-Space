@@ -7,30 +7,29 @@ import { ReactComponent as CheckIcon } from "assets/icons/check.svg";
 
 import "./search.scss";
 
-function SearchFilters({ availableFilter, favoritesFilter }) {
+function SearchFilters({ activeFilter }) {
   const [available, setAvailable] = useState(false);
   const [favorite, setFavorite] = useState(false);
 
   const showAvailable = (e) => {
     let setFilter = !available;
     setFavorite(false);
-    favoritesFilter(false);
     setAvailable(setFilter);
-    availableFilter(setFilter);
+    activeFilter(setFilter, false);
   };
 
   const showAll = (e) => {
     setAvailable(false);
-    availableFilter(false);
+    activeFilter(false);
     setFavorite(false);
   };
 
   const showFavorites = (e) => {
     let setFilter = !favorite;
     setFavorite(setFilter);
-    favoritesFilter(setFilter);
+    activeFilter(false, setFilter);
+
     setAvailable(false);
-    availableFilter(false);
   };
 
   return (
@@ -68,8 +67,7 @@ function SearchFilters({ availableFilter, favoritesFilter }) {
 }
 
 SearchFilters.propTypes = {
-  availableFilter: PropTypes.func,
-  favoritesFilter: PropTypes.func,
+  activeFilter: PropTypes.func,
 };
 
 export default SearchFilters;

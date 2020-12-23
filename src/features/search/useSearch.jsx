@@ -7,7 +7,7 @@ export const useSearch = () => {
     searchTerm: "",
     date: formatDateToGB(new Date()),
     availabilityOn: false, // If true displays only available items, if false displays all items
-    favorites: false,
+    favoritesOn: false,
   });
 
   const searchBtnClick = (param) => {
@@ -26,13 +26,13 @@ export const useSearch = () => {
     }
   };
 
-  const availableFilter = (available) => {
-    setSearchData({ ...searchData, availabilityOn: available });
+  const activeFilter = (available, favorite) => {
+    setSearchData({
+      ...searchData,
+      availabilityOn: available,
+      favoritesOn: favorite,
+    });
   };
 
-  const favoritesFilter = (favorite) => {
-    setSearchData({ ...searchData, favorites: favorite });
-  };
-
-  return { searchData, searchBtnClick, availableFilter, favoritesFilter };
+  return { searchData, searchBtnClick, activeFilter };
 };

@@ -5,9 +5,13 @@ export default function dataFilter(
   tags,
   searchTerm,
   date,
-  availabilityOn
+  availabilityOn,
+  favoritesOn,
+  userData,
+  endpoint
 ) {
   const searchableProperties = ["name", "brand", "title", "author"];
+
   let filterData = data;
   searchTerm = searchTerm.toLowerCase();
 
@@ -65,9 +69,29 @@ export default function dataFilter(
     });
   };
 
+  const filterByFavorite = () => {
+    if (!favoritesOn) return;
+
+    let favorites = getFavorites();
+    let favoriteIds = [];
+    favorites.forEach((item) => {
+      favoriteIds.push(item.id);
+    });
+    filterData = filterData.filter((item) => {
+      if (favoriteIds.includes(item.id)) return item;
+      else return null;
+    });
+  };
+
+  const getFavorites = () => {
+    if (endpoint === "books") return userData.liked.books;
+    if (endpoint === "devices") return userData.liked.devices;
+  };
+
   filterBySearchTerm();
   filterByTags();
   filterByAvailability();
+  filterByFavorite();
 
   return filterData;
 }
