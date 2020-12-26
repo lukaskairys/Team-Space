@@ -15,6 +15,20 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         overflow-x: hidden;
         transition: margin-left 1000ms;
         width: 100%;
+
+        &.is_mobile {
+            margin-left: 100%;
+            transition: none;
+            // transition: 0;
+        }
+    }
+
+    &__mobile-navigation {
+        margin-right: auto;
+    }
+
+    &__mobile-toggle {
+        margin-left: 4rem;
     }
 
     &__header {
@@ -75,4 +89,9 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 .main-layout__content--sidebar-closed {
     margin-left: 9.6rem;
     transition: margin-left 1000ms;
+
+    &.is_mobile {
+        margin-left: 0;
+        transition: 0;
+    }
 }

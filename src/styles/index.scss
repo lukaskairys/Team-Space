@@ -16,6 +16,10 @@
 html {
     box-sizing: border-box;
     font-size: $font-size-reset;
+
+    @include respond-to(500, max) {
+        font-size: $font-size-reset-mobile;
+    }
 }
 
 body {

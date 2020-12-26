@@ -21,6 +21,7 @@ import PrivateRoute from "./authentication/PrivateRoute.jsx";
 import PublicRoute from "./authentication/PublicRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
 import Page404 from "pages/Page404/Page404";
+import MainLayout from "components/MainLayout/MainLayout";
 
 function App() {
   return (
@@ -36,23 +37,33 @@ function App() {
         </PublicRoute>
 
         <PrivateRoute exact path="/">
-          <Dashboard />
+          <MainLayout>
+            <Dashboard />
+          </MainLayout>
         </PrivateRoute>
 
         <PrivateRoute exact path="/settings">
-          <ProfileSettings />
+          <MainLayout>
+            <ProfileSettings />
+          </MainLayout>
         </PrivateRoute>
 
         <PrivateRoute exact path="/reservations">
-          <Reservations />
+          <MainLayout>
+            <Reservations />
+          </MainLayout>
         </PrivateRoute>
 
         <PrivateRoute exact path="/reservations/devices">
-          <Devices />
+          <MainLayout>
+            <Devices />
+          </MainLayout>
         </PrivateRoute>
 
         <PrivateRoute exact path="/reservations/books">
-          <Books />
+          <MainLayout>
+            <Books />
+          </MainLayout>
         </PrivateRoute>
 
         <PrivateRoute exact path="/eat-out/categories">
@@ -65,19 +76,23 @@ function App() {
         </PrivateRoute>
 
         <PrivateRoute exact path="/eat-out/">
-          <EatOut />
+          <MainLayout>
+            <EatOut />
+          </MainLayout>
         </PrivateRoute>
 
         <PrivateRoute exact path="/eat-out/:id">
           <ContextProvider endpoint="/restaurants">
-            <Restaurant />
+            <MainLayout>
+              <Restaurant />
+            </MainLayout>
           </ContextProvider>
         </PrivateRoute>
-
         <PrivateRoute exact path="/eat-out/categories/:category">
-          <EatOutCategoriesPage />
+          <MainLayout>
+            <EatOutCategoriesPage />
+          </MainLayout>
         </PrivateRoute>
-
         <Route component={Page404} />
       </Switch>
     </Router>

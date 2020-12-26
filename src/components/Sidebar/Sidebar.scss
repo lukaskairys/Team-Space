@@ -13,6 +13,12 @@ $_margin-size: 1.6rem;
     transition: width 1000ms;
     width: 20.6rem;
 
+    &.is_mobile {
+        display: block;
+        transition: none;
+        width: 100%;
+    }
+
     &__logo {
         fill: $color-white;
         height: 4.8rem;
@@ -168,6 +174,10 @@ $_margin-size: 1.6rem;
 .sidebar--closed.sidebar {
     transition: width 1000ms;
     width: 9.6rem;
+
+    &.is_mobile {
+        display: none;
+    }
 
     .sidebar__toggle {
         transform: translateX(-11rem) rotate(180deg);

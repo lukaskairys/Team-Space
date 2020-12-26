@@ -29,11 +29,12 @@ const sidebarData = [
   },
 ];
 
-const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
+const Sidebar = ({ isSidebarClosed, toggleSidebar, is_mobile }) => {
   return (
     <nav
       className={classNames("sidebar", {
         "sidebar--closed": isSidebarClosed,
+        is_mobile: is_mobile,
       })}
     >
       <Link to="/">
@@ -74,6 +75,7 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
 Sidebar.propTypes = {
   isSidebarClosed: PropTypes.bool,
   toggleSidebar: PropTypes.func,
+  is_mobile: PropTypes.bool,
 };
 
 export default Sidebar;

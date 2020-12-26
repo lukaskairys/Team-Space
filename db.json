@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-21"
+    "date": "2020-12-26"
   },
   "users": [
     {
@@ -65,12 +65,15 @@
         "devices": [],
         "stories": [
           {
-            "id": "10197o9h40"
+            "id": "1973ayt36o"
+          },
+          {
+            "id": "10187tep27"
           }
         ]
       },
       "checkIn": {
-        "id": "vvektcqbs4"
+        "id": "h3hlqj5bcb"
       },
       "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
@@ -3607,7 +3610,7 @@
       "postDate": "2020-11-08T10:27:00.000Z",
       "postCover": "https://storage.coverr.co/t/Q4G3nDsk01ZRFR9o7HjBzTFkcgXE90101NA",
       "postVideo": "https://storage.coverr.co/videos/Q4G3nDsk01ZRFR9o7HjBzTFkcgXE90101NA?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjA1MTAzNjE2fQ.c7AVDx6JgY1Rv9rSiUqxM47dMzTrmzOsFEJWxd5wK8k",
-      "likes": 27,
+      "likes": 28,
       "comments": [
         {
           "userName": "Uncle Roger",
@@ -3758,7 +3761,7 @@
       "postLocation": "TO",
       "postDate": "2020-11-18T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1605041354474-9ee7d63deb21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-      "likes": 8,
+      "likes": 7,
       "comments": [
         {
           "userName": "Derek Daves",
@@ -3877,7 +3880,7 @@
       "postLocation": "LDN",
       "postDate": "2020-11-26T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1601974222604-f8c88fc836fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-      "likes": 25,
+      "likes": 26,
       "comments": [
         {
           "userName": "Uncle Roger",
