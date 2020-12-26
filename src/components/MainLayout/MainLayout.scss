@@ -1,4 +1,5 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 
@@ -16,15 +17,23 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         transition: margin-left 1000ms;
         width: 100%;
 
+        // @include respond-to(500, min) {
+        //     margin-left: 100%;
+        //     transition: none;
+        // }
+
         &.is_mobile {
             margin-left: 100%;
             transition: none;
-            // transition: 0;
         }
     }
 
     &__mobile-navigation {
         margin-right: auto;
+
+        @include respond-to(501, min) {
+            visibility: hidden;
+        }
     }
 
     &__mobile-toggle {
@@ -90,8 +99,13 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
     margin-left: 9.6rem;
     transition: margin-left 1000ms;
 
+    // @include respond-to(500, max) {
+    //     margin-left: 0;
+    //     transition: none;
+    // }
+
     &.is_mobile {
         margin-left: 0;
-        transition: 0;
+        transition: none;
     }
 }

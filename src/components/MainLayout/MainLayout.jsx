@@ -75,7 +75,12 @@ const MainLayout = ({ children }) => {
                 aria-label="Open the menu"
                 onClick={handleHamburger}
               >
-                <Hamburger aria-hidden="true" />
+                <Hamburger
+                  aria-hidden="true"
+                  className={classNames({
+                    is_mobile: isMobile,
+                  })}
+                />
               </button>
             </div>
             <div className="main-layout__status">

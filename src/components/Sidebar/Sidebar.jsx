@@ -53,6 +53,9 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar, is_mobile }) => {
           return (
             <Link
               key={key}
+              onClick={() => {
+                if (is_mobile) toggleSidebar();
+              }}
               className={classNames("sidebar__list-item", {
                 "sidebar__list-item--active":
                   window.location.pathname === val.link ||
