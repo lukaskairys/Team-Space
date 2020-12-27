@@ -10,17 +10,27 @@ export const useReservationPages = (endpoint) => {
   const { data } = useRequest(endpoint);
   const listName = Object.keys(data)[0];
   const listData = Object.values(data)[0];
+  const [counter, setCounter] = useState(0);
 
   const filterCategories = data.filterCategories;
   const filtersToRender = getObjectEntries(filterCategories);
 
   const getInitialState = () => {
     let initialState;
-    if (endpoint === "/devices") {
-      initialState = { deviceType: [], os: [], brand: [] };
-    } else if (endpoint === "/books") {
-      initialState = { genre: [] };
+    switch (endpoint) {
+      case "/devices":
+        initialState = { deviceType: [], os: [], brand: [] };
+        break;
+      case "/books":
+        initialState = { genre: [] };
+        break;
+      case "/rooms":
+        initialState = { type: [], features: [] };
+        break;
+      default:
+        initialState = [];
     }
+
     return initialState;
   };
 
@@ -36,6 +46,7 @@ export const useReservationPages = (endpoint) => {
       for (let i = 0; i <= dataCount; i++) {
         refs[i] = createRef();
       }
+
       setRefs(refs);
     }
   }, [filterCategories, dataCount]);
@@ -49,5 +60,7 @@ export const useReservationPages = (endpoint) => {
     handleSingleTag,
     listName,
     listData,
+    counter,
+    setCounter,
   };
 };

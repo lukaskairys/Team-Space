@@ -6,7 +6,6 @@ import { ReactComponent as IconReserved } from "assets/icons/icon-reserved.svg";
 import Button from "components/button/Button";
 import HeartIcon from "components/HeartIcon/HeartIcon";
 import Rating from "components/Rating/Rating";
-import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 
 import "./reservationCard.scss";
 import { formatDateToGB, isUnavailable } from "../utils/dateFormatters";
@@ -18,7 +17,8 @@ export default function Card({
   quantityOrRating,
   bookedUntil,
   date,
-  book,
+  listName,
+  favoriteType,
   id,
 }) {
   let buttonDisabled = false;
@@ -51,6 +51,24 @@ export default function Card({
       );
     }
   };
+
+  const renderBottomCaption = () => {
+    switch (listName) {
+      case "deviceList":
+        return (
+          <span className="reservation-card__caption">{`Quantity: ${quantityOrRating}`}</span>
+        );
+      case "bookList":
+        return <Rating ratingValue={quantityOrRating} isFromBooks={true} />;
+      case "roomList":
+        return (
+          <span className="reservation-card__caption">{`Seat Count: ${quantityOrRating}`}</span>
+        );
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="reservation-card">
       <figure className="reservation-card__img-box">
@@ -58,15 +76,11 @@ export default function Card({
       </figure>
       <div className="reservation-card__content">
         <span className="reservation-card__caption">{topCaption}</span>
-        <HeartIcon itemType={FavoriteTypes.BOOK} itemId={id} />
+        <HeartIcon itemType={favoriteType} itemId={id} />
         <h3 className="reservation-card__title">{title}</h3>
         <div className="reservation-card__status">{renderStatus()}</div>
         <div className="reservation-card__cta">
-          {book ? (
-            <Rating ratingValue={quantityOrRating} isFromBooks={true} />
-          ) : (
-            <span className="reservation-card__caption">{`Quantity: ${quantityOrRating}`}</span>
-          )}
+          {renderBottomCaption()}
           <Button medium blank>
             View more
           </Button>
@@ -87,6 +101,7 @@ Card.propTypes = {
   quantityOrRating: PropTypes.number,
   bookedUntil: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   date: PropTypes.string,
-  book: PropTypes.bool,
+  listName: PropTypes.string,
+  favoriteType: PropTypes.string,
   id: PropTypes.string,
 };

@@ -11,6 +11,7 @@ import RegistrationPage from "pages/Registration/RegistrationPage";
 import LoginPage from "pages/Login/LoginPage";
 import ProfileSettings from "pages/Settings/ProfileSettings";
 import Books from "pages/Books/Books";
+import Rooms from "pages/Rooms/Rooms";
 import Dashboard from "pages/Dashboard/Dashboard";
 import Reservations from "pages/Reservations/Reservations";
 import Devices from "pages/Devices/Devices";
@@ -64,6 +65,10 @@ function App() {
           <MainLayout>
             <Books />
           </MainLayout>
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/reservations/rooms">
+          <Rooms />
         </PrivateRoute>
 
         <PrivateRoute exact path="/eat-out/categories">

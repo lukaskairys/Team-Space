@@ -6,16 +6,18 @@ import WeatherWidget from "features/weatherWidget/components/weatherWidget";
 import ReservationsSection from "features/reservationsSection/components/ReservationsSection";
 import EatOutSection from "features/eatOutSection/components/EatOutSection";
 import AllFeedCards from "features/FeedCard/components/AllFeedCards";
+import useCurrentTime from "utils/useCurrentTime";
 
 import "./Dashboard.scss";
 
 const Dashboard = () => {
+  const currentTime = useCurrentTime();
   return (
     <div className="dashboard">
       <>
         <div className="dashboard__widgets">
-          <HelloWidget />
-          <WeatherWidget />
+          <HelloWidget currentTime={currentTime} />
+          <WeatherWidget currentTime={currentTime} />
         </div>
 
         <div className="dashboard__reservations-section">
