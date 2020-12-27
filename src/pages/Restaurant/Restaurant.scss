@@ -24,7 +24,7 @@ $_reviews-jump-breakpoint: 1455;
 
 .eat-out-info {
     @include respond-to(1011, max) {
-        min-width: 45.4rem;
+        // min-width: 45.4rem;
 
         &__content {
             grid-template-columns: auto;
