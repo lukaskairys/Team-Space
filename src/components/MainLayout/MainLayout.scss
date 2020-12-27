@@ -77,6 +77,11 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         background-color: $color-light-porcelain;
         flex: 1;
         padding: 2.7rem 4rem 6.4rem;
+
+        @include respond-to(400, max) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 
     &__footer {

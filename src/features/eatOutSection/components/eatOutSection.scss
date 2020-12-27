@@ -17,10 +17,19 @@ $_breakpoint: 1200;
         grid-template-columns: repeat(4, 1fr);
     }
 
+    @include respond-to(500, max) {
+        display: block;
+        width: 100%;
+    }
+
     &__column {
         background-color: $color-white;
         border-radius: 0.8rem;
         padding-bottom: 2rem;
+
+        @include respond-to(500, max) {
+            margin-top: 4rem;
+        }
     }
 
     &__column:nth-child(n + 2) {

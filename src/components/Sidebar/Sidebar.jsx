@@ -37,7 +37,12 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar, is_mobile }) => {
         is_mobile: is_mobile,
       })}
     >
-      <Link to="/">
+      <Link
+        to="/"
+        onClick={() => {
+          if (is_mobile) toggleSidebar();
+        }}
+      >
         <Logo className="sidebar__logo" />
       </Link>
       <button
