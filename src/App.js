@@ -68,7 +68,9 @@ function App() {
         </PrivateRoute>
 
         <PrivateRoute exact path="/reservations/rooms">
-          <Rooms />
+          <MainLayout>
+            <Rooms />
+          </MainLayout>
         </PrivateRoute>
 
         <PrivateRoute exact path="/eat-out/categories">
