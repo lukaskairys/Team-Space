@@ -13,6 +13,10 @@
     min-height: 100vh;
     padding: 3rem;
     width: 100vw;
+
+    @include respond-to(500, max) {
+        padding: 1.5rem;
+    }
 }
 
 .form-container {

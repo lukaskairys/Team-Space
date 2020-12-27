@@ -8,6 +8,8 @@ import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
 import { ReactComponent as CompassIcon } from "assets/icons/compass.svg";
 import { ReactComponent as ToggleIcon } from "assets/icons/toggle.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
+import { ReactComponent as IconX } from "assets/images/x.svg";
+import Button from "components/button/Button";
 
 import "./Sidebar.scss";
 
@@ -37,6 +39,11 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar, is_mobile }) => {
         is_mobile: is_mobile,
       })}
     >
+      {is_mobile && (
+        <Button type={"button"} iconX={true} handleClick={toggleSidebar}>
+          <IconX className="sidebar__close-icon" />
+        </Button>
+      )}
       <Link
         to="/"
         onClick={() => {
