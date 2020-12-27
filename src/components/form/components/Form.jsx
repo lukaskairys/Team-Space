@@ -16,14 +16,15 @@ import {
 import { useAuthentication } from "authentication/useAuthentication";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
 
-function Form({
-  title,
-  subtitle,
-  action,
-  user,
-  showModal,
-  settingsHeaderRenderer,
-}) {
+const Form = (props) => {
+  const {
+    title,
+    subtitle,
+    action,
+    user,
+    showModal,
+    settingsHeaderRenderer,
+  } = props;
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
 
@@ -82,24 +83,51 @@ function Form({
   };
 
   function getCallback() {
-    if (action === "register")
-      return () => register(values.password, dataToPost);
-    else if (action === "login")
-      return () => login(values.email, values.password);
-    else if (action === "account")
-      return () => changeAccountDetails(dataToChange);
-    else if (action === "passwords")
-      return () => changePassword(passwords, user);
-    else if (action === "email")
-      return () => changeEmail(values.email, values.oldPassword, user);
+    let callback;
+    switch (action) {
+      case "register":
+        callback = () => register(values.password, dataToPost);
+        break;
+      case "login":
+        callback = () => login(values.email, values.password);
+        break;
+      case "account":
+        callback = () => changeAccountDetails(dataToChange);
+        break;
+      case "passwords":
+        callback = () => changePassword(passwords, user);
+        break;
+      case "email":
+        callback = () => changeEmail(values.email, values.oldPassword, user);
+        break;
+      default:
+        return;
+    }
+    return callback;
   }
 
   function getValidation() {
-    if (action === "register") return validateRegistration;
-    else if (action === "login") return validateLogin;
-    else if (action === "account") return noValidation;
-    else if (action === "passwords") return validatePasswords;
-    else if (action === "email") return validateEmail;
+    let validation;
+    switch (action) {
+      case "register":
+        validation = validateRegistration;
+        break;
+      case "login":
+        validation = validateLogin;
+        break;
+      case "account":
+        validation = noValidation;
+        break;
+      case "passwords":
+        validation = validatePasswords;
+        break;
+      case "email":
+        validation = validateEmail;
+        break;
+      default:
+        return;
+    }
+    return validation;
   }
 
   return (
@@ -119,16 +147,14 @@ function Form({
             <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
           </div>
         ) : (
-          <div className="form__content">
-            <FormContent
-              values={values}
-              errors={errors}
-              handleChange={handleChange}
-              handleFocus={handleFocus}
-              action={action}
-              handleXclick={handleXclick}
-            />
-          </div>
+          <FormContent
+            values={values}
+            errors={errors}
+            handleChange={handleChange}
+            handleFocus={handleFocus}
+            action={action}
+            handleXclick={handleXclick}
+          />
         )}
         {showMessage && (
           <Message
@@ -138,17 +164,15 @@ function Form({
           />
         )}
 
-        <div className="form__footer">
-          <FormFooter
-            action={action}
-            showModal={showModal}
-            email={dataToChange.email}
-          />
-        </div>
+        <FormFooter
+          action={action}
+          showModal={showModal}
+          email={dataToChange.email}
+        />
       </form>
     </section>
   );
-}
+};
 
 Form.propTypes = {
   action: PropTypes.string,

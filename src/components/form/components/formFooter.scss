@@ -1,0 +1,14 @@
+@import '../../../styles/base/base';
+
+.form-footer {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+
+    &__link {
+        color: $color-bright-violet;
+        padding-left: 0.3rem;
+        text-decoration: none;
+    }
+}
