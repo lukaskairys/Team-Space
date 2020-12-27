@@ -10,7 +10,14 @@ import { ReactComponent as StarIcon } from "assets/icons/star.svg";
 
 import "./rating.scss";
 
-const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
+const Rating = ({
+  restaurant,
+  isStatic,
+  ratingValue,
+  isFromBooks,
+  isExpanded,
+  updateRating,
+}) => {
   //Getting current user name
   const { data } = useContext(UserContext);
   const currentUser = data.userName;
@@ -25,7 +32,7 @@ const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
   };
 
   const handleNewRating = useCallback(() => {
-    if (!isStatic && !isFromBooks) {
+    if (!isStatic && !isFromBooks && !isExpanded) {
       const newComment = {
         userName: currentUser,
         id: generateID(),
@@ -36,7 +43,7 @@ const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
       const newCommentArray = restaurant.reviews;
 
       if (!newCommentArray.some((review) => review.userName === currentUser)) {
-        newCommentArray.push(newComment);
+        newCommentArray.unshift(newComment);
         const dataToUpdate = { reviews: [...newCommentArray] };
         patch("restaurants", dataToUpdate, restaurant.id);
       } else {
@@ -50,7 +57,7 @@ const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
         patch("restaurants", dataToUpdate, restaurant.id);
       }
     }
-  }, [isStatic, rating, restaurant, currentUser, isFromBooks]);
+  }, [isStatic, rating, restaurant, currentUser, isFromBooks, isExpanded]);
 
   //setting initial value from current user ratings
   useEffect(() => {
@@ -81,6 +88,7 @@ const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
       <div
         className={classNames("rating-container", {
           "rating-container--is-static": isStatic,
+          "rating-container--is-expanded": isExpanded,
         })}
       >
         <div className="rating-container__items">
@@ -96,6 +104,9 @@ const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
                   value={ratingValue}
                   onChange={() => {
                     setRating(ratingValue);
+                    if (isExpanded) {
+                      updateRating(ratingValue);
+                    }
                   }}
                 />
                 <StarIcon
@@ -125,10 +136,12 @@ const Rating = ({ restaurant, isStatic, ratingValue, isFromBooks }) => {
 Rating.propTypes = {
   isStatic: PropTypes.bool,
   isFromBooks: PropTypes.bool,
+  isExpanded: PropTypes.bool,
   ratingValue: PropTypes.number,
   restaurant: PropTypes.shape({
     reviews: PropTypes.array,
     id: PropTypes.string,
   }),
+  updateRating: PropTypes.func,
 };
 export default Rating;

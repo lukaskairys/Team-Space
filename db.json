@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-17"
+    "date": "2020-12-27"
   },
   "users": [
     {
@@ -123,6 +123,12 @@
       "checkIns": 8,
       "reviews": [
         {
+          "userName": "Frontend Wizard",
+          "id": "71b4203a-b6d2-4ad5-8af0-4d1329168971",
+          "comment": "d",
+          "rating": 1
+        },
+        {
           "userName": "Luke Skywalker",
           "id": "730tybsl12",
           "comment": "Tasty burgers, but had to wait a long line.",
@@ -145,18 +151,6 @@
           "id": "183620uer",
           "comment": "Good burgers, good price",
           "rating": 4
-        },
-        {
-          "userName": "John",
-          "id": "zhn5se87bp",
-          "comment": "",
-          "rating": 2
-        },
-        {
-          "userName": "Lukas Kairys",
-          "id": "02b3150d-c1f6-41d7-9abe-c845fba08e1e",
-          "comment": "",
-          "rating": 1
         }
       ],
       "categories": [

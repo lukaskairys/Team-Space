@@ -30,7 +30,7 @@ const Modal = ({ children, closeModal, setModalOpen }) => {
 };
 
 Modal.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   closeModal: PropTypes.func,
   setModalOpen: PropTypes.func,
 };

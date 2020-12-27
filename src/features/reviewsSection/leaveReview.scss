@@ -1,0 +1,48 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_review-line-heigh: 1.5;
+$_color-black-transp: rgba(255, 255, 255, 0);
+
+.leave-review {
+    flex: 1;
+    line-height: $_review-line-heigh;
+    margin-top: -0.5rem;
+    max-width: 39.5rem;
+    min-width: 25rem;
+    position: relative;
+    z-index: $z-index-above;
+
+    &__title {
+        @include typography-h3-alternative;
+        @include trim;
+
+        color: $color-midnight;
+    }
+
+    &__form {
+        margin-top: 4rem;
+    }
+
+    &__label {
+        @include typography-caption;
+
+        color: $color-fiord;
+        font-weight: $bold-weight;
+        text-transform: uppercase;
+        width: 34rem;
+    }
+
+    &__content {
+        @include custom-scrollbar;
+        font: 400 1.4rem Roboto;
+        line-height: $_review-line-heigh;
+        margin: 0.8rem 0 1.6rem;
+        resize: none;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+    }
+}

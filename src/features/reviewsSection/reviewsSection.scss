@@ -11,4 +11,9 @@
         color: $color-midnight;
         padding: 0.8rem 0;
     }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+    }
 }
