@@ -2,14 +2,14 @@ import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import bcrypt from "bcryptjs";
 
-import Modal from "components/Modal/Modal";
-import Button from "components/button/Button";
+import SettingsHeader from "./SettingsHeader";
 import Form from "components/form/components/Form";
+import Modal from "components/Modal/Modal";
+import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 
 import { UserContext } from "contexts/UserContext";
 import { useModal } from "utils/useModal";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
-import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 
 import "./settings.scss";
 
@@ -35,51 +35,41 @@ function Settings() {
     closeModal();
   };
 
+  const getAction = () => {
+    let action;
+    switch (whichForm) {
+      case "account":
+        action = "account";
+        break;
+      case "passwords":
+        action = "passwords";
+        break;
+      case "email":
+        action = "email";
+        break;
+      default:
+        return;
+    }
+    return action;
+  };
+
   return (
-    <div className="profile-settings">
-      <h2 className="profile-settings__title">Profile settings</h2>
-      <div className="form-container">
-        <div className="profile-settings__nav">
-          <div className="profile-settings__nav-left">
-            <Button
-              blankNoBorder={true}
-              isMarked={whichForm === "account" && true}
-              handleClick={() => setWhichForm("account")}
-            >
-              Account Details
-            </Button>
-            <Button
-              blankNoBorder={true}
-              isMarked={whichForm === "passwords" && true}
-              handleClick={() => setWhichForm("passwords")}
-            >
-              Change password
-            </Button>
-            <Button
-              blankNoBorder={true}
-              isMarked={whichForm === "email" && true}
-              handleClick={() => setWhichForm("email")}
-            >
-              Change email
-            </Button>
-          </div>
-          <div className="profile-settings__nav-right">
-            <Button blankNoBorder={true}>
-              <img
-                className="profile-widget__picture"
-                src={user.userImage}
-                alt="user profile"
-              />
-              <span className="profile-widget__photo-text">Upload a photo</span>
-            </Button>
-          </div>
-        </div>
-        {whichForm === "account" && (
-          <Form action={"account"} user={user} showModal={showModal} />
-        )}
-        {whichForm === "passwords" && <Form action={"passwords"} user={user} />}
-        {whichForm === "email" && <Form action={"email"} user={user} />}
-      </div>
+    <>
+      <article className="profile-settings">
+        <h2 className="profile-settings__title">Profile settings</h2>
+        <Form
+          action={getAction()}
+          user={user}
+          showModal={showModal}
+          settingsHeaderRenderer={() => (
+            <SettingsHeader
+              setWhichForm={setWhichForm}
+              whichForm={whichForm}
+              userImage={user.userImage}
+            />
+          )}
+        />
+      </article>
 
       {modalOpen && (
         <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
@@ -91,7 +81,7 @@ function Settings() {
           />
         </Modal>
       )}
-    </div>
+    </>
   );
 }
 

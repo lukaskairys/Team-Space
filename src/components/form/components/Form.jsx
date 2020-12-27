@@ -16,7 +16,14 @@ import {
 import { useAuthentication } from "authentication/useAuthentication";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
 
-function Form({ title, subtitle, action, user, showModal }) {
+function Form({
+  title,
+  subtitle,
+  action,
+  user,
+  showModal,
+  settingsHeaderRenderer,
+}) {
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
 
@@ -96,48 +103,50 @@ function Form({ title, subtitle, action, user, showModal }) {
   }
 
   return (
-    <>
-      <div className="form">
+    <section className="form">
+      {settingsHeaderRenderer ? (
+        settingsHeaderRenderer()
+      ) : (
         <div className="form__header">
           <h2 className="form__title">{title}</h2>
           <p className="form__subtitle">{subtitle}</p>
         </div>
+      )}
 
-        <form onSubmit={handleSubmit}>
-          {isPosting ? (
-            <div className="form__loader">
-              <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
-            </div>
-          ) : (
-            <div className="form__content">
-              <FormContent
-                values={values}
-                errors={errors}
-                handleChange={handleChange}
-                handleFocus={handleFocus}
-                action={action}
-                handleXclick={handleXclick}
-              />
-            </div>
-          )}
-          {showMessage && (
-            <Message
-              message={messageText}
-              type={"error"}
-              setShowMessage={setShowMessage}
-            />
-          )}
-
-          <div className="form__footer">
-            <FormFooter
+      <form onSubmit={handleSubmit}>
+        {isPosting ? (
+          <div className="form__loader">
+            <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
+          </div>
+        ) : (
+          <div className="form__content">
+            <FormContent
+              values={values}
+              errors={errors}
+              handleChange={handleChange}
+              handleFocus={handleFocus}
               action={action}
-              showModal={showModal}
-              email={dataToChange.email}
+              handleXclick={handleXclick}
             />
           </div>
-        </form>
-      </div>
-    </>
+        )}
+        {showMessage && (
+          <Message
+            message={messageText}
+            type={"error"}
+            setShowMessage={setShowMessage}
+          />
+        )}
+
+        <div className="form__footer">
+          <FormFooter
+            action={action}
+            showModal={showModal}
+            email={dataToChange.email}
+          />
+        </div>
+      </form>
+    </section>
   );
 }
 
@@ -148,6 +157,7 @@ Form.propTypes = {
   buttonLabel: PropTypes.string,
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   showModal: PropTypes.func,
+  settingsHeaderRenderer: PropTypes.func,
 };
 
 export default Form;
