@@ -93,6 +93,23 @@
         }
     }
 
+    &--blank-no-border {
+        align-items: center;
+        background: none;
+        color: $color-fiord;
+        display: flex;
+        flex-direction: column;
+        font-weight: $medium-weight;
+        padding: 0.6rem;
+        text-transform: none;
+
+        &:hover,
+        &:focus {
+            background: none;
+            color: $color-midnight;
+        }
+    }
+
     &--icon-x {
         background: none;
         line-height: 0;
@@ -210,5 +227,10 @@
             box-shadow: none;
             cursor: default;
         }
+    }
+
+    &.is-active-setting {
+        color: $color-dark-violet;
+        font-weight: $bold-weight;
     }
 }

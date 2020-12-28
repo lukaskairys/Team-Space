@@ -1,8 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FormInput from "../input/FormInput";
-import { registerForm } from "../utils/formFields";
-import { loginForm } from "../utils/formFields";
+import {
+  registerForm,
+  loginForm,
+  accountForm,
+  passwordsForm,
+  emailForm,
+} from "../utils/formFields";
+
+import "./formContent.scss";
 
 function FormContent(props) {
   const {
@@ -16,16 +23,37 @@ function FormContent(props) {
 
   const formStructure = getFormStructure();
   function getFormStructure() {
-    if (action === "register") return registerForm;
-    else if (action === "login") return loginForm;
+    let formStructure;
+    switch (action) {
+      case "register":
+        formStructure = registerForm;
+        break;
+      case "login":
+        formStructure = loginForm;
+        break;
+      case "account":
+        formStructure = accountForm;
+        break;
+      case "passwords":
+        formStructure = passwordsForm;
+        break;
+      case "email":
+        formStructure = emailForm;
+        break;
+      default:
+        return;
+    }
+    return formStructure;
   }
 
   return (
-    <>
-      {formStructure.map((field) => (
+    <div className="form-content">
+      {formStructure.map((field, i) => (
         <div
-          className={`form__item ${field.inputLong && "form__item--long"}`}
-          key={field.name}
+          className={`form-content__item ${
+            field.inputLong && "form-content__item--long"
+          }`}
+          key={i}
         >
           <FormInput
             label={field.text}
@@ -35,16 +63,16 @@ function FormContent(props) {
             placeholder={field.placeholder}
             onChange={handleChange}
             onFocus={handleFocus}
-            className={`form__input ${
-              errors[field.name] && "form__input--error"
+            className={`form-input ${
+              errors[field.name] && "form-input--error"
             }`}
             isError={errors[field.name] ? true : false}
             handleXclick={handleXclick}
           />
-          <p className="form__error-msg">{errors[field.name]}</p>
+          <p className="form-content__error-msg">{errors[field.name]}</p>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
