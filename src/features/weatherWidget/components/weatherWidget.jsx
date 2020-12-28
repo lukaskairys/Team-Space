@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
-import useCurrentLocation from "../../../utils/useCurrentLocation";
-import { isObjectEmpty } from "../../../utils/objects";
-import { translateIdToImage } from "./translateIdToImage";
-import { geolocationOptions } from "../../../utils/geolocationOptions";
-import { getDateFormat } from "./getDateFormat";
-import { deconstructAPI } from "./deconstructAPI";
+import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import useCurrentLocation from "utils/useCurrentLocation";
+import { isObjectEmpty } from "utils/objects";
+import { geolocationOptions } from "utils/geolocationOptions";
+
+import { translateIdToImage } from "./utils/translateIdToImage";
+import { getDateFormat } from "./utils/getDateFormat";
+import { deconstructAPI } from "./utils/deconstructAPI";
+
 import "./weatherWidget.scss";
 
-export default function WeatherWidget() {
+export default function WeatherWidget({ currentTime }) {
   const { location, geolocationError } = useCurrentLocation(geolocationOptions);
   const URL = "https://api.openweathermap.org/data/2.5/weather/";
   const API_KEY = "5d862191a42940fcbf7bec6f3531884b";
@@ -15,6 +18,8 @@ export default function WeatherWidget() {
   const [errors, setError] = useState("");
   const [items, setItems] = useState({});
   const [isLoaded, setLoading] = useState(false);
+  let isMounted = useRef(false);
+
   useEffect(() => {
     const fetchAPI = () => {
       fetch(API_URL)
@@ -26,7 +31,7 @@ export default function WeatherWidget() {
         })
         .then(
           (data) => {
-            deconstructAPI(data, setError, setItems, setLoading);
+            deconstructAPI(data, setError, setItems, setLoading, isMounted);
           },
           (error) => {
             setError(error);
@@ -45,14 +50,19 @@ export default function WeatherWidget() {
 
       return true;
     };
-
+    isMounted.current = true;
+    let intervalID;
     if (isValid()) {
       fetchAPI();
-      let intervalID = setInterval(() => {
+      intervalID = setInterval(() => {
         fetchAPI();
-      }, 3000);
-      return () => clearInterval(intervalID);
+      }, 60000);
     }
+
+    return () => {
+      clearInterval(intervalID);
+      isMounted.current = false;
+    };
   }, [API_URL, geolocationError, location]);
 
   const loadSpinner = () => {
@@ -60,7 +70,7 @@ export default function WeatherWidget() {
       return (
         <img
           className="weather-widget__spinner"
-          src={require("assets/WeatherWidget/spinner.svg")}
+          src={require("assets/images/spinner.svg")}
           alt=""
         />
       );
@@ -69,11 +79,15 @@ export default function WeatherWidget() {
 
   const loadFigure = () => {
     if (isLoaded) {
-      const { image, shiftLeft } = translateIdToImage(items.conditionId);
-      const className =
-        shiftLeft === true
-          ? "weather-widget__figure weather-widget__figure-shift"
-          : "weather-widget__figure";
+      const { image, shift } = translateIdToImage(
+        items.conditionId,
+        currentTime,
+        items.clouds
+      );
+      let className = "weather-widget__figure";
+      if (shift > 0) className += " weather-widget__figure-shift-left";
+      if (shift < 0) className += " weather-widget__figure-shift-right";
+
       return (
         <figure className={className}>
           <img className="figure__image" src={image} alt="" />
@@ -86,7 +100,8 @@ export default function WeatherWidget() {
     let content = "";
     let description = errors === "" ? "Loading..." : errors;
     if (isLoaded) {
-      content = items.temp + String.fromCharCode(176);
+      const temp = items.temp === "-0" ? 0 : items.temp;
+      content = temp + String.fromCharCode(176);
       description = items.description;
     }
     return (
@@ -110,7 +125,7 @@ export default function WeatherWidget() {
           <div className="weather-widget__subsection">
             <img
               className="weather-widget__wind"
-              src={require("assets/WeatherWidget/wind.svg")}
+              src={require("assets/images/wind.svg")}
               alt="wind speed"
             />
             <label htmlFor="weather-widget__wind">{items.windSpeed} m/s</label>
@@ -118,7 +133,7 @@ export default function WeatherWidget() {
           <div className="weather-widget__subsection">
             <img
               className="weather-widget__humidity"
-              src={require("assets/WeatherWidget/humidity.svg")}
+              src={require("assets/images/humidity.svg")}
               alt="humidity"
             />
             <label htmlFor="weather-widget__humidity">
@@ -132,3 +147,7 @@ export default function WeatherWidget() {
     </article>
   );
 }
+
+WeatherWidget.propTypes = {
+  currentTime: PropTypes.string,
+};

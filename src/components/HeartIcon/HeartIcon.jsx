@@ -43,6 +43,9 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
         case FavoriteTypes.DEVICE:
           handler(userInfo.liked.devices, itemId);
           break;
+        case FavoriteTypes.ROOM:
+          handler(userInfo.liked.rooms, itemId);
+          break;
         default:
           break;
       }

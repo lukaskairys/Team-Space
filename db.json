@@ -120,11 +120,6 @@
       "checkIns": 8,
       "reviews": [
         {
-          "userName": "Frontend Wizard",
-          "id": "2fd383fa-738a-444f-826d-232c52b18650",
-          "comment": "grill\n"
-        },
-        {
           "userName": "Luke Skywalker",
           "id": "730tybsl12",
           "comment": "Tasty burgers, but had to wait a long line.",

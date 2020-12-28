@@ -1,7 +1,8 @@
 import React from "react";
 
-import Form from "components/form/Form";
+import Form from "components/form/components/Form";
 import { ReactComponent as Logo } from "assets/logo165.svg";
+
 import "components/form/formPage.scss";
 
 function LoginPage() {

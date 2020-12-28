@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import useForm from "./useForm";
+import useForm from "../utils/useForm.js";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
 import Loader from "react-loader-spinner";
-import { validateRegistration, validateLogin } from "./validationRules";
-import { useAuthentication } from "authentication/useAuthentication.jsx";
+import { validateRegistration, validateLogin } from "../utils/validationRules";
+import { useAuthentication } from "authentication/useAuthentication";
 
 function Form({ title, subtitle, action }) {
   const {

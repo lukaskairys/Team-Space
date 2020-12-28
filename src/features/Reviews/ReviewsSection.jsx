@@ -1,26 +1,35 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { useParams } from "react-router-dom";
 import classNames from "classnames";
+import { useParams } from "react-router-dom";
 
-import { useRequest } from "../../apis/useRequest";
 import { UserContext } from "contexts/UserContext";
-import Button from "../../components/button/Button";
-import ReviewCard from "./ReviewCard";
-import LeaveReview from "./LeaveReview";
-import Modal from "./Modal";
-import "./reviewsSection.scss";
-
+import { Context } from "contexts/Context";
+import { useModal } from "utils/useModal";
 import useObserver from "utils/useObserver";
+import Button from "components/button/Button";
+import Modal from "components/Modal/Modal";
+
+import LeaveReview from "./LeaveReview";
+import ReviewCard from "./ReviewCard";
+import "./reviewsSection.scss";
 
 function ReviewsSection() {
   const [restaurant, setRestaurant] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [leaveReviewOpen, setLeaveReviewOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [containerWidth, setContainerWidth] = useState(0);
   const [isReviewed, setIsReviewed] = useState();
 
+  const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
+  const {
+    modalOpen: leaveReviewOpen,
+    showModal: showLeaveReview,
+    setModalOpen: setLeaveReviewOpen,
+    closeModal: closeLeaveReview,
+  } = useModal();
+  const { id } = useParams();
+
+  const { data, error, isLoading } = useContext(Context);
   const containerRef = useRef(null);
 
   const observeWidthCallback = (width) => {
@@ -29,8 +38,6 @@ function ReviewsSection() {
 
   useObserver({ callback: observeWidthCallback, element: containerRef });
 
-  const { id } = useParams();
-  const { data, error, isLoading } = useRequest("/restaurants");
   const { data: user } = useContext(UserContext);
 
   const reviewCountToRender = () => {
@@ -75,51 +82,6 @@ function ReviewsSection() {
     };
   });
 
-  const showModal = () => {
-    setModalOpen(true);
-    const scrollY = document.documentElement.style.getPropertyValue(
-      "--scroll-y"
-    );
-    const body = document.body;
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}`;
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-    const body = document.body;
-    const scrollY = body.style.top;
-    body.style.position = "";
-    body.style.top = "";
-    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  };
-
-  const showLeaveReview = () => {
-    setLeaveReviewOpen(true);
-    const scrollY = document.documentElement.style.getPropertyValue(
-      "--scroll-y"
-    );
-    const body = document.body;
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}`;
-  };
-
-  const closeLeaveReview = () => {
-    setLeaveReviewOpen(false);
-    const body = document.body;
-    const scrollY = body.style.top;
-    body.style.position = "";
-    body.style.top = "";
-    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  };
-
-  window.addEventListener("scroll", () => {
-    document.documentElement.style.setProperty(
-      "--scroll-y",
-      `${window.scrollY}px`
-    );
-  });
-
   const renderButton = () => {
     if (
       reviews.length > 3 ||
@@ -132,7 +94,6 @@ function ReviewsSection() {
       );
     }
   };
-  /* if (reviews.length === 0) return null; */
 
   return (
     <section ref={containerRef} className="reviews">
