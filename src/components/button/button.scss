@@ -106,7 +106,12 @@
         &:hover,
         &:focus {
             background: none;
+            box-shadow: none;
             color: $color-midnight;
+        }
+
+        &:focus-visible {
+            outline: 1px solid $color-fiord;
         }
     }
 
@@ -121,6 +126,7 @@
         &:hover,
         &:focus {
             background: none;
+            box-shadow: none;
             transform: scale(1.2);
         }
 

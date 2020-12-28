@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import Button from "components/button/Button";
-import "./confirmationModalContent.scss";
 import FormInput from "components/form/input/FormInput";
+
+import "./confirmationModalContent.scss";
 
 const ConfirmationModalContent = ({ confirm, cancel, title, content }) => {
   const [inputValue, setInputValue] = useState("");
@@ -20,12 +21,12 @@ const ConfirmationModalContent = ({ confirm, cancel, title, content }) => {
         placeholder={"******"}
         onChange={(e) => setInputValue(e.target.value)}
         value={inputValue}
-        className={`form__input ${error !== "" && "form__input--error"}`}
+        className={`form-input ${error !== "" && "form-input--error"}`}
         isError={error !== "" ? true : false}
         handleXclick={() => setInputValue("")}
         onFocus={() => setError("")}
       />
-      <p className="form__error-msg">{error}</p>
+      <p className="form-content__error-msg">{error}</p>
       <div className="confirmation__buttons">
         <Button medium handleClick={(e) => confirm(inputValue, setError)}>
           confirm
