@@ -12,16 +12,18 @@
       "reservations": {
         "books": [
           {
-            "title": "Don't Make Me Think",
             "id": "1jd85opw82"
           }
         ],
         "devices": [
           {
-            "name": "iPhone X",
             "id": "193ywpe740"
+          },
+          {
+            "id": "1563168159"
           }
-        ]
+        ],
+        "rooms": []
       },
       "notifications": [
         {

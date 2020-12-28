@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 
 import ReservationCard from "components/ReservationCard/ReservationCard";
 import { ReactComponent as Phone } from "assets/images/phone-1.svg";
@@ -9,7 +10,7 @@ import { UserContext } from "contexts/UserContext";
 
 import "./reservationsSection.scss";
 
-const ReservationsSection = () => {
+const ReservationsSection = ({ title }) => {
   const [reservations, setReservations] = useState({
     devices: 0,
     books: 0,
@@ -23,7 +24,7 @@ const ReservationsSection = () => {
         ...prevState,
         devices: data.reservations.devices.length,
         books: data.reservations.books.length,
-        rooms: 4,
+        rooms: data.reservations.rooms.length,
       }));
     else if (error)
       setReservations((prevState) => ({
@@ -36,7 +37,7 @@ const ReservationsSection = () => {
 
   return (
     <div className="RESERVATIONS">
-      <h2 className="RESERVATIONS__title">Reservations</h2>
+      <h2 className="RESERVATIONS__title">{title}</h2>
       <div className="RESERVATIONS__cards">
         <ReservationCard
           name={"Devices"}
@@ -68,6 +69,10 @@ const ReservationsSection = () => {
       </div>
     </div>
   );
+};
+
+ReservationsSection.propTypes = {
+  title: PropTypes.string,
 };
 
 export default ReservationsSection;

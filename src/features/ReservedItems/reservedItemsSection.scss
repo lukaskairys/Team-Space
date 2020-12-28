@@ -1,0 +1,12 @@
+@import '../../styles/base/base';
+
+.reservation-item {
+    margin-bottom: 2rem;
+
+    &__title {
+        @include typography-h3;
+
+        color: $color-fiord;
+        margin-bottom: 2rem;
+    }
+}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import { FavoriteTypes } from "utils/FavoriteTypes";
 import groupArray from "utils/groupArray";
 
 import "./reservationsList.scss";
@@ -8,6 +7,7 @@ import ReservationCard from "./ReservationCard";
 import Pagination from "./Pagination";
 import Tag from "./Tag";
 import dataFilter from "../utils/dataFilter";
+import { constructRenderable } from "../utils/constructRenderable";
 
 function ReservationsList({
   searchTerm,
@@ -56,7 +56,7 @@ function ReservationsList({
     const renderCards = () => {
       if (items[page]) {
         return items[page].map((item, index) => {
-          const renderableItemData = constructRenderable(item);
+          const renderableItemData = constructRenderable(item, listName);
           return (
             <ReservationCard
               key={index}
@@ -74,35 +74,6 @@ function ReservationsList({
           );
         });
       } else return null;
-    };
-
-    const constructRenderable = (item) => {
-      const renderingData = {};
-      switch (listName) {
-        case "deviceList":
-          renderingData.alt = item.deviceType;
-          renderingData.topCaption = item.brand;
-          renderingData.title = item.name;
-          renderingData.bottomCaption = item.quantity;
-          renderingData.favoriteType = FavoriteTypes.DEVICE;
-          break;
-        case "bookList":
-          renderingData.alt = "Book";
-          renderingData.topCaption = item.author;
-          renderingData.title = item.title;
-          renderingData.bottomCaption = item.rating.score;
-          renderingData.favoriteType = FavoriteTypes.BOOK;
-          break;
-        case "roomList":
-          renderingData.alt = "Meeting room";
-          renderingData.topCaption = item.type;
-          renderingData.title = item.name;
-          renderingData.bottomCaption = item.seatCount;
-          renderingData.favoriteType = FavoriteTypes.ROOM;
-          break;
-        default:
-      }
-      return renderingData;
     };
 
     const renderCardsAndPagination = () => {

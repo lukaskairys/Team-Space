@@ -1,7 +1,74 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
-.reservationsPage {
+$_z-index-10: 10;
+
+.reservations-page {
+    @include typography-body;
+
+    &__title {
+        @include typography-h2;
+
+        color: $color-fiord;
+        margin-top: 4rem;
+    }
+
+    &__all-reservations {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 3rem;
+
+        @include respond-to(1100, max) {
+            flex-direction: column;
+        }
+    }
+
+    &__reserved-items {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+
+        @include respond-to(1100, max) {
+            width: 100%;
+        }
+
+        .reservation-card {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__checked-in {
+        width: 35%;
+
+        @include respond-to(1100, max) {
+            min-width: 30rem;
+            width: 60%;
+        }
+    }
+
     &__widget {
-        margin: 10rem;
+        margin-top: 4rem;
+    }
+
+    .reservation-card__status {
+        position: relative;
+        top: 5rem;
+    }
+
+    .reservation-card__cta {
+        z-index: $_z-index-10;
+
+        .rating-container {
+            display: none;
+        }
+
+        .reservation-card__caption {
+            display: none;
+        }
+    }
+
+    .eat-out-section {
+        display: block;
     }
 }

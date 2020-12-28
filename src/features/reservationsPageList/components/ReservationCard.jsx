@@ -20,6 +20,8 @@ export default function Card({
   listName,
   favoriteType,
   id,
+  isFromReserved,
+  cancelReservation,
 }) {
   let buttonDisabled = false;
   const renderStatus = () => {
@@ -84,9 +86,19 @@ export default function Card({
           <Button medium blank>
             View more
           </Button>
-          <Button medium disabled={buttonDisabled ? true : false}>
-            Book
-          </Button>
+          {isFromReserved ? (
+            <Button
+              medium
+              disabled={false}
+              handleClick={() => cancelReservation(id)}
+            >
+              Cancel
+            </Button>
+          ) : (
+            <Button medium disabled={buttonDisabled ? true : false}>
+              Book
+            </Button>
+          )}
         </div>
       </div>
     </div>
@@ -104,4 +116,6 @@ Card.propTypes = {
   listName: PropTypes.string,
   favoriteType: PropTypes.string,
   id: PropTypes.string,
+  isFromReserved: PropTypes.bool,
+  cancelReservation: PropTypes.func,
 };

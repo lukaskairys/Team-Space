@@ -22,6 +22,8 @@ import PublicRoute from "./authentication/PublicRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
 import Page404 from "pages/Page404/Page404";
 
+import UserContextProvider from "contexts/UserContextProvider";
+
 function App() {
   return (
     <Router>
@@ -40,7 +42,9 @@ function App() {
         </PrivateRoute>
 
         <PrivateRoute exact path="/reservations">
-          <Reservations />
+          <UserContextProvider>
+            <Reservations />
+          </UserContextProvider>
         </PrivateRoute>
 
         <PrivateRoute exact path="/reservations/devices">
