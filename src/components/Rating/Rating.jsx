@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useContext,
-  useRef,
-} from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { v4 as generateID } from "uuid";
@@ -30,7 +24,6 @@ const Rating = ({
 
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  const initialRender = useRef(true);
 
   const getRatingAverage = (restaurant) => {
     const ratingsArray = restaurant.reviews.map((x) => x.rating);
@@ -80,11 +73,7 @@ const Rating = ({
   }, [restaurant, currentUser]);
 
   useEffect(() => {
-    if (initialRender.current) {
-      initialRender.current = false;
-    } else {
-      if (rating) handleNewRating();
-    }
+    if (rating) handleNewRating();
   }, [rating, handleNewRating]);
 
   if (restaurant || ratingValue) {
