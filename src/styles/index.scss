@@ -17,7 +17,7 @@ html {
     box-sizing: border-box;
     font-size: $font-size-reset;
 
-    @include respond-to(500, max) {
+    @include respond-to-mobile() {
         font-size: $font-size-reset-mobile;
     }
 }

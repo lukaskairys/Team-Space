@@ -20,7 +20,7 @@ $_breakpoint2: 910;
         width: 105%;
     }
 
-    @include respond-to(500, max) {
+    @include respond-to-mobile() {
         height: auto;
     }
 

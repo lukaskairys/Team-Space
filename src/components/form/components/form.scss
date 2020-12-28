@@ -45,7 +45,7 @@
         padding: 1rem 0;
         text-transform: uppercase;
 
-        @include respond-to(500, max) {
+        @include respond-to-mobile() {
             display: block;
         }
     }

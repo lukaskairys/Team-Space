@@ -14,7 +14,7 @@
     padding: 3rem;
     width: 100vw;
 
-    @include respond-to(500, max) {
+    @include respond-to-mobile() {
         padding: 1.5rem;
     }
 }
