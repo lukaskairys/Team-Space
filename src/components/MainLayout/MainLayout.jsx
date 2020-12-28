@@ -49,7 +49,7 @@ const MainLayout = ({ children }) => {
   };
 
   const handleHamburger = () => {
-    setIsSidebarClosed(!isSidebarClosed);
+    setIsSidebarClosed(false);
   };
 
   sessionStorage.sidebarState = isSidebarClosed;

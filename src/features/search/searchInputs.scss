@@ -13,12 +13,21 @@ $_breakpoint2: 910;
     justify-content: space-between;
     width: 100%;
 
+    @include respond-to(500, max) {
+        display: block;
+        height: auto;
+    }
+
     &-button {
         padding-top: 2.2rem;
     }
 
     &-date {
         width: 29rem;
+
+        @include respond-to(500, max) {
+            width: 100%;
+        }
     }
 
     &-text {
@@ -42,6 +51,10 @@ $_breakpoint2: 910;
         @include respond-to($_breakpoint2, max) {
             height: 4rem;
         }
+
+        @include respond-to(500, max) {
+            width: 100%;
+        }
     }
 
     &-date-input {
@@ -56,8 +69,13 @@ $_breakpoint2: 910;
         @include respond-to($_breakpoint, max) {
             width: 92%;
         }
+
         @include respond-to($_breakpoint2, max) {
             height: 4rem;
+        }
+
+        @include respond-to(500, max) {
+            width: 100%;
         }
 
         &-label {

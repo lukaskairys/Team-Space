@@ -20,6 +20,10 @@ $_breakpoint2: 910;
         width: 105%;
     }
 
+    @include respond-to(500, max) {
+        height: auto;
+    }
+
     &__title {
         @include typography-h2;
 

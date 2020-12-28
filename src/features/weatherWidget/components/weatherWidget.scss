@@ -15,6 +15,10 @@ $_spinner-offset: $_spinner-size / -2;
     position: relative;
     width: 50rem;
 
+    @include respond-to(500, max) {
+        width: 40rem;
+    }
+
     &__content {
         background: $color-white;
         border-radius: 1rem;
@@ -23,6 +27,10 @@ $_spinner-offset: $_spinner-size / -2;
         padding: $_vertical-padding 0 $_vertical-padding $_horizontal-padding;
         position: relative;
         width: 39.6rem;
+
+        @include respond-to(500, max) {
+            width: 32.6rem;
+        }
     }
 
     &__section {
@@ -78,6 +86,10 @@ $_spinner-offset: $_spinner-size / -2;
         right: 0;
         top: 0;
         width: 21rem;
+
+        @include respond-to(500, max) {
+            width: 15rem;
+        }
 
         .figure__image {
             width: 100%;
