@@ -69,15 +69,6 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
           />
         </div>
       </div>
-      <ReservationsList
-        searchTerm={searchData.searchTerm}
-        date={searchData.date}
-        tags={tags}
-        handleSingleTag={handleSingleTag}
-        availabilityOn={searchData.availabilityOn}
-        listName={listName}
-        listData={listData}
-      />
     </>
   );
 };

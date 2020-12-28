@@ -36,7 +36,6 @@ const MainLayout = ({ children }) => {
   const [isMobile, setMobile] = useState(false);
 
   useEffect(() => {
-    // console.log(isMobile);
     if (windowWidth <= 500 && isMobile === false) {
       setMobile(true);
     } else if (windowWidth > 500 && isMobile === true) {

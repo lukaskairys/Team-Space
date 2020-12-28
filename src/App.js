@@ -89,11 +89,11 @@ function App() {
         </PrivateRoute>
 
         <PrivateRoute exact path="/eat-out/:id">
-          <ContextProvider endpoint="/restaurants">
-            <MainLayout>
+          <MainLayout>
+            <ContextProvider endpoint="/restaurants">
               <Restaurant />
-            </MainLayout>
-          </ContextProvider>
+            </ContextProvider>
+          </MainLayout>
         </PrivateRoute>
         <PrivateRoute exact path="/eat-out/categories/:category">
           <MainLayout>
