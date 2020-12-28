@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import bcrypt from "bcryptjs";
 import { v4 as generateID } from "uuid";
 import { useHistory, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { useRequest } from "apis/useRequest";
-import { post } from "apis/postData";
+import { hash } from "utils/hashPassword";
+import { post } from "apis/services";
 
-export const useAuthentication = () => {
+export const useAuthentication = (setShowMessage, setMessageText) => {
   const [userId, setUserId] = useState();
-  const [showMessage, setShowMessage] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
-  const [messageText, setMessageText] = useState("Something went wrong");
   const { data } = useRequest("/users");
   const history = useHistory();
   const location = useLocation();
@@ -35,11 +35,9 @@ export const useAuthentication = () => {
             setUserId(loggingUser[0].id);
             localStorage.setItem("user", JSON.stringify(loggingUser[0].id));
             history.push(
-              location.from && location.from !== "/login" ? location.from : "/",
-              {
-                message: "Your are successfully logged in. Welcome back!",
-              }
+              location.from && location.from !== "/login" ? location.from : "/"
             );
+            toast.success("Your are successfully logged in. Welcome back!");
           } else {
             setShowMessage(true);
             setMessageText("Wrong password. Please try again.");
@@ -54,12 +52,6 @@ export const useAuthentication = () => {
     }
   }
 
-  const hash = (password) => {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-    return hash;
-  };
-
   async function register(password, dataToPost) {
     const hashedPassword = hash(password);
     dataToPost.password = hashedPassword;
@@ -72,9 +64,8 @@ export const useAuthentication = () => {
       setIsPosting(false);
       setUserId(dataToPost.id);
       localStorage.setItem("user", JSON.stringify(dataToPost.id));
-      history.push("/", {
-        message: "You are successfully on board. Welcome!",
-      });
+      history.push("/");
+      toast.success("You are now a registered member of Team Space. Welcome!");
     } catch (err) {
       setShowMessage(true);
       setIsPosting(false);
@@ -90,9 +81,6 @@ export const useAuthentication = () => {
     logout,
     register,
     isPosting,
-    setShowMessage,
-    showMessage,
-    messageText,
     userId,
   };
 };

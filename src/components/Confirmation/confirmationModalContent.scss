@@ -1,0 +1,38 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.confirmation {
+    @include typography-body;
+
+    color: $color-fiord;
+
+    &__question {
+        @include typography-h4;
+
+        padding: 2rem 0 0;
+    }
+
+    &__text {
+        margin-bottom: 2rem;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+
+        .button--blank {
+            margin-left: 1rem;
+        }
+    }
+
+    .form-input {
+        display: block;
+        width: 100%;
+    }
+
+    .button--icon-x {
+        right: 6rem;
+        top: 16.5rem;
+    }
+}

@@ -15,3 +15,11 @@ export const patch = async (endpoint, data, id) => {
 export const get = async (endpoint) => {
   await jsonserver.get(`${endpoint}`);
 };
+
+export const post = async (endpoint, data) => {
+  await jsonserver.post(endpoint, data);
+};
+
+export const deleteData = async (endpoint, data) => {
+  await jsonserver.delete(`${endpoint}`, data);
+};
