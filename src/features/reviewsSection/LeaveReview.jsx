@@ -10,11 +10,17 @@ import Button from "components/button/Button";
 
 import "./leaveReview.scss";
 
-function LeaveReview({ restaurant, closeModal, setReviews, setIsReviewed }) {
+function LeaveReview({
+  restaurant,
+  closeModal,
+  setReviews,
+  setIsReviewed,
+  reviews,
+}) {
   const { data } = useContext(UserContext);
   let displayedComment;
-  if (restaurant.reviews.some((review) => review.userName === data.userName)) {
-    const currentReview = restaurant.reviews.filter(
+  if (reviews.some((review) => review.userName === data.userName)) {
+    const currentReview = reviews.filter(
       (review) => review.userName === data.userName
     );
     displayedComment = currentReview[0].comment;
@@ -29,7 +35,7 @@ function LeaveReview({ restaurant, closeModal, setReviews, setIsReviewed }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue !== "" && ratingValue !== undefined) {
+    if (inputValue !== "" || ratingValue !== undefined) {
       const newReview = {
         userName: currentUser,
         id: generateID(),
@@ -69,7 +75,7 @@ function LeaveReview({ restaurant, closeModal, setReviews, setIsReviewed }) {
   };
 
   const handleDelete = () => {
-    const deletedArray = commentArray.filter(
+    const deletedArray = reviews.filter(
       (review) => review.userName !== currentUser
     );
     const dataToUpdate = { reviews: [...deletedArray] };
@@ -130,6 +136,7 @@ LeaveReview.propTypes = {
   closeModal: PropTypes.func,
   setReviews: PropTypes.func,
   setIsReviewed: PropTypes.func,
+  reviews: PropTypes.array,
 };
 
 export default LeaveReview;

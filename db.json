@@ -33,19 +33,16 @@
       "liked": {
         "restaurants": [
           {
+            "id": "porhch2lam"
+          },
+          {
+            "id": "sejw2ugddc"
+          },
+          {
             "id": "x8bd7ozuj6"
           },
           {
             "id": "h3hlqj5bcb"
-          },
-          {
-            "id": "porhch2lam"
-          },
-          {
-            "id": "9kdf9qawui"
-          },
-          {
-            "id": "sejw2ugddc"
           }
         ],
         "books": [
@@ -124,9 +121,8 @@
       "reviews": [
         {
           "userName": "Frontend Wizard",
-          "id": "11838584-bc28-46d3-af7a-94ae7ec82c32",
-          "comment": "dassa",
-          "rating": 1
+          "id": "2fd383fa-738a-444f-826d-232c52b18650",
+          "comment": "grill\n"
         },
         {
           "userName": "Luke Skywalker",
@@ -376,6 +372,12 @@
       "checkIns": 5,
       "reviews": [
         {
+          "userName": "Frontend Wizard",
+          "id": "48d207b2-a7e8-45cb-b39c-8c19db496ccf",
+          "comment": "",
+          "rating": 5
+        },
+        {
           "userName": "Rocky Thornton",
           "id": "x1y6iixy5l",
           "comment": "Beautiful restaurant in the centre of Lithuania next to highway Klaipėda-Kaunas. Delicious food, nice choice, good local and imported drinks.",
@@ -495,6 +497,12 @@
       "checkIns": 9,
       "reviews": [
         {
+          "userName": "Frontend Wizard",
+          "id": "9229dbe7-c623-4f2a-8aba-e6af2d2b6981",
+          "comment": "",
+          "rating": 3
+        },
+        {
           "userName": "Laura Palmer",
           "id": "bt1x97n2je",
           "comment": "Best Mexican place in Kaunas for sure. Appetizers, main course, dessert, all are on the high level.",
@@ -535,6 +543,12 @@
       "image": "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
       "checkIns": 19,
       "reviews": [
+        {
+          "userName": "Frontend Wizard",
+          "id": "0c97a9c1-de43-40c9-94b0-ebd861ba9a18",
+          "comment": "",
+          "rating": 1
+        },
         {
           "userName": "Pandora Burns",
           "id": "euz4pyx8bd",

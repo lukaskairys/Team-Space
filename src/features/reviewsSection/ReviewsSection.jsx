@@ -136,22 +136,29 @@ function ReviewsSection() {
 
   return (
     <section ref={containerRef} className="reviews">
-      <h3 className="reviews__title">Reviews</h3>
       {reviews.length !== 0 && (
-        <div
-          className={classNames("reviews__content", {
-            "is-narrow": containerWidth < 572 && width < 1455,
-          })}
-        >
-          {isLoading && <span></span>}
-          {error && <span>Error</span>}
-          {reviewsToShow.map((review) => (
-            <ReviewCard review={review} key={review.id} />
-          ))}
-        </div>
+        <>
+          <h3 className="reviews__title">Reviews</h3>
+
+          <div
+            className={classNames("reviews__content", {
+              "is-narrow": containerWidth < 572 && width < 1455,
+            })}
+          >
+            {isLoading && <span></span>}
+            {error && <span>Error</span>}
+            {reviewsToShow.map((review) => (
+              <ReviewCard review={review} key={review.id} />
+            ))}
+          </div>
+        </>
       )}
 
-      <div className="reviews__buttons">
+      <div
+        className={classNames("reviews__buttons", {
+          "is-empty": reviews.length === 0,
+        })}
+      >
         {renderButton()}
         <Button medium={true} handleClick={showLeaveReview}>
           {!isReviewed && <span>leave a review</span>}
@@ -174,6 +181,7 @@ function ReviewsSection() {
             restaurant={restaurant[0]}
             setReviews={setReviews}
             setIsReviewed={setIsReviewed}
+            reviews={reviews}
           />
         </Modal>
       )}
