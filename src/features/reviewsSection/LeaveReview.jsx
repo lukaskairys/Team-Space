@@ -10,53 +10,58 @@ import Button from "components/button/Button";
 
 import "./leaveReview.scss";
 
-function LeaveReview({ restaurant, closeModal, setTest }) {
+function LeaveReview({ restaurant, closeModal, setReviews, setIsReviewed }) {
   const { data } = useContext(UserContext);
   let displayedComment;
-  let displayedRating;
   if (restaurant.reviews.some((review) => review.userName === data.userName)) {
     const currentReview = restaurant.reviews.filter(
       (review) => review.userName === data.userName
     );
     displayedComment = currentReview[0].comment;
-    displayedRating = currentReview[0].rating;
   } else {
     displayedComment = "";
-    displayedRating = null;
   }
 
   const [inputValue, setInputValue] = useState(displayedComment);
-  const [ratingValue, setRatingValue] = useState(displayedRating);
+  const [ratingValue, setRatingValue] = useState();
   const currentUser = data.userName;
   const commentArray = restaurant.reviews;
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (inputValue !== "" && ratingValue !== undefined) {
+      const newReview = {
+        userName: currentUser,
+        id: generateID(),
+        comment: inputValue,
+        rating: ratingValue,
+      };
 
-    const newReview = {
-      userName: currentUser,
-      id: generateID(),
-      comment: inputValue,
-      rating: ratingValue,
-    };
+      if (!commentArray.some((review) => review.userName === currentUser)) {
+        commentArray.unshift(newReview);
+        const dataToUpdate = { reviews: [...commentArray] };
+        patch("restaurants", dataToUpdate, restaurant.id);
+        setReviews(dataToUpdate.reviews);
+        setIsReviewed(true);
+      } else {
+        const updatedArray = commentArray.map((review) => {
+          if (review.userName === currentUser) {
+            review.rating = ratingValue;
+            review.comment = inputValue;
+          }
+          return review;
+        });
+        const dataToUpdate = { reviews: [...updatedArray] };
+        patch("restaurants", dataToUpdate, restaurant.id);
+        setReviews(dataToUpdate.reviews);
+        setIsReviewed(true);
+      }
 
-    if (!commentArray.some((review) => review.userName === currentUser)) {
-      commentArray.unshift(newReview);
-      const dataToUpdate = { reviews: [...commentArray] };
-      patch("restaurants", dataToUpdate, restaurant.id);
+      closeModal();
+      warnToast(`You have left review for ${restaurant.name}`);
     } else {
-      const updatedArray = commentArray.map((review) => {
-        if (review.userName === currentUser) {
-          review.rating = ratingValue;
-          review.comment = inputValue;
-        }
-        return review;
-      });
-      const dataToUpdate = { reviews: [...updatedArray] };
-      patch("restaurants", dataToUpdate, restaurant.id);
+      closeModal();
     }
-    closeModal();
-    warnToast(`You have left review for ${restaurant.name}`);
   };
 
   const handleInputChange = (event) => {
@@ -70,7 +75,9 @@ function LeaveReview({ restaurant, closeModal, setTest }) {
     const dataToUpdate = { reviews: [...deletedArray] };
 
     patch("restaurants", dataToUpdate, restaurant.id);
-    setTest(Math.random());
+    setReviews(dataToUpdate.reviews);
+    setInputValue("");
+    setIsReviewed(false);
     closeModal();
     warnToast(`Your review for ${restaurant.name} has been deleted`);
   };
@@ -121,7 +128,8 @@ LeaveReview.propTypes = {
     reviews: PropTypes.array,
   }),
   closeModal: PropTypes.func,
-  setTest: PropTypes.func,
+  setReviews: PropTypes.func,
+  setIsReviewed: PropTypes.func,
 };
 
 export default LeaveReview;

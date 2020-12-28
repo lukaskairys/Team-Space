@@ -19,7 +19,7 @@ function ReviewsSection() {
   const [leaveReviewOpen, setLeaveReviewOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [containerWidth, setContainerWidth] = useState(0);
-  const [test, setTest] = useState(1);
+  const [isReviewed, setIsReviewed] = useState();
 
   const containerRef = useRef(null);
 
@@ -34,7 +34,7 @@ function ReviewsSection() {
   const { data: user } = useContext(UserContext);
 
   const reviewCountToRender = () => {
-    if (containerWidth < 1070 && width < 1455) {
+    if (containerWidth < 1016 && width < 1455) {
       return 2;
     } else if (reviews.length > 3) {
       return 3;
@@ -49,6 +49,11 @@ function ReviewsSection() {
     try {
       const restaurant = data.filter((restaurant) => restaurant.id === id);
       setRestaurant(restaurant);
+      setIsReviewed(
+        restaurant[0].reviews.some(
+          (review) => review.userName === user.userName
+        )
+      );
       const reviews = restaurant[0].reviews.filter(
         (review) => review.comment !== ""
       );
@@ -58,7 +63,7 @@ function ReviewsSection() {
         setReviews([]);
       }
     }
-  }, [data, id]);
+  }, [data, id, user.userName]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -127,32 +132,30 @@ function ReviewsSection() {
       );
     }
   };
-  if (reviews.length === 0) return null;
+  /* if (reviews.length === 0) return null; */
 
   return (
     <section ref={containerRef} className="reviews">
-      <h3 className="reviews__title">{test}</h3>
-      <div
-        className={classNames("reviews__content", {
-          "is-narrow": containerWidth < 700 && width < 1455,
-        })}
-      >
-        {isLoading && <span></span>}
-        {error && <span>Error</span>}
-        {reviewsToShow.map((review) => (
-          <ReviewCard review={review} key={review.id} />
-        ))}
-      </div>
+      <h3 className="reviews__title">Reviews</h3>
+      {reviews.length !== 0 && (
+        <div
+          className={classNames("reviews__content", {
+            "is-narrow": containerWidth < 572 && width < 1455,
+          })}
+        >
+          {isLoading && <span></span>}
+          {error && <span>Error</span>}
+          {reviewsToShow.map((review) => (
+            <ReviewCard review={review} key={review.id} />
+          ))}
+        </div>
+      )}
 
       <div className="reviews__buttons">
         {renderButton()}
         <Button medium={true} handleClick={showLeaveReview}>
-          {!restaurant[0].reviews.some(
-            (review) => review.userName === user.userName
-          ) && <span>leave a review</span>}
-          {restaurant[0].reviews.some(
-            (review) => review.userName === user.userName
-          ) && <span>edit your review</span>}
+          {!isReviewed && <span>leave a review</span>}
+          {isReviewed && <span>edit your review</span>}
         </Button>
       </div>
 
@@ -169,7 +172,8 @@ function ReviewsSection() {
           <LeaveReview
             closeModal={closeLeaveReview}
             restaurant={restaurant[0]}
-            setTest={setTest}
+            setReviews={setReviews}
+            setIsReviewed={setIsReviewed}
           />
         </Modal>
       )}
