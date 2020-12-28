@@ -1,8 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_breakpoint: 1490;
-$_breakpoint2: 910;
+$_breakpoint: 1010;
+$_breakpoint2: 771;
 
 .search-bar {
     background-color: $color-white;
@@ -11,13 +11,15 @@ $_breakpoint2: 910;
     color: $color-fiord;
     height: 23rem;
     margin-top: 2.4rem;
-    overflow: hidden;
-    padding: 3.6rem 4rem 4rem;
+    min-width: 34.5rem;
+    padding: 4rem;
     width: 100%;
 
+    @include respond-to($_breakpoint, max) {
+        height: 30rem;
+    }
     @include respond-to($_breakpoint2, max) {
-        padding: 3.6rem 3rem 4rem;
-        width: 105%;
+        height: 36rem;
     }
 
     &__title {
@@ -25,17 +27,21 @@ $_breakpoint2: 910;
 
         color: $color-fiord;
         margin-bottom: 2.4rem;
+
+        @include respond-to($_breakpoint, max) {
+            margin-bottom: 1.8rem;
+        }
     }
 
     &__filter {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.6rem;
         width: 25rem;
 
-        @include respond-to($_breakpoint2, max) {
-            margin-bottom: 1.6rem;
+        @include respond-to($_breakpoint, max) {
+            margin-bottom: 1.2rem;
         }
     }
 

@@ -17,22 +17,18 @@ const useForm = (callback, validate) => {
       [inputName]: "",
     });
   };
+
   const err = validate(values, data);
-  const validateForm = () => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     setErrors(err);
     if (isObjectEmpty(err)) {
       callback();
       setIsValid(true);
+      setValues({});
     } else {
       setIsValid(false);
-    }
-  };
-
-  const handleSubmit = (event) => {
-    if (event) event.preventDefault();
-    validateForm();
-    if (isObjectEmpty(err)) {
-      setValues({});
     }
   };
 
