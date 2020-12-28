@@ -8,6 +8,7 @@ import UserProfileWidget from "../../features/userProfileWidget/components/UserP
 import { ReactComponent as Hamburger } from "assets/images/hamburger.svg";
 import useWindowDimensions from "utils/useWindowDimensions";
 import UserContextProvider from "contexts/UserContextProvider";
+import Button from "components/button/Button";
 
 import "./MainLayout.scss";
 
@@ -80,12 +81,13 @@ const MainLayout = ({ children }) => {
         >
           <header className="main-layout__header">
             <div className="main-layout__mobile-navigation">
-              <button
+              <Button
                 id="menu-toggle"
-                className="main-layout__mobile-toggle"
-                aria-label="Open the menu"
-                onClick={handleHamburger}
-                ref={hamburgerRef}
+                empty={true}
+                mobileNavToggle={true}
+                ariaLabel="Open the menu"
+                handleClick={handleHamburger}
+                buttonRef={hamburgerRef}
               >
                 <Hamburger
                   aria-hidden="true"
@@ -93,7 +95,7 @@ const MainLayout = ({ children }) => {
                     is_mobile: isMobile,
                   })}
                 />
-              </button>
+              </Button>
             </div>
             <div className="main-layout__status">
               <NotificationBell className="main-layout__notifications" />

@@ -36,10 +36,6 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         }
     }
 
-    &__mobile-toggle {
-        margin-left: 4rem;
-    }
-
     &__header {
         align-items: center;
         background-color: $color-white;
@@ -112,4 +108,8 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         margin-left: 0;
         transition: none;
     }
+}
+
+.button--mobile-toggle {
+    margin-left: 4rem;
 }

@@ -26,6 +26,8 @@ function Button({
   excludeMainClass,
   clearInput,
   buttonRef,
+  mobileNavToggle,
+  ariaLabel,
 }) {
   const btnClass = classNames({
     button: !excludeMainClass,
@@ -44,6 +46,7 @@ function Button({
     "button--filter-button-active": activeFilter,
     "button--with-icon": withIcon,
     "button--clear-input": clearInput,
+    "button--mobile-toggle": mobileNavToggle,
   });
   return (
     <button
@@ -54,6 +57,7 @@ function Button({
       disabled={disabled}
       data-tag-name={dataTagName}
       ref={buttonRef}
+      aria-label={ariaLabel}
     >
       {children}
     </button>
@@ -86,6 +90,8 @@ Button.propTypes = {
   withIcon: PropTypes.bool,
   excludeMainClass: PropTypes.bool,
   clearInput: PropTypes.bool,
+  mobileNavToggle: PropTypes.bool,
+  ariaLabel: PropTypes.string,
   buttonRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),

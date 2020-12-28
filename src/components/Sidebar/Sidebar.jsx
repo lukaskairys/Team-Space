@@ -48,6 +48,7 @@ const Sidebar = ({
       {is_mobile && (
         <Button
           type={"button"}
+          ariaLabel="Close the menu"
           iconX={true}
           handleClick={() => toggleSidebar(hamburgerRef)}
           buttonRef={closeRef}
