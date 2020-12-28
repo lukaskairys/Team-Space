@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -34,6 +34,8 @@ const MainLayout = ({ children }) => {
   const [isSidebarClosed, setIsSidebarClosed] = useState(checkSidebarState());
   const { width: windowWidth } = useWindowDimensions(0);
   const [isMobile, setMobile] = useState(false);
+  const closeRef = useRef(null);
+  const hamburgerRef = useRef(null);
 
   useEffect(() => {
     if (windowWidth <= 500 && isMobile === false) {
@@ -43,12 +45,20 @@ const MainLayout = ({ children }) => {
     }
   }, [windowWidth, isMobile]);
 
-  const toggleSidebar = () => {
-    setIsSidebarClosed(!isSidebarClosed);
+  const toggleSidebar = async (burgerRef) => {
+    await setIsSidebarClosed(!isSidebarClosed);
+    if (burgerRef !== undefined) {
+      setFocus(burgerRef);
+    }
   };
 
-  const handleHamburger = () => {
-    setIsSidebarClosed(false);
+  const handleHamburger = async () => {
+    await setIsSidebarClosed(false);
+    setFocus(closeRef);
+  };
+
+  const setFocus = (ref) => {
+    ref.current && ref.current.focus();
   };
 
   sessionStorage.sidebarState = isSidebarClosed;
@@ -59,6 +69,8 @@ const MainLayout = ({ children }) => {
           isSidebarClosed={isSidebarClosed}
           toggleSidebar={toggleSidebar}
           is_mobile={isMobile}
+          closeRef={closeRef}
+          hamburgerRef={hamburgerRef}
         />
         <div
           className={classNames("main-layout__content", {
@@ -73,6 +85,7 @@ const MainLayout = ({ children }) => {
                 className="main-layout__mobile-toggle"
                 aria-label="Open the menu"
                 onClick={handleHamburger}
+                ref={hamburgerRef}
               >
                 <Hamburger
                   aria-hidden="true"

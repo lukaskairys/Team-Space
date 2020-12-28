@@ -31,7 +31,13 @@ const sidebarData = [
   },
 ];
 
-const Sidebar = ({ isSidebarClosed, toggleSidebar, is_mobile }) => {
+const Sidebar = ({
+  isSidebarClosed,
+  toggleSidebar,
+  is_mobile,
+  closeRef,
+  hamburgerRef,
+}) => {
   return (
     <nav
       className={classNames("sidebar", {
@@ -40,7 +46,12 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar, is_mobile }) => {
       })}
     >
       {is_mobile && (
-        <Button type={"button"} iconX={true} handleClick={toggleSidebar}>
+        <Button
+          type={"button"}
+          iconX={true}
+          handleClick={() => toggleSidebar(hamburgerRef)}
+          buttonRef={closeRef}
+        >
           <IconX className="sidebar__close-icon" />
         </Button>
       )}
@@ -91,6 +102,14 @@ Sidebar.propTypes = {
   isSidebarClosed: PropTypes.bool,
   toggleSidebar: PropTypes.func,
   is_mobile: PropTypes.bool,
+  closeRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
+  hamburgerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
 export default Sidebar;

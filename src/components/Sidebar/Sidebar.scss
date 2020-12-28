@@ -106,10 +106,10 @@ $_margin-size: 1.6rem;
         text-decoration: none;
         width: 100%;
 
-        /* &:focus {
+        &:focus {
             outline: 3px solid $color-dark-violet;
             outline-offset: -3px;
-        } */
+        }
     }
 
     &__list-icon-container {

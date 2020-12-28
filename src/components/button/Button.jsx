@@ -25,6 +25,7 @@ function Button({
   withIcon,
   excludeMainClass,
   clearInput,
+  buttonRef,
 }) {
   const btnClass = classNames({
     button: !excludeMainClass,
@@ -52,6 +53,7 @@ function Button({
       tabIndex={isStatic && "-1"}
       disabled={disabled}
       data-tag-name={dataTagName}
+      ref={buttonRef}
     >
       {children}
     </button>
@@ -84,6 +86,10 @@ Button.propTypes = {
   withIcon: PropTypes.bool,
   excludeMainClass: PropTypes.bool,
   clearInput: PropTypes.bool,
+  buttonRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
 export default Button;
