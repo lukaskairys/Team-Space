@@ -1,33 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 
 import { UserContext } from "contexts/UserContext";
 import { isObjectEmpty } from "utils/objects";
 
 import "./helloWidget.scss";
 
-const options = {
-  hour: "numeric",
-  minute: "2-digit",
-};
-const time = new Date().toLocaleTimeString("lt-LT", options);
-
-const HelloWidget = () => {
-  const [currentTime, setCurrentTime] = useState(time);
+const HelloWidget = ({ currentTime }) => {
   const [userName, setUserName] = useState("Wizard");
 
   const { data, error } = useContext(UserContext);
 
   useEffect(() => {
-    let intervalID = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString("lt-LT", options));
-    }, 1000);
-
     if (!isObjectEmpty(data)) setUserName(data.userName);
     else if (error) setUserName("Mr. Error");
-
-    return () => {
-      clearInterval(intervalID);
-    };
   }, [data, error]);
 
   const renderGreeting = () => {
@@ -47,6 +33,10 @@ const HelloWidget = () => {
       <h1 className="hello-widget__greeting">{`${renderGreeting()}, ${userName}`}</h1>
     </div>
   );
+};
+
+HelloWidget.propTypes = {
+  currentTime: PropTypes.string,
 };
 
 export default HelloWidget;
