@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
@@ -10,6 +11,9 @@ import "./Reservations.scss";
 const Reservations = () => {
   return (
     <div className="reservationsPage">
+      <Helmet>
+        <title>Reservations</title>
+      </Helmet>
       <UserContextProvider>
         <MainLayout>
           <>

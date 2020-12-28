@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
 import UserContextProvider from "contexts/UserContextProvider";
@@ -16,6 +17,9 @@ const Dashboard = () => {
   const currentTime = useCurrentTime();
   return (
     <div className="dashboard">
+      <Helmet>
+        <title>Team Space</title>
+      </Helmet>
       <UserContextProvider>
         <MainLayout>
           <>

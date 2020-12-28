@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
 import RegistrationPage from "pages/Registration/RegistrationPage";
@@ -24,63 +25,65 @@ import Page404 from "pages/Page404/Page404";
 
 function App() {
   return (
-    <Router>
-      <Toast />
+    <HelmetProvider>
+      <Router>
+        <Toast />
 
-      <Switch>
-        <PublicRoute exact path="/login">
-          <LoginPage />
-        </PublicRoute>
-        <PublicRoute exact path="/registration">
-          <RegistrationPage />
-        </PublicRoute>
+        <Switch>
+          <PublicRoute exact path="/login">
+            <LoginPage />
+          </PublicRoute>
+          <PublicRoute exact path="/registration">
+            <RegistrationPage />
+          </PublicRoute>
 
-        <PrivateRoute exact path="/">
-          <Dashboard />
-        </PrivateRoute>
+          <PrivateRoute exact path="/">
+            <Dashboard />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations">
-          <Reservations />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations">
+            <Reservations />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations/devices">
-          <Devices />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations/devices">
+            <Devices />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations/books">
-          <Books />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations/books">
+            <Books />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations/rooms">
-          <Rooms />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations/rooms">
+            <Rooms />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/eat-out/categories">
-          <Redirect
-            to={{
-              pathname: "/eat-out",
-              isRedirected: true,
-            }}
-          />
-        </PrivateRoute>
+          <PrivateRoute exact path="/eat-out/categories">
+            <Redirect
+              to={{
+                pathname: "/eat-out",
+                isRedirected: true,
+              }}
+            />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/eat-out/">
-          <EatOut />
-        </PrivateRoute>
+          <PrivateRoute exact path="/eat-out/">
+            <EatOut />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/eat-out/:id">
-          <ContextProvider endpoint="/restaurants">
-            <Restaurant />
-          </ContextProvider>
-        </PrivateRoute>
+          <PrivateRoute exact path="/eat-out/:id">
+            <ContextProvider endpoint="/restaurants">
+              <Restaurant />
+            </ContextProvider>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/eat-out/categories/:category">
-          <EatOutCategoriesPage />
-        </PrivateRoute>
+          <PrivateRoute exact path="/eat-out/categories/:category">
+            <EatOutCategoriesPage />
+          </PrivateRoute>
 
-        <Route component={Page404} />
-      </Switch>
-    </Router>
+          <Route component={Page404} />
+        </Switch>
+      </Router>
+    </HelmetProvider>
   );
 }
 

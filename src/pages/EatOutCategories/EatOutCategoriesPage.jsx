@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, Redirect } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
 import MainLayout from "components/MainLayout/MainLayout";
@@ -25,6 +26,9 @@ function EatOutCategoriesPage() {
 
   return (
     <UserContextProvider>
+      <Helmet>
+        <title>{"Places for " + catogoryToCheck}</title>
+      </Helmet>
       <MainLayout>
         <ContextProvider endpoint="/restaurants">
           <Breadcrumbs />
