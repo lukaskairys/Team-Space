@@ -13,8 +13,9 @@
 }
 
 @mixin respond-to-mobile() {
-    @include respond-to(500, max);
-    @content;
+    @include respond-to(500, max) {
+        @content;
+    }
 }
 
 //text overflow trim
