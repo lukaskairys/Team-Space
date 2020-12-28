@@ -37,7 +37,7 @@ function UserProfileWidget() {
       <button onClick={() => setOpen(!open)} ref={pictureRef}>
         <img
           className="profile-widget__picture"
-          src={image}
+          src={`data:image/jpeg;base64,${image}`}
           alt="user profile"
         />
         <ArrowDown className="profile-widget__arrow " />
