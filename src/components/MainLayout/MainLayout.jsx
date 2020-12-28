@@ -82,7 +82,6 @@ const MainLayout = ({ children }) => {
           <header className="main-layout__header">
             <div className="main-layout__mobile-navigation">
               <Button
-                id="menu-toggle"
                 empty={true}
                 mobileNavToggle={true}
                 ariaLabel="Open the menu"
