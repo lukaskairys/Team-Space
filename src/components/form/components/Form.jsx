@@ -9,13 +9,22 @@ import Loader from "react-loader-spinner";
 import {
   validateRegistration,
   validateLogin,
-  validateSettings,
+  noValidation,
   validatePasswords,
+  validateEmail,
 } from "../utils/validationRules";
 import { useAuthentication } from "authentication/useAuthentication";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
 
-function Form({ title, subtitle, action, user, showModal }) {
+const Form = (props) => {
+  const {
+    title,
+    subtitle,
+    action,
+    user,
+    showModal,
+    settingsHeaderRenderer,
+  } = props;
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
 
@@ -24,11 +33,11 @@ function Form({ title, subtitle, action, user, showModal }) {
     setMessageText
   );
 
-  const { changeAccountDetails, changePassword } = useProfileSettings(
-    user,
-    setShowMessage,
-    setMessageText
-  );
+  const {
+    changeAccountDetails,
+    changePassword,
+    changeEmail,
+  } = useProfileSettings(user, setShowMessage, setMessageText);
 
   const {
     values,
@@ -74,77 +83,105 @@ function Form({ title, subtitle, action, user, showModal }) {
   };
 
   function getCallback() {
-    if (action === "register")
-      return () => register(values.password, dataToPost);
-    else if (action === "login")
-      return () => login(values.email, values.password);
-    else if (action === "account")
-      return () => changeAccountDetails(dataToChange);
-    else if (action === "passwords")
-      return () => changePassword(passwords, user);
+    let callback;
+    switch (action) {
+      case "register":
+        callback = () => register(values.password, dataToPost);
+        break;
+      case "login":
+        callback = () => login(values.email, values.password);
+        break;
+      case "account":
+        callback = () => changeAccountDetails(dataToChange);
+        break;
+      case "passwords":
+        callback = () => changePassword(passwords, user);
+        break;
+      case "email":
+        callback = () => changeEmail(values.email, values.oldPassword, user);
+        break;
+      default:
+        return;
+    }
+    return callback;
   }
 
   function getValidation() {
-    if (action === "register") return validateRegistration;
-    else if (action === "login") return validateLogin;
-    else if (action === "account") return validateSettings;
-    else if (action === "passwords") return validatePasswords;
+    let validation;
+    switch (action) {
+      case "register":
+        validation = validateRegistration;
+        break;
+      case "login":
+        validation = validateLogin;
+        break;
+      case "account":
+        validation = noValidation;
+        break;
+      case "passwords":
+        validation = validatePasswords;
+        break;
+      case "email":
+        validation = validateEmail;
+        break;
+      default:
+        return;
+    }
+    return validation;
   }
 
   return (
-    <>
-      <div className="form">
+    <section className="form">
+      {settingsHeaderRenderer ? (
+        settingsHeaderRenderer()
+      ) : (
         <div className="form__header">
           <h2 className="form__title">{title}</h2>
           <p className="form__subtitle">{subtitle}</p>
         </div>
+      )}
 
-        <form onSubmit={handleSubmit}>
-          {isPosting ? (
-            <div className="form__loader">
-              <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
-            </div>
-          ) : (
-            <div className="form__content">
-              <FormContent
-                values={values}
-                errors={errors}
-                handleChange={handleChange}
-                handleFocus={handleFocus}
-                action={action}
-                handleXclick={handleXclick}
-              />
-            </div>
-          )}
-          {showMessage && (
-            <Message
-              message={messageText}
-              type={"error"}
-              setShowMessage={setShowMessage}
-            />
-          )}
-
-          <div className="form__footer">
-            <FormFooter
-              action={action}
-              showModal={showModal}
-              email={dataToChange.email}
-            />
+      <form onSubmit={handleSubmit}>
+        {isPosting ? (
+          <div className="form__loader">
+            <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
           </div>
-        </form>
-      </div>
-    </>
+        ) : (
+          <FormContent
+            values={values}
+            errors={errors}
+            handleChange={handleChange}
+            handleFocus={handleFocus}
+            action={action}
+            handleXclick={handleXclick}
+          />
+        )}
+        {showMessage && (
+          <Message
+            message={messageText}
+            type={"error"}
+            setShowMessage={setShowMessage}
+          />
+        )}
+
+        <FormFooter
+          action={action}
+          showModal={showModal}
+          email={dataToChange.email}
+        />
+      </form>
+    </section>
   );
-}
+};
 
 Form.propTypes = {
   action: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   buttonLabel: PropTypes.string,
-  // TODO:  change object
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   showModal: PropTypes.func,
+  settingsHeaderRenderer: PropTypes.func,
 };
 
 export default Form;

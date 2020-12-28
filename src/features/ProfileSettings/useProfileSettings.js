@@ -33,6 +33,19 @@ export const useProfileSettings = (user, setShowMessage, setMessageText) => {
     });
   };
 
+  const changeEmail = (email, password, user) => {
+    bcrypt.compare(password, user.password).then((result) => {
+      if (result) {
+        patch("/users", { email: email }, user.id);
+        toast.success("Email changed");
+        history.push("/settings");
+      } else {
+        setShowMessage(true);
+        setMessageText("Wrong password. Please try again.");
+      }
+    });
+  };
+
   const deleteUser = () => {
     deleteData(`users/${user.id}`, user);
     localStorage.removeItem("user");
@@ -44,5 +57,6 @@ export const useProfileSettings = (user, setShowMessage, setMessageText) => {
     changeAccountDetails,
     changePassword,
     deleteUser,
+    changeEmail,
   };
 };

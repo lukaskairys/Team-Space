@@ -12,7 +12,7 @@ import { useSearch } from "features/search/useSearch";
 import "./reservationPage.scss";
 
 const ReservationPage = ({ page, inputSliderRenderer }) => {
-  const { searchData, searchBtnClick, availableFilter } = useSearch();
+  const { searchData, searchBtnClick, activeFilter } = useSearch();
 
   const {
     filtersToRender,
@@ -34,10 +34,7 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
           0,
           -1
         )} Reservations`}</h1>
-        <Search
-          searchBtnClick={searchBtnClick}
-          availableFilter={availableFilter}
-        />
+        <Search searchBtnClick={searchBtnClick} activeFilter={activeFilter} />
         <div className="reservation-page__content">
           <div className="reservation-page__side-filters">
             {filtersToRender !== undefined &&
@@ -63,9 +60,11 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
             tags={tags}
             handleSingleTag={handleSingleTag}
             availabilityOn={searchData.availabilityOn}
+            favoritesOn={searchData.favoritesOn}
             listName={listName}
             listData={listData}
             counter={counter}
+            endpoint={page}
           />
         </div>
       </div>

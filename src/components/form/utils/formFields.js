@@ -75,14 +75,11 @@ export const registerForm = [
   fields.password,
   fields.repeatPassword,
 ];
-export const accountForm = [
-  fields.username,
-  fields.birthday,
-  fields.email,
-  fields.location,
-];
+export const accountForm = [fields.username, fields.birthday, fields.location];
 export const passwordsForm = [
   fields.oldPassword,
   fields.newPassword,
   fields.repeatPassword,
 ];
+
+export const emailForm = [fields.email, fields.oldPassword];

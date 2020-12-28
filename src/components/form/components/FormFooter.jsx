@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import Button from "components/button/Button";
 
+import "./formFooter.scss";
+
 function FormFooter({ action, showModal }) {
   const getFormFooterData = () => {
     let data = {
@@ -27,6 +29,7 @@ function FormFooter({ action, showModal }) {
         break;
       case "account":
       case "passwords":
+      case "email":
         data.label = "Change";
         break;
       default:
@@ -38,7 +41,7 @@ function FormFooter({ action, showModal }) {
   const { label, textBeforeLink, linkText, linkPath } = getFormFooterData();
 
   return (
-    <>
+    <div className="form-footer">
       <Button type={"submit"} large={true}>
         <span>{label}</span>
       </Button>
@@ -49,12 +52,12 @@ function FormFooter({ action, showModal }) {
             Delete my account
           </Button>
         ) : (
-          <Link to={linkPath} className="form__link">
+          <Link to={linkPath} className="form-footer__link">
             {linkText}
           </Link>
         )}
       </p>
-    </>
+    </div>
   );
 }
 

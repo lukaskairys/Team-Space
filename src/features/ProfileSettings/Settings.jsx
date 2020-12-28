@@ -1,63 +1,75 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
+import bcrypt from "bcryptjs";
 
-import Modal from "components/Modal/Modal";
-import Button from "components/button/Button";
+import SettingsHeader from "./SettingsHeader";
 import Form from "components/form/components/Form";
+import Modal from "components/Modal/Modal";
+import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 
 import { UserContext } from "contexts/UserContext";
 import { useModal } from "utils/useModal";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
-import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 
-function Settings({ whichForm, switchSettingsForm }) {
+import "./settings.scss";
+
+function Settings() {
   const { data: user } = useContext(UserContext);
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
   const { deleteUser } = useProfileSettings(user);
 
-  const confirm = () => {
-    deleteUser();
-    closeModal();
+  const [whichForm, setWhichForm] = useState("account");
+
+  const confirm = (inputValue, setError) => {
+    bcrypt.compare(inputValue, user.password).then((result) => {
+      if (result) {
+        deleteUser();
+        closeModal();
+      } else {
+        setError("Wrong password. Please try again.");
+      }
+    });
   };
 
   const cancel = () => {
     closeModal();
   };
 
+  const getAction = () => {
+    let action;
+    switch (whichForm) {
+      case "account":
+        action = "account";
+        break;
+      case "passwords":
+        action = "passwords";
+        break;
+      case "email":
+        action = "email";
+        break;
+      default:
+        return;
+    }
+    return action;
+  };
+
   return (
-    <div className="profile-settings">
-      <div className="form-container">
-        <div className="profile-settings__buttons">
-          <div>
-            <Button
-              blankNoBorder={true}
-              isMarked={whichForm === "account" && true}
-              handleClick={switchSettingsForm}
-            >
-              Account Details
-            </Button>
-            <Button
-              blankNoBorder={true}
-              isMarked={whichForm === "passwords" && true}
-              handleClick={switchSettingsForm}
-            >
-              Change password
-            </Button>
-          </div>
-          <Button blankNoBorder={true}>Profile picture</Button>
-        </div>
-        {whichForm === "account" && (
-          <Form
-            action={"account"}
-            title={"Profile settings"}
-            user={user}
-            showModal={showModal}
-          />
-        )}
-        {whichForm === "passwords" && (
-          <Form action={"passwords"} title={"Profile settings"} user={user} />
-        )}
-      </div>
+    <>
+      <article className="profile-settings">
+        <h2 className="profile-settings__title">Profile settings</h2>
+        <Form
+          action={getAction()}
+          user={user}
+          showModal={showModal}
+          settingsHeaderRenderer={() => (
+            <SettingsHeader
+              setWhichForm={setWhichForm}
+              whichForm={whichForm}
+              userImage={user.userImage}
+            />
+          )}
+        />
+      </article>
 
       {modalOpen && (
         <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
@@ -69,7 +81,7 @@ function Settings({ whichForm, switchSettingsForm }) {
           />
         </Modal>
       )}
-    </div>
+    </>
   );
 }
 
