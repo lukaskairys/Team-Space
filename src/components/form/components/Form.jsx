@@ -22,6 +22,7 @@ const Form = (props) => {
     subtitle,
     action,
     user,
+    setUser,
     showModal,
     settingsHeaderRenderer,
     max,
@@ -38,7 +39,9 @@ const Form = (props) => {
     changeAccountDetails,
     changePassword,
     changeEmail,
-  } = useProfileSettings(user, setShowMessage, setMessageText);
+    // user,
+    // setUser,
+  } = useProfileSettings(user, () => {}, setShowMessage, setMessageText);
 
   const {
     values,
@@ -71,7 +74,7 @@ const Form = (props) => {
   };
 
   const dataToChange = {
-    userName: values.username,
+    userName: values.userName,
     location: values.location,
     birthdayDate: values.birthday,
   };
@@ -92,7 +95,7 @@ const Form = (props) => {
         callback = () => login(values.email, values.password);
         break;
       case "account":
-        callback = () => changeAccountDetails(dataToChange);
+        callback = () => changeAccountDetails(dataToChange, setUser);
         break;
       case "passwords":
         callback = () => changePassword(passwords, user);
@@ -184,6 +187,7 @@ Form.propTypes = {
   showModal: PropTypes.func,
   settingsHeaderRenderer: PropTypes.func,
   max: PropTypes.string,
+  setUser: PropTypes.func,
 };
 
 export default Form;

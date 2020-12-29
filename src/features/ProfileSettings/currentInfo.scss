@@ -41,11 +41,11 @@
 
     &__item-title {
         @include typography-caption;
-        // border-bottom: 1px solid $color-iron;
+        border-bottom: 1px solid $color-iron;
         margin-bottom: 0.5rem;
 
         @include respond-to(886, max) {
-            // border-bottom: unset;
+            border-bottom: unset;
             margin-bottom: 0;
             width: 8rem;
         }

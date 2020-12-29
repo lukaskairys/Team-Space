@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import bcrypt from "bcryptjs";
 
@@ -11,15 +11,24 @@ import ConfirmationModalContent from "components/Confirmation/ConfirmationModalC
 import { UserContext } from "contexts/UserContext";
 import { useModal } from "utils/useModal";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
+import { isObjectEmpty } from "utils/objects";
 
 import "./settings.scss";
 
 function Settings() {
-  const { data: user } = useContext(UserContext);
+  const { data } = useContext(UserContext);
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
-  const { deleteUser } = useProfileSettings(user);
 
   const [whichForm, setWhichForm] = useState("account");
+  const [user, setUser] = useState({});
+
+  const { deleteUser } = useProfileSettings(user, setUser);
+
+  useEffect(() => {
+    if (data && !isObjectEmpty(data)) {
+      setUser(data);
+    }
+  }, [data, setUser]);
 
   const todaysDate = () => {
     return new Date().toISOString().split("T")[0];
@@ -68,6 +77,7 @@ function Settings() {
             action={getAction()}
             max={todaysDate()}
             user={user}
+            setUser={setUser}
             showModal={showModal}
             settingsHeaderRenderer={() => (
               <SettingsHeader

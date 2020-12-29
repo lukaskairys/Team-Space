@@ -9,11 +9,16 @@ import { patch, deleteData } from "apis/services";
 export const useProfileSettings = (user, setShowMessage, setMessageText) => {
   const history = useHistory();
 
-  const changeAccountDetails = (dataToChange) => {
+  const changeAccountDetails = (dataToChange, setUser) => {
     let newData = {};
+
     for (const prop in dataToChange) {
-      if (dataToChange[prop])
+      if (dataToChange[prop]) {
         newData = { ...dataToChange, [prop]: dataToChange[prop] };
+      }
+      if (dataToChange[prop] !== undefined) {
+        setUser({ ...user, [prop]: dataToChange[prop] });
+      }
     }
 
     if (!isObjectEmpty(newData)) {
