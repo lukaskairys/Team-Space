@@ -22,7 +22,6 @@ import PrivateRoute from "./authentication/PrivateRoute.jsx";
 import PublicRoute from "./authentication/PublicRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
 import Page404 from "pages/Page404/Page404";
-import Settings from "pages/Settings/Settings.jsx";
 
 function App() {
   return (
@@ -82,10 +81,6 @@ function App() {
 
         <PrivateRoute exact path="/eat-out/categories/:category">
           <EatOutCategoriesPage />
-        </PrivateRoute>
-
-        <PrivateRoute exact path="/settings">
-          <Settings />
         </PrivateRoute>
 
         <Route component={Page404} />

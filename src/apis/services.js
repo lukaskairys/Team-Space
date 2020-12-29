@@ -13,7 +13,7 @@ export const patch = async (endpoint, data, id) => {
 };
 
 export const get = async (endpoint) => {
-  await jsonserver.get(`${endpoint}`);
+  return await jsonserver.get(`${endpoint}`);
 };
 
 export const post = async (endpoint, data) => {

@@ -35,11 +35,17 @@ function UserProfileWidget() {
   return (
     <div className="profile-widget" ref={dropdownRef}>
       <button onClick={() => setOpen(!open)} ref={pictureRef}>
-        <img
-          className="profile-widget__picture"
-          src={`data:image/jpeg;base64,${image}`}
-          alt="user profile"
-        />
+        {image && (
+          <img
+            className="profile-widget__picture"
+            src={
+              image.startsWith("https://")
+                ? image
+                : `data:image/jpeg;base64,${image}`
+            }
+            alt="user profile"
+          />
+        )}
         <ArrowDown className="profile-widget__arrow " />
       </button>
 

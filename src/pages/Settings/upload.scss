@@ -2,14 +2,14 @@
 
 .filepond--root {
     margin: 0 auto;
-    width: 370px;
+    width: 150px;
 }
 
 .filepond--file-action-button.filepond--file-action-button,
 .filepond--progress-indicator.filepond--load-indicator {
-    font-size: $font-size-16;
+    font-size: $font-size-12;
 }
 
 .filepond--drop-label.filepond--drop-label label {
-    font-size: $font-size-16;
+    font-size: $font-size-12;
 }

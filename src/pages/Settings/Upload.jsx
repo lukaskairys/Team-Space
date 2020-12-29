@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FilePond, registerPlugin } from "react-filepond";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginImageCrop from "filepond-plugin-image-crop";
@@ -12,7 +12,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import "filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css";
 
 import { useAuthentication } from "authentication/useAuthentication";
-import { patch } from "apis/services";
+import { get, patch } from "apis/services";
 import "./upload.scss";
 
 registerPlugin(
@@ -26,28 +26,41 @@ registerPlugin(
 
 export default function Upload() {
   const [files, setFiles] = useState([]);
+  const [userImg, setUserImg] = useState(null);
+  const ref = useRef(null);
   const { userId } = useAuthentication();
+
   useEffect(() => {
-    if (files.length > 0)
+    if (userId) {
+      get(`users/${userId}`).then(function ({ data }) {
+        setUserImg(data.userImage);
+      });
+    }
+    if (ref && !userImg) {
+      ref.current.addFile(`data:image/jpeg;base64,${userImg}`);
+    }
+    if (files.length > 0) {
       patch(
         "users",
         { userImage: files[0].getFileEncodeBase64String() },
         userId
       );
-  }, [files, userId]);
+    }
+  }, [files, userId, userImg]);
 
   return (
     <>
       <FilePond
+        ref={ref}
         files={files}
         onupdatefiles={setFiles}
         name="userImage"
-        labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+        labelIdle='Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span>'
         imageCropAspectRatio="1:1"
         stylePanelLayout="compact circle"
-        // styleLoadIndicatorPosition="center bottom"
-        // styleButtonRemoveItemPosition="center bottom"
-        styleButtonProcessItemPosition="center bottom"
+        styleLoadIndicatorPosition="center"
+        styleButtonRemoveItemPosition="center bottom"
+        styleButtonProcessItemPosition="center"
         credits={false}
         acceptedFileTypes={["image/jpeg"]}
         maxFileSize="1MB"
