@@ -17,6 +17,11 @@ $_breakpoint2: 771;
         flex-wrap: wrap;
     }
 
+    @include respond-to-mobile() {
+        display: block;
+        height: auto;
+    }
+
     &-date {
         flex-grow: 1;
         margin-right: 4rem;
@@ -32,6 +37,10 @@ $_breakpoint2: 771;
 
         @include respond-to($_breakpoint2, max) {
             width: 29rem;
+        }
+
+        @include respond-to-mobile() {
+            width: 100%;
         }
     }
 
@@ -58,6 +67,10 @@ $_breakpoint2: 771;
         padding-left: 4.1rem;
         padding-right: 3.8rem;
         width: 100%;
+
+        @include respond-to-mobile() {
+            width: 100%;
+        }
     }
 
     &-date-input {
@@ -76,6 +89,10 @@ $_breakpoint2: 771;
 
         @include respond-to($_breakpoint2, max) {
             width: 97%;
+        }
+
+        @include respond-to-mobile() {
+            width: 100%;
         }
 
         &-label {

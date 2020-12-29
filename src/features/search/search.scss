@@ -22,6 +22,10 @@ $_breakpoint2: 771;
         height: 36rem;
     }
 
+    @include respond-to-mobile() {
+        height: auto;
+    }
+
     &__title {
         @include typography-h2;
 

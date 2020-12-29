@@ -1,4 +1,5 @@
 @import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
 
 .form-content {
     @include typography-body-2-medium;
@@ -9,6 +10,10 @@
     grid-template-columns: 1fr 1fr;
     padding: 1rem 0;
     text-transform: uppercase;
+
+    @include respond-to-mobile() {
+        display: block;
+    }
 
     &__item {
         display: flex;
