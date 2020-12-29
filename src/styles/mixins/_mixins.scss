@@ -11,6 +11,13 @@
         }
     }
 }
+
+@mixin respond-to-mobile() {
+    @include respond-to(500, max) {
+        @content;
+    }
+}
+
 //text overflow trim
 @mixin trim($numLines: null) {
     //95% support in caniuse.com/.

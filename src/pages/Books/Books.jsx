@@ -1,7 +1,6 @@
 import React from "react";
 
 import ReservationPage from "components/ReservationPage/ReservationPage";
-import UserContextProvider from "contexts/UserContextProvider";
 import SideFilters from "features/sideFilters/SideFilters";
 import InputSlider from "components/InputSlider/InputSlider";
 
@@ -18,13 +17,7 @@ const Books = () => {
   };
 
   return (
-    <UserContextProvider>
-      <ReservationPage
-        page={"books"}
-        inputSliderRenderer={inputSliderRenderer}
-      />
-      ;
-    </UserContextProvider>
+    <ReservationPage page={"books"} inputSliderRenderer={inputSliderRenderer} />
   );
 };
 

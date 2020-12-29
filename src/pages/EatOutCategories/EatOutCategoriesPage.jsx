@@ -2,10 +2,8 @@ import React from "react";
 import { useParams, Redirect } from "react-router-dom";
 
 import ContextProvider from "contexts/ContextProvider";
-import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutByCategories from "features/EatOutByCategories/EatOutByCategories";
-import UserContextProvider from "contexts/UserContextProvider";
 import { isObjectEmpty } from "utils/objects";
 import { useRequest } from "apis/useRequest";
 
@@ -24,14 +22,10 @@ function EatOutCategoriesPage() {
   }
 
   return (
-    <UserContextProvider>
-      <MainLayout>
-        <ContextProvider endpoint="/restaurants">
-          <Breadcrumbs />
-          <EatOutByCategories />
-        </ContextProvider>
-      </MainLayout>
-    </UserContextProvider>
+    <ContextProvider endpoint="/restaurants">
+      <Breadcrumbs />
+      <EatOutByCategories />
+    </ContextProvider>
   );
 }
 

@@ -11,6 +11,10 @@
     margin: 0 auto;
     width: 55rem;
 
+    @include respond-to-mobile() {
+        width: 100%;
+    }
+
     &__title {
         @include typography-h1;
 

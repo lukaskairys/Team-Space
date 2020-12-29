@@ -7,7 +7,6 @@ $_margin-size: 2.4rem;
 
 .eat-out-info {
     flex: auto;
-    min-width: $_info-line-width * 2+20;
 
     &__header {
         @include typography-h3;
