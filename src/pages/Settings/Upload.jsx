@@ -5,6 +5,7 @@ import FilePondPluginImageCrop from "filepond-plugin-image-crop";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginFileEncode from "filepond-plugin-file-encode";
 import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginFileValidateSize from "filepond-plugin-file-validate-size";
 
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
@@ -19,7 +20,8 @@ registerPlugin(
   FilePondPluginImageCrop,
   FilePondPluginImageExifOrientation,
   FilePondPluginFileEncode,
-  FilePondPluginFileValidateType
+  FilePondPluginFileValidateType,
+  FilePondPluginFileValidateSize
 );
 
 export default function Upload() {
@@ -33,6 +35,7 @@ export default function Upload() {
         userId
       );
   }, [files, userId]);
+
   return (
     <>
       <FilePond
@@ -42,11 +45,12 @@ export default function Upload() {
         labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
         imageCropAspectRatio="1:1"
         stylePanelLayout="compact circle"
-        styleLoadIndicatorPosition="center bottom"
-        styleButtonRemoveItemPosition="center bottom"
+        // styleLoadIndicatorPosition="center bottom"
+        // styleButtonRemoveItemPosition="center bottom"
+        styleButtonProcessItemPosition="center bottom"
         credits={false}
-        dropValidation
         acceptedFileTypes={["image/jpeg"]}
+        maxFileSize="1MB"
       />
     </>
   );
