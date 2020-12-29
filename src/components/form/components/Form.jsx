@@ -71,7 +71,6 @@ const Form = (props) => {
 
   const dataToChange = {
     userName: values.username,
-    email: values.email,
     location: values.location,
     birthdayDate: values.birthday,
   };
