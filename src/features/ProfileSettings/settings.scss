@@ -9,11 +9,55 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 55rem;
 
     &__title {
         @include typography-h1;
 
         text-align: center;
+    }
+
+    &__content {
+        background-color: $color-bright-violet;
+        border-radius: $base-border-radius;
+        color: $color-white;
+        display: flex;
+        margin-top: 5rem;
+
+        @include respond-to(886, max) {
+            flex-direction: column;
+        }
+    }
+
+    .form {
+        border-bottom-left-radius: unset;
+        border-top-left-radius: unset;
+        margin-top: 0;
+
+        @include respond-to(886, max) {
+            border-bottom-left-radius: $base-border-radius;
+            border-top-left-radius: unset;
+            border-top-right-radius: unset;
+        }
+    }
+
+    .form-input[type='date'] {
+        color: $color-fiord;
+        cursor: text;
+        font-family: $font-family;
+        font-size: $font-size-14;
+        padding: 1.3rem;
+
+        &::-webkit-calendar-picker-indicator {
+            appearance: none;
+            background-image: url('../../assets/icons/calendar.svg');
+            background-size: cover;
+            cursor: pointer;
+            height: 1.6rem;
+            width: 1.6rem;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
     }
 }

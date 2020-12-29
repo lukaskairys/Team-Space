@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 
 import SettingsHeader from "./SettingsHeader";
 import Form from "components/form/components/Form";
+import CurrentInfo from "./CurrentInfo";
 import Modal from "components/Modal/Modal";
 import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 
@@ -19,6 +20,10 @@ function Settings() {
   const { deleteUser } = useProfileSettings(user);
 
   const [whichForm, setWhichForm] = useState("account");
+
+  const todaysDate = () => {
+    return new Date().toISOString().split("T")[0];
+  };
 
   const confirm = (inputValue, setError) => {
     bcrypt.compare(inputValue, user.password).then((result) => {
@@ -57,18 +62,23 @@ function Settings() {
     <>
       <article className="profile-settings">
         <h2 className="profile-settings__title">Profile settings</h2>
-        <Form
-          action={getAction()}
-          user={user}
-          showModal={showModal}
-          settingsHeaderRenderer={() => (
-            <SettingsHeader
-              setWhichForm={setWhichForm}
-              whichForm={whichForm}
-              userImage={user.userImage}
-            />
-          )}
-        />
+        <div className="profile-settings__content">
+          <CurrentInfo user={user} />
+          <Form
+            action={getAction()}
+            max={todaysDate()}
+            user={user}
+            showModal={showModal}
+            settingsHeaderRenderer={() => (
+              <SettingsHeader
+                setWhichForm={setWhichForm}
+                whichForm={whichForm}
+                userImage={user.userImage}
+                user={user}
+              />
+            )}
+          />
+        </div>
       </article>
 
       {modalOpen && (

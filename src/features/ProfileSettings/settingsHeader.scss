@@ -6,6 +6,12 @@
     margin-bottom: 4rem;
 
     .profile-widget__picture {
-        @include square-size(7rem);
+        @include square-size(11rem);
+
+        margin-right: 6rem;
+
+        @include respond-to(886, max) {
+            margin-right: 3rem;
+        }
     }
 }

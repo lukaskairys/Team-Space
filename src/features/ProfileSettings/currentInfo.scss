@@ -1,0 +1,53 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.current-info {
+    @include typography-body;
+
+    border-bottom-left-radius: $base-border-radius;
+    border-top-left-radius: $base-border-radius;
+    box-shadow: $card-shadow;
+    color: $color-light-porcelain;
+    max-width: 40rem;
+    padding: 5rem 2.4rem;
+
+    @include respond-to(886, max) {
+        max-width: unset;
+        padding: 2.4rem;
+    }
+
+    &__title {
+        @include typography-h3-alternative;
+
+        margin-bottom: 3rem;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    &__item {
+        color: $color-white;
+        margin-bottom: 3rem;
+
+        @include respond-to(886, max) {
+            align-items: center;
+            display: flex;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__item-title {
+        @include typography-caption;
+        // border-bottom: 1px solid $color-iron;
+        margin-bottom: 0.5rem;
+
+        @include respond-to(886, max) {
+            // border-bottom: unset;
+            margin-bottom: 0;
+            width: 8rem;
+        }
+    }
+}

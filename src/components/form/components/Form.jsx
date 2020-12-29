@@ -24,6 +24,7 @@ const Form = (props) => {
     user,
     showModal,
     settingsHeaderRenderer,
+    max,
   } = props;
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
@@ -153,6 +154,7 @@ const Form = (props) => {
             handleFocus={handleFocus}
             action={action}
             handleXclick={handleXclick}
+            max={max}
           />
         )}
         {showMessage && (
@@ -181,6 +183,7 @@ Form.propTypes = {
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   showModal: PropTypes.func,
   settingsHeaderRenderer: PropTypes.func,
+  max: PropTypes.string,
 };
 
 export default Form;

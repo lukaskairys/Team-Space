@@ -62,7 +62,8 @@ export function noValidation() {
 }
 
 export function validatePasswords(values) {
-  const { oldPassword, newPassword, repeatPassword } = values;
+  const { oldPassword, repeatPassword } = values;
+  let { newPassword } = values;
   let errors = {};
   //old password
   if (!oldPassword) {
@@ -79,6 +80,8 @@ export function validatePasswords(values) {
   // password repeat
   if (!repeatPassword) {
     errors.repeatPassword = "Repeat Password is required";
+  } else if (!newPassword) {
+    newPassword = " ";
   } else if (newPassword.length < 6) {
     errors.repeatPassword = "Password must be 6 or more characters";
   } else if (newPassword !== repeatPassword) {
