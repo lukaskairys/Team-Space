@@ -1,7 +1,7 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 import ReservationPage from "components/ReservationPage/ReservationPage";
-import UserContextProvider from "contexts/UserContextProvider";
 import SideFilters from "features/sideFilters/SideFilters";
 import InputSlider from "components/InputSlider/InputSlider";
 
@@ -18,12 +18,15 @@ const Rooms = () => {
   };
 
   return (
-    <UserContextProvider>
+    <>
+      <Helmet>
+        <title>Room Reservations</title>
+      </Helmet>
       <ReservationPage
         page={"rooms"}
         inputSliderRenderer={inputSliderRenderer}
       />
-    </UserContextProvider>
+    </>
   );
 };
 

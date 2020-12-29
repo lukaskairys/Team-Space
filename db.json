@@ -33,19 +33,16 @@
       "liked": {
         "restaurants": [
           {
+            "id": "porhch2lam"
+          },
+          {
+            "id": "sejw2ugddc"
+          },
+          {
             "id": "x8bd7ozuj6"
           },
           {
             "id": "h3hlqj5bcb"
-          },
-          {
-            "id": "porhch2lam"
-          },
-          {
-            "id": "9kdf9qawui"
-          },
-          {
-            "id": "sejw2ugddc"
           }
         ],
         "books": [
@@ -60,30 +57,9 @@
           },
           {
             "id": "rri8r7gpdp"
-          },
-          {
-            "id": "193ywpe740"
-          },
-          {
-            "id": "137420wgf0"
           }
         ],
-        "devices": [
-          {
-            "id": "193ywpe740"
-          },
-          {
-            "id": "1563175150"
-          }
-        ],
-        "rooms": [
-          {
-            "id": "497ee32e-bd90-4515-94dc-4bc408345845"
-          },
-          {
-            "id": "1914c51b-d752-4770-86ea-c628a9040b60"
-          }
-        ],
+        "devices": [],
         "stories": [
           {
             "id": "10197o9h40"
@@ -91,7 +67,11 @@
         ]
       },
       "checkIn": {},
+<<<<<<< HEAD
       "password": "$2a$10$T48PjCmf1ULjvdLy1WC2iezoATuigCss3Iacrf45G5C8nkj5MtL4u",
+=======
+      "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
+>>>>>>> 61660391c8128df0b53f75e97b2f582cf765afac
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },
     {
@@ -166,18 +146,6 @@
           "id": "183620uer",
           "comment": "Good burgers, good price",
           "rating": 4
-        },
-        {
-          "userName": "John",
-          "id": "zhn5se87bp",
-          "comment": "",
-          "rating": 2
-        },
-        {
-          "userName": "Lukas Kairys",
-          "id": "02b3150d-c1f6-41d7-9abe-c845fba08e1e",
-          "comment": "",
-          "rating": 1
         }
       ],
       "categories": [
@@ -403,6 +371,12 @@
       "checkIns": 5,
       "reviews": [
         {
+          "userName": "Frontend Wizard",
+          "id": "48d207b2-a7e8-45cb-b39c-8c19db496ccf",
+          "comment": "",
+          "rating": 5
+        },
+        {
           "userName": "Rocky Thornton",
           "id": "x1y6iixy5l",
           "comment": "Beautiful restaurant in the centre of Lithuania next to highway Klaipėda-Kaunas. Delicious food, nice choice, good local and imported drinks.",
@@ -522,6 +496,12 @@
       "checkIns": 9,
       "reviews": [
         {
+          "userName": "Frontend Wizard",
+          "id": "9229dbe7-c623-4f2a-8aba-e6af2d2b6981",
+          "comment": "",
+          "rating": 3
+        },
+        {
           "userName": "Laura Palmer",
           "id": "bt1x97n2je",
           "comment": "Best Mexican place in Kaunas for sure. Appetizers, main course, dessert, all are on the high level.",
@@ -562,6 +542,12 @@
       "image": "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
       "checkIns": 19,
       "reviews": [
+        {
+          "userName": "Frontend Wizard",
+          "id": "0c97a9c1-de43-40c9-94b0-ebd861ba9a18",
+          "comment": "",
+          "rating": 1
+        },
         {
           "userName": "Pandora Burns",
           "id": "euz4pyx8bd",
@@ -3868,16 +3854,6 @@
           "userName": "Luke Skywalker",
           "comment": "Hope you'll have a good time!",
           "date": "2020-11-19T15:48:00.000Z"
-        },
-        {
-          "userName": "Frontend Wizard",
-          "comment": "Happy Birthday!",
-          "date": "2020-12-21T15:50:07.302Z"
-        },
-        {
-          "userName": "Frontend Wizard",
-          "comment": "ss",
-          "date": "2020-12-21T18:30:08.276Z"
         }
       ]
     },

@@ -1,4 +1,7 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_breakpoint-for-padding: 400;
 
 $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 
@@ -15,6 +18,19 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         overflow-x: hidden;
         transition: margin-left 1000ms;
         width: 100%;
+
+        &.is_mobile {
+            margin-left: 100%;
+            transition: none;
+        }
+    }
+
+    &__mobile-navigation {
+        margin-right: auto;
+
+        @include respond-to(501, min) {
+            visibility: hidden;
+        }
     }
 
     &__header {
@@ -54,6 +70,10 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         background-color: $color-light-porcelain;
         flex: 1;
         padding: 2.7rem 4rem 6.4rem;
+
+        @include respond-to($_breakpoint-for-padding, max) {
+            padding: 2.7rem 2rem 6.4rem;
+        }
     }
 
     &__footer {
@@ -75,4 +95,13 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 .main-layout__content--sidebar-closed {
     margin-left: 9.6rem;
     transition: margin-left 1000ms;
+
+    &.is_mobile {
+        margin-left: 0;
+        transition: none;
+    }
+}
+
+.button--mobile-toggle {
+    margin-left: 4rem;
 }

@@ -1,8 +1,7 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
-import UserContextProvider from "contexts/UserContextProvider";
-import MainLayout from "components/MainLayout/MainLayout";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
 import WeatherWidget from "features/weatherWidget/components/weatherWidget";
 import ReservationsSection from "features/reservationsSection/components/ReservationsSection";
@@ -16,28 +15,26 @@ const Dashboard = () => {
   const currentTime = useCurrentTime();
   return (
     <div className="dashboard">
-      <UserContextProvider>
-        <MainLayout>
-          <>
-            <div className="dashboard__widgets">
-              <HelloWidget currentTime={currentTime} />
-              <WeatherWidget currentTime={currentTime} />
-            </div>
+      <Helmet>
+        <title>Team Space</title>
+      </Helmet>
 
-            <div className="dashboard__reservations-section">
-              <ReservationsSection />
-            </div>
+      <div className="dashboard__widgets">
+        <HelloWidget currentTime={currentTime} />
+        <WeatherWidget currentTime={currentTime} />
+      </div>
 
-            <div className="dashboard__eat-out-section">
-              <ContextProvider endpoint="/restaurants">
-                <EatOutSection />
-              </ContextProvider>
-            </div>
+      <div className="dashboard__reservations-section">
+        <ReservationsSection />
+      </div>
 
-            <AllFeedCards></AllFeedCards>
-          </>
-        </MainLayout>
-      </UserContextProvider>
+      <div className="dashboard__eat-out-section">
+        <ContextProvider endpoint="/restaurants">
+          <EatOutSection />
+        </ContextProvider>
+      </div>
+
+      <AllFeedCards></AllFeedCards>
     </div>
   );
 };

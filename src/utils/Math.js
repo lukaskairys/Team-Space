@@ -4,5 +4,9 @@ export const roundNumber = (number, digitPlaces = 1) => {
 };
 
 export const countAverage = (array) => {
-  return array.length > 0 ? array.reduce((a, b) => a + b, 0) / array.length : 0;
+  const filteredArray = array.filter((number) => number !== undefined);
+
+  return filteredArray.length > 0
+    ? filteredArray.reduce((a, b) => a + b, 0) / filteredArray.length
+    : 0;
 };
