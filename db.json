@@ -3933,7 +3933,7 @@
         "features": [
           "TV/Projector"
         ],
-        "seatCount": 100,
+        "seatCount": 105,
         "bookedUntil": "10/16/2020"
       },
       {
@@ -3971,7 +3971,10 @@
         "type": "Boardroom",
         "address": "Pramonės pr. 8E",
         "features": [
-          "TV/Projector"
+          "TV/Projector",
+          "Phone",
+          "Food",
+          "Whiteboard"
         ],
         "hasProjector": false,
         "socketCount": 72,
@@ -3985,7 +3988,8 @@
         "type": "Boardroom",
         "address": "K. Donelaičio g. 62",
         "features": [
-          "TV/Projector"
+          "TV/Projector",
+          "Whiteboard"
         ],
         "hasProjector": false,
         "socketCount": 7,

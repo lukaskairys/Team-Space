@@ -50,9 +50,12 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
                   filterRef={refs && refs[i]}
                   value={item}
                   counter={counter}
+                  isCombined={Array.isArray(listData[0][item[0]])}
                 />
               ))}
-            {inputSliderRenderer ? inputSliderRenderer(setCounter) : ""}
+            {inputSliderRenderer
+              ? inputSliderRenderer(setCounter, listData)
+              : ""}
           </div>
           <ReservationsList
             searchTerm={searchData.searchTerm}
