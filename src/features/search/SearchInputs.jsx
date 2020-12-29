@@ -44,7 +44,7 @@ function SearchInputs({ searchBtnClick }) {
       <div className="search-bar__inputs-text">
         <input
           type="text"
-          className="form__input search-bar__inputs-text-input"
+          className="form-input search-bar__inputs-text-input"
           onChange={handleSearchInputChange}
           onKeyPress={searchWithEnter}
           value={term || ""}
@@ -65,7 +65,7 @@ function SearchInputs({ searchBtnClick }) {
         <input
           type="date"
           name="reservationDate"
-          className="form__input search-bar__inputs-date-input"
+          className="form-input search-bar__inputs-date-input"
           onChange={handleDateChange}
           min={todaysDate()}
           value={date}
