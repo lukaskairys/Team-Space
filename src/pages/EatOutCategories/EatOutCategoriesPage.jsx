@@ -3,10 +3,8 @@ import { useParams, Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
-import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutByCategories from "features/EatOutByCategories/EatOutByCategories";
-import UserContextProvider from "contexts/UserContextProvider";
 import { isObjectEmpty } from "utils/objects";
 import { useRequest } from "apis/useRequest";
 
@@ -25,17 +23,13 @@ function EatOutCategoriesPage() {
   }
 
   return (
-    <UserContextProvider>
+    <ContextProvider endpoint="/restaurants">
       <Helmet>
         <title>{"Places for " + catogoryToCheck}</title>
       </Helmet>
-      <MainLayout>
-        <ContextProvider endpoint="/restaurants">
-          <Breadcrumbs />
-          <EatOutByCategories />
-        </ContextProvider>
-      </MainLayout>
-    </UserContextProvider>
+      <Breadcrumbs />
+      <EatOutByCategories />
+    </ContextProvider>
   );
 }
 

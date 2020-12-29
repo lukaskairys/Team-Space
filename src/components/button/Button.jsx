@@ -15,14 +15,19 @@ function Button({
   empty,
   isStatic,
   isActive,
+  isMarked,
   disabled,
   blankWithBorder,
+  blankNoBorder,
   dataTagName,
   filterButton,
   activeFilter,
   withIcon,
   excludeMainClass,
   clearInput,
+  buttonRef,
+  mobileNavToggle,
+  ariaLabel,
 }) {
   const btnClass = classNames({
     button: !excludeMainClass,
@@ -34,11 +39,14 @@ function Button({
     "button--empty": empty,
     "is-static": isStatic,
     "is-active": isActive,
+    "is-active-setting": isMarked,
     "button--blank-with-border": blankWithBorder,
+    "button--blank-no-border": blankNoBorder,
     "button--filter-button": filterButton,
     "button--filter-button-active": activeFilter,
     "button--with-icon": withIcon,
     "button--clear-input": clearInput,
+    "button--mobile-toggle": mobileNavToggle,
   });
   return (
     <button
@@ -48,6 +56,8 @@ function Button({
       tabIndex={isStatic && "-1"}
       disabled={disabled}
       data-tag-name={dataTagName}
+      ref={buttonRef}
+      aria-label={ariaLabel}
     >
       {children}
     </button>
@@ -70,14 +80,22 @@ Button.propTypes = {
   empty: PropTypes.bool,
   isStatic: PropTypes.bool,
   isActive: PropTypes.bool,
+  isMarked: PropTypes.bool,
   disabled: PropTypes.bool,
   blankWithBorder: PropTypes.bool,
+  blankNoBorder: PropTypes.bool,
   dataTagName: PropTypes.string,
   filterButton: PropTypes.bool,
   activeFilter: PropTypes.bool,
   withIcon: PropTypes.bool,
   excludeMainClass: PropTypes.bool,
   clearInput: PropTypes.bool,
+  mobileNavToggle: PropTypes.bool,
+  ariaLabel: PropTypes.string,
+  buttonRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
 export default Button;

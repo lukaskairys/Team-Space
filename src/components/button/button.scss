@@ -93,6 +93,28 @@
         }
     }
 
+    &--blank-no-border {
+        align-items: center;
+        background: none;
+        color: $color-fiord;
+        display: flex;
+        flex-direction: column;
+        font-weight: $medium-weight;
+        padding: 0.6rem;
+        text-transform: none;
+
+        &:hover,
+        &:focus {
+            background: none;
+            box-shadow: none;
+            color: $color-midnight;
+        }
+
+        &:focus-visible {
+            outline: 1px solid $color-fiord;
+        }
+    }
+
     &--icon-x {
         background: none;
         line-height: 0;
@@ -104,6 +126,7 @@
         &:hover,
         &:focus {
             background: none;
+            box-shadow: none;
             transform: scale(1.2);
         }
 
@@ -210,5 +233,10 @@
             box-shadow: none;
             cursor: default;
         }
+    }
+
+    &.is-active-setting {
+        color: $color-dark-violet;
+        font-weight: $bold-weight;
     }
 }

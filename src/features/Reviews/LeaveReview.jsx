@@ -102,7 +102,7 @@ function LeaveReview({
         </label>
 
         <textarea
-          className="form__input leave-review__content"
+          className="form-input leave-review__content"
           name="review-text"
           id="review-text"
           rows="7"

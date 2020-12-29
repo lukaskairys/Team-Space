@@ -1,0 +1,35 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+.form-content {
+    @include typography-body-2-medium;
+
+    color: $color-gull-gray;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem 0;
+    text-transform: uppercase;
+
+    @include respond-to-mobile() {
+        display: block;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+
+        &--long {
+            grid-column: 1 / 3;
+        }
+    }
+
+    &__error-msg {
+        @include typography-tiny-caps;
+
+        color: $color-watermelon;
+        padding-top: 0.5rem;
+    }
+}

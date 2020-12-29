@@ -1,0 +1,23 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.profile-settings {
+    @include typography-body-2;
+
+    align-items: center;
+    color: $color-fiord;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 55rem;
+
+    @include respond-to-mobile() {
+        width: 100%;
+    }
+
+    &__title {
+        @include typography-h1;
+
+        text-align: center;
+    }
+}

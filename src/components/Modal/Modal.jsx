@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { createPortal } from "react-dom";
-import PropTypes from "prop-types";
+import PropTypes, { oneOfType } from "prop-types";
 
 import Button from "components/button/Button";
 import { ReactComponent as IconX } from "assets/images/x.svg";
@@ -30,7 +30,7 @@ const Modal = (props) => {
 };
 
 Modal.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  children: oneOfType([PropTypes.element, PropTypes.array]),
   closeModal: PropTypes.func,
   setModalOpen: PropTypes.func,
 };

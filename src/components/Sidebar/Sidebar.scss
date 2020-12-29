@@ -13,6 +13,11 @@ $_margin-size: 1.6rem;
     transition: width 1000ms;
     width: 20.6rem;
 
+    &.is_mobile {
+        transition: none;
+        width: 100%;
+    }
+
     &__logo {
         fill: $color-white;
         height: 4.8rem;
@@ -20,6 +25,11 @@ $_margin-size: 1.6rem;
         transition: fill 1500ms;
         transition-delay: 300ms;
         width: 11.425rem;
+
+        @include respond-to-mobile() {
+            transition: none;
+            transition-delay: 0;
+        }
     }
 
     &__toggle {
@@ -35,9 +45,17 @@ $_margin-size: 1.6rem;
         top: 12rem;
         transition: transform 1000ms;
 
-        /*  &:focus {
-            box-shadow: 0 0 0 3px $color-dark-violet;
-        } */
+        @include respond-to-mobile() {
+            visibility: hidden;
+        }
+    }
+
+    &__close-icon {
+        margin-right: 1.6rem;
+
+        path {
+            stroke: $color-white;
+        }
     }
 
     &__toggle-icon {
@@ -77,10 +95,10 @@ $_margin-size: 1.6rem;
         text-decoration: none;
         width: 100%;
 
-        /* &:focus {
+        &:focus {
             outline: 3px solid $color-dark-violet;
             outline-offset: -3px;
-        } */
+        }
     }
 
     &__list-icon-container {
@@ -93,6 +111,11 @@ $_margin-size: 1.6rem;
         margin-left: $_margin-size;
         transition: opacity 1500ms, visibility 1500ms;
         transition-delay: 300ms;
+
+        @include respond-to-mobile() {
+            transition: none;
+            transition-delay: 0;
+        }
     }
 
     &__list-item--active {
@@ -169,6 +192,12 @@ $_margin-size: 1.6rem;
     transition: width 1000ms;
     width: 9.6rem;
 
+    &.is_mobile {
+        transition: none;
+        visibility: hidden;
+        width: 0;
+    }
+
     .sidebar__toggle {
         transform: translateX(-11rem) rotate(180deg);
     }
@@ -177,11 +206,19 @@ $_margin-size: 1.6rem;
         opacity: 0;
         transition: opacity 350ms, visibility 350ms;
         visibility: hidden;
+
+        @include respond-to-mobile() {
+            transition: none;
+        }
     }
 
     .sidebar__logo {
         fill: $color-transparent;
         transition: fill 500ms;
+
+        @include respond-to-mobile() {
+            transition: none;
+        }
     }
 }
 
