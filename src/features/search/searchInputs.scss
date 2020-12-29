@@ -53,6 +53,10 @@ $_breakpoint2: 771;
         @include respond-to($_breakpoint, max) {
             margin-right: 1rem;
         }
+
+        @include respond-to-mobile() {
+            width: 100%;
+        }
     }
 
     &-text-input {
