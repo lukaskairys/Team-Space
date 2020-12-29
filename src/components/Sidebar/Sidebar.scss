@@ -48,10 +48,6 @@ $_margin-size: 1.6rem;
         @include respond-to-mobile() {
             visibility: hidden;
         }
-
-        /*  &:focus {
-            box-shadow: 0 0 0 3px $color-dark-violet;
-        } */
     }
 
     &__close-icon {

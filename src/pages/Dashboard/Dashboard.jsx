@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
 import HelloWidget from "features/helloWidget/components/HelloWidget";
@@ -14,24 +15,26 @@ const Dashboard = () => {
   const currentTime = useCurrentTime();
   return (
     <div className="dashboard">
-      <>
-        <div className="dashboard__widgets">
-          <HelloWidget currentTime={currentTime} />
-          <WeatherWidget currentTime={currentTime} />
-        </div>
+      <Helmet>
+        <title>Team Space</title>
+      </Helmet>
 
-        <div className="dashboard__reservations-section">
-          <ReservationsSection />
-        </div>
+      <div className="dashboard__widgets">
+        <HelloWidget currentTime={currentTime} />
+        <WeatherWidget currentTime={currentTime} />
+      </div>
 
-        <div className="dashboard__eat-out-section">
-          <ContextProvider endpoint="/restaurants">
-            <EatOutSection />
-          </ContextProvider>
-        </div>
+      <div className="dashboard__reservations-section">
+        <ReservationsSection />
+      </div>
 
-        <AllFeedCards></AllFeedCards>
-      </>
+      <div className="dashboard__eat-out-section">
+        <ContextProvider endpoint="/restaurants">
+          <EatOutSection />
+        </ContextProvider>
+      </div>
+
+      <AllFeedCards></AllFeedCards>
     </div>
   );
 };

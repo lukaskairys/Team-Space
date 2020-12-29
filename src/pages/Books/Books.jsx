@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 import ReservationPage from "components/ReservationPage/ReservationPage";
 import SideFilters from "features/sideFilters/SideFilters";
@@ -17,7 +18,16 @@ const Books = () => {
   };
 
   return (
-    <ReservationPage page={"books"} inputSliderRenderer={inputSliderRenderer} />
+    <>
+      <Helmet>
+        <title>Book Reservations</title>
+      </Helmet>
+      <ReservationPage
+        page={"books"}
+        inputSliderRenderer={inputSliderRenderer}
+      />
+      ;
+    </>
   );
 };
 

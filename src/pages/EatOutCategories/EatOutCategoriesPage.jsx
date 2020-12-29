@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, Redirect } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
@@ -23,6 +24,9 @@ function EatOutCategoriesPage() {
 
   return (
     <ContextProvider endpoint="/restaurants">
+      <Helmet>
+        <title>{"Places for " + catogoryToCheck}</title>
+      </Helmet>
       <Breadcrumbs />
       <EatOutByCategories />
     </ContextProvider>

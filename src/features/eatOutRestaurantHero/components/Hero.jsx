@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -34,6 +35,9 @@ function Hero({ children }) {
             backgroundImage: `linear-gradient(98.06deg, #F6F7F8 18.8%, rgba(255, 255, 255, 0) 103.31%), url(${restaurant.image})`,
           }}
         >
+          <Helmet>
+            <title>{restaurant.name}</title>
+          </Helmet>
           {children}
           <div className="HERO__content">
             <div className="HERO__categories">{renderCategories()}</div>
