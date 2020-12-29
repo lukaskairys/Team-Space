@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 
 import DropDownContent from "./DropdownContent";
 import userIcon from "assets/icons/user.svg";
-import { ReactComponent as ArrowDown } from "../../../assets/icons/down-with-border.svg";
-import { useOnClickOutside } from "../../../utils/useOnClickOutside";
-import { isObjectEmpty } from "../../../utils/objects";
+import { ReactComponent as ArrowDown } from "assets/icons/down-with-border.svg";
+import { useOnClickOutside } from "utils/useOnClickOutside";
+import { isObjectEmpty } from "utils/objects";
 
 import { useAuthentication } from "authentication/useAuthentication";
 import { UserContext } from "contexts/UserContext";
@@ -41,7 +41,7 @@ function UserProfileWidget() {
             src={
               image.startsWith("https://")
                 ? image
-                : `data:image/jpeg;base64,${image}`
+                : `data:image/jpeg;base64,${data.userImage}`
             }
             alt="user profile"
           />
