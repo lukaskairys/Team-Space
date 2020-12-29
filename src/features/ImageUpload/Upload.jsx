@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { FilePond, registerPlugin } from "react-filepond";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginImageCrop from "filepond-plugin-image-crop";
@@ -9,11 +9,13 @@ import FilePondPluginFileValidateSize from "filepond-plugin-file-validate-size";
 
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import "filepond-plugin-image-edit/dist/filepond-plugin-image-edit.css";
 
-import { useAuthentication } from "authentication/useAuthentication";
-import { get, patch } from "apis/services";
+// import { patch } from "apis/services";
+import { UserContext } from "contexts/UserContext";
+// import { isObjectEmpty } from "utils/objects";
+
 import "./upload.scss";
+// import toDataURL from "./toDataURL";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -24,29 +26,30 @@ registerPlugin(
   FilePondPluginFileValidateSize
 );
 
-export default function Upload() {
+function Upload() {
   const [files, setFiles] = useState([]);
-  const [userImg, setUserImg] = useState(null);
   const ref = useRef(null);
-  const { userId } = useAuthentication();
+  const { data: user } = useContext(UserContext);
 
   useEffect(() => {
-    if (userId) {
-      get(`users/${userId}`).then(function ({ data }) {
-        setUserImg(data.userImage);
-      });
+    if (ref) {
+      ref.current.addFile(user.userImage);
     }
-    if (ref && !userImg) {
-      ref.current.addFile(`data:image/jpeg;base64,${userImg}`);
-    }
-    if (files.length > 0) {
-      patch(
-        "users",
-        { userImage: files[0].getFileEncodeBase64String() },
-        userId
-      );
-    }
-  }, [files, userId, userImg]);
+    // if (!isObjectEmpty(user) && ref) {
+    //   if (user.userImage.startsWith("https://")) {
+    //     toDataURL(user.userImage, function (dataURL) {
+    //       ref.current.addFile(dataURL);
+    //     });
+    //   }
+    // }
+    // if (files.length > 0) {
+    //   patch(
+    //     "users",
+    //     { userImage: files[0].getFileEncodeBase64String() },
+    //     userId
+    //   );
+    // }
+  }, [user, ref]);
 
   return (
     <>
@@ -58,7 +61,7 @@ export default function Upload() {
         labelIdle='Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span>'
         imageCropAspectRatio="1:1"
         stylePanelLayout="compact circle"
-        styleLoadIndicatorPosition="center"
+        styleLoadIndicatorPosition="center bottom"
         styleButtonRemoveItemPosition="center bottom"
         styleButtonProcessItemPosition="center"
         credits={false}
@@ -68,3 +71,5 @@ export default function Upload() {
     </>
   );
 }
+
+export default Upload;

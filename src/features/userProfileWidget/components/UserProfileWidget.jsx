@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 
 import DropDownContent from "./DropdownContent";
-import userIcon from "../../../assets/icons/user.svg";
+import userIcon from "assets/icons/user.svg";
 import { ReactComponent as ArrowDown } from "../../../assets/icons/down-with-border.svg";
 import { useOnClickOutside } from "../../../utils/useOnClickOutside";
 import { isObjectEmpty } from "../../../utils/objects";

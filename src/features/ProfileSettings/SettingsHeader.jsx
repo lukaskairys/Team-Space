@@ -3,7 +3,7 @@ import Button from "components/button/Button";
 import PropTypes from "prop-types";
 
 import "./settingsHeader.scss";
-import Upload from "pages/Settings/Upload";
+import Upload from "features/ImageUpload/Upload";
 
 const SettingsHeader = ({ setWhichForm, whichForm, userImage }) => {
   return (
