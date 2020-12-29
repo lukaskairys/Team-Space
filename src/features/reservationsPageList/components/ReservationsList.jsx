@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { FavoriteTypes } from "utils/FavoriteTypes";
 import groupArray from "utils/groupArray";
@@ -8,6 +8,7 @@ import ReservationCard from "./ReservationCard";
 import Pagination from "./Pagination";
 import Tag from "./Tag";
 import dataFilter from "../utils/dataFilter";
+import { UserContext } from "contexts/UserContext";
 
 function ReservationsList({
   searchTerm,
@@ -15,11 +16,14 @@ function ReservationsList({
   date,
   handleSingleTag,
   availabilityOn,
+  favoritesOn,
   listName,
   listData,
+  endpoint,
   counter,
 }) {
   const [page, setPage] = useState(0);
+  const { data } = useContext(UserContext);
 
   const renderTags = () => {
     const tagArr = [];
@@ -48,6 +52,9 @@ function ReservationsList({
       searchTerm,
       date,
       availabilityOn,
+      favoritesOn,
+      data,
+      endpoint,
       counter
     );
     const items = groupArray(filteredData, 6);

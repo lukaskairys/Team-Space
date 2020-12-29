@@ -2,14 +2,27 @@ const fields = {
   firstName: {
     type: "text",
     name: "firstName",
-    text: "First Name",
+    text: "First Name",
     placeholder: "Wizard",
   },
   lastName: {
     type: "text",
     name: "lastName",
-    text: "Last Name",
+    text: "Last Name",
     placeholder: "Supermagic",
+  },
+  location: {
+    type: "text",
+    name: "location",
+    text: "Home address",
+    placeholder: "Home str. 1, Kaunas",
+    inputLong: true,
+  },
+  username: {
+    type: "text",
+    name: "username",
+    text: "Username",
+    placeholder: "Super-wizard",
   },
   email: {
     type: "email",
@@ -18,12 +31,11 @@ const fields = {
     placeholder: "email@example.com",
     inputLong: true,
   },
-  passwordLong: {
-    type: "password",
-    name: "password",
-    text: "Password",
-    placeholder: "******",
-    inputLong: true,
+  birthday: {
+    type: "date",
+    name: "birthday",
+    text: "Date of birth",
+    placeholder: "dd/mm/yyyy",
   },
   password: {
     type: "password",
@@ -34,11 +46,27 @@ const fields = {
   repeatPassword: {
     type: "password",
     name: "repeatPassword",
-    text: "Repeat Password",
+    text: "Repeat Password",
+    placeholder: "******",
+  },
+  oldPassword: {
+    type: "password",
+    name: "oldPassword",
+    text: "Current Password",
+    placeholder: "******",
+    inputLong: true,
+  },
+  newPassword: {
+    type: "password",
+    name: "newPassword",
+    text: "New Password",
     placeholder: "******",
   },
 };
-
+fields.passwordLong = {
+  ...fields.password,
+  inputLong: true,
+};
 export const loginForm = [fields.email, fields.passwordLong];
 export const registerForm = [
   fields.firstName,
@@ -47,3 +75,11 @@ export const registerForm = [
   fields.password,
   fields.repeatPassword,
 ];
+export const accountForm = [fields.username, fields.birthday, fields.location];
+export const passwordsForm = [
+  fields.oldPassword,
+  fields.newPassword,
+  fields.repeatPassword,
+];
+
+export const emailForm = [fields.email, fields.oldPassword];

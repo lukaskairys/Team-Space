@@ -1,0 +1,11 @@
+@import '../../styles/mixins/mixins';
+
+.profile-settings-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+
+    .profile-widget__picture {
+        @include square-size(7rem);
+    }
+}

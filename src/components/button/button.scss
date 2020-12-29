@@ -37,6 +37,9 @@
 
     &--with-icon {
         display: flex;
+        height: 4rem;
+        padding: 1rem 2.4rem;
+        width: 13.3rem;
     }
 
     &--blank {
@@ -90,6 +93,28 @@
         }
     }
 
+    &--blank-no-border {
+        align-items: center;
+        background: none;
+        color: $color-fiord;
+        display: flex;
+        flex-direction: column;
+        font-weight: $medium-weight;
+        padding: 0.6rem;
+        text-transform: none;
+
+        &:hover,
+        &:focus {
+            background: none;
+            box-shadow: none;
+            color: $color-midnight;
+        }
+
+        &:focus-visible {
+            outline: 1px solid $color-fiord;
+        }
+    }
+
     &--icon-x {
         background: none;
         line-height: 0;
@@ -101,6 +126,7 @@
         &:hover,
         &:focus {
             background: none;
+            box-shadow: none;
             transform: scale(1.2);
         }
 
@@ -140,12 +166,9 @@
 
     &--clear-input {
         background: $color-white;
-        line-height: 0;
-        margin-right: 1.5rem;
-        padding: 0.2rem;
         position: absolute;
-        right: 6%;
-        top: 55%;
+        right: 1.7rem;
+        top: 2rem;
 
         &:hover,
         &:focus {
@@ -210,5 +233,10 @@
             box-shadow: none;
             cursor: default;
         }
+    }
+
+    &.is-active-setting {
+        color: $color-dark-violet;
+        font-weight: $bold-weight;
     }
 }

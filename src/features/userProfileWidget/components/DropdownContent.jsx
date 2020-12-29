@@ -14,10 +14,12 @@ function DropDownContent({ isOpen, logout }) {
       })}
     >
       <ul className="dropdown__content">
-        <li className="dropdown__item dropdown__item--first">
-          <SettingsIcon className="dropdown__icon" />
-          <span>Settings</span>
-        </li>
+        <Link to="/settings" className="dropdown__link">
+          <li className="dropdown__item dropdown__item--first">
+            <SettingsIcon className="dropdown__icon" />
+            <span>Settings</span>
+          </li>
+        </Link>
 
         <Link to="/login" onClick={logout} className="dropdown__link">
           <li className="dropdown__item">
