@@ -53,8 +53,7 @@ const Form = (props) => {
   const dataToPost = {
     userName: `${values.firstName} ${values.lastName}`,
     email: values.email,
-    userImage:
-      "https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png",
+    userImage: "https://i.imgur.com/2DEZq70.jpg",
     birthdayDate: "",
     location: "",
     reservations: {

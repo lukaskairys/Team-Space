@@ -53,7 +53,11 @@ function Upload() {
   useEffect(() => {
     if (user.userImage) {
       if (user.userImage.startsWith("https://")) {
-        setFiles([{ source: user.userImage, options: { type: "local" } }]);
+        fetch(user.userImage)
+          .then((res) => res.blob())
+          .then((blob) => {
+            setFiles([{ source: blob, options: { type: "local" } }]);
+          });
       } else {
         const blob = b64toBlob(user.userImage, "image/jpeg");
         setFiles([{ source: blob, options: { type: "local" } }]);
