@@ -43,7 +43,7 @@ function UserProfileWidget() {
         <ArrowDown className="profile-widget__arrow " />
       </button>
 
-      <DropDownContent isOpen={open} logout={logout} />
+      <DropDownContent isOpen={open} logout={logout} setOpen={setOpen} />
     </div>
   );
 }
