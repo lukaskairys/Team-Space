@@ -9,8 +9,8 @@ import InputSlider from "components/InputSlider/InputSlider";
 const Rooms = () => {
   const maxRange = (data) => {
     if (data === undefined || isObjectEmpty(data)) return 50;
-    const largest = data.reduce((p, c) =>
-      p["seatCount"] > c["seatCount"] ? p : c
+    const largest = data.reduce((prev, cur) =>
+      prev["seatCount"] > cur["seatCount"] ? prev : cur
     );
     return largest["seatCount"];
   };
