@@ -119,3 +119,14 @@
         transform: rotate(0deg);
     }
 }
+@include keyframes(tilt-in-fwd-tr) {
+    0% {
+        opacity: 0;
+        transform: translateY(-1000px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
