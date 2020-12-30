@@ -10,7 +10,7 @@ const Reservations = () => {
   return (
     <div className="reservationsPage">
       <Helmet>
-        <title>Reservations</title>
+        <title>Reservations · Team Space</title>
       </Helmet>
       <Breadcrumbs />
       <ReservationSection className="reservationsPage__widget" />

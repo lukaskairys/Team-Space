@@ -7,7 +7,7 @@ const Devices = () => {
   return (
     <>
       <Helmet>
-        <title>Device Reservations</title>
+        <title>Device Reservations · Team Space</title>
       </Helmet>
       <ReservationPage page={"devices"} />;
     </>

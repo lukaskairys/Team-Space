@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import bcrypt from "bcryptjs";
 import { v4 as generateID } from "uuid";
 import { useHistory, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
 
+import { successToast } from "components/Toasts/ToastHandler";
 import { useRequest } from "apis/useRequest";
 import { hash } from "utils/hashPassword";
 import { post } from "apis/services";
@@ -37,7 +37,7 @@ export const useAuthentication = (setShowMessage, setMessageText) => {
             history.push(
               location.from && location.from !== "/login" ? location.from : "/"
             );
-            toast.success("Your are successfully logged in. Welcome back!");
+            successToast("Your are successfully logged in. Welcome back!");
           } else {
             setShowMessage(true);
             setMessageText("Wrong password. Please try again.");
@@ -65,7 +65,7 @@ export const useAuthentication = (setShowMessage, setMessageText) => {
       setUserId(dataToPost.id);
       localStorage.setItem("user", JSON.stringify(dataToPost.id));
       history.push("/");
-      toast.success("You are now a registered member of Team Space. Welcome!");
+      successToast("You are now a registered member of Team Space. Welcome!");
     } catch (err) {
       setShowMessage(true);
       setIsPosting(false);

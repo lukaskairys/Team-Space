@@ -21,7 +21,7 @@ const EatOut = () => {
   return (
     <div className="eat-out">
       <Helmet>
-        <title>Eat Out</title>
+        <title>Eat Out · Team Space</title>
       </Helmet>
 
       <ContextProvider endpoint="/restaurants">

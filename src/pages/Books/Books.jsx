@@ -20,7 +20,7 @@ const Books = () => {
   return (
     <>
       <Helmet>
-        <title>Book Reservations</title>
+        <title>Book Reservations · Team Space</title>
       </Helmet>
       <ReservationPage
         page={"books"}

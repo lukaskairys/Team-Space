@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import { useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
 
+import { successToast } from "components/Toasts/ToastHandler";
 import { isObjectEmpty } from "utils/objects";
 import { hash } from "utils/hashPassword";
 import { patch, deleteData } from "apis/services";
@@ -22,7 +22,7 @@ export const useProfileSettings = (user) => {
 
     if (!isObjectEmpty(newData)) {
       patch("/users", newData, user.id);
-      toast.success("Your account was updated.");
+      successToast("Your account was updated.");
       history.push("/settings");
     }
   };
@@ -32,7 +32,7 @@ export const useProfileSettings = (user) => {
     bcrypt.compare(passwords.old, user.password).then((result) => {
       if (result) {
         patch("/users", { password: newHashed }, user.id);
-        toast.success("Password changed");
+        successToast("Password changed");
         history.push("/settings");
         setUser({ ...user, password: newHashed });
       } else {
@@ -45,7 +45,7 @@ export const useProfileSettings = (user) => {
     bcrypt.compare(password, user.password).then((result) => {
       if (result) {
         patch("/users", { email: email }, user.id);
-        toast.success("Email changed");
+        successToast("Email changed");
         history.push("/settings");
         setUser({ ...user, email: email });
       } else {
@@ -58,7 +58,7 @@ export const useProfileSettings = (user) => {
     deleteData(`users/${user.id}`, user);
     localStorage.removeItem("user");
     history.push("/login");
-    toast.success("Your account was deleted.");
+    successToast("Your account was deleted.");
   };
 
   return {

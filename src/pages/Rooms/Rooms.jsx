@@ -34,7 +34,7 @@ const Rooms = () => {
   return (
     <>
       <Helmet>
-        <title>Room Reservations</title>
+        <title>Room Reservations · Team Space</title>
       </Helmet>
       <ReservationPage
         page={"rooms"}
