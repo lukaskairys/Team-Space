@@ -17,6 +17,7 @@ function FormInput(props) {
     onFocus,
     isError,
     handleXclick,
+    max,
   } = props;
 
   const inputRef = React.useRef(null);
@@ -34,6 +35,7 @@ function FormInput(props) {
         className={className}
         onFocus={onFocus}
         ref={inputRef}
+        max={max}
       />
       {isError && (
         <Button
@@ -60,6 +62,7 @@ FormInput.propTypes = {
   onFocus: PropTypes.func,
   handleXclick: PropTypes.func,
   isError: PropTypes.bool,
+  max: PropTypes.string,
 };
 
 export default FormInput;
