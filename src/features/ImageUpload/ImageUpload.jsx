@@ -23,7 +23,7 @@ import { UserContext } from "contexts/UserContext";
 import Button from "components/button/Button";
 import { warnToast } from "components/Toasts/ToastHandler";
 
-import "./upload.scss";
+import "./imageUpload.scss";
 import b64toBlob from "./helpers/b64toBlob";
 import serverConfig from "./helpers/serverConfig";
 import getCroppedImg from "./helpers/cropImage";

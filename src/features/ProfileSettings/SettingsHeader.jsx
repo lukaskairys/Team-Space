@@ -3,7 +3,7 @@ import Button from "components/button/Button";
 import PropTypes from "prop-types";
 
 import "./settingsHeader.scss";
-import Upload from "features/ImageUpload/Upload";
+import ImageUpload from "features/ImageUpload/ImageUpload";
 
 const SettingsHeader = ({ setWhichForm, whichForm, userImage, user }) => {
   return (
@@ -32,7 +32,7 @@ const SettingsHeader = ({ setWhichForm, whichForm, userImage, user }) => {
         </Button>
       </div>
       <div className="profile-settings-nav__right">
-        <Upload />
+        <ImageUpload />
       </div>
     </nav>
   );

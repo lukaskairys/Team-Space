@@ -133,7 +133,11 @@
           "rating": 4
         }
       ],
-      "categories": ["Burger", "Salads", "Grill"],
+      "categories": [
+        "Burger",
+        "Salads",
+        "Grill"
+      ],
       "coordinates": {
         "lat": 54.94013552838086,
         "lng": 23.891938359698315
@@ -194,7 +198,12 @@
           "rating": 5
         }
       ],
-      "categories": ["Salads", "Pizza", "Pancakes", "Soups"],
+      "categories": [
+        "Salads",
+        "Pizza",
+        "Pancakes",
+        "Soups"
+      ],
       "coordinates": {
         "lat": 54.895815575566495,
         "lng": 23.895146363387344
@@ -243,7 +252,9 @@
           "rating": 5
         }
       ],
-      "categories": ["Pizza"],
+      "categories": [
+        "Pizza"
+      ],
       "coordinates": {
         "lat": 54.88976231771571,
         "lng": 23.92600737177067
@@ -316,7 +327,11 @@
           "rating": 5
         }
       ],
-      "categories": ["Grill", "Sweets", "Brunch"],
+      "categories": [
+        "Grill",
+        "Sweets",
+        "Brunch"
+      ],
       "coordinates": {
         "lat": 54.894580590225445,
         "lng": 23.89727312317586
@@ -359,7 +374,11 @@
           "rating": 5
         }
       ],
-      "categories": ["Salads", "Grill", "Soup"],
+      "categories": [
+        "Salads",
+        "Grill",
+        "Soup"
+      ],
       "coordinates": {
         "lat": 55.10545044712004,
         "lng": 23.781182670278557
@@ -426,7 +445,12 @@
           "rating": 4.5
         }
       ],
-      "categories": ["Salads", "Grill", "Brunch", "Soups"],
+      "categories": [
+        "Salads",
+        "Grill",
+        "Brunch",
+        "Soups"
+      ],
       "coordinates": {
         "lat": 54.896552052485234,
         "lng": 23.909268634336954
@@ -463,7 +487,11 @@
           "rating": 5
         }
       ],
-      "categories": ["Salads", "Grill", "Pancakes"],
+      "categories": [
+        "Salads",
+        "Grill",
+        "Pancakes"
+      ],
       "coordinates": {
         "lat": 54.89667728673178,
         "lng": 23.887710506872565
@@ -512,7 +540,10 @@
           "rating": 5
         }
       ],
-      "categories": ["Salads", "Ramen"],
+      "categories": [
+        "Salads",
+        "Ramen"
+      ],
       "coordinates": {
         "lat": 54.89844302951122,
         "lng": 23.908251872519394
@@ -549,7 +580,10 @@
           "rating": 5
         }
       ],
-      "categories": ["Burger", "Sandwich"],
+      "categories": [
+        "Burger",
+        "Sandwich"
+      ],
       "coordinates": {
         "lat": 54.89639923054928,
         "lng": 23.89255349830976
@@ -604,7 +638,10 @@
           "rating": 4.5
         }
       ],
-      "categories": ["Kebab", "Sweets"],
+      "categories": [
+        "Kebab",
+        "Sweets"
+      ],
       "coordinates": {
         "lat": 54.92086524047006,
         "lng": 23.97353685065208
@@ -635,7 +672,10 @@
           "rating": 4
         }
       ],
-      "categories": ["Sushi", "Soups"],
+      "categories": [
+        "Sushi",
+        "Soups"
+      ],
       "coordinates": {
         "lat": 54.89896259395091,
         "lng": 23.890748094165108
@@ -678,7 +718,11 @@
           "rating": 5
         }
       ],
-      "categories": ["Burger", "Brunch", "Pancakes"],
+      "categories": [
+        "Burger",
+        "Brunch",
+        "Pancakes"
+      ],
       "coordinates": {
         "lat": 54.91107306570668,
         "lng": 23.940096128333412
@@ -733,7 +777,9 @@
           "rating": 5
         }
       ],
-      "categories": ["Sweets"],
+      "categories": [
+        "Sweets"
+      ],
       "coordinates": {
         "lat": 54.8961994217457,
         "lng": 23.887269049345885
@@ -770,7 +816,11 @@
           "rating": 4.5
         }
       ],
-      "categories": ["Kebab", "Ramen", "Burger"],
+      "categories": [
+        "Kebab",
+        "Ramen",
+        "Burger"
+      ],
       "coordinates": {
         "lat": 54.89632325207335,
         "lng": 23.89093591792127
@@ -801,7 +851,11 @@
           "rating": 4.5
         }
       ],
-      "categories": ["Salads", "Sandwich", "Kebab"],
+      "categories": [
+        "Salads",
+        "Sandwich",
+        "Kebab"
+      ],
       "coordinates": {
         "lat": 54.89642795361554,
         "lng": 23.891496055156875
@@ -825,7 +879,11 @@
       "image": "https://images.unsplash.com/photo-1585238342024-78d387f4a707?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
       "checkIns": 13,
       "reviews": [],
-      "categories": ["Salads", "Sandwich", "Kebab"],
+      "categories": [
+        "Salads",
+        "Sandwich",
+        "Kebab"
+      ],
       "coordinates": {
         "lat": 54.89699180730873,
         "lng": 23.919581032720416
@@ -874,7 +932,11 @@
           "rating": 4
         }
       ],
-      "categories": ["Burger", "Grill", "Sweets"],
+      "categories": [
+        "Burger",
+        "Grill",
+        "Sweets"
+      ],
       "coordinates": {
         "lat": 54.89833463403161,
         "lng": 23.91349155805629
@@ -911,7 +973,11 @@
           "rating": 4.5
         }
       ],
-      "categories": ["Salads", "Sandwich", "Kebab"],
+      "categories": [
+        "Salads",
+        "Sandwich",
+        "Kebab"
+      ],
       "coordinates": {
         "lat": 54.89730786156492,
         "lng": 23.89116509699445
@@ -960,7 +1026,11 @@
           "rating": 5
         }
       ],
-      "categories": ["Sweets", "Pancakes", "Ramen"],
+      "categories": [
+        "Sweets",
+        "Pancakes",
+        "Ramen"
+      ],
       "coordinates": {
         "lat": 54.896026484847326,
         "lng": 23.887752260207876
@@ -997,7 +1067,12 @@
           "rating": 4.5
         }
       ],
-      "categories": ["Grill", "Kebab", "Burger", "Sushi"],
+      "categories": [
+        "Grill",
+        "Kebab",
+        "Burger",
+        "Sushi"
+      ],
       "coordinates": {
         "lat": 54.896471906444866,
         "lng": 23.893462943386695
@@ -1953,7 +2028,13 @@
         "Mobile",
         "Tablet"
       ],
-      "os": ["MacOS", "iOS", "Android", "Windows", "Linux"],
+      "os": [
+        "MacOS",
+        "iOS",
+        "Android",
+        "Windows",
+        "Linux"
+      ],
       "brand": [
         "Apple",
         "Dell",
@@ -3833,7 +3914,9 @@
         "type": "U-Shape",
         "address": "Pramonės pr. 8E",
         "hasProjector": true,
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector"
+        ],
         "socketCount": 12,
         "seatCount": 12,
         "bookedUntil": "02/07/2020"
@@ -3844,7 +3927,9 @@
         "image": "https://images.unsplash.com/photo-1579488081757-b212dbd6ee72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
         "type": "U-Shape",
         "address": "Pramonės pr. 8E",
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector"
+        ],
         "hasProjector": true,
         "socketCount": 2,
         "seatCount": 15,
@@ -3888,7 +3973,9 @@
         "image": "https://images.unsplash.com/photo-1590660116447-3e58e29c2e29?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
         "type": "Boardroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["Phone"],
+        "features": [
+          "Phone"
+        ],
         "hasProjector": false,
         "socketCount": 24,
         "seatCount": 38,
@@ -3900,7 +3987,10 @@
         "image": "https://images.unsplash.com/photo-1569682535081-3e826bee049b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
         "type": "Classroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["TV/Projector", "Whiteboard"],
+        "features": [
+          "TV/Projector",
+          "Whiteboard"
+        ],
         "hasProjector": true,
         "socketCount": 20,
         "seatCount": 14,
@@ -3912,7 +4002,10 @@
         "image": "https://images.unsplash.com/photo-1591587495187-e6cdd5a98e60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
         "type": "Classroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["TV/Projector", "Food"],
+        "features": [
+          "TV/Projector",
+          "Food"
+        ],
         "hasProjector": true,
         "socketCount": 31,
         "seatCount": 4,
@@ -3920,8 +4013,18 @@
       }
     ],
     "filterCategories": {
-      "type": ["Boardroom", "U-Shape", "Auditorium", "Classroom"],
-      "features": ["TV/Projector", "Phone", "Food", "Whiteboard"]
+      "type": [
+        "Boardroom",
+        "U-Shape",
+        "Auditorium",
+        "Classroom"
+      ],
+      "features": [
+        "TV/Projector",
+        "Phone",
+        "Food",
+        "Whiteboard"
+      ]
     }
   }
 }
