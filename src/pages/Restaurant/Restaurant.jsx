@@ -3,13 +3,11 @@ import { useParams, Redirect } from "react-router-dom";
 
 import { Context } from "contexts/Context";
 import { isObjectEmpty } from "utils/objects";
-import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import EatOutInfo from "features/EatOut/components/EatOutInfo/EatOutInfo";
 import ReviewsSection from "features/Reviews/ReviewsSection";
 import Hero from "features/eatOutRestaurantHero/components/Hero";
 import RestaurantCardsSection from "components/RestaurantsCardsSection/RestaurantCardsSection";
-import UserContextProvider from "contexts/UserContextProvider";
 
 import "./Restaurant.scss";
 
@@ -34,23 +32,16 @@ const Restaurant = () => {
 
   return (
     <div className="restaurant">
-      <UserContextProvider>
-        <MainLayout>
-          <>
-            <Hero>
-              <Breadcrumbs />
-            </Hero>
-            <div className="restaurant__middle">
-              <EatOutInfo />
-              <ReviewsSection />
-            </div>
-            <RestaurantCardsSection
-              title="Also you could like"
-              mode="similar"
-            />
-          </>
-        </MainLayout>
-      </UserContextProvider>
+      <>
+        <Hero>
+          <Breadcrumbs />
+        </Hero>
+        <div className="restaurant__middle">
+          <EatOutInfo />
+          <ReviewsSection />
+        </div>
+        <RestaurantCardsSection title="Also you could like" mode="similar" />
+      </>
     </div>
   );
 };

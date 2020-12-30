@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 
 import { UserContext } from "contexts/UserContext";
 import { useRequest } from "apis/useRequest";
+import { Helmet } from "react-helmet-async";
 
-import MainLayout from "components/MainLayout/MainLayout";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import ReservationSection from "features/reservationsSection/components/ReservationsSection";
 import ReservedItemsSection from "features/ReservedItems/ReservedItemsSection";
@@ -106,38 +106,37 @@ const Reservations = () => {
 
   return (
     <div className="reservations-page">
-      <MainLayout>
-        <>
-          <Breadcrumbs />
-          <h2 className="reservations-page__title">Your reservations:</h2>
-          <div className="reservations-page__all-reservations">
-            <article className="reservations-page__reserved-items">
-              {renderDevices()}
-              {renderBooks()}
-              {renderRooms()}
-              {renderReservations()}
-            </article>
-            <article className="reservations-page__checked-in">
-              <h3 className="reservation-item__title">Checked in:</h3>
-              {checkedInRestaurant && checkedInRestaurant.length !== 0 ? (
-                <EatOutCard restaurant={checkedInRestaurant[0]} />
-              ) : (
-                <div>
-                  <p>You are not currently checked in a restaurant.</p>
-                  <EatOutSection withoutRestaurants={true} />
-                </div>
-              )}
-            </article>
-          </div>
-          <div className="reservations-page__widget">
-            {!resSectionIfEmpty.current && (
-              <ReservationSection
-                title={"Need something else? Make a new reservation"}
-              />
-            )}
-          </div>
-        </>
-      </MainLayout>
+      <Helmet>
+        <title>Reservations</title>
+      </Helmet>
+      <Breadcrumbs />
+      <h2 className="reservations-page__title">Your reservations:</h2>
+      <div className="reservations-page__all-reservations">
+        <article className="reservations-page__reserved-items">
+          {renderDevices()}
+          {renderBooks()}
+          {renderRooms()}
+          {renderReservations()}
+        </article>
+        <article className="reservations-page__checked-in">
+          <h3 className="reservation-item__title">Checked in:</h3>
+          {checkedInRestaurant && checkedInRestaurant.length !== 0 ? (
+            <EatOutCard restaurant={checkedInRestaurant[0]} />
+          ) : (
+            <div>
+              <p>You are not currently checked in a restaurant.</p>
+              <EatOutSection withoutRestaurants={true} />
+            </div>
+          )}
+        </article>
+      </div>
+      <div className="reservations-page__widget">
+        {!resSectionIfEmpty.current && (
+          <ReservationSection
+            title={"Need something else? Make a new reservation"}
+          />
+        )}
+      </div>
     </div>
   );
 };

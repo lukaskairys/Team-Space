@@ -1,16 +1,16 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
-import MainLayout from "components/MainLayout/MainLayout";
 import Settings from "features/ProfileSettings/Settings";
-import UserContextProvider from "contexts/UserContextProvider";
 
 function ProfileSettings() {
   return (
-    <UserContextProvider>
-      <MainLayout>
-        <Settings />
-      </MainLayout>
-    </UserContextProvider>
+    <>
+      <Helmet>
+        <title>Profile settings</title>
+      </Helmet>
+      <Settings />;
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-23"
+    "date": "2020-12-30"
   },
   "users": [
     {
@@ -33,68 +33,13 @@
         }
       ],
       "liked": {
-        "restaurants": [
-          {
-            "id": "x8bd7ozuj6"
-          },
-          {
-            "id": "h3hlqj5bcb"
-          },
-          {
-            "id": "porhch2lam"
-          },
-          {
-            "id": "9kdf9qawui"
-          },
-          {
-            "id": "sejw2ugddc"
-          }
-        ],
-        "books": [
-          {
-            "id": "120wsdlpx4"
-          },
-          {
-            "id": "pelpnv6hmn"
-          },
-          {
-            "id": "tk3ih1o0qt"
-          },
-          {
-            "id": "rri8r7gpdp"
-          },
-          {
-            "id": "193ywpe740"
-          },
-          {
-            "id": "137420wgf0"
-          }
-        ],
-        "devices": [
-          {
-            "id": "193ywpe740"
-          },
-          {
-            "id": "1563175150"
-          }
-        ],
-        "rooms": [
-          {
-            "id": "497ee32e-bd90-4515-94dc-4bc408345845"
-          },
-          {
-            "id": "1914c51b-d752-4770-86ea-c628a9040b60"
-          }
-        ],
-        "stories": [
-          {
-            "id": "10197o9h40"
-          }
-        ]
+        "restaurants": [],
+        "books": [],
+        "devices": [],
+        "stories": [],
+        "rooms": []
       },
-      "checkIn": {
-        "id": "vvektcqbs4"
-      },
+      "checkIn": {},
       "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },
@@ -106,16 +51,14 @@
       "location": "",
       "reservations": {
         "books": [],
-        "devices": []
+        "devices": [],
+        "rooms": []
       },
       "notifications": [],
       "liked": {
-        "restaurants": [
-          {
-            "id": "120wsdlpx4"
-          }
-        ],
+        "restaurants": [],
         "books": [],
+        "rooms": [],
         "devices": [],
         "stories": []
       },
@@ -170,18 +113,6 @@
           "id": "183620uer",
           "comment": "Good burgers, good price",
           "rating": 4
-        },
-        {
-          "userName": "John",
-          "id": "zhn5se87bp",
-          "comment": "",
-          "rating": 2
-        },
-        {
-          "userName": "Lukas Kairys",
-          "id": "02b3150d-c1f6-41d7-9abe-c845fba08e1e",
-          "comment": "",
-          "rating": 1
         }
       ],
       "categories": [
@@ -3872,16 +3803,6 @@
           "userName": "Luke Skywalker",
           "comment": "Hope you'll have a good time!",
           "date": "2020-11-19T15:48:00.000Z"
-        },
-        {
-          "userName": "Frontend Wizard",
-          "comment": "Happy Birthday!",
-          "date": "2020-12-21T15:50:07.302Z"
-        },
-        {
-          "userName": "Frontend Wizard",
-          "comment": "ss",
-          "date": "2020-12-21T18:30:08.276Z"
         }
       ]
     },
@@ -3893,7 +3814,7 @@
       "postLocation": "TO",
       "postDate": "2020-11-24T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1560971017-e22e6a4fbefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=947&q=80",
-      "likes": 20,
+      "likes": 21,
       "comments": [
         {
           "userName": "Derek Daves",
@@ -3965,7 +3886,7 @@
         "features": [
           "TV/Projector"
         ],
-        "seatCount": 100,
+        "seatCount": 105,
         "bookedUntil": "10/16/2020"
       },
       {
@@ -4003,7 +3924,10 @@
         "type": "Boardroom",
         "address": "Pramonės pr. 8E",
         "features": [
-          "TV/Projector"
+          "TV/Projector",
+          "Phone",
+          "Food",
+          "Whiteboard"
         ],
         "hasProjector": false,
         "socketCount": 72,
@@ -4017,7 +3941,8 @@
         "type": "Boardroom",
         "address": "K. Donelaičio g. 62",
         "features": [
-          "TV/Projector"
+          "TV/Projector",
+          "Whiteboard"
         ],
         "hasProjector": false,
         "socketCount": 7,

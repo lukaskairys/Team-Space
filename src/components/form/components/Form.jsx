@@ -58,6 +58,7 @@ const Form = (props) => {
     reservations: {
       books: [],
       devices: [],
+      rooms: [],
     },
     notifications: [],
     liked: {
@@ -65,13 +66,13 @@ const Form = (props) => {
       books: [],
       devices: [],
       stories: [],
+      rooms: [],
     },
     checkIn: {},
   };
 
   const dataToChange = {
     userName: values.username,
-    email: values.email,
     location: values.location,
     birthdayDate: values.birthday,
   };

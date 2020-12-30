@@ -20,14 +20,14 @@ const SettingsHeader = ({ setWhichForm, whichForm, userImage }) => {
           isMarked={whichForm === "passwords" && true}
           handleClick={() => setWhichForm("passwords")}
         >
-          Change password
+          Change Password
         </Button>
         <Button
           blankNoBorder={true}
           isMarked={whichForm === "email" && true}
           handleClick={() => setWhichForm("email")}
         >
-          Change email
+          Change Email
         </Button>
       </div>
       <div className="profile-settings-nav__right">

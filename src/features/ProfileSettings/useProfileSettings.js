@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { isObjectEmpty } from "utils/objects";
 import { hash } from "utils/hashPassword";
 import { patch, deleteData } from "apis/services";
 
@@ -9,13 +10,16 @@ export const useProfileSettings = (user, setShowMessage, setMessageText) => {
   const history = useHistory();
 
   const changeAccountDetails = (dataToChange) => {
+    let newData = {};
     for (const prop in dataToChange) {
-      const newData = { [prop]: dataToChange[prop] };
-      if (dataToChange[prop]) {
-        patch("/users", newData, user.id);
-        toast.success("Your account was updated.");
-        history.push("/settings");
-      }
+      if (dataToChange[prop])
+        newData = { ...dataToChange, [prop]: dataToChange[prop] };
+    }
+
+    if (!isObjectEmpty(newData)) {
+      patch("/users", newData, user.id);
+      toast.success("Your account was updated.");
+      history.push("/settings");
     }
   };
 
