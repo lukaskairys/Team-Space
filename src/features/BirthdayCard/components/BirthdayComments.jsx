@@ -75,7 +75,17 @@ function BirthdayComments({
         <BirthdayCommentsRenderer comments={allComments} />
         <div className="feed-card-divider"></div>
         <div className="new-comment-container">
-          <img className="new-comment-image" src={userPhoto} alt="User" />
+          {userPhoto && (
+            <img
+              className="new-comment-image"
+              src={
+                userPhoto.startsWith("https://")
+                  ? userPhoto
+                  : `data:image/jpeg;base64,${userPhoto}`
+              }
+              alt="User"
+            />
+          )}
           <input
             ref={textInput}
             name="commentInput"
