@@ -5,14 +5,11 @@ import Button from "components/button/Button";
 import { formatDateToGB } from "features/reservationsPageList/utils/dateFormatters";
 import { ReactComponent as SearchIcon } from "assets/icons/magnifying-glass.svg";
 import { ReactComponent as CircleX } from "assets/icons/x-circle.svg";
+import { todaysDate } from "utils/date";
 
 import "./searchInputs.scss";
 
 function SearchInputs({ searchBtnClick }) {
-  const todaysDate = () => {
-    return new Date().toISOString().split("T")[0];
-  };
-
   const [term, setTerm] = useState();
   const [date, setDate] = useState(todaysDate);
 
@@ -44,7 +41,7 @@ function SearchInputs({ searchBtnClick }) {
       <div className="search-bar__inputs-text">
         <input
           type="text"
-          className="form__input search-bar__inputs-text-input"
+          className="form-input search-bar__inputs-text-input"
           onChange={handleSearchInputChange}
           onKeyPress={searchWithEnter}
           value={term || ""}
@@ -65,7 +62,7 @@ function SearchInputs({ searchBtnClick }) {
         <input
           type="date"
           name="reservationDate"
-          className="form__input search-bar__inputs-date-input"
+          className="form-input search-bar__inputs-date-input"
           onChange={handleDateChange}
           min={todaysDate()}
           value={date}

@@ -2,21 +2,31 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import classNames from "classnames";
 import { useParams } from "react-router-dom";
 
+import { UserContext } from "contexts/UserContext";
 import { Context } from "contexts/Context";
 import { useModal } from "utils/useModal";
 import useObserver from "utils/useObserver";
 import Button from "components/button/Button";
-import ReviewCard from "./ReviewCard";
 import Modal from "components/Modal/Modal";
 
+import LeaveReview from "./LeaveReview";
+import ReviewCard from "./ReviewCard";
 import "./reviewsSection.scss";
 
-const ReviewsSection = () => {
+function ReviewsSection() {
+  const [restaurant, setRestaurant] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [isReviewed, setIsReviewed] = useState();
 
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
+  const {
+    modalOpen: leaveReviewOpen,
+    showModal: showLeaveReview,
+    setModalOpen: setLeaveReviewOpen,
+    closeModal: closeLeaveReview,
+  } = useModal();
   const { id } = useParams();
 
   const { data, error, isLoading } = useContext(Context);
@@ -28,8 +38,10 @@ const ReviewsSection = () => {
 
   useObserver({ callback: observeWidthCallback, element: containerRef });
 
+  const { data: user } = useContext(UserContext);
+
   const reviewCountToRender = () => {
-    if (containerWidth < 1070 && width < 1455) {
+    if (containerWidth < 1016 && width < 1455) {
       return 2;
     } else if (reviews.length > 3) {
       return 3;
@@ -43,6 +55,12 @@ const ReviewsSection = () => {
   useEffect(() => {
     try {
       const restaurant = data.filter((restaurant) => restaurant.id === id);
+      setRestaurant(restaurant);
+      setIsReviewed(
+        restaurant[0].reviews.some(
+          (review) => review.userName === user.userName
+        )
+      );
       const reviews = restaurant[0].reviews.filter(
         (review) => review.comment !== ""
       );
@@ -52,7 +70,7 @@ const ReviewsSection = () => {
         setReviews([]);
       }
     }
-  }, [data, id]);
+  }, [data, id, user.userName]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,24 +95,37 @@ const ReviewsSection = () => {
     }
   };
 
-  if (reviews.length === 0) return null;
-
   return (
     <section ref={containerRef} className="reviews">
-      <h3 className="reviews__title">Reviews</h3>
+      {reviews.length !== 0 && (
+        <>
+          <h3 className="reviews__title">Reviews</h3>
+
+          <div
+            className={classNames("reviews__content", {
+              "is-narrow": containerWidth < 572 && width < 1455,
+            })}
+          >
+            {isLoading && <span></span>}
+            {error && <span>Error</span>}
+            {reviewsToShow.map((review) => (
+              <ReviewCard review={review} key={review.id} />
+            ))}
+          </div>
+        </>
+      )}
+
       <div
-        className={classNames("reviews__content", {
-          "is-narrow": containerWidth < 700 && width < 1455,
+        className={classNames("reviews__buttons", {
+          "is-empty": reviews.length === 0,
         })}
       >
-        {isLoading && <span></span>}
-        {error && <span>Error</span>}
-        {reviewsToShow.map((review) => (
-          <ReviewCard review={review} key={review.id} />
-        ))}
+        {renderButton()}
+        <Button medium={true} handleClick={showLeaveReview}>
+          {!isReviewed && <span>leave a review</span>}
+          {isReviewed && <span>edit your review</span>}
+        </Button>
       </div>
-
-      {renderButton()}
 
       {modalOpen && (
         <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
@@ -103,8 +134,20 @@ const ReviewsSection = () => {
           ))}
         </Modal>
       )}
+
+      {leaveReviewOpen && (
+        <Modal closeModal={closeLeaveReview} setModalOpen={setLeaveReviewOpen}>
+          <LeaveReview
+            closeModal={closeLeaveReview}
+            restaurant={restaurant[0]}
+            setReviews={setReviews}
+            setIsReviewed={setIsReviewed}
+            reviews={reviews}
+          />
+        </Modal>
+      )}
     </section>
   );
-};
+}
 
 export default ReviewsSection;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import useForm from "../utils/useForm.js";
+import useForm from "../utils/useForm";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
@@ -22,8 +22,10 @@ const Form = (props) => {
     subtitle,
     action,
     user,
+    setUser,
     showModal,
     settingsHeaderRenderer,
+    max,
   } = props;
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
@@ -37,7 +39,7 @@ const Form = (props) => {
     changeAccountDetails,
     changePassword,
     changeEmail,
-  } = useProfileSettings(user, setShowMessage, setMessageText);
+  } = useProfileSettings(user, setUser);
 
   const {
     values,
@@ -58,20 +60,21 @@ const Form = (props) => {
     reservations: {
       books: [],
       devices: [],
+      rooms: [],
     },
     notifications: [],
     liked: {
       restaurants: [],
       books: [],
       devices: [],
+      rooms: [],
       stories: [],
     },
     checkIn: {},
   };
 
   const dataToChange = {
-    userName: values.username,
-    email: values.email,
+    userName: values.userName,
     location: values.location,
     birthdayDate: values.birthday,
   };
@@ -92,13 +95,14 @@ const Form = (props) => {
         callback = () => login(values.email, values.password);
         break;
       case "account":
-        callback = () => changeAccountDetails(dataToChange);
+        callback = () => changeAccountDetails(dataToChange, setUser);
         break;
       case "passwords":
-        callback = () => changePassword(passwords, user);
+        callback = () => changePassword(passwords, user, setUser);
         break;
       case "email":
-        callback = () => changeEmail(values.email, values.oldPassword, user);
+        callback = () =>
+          changeEmail(values.email, values.oldPassword, user, setUser);
         break;
       default:
         return;
@@ -154,6 +158,7 @@ const Form = (props) => {
             handleFocus={handleFocus}
             action={action}
             handleXclick={handleXclick}
+            max={max}
           />
         )}
         {showMessage && (
@@ -182,6 +187,8 @@ Form.propTypes = {
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   showModal: PropTypes.func,
   settingsHeaderRenderer: PropTypes.func,
+  max: PropTypes.string,
+  setUser: PropTypes.func,
 };
 
 export default Form;

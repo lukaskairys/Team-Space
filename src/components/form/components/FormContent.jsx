@@ -19,6 +19,7 @@ function FormContent(props) {
     handleChange,
     handleFocus,
     handleXclick,
+    max,
   } = props;
 
   const formStructure = getFormStructure();
@@ -68,6 +69,7 @@ function FormContent(props) {
             }`}
             isError={errors[field.name] ? true : false}
             handleXclick={handleXclick}
+            max={max}
           />
           <p className="form-content__error-msg">{errors[field.name]}</p>
         </div>
@@ -83,6 +85,7 @@ FormContent.propTypes = {
   handleChange: PropTypes.func,
   handleFocus: PropTypes.func,
   handleXclick: PropTypes.func,
+  max: PropTypes.string,
 };
 
 export default FormContent;

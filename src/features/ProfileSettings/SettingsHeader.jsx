@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import "./settingsHeader.scss";
 import Upload from "features/ImageUpload/Upload";
 
-const SettingsHeader = ({ setWhichForm, whichForm, userImage }) => {
+const SettingsHeader = ({ setWhichForm, whichForm, userImage, user }) => {
   return (
     <nav className="profile-settings-nav">
       <div className="profile-settings-nav__left">
@@ -14,21 +14,21 @@ const SettingsHeader = ({ setWhichForm, whichForm, userImage }) => {
           isMarked={whichForm === "account" && true}
           handleClick={() => setWhichForm("account")}
         >
-          Account Details
+          Change Account Details
         </Button>
         <Button
           blankNoBorder={true}
           isMarked={whichForm === "passwords" && true}
           handleClick={() => setWhichForm("passwords")}
         >
-          Change password
+          Change Password
         </Button>
         <Button
           blankNoBorder={true}
           isMarked={whichForm === "email" && true}
           handleClick={() => setWhichForm("email")}
         >
-          Change email
+          Change Email
         </Button>
       </div>
       <div className="profile-settings-nav__right">
@@ -42,6 +42,7 @@ SettingsHeader.propTypes = {
   whichForm: PropTypes.string,
   setWhichForm: PropTypes.func,
   userImage: PropTypes.string,
+  user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 export default SettingsHeader;

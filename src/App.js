@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
 import RegistrationPage from "pages/Registration/RegistrationPage";
@@ -22,70 +23,89 @@ import PrivateRoute from "./authentication/PrivateRoute.jsx";
 import PublicRoute from "./authentication/PublicRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
 import Page404 from "pages/Page404/Page404";
+import MainLayout from "components/MainLayout/MainLayout";
 
 function App() {
   return (
-    <Router>
-      <Toast />
+    <HelmetProvider>
+      <Router>
+        <Toast />
 
-      <Switch>
-        <PublicRoute exact path="/login">
-          <LoginPage />
-        </PublicRoute>
-        <PublicRoute exact path="/registration">
-          <RegistrationPage />
-        </PublicRoute>
+        <Switch>
+          <PublicRoute exact path="/login">
+            <LoginPage />
+          </PublicRoute>
+          <PublicRoute exact path="/registration">
+            <RegistrationPage />
+          </PublicRoute>
 
-        <PrivateRoute exact path="/">
-          <Dashboard />
-        </PrivateRoute>
+          <PrivateRoute exact path="/">
+            <MainLayout>
+              <Dashboard />
+            </MainLayout>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/settings">
-          <ProfileSettings />
-        </PrivateRoute>
+          <PrivateRoute exact path="/settings">
+            <MainLayout>
+              <ProfileSettings />
+            </MainLayout>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations">
-          <Reservations />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations">
+            <MainLayout>
+              <Reservations />
+            </MainLayout>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations/devices">
-          <Devices />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations/devices">
+            <MainLayout>
+              <Devices />
+            </MainLayout>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations/books">
-          <Books />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations/books">
+            <MainLayout>
+              <Books />
+            </MainLayout>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reservations/rooms">
-          <Rooms />
-        </PrivateRoute>
+          <PrivateRoute exact path="/reservations/rooms">
+            <MainLayout>
+              <Rooms />
+            </MainLayout>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/eat-out/categories">
-          <Redirect
-            to={{
-              pathname: "/eat-out",
-              isRedirected: true,
-            }}
-          />
-        </PrivateRoute>
+          <PrivateRoute exact path="/eat-out/categories">
+            <Redirect
+              to={{
+                pathname: "/eat-out",
+                isRedirected: true,
+              }}
+            />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/eat-out/">
-          <EatOut />
-        </PrivateRoute>
+          <PrivateRoute exact path="/eat-out/">
+            <MainLayout>
+              <EatOut />
+            </MainLayout>
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/eat-out/:id">
-          <ContextProvider endpoint="/restaurants">
-            <Restaurant />
-          </ContextProvider>
-        </PrivateRoute>
-
-        <PrivateRoute exact path="/eat-out/categories/:category">
-          <EatOutCategoriesPage />
-        </PrivateRoute>
-
-        <Route component={Page404} />
-      </Switch>
-    </Router>
+          <PrivateRoute exact path="/eat-out/:id">
+            <MainLayout>
+              <ContextProvider endpoint="/restaurants">
+                <Restaurant />
+              </ContextProvider>
+            </MainLayout>
+          </PrivateRoute>
+          <PrivateRoute exact path="/eat-out/categories/:category">
+            <MainLayout>
+              <EatOutCategoriesPage />
+            </MainLayout>
+          </PrivateRoute>
+          <Route component={Page404} />
+        </Switch>
+      </Router>
+    </HelmetProvider>
   );
 }
 
