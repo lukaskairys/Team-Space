@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import Cropper from "react-easy-crop";
 import axios from "axios";
 import { FilePond, registerPlugin } from "react-filepond";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
@@ -28,7 +29,10 @@ registerPlugin(
 
 function Upload() {
   const [files, setFiles] = useState([]);
+  const [imageAdded, setImageAdded] = useState(false);
   const { data: user } = useContext(UserContext);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
 
   useEffect(() => {
     if (user.userImage) {
@@ -53,7 +57,6 @@ function Upload() {
       transfer,
       options
     ) => {
-      // related to aborting the request
       const CancelToken = axios.CancelToken;
       const source = CancelToken.source();
 
@@ -67,20 +70,18 @@ function Upload() {
           cancelToken: source.token,
           headers: { "Content-Type": "application/json" },
           onUploadProgress: (e) => {
-            // updating progress indicator
             progress(e.lengthComputable, e.loaded, e.total);
           },
         }
       )
         .then((res) => {
           if (res.status >= 200 && res.status < 300) {
-            // the load method accepts either a string (id) or an object
             load();
           }
         })
         .catch((thrown) => {
           if (axios.isCancel(thrown)) {
-            // console.log("Request canceled", thrown.message);
+            error(thrown.message);
           } else {
             error("Failed to upload the image");
           }
@@ -104,9 +105,10 @@ function Upload() {
         <FilePond
           files={files}
           onupdatefiles={setFiles}
+          onactivatefile={() => setImageAdded(true)}
           server={serverConfig}
           name="userImage"
-          labelIdle='Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span>'
+          labelIdle='Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span><br>max 100KB'
           imageCropAspectRatio="1:1"
           stylePanelAspectRatio="1:1"
           stylePanelLayout="compact circle"
@@ -119,6 +121,19 @@ function Upload() {
           maxFileSize="100KB"
           instantUpload={false}
         />
+        {imageAdded && (
+          <div className="crop-container">
+            <Cropper
+              image={`data:image/jpeg;base64,${files[0].getFileEncodeBase64String()}`}
+              cropShape={"round"}
+              crop={crop}
+              zoom={zoom}
+              aspect={1 / 1}
+              onCropChange={setCrop}
+              onZoomChange={setZoom}
+            />
+          </div>
+        )}
       </>
     );
   } else return null;
