@@ -79,6 +79,7 @@ $_breakpoint2: 771;
 
     &-date-input {
         @include typography-body-2;
+        @include calendar-picker('../../assets/icons/calendar.svg');
 
         cursor: text;
         font-family: $font-family;
@@ -110,19 +111,6 @@ $_breakpoint2: 771;
             @include respond-to($_breakpoint, max) {
                 font-size: $font-size-12;
                 top: 0.1rem;
-            }
-        }
-
-        &::-webkit-calendar-picker-indicator {
-            appearance: none;
-            background-image: url('../../assets/icons/calendar.svg');
-            background-size: cover;
-            cursor: pointer;
-            height: 1.6rem;
-            width: 1.6rem;
-
-            &:hover {
-                transform: scale(1.1);
             }
         }
     }

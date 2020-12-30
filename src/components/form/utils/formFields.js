@@ -18,9 +18,9 @@ const fields = {
     placeholder: "Home str. 1, Kaunas",
     inputLong: true,
   },
-  username: {
+  userName: {
     type: "text",
-    name: "username",
+    name: "userName",
     text: "Username",
     placeholder: "Super-wizard",
   },
@@ -75,7 +75,7 @@ export const registerForm = [
   fields.password,
   fields.repeatPassword,
 ];
-export const accountForm = [fields.username, fields.birthday, fields.location];
+export const accountForm = [fields.userName, fields.birthday, fields.location];
 export const passwordsForm = [
   fields.oldPassword,
   fields.newPassword,

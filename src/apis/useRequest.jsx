@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import jsonserver from "./jsonserver";
 
-export const useRequest = (endpoint) => {
+export const useRequest = (endpoint, repeat) => {
   const [mounted, setMounted] = useState(false);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +37,7 @@ export const useRequest = (endpoint) => {
       source.cancel();
       setMounted(false);
     };
-  }, [endpoint, mounted]);
+  }, [endpoint, mounted, repeat]);
 
   return { data, error, isLoading };
 };

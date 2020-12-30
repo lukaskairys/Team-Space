@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { ReactComponent as SettingsIcon } from "../../../assets/icons/settings.svg";
 import { ReactComponent as LogOutIcon } from "../../../assets/icons/log-out.svg";
 
-function DropDownContent({ isOpen, logout }) {
+function DropDownContent({ isOpen, setOpen, logout }) {
   return (
     <div
       className={classNames("dropdown", {
@@ -14,7 +14,11 @@ function DropDownContent({ isOpen, logout }) {
       })}
     >
       <ul className="dropdown__content">
-        <Link to="/settings" className="dropdown__link">
+        <Link
+          to="/settings"
+          className="dropdown__link"
+          onClick={() => setOpen(false)}
+        >
           <li className="dropdown__item dropdown__item--first">
             <SettingsIcon className="dropdown__icon" />
             <span>Settings</span>
@@ -34,6 +38,7 @@ function DropDownContent({ isOpen, logout }) {
 
 DropDownContent.propTypes = {
   isOpen: PropTypes.bool,
+  setOpen: PropTypes.func,
   logout: PropTypes.func,
 };
 

@@ -56,6 +56,21 @@
     }
 }
 
+@mixin calendar-picker($imageUrl) {
+    &::-webkit-calendar-picker-indicator {
+        appearance: none;
+        background-image: url($imageUrl);
+        background-size: cover;
+        cursor: pointer;
+        height: 1.6rem;
+        width: 1.6rem;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
 //setting height and width of a square
 
 @mixin square-size($squareSize) {

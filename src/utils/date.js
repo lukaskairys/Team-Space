@@ -7,3 +7,7 @@ export const weekDays = [
   "Friday",
   "Saturday",
 ];
+
+export const todaysDate = () => {
+  return new Date().toISOString().split("T")[0];
+};
