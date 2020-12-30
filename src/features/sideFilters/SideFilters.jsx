@@ -15,6 +15,7 @@ const SideFilters = ({
   handleChange,
   renderInputSlider,
   filterRef,
+  isCombined,
 }) => {
   return (
     <div className="side-filter" ref={filterRef} data-filtertype={title}>
@@ -51,6 +52,9 @@ const SideFilters = ({
           handleChange={handleChange}
         />
       )}
+      {isCombined && (
+        <span className="side-filter__caption">Combined selection filter</span>
+      )}
     </div>
   );
 };
@@ -58,6 +62,7 @@ const SideFilters = ({
 SideFilters.displayName = "SideFilters";
 SideFilters.propTypes = {
   filterItems: PropTypes.array,
+  isCombined: PropTypes.bool,
   title: PropTypes.string,
   clearAll: PropTypes.func,
   tags: PropTypes.shape({

@@ -3799,8 +3799,10 @@
         "address": "Karaliaus Mindaugo pr. 50",
         "hasProjector": true,
         "socketCount": 14,
-        "features": ["TV/Projector"],
-        "seatCount": 100,
+        "features": [
+          "TV/Projector"
+        ],
+        "seatCount": 105,
         "bookedUntil": "10/16/2020"
       },
       {
@@ -3833,7 +3835,12 @@
         "image": "https://cdn.pixabay.com/photo/2020/07/31/15/12/boardroom-5453288__340.jpg",
         "type": "Boardroom",
         "address": "Pramonės pr. 8E",
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector",
+          "Phone",
+          "Food",
+          "Whiteboard"
+        ],
         "hasProjector": false,
         "socketCount": 72,
         "seatCount": 93,
@@ -3845,7 +3852,10 @@
         "image": "https://images.unsplash.com/photo-1581887300455-5eb259f6eac0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
         "type": "Boardroom",
         "address": "K. Donelaičio g. 62",
-        "features": ["TV/Projector"],
+        "features": [
+          "TV/Projector",
+          "Whiteboard"
+        ],
         "hasProjector": false,
         "socketCount": 7,
         "seatCount": 26,
