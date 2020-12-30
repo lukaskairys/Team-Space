@@ -16,16 +16,16 @@ const Reservations = () => {
   const [reservedDevices, setReservedDevices] = useState([]);
   const [reservedBooks, setReservedBooks] = useState([]);
   const [reservedRooms, setReservedRooms] = useState([]);
-  const { data: user } = useContext(UserContext);
-  // const reservedDevices = user?.reservations?.devices;
-  // const reservedBooks = user?.reservations?.books;
-  // const reservedRooms = user?.reservations?.rooms;
-  const checkedIn = user?.checkIn?.id;
 
+  const { data: user } = useContext(UserContext);
+
+  // const [repeat, setRepeat] = useState(false);
   const { data: devices } = useRequest("/devices");
   const { data: books } = useRequest("/books");
   const { data: rooms } = useRequest("/rooms");
   const { data: restaurants } = useRequest("/restaurants");
+
+  const checkedIn = user?.checkIn?.id;
 
   useEffect(() => {
     if (user && user.reservations) {
@@ -34,6 +34,10 @@ const Reservations = () => {
       setReservedRooms(user.reservations.rooms);
     }
   }, [user]);
+
+  // useEffect(() => {
+  //   setRepeat(true);
+  // }, [reservedDevices, reservedBooks, reservedRooms]);
 
   const resSectionIfEmpty = useRef(null);
   const reservationItem = useRef(null);
@@ -53,6 +57,7 @@ const Reservations = () => {
             listName={"deviceList"}
             title={"Devices"}
             user={user}
+            // setRepeat={setRepeat}
           />
         </section>
       );
@@ -68,6 +73,7 @@ const Reservations = () => {
             listName={"bookList"}
             title={"Books"}
             user={user}
+            // setRepeat={setRepeat}
           />
         </section>
       );
@@ -83,6 +89,7 @@ const Reservations = () => {
             listName={"roomList"}
             title={"Meeting rooms"}
             user={user}
+            // setRepeat={setRepeat}
           />
         </section>
       );

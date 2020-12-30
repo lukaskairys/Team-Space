@@ -14,24 +14,26 @@ const ReservedItemsSection = ({
   title,
   listName,
   user,
+  setRepeat,
 }) => {
   const [reservedItemsDataList, setReservedItemsDataList] = useState([]);
 
   useEffect(() => {
     if (allItems && allItems[listName]) {
-      reservedItems.forEach((item) => {
-        const filtered = allItems[listName].filter((i) => i.id === item.id);
-        setReservedItemsDataList((prevItems) => [...prevItems, ...filtered]);
+      let filtered = [];
+      reservedItems.forEach((resItem) => {
+        filtered = [
+          ...filtered,
+          ...allItems[listName].filter((i) => i.id === resItem.id),
+        ];
       });
+      setReservedItemsDataList(filtered);
     }
-  }, [reservedItems, user, listName, allItems]);
+  }, [reservedItems, listName, allItems]);
 
   const updatedReservations = (id) => ({
     ...user.reservations,
     [title.toLowerCase()]: reservedItems.filter((item) => item.id !== id),
-    // .map((item) => ({
-    //   id: item.id,
-    // })),
   });
 
   const cancelReservation = (id) => {
@@ -39,7 +41,7 @@ const ReservedItemsSection = ({
     setReservedItemsDataList(
       reservedItemsDataList.filter((item) => item.id !== id)
     );
-
+    setRepeat(true);
     patch(`/users`, { reservations: updatedReservations(id) }, user.id);
   };
 
@@ -77,6 +79,7 @@ ReservedItemsSection.propTypes = {
   title: PropTypes.string,
   listName: PropTypes.string,
   user: PropTypes.object,
+  setRepeat: PropTypes.string,
 };
 
 export default ReservedItemsSection;
