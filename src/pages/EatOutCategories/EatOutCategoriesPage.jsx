@@ -25,7 +25,7 @@ function EatOutCategoriesPage() {
   return (
     <ContextProvider endpoint="/restaurants">
       <Helmet>
-        <title>{"Places for " + catogoryToCheck}</title>
+        <title>{"Places for " + catogoryToCheck + " · Team Space"}</title>
       </Helmet>
       <Breadcrumbs />
       <EatOutByCategories />

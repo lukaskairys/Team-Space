@@ -36,7 +36,7 @@ function Hero({ children }) {
           }}
         >
           <Helmet>
-            <title>{restaurant.name}</title>
+            <title>{restaurant.name} · Team Space</title>
           </Helmet>
           {children}
           <div className="HERO__content">

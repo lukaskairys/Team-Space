@@ -1,5 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ToastContainer, Zoom } from "react-toastify";
+
+import { ReactComponent as X } from "assets/icons/x-bold.svg";
+
+const CloseButton = ({ closeToast }) => (
+  <X onClick={closeToast} className="Toastify__close-buttons" />
+);
 
 const Toast = () => {
   return (
@@ -14,9 +21,13 @@ const Toast = () => {
       pauseOnFocusLoss={false}
       draggable
       pauseOnHover
-      background="#34A853"
+      closeButton={<CloseButton />}
     />
   );
+};
+
+CloseButton.propTypes = {
+  closeToast: PropTypes.func,
 };
 
 export default Toast;
