@@ -1,10 +1,10 @@
 {
   "lastClearDate": {
-    "date": "2020-12-29"
+    "date": "2020-12-30"
   },
   "users": [
     {
-      "userName": "asdasd",
+      "userName": "Frontend Wizard",
       "email": "wizard@email.com",
       "userImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
       "birthdayDate": "2020-12-02",
@@ -67,11 +67,7 @@
         ]
       },
       "checkIn": {},
-<<<<<<< HEAD
-      "password": "$2a$10$T48PjCmf1ULjvdLy1WC2iezoATuigCss3Iacrf45G5C8nkj5MtL4u",
-=======
       "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
->>>>>>> 61660391c8128df0b53f75e97b2f582cf765afac
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },
     {

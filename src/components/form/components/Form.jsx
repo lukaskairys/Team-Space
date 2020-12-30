@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import useForm from "../utils/useForm.js";
+import useForm from "../utils/useForm";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
@@ -39,9 +39,7 @@ const Form = (props) => {
     changeAccountDetails,
     changePassword,
     changeEmail,
-    // user,
-    // setUser,
-  } = useProfileSettings(user, () => {}, setShowMessage, setMessageText);
+  } = useProfileSettings(user, setUser);
 
   const {
     values,
@@ -62,12 +60,14 @@ const Form = (props) => {
     reservations: {
       books: [],
       devices: [],
+      rooms: [],
     },
     notifications: [],
     liked: {
       restaurants: [],
       books: [],
       devices: [],
+      rooms: [],
       stories: [],
     },
     checkIn: {},
@@ -98,10 +98,11 @@ const Form = (props) => {
         callback = () => changeAccountDetails(dataToChange, setUser);
         break;
       case "passwords":
-        callback = () => changePassword(passwords, user);
+        callback = () => changePassword(passwords, user, setUser);
         break;
       case "email":
-        callback = () => changeEmail(values.email, values.oldPassword, user);
+        callback = () =>
+          changeEmail(values.email, values.oldPassword, user, setUser);
         break;
       default:
         return;

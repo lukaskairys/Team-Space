@@ -12,6 +12,7 @@ import { UserContext } from "contexts/UserContext";
 import { useModal } from "utils/useModal";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
 import { isObjectEmpty } from "utils/objects";
+import { todaysDate } from "utils/date";
 
 import "./settings.scss";
 
@@ -29,10 +30,6 @@ function Settings() {
       setUser(data);
     }
   }, [data, setUser]);
-
-  const todaysDate = () => {
-    return new Date().toISOString().split("T")[0];
-  };
 
   const confirm = (inputValue, setError) => {
     bcrypt.compare(inputValue, user.password).then((result) => {
@@ -70,7 +67,7 @@ function Settings() {
   return (
     <>
       <article className="profile-settings">
-        <h2 className="profile-settings__title">Profile settings</h2>
+        <h1 className="profile-settings__title">Profile settings</h1>
         <div className="profile-settings__content">
           <CurrentInfo user={user} />
           <Form
@@ -84,7 +81,6 @@ function Settings() {
                 setWhichForm={setWhichForm}
                 whichForm={whichForm}
                 userImage={user.userImage}
-                user={user}
               />
             )}
           />
@@ -96,7 +92,7 @@ function Settings() {
           <ConfirmationModalContent
             confirm={confirm}
             cancel={cancel}
-            title={"Do your really want to delete your account?"}
+            title={"Do you really want to delete your account?"}
             content={"All your saved data will be lost."}
           />
         </Modal>

@@ -19,7 +19,8 @@
     &__title {
         @include typography-h3-alternative;
 
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
+        text-align: center;
     }
 
     &__items {
@@ -30,24 +31,25 @@
 
     &__item {
         color: $color-white;
+        display: flex;
+        flex-direction: column;
         margin-bottom: 3rem;
 
         @include respond-to(886, max) {
             align-items: center;
-            display: flex;
-            margin-bottom: 1rem;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-bottom: 0.5rem;
         }
     }
 
     &__item-title {
-        @include typography-caption;
-        border-bottom: 1px solid $color-iron;
-        margin-bottom: 0.5rem;
+        @include typography-body-bold;
+        letter-spacing: 0.05rem;
 
         @include respond-to(886, max) {
-            border-bottom: unset;
             margin-bottom: 0;
-            width: 8rem;
+            width: 9rem;
         }
     }
 }

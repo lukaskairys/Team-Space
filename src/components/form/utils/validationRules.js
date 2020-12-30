@@ -61,15 +61,18 @@ export function noValidation() {
   return {};
 }
 
-export function validatePasswords(values) {
+export function validatePasswords(values, data, passwordCorrect) {
   const { oldPassword, repeatPassword } = values;
   let { newPassword } = values;
+
   let errors = {};
   //old password
   if (!oldPassword) {
     errors.oldPassword = "Current password is required";
   } else if (oldPassword.length < 6) {
     errors.oldPassword = "Password must be 6 or more characters";
+  } else if (!passwordCorrect) {
+    errors.oldPassword = "Password is incorrect";
   }
   // new password
   if (!newPassword) {
@@ -92,14 +95,25 @@ export function validatePasswords(values) {
   return errors;
 }
 
-export function validateEmail(values, data) {
-  const { email } = values;
+export function validateEmail(values, data, passwordCorrect) {
+  const { email, oldPassword } = values;
   let errors = {};
   // email
-  if (email && !/\S+@\S+\.\S+/.test(email)) {
+  if (!email) {
+    errors.email = "Email address is required";
+  } else if (email && !/\S+@\S+\.\S+/.test(email)) {
     errors.email = "Email address is invalid";
   } else if (email && data && data.some((user) => user.email === email)) {
     errors.email = "This email address is already taken.";
+  }
+
+  // password
+  if (!oldPassword) {
+    errors.oldPassword = "Current password is required";
+  } else if (oldPassword.length < 6) {
+    errors.oldPassword = "Password must be 6 or more characters";
+  } else if (!passwordCorrect) {
+    errors.oldPassword = "Password is incorrect";
   }
   return errors;
 }

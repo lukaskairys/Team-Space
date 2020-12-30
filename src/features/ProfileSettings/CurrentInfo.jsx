@@ -6,23 +6,23 @@ import "./currentInfo.scss";
 const CurrentInfo = ({ user }) => {
   return (
     <section className="current-info">
-      <h3 className="current-info__title">Account Details</h3>
+      <h2 className="current-info__title">Account Details</h2>
       <div className="current-info__items">
         <div className="current-info__item">
-          <h5 className="current-info__item-title">Username</h5>
-          <p>{user.userName}</p>
+          <span className="current-info__item-title">Username:</span>
+          <span>{user.userName}</span>
         </div>
         <div className="current-info__item">
-          <h5 className="current-info__item-title">Email</h5>
-          <p>{user.email}</p>
+          <span className="current-info__item-title">Email:</span>
+          <span>{user.email}</span>
         </div>
         <div className="current-info__item">
-          <h5 className="current-info__item-title">Address</h5>
-          <p>{user.location ? user.location : "---"}</p>
+          <span className="current-info__item-title">Address:</span>
+          <span>{user.location ? user.location : "---"}</span>
         </div>
         <div className="current-info__item">
-          <h5 className="current-info__item-title">Birthday</h5>
-          <p>{user.birthdayDate ? user.birthdayDate : "---"}</p>
+          <span className="current-info__item-title">Birthday:</span>
+          <span>{user.birthdayDate ? user.birthdayDate : "---"}</span>
         </div>
       </div>
     </section>

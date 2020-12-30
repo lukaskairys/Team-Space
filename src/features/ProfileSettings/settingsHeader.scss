@@ -4,6 +4,13 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 4rem;
+    @include respond-to(886, max) {
+        margin-bottom: 2.5rem;
+    }
+
+    &__left {
+        width: 19rem;
+    }
 
     .profile-widget__picture {
         @include square-size(11rem);
