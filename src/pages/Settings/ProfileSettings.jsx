@@ -7,7 +7,7 @@ function ProfileSettings() {
   return (
     <>
       <Helmet>
-        <title>Profile settings</title>
+        <title>Profile settings · Team Space</title>
       </Helmet>
       <Settings />;
     </>

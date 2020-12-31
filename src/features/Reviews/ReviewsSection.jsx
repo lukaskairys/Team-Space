@@ -8,6 +8,7 @@ import { useModal } from "utils/useModal";
 import useObserver from "utils/useObserver";
 import Button from "components/button/Button";
 import Modal from "components/Modal/Modal";
+import { isObjectEmpty } from "utils/objects";
 
 import LeaveReview from "./LeaveReview";
 import ReviewCard from "./ReviewCard";
@@ -95,59 +96,68 @@ function ReviewsSection() {
     }
   };
 
-  return (
-    <section ref={containerRef} className="reviews">
-      {reviews.length !== 0 && (
-        <>
-          <h3 className="reviews__title">Reviews</h3>
+  if (!isObjectEmpty(data)) {
+    return (
+      <section ref={containerRef} className="reviews">
+        {reviews.length !== 0 && (
+          <>
+            <h3 className="reviews__title">Reviews</h3>
 
-          <div
-            className={classNames("reviews__content", {
-              "is-narrow": containerWidth < 572 && width < 1455,
-            })}
-          >
-            {isLoading && <span></span>}
-            {error && <span>Error</span>}
-            {reviewsToShow.map((review) => (
-              <ReviewCard review={review} key={review.id} />
+            <div
+              className={classNames("reviews__content", {
+                "is-narrow": containerWidth < 572 && width < 1455,
+              })}
+            >
+              {isLoading && <span></span>}
+              {error && <span>Error</span>}
+              {reviewsToShow.map((review) => (
+                <ReviewCard review={review} key={review.id} />
+              ))}
+            </div>
+          </>
+        )}
+
+        <div
+          className={classNames("reviews__buttons", {
+            "is-empty": reviews.length === 0,
+          })}
+        >
+          {renderButton()}
+
+          <Button medium={true} handleClick={showLeaveReview}>
+            {!isReviewed && <span>leave a review</span>}
+            {isReviewed && <span>edit your review</span>}
+          </Button>
+        </div>
+
+        {modalOpen && (
+          <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+            {reviews.map((review) => (
+              <ReviewCard key={review.id} review={review} inModal={true} />
             ))}
-          </div>
-        </>
-      )}
+          </Modal>
+        )}
 
-      <div
-        className={classNames("reviews__buttons", {
-          "is-empty": reviews.length === 0,
-        })}
-      >
-        {renderButton()}
-        <Button medium={true} handleClick={showLeaveReview}>
-          {!isReviewed && <span>leave a review</span>}
-          {isReviewed && <span>edit your review</span>}
-        </Button>
-      </div>
-
-      {modalOpen && (
-        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
-          {reviews.map((review) => (
-            <ReviewCard key={review.id} review={review} inModal={true} />
-          ))}
-        </Modal>
-      )}
-
-      {leaveReviewOpen && (
-        <Modal closeModal={closeLeaveReview} setModalOpen={setLeaveReviewOpen}>
-          <LeaveReview
+        {leaveReviewOpen && (
+          <Modal
             closeModal={closeLeaveReview}
-            restaurant={restaurant[0]}
-            setReviews={setReviews}
-            setIsReviewed={setIsReviewed}
-            reviews={reviews}
-          />
-        </Modal>
-      )}
-    </section>
-  );
+            setModalOpen={setLeaveReviewOpen}
+          >
+            <LeaveReview
+              closeModal={closeLeaveReview}
+              restaurant={restaurant[0]}
+              setReviews={setReviews}
+              setIsReviewed={setIsReviewed}
+              reviews={reviews}
+            />
+          </Modal>
+        )}
+      </section>
+    );
+  } else if (error) {
+    return <div>Error</div>;
+  }
+  return <div></div>;
 }
 
 export default ReviewsSection;

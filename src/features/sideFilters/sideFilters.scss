@@ -19,6 +19,12 @@
         }
     }
 
+    &__caption {
+        color: $color-gull-gray;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     &__top {
         @include typography-caption;
 
