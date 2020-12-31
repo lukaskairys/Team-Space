@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_icon-size: 1.3em;
+
 .filepond--root {
     margin: 0 auto;
     width: 15rem;
@@ -9,6 +11,17 @@
 .filepond--progress-indicator.filepond--load-indicator,
 .filepond--progress-indicator.filepond--process-indicator {
     margin-left: 0.2rem;
+    margin-top: 0.1rem;
+}
+
+.filepond--root[data-style-panel-layout~='circle']
+    .filepond--progress-indicator[data-align*='bottom'][data-align*='left'] {
+    bottom: 1.8rem;
+    left: 3.8rem;
+}
+
+.filepond--file-action-button.filepond--file-action-button {
+    font-size: $_icon-size;
 }
 
 .filepond--drop-label.filepond--drop-label label {
