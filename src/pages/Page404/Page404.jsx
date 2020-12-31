@@ -16,7 +16,7 @@ const Page404 = () => {
   return (
     <main className="page404">
       <Helmet>
-        <title>Page not found</title>
+        <title>Page not found · Team Space</title>
       </Helmet>
       <div>
         <Astronaut className="page404__animation" />
