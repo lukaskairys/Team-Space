@@ -36,7 +36,9 @@ export default (user, files) => {
         .then((res) => {
           if (res.status >= 200 && res.status < 300) {
             load();
-            toast.success("Your picture was uploaded successfully!");
+            toast.success("Your picture was uploaded successfully!", {
+              delay: 1000,
+            });
           }
         })
         .catch((thrown) => {
