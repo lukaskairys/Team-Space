@@ -8,7 +8,10 @@ import HeartIcon from "components/HeartIcon/HeartIcon";
 import Rating from "components/Rating/Rating";
 
 import "./reservationCard.scss";
-import { formatDateToGB, isUnavailable } from "../utils/dateFormatters";
+import {
+  formatDateToGB,
+  isUnavailable,
+} from "features/reservationsPageList/utils/dateFormatters";
 export default function Card({
   image,
   alt,

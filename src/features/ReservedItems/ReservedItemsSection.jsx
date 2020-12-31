@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import ReservationCard from "features/reservationsPageList/components/ReservationCard";
-import { constructRenderable } from "features/reservationsPageList/utils/constructRenderable";
+import ReservationCard from "components/ReservationCard/ReservationCard";
+import { constructRenderable } from "utils/constructReservationList";
 import { patch } from "apis/services";
 
 import "./reservedItemsSection.scss";

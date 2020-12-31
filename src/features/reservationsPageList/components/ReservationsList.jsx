@@ -3,11 +3,11 @@ import React, { useState, useEffect, useContext } from "react";
 import groupArray from "utils/groupArray";
 
 import "./reservationsList.scss";
-import ReservationCard from "./ReservationCard";
+import ReservationCard from "components/ReservationCard/ReservationCard";
 import Pagination from "./Pagination";
 import Tag from "./Tag";
 import dataFilter from "../utils/dataFilter";
-import { constructRenderable } from "../utils/constructRenderable";
+import { constructRenderable } from "utils/constructReservationList";
 import { UserContext } from "contexts/UserContext";
 
 function ReservationsList({
