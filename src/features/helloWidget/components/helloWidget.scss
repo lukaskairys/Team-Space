@@ -1,4 +1,8 @@
 @import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$_breakpoint-md: 768;
+$_breakpoint-sm: 500;
 
 .hello-widget {
     align-items: flex-start;
@@ -6,14 +10,46 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    @include respond-between(1301, 1485) {
+        margin-bottom: 10rem;
+        word-wrap: break-word;
+    }
 
     &__time {
         font-size: $font-size-time;
         font-weight: bold;
         line-height: 11.7rem;
+        @include respond-to($_breakpoint-md, max) {
+            display: inline;
+            font-size: $font-size-32;
+            height: 4rem;
+            left: 1rem;
+            position: relative;
+            top: -13.4rem;
+            visibility: visible;
+            width: 4rem;
+            z-index: $z-index-above;
+
+            &::after {
+                background-color: $color-fiord;
+                content: '';
+                display: block;
+                height: 3.4rem;
+                left: 9.5rem;
+                position: absolute;
+                top: 4.2rem;
+                width: 0.08rem;
+            }
+        }
+        @include respond-to($_breakpoint-sm, max) {
+            left: 9rem;
+        }
     }
 
     &__greeting {
         @include typography-h1;
+        @include respond-to($_breakpoint-md, max) {
+            display: none;
+        }
     }
 }

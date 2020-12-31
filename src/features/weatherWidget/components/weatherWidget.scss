@@ -10,6 +10,8 @@ $_temperature-font-size: 6rem;
 $_temperature-font-color: rgba(0, 0, 0, 0.7);
 $_spinner-size: 6rem;
 $_spinner-offset: $_spinner-size / -2;
+$_breakpoint-md: 768;
+$_breakpoint-sm: 500;
 
 .weather-widget {
     position: relative;
@@ -69,6 +71,23 @@ $_spinner-offset: $_spinner-size / -2;
         letter-spacing: 0.1rem;
         margin: 0;
         padding: 0;
+        @include respond-to($_breakpoint-md, max) {
+            font-size: $font-size-12;
+            left: 16.6rem;
+            margin-left: 1rem;
+            position: relative;
+            top: -14rem;
+            visibility: visible;
+            z-index: $z-index-above;
+
+            .weather-widget__spinner {
+                visibility: hidden;
+            }
+        }
+        @include respond-to($_breakpoint-sm, max) {
+            font-size: $font-size-10;
+            left: 20.7rem;
+        }
     }
 
     &__header,
@@ -109,6 +128,10 @@ $_spinner-offset: $_spinner-size / -2;
         font-weight: $light-weight;
         line-height: 1.8;
         margin-top: 3.5rem;
+
+        @include respond-to($_breakpoint-md, max) {
+            overflow: visible;
+        }
     }
 
     &__border {
@@ -122,6 +145,21 @@ $_spinner-offset: $_spinner-size / -2;
         font-weight: $light-weight;
         line-height: 1.1;
         margin-right: 0.6rem;
+        @include respond-to($_breakpoint-md, max) {
+            font-size: $font-size-32;
+            height: 4rem;
+            left: 27rem;
+            margin-left: 1rem;
+            position: relative;
+            top: -23.1rem;
+            visibility: visible;
+            width: 4rem;
+            z-index: $z-index-above;
+        }
+
+        @include respond-to($_breakpoint-sm, max) {
+            left: 31.5rem;
+        }
     }
 
     &__spinner {
