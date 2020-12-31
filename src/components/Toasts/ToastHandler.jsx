@@ -22,7 +22,7 @@ export const successToast = (message) => {
 export const infoToast = (message) => {
   toast.info(
     <>
-      <Info />
+      <Info className="Toastify__icon" />
       <span className="Toastify__text">{message}</span>
     </>,
     toastOptions
@@ -32,7 +32,7 @@ export const infoToast = (message) => {
 export const warnToast = (message) => {
   toast.warn(
     <>
-      <Info />
+      <Info className="Toastify__icon" />
       <span className="Toastify__text">{message}</span>
     </>,
     toastOptions
@@ -42,7 +42,7 @@ export const warnToast = (message) => {
 export const errorToast = (message) => {
   toast.error(
     <>
-      <XCircle />
+      <XCircle className="Toastify__icon" />
       <span className="Toastify__text">{message}</span>
     </>,
     toastOptions
