@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { warnToast } from "components/Toasts/ToastHandler";
+import { toast } from "react-toastify";
 import { patch } from "apis/services";
 
 export default (user, files) => {
@@ -35,6 +36,7 @@ export default (user, files) => {
         .then((res) => {
           if (res.status >= 200 && res.status < 300) {
             load();
+            toast.success("Your picture was uploaded successfully!");
           }
         })
         .catch((thrown) => {

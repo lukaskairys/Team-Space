@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-30"
+    "date": "2020-12-31"
   },
   "users": [
     {
@@ -960,6 +960,12 @@
       "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80",
       "checkIns": 17,
       "reviews": [
+        {
+          "userName": "Frontend Wizard",
+          "id": "81951acf-3079-4675-93c5-80536cadbb10",
+          "comment": "asdasd",
+          "rating": 5
+        },
         {
           "userName": "Bob Morales",
           "id": "0h4ozlq391",
