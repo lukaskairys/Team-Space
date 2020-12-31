@@ -2,7 +2,7 @@ import React, { useContext, forwardRef } from "react";
 
 import { Context } from "contexts/Context";
 
-import ReservationsCard from "components/ReservationCard/ReservationCard";
+import ReservationsCardLink from "components/ReservationCardLink/ReservationCardLink";
 import { useRequest } from "apis/useRequest";
 
 import "./eatOutCategoriesSection.scss";
@@ -20,7 +20,7 @@ const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
 
         return (
           <React.Fragment key={index}>
-            <ReservationsCard
+            <ReservationsCardLink
               name={category}
               caption={"Places"}
               path={`/eat-out/categories/${category.toLowerCase()}`}
@@ -32,7 +32,7 @@ const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
                 alt={category}
                 className="categories-section__image"
               />
-            </ReservationsCard>
+            </ReservationsCardLink>
           </React.Fragment>
         );
       });

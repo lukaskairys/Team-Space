@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
-import ReservationCard from "components/ReservationCard/ReservationCard";
+import ReservationCardLink from "components/ReservationCardLink/ReservationCardLink";
 import { ReactComponent as Phone } from "assets/images/phone-1.svg";
 import { ReactComponent as Door } from "assets/images/door-1.svg";
 import { ReactComponent as Book } from "assets/images/book-1.svg";
@@ -40,7 +40,7 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
       <h2 className="RESERVATIONS__title">{title}</h2>
       {customMessageRenderer && customMessageRenderer()}
       <div className="RESERVATIONS__cards">
-        <ReservationCard
+        <ReservationCardLink
           name={"Devices"}
           caption={"Reserved"}
           path={"/reservations/devices"}
@@ -48,8 +48,8 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
           big
         >
           <Phone className="RESERVATIONS__image" />
-        </ReservationCard>
-        <ReservationCard
+        </ReservationCardLink>
+        <ReservationCardLink
           name={"Books"}
           caption={"Reserved"}
           path={"/reservations/books"}
@@ -57,8 +57,8 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
           big
         >
           <Book className="RESERVATIONS__image" />
-        </ReservationCard>
-        <ReservationCard
+        </ReservationCardLink>
+        <ReservationCardLink
           name={"Meeting rooms"}
           caption={"Reserved"}
           path={"/reservations/rooms"}
@@ -66,7 +66,7 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
           big
         >
           <Door className="RESERVATIONS__image" />
-        </ReservationCard>
+        </ReservationCardLink>
       </div>
     </div>
   );
