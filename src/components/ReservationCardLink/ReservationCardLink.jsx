@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
-import "./reservationCard.scss";
+import "./reservationCardLink.scss";
 /**
  * Use size big for a big card (39.3rem)
  * & Use size small for a small card (25rem).

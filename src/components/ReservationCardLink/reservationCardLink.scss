@@ -21,7 +21,17 @@ $_breakpoint: 1515;
     }
 
     &--big {
-        width: 39.3rem;
+        &:first-child {
+            grid-area: devices;
+        }
+
+        &:nth-child(2) {
+            grid-area: books;
+        }
+
+        &:last-child {
+            grid-area: rooms;
+        }
     }
 
     &--small {
@@ -36,15 +46,6 @@ $_breakpoint: 1515;
     &:active {
         box-shadow: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.2);
         transform: scale(1.01);
-    }
-
-    &:nth-child(2) {
-        margin: 0 1rem;
-        margin-top: 5rem;
-
-        @include respond-to($_breakpoint, max) {
-            margin-top: 6rem;
-        }
     }
 
     &__title {

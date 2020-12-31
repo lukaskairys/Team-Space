@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import ReservationCard from "components/ReservationCard/ReservationCard";
+import ReservationCardLink from "components/ReservationCardLink/ReservationCardLink";
 import { ReactComponent as Phone } from "assets/images/phone-1.svg";
 import { ReactComponent as Door } from "assets/images/door-1.svg";
 import { ReactComponent as Book } from "assets/images/book-1.svg";
@@ -38,7 +38,7 @@ const ReservationsSection = () => {
     <div className="RESERVATIONS">
       <h2 className="RESERVATIONS__title">Reservations</h2>
       <div className="RESERVATIONS__cards">
-        <ReservationCard
+        <ReservationCardLink
           name={"Devices"}
           caption={"Reserved"}
           path={"/reservations/devices"}
@@ -46,8 +46,8 @@ const ReservationsSection = () => {
           big
         >
           <Phone className="RESERVATIONS__image" />
-        </ReservationCard>
-        <ReservationCard
+        </ReservationCardLink>
+        <ReservationCardLink
           name={"Books"}
           caption={"Reserved"}
           path={"/reservations/books"}
@@ -55,8 +55,8 @@ const ReservationsSection = () => {
           big
         >
           <Book className="RESERVATIONS__image" />
-        </ReservationCard>
-        <ReservationCard
+        </ReservationCardLink>
+        <ReservationCardLink
           name={"Meeting rooms"}
           caption={"Reserved"}
           path={"/reservations/rooms"}
@@ -64,7 +64,7 @@ const ReservationsSection = () => {
           big
         >
           <Door className="RESERVATIONS__image" />
-        </ReservationCard>
+        </ReservationCardLink>
       </div>
     </div>
   );
