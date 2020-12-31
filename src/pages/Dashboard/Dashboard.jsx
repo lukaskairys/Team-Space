@@ -16,7 +16,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <Helmet>
-        <title>Team Space</title>
+        <title>Dashboard · Team Space</title>
       </Helmet>
 
       <div className="dashboard__widgets">

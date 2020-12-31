@@ -10,7 +10,7 @@ function RegistrationPage() {
   return (
     <div className="page-container">
       <Helmet>
-        <title>Registration</title>
+        <title>Registration · Team Space</title>
       </Helmet>
       <div className="form-container">
         <Logo className="logo" />

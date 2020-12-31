@@ -10,7 +10,7 @@ function LoginPage() {
   return (
     <div className="page-container">
       <Helmet>
-        <title>Login</title>
+        <title>Login · Team Space</title>
       </Helmet>
       <div className="form-container">
         <Logo className="logo" />

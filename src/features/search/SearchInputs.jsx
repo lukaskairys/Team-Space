@@ -5,14 +5,11 @@ import Button from "components/button/Button";
 import { formatDateToGB } from "features/reservationsPageList/utils/dateFormatters";
 import { ReactComponent as SearchIcon } from "assets/icons/magnifying-glass.svg";
 import { ReactComponent as CircleX } from "assets/icons/x-circle.svg";
+import { todaysDate } from "utils/date";
 
 import "./searchInputs.scss";
 
 function SearchInputs({ searchBtnClick }) {
-  const todaysDate = () => {
-    return new Date().toISOString().split("T")[0];
-  };
-
   const [term, setTerm] = useState();
   const [date, setDate] = useState(todaysDate);
 

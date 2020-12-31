@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 import { v4 as generateID } from "uuid";
 
 import RatingComponent from "components/Rating/Rating";
-import { warnToast } from "components/Toasts/ToastHandler";
+import {
+  successToast,
+  errorToast,
+  warnToast,
+} from "components/Toasts/ToastHandler";
 import { UserContext } from "contexts/UserContext";
 import { patch } from "apis/services";
 import Button from "components/button/Button";
@@ -35,7 +39,14 @@ function LeaveReview({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue !== "" || ratingValue !== undefined) {
+    if (inputValue === "" && ratingValue === undefined) {
+      closeModal();
+      warnToast(`Review was not submited because it was empty`);
+    } else if (inputValue === "") {
+      errorToast(`Please fill in your review`);
+    } else if (ratingValue === undefined || ratingValue === null) {
+      errorToast(`Please check the star rating box`);
+    } else {
       const newReview = {
         userName: currentUser,
         id: generateID(),
@@ -64,9 +75,7 @@ function LeaveReview({
       }
 
       closeModal();
-      warnToast(`You have left review for ${restaurant.name}`);
-    } else {
-      closeModal();
+      successToast(`You have left review for ${restaurant.name}`);
     }
   };
 
@@ -85,7 +94,7 @@ function LeaveReview({
     setInputValue("");
     setIsReviewed(false);
     closeModal();
-    warnToast(`Your review for ${restaurant.name} has been deleted`);
+    successToast(`Your review for ${restaurant.name} has been deleted`);
   };
 
   return (

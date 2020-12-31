@@ -114,7 +114,7 @@ const Reservations = () => {
   return (
     <div className="reservations-page">
       <Helmet>
-        <title>Reservations</title>
+        <title>Reservations · Team Space</title>
       </Helmet>
       <Breadcrumbs />
       <h2 className="reservations-page__title">Your reservations:</h2>

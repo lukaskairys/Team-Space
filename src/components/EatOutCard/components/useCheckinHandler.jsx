@@ -3,7 +3,7 @@ import { useContext, useState, useEffect, useCallback } from "react";
 import { isObjectEmpty } from "../../../utils/objects";
 import { UserContext } from "../../../contexts/UserContext";
 import useCurrentTime from "../../../utils/useCurrentTime";
-import { warnToast } from "../../Toasts/ToastHandler";
+import { infoToast } from "../../Toasts/ToastHandler";
 import { patch, put, putCollection } from "../../../apis/services";
 
 const useCheckinHandler = (restaurant) => {
@@ -28,7 +28,7 @@ const useCheckinHandler = (restaurant) => {
 
   const isRecheckining = (userCheckIn) => {
     if (!isObjectEmpty(userCheckIn))
-      warnToast(`You have rechecked to ${restaurant.name}`);
+      infoToast(`You have rechecked to ${restaurant.name}`);
   };
 
   const update = (user) => {

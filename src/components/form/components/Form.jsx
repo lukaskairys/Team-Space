@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import useForm from "../utils/useForm.js";
+import useForm from "../utils/useForm";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
@@ -22,8 +22,10 @@ const Form = (props) => {
     subtitle,
     action,
     user,
+    setUser,
     showModal,
     settingsHeaderRenderer,
+    max,
   } = props;
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
@@ -37,7 +39,7 @@ const Form = (props) => {
     changeAccountDetails,
     changePassword,
     changeEmail,
-  } = useProfileSettings(user, setShowMessage, setMessageText);
+  } = useProfileSettings(user, setUser);
 
   const {
     values,
@@ -51,8 +53,7 @@ const Form = (props) => {
   const dataToPost = {
     userName: `${values.firstName} ${values.lastName}`,
     email: values.email,
-    userImage:
-      "https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png",
+    userImage: "https://i.imgur.com/2DEZq70.jpg",
     birthdayDate: "",
     location: "",
     reservations: {
@@ -65,6 +66,7 @@ const Form = (props) => {
       restaurants: [],
       books: [],
       devices: [],
+      rooms: [],
       stories: [],
       rooms: [],
     },
@@ -72,7 +74,7 @@ const Form = (props) => {
   };
 
   const dataToChange = {
-    userName: values.username,
+    userName: values.userName,
     location: values.location,
     birthdayDate: values.birthday,
   };
@@ -93,13 +95,14 @@ const Form = (props) => {
         callback = () => login(values.email, values.password);
         break;
       case "account":
-        callback = () => changeAccountDetails(dataToChange);
+        callback = () => changeAccountDetails(dataToChange, setUser);
         break;
       case "passwords":
-        callback = () => changePassword(passwords, user);
+        callback = () => changePassword(passwords, user, setUser);
         break;
       case "email":
-        callback = () => changeEmail(values.email, values.oldPassword, user);
+        callback = () =>
+          changeEmail(values.email, values.oldPassword, user, setUser);
         break;
       default:
         return;
@@ -155,6 +158,7 @@ const Form = (props) => {
             handleFocus={handleFocus}
             action={action}
             handleXclick={handleXclick}
+            max={max}
           />
         )}
         {showMessage && (
@@ -183,6 +187,8 @@ Form.propTypes = {
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   showModal: PropTypes.func,
   settingsHeaderRenderer: PropTypes.func,
+  max: PropTypes.string,
+  setUser: PropTypes.func,
 };
 
 export default Form;
