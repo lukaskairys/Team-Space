@@ -17,9 +17,7 @@ const Reservations = () => {
   const [reservedBooks, setReservedBooks] = useState([]);
   const [reservedRooms, setReservedRooms] = useState([]);
 
-  const { data: user } = useContext(UserContext);
-
-  // const [repeat, setRepeat] = useState(false);
+  const { data: user, setRepeatRequest } = useContext(UserContext);
   const { data: devices } = useRequest("/devices");
   const { data: books } = useRequest("/books");
   const { data: rooms } = useRequest("/rooms");
@@ -35,12 +33,11 @@ const Reservations = () => {
     }
   }, [user]);
 
-  // useEffect(() => {
-  //   setRepeat(true);
-  // }, [reservedDevices, reservedBooks, reservedRooms]);
-
   const resSectionIfEmpty = useRef(null);
-  const reservationItem = useRef(null);
+  const devicesList = useRef(null);
+  const booksList = useRef(null);
+  const roomsList = useRef(null);
+
   const checkedInRestaurant =
     restaurants.length !== 0
       ? restaurants.filter((item) => item.id === checkedIn)
@@ -49,15 +46,16 @@ const Reservations = () => {
   const renderDevices = () => {
     if (reservedDevices && reservedDevices.length > 0)
       return (
-        <section className="reservation-item" ref={reservationItem}>
+        <section className="reservation-item" ref={devicesList}>
           <ReservedItemsSection
             reservedItems={reservedDevices}
             setReservedItems={setReservedDevices}
             allItems={devices}
             listName={"deviceList"}
             title={"Devices"}
+            name={"devices"}
             user={user}
-            // setRepeat={setRepeat}
+            setRepeatRequest={setRepeatRequest}
           />
         </section>
       );
@@ -65,15 +63,16 @@ const Reservations = () => {
   const renderBooks = () => {
     if (reservedBooks && reservedBooks.length > 0)
       return (
-        <section className="reservation-item" ref={reservationItem}>
+        <section className="reservation-item" ref={booksList}>
           <ReservedItemsSection
             reservedItems={reservedBooks}
             setReservedItems={setReservedBooks}
             allItems={books}
             listName={"bookList"}
             title={"Books"}
+            name={"books"}
             user={user}
-            // setRepeat={setRepeat}
+            setRepeatRequest={setRepeatRequest}
           />
         </section>
       );
@@ -81,31 +80,35 @@ const Reservations = () => {
   const renderRooms = () => {
     if (reservedRooms && reservedRooms.length > 0)
       return (
-        <section className="reservation-item" ref={reservationItem}>
+        <section className="reservation-item" ref={roomsList}>
           <ReservedItemsSection
             reservedItems={reservedRooms}
             setReservedItems={setReservedRooms}
             allItems={rooms}
             listName={"roomList"}
             title={"Meeting rooms"}
+            name={"rooms"}
             user={user}
-            // setRepeat={setRepeat}
+            setRepeatRequest={setRepeatRequest}
           />
         </section>
       );
   };
 
   const renderReservations = () => {
-    if (!reservationItem.current)
+    if (!devicesList.current && !roomsList.current && !booksList.current)
       return (
         <section
           ref={resSectionIfEmpty}
           className="reservations-page__no-reservations"
         >
           <ReservationSection
-            title={
-              "At the moment you have no reserved items. If you need something, make a reservation here"
-            }
+            customMessageRenderer={() => (
+              <p className="reservations-page__no-reservations-message">
+                <span>At the moment you have no reserved items. </span>
+                <span>If you need something, make a reservation here</span>
+              </p>
+            )}
           />
         </section>
       );
@@ -117,7 +120,7 @@ const Reservations = () => {
         <title>Reservations · Team Space</title>
       </Helmet>
       <Breadcrumbs />
-      <h2 className="reservations-page__title">Your reservations:</h2>
+      <h1 className="reservations-page__title">Your reservations</h1>
       <div className="reservations-page__all-reservations">
         <article className="reservations-page__reserved-items">
           {renderDevices()}
@@ -131,7 +134,9 @@ const Reservations = () => {
             <EatOutCard restaurant={checkedInRestaurant[0]} />
           ) : (
             <div>
-              <p>You are not currently checked in a restaurant.</p>
+              <p className="reservations-page__no-reservations-message">
+                At the moment you are not checked-in with any restaurant.
+              </p>
               <EatOutSection withoutRestaurants={true} />
             </div>
           )}

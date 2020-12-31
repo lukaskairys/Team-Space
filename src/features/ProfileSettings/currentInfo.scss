@@ -20,7 +20,11 @@
         @include typography-h3-alternative;
 
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: flex-start;
+
+        @include respond-to(886, max) {
+            text-align: center;
+        }
     }
 
     &__items {

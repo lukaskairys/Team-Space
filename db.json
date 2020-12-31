@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-30"
+    "date": "2020-12-31"
   },
   "users": [
     {
@@ -10,9 +10,24 @@
       "birthdayDate": "2020-12-30",
       "location": "Vilnius, Lithuania",
       "reservations": {
-        "books": [],
-        "devices": [],
-        "rooms": []
+        "books": [
+          {
+            "id": "9781484231791"
+          }
+        ],
+        "devices": [
+          {
+            "id": "193ywpe740"
+          },
+          {
+            "id": "1563187740"
+          }
+        ],
+        "rooms": [
+          {
+            "id": "497ee32e-bd90-4515-94dc-4bc408345845"
+          }
+        ]
       },
       "notifications": [
         {
@@ -28,9 +43,7 @@
         "stories": [],
         "rooms": []
       },
-      "checkIn": {
-        "id": "tk3ih1o0qt"
-      },
+      "checkIn": {},
       "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },

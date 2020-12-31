@@ -10,7 +10,7 @@ import { UserContext } from "contexts/UserContext";
 
 import "./reservationsSection.scss";
 
-const ReservationsSection = ({ title }) => {
+const ReservationsSection = ({ title, customMessageRenderer }) => {
   const [reservations, setReservations] = useState({
     devices: 0,
     books: 0,
@@ -38,6 +38,7 @@ const ReservationsSection = ({ title }) => {
   return (
     <div className="RESERVATIONS">
       <h2 className="RESERVATIONS__title">{title}</h2>
+      {customMessageRenderer && customMessageRenderer()}
       <div className="RESERVATIONS__cards">
         <ReservationCard
           name={"Devices"}
@@ -73,6 +74,7 @@ const ReservationsSection = ({ title }) => {
 
 ReservationsSection.propTypes = {
   title: PropTypes.string,
+  customMessageRenderer: PropTypes.func,
 };
 
 export default ReservationsSection;

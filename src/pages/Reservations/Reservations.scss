@@ -7,10 +7,10 @@ $_z-index-10: 10;
     @include typography-body;
 
     &__title {
-        @include typography-h2;
+        @include typography-h1;
 
         color: $color-fiord;
-        margin-top: 4rem;
+        margin-bottom: 2rem;
     }
 
     &__all-reservations {
@@ -42,13 +42,33 @@ $_z-index-10: 10;
         width: 35%;
 
         @include respond-to(1100, max) {
+            margin: 5rem auto;
+            max-width: 40rem;
             min-width: 30rem;
+            text-align: center;
             width: 60%;
+        }
+    }
+
+    &__no-reservations-message {
+        @include typography-h4;
+
+        color: $color-fiord;
+        margin: 2rem 0;
+
+        @include respond-to(1100, max) {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
         }
     }
 
     &__widget {
         margin-top: 4rem;
+    }
+
+    .RESERVATIONS__cards {
+        justify-content: center;
     }
 
     .reservation-card__status {
@@ -70,5 +90,10 @@ $_z-index-10: 10;
 
     .eat-out-section {
         display: block;
+        margin-top: 3rem;
+
+        .button {
+            margin-top: 2rem;
+        }
     }
 }
