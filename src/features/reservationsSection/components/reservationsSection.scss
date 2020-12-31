@@ -1,6 +1,9 @@
 @import '../../../styles/base/base';
 @import '../../../styles/mixins/mixins';
 
+$_breakpoint-lg: 1365;
+$_breakpoint-md: 990;
+
 .RESERVATIONS {
     display: flex;
     flex-direction: column;
@@ -10,18 +13,26 @@
         @include typography-h2-alternative;
         color: $color-fiord;
 
-        @include respond-to(1515, max) {
+        @include respond-to($_breakpoint-md, max) {
             text-align: center;
         }
     }
 
     &__cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        display: grid;
+        gap: 0 4rem;
+        grid-template-areas: 'devices books rooms';
+        grid-template-columns: repeat(3, 1fr);
 
-        @include respond-to(1515, max) {
-            justify-content: center;
+        @include respond-to($_breakpoint-lg, max) {
+            grid-template-areas: 'devices devices rooms rooms' '. books books .';
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include respond-to($_breakpoint-md, max) {
+            grid-template-areas: 'devices' 'books' 'rooms';
+            grid-template-columns: 1fr;
+            padding: 0 5rem;
         }
 
         a {
