@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_breakpoint-md: 886;
+
 .profile-settings {
     @include typography-body-2;
 
@@ -28,7 +30,7 @@
         margin-top: 5rem;
         width: 70rem;
 
-        @include respond-to(886, max) {
+        @include respond-to($_breakpoint-md, max) {
             flex-direction: column;
             min-width: 40rem;
             width: 50rem;
@@ -40,7 +42,7 @@
         border-top-left-radius: unset;
         margin-top: 0;
 
-        @include respond-to(886, max) {
+        @include respond-to($_breakpoint-md, max) {
             border-bottom-left-radius: $base-border-radius;
             border-top-left-radius: unset;
             border-top-right-radius: unset;

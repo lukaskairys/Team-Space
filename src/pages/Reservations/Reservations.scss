@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_breakpoint-lg: 1100;
+
 .reservations-page {
     @include typography-body;
 
@@ -17,7 +19,7 @@
         justify-content: space-between;
         margin-top: 3rem;
 
-        @include respond-to(1100, max) {
+        @include respond-to($_breakpoint-lg, max) {
             flex-direction: column;
         }
     }
@@ -27,7 +29,7 @@
         flex-direction: column;
         width: 60%;
 
-        @include respond-to(1100, max) {
+        @include respond-to($_breakpoint-lg, max) {
             width: 100%;
         }
 
@@ -39,7 +41,7 @@
     &__checked-in {
         width: 35%;
 
-        @include respond-to(1100, max) {
+        @include respond-to($_breakpoint-lg, max) {
             margin: 5rem auto;
             max-width: 40rem;
             min-width: 30rem;
@@ -54,7 +56,7 @@
         color: $color-fiord;
         margin: 2rem 0;
 
-        @include respond-to(1100, max) {
+        @include respond-to($_breakpoint-lg, max) {
             display: flex;
             flex-direction: column;
             text-align: center;
