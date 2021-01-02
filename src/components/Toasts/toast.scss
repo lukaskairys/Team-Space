@@ -1,4 +1,5 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
 .Toastify {
     &__toast-container {
@@ -13,6 +14,8 @@
     }
 
     &__icon {
+        @include square-size(1.6rem);
+
         flex-shrink: 0;
     }
 
@@ -21,6 +24,8 @@
     }
 
     &__close-buttons {
+        @include square-size(1.2rem);
+
         flex-shrink: 0;
         stroke: $color-fiord;
 
@@ -36,6 +41,7 @@
         font-size: $font-size-14;
         font-weight: $bold-weight;
         line-height: 1.14;
+        margin-right: 0.4rem;
         min-height: 4.8rem;
         padding: 1.6rem;
 
