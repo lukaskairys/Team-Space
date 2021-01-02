@@ -46,15 +46,8 @@ const MainLayout = ({ children }) => {
     }
   }, [windowWidth, isSmallerScreen]);
 
-  const toggleSidebar = async (burgerRef) => {
-    await setIsSidebarClosed(!isSidebarClosed);
-    if (burgerRef !== undefined) {
-      setFocus(burgerRef);
-    }
-  };
-
-  const setFocus = (ref) => {
-    ref.current && ref.current.focus();
+  const toggleSidebar = () => {
+    setIsSidebarClosed(!isSidebarClosed);
   };
 
   sessionStorage.sidebarState = isSidebarClosed;
