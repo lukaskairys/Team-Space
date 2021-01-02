@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FavoriteTypes } from "../../../utils/FavoriteTypes";
+import { Link } from "react-router-dom";
 
 import HeartIcon from "../../HeartIcon/HeartIcon";
 import {
@@ -22,7 +23,9 @@ function EatOutCardSubheader({ id, restaurantName, openingHours }) {
   return (
     <div className="card-subheader">
       <div className="card-subheader__section">
-        <h3 className="card-subheader__title">{restaurantName}</h3>
+        <Link to={`/eat-out/${id}`}>
+          <h3 className="card-subheader__title">{restaurantName}</h3>
+        </Link>
         <HeartIcon itemType={FavoriteTypes.RESTAURANT} itemId={id} />
       </div>
       {formTime(openingHours)}
