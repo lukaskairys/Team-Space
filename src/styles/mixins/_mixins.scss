@@ -24,12 +24,6 @@
     }
 }
 
-@mixin respond-to-after-tablet() {
-    @include respond-to(769, min) {
-        @content;
-    }
-}
-
 @mixin respond-between($lower, $upper) {
     @media (min-width: $lower + px) and (max-width: ($upper - 1) + px) {
         @content;
