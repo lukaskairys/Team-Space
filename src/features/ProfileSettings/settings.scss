@@ -33,6 +33,10 @@
             min-width: 40rem;
             width: 50rem;
         }
+
+        @include respond-to-tablet() {
+            width: 100%;
+        }
     }
 
     .form {

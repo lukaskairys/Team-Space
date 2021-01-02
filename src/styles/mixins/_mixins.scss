@@ -18,6 +18,18 @@
     }
 }
 
+@mixin respond-to-tablet() {
+    @include respond-to(768, max) {
+        @content;
+    }
+}
+
+@mixin respond-to-after-tablet() {
+    @include respond-to(769, min) {
+        @content;
+    }
+}
+
 //text overflow trim
 @mixin trim($numLines: null) {
     //95% support in caniuse.com/.

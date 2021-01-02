@@ -17,7 +17,7 @@ $_breakpoint: 1200;
         grid-template-columns: repeat(4, 1fr);
     }
 
-    @include respond-to-mobile() {
+    @include respond-to-tablet() {
         display: block;
         width: 100%;
     }
@@ -27,7 +27,7 @@ $_breakpoint: 1200;
         border-radius: 0.8rem;
         padding-bottom: 2rem;
 
-        @include respond-to-mobile() {
+        @include respond-to-tablet() {
             margin-top: 4rem;
         }
     }

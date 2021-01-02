@@ -4,8 +4,9 @@
 
 //z-index values
 
-$z-index-header: 1;
 $z-index-base: 1;
+$z-index-header: 20;
+$z-index-sidebar: 21;
 $z-index-above: 10;
 $z-index-behind: -1;
 $z-index-hidden: -1000;
@@ -15,6 +16,7 @@ $secondary-border-radius: 0.5rem;
 $card-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
 
 $icon-size: 2.4rem;
+$navigation-size: 10vw;
 
 // breakpoints
 $breakpoint-reservations-lg: 1100;

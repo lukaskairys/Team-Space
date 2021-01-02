@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import { ReactComponent as NotificationBell } from "assets/icons/notification-bell.svg";
 import Sidebar from "components/Sidebar/Sidebar";
 import UserProfileWidget from "../../features/userProfileWidget/components/UserProfileWidget";
-import { ReactComponent as Hamburger } from "assets/images/hamburger.svg";
 import useWindowDimensions from "utils/useWindowDimensions";
 import UserContextProvider from "contexts/UserContextProvider";
-import Button from "components/button/Button";
+
+import Navigation from "./Navigation";
 
 import "./MainLayout.scss";
 
@@ -34,28 +34,22 @@ const checkSidebarState = () => {
 const MainLayout = ({ children }) => {
   const [isSidebarClosed, setIsSidebarClosed] = useState(checkSidebarState());
   const { width: windowWidth } = useWindowDimensions(0);
-  const [isMobile, setMobile] = useState(false);
-  const closeRef = useRef(null);
-  const hamburgerRef = useRef(null);
+  const [isSmallerScreen, setSmallerScreen] = useState(false);
+  const mobileSize = 500;
 
   useEffect(() => {
-    if (windowWidth <= 500 && isMobile === false) {
-      setMobile(true);
-    } else if (windowWidth > 500 && isMobile === true) {
-      setMobile(false);
+    if (windowWidth <= 768 && isSmallerScreen === false) {
+      setSmallerScreen(true);
+    } else if (windowWidth > 768 && isSmallerScreen === true) {
+      setSmallerScreen(false);
     }
-  }, [windowWidth, isMobile]);
+  }, [windowWidth, isSmallerScreen]);
 
   const toggleSidebar = async (burgerRef) => {
     await setIsSidebarClosed(!isSidebarClosed);
     if (burgerRef !== undefined) {
       setFocus(burgerRef);
     }
-  };
-
-  const handleHamburger = async () => {
-    await setIsSidebarClosed(false);
-    setFocus(closeRef);
   };
 
   const setFocus = (ref) => {
@@ -66,36 +60,22 @@ const MainLayout = ({ children }) => {
   return (
     <UserContextProvider>
       <div className="main-layout">
-        <Sidebar
-          isSidebarClosed={isSidebarClosed}
-          toggleSidebar={toggleSidebar}
-          is_mobile={isMobile}
-          closeRef={closeRef}
-          hamburgerRef={hamburgerRef}
-        />
+        {!isSmallerScreen && (
+          <Sidebar
+            isSidebarClosed={isSidebarClosed}
+            toggleSidebar={toggleSidebar}
+            isSmallerScreen={isSmallerScreen}
+          />
+        )}
         <div
           className={classNames("main-layout__content", {
             "main-layout__content--sidebar-closed": isSidebarClosed,
-            is_mobile: isMobile,
           })}
         >
           <header className="main-layout__header">
-            <div className="main-layout__mobile-navigation">
-              <Button
-                empty={true}
-                mobileNavToggle={true}
-                ariaLabel="Open the menu"
-                handleClick={handleHamburger}
-                buttonRef={hamburgerRef}
-              >
-                <Hamburger
-                  aria-hidden="true"
-                  className={classNames({
-                    is_mobile: isMobile,
-                  })}
-                />
-              </Button>
-            </div>
+            {isSmallerScreen && (
+              <Navigation isMobile={windowWidth <= mobileSize ? true : false} />
+            )}
             <div className="main-layout__status">
               <NotificationBell className="main-layout__notifications" />
 
