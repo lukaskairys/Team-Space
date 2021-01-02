@@ -21,7 +21,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 import { UserContext } from "contexts/UserContext";
 import Button from "components/button/Button";
-import { warnToast } from "components/Toasts/ToastHandler";
+import { errorToast } from "components/Toasts/ToastHandler";
 
 import "./imageUpload.scss";
 import b64toBlob from "./helpers/b64toBlob";
@@ -75,12 +75,8 @@ function Upload() {
   }, []);
 
   const addCroppedImage = useCallback(() => {
-    try {
-      const croppedImage = getCroppedImg(imageB64, croppedAreaPixels);
-      pondRef.current.addFile(croppedImage);
-    } catch (e) {
-      warnToast("Failed to add the image!");
-    }
+    const croppedImage = getCroppedImg(imageB64, croppedAreaPixels);
+    pondRef.current.addFile(croppedImage);
   }, [croppedAreaPixels, imageB64]);
 
   const handleButtonConfirm = () => {
@@ -101,6 +97,7 @@ function Upload() {
           onupdatefiles={setFiles}
           onactivatefile={() => setImageAdded(true)}
           server={config}
+          onerror={(error) => errorToast(error.main)}
           name="userImage"
           labelIdle='<br>Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span><br><br>max 150KB'
           imageCropAspectRatio="1:1"
