@@ -1,88 +1,127 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import Loader from "react-loader-spinner";
 
-import ReservationCard from "components/ReservationCard/ReservationCard";
-import { constructRenderable } from "utils/constructReservationList";
-import { patch } from "apis/services";
+import { useRequest } from "apis/useRequest";
+import { UserContext } from "contexts/UserContext";
+
+import EmptyReservations from "features/ReservedItems/EmptyReservations";
+import ReservedItems from "./ReservedItems";
 
 import "./reservedItemsSection.scss";
 
-const ReservedItemsSection = ({
-  reservedItems,
-  setReservedItems,
-  allItems,
-  title,
-  name,
-  listName,
-  user,
-  setRepeatRequest,
-}) => {
-  const [reservedItemsDataList, setReservedItemsDataList] = useState([]);
+const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
+  const [reservedDevices, setReservedDevices] = useState([]);
+  const [reservedBooks, setReservedBooks] = useState([]);
+  const [reservedRooms, setReservedRooms] = useState([]);
+  const { data: user, isLoading, setRepeatRequest, error } = useContext(
+    UserContext
+  );
+
+  const {
+    data: devices,
+    isLoading: loadDevices,
+    error: errorDevices,
+  } = useRequest("/devices");
+  const { data: books, isLoading: loadBooks, error: errorBooks } = useRequest(
+    "/books"
+  );
+  const { data: rooms, isLoading: loadRooms, error: errorRooms } = useRequest(
+    "/rooms"
+  );
 
   useEffect(() => {
-    if (allItems && allItems[listName]) {
-      let filtered = [];
-      reservedItems.forEach((resItem) => {
-        filtered = [
-          ...filtered,
-          ...allItems[listName].filter((i) => i.id === resItem.id),
-        ];
-      });
-      setReservedItemsDataList(filtered);
+    if (user && user.length !== 0 && user.reservations) {
+      setReservedDevices(user.reservations.devices);
+      setReservedBooks(user.reservations.books);
+      setReservedRooms(user.reservations.rooms);
     }
-  }, [reservedItems, listName, allItems]);
+  }, [user]);
 
-  const updatedReservations = (id) => ({
-    ...user.reservations,
-    [name]: reservedItems.filter((item) => item.id !== id),
-  });
+  useEffect(() => {
+    if (
+      reservedDevices.length === 0 &&
+      reservedBooks.length === 0 &&
+      reservedRooms.length === 0
+    ) {
+      setEmptyReservations(true);
+    } else {
+      setEmptyReservations(false);
+    }
+  }, [reservedDevices, reservedBooks, reservedRooms, setEmptyReservations]);
 
-  const cancelReservation = (id) => {
-    setReservedItems(reservedItems.filter((item) => item.id !== id));
-    setReservedItemsDataList(
-      reservedItemsDataList.filter((item) => item.id !== id)
-    );
-    setRepeatRequest(id);
-
-    patch(`/users`, { reservations: updatedReservations(id) }, user.id);
+  const renderDevices = () => {
+    if (reservedDevices && reservedDevices.length > 0)
+      return (
+        <ReservedItems
+          reservedItems={reservedDevices}
+          setReservedItems={setReservedDevices}
+          allItems={devices}
+          listName={"deviceList"}
+          title={"Devices"}
+          name={"devices"}
+          user={user}
+          setRepeatRequest={setRepeatRequest}
+        />
+      );
   };
 
+  const renderBooks = () => {
+    if (reservedBooks && reservedBooks.length > 0)
+      return (
+        <ReservedItems
+          reservedItems={reservedBooks}
+          setReservedItems={setReservedBooks}
+          allItems={books}
+          listName={"bookList"}
+          title={"Books"}
+          name={"books"}
+          user={user}
+          setRepeatRequest={setRepeatRequest}
+        />
+      );
+  };
+
+  const renderRooms = () => {
+    if (reservedRooms && reservedRooms.length > 0)
+      return (
+        <ReservedItems
+          reservedItems={reservedRooms}
+          setReservedItems={setReservedRooms}
+          allItems={rooms}
+          listName={"roomList"}
+          title={"Meeting rooms"}
+          name={"rooms"}
+          user={user}
+          setRepeatRequest={setRepeatRequest}
+        />
+      );
+  };
+
+  if (isLoading || loadDevices || loadBooks || loadRooms) {
+    return (
+      <div className="reserved-items__loader">
+        <Loader type="TailSpin" color="#6e44ff" height={60} width={60} />
+      </div>
+    );
+  }
+
+  if (error || errorDevices || errorBooks || errorRooms) {
+    return <p className="reserved-items__error">Failed to fetch data</p>;
+  }
   return (
-    <>
-      <h3 className="reservation-item__title">{title}</h3>
-      {reservedItemsDataList.map((item, index) => {
-        const renderableItemData = constructRenderable(item, listName);
-        return (
-          <ReservationCard
-            key={index}
-            id={item.id}
-            image={item.image}
-            alt={renderableItemData.alt}
-            topCaption={renderableItemData.topCaption}
-            title={renderableItemData.title}
-            quantityOrRating={renderableItemData.bottomCaption}
-            bookedUntil={item?.bookedUntil ? item.bookedUntil : null}
-            date={new Date().toISOString().split("T")[0].replace(/-/g, "/")}
-            listName={listName}
-            favoriteType={renderableItemData.favoriteType}
-            isFromReserved={true}
-            cancelReservation={cancelReservation}
-          />
-        );
-      })}
-    </>
+    <article className="reserved-items">
+      {renderDevices()}
+      {renderBooks()}
+      {renderRooms()}
+      {emptyReservations && <EmptyReservations />}
+    </article>
   );
 };
 
 ReservedItemsSection.propTypes = {
-  reservedItems: PropTypes.array,
-  setReservedItems: PropTypes.func,
-  allItems: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  title: PropTypes.string,
-  name: PropTypes.string,
-  listName: PropTypes.string,
-  user: PropTypes.object,
-  setRepeatRequest: PropTypes.func,
+  setEmptyReservations: PropTypes.func,
+  emptyReservations: PropTypes.bool,
 };
 
 export default ReservedItemsSection;

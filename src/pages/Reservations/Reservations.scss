@@ -1,8 +1,6 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_breakpoint-lg: 1100;
-
 .reservations-page {
     @include typography-body;
 
@@ -19,56 +17,13 @@ $_breakpoint-lg: 1100;
         justify-content: space-between;
         margin-top: 3rem;
 
-        @include respond-to($_breakpoint-lg, max) {
+        @include respond-to($breakpoint-reservations-lg, max) {
             flex-direction: column;
         }
     }
 
-    &__reserved-items {
-        display: flex;
-        flex-direction: column;
-        width: 60%;
-
-        @include respond-to($_breakpoint-lg, max) {
-            width: 100%;
-        }
-
-        .reservation-card {
-            margin-bottom: 2rem;
-        }
-    }
-
-    &__checked-in {
-        width: 35%;
-
-        @include respond-to($_breakpoint-lg, max) {
-            margin: 5rem auto;
-            max-width: 40rem;
-            min-width: 30rem;
-            text-align: center;
-            width: 60%;
-        }
-    }
-
-    &__no-reservations-message {
-        @include typography-h4;
-
-        color: $color-fiord;
-        margin: 2rem 0;
-
-        @include respond-to($_breakpoint-lg, max) {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-    }
-
-    &__widget {
+    &__new-reservations {
         margin-top: 4rem;
-    }
-
-    .RESERVATIONS__cards {
-        justify-content: center;
     }
 
     .reservation-card__status {
@@ -85,15 +40,6 @@ $_breakpoint-lg: 1100;
 
         .reservation-card__caption {
             display: none;
-        }
-    }
-
-    .eat-out-section {
-        display: block;
-        margin-top: 3rem;
-
-        .button {
-            margin-top: 2rem;
         }
     }
 }

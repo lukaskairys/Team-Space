@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import ReservationCardLink from "components/ReservationCardLink/ReservationCardLink";
 import { ReactComponent as Phone } from "assets/images/phone-1.svg";
@@ -10,7 +11,7 @@ import { UserContext } from "contexts/UserContext";
 
 import "./reservationsSection.scss";
 
-const ReservationsSection = ({ title, customMessageRenderer }) => {
+const ReservationsSection = ({ title, customMessageRenderer, isNarrow }) => {
   const [reservations, setReservations] = useState({
     devices: 0,
     books: 0,
@@ -36,10 +37,15 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
   }, [data, error]);
 
   return (
-    <div className="RESERVATIONS">
-      <h2 className="RESERVATIONS__title">{title}</h2>
+    <div className="reservations">
+      <h2 className="reservations__title">{title}</h2>
       {customMessageRenderer && customMessageRenderer()}
-      <div className="RESERVATIONS__cards">
+      <div
+        className={classNames({
+          reservations__cards: true,
+          "reservations__cards--narrow": isNarrow,
+        })}
+      >
         <ReservationCardLink
           name={"Devices"}
           caption={"Reserved"}
@@ -47,7 +53,7 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
           count={reservations.devices}
           big
         >
-          <Phone className="RESERVATIONS__image" />
+          <Phone className="reservations__image" />
         </ReservationCardLink>
         <ReservationCardLink
           name={"Books"}
@@ -56,7 +62,7 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
           count={reservations.books}
           big
         >
-          <Book className="RESERVATIONS__image" />
+          <Book className="reservations__image" />
         </ReservationCardLink>
         <ReservationCardLink
           name={"Meeting rooms"}
@@ -65,7 +71,7 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
           count={reservations.rooms}
           big
         >
-          <Door className="RESERVATIONS__image" />
+          <Door className="reservations__image" />
         </ReservationCardLink>
       </div>
     </div>
@@ -75,6 +81,7 @@ const ReservationsSection = ({ title, customMessageRenderer }) => {
 ReservationsSection.propTypes = {
   title: PropTypes.string,
   customMessageRenderer: PropTypes.func,
+  isNarrow: PropTypes.bool,
 };
 
 export default ReservationsSection;
