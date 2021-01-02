@@ -68,6 +68,7 @@ const Form = (props) => {
       devices: [],
       rooms: [],
       stories: [],
+      rooms: [],
     },
     checkIn: {},
   };

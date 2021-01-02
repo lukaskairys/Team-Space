@@ -1,0 +1,15 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.empty-reservations-message {
+    @include typography-h4;
+
+    color: $color-fiord;
+    margin: 2rem 0;
+
+    @include respond-to($breakpoint-reservations-lg, max) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}

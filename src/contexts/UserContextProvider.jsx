@@ -19,7 +19,6 @@ const UserContextProvider = ({ children }) => {
 
   const isClearingNow = useRef(false);
   const { Provider } = UserContext;
-
   const store = {
     data,
     lastClearDate,
