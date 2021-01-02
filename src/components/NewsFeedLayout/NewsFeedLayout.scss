@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_breakpoint-md: 990;
+
 .news-feed-section {
     display: flex;
     flex-direction: column;
@@ -12,6 +14,10 @@
 
         color: $color-fiord;
         margin-bottom: 7rem;
+
+        @include respond-to($_breakpoint-md, max) {
+            text-align: center;
+        }
     }
 
     &__content {
