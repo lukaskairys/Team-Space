@@ -1,12 +1,11 @@
+@import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
-
-$_breakpoint-md: 886;
 
 .profile-settings-nav {
     display: flex;
     justify-content: space-between;
     margin-bottom: 4rem;
-    @include respond-to($_breakpoint-md, max) {
+    @include respond-to($breakpoint-settings-md, max) {
         margin-bottom: 2.5rem;
     }
 
@@ -19,7 +18,7 @@ $_breakpoint-md: 886;
 
         margin-right: 6rem;
 
-        @include respond-to($_breakpoint-md, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             margin-right: 3rem;
         }
     }

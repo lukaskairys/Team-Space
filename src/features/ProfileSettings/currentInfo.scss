@@ -1,8 +1,6 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_breakpoint-md: 886;
-
 .current-info {
     @include typography-body;
 
@@ -13,7 +11,7 @@ $_breakpoint-md: 886;
     max-width: 40rem;
     padding: 5rem 2.4rem;
 
-    @include respond-to($_breakpoint-md, max) {
+    @include respond-to($breakpoint-settings-md, max) {
         max-width: unset;
         padding: 2.4rem;
     }
@@ -24,7 +22,7 @@ $_breakpoint-md: 886;
         margin-bottom: 2rem;
         text-align: flex-start;
 
-        @include respond-to($_breakpoint-md, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             text-align: center;
         }
     }
@@ -41,7 +39,7 @@ $_breakpoint-md: 886;
         flex-direction: column;
         margin-bottom: 3rem;
 
-        @include respond-to($_breakpoint-md, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             align-items: center;
             flex-direction: row;
             justify-content: flex-start;
@@ -53,7 +51,7 @@ $_breakpoint-md: 886;
         @include typography-body-bold;
         letter-spacing: 0.05rem;
 
-        @include respond-to($_breakpoint-md, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             margin-bottom: 0;
             width: 9rem;
         }
