@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 import "./navigation.scss";
 
-const sidebarData = [
+const navigationData = [
   {
     title: "Dashboard",
     icon: <HomeIcon className="navigation-list__icon" />,
@@ -31,7 +31,7 @@ const Navigation = ({ isMobile }) => {
   return (
     <>
       <div className="navigation-list">
-        {sidebarData.map((val, key) => {
+        {navigationData.map((val, key) => {
           return (
             <Link
               key={key}

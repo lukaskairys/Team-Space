@@ -36,11 +36,12 @@ const MainLayout = ({ children }) => {
   const { width: windowWidth } = useWindowDimensions(0);
   const [isSmallerScreen, setSmallerScreen] = useState(false);
   const mobileSize = 500;
+  const maxWidth = 768;
 
   useEffect(() => {
-    if (windowWidth <= 768 && isSmallerScreen === false) {
+    if (windowWidth <= maxWidth && isSmallerScreen === false) {
       setSmallerScreen(true);
-    } else if (windowWidth > 768 && isSmallerScreen === true) {
+    } else if (windowWidth > maxWidth && isSmallerScreen === true) {
       setSmallerScreen(false);
     }
   }, [windowWidth, isSmallerScreen]);

@@ -27,6 +27,7 @@
     &__logo {
         fill: $color-transparent;
         transition: fill 500ms;
+
         @include respond-to-mobile() {
             transition: none;
         }
