@@ -3,8 +3,20 @@
 
 $_breakpoint-lg: 1365;
 $_breakpoint-md: 990;
+$_breakpoint-narrow-lg: 1400;
 
-.RESERVATIONS {
+@mixin two-rows-layout {
+    grid-template-areas: 'devices devices rooms rooms' '. books books .';
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@mixin three-rows-layout {
+    grid-template-areas: 'devices' 'books' 'rooms';
+    grid-template-columns: 1fr;
+    padding: 0 5rem;
+}
+
+.reservations {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,14 +37,20 @@ $_breakpoint-md: 990;
         grid-template-columns: repeat(3, 1fr);
 
         @include respond-to($_breakpoint-lg, max) {
-            grid-template-areas: 'devices devices rooms rooms' '. books books .';
-            grid-template-columns: repeat(4, 1fr);
+            @include two-rows-layout;
         }
 
         @include respond-to($_breakpoint-md, max) {
-            grid-template-areas: 'devices' 'books' 'rooms';
-            grid-template-columns: 1fr;
-            padding: 0 5rem;
+            @include three-rows-layout;
+        }
+
+        &--narrow {
+            @include animation('fadeIn 0.2s ease-in forwards');
+            @include two-rows-layout;
+
+            @include respond-to($_breakpoint-narrow-lg, max) {
+                @include three-rows-layout;
+            }
         }
 
         a {
