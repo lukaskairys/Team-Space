@@ -10,19 +10,23 @@ const CurrentInfo = ({ user }) => {
       <div className="current-info__items">
         <div className="current-info__item">
           <span className="current-info__item-title">Username:</span>
-          <span>{user.userName}</span>
+          <span className="current-info__item-info">{user.userName}</span>
         </div>
         <div className="current-info__item">
           <span className="current-info__item-title">Email:</span>
-          <span>{user.email}</span>
+          <span className="current-info__item-info">{user.email}</span>
         </div>
         <div className="current-info__item">
           <span className="current-info__item-title">Address:</span>
-          <span>{user.location ? user.location : "---"}</span>
+          <span className="current-info__item-info">
+            {user.location ? user.location : "---"}
+          </span>
         </div>
         <div className="current-info__item">
           <span className="current-info__item-title">Birthday:</span>
-          <span>{user.birthdayDate ? user.birthdayDate : "---"}</span>
+          <span className="current-info__item-info">
+            {user.birthdayDate ? user.birthdayDate : "---"}
+          </span>
         </div>
       </div>
     </section>

@@ -79,6 +79,10 @@ export function validatePasswords(values, data, passwordCorrect) {
     errors.newPassword = "Password is required";
   } else if (newPassword.length < 6) {
     errors.newPassword = "Password must be 6 or more characters";
+  } else if (newPassword === oldPassword) {
+    errors.newPassword = "New password should be different from the old one.";
+    errors.repeatPassword =
+      "New password should be different from the old one.";
   }
   // password repeat
   if (!repeatPassword) {
