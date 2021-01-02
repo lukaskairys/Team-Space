@@ -24,15 +24,6 @@
         margin-right: 1rem;
     }
 
-    &__logo {
-        fill: $color-transparent;
-        transition: fill 500ms;
-
-        @include respond-to-mobile() {
-            transition: none;
-        }
-    }
-
     &__item {
         @include typography-h4-alternative;
 
