@@ -21,7 +21,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 import { UserContext } from "contexts/UserContext";
 import Button from "components/button/Button";
-import { errorToast } from "components/Toasts/ToastHandler";
+import { errorToast, warnToast } from "components/Toasts/ToastHandler";
 
 import "./imageUpload.scss";
 import b64toBlob from "./helpers/b64toBlob";
@@ -74,9 +74,13 @@ function Upload() {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
 
-  const addCroppedImage = useCallback(() => {
-    const croppedImage = getCroppedImg(imageB64, croppedAreaPixels);
-    pondRef.current.addFile(croppedImage);
+  const addCroppedImage = useCallback(async () => {
+    try {
+      const croppedImage = await getCroppedImg(imageB64, croppedAreaPixels);
+      pondRef.current.addFile(croppedImage);
+    } catch (e) {
+      warnToast("Failed to crop the image");
+    }
   }, [croppedAreaPixels, imageB64]);
 
   const handleButtonConfirm = () => {
@@ -101,7 +105,7 @@ function Upload() {
             error?.body ? errorToast(error.body) : errorToast(error.main)
           }
           name="userImage"
-          labelIdle='<br>Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span><br><br>max 150KB'
+          labelIdle='<br>Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span><br><i>max 150KB</i><br><i>.jpg only</i>'
           imageCropAspectRatio="1:1"
           stylePanelLayout="compact circle"
           styleButtonRemoveItemPosition="bottom center"
