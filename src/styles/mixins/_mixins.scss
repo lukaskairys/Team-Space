@@ -30,6 +30,12 @@
     }
 }
 
+@mixin respond-between($lower, $upper) {
+    @media (min-width: $lower + px) and (max-width: ($upper - 1) + px) {
+        @content;
+    }
+}
+
 //text overflow trim
 @mixin trim($numLines: null) {
     //95% support in caniuse.com/.

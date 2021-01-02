@@ -2,7 +2,8 @@
 @import '../../../styles/mixins/mixins';
 
 $_title-color: rgba(0, 0, 0, 0.7);
-$_breakpoint: 1200;
+$_breakpoint: 1500;
+$_breakpoint2: 1091;
 
 .eat-out-section {
     display: grid;
@@ -12,7 +13,7 @@ $_breakpoint: 1200;
 
     @include respond-to($_breakpoint, max) {
         grid-template-areas:
-            '. suggestion suggestion .'
+            'suggestion suggestion suggestion suggestion '
             'firstRestaurant firstRestaurant secondRestaurant secondRestaurant';
         grid-template-columns: repeat(4, 1fr);
     }

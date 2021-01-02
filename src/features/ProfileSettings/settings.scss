@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_form-width: 50rem;
+
 .profile-settings {
     @include typography-body-2;
 
@@ -26,12 +28,11 @@
         color: $color-white;
         display: flex;
         margin-top: 5rem;
-        width: 70rem;
 
         @include respond-to($breakpoint-settings-md, max) {
             flex-direction: column;
             min-width: 40rem;
-            width: 50rem;
+            width: $_form-width;
         }
 
         @include respond-to-tablet() {
@@ -43,14 +44,18 @@
         border-bottom-left-radius: unset;
         border-top-left-radius: unset;
         margin-top: 0;
+        width: $_form-width;
 
         @include respond-to($breakpoint-settings-md, max) {
             border-bottom-left-radius: $base-border-radius;
             border-top-left-radius: unset;
             border-top-right-radius: unset;
-
             padding: 2rem;
         }
+    }
+
+    .form-input {
+        width: 100%;
     }
 
     .form-input[type='date'] {
