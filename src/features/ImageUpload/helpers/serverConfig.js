@@ -1,10 +1,9 @@
 import axios from "axios";
 
-import { warnToast } from "components/Toasts/ToastHandler";
-import { toast } from "react-toastify";
+import { successToast } from "components/Toasts/ToastHandler";
 import { patch } from "apis/services";
 
-export default (user, files) => {
+export default (user, files, setRepeatRequest) => {
   return {
     process: (
       fieldName,
@@ -19,7 +18,6 @@ export default (user, files) => {
     ) => {
       const CancelToken = axios.CancelToken;
       const source = CancelToken.source();
-
       patch(
         "users",
         {
@@ -35,10 +33,9 @@ export default (user, files) => {
       )
         .then((res) => {
           if (res.status >= 200 && res.status < 300) {
-            load();
-            toast.success("Your picture was uploaded successfully!", {
-              delay: 1000,
-            });
+            load(res.request.responseText);
+            successToast("Your picture was uploaded successfully!");
+            setRepeatRequest(file.name);
           }
         })
         .catch((thrown) => {
@@ -46,7 +43,6 @@ export default (user, files) => {
             error(thrown.message);
           } else {
             error("Failed to upload the image");
-            warnToast("Failed to upload the image");
           }
         });
       return {

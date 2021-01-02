@@ -43,12 +43,12 @@ function Upload() {
   const [files, setFiles] = useState([]);
   const [imageB64, setImageB64] = useState(null);
   const [imageAdded, setImageAdded] = useState(false);
-  const { data: user } = useContext(UserContext);
+  const { data: user, setRepeatRequest } = useContext(UserContext);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const pondRef = useRef(null);
-  const config = serverConfig(user, files);
+  const config = serverConfig(user, files, setRepeatRequest);
 
   useEffect(() => {
     if (user.userImage) {
@@ -97,7 +97,9 @@ function Upload() {
           onupdatefiles={setFiles}
           onactivatefile={() => setImageAdded(true)}
           server={config}
-          onerror={(error) => errorToast(error.main)}
+          onerror={(error) =>
+            error?.body ? errorToast(error.body) : errorToast(error.main)
+          }
           name="userImage"
           labelIdle='<br>Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span><br><br>max 150KB'
           imageCropAspectRatio="1:1"
@@ -125,6 +127,9 @@ function Upload() {
             />
             <Button handleClick={handleButtonConfirm}>Confirm crop</Button>
             <Button handleClick={handleButtonCancel}>Cancel</Button>
+            <span className="crop-container__label">
+              Use your mouse or your fingers to zoom in/out
+            </span>
           </div>
         )}
       </>
