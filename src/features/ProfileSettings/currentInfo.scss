@@ -11,7 +11,7 @@
     max-width: 40rem;
     padding: 5rem 2.4rem;
 
-    @include respond-to(886, max) {
+    @include respond-to($breakpoint-settings-md, max) {
         max-width: unset;
         padding: 2.4rem;
     }
@@ -20,7 +20,11 @@
         @include typography-h3-alternative;
 
         margin-bottom: 2rem;
-        text-align: center;
+        text-align: flex-start;
+
+        @include respond-to($breakpoint-settings-md, max) {
+            text-align: center;
+        }
     }
 
     &__items {
@@ -35,7 +39,7 @@
         flex-direction: column;
         margin-bottom: 3rem;
 
-        @include respond-to(886, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             align-items: center;
             flex-direction: row;
             justify-content: flex-start;
@@ -47,7 +51,7 @@
         @include typography-body-bold;
         letter-spacing: 0.05rem;
 
-        @include respond-to(886, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             margin-bottom: 0;
             width: 9rem;
         }

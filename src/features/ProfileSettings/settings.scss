@@ -28,7 +28,7 @@
         margin-top: 5rem;
         width: 70rem;
 
-        @include respond-to(886, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             flex-direction: column;
             min-width: 40rem;
             width: 50rem;
@@ -40,7 +40,7 @@
         border-top-left-radius: unset;
         margin-top: 0;
 
-        @include respond-to(886, max) {
+        @include respond-to($breakpoint-settings-md, max) {
             border-bottom-left-radius: $base-border-radius;
             border-top-left-radius: unset;
             border-top-right-radius: unset;

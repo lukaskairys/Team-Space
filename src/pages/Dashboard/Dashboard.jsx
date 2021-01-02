@@ -25,7 +25,7 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard__reservations-section">
-        <ReservationsSection />
+        <ReservationsSection title={"Reservations"} />
       </div>
 
       <div className="dashboard__eat-out-section">

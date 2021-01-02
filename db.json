@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2020-12-30"
+    "date": "2021-01-02"
   },
   "users": [
     {
@@ -12,14 +12,20 @@
       "reservations": {
         "books": [
           {
-            "title": "Don't Make Me Think",
-            "id": "1jd85opw82"
+            "id": "9781484231791"
           }
         ],
         "devices": [
           {
-            "name": "iPhone X",
             "id": "193ywpe740"
+          },
+          {
+            "id": "1563187740"
+          }
+        ],
+        "rooms": [
+          {
+            "id": "497ee32e-bd90-4515-94dc-4bc408345845"
           }
         ]
       },
@@ -37,7 +43,9 @@
         "stories": [],
         "rooms": []
       },
-      "checkIn": {},
+      "checkIn": {
+        "id": "tk3ih1o0qt"
+      },
       "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },
@@ -56,6 +64,7 @@
       "liked": {
         "restaurants": [],
         "books": [],
+        "rooms": [],
         "devices": [],
         "stories": []
       },
@@ -474,6 +483,12 @@
       "image": "https://images.unsplash.com/photo-1584208632869-05fa2b2a5934?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80",
       "checkIns": 9,
       "reviews": [
+        {
+          "userName": "Frontend Wizard",
+          "id": "769b2b5c-5919-4b3f-b589-97d70858e097",
+          "comment": "",
+          "rating": 4
+        },
         {
           "userName": "Laura Palmer",
           "id": "bt1x97n2je",
@@ -1273,7 +1288,7 @@
         "brand": "One Plus",
         "bookedUntil": "2021-09-12",
         "os": "Android",
-        "id": "1563167118",
+        "id": "156316a118",
         "quantity": 6
       },
       {
@@ -1293,7 +1308,7 @@
         "favourite": true,
         "brand": "One Plus",
         "os": "Android",
-        "id": "1563167188",
+        "id": "15s3167188",
         "quantity": 1
       },
       {
@@ -1388,7 +1403,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-05-22",
         "os": "Android",
-        "id": "1563179687",
+        "id": "156sd79687",
         "quantity": 0
       },
       {
@@ -1431,7 +1446,7 @@
         "brand": "Xiomi",
         "bookedUntil": "2021-08-25",
         "os": "Android",
-        "id": "1563168802",
+        "id": "156316s802",
         "quantity": 7
       },
       {
@@ -1513,7 +1528,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563173033",
+        "id": "15s3173033",
         "quantity": 1
       },
       {
@@ -1524,7 +1539,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-06-10",
         "os": "Android",
-        "id": "1563175150",
+        "id": "156317515a",
         "quantity": 9
       },
       {
@@ -1557,7 +1572,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-08-21",
         "os": "Android",
-        "id": "1563175504",
+        "id": "156317fg504",
         "quantity": 1
       },
       {
@@ -1578,7 +1593,7 @@
         "favourite": true,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563167118",
+        "id": "1a63167118",
         "quantity": 4
       },
       {
@@ -1588,7 +1603,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563167188",
+        "id": "156316s188",
         "quantity": 1
       },
       {
@@ -1610,7 +1625,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-05-18",
         "os": "Android",
-        "id": "1563167259",
+        "id": "1sd3167259",
         "quantity": 1
       },
       {
@@ -1620,7 +1635,7 @@
         "favourite": true,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563167259",
+        "id": "1563sdf259",
         "quantity": 7
       },
       {
@@ -1631,7 +1646,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-08-16",
         "os": "Android",
-        "id": "1563167259",
+        "id": "15631dfg59",
         "quantity": 2
       },
       {
@@ -1641,7 +1656,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Linux",
-        "id": "1563167354",
+        "id": "156s167354",
         "quantity": 6
       },
       {
@@ -1652,7 +1667,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-03-16",
         "os": "Android",
-        "id": "1563167354",
+        "id": "15631673a4",
         "quantity": 1
       },
       {
@@ -1662,7 +1677,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563167354",
+        "id": "15as167354",
         "quantity": 2
       },
       {
@@ -1673,7 +1688,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-07-11",
         "os": "Android",
-        "id": "1563167354",
+        "id": "d563167354",
         "quantity": 0
       },
       {
@@ -1694,7 +1709,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-02-15",
         "os": "Android",
-        "id": "1563167420",
+        "id": "156316d420",
         "quantity": 8
       },
       {
@@ -1716,7 +1731,7 @@
         "brand": "Samsung",
         "bookedUntil": "2021-09-14",
         "os": "Android",
-        "id": "1563167496",
+        "id": "1sdf167496",
         "quantity": 0
       },
       {
@@ -1748,7 +1763,7 @@
         "favourite": true,
         "brand": "Samsung",
         "os": null,
-        "id": "1563167678",
+        "id": "156316asd78",
         "quantity": 3
       },
       {
@@ -1758,7 +1773,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563167678",
+        "id": "156sdf7678",
         "quantity": 8
       },
       {
@@ -1779,7 +1794,7 @@
         "favourite": true,
         "brand": "Samsung",
         "os": "Linux",
-        "id": "1563167748",
+        "id": "1563167fg8",
         "quantity": 6
       },
       {
@@ -1810,7 +1825,7 @@
         "favourite": true,
         "brand": "Samsung",
         "os": "Linux",
-        "id": "1563168018",
+        "id": "15as168018",
         "quantity": 2
       },
       {
@@ -1820,7 +1835,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563168222",
+        "id": "15631a8222",
         "quantity": 6
       },
       {
@@ -1830,7 +1845,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Linux",
-        "id": "1563168222",
+        "id": "156316a222",
         "quantity": 3
       },
       {
@@ -1851,7 +1866,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563168282",
+        "id": "15631as282",
         "quantity": 7
       },
       {
@@ -1872,7 +1887,7 @@
         "favourite": true,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563168714",
+        "id": "15631s8714",
         "quantity": 6
       },
       {
@@ -1882,7 +1897,7 @@
         "favourite": false,
         "brand": "Samsung",
         "os": "Android",
-        "id": "1563168714",
+        "id": "1563168s14",
         "quantity": 8
       },
       {

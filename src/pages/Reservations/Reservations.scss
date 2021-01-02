@@ -1,7 +1,45 @@
 @import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
 
-.reservationsPage {
-    &__widget {
-        margin: 10rem;
+.reservations-page {
+    @include typography-body;
+
+    &__title {
+        @include typography-h1;
+
+        color: $color-fiord;
+        margin-bottom: 2rem;
+    }
+
+    &__all-reservations {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 3rem;
+
+        @include respond-to($breakpoint-reservations-lg, max) {
+            flex-direction: column;
+        }
+    }
+
+    &__new-reservations {
+        margin-top: 4rem;
+    }
+
+    .reservation-card__status {
+        position: relative;
+        top: 5rem;
+    }
+
+    .reservation-card__cta {
+        z-index: $z-index-above;
+
+        .rating-container {
+            display: none;
+        }
+
+        .reservation-card__caption {
+            display: none;
+        }
     }
 }

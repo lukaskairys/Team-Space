@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import "./eatOutSection.scss";
@@ -6,7 +7,7 @@ import { FetchBestRatedRestaurants } from "../../../utils/Api";
 import Button from "../../../components/button/Button";
 import CreateTopRestaurantColumn from "./CreateTopRestaurantColumn";
 
-const EatOutSection = () => {
+const EatOutSection = ({ withoutRestaurants }) => {
   const count = 2;
   const { restaurants } = FetchBestRatedRestaurants(count);
 
@@ -59,9 +60,13 @@ const EatOutSection = () => {
           </Link>
         </div>
       </div>
-      {renderRestaurants(restaurants)}
+      {!withoutRestaurants && renderRestaurants(restaurants)}
     </section>
   );
+};
+
+EatOutSection.propTypes = {
+  withoutRestaurants: PropTypes.bool,
 };
 
 export default EatOutSection;
