@@ -6,13 +6,13 @@ import { useAuthentication } from "authentication/useAuthentication";
 import { UserContext } from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
-  const [repeatRequset, setRepeatRequest] = useState("");
+  const [repeatRequest, setRepeatRequest] = useState("");
   const [likeState, setLikeState] = useState("initial");
   const [currentCheckIn, setCurrentCheckIn] = useState("initial");
   const { userId } = useAuthentication();
   const { data, error, isLoading } = useRequest(
     `/users/${userId}`,
-    repeatRequset
+    repeatRequest
   );
   const { data: lastClearDate } = useRequest("lastClearDate");
   const { data: users } = useRequest("/users");
