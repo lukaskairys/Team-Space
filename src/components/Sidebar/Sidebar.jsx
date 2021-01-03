@@ -8,8 +8,6 @@ import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
 import { ReactComponent as CompassIcon } from "assets/icons/compass.svg";
 import { ReactComponent as ToggleIcon } from "assets/icons/toggle.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
-import { ReactComponent as IconX } from "assets/images/x.svg";
-import Button from "components/button/Button";
 
 import "./Sidebar.scss";
 
@@ -31,37 +29,14 @@ const sidebarData = [
   },
 ];
 
-const Sidebar = ({
-  isSidebarClosed,
-  toggleSidebar,
-  is_mobile,
-  closeRef,
-  hamburgerRef,
-}) => {
+const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
   return (
     <nav
       className={classNames("sidebar", {
         "sidebar--closed": isSidebarClosed,
-        is_mobile: is_mobile,
       })}
     >
-      {is_mobile && (
-        <Button
-          type={"button"}
-          ariaLabel="Close the menu"
-          iconX={true}
-          handleClick={() => toggleSidebar(hamburgerRef)}
-          buttonRef={closeRef}
-        >
-          <IconX className="sidebar__close-icon" />
-        </Button>
-      )}
-      <Link
-        to="/"
-        onClick={() => {
-          if (is_mobile) toggleSidebar();
-        }}
-      >
+      <Link to="/">
         <Logo className="sidebar__logo" />
       </Link>
       <button
@@ -77,9 +52,6 @@ const Sidebar = ({
           return (
             <Link
               key={key}
-              onClick={() => {
-                if (is_mobile) toggleSidebar();
-              }}
               className={classNames("sidebar__list-item", {
                 "sidebar__list-item--active":
                   window.location.pathname === val.link ||
@@ -102,7 +74,7 @@ const Sidebar = ({
 Sidebar.propTypes = {
   isSidebarClosed: PropTypes.bool,
   toggleSidebar: PropTypes.func,
-  is_mobile: PropTypes.bool,
+  isMobile: PropTypes.bool,
   closeRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
