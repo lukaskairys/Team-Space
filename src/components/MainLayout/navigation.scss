@@ -1,0 +1,51 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_line-height: 1.5;
+$_divide-count: 3;
+
+.navigation-list {
+    background-color: $color-bright-violet;
+    bottom: 0;
+    display: flex;
+    height: $navigation-size;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+
+    &__title {
+        color: $color-light-porcelain;
+        margin-left: 1rem;
+        padding-bottom: 1rem * $_line-height / $_divide-count;
+    }
+
+    &__icon {
+        @include square-size($icon-size);
+
+        stroke: $color-light-porcelain;
+    }
+
+    &__item {
+        @include typography-h4-alternative;
+
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: 100%;
+
+        &:focus {
+            outline: 0.3rem solid $color-black;
+            outline-offset: -0.3rem;
+        }
+
+        &.is_active {
+            background-color: $color-dark-violet;
+        }
+
+        &:not(:last-child) {
+            border-right: 0.1rem solid $color-light-porcelain;
+        }
+    }
+}

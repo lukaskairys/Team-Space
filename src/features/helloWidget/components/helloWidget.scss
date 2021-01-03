@@ -28,7 +28,7 @@ $_breakpoint-sm: 500;
             top: -13.4rem;
             visibility: visible;
             width: 4rem;
-            z-index: $z-index-above;
+            z-index: $z-index-header;
 
             &::after {
                 background-color: $color-fiord;
