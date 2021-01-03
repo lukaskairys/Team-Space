@@ -17,6 +17,13 @@ $_breakpoint2: 1091;
             'firstRestaurant firstRestaurant secondRestaurant secondRestaurant';
         grid-template-columns: repeat(4, 1fr);
     }
+    @include respond-to($_breakpoint2, max) {
+        grid-template-areas:
+            'suggestion'
+            'firstRestaurant'
+            'secondRestaurant';
+        grid-template-columns: repeat(1, 1fr);
+    }
 
     @include respond-to-tablet() {
         display: block;
