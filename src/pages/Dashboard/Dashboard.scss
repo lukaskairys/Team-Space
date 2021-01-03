@@ -19,5 +19,11 @@
         @include respond-to(900, max) {
             margin-left: 0;
         }
+        @include respond-to(768, max) {
+            height: 0;
+            margin-bottom: 0;
+            visibility: hidden;
+            width: 0;
+        }
     }
 }

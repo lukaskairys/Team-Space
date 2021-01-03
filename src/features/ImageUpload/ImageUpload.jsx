@@ -21,7 +21,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 import { UserContext } from "contexts/UserContext";
 import Button from "components/button/Button";
-import { warnToast } from "components/Toasts/ToastHandler";
+import { errorToast, warnToast } from "components/Toasts/ToastHandler";
 
 import "./imageUpload.scss";
 import b64toBlob from "./helpers/b64toBlob";
@@ -43,12 +43,12 @@ function Upload() {
   const [files, setFiles] = useState([]);
   const [imageB64, setImageB64] = useState(null);
   const [imageAdded, setImageAdded] = useState(false);
-  const { data: user } = useContext(UserContext);
+  const { data: user, setRepeatRequest } = useContext(UserContext);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
   const pondRef = useRef(null);
-  const config = serverConfig(user, files);
+  const config = serverConfig(user, files, setRepeatRequest);
 
   useEffect(() => {
     if (user.userImage) {
@@ -74,12 +74,12 @@ function Upload() {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
 
-  const addCroppedImage = useCallback(() => {
+  const addCroppedImage = useCallback(async () => {
     try {
-      const croppedImage = getCroppedImg(imageB64, croppedAreaPixels);
+      const croppedImage = await getCroppedImg(imageB64, croppedAreaPixels);
       pondRef.current.addFile(croppedImage);
     } catch (e) {
-      warnToast("Failed to add the image!");
+      warnToast("Failed to crop the image");
     }
   }, [croppedAreaPixels, imageB64]);
 
@@ -101,8 +101,11 @@ function Upload() {
           onupdatefiles={setFiles}
           onactivatefile={() => setImageAdded(true)}
           server={config}
+          onerror={(error) =>
+            error?.body ? errorToast(error.body) : errorToast(error.main)
+          }
           name="userImage"
-          labelIdle='<br>Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span><br><br>max 150KB'
+          labelIdle='<br>Drag &amp; Drop your image or <span class="filepond--label-action">Browse</span><br><i>max 150KB</i><br><i>.jpg only</i>'
           imageCropAspectRatio="1:1"
           stylePanelLayout="compact circle"
           styleButtonRemoveItemPosition="bottom center"
@@ -128,6 +131,9 @@ function Upload() {
             />
             <Button handleClick={handleButtonConfirm}>Confirm crop</Button>
             <Button handleClick={handleButtonCancel}>Cancel</Button>
+            <span className="crop-container__label">
+              Use your mouse or your fingers to zoom in/out
+            </span>
           </div>
         )}
       </>
