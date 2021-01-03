@@ -30,7 +30,7 @@ export default function Pagination({ page, setPage, pageCount }) {
 
   const renderButtonPrev =
     page === 0 ? null : (
-      <Button handleClick={handlePrev} pagination>
+      <Button handleClick={handlePrev} ariaLabel={"previous page"} pagination>
         <ChevronLeft className="chevron-left" />
       </Button>
     );
@@ -39,6 +39,7 @@ export default function Pagination({ page, setPage, pageCount }) {
     page > 1 || page < pageCount ? (
       <Button
         handleClick={handleFirstPage}
+        ariaLabel={"first page"}
         pagination
         isActive={page === 0 && true}
       >
@@ -48,7 +49,12 @@ export default function Pagination({ page, setPage, pageCount }) {
 
   const renderCurrentPage =
     page === 0 || page === pageCount ? null : (
-      <Button handleClick={handleCurrentPage} pagination isActive>
+      <Button
+        handleClick={handleCurrentPage}
+        ariaLabel={`current page ${page + 1}`}
+        pagination
+        isActive
+      >
         <span className="reservations-pagination__page-number">{page + 1}</span>
       </Button>
     );
@@ -64,6 +70,7 @@ export default function Pagination({ page, setPage, pageCount }) {
     pageCount === 0 ? null : (
       <Button
         handleClick={handleLastPage}
+        ariaLabel={`last page ${pageCount + 1}`}
         pagination
         isActive={page === pageCount && true}
       >
@@ -75,12 +82,12 @@ export default function Pagination({ page, setPage, pageCount }) {
 
   const renderButtonNext =
     page === pageCount ? null : (
-      <Button handleClick={handleNext} pagination>
+      <Button handleClick={handleNext} ariaLabel={"next page"} pagination>
         <ChevronRight className="chevron-right" />
       </Button>
     );
   return (
-    <div className="reservations-pagination">
+    <nav className="reservations-pagination">
       {renderButtonPrev}
       {renderFirstPage}
       {page > 1 && page !== pageCount ? renderPlaceholder : null}
@@ -88,7 +95,7 @@ export default function Pagination({ page, setPage, pageCount }) {
       {pageCount - 1 === page ? null : renderPlaceholder}
       {renderLastPage}
       {renderButtonNext}
-    </div>
+    </nav>
   );
 }
 
