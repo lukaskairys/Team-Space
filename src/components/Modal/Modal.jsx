@@ -9,14 +9,25 @@ import { useOnClickOutside } from "utils/useOnClickOutside";
 import "./modal.scss";
 
 const Modal = (props) => {
-  const { children, setModalOpen, closeModal } = props;
+  const { children, setModalOpen, closeModal, modalTitle } = props;
   const modalRef = useRef(null);
 
   useOnClickOutside(modalRef, () => setModalOpen(false));
 
   const content = (
-    <div className="overlay">
-      <div className="modal" ref={modalRef}>
+    <>
+      <div className="overlay"></div>
+      <div
+        className="modal"
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        // aria-describedby="description"
+      >
+        <span id="modal-title" className="visually-hidden">
+          {modalTitle}
+        </span>
         <div className="modal__button-container">
           <Button type={"button"} iconX={true} handleClick={closeModal}>
             <IconX />
@@ -24,7 +35,7 @@ const Modal = (props) => {
         </div>
         {children}
       </div>
-    </div>
+    </>
   );
   return createPortal(content, document.querySelector("#modal-root"));
 };
@@ -33,5 +44,6 @@ Modal.propTypes = {
   children: oneOfType([PropTypes.element, PropTypes.array]),
   closeModal: PropTypes.func,
   setModalOpen: PropTypes.func,
+  modalTitle: PropTypes.string,
 };
 export default Modal;

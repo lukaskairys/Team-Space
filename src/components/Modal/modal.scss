@@ -28,11 +28,16 @@ $_overlay-z-index: 5;
     background-color: $color-white;
     border-radius: $base-border-radius;
     box-shadow: $card-shadow;
-    max-height: 100%;
-    max-width: 100%;
+    left: 50%;
+    margin: auto;
+    max-height: 80%;
+    overflow-x: hidden;
     overflow-y: auto;
     padding: 0 5rem 3rem 4rem;
-    position: relative;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: $z-index-above;
 
     &__button-container {
         align-items: center;

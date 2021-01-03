@@ -131,7 +131,11 @@ function ReviewsSection() {
         </div>
 
         {modalOpen && (
-          <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+          <Modal
+            closeModal={closeModal}
+            setModalOpen={setModalOpen}
+            modalTitle={"reviews."}
+          >
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} inModal={true} />
             ))}
@@ -142,6 +146,7 @@ function ReviewsSection() {
           <Modal
             closeModal={closeLeaveReview}
             setModalOpen={setLeaveReviewOpen}
+            modalTitle={"leave a review."}
           >
             <LeaveReview
               closeModal={closeLeaveReview}
