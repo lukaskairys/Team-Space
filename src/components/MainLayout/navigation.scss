@@ -1,6 +1,9 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_line-height: 1.5;
+$_divide-count: 3;
+
 .navigation-list {
     background-color: $color-bright-violet;
     bottom: 0;
@@ -12,16 +15,14 @@
 
     &__title {
         color: $color-light-porcelain;
+        margin-left: 1rem;
+        padding-bottom: 1rem * $_line-height / $_divide-count;
     }
 
     &__icon {
         @include square-size($icon-size);
 
         stroke: $color-light-porcelain;
-    }
-
-    &__icon-container {
-        margin-right: 1rem;
     }
 
     &__item {
