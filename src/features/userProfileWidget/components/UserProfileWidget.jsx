@@ -34,7 +34,15 @@ function UserProfileWidget() {
 
   return (
     <div className="profile-widget" ref={dropdownRef}>
-      <button onClick={() => setOpen(!open)} ref={pictureRef}>
+      <button
+        onClick={() => setOpen(!open)}
+        ref={pictureRef}
+        aria-expanded={open.toString()}
+        aria-controls="settings-dropdown"
+      >
+        <span id="settings-label" className="visually-hidden">
+          Profile settings.
+        </span>
         {image && (
           <img
             className="profile-widget__picture"
@@ -43,10 +51,10 @@ function UserProfileWidget() {
                 ? image
                 : `data:image/jpeg;base64,${data.userImage}`
             }
-            alt="user profile"
+            alt=""
           />
         )}
-        <ArrowDown className="profile-widget__arrow " />
+        <ArrowDown className="profile-widget__arrow " aria-hidden="true" />
       </button>
 
       <DropDownContent isOpen={open} logout={logout} setOpen={setOpen} />
