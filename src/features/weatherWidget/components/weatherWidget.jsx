@@ -1,69 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import useCurrentLocation from "utils/useCurrentLocation";
-import { isObjectEmpty } from "utils/objects";
-import { geolocationOptions } from "utils/geolocationOptions";
 
-import { translateIdToImage } from "./utils/translateIdToImage";
 import { getDateFormat } from "./utils/getDateFormat";
-import { deconstructAPI } from "./utils/deconstructAPI";
+import { translateIdToImage } from "./utils/translateIdToImage";
+import useWeatherWidget from "./useWeatherWidget";
 
 import "./weatherWidget.scss";
 
 export default function WeatherWidget({ currentTime }) {
-  const { location, geolocationError } = useCurrentLocation(geolocationOptions);
-  const URL = "https://api.openweathermap.org/data/2.5/weather/";
-  const API_KEY = "5d862191a42940fcbf7bec6f3531884b";
-  const API_URL = `${URL}?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=${API_KEY}`;
-  const [errors, setError] = useState("");
-  const [items, setItems] = useState({});
-  const [isLoaded, setLoading] = useState(false);
-  let isMounted = useRef(false);
-
-  useEffect(() => {
-    const fetchAPI = () => {
-      fetch(API_URL)
-        .then((response) => {
-          if (!response.ok) {
-            return {};
-          }
-          return response.json();
-        })
-        .then(
-          (data) => {
-            deconstructAPI(data, setError, setItems, setLoading, isMounted);
-          },
-          (error) => {
-            setError(error);
-          }
-        );
-    };
-
-    const isValid = () => {
-      if (geolocationError === "User denied Geolocation") {
-        setError("Enable geolocation!");
-        return false;
-      } else if (isObjectEmpty(location)) {
-        setError("Loading...");
-        return false;
-      }
-
-      return true;
-    };
-    isMounted.current = true;
-    let intervalID;
-    if (isValid()) {
-      fetchAPI();
-      intervalID = setInterval(() => {
-        fetchAPI();
-      }, 60000);
-    }
-
-    return () => {
-      clearInterval(intervalID);
-      isMounted.current = false;
-    };
-  }, [API_URL, geolocationError, location]);
+  const { items, isLoaded, errors } = useWeatherWidget();
 
   const loadSpinner = () => {
     if (!isLoaded) {
@@ -105,44 +50,47 @@ export default function WeatherWidget({ currentTime }) {
       description = items.description;
     }
     return (
-      <p className="weather-widget__paragraph">
+      <p className="weather-widget__forecast-primary">
         <span className="weather-widget__temperature">{content} </span>
         {description}
       </p>
     );
   };
-
   return (
     <article className="weather-widget">
-      <main className="weather-widget__content">
+      <section className="weather-widget__main">
         <p className="weather-widget__header">
-          {loadSpinner()}
+          <span className="visually-hidden">
+            Current date and your location:
+          </span>
           {getDateFormat("en-us")} | {items.location}
         </p>
+        {loadSpinner()}
         {loadParagraph()}
         <div className="weather-widget__border"></div>
-        <section className="weather-widget__section">
-          <div className="weather-widget__subsection">
-            <img
-              className="weather-widget__wind"
-              src={require("assets/images/wind.svg")}
-              alt="wind speed"
-            />
-            <label htmlFor="weather-widget__wind">{items.windSpeed} m/s</label>
-          </div>
-          <div className="weather-widget__subsection">
-            <img
-              className="weather-widget__humidity"
-              src={require("assets/images/humidity.svg")}
-              alt="humidity"
-            />
-            <label htmlFor="weather-widget__humidity">
+        <section className="weather-widget__footer">
+          <section className="weather-widget__forecast-secondary">
+            <p>
+              <img
+                className="weather-widget__wind"
+                src={require("assets/images/wind.svg")}
+                alt="wind speed"
+              />
+              {items.windSpeed} m/s
+            </p>
+          </section>
+          <section className="weather-widget__forecast-secondary">
+            <p>
+              <img
+                className="weather-widget__humidity"
+                src={require("assets/images/humidity.svg")}
+                alt="humidity"
+              />
               {items.humidity} mm
-            </label>
-          </div>
-          <div></div>
+            </p>
+          </section>
         </section>
-      </main>
+      </section>
       {loadFigure()}
     </article>
   );
