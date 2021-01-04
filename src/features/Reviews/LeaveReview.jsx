@@ -21,7 +21,7 @@ function LeaveReview({
   setIsReviewed,
   reviews,
 }) {
-  const { data } = useContext(UserContext);
+  const { data, setRepeatRequest } = useContext(UserContext);
   let displayedComment;
   if (reviews.some((review) => review.userName === data.userName)) {
     const currentReview = reviews.filter(
@@ -75,6 +75,7 @@ function LeaveReview({
       }
 
       closeModal();
+      setRepeatRequest(newReview);
       successToast(`You have left review for ${restaurant.name}`);
     }
   };
@@ -94,6 +95,7 @@ function LeaveReview({
     setInputValue("");
     setIsReviewed(false);
     closeModal();
+    setRepeatRequest(dataToUpdate);
     successToast(`Your review for ${restaurant.name} has been deleted`);
   };
 

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { v4 as generateID } from "uuid";
+import { useStateWithCallbackLazy } from "use-state-with-callback";
 
 import { roundNumber, countAverage } from "utils/Math";
 import { patch } from "apis/services";
@@ -19,10 +20,10 @@ const Rating = ({
   updateRating,
 }) => {
   //Getting current user name
-  const { data } = useContext(UserContext);
+  const { data, setRepeatRequest } = useContext(UserContext);
   const currentUser = data.userName;
 
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useStateWithCallbackLazy(null);
   const [hover, setHover] = useState(null);
 
   const getRatingAverage = (restaurant) => {
@@ -31,13 +32,13 @@ const Rating = ({
     return roundNumber(ratingAverages);
   };
 
-  const handleNewRating = useCallback(() => {
+  const handleNewRating = (currentRating) => {
     if (!isStatic && !isFromBooks && !isExpanded) {
       const newComment = {
         userName: currentUser,
         id: generateID(),
         comment: "",
-        rating: rating,
+        rating: currentRating,
       };
 
       const newCommentArray = restaurant.reviews;
@@ -49,7 +50,7 @@ const Rating = ({
       } else {
         const updatedArray = newCommentArray.map((review) => {
           if (review.userName === currentUser) {
-            review.rating = rating;
+            review.rating = currentRating;
           }
           return review;
         });
@@ -57,12 +58,13 @@ const Rating = ({
         patch("restaurants", dataToUpdate, restaurant.id);
       }
     }
-  }, [isStatic, rating, restaurant, currentUser, isFromBooks, isExpanded]);
+  };
 
   //setting initial value from current user ratings
   useEffect(() => {
     if (
       restaurant &&
+      !isExpanded &&
       restaurant.reviews.some((review) => review.userName === currentUser)
     ) {
       const rating = restaurant.reviews.filter(
@@ -70,11 +72,7 @@ const Rating = ({
       )[0].rating;
       setRating(rating);
     }
-  }, [restaurant, currentUser]);
-
-  useEffect(() => {
-    if (rating) handleNewRating();
-  }, [rating, handleNewRating]);
+  }, [currentUser, restaurant, setRating, isExpanded]);
 
   if (restaurant || ratingValue) {
     let displayedRating;
@@ -103,8 +101,10 @@ const Rating = ({
                   name="rating"
                   value={ratingValue}
                   onChange={() => {
-                    setRating(ratingValue);
-                    handleNewRating();
+                    setRating(ratingValue, (currentRating) => {
+                      handleNewRating(currentRating);
+                    });
+                    setRepeatRequest(rating);
                     if (isExpanded) {
                       updateRating(ratingValue);
                     }
