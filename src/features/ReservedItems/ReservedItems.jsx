@@ -53,7 +53,7 @@ const ReservedItems = ({
       <h3 className="reservation-item__title">{title}</h3>
       {reservedItemsDataList
         .sort((first, second) => {
-          return new Date(second.bookedUntil) - new Date(first.bookedUntil);
+          return new Date(first.bookedUntil) - new Date(second.bookedUntil);
         })
         .map((item, i) => {
           const renderableItemData = constructRenderable(item, listName);
