@@ -27,7 +27,7 @@ $_breakpoint-md: 990;
         grid-template-columns: repeat(3, minmax(15rem, 1fr));
         justify-items: center;
 
-        @include respond-to(1500, max) {
+        @include respond-to(1439, max) {
             grid-template-columns: repeat(2, minmax(30rem, 1fr));
         }
 
@@ -42,9 +42,9 @@ $_breakpoint-md: 990;
         color: $color-iron;
         display: flex;
         font-size: $font-size-time;
-        height: 184px;
+        height: 18.4rem;
         justify-content: center;
-        width: 395px;
+        width: 39.5rem;
     }
 }
 

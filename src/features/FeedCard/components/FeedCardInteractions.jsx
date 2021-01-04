@@ -25,6 +25,7 @@ function FeedCardInteractions({ likes, id }) {
         itemId={id}
         clickEvent={toggleLike}
         strokeColor={"slate-gray"}
+        feedCard
       />
       <p>{liked}</p>
     </>
