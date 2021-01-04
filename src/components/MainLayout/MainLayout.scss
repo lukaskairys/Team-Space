@@ -25,6 +25,16 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         }
     }
 
+    &__logo-container {
+        @include square-size(9.6rem);
+        margin-right: auto;
+    }
+
+    &__logo {
+        @include square-size(100%);
+        margin-left: 4rem;
+    }
+
     &__header {
         align-items: center;
         background-color: $color-white;

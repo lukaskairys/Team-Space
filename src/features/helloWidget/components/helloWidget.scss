@@ -23,7 +23,7 @@ $_breakpoint-sm: 500;
             display: inline;
             font-size: $font-size-32;
             height: 4rem;
-            left: 1rem;
+            left: 15rem;
             position: relative;
             top: -13.4rem;
             visibility: visible;
@@ -42,7 +42,7 @@ $_breakpoint-sm: 500;
             }
         }
         @include respond-to($_breakpoint-sm, max) {
-            left: 9rem;
+            left: 15rem;
         }
     }
 
