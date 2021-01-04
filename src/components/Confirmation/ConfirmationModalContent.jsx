@@ -6,7 +6,13 @@ import FormInput from "components/form/input/FormInput";
 
 import "./confirmationModalContent.scss";
 
-const ConfirmationModalContent = ({ confirm, cancel, title, content }) => {
+const ConfirmationModalContent = ({
+  confirm,
+  cancel,
+  title,
+  content,
+  withPassword,
+}) => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
 
@@ -14,19 +20,24 @@ const ConfirmationModalContent = ({ confirm, cancel, title, content }) => {
     <div className="confirmation">
       <h4 className="confirmation__question">{title}</h4>
       <p className="confirmation__text">{content}</p>
-      <FormInput
-        name="password"
-        label={"Please confirm with password"}
-        type={"password"}
-        placeholder={"******"}
-        onChange={(e) => setInputValue(e.target.value)}
-        value={inputValue}
-        className={`form-input ${error !== "" && "form-input--error"}`}
-        isError={error !== "" ? true : false}
-        handleXclick={() => setInputValue("")}
-        onFocus={() => setError("")}
-      />
-      <p className="form-content__error-msg">{error}</p>
+      {withPassword && (
+        <>
+          <FormInput
+            name="password"
+            label={"Please confirm with password"}
+            type={"password"}
+            placeholder={"******"}
+            onChange={(e) => setInputValue(e.target.value)}
+            value={inputValue}
+            className={`form-input ${error !== "" && "form-input--error"}`}
+            isError={error !== "" ? true : false}
+            handleXclick={() => setInputValue("")}
+            onFocus={() => setError("")}
+          />
+          <p className="form-content__error-msg">{error}</p>
+        </>
+      )}
+
       <div className="confirmation__buttons">
         <Button medium handleClick={(e) => confirm(inputValue, setError)}>
           confirm
@@ -44,6 +55,7 @@ ConfirmationModalContent.propTypes = {
   cancel: PropTypes.func,
   title: PropTypes.string,
   content: PropTypes.string,
+  withPassword: PropTypes.bool,
 };
 
 export default ConfirmationModalContent;
