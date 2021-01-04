@@ -81,7 +81,7 @@ $_breakpoint-sm: 500;
         padding: 0;
         @include respond-to($_breakpoint-md, max) {
             font-size: $font-size-12;
-            left: 16.4rem;
+            left: 30.6rem;
             margin-left: 1rem;
             position: relative;
             top: -14rem;
@@ -94,7 +94,7 @@ $_breakpoint-sm: 500;
         }
         @include respond-to($_breakpoint-sm, max) {
             font-size: $font-size-10;
-            left: 13.7rem;
+            left: 26.7rem;
         }
     }
 
@@ -163,7 +163,7 @@ $_breakpoint-sm: 500;
         @include respond-to($_breakpoint-md, max) {
             font-size: $font-size-32;
             height: 4rem;
-            left: 27rem;
+            left: 41rem;
             margin-left: 1rem;
             position: relative;
             top: -23.2rem;
@@ -173,7 +173,7 @@ $_breakpoint-sm: 500;
         }
 
         @include respond-to($_breakpoint-sm, max) {
-            left: 24.5rem;
+            left: 37.5rem;
             top: -22.9rem;
         }
     }

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
+
+import { ReactComponent as Logo } from "assets/logo165.svg";
 
 import { ReactComponent as NotificationBell } from "assets/icons/notification-bell.svg";
 import Sidebar from "components/Sidebar/Sidebar";
@@ -67,6 +70,13 @@ const MainLayout = ({ children }) => {
           })}
         >
           <header className="main-layout__header">
+            {isSmallerScreen && (
+              <div className="main-layout__logo-container">
+                <Link to="/">
+                  <Logo className="main-layout__logo" />
+                </Link>
+              </div>
+            )}
             {isSmallerScreen && (
               <Navigation isMobile={windowWidth <= mobileSize ? true : false} />
             )}

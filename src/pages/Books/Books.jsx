@@ -26,7 +26,6 @@ const Books = () => {
         page={"books"}
         inputSliderRenderer={inputSliderRenderer}
       />
-      ;
     </>
   );
 };

@@ -2,7 +2,6 @@
 @import '../../styles/mixins/mixins';
 
 $_overlay-color: rgba(0, 0, 0, 0.5);
-$_overlay-z-index: 5;
 
 .overlay {
     @include animation('fadeIn 0.5s');
@@ -18,7 +17,7 @@ $_overlay-z-index: 5;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: $_overlay-z-index;
+    z-index: $z-index-above;
 }
 
 .modal {
@@ -46,7 +45,7 @@ $_overlay-z-index: 5;
         position: sticky;
         top: 0;
         width: 110%;
-        z-index: $_overlay-z-index;
+        z-index: $z-index-above;
 
         button {
             position: static;

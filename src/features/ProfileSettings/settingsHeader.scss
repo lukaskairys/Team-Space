@@ -2,9 +2,11 @@
 @import '../../styles/mixins/mixins';
 
 .profile-settings-nav {
+    align-items: center;
     display: flex;
     justify-content: space-between;
     margin-bottom: 4rem;
+
     @include respond-to($breakpoint-settings-md, max) {
         margin-bottom: 2.5rem;
     }
