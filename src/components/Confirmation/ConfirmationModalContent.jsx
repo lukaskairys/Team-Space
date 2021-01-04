@@ -12,6 +12,8 @@ const ConfirmationModalContent = ({
   title,
   content,
   withPassword,
+  cancelText,
+  confirmText,
 }) => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
@@ -40,10 +42,10 @@ const ConfirmationModalContent = ({
 
       <div className="confirmation__buttons">
         <Button medium handleClick={(e) => confirm(inputValue, setError)}>
-          confirm
+          {confirmText ? confirmText : "confirm"}
         </Button>
         <Button medium blank handleClick={cancel}>
-          cancel
+          {cancelText ? cancelText : "cancel"}
         </Button>
       </div>
     </div>
@@ -56,6 +58,8 @@ ConfirmationModalContent.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   withPassword: PropTypes.bool,
+  cancelText: PropTypes.string,
+  confirmText: PropTypes.string,
 };
 
 export default ConfirmationModalContent;

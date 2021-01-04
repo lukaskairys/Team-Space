@@ -110,8 +110,9 @@ export default function Card({
           <ConfirmationModalContent
             confirm={() => cancelReservation(id)}
             cancel={closeModal}
-            withPassword={false}
             title={"Do you really want to cancel your reservation?"}
+            cancelText={"no, keep it"}
+            confirmText={"yes, cancel"}
           />
         </Modal>
       )}
