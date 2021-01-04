@@ -84,7 +84,7 @@ $_breakpoint-sm: 500;
             left: 27.6rem;
             margin-left: 1rem;
             position: relative;
-            top: -14rem;
+            top: -15rem;
             visibility: visible;
             z-index: $z-index-header;
 
@@ -166,7 +166,7 @@ $_breakpoint-sm: 500;
             left: 38rem;
             margin-left: 1rem;
             position: relative;
-            top: -23.15rem;
+            top: -23.8rem;
             visibility: visible;
             width: 4rem;
             z-index: $z-index-header;
@@ -174,7 +174,7 @@ $_breakpoint-sm: 500;
 
         @include respond-to($_breakpoint-sm, max) {
             left: 32.8rem;
-            top: -22.9rem;
+            top: -23.4rem;
         }
     }
 
