@@ -1,8 +1,7 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_line-height: 1.5;
-$_divide-count: 3;
+$_border-prop: 0.1rem solid $color-light-porcelain;
 
 .navigation-list {
     background-color: $color-bright-violet;
@@ -16,7 +15,10 @@ $_divide-count: 3;
     &__title {
         color: $color-light-porcelain;
         margin-left: 1rem;
-        padding-bottom: 1rem * $_line-height / $_divide-count;
+    }
+
+    &__icon-container {
+        @include square-size($icon-size);
     }
 
     &__icon {
@@ -29,6 +31,7 @@ $_divide-count: 3;
         @include typography-h4-alternative;
 
         align-items: center;
+        border-top: $_border-prop;
         cursor: pointer;
         display: flex;
         flex-wrap: nowrap;
@@ -45,7 +48,7 @@ $_divide-count: 3;
         }
 
         &:not(:last-child) {
-            border-right: 0.1rem solid $color-light-porcelain;
+            border-right: $_border-prop;
         }
     }
 }
