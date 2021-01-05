@@ -8,6 +8,7 @@ import { roundNumber, countAverage } from "utils/Math";
 import { patch } from "apis/services";
 import { UserContext } from "contexts/UserContext";
 import { ReactComponent as StarIcon } from "assets/icons/star.svg";
+import { isObjectEmpty } from "utils/objects";
 
 import "./rating.scss";
 
@@ -18,6 +19,7 @@ const Rating = ({
   isFromBooks,
   isExpanded,
   updateRating,
+  itemId,
 }) => {
   //Getting current user name
   const { data, setRepeatRequest } = useContext(UserContext);
@@ -57,6 +59,25 @@ const Rating = ({
         const dataToUpdate = { reviews: [...updatedArray] };
         patch("restaurants", dataToUpdate, restaurant.id);
       }
+    } else if (isFromBooks) {
+      const newBookRating = {
+        id: itemId,
+        rating: currentRating,
+      };
+      const newUser = data;
+      if (!newUser.rated.books.some((rating) => rating.id === itemId)) {
+        newUser.rated.books.push(newBookRating);
+        patch("/users", newUser, data.id);
+        setRepeatRequest(newUser);
+      } else {
+        const removeIndex = newUser.rated.books
+          .map((rating) => rating.id)
+          .indexOf(itemId);
+        ~removeIndex && newUser.rated.books.splice(removeIndex, 1);
+        newUser.rated.books.push(newBookRating);
+        patch("/users", newUser, data.id);
+        setRepeatRequest(newUser);
+      }
     }
   };
 
@@ -64,22 +85,46 @@ const Rating = ({
   useEffect(() => {
     if (
       restaurant &&
-      !isExpanded &&
       restaurant.reviews.some((review) => review.userName === currentUser)
     ) {
-      const rating = restaurant.reviews.filter(
+      const initialRating = restaurant.reviews.filter(
         (review) => review.userName === currentUser
       )[0].rating;
-      setRating(rating);
+
+      if (rating === null && isExpanded) {
+        setRating(initialRating);
+        updateRating(initialRating);
+      } else if (!isExpanded) {
+        setRating(initialRating);
+      }
     }
-  }, [currentUser, restaurant, setRating, isExpanded]);
+  }, [currentUser, restaurant, setRating, isExpanded, rating, updateRating]);
+
+  useEffect(() => {
+    if (!isObjectEmpty(data)) {
+      if (
+        isFromBooks &&
+        data.rated.books.some((rating) => rating.id === itemId)
+      ) {
+        const initialRating = data.rated.books.filter(
+          (review) => review.id === itemId
+        )[0].rating;
+        setRating(initialRating);
+      }
+    }
+  }, [data, isFromBooks, itemId, setRating]);
 
   if (restaurant || ratingValue) {
     let displayedRating;
     if (restaurant) {
       displayedRating = getRatingAverage(restaurant);
     } else {
-      displayedRating = roundNumber(ratingValue);
+      if (rating !== null) {
+        const average = (ratingValue + rating) / 2;
+        displayedRating = roundNumber(average);
+      } else {
+        displayedRating = roundNumber(ratingValue);
+      }
     }
 
     return (
@@ -144,5 +189,6 @@ Rating.propTypes = {
     id: PropTypes.string,
   }),
   updateRating: PropTypes.func,
+  itemId: PropTypes.string,
 };
 export default Rating;

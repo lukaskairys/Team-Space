@@ -33,7 +33,8 @@ function LeaveReview({
   }
 
   const [inputValue, setInputValue] = useState(displayedComment);
-  const [ratingValue, setRatingValue] = useState();
+  const [ratingValue, setRatingValue] = useState(null);
+  const [instanceKey, setInstanceKey] = useState(0);
   const currentUser = data.userName;
   const commentArray = restaurant.reviews;
 
@@ -93,9 +94,11 @@ function LeaveReview({
     patch("restaurants", dataToUpdate, restaurant.id);
     setReviews(dataToUpdate.reviews);
     setInputValue("");
+    setRatingValue(null);
     setIsReviewed(false);
+    setInstanceKey((i) => i + 1);
     closeModal();
-    setRepeatRequest(dataToUpdate);
+    setRepeatRequest(Math.random());
     successToast(`Your review for ${restaurant.name} has been deleted`);
   };
 
@@ -106,6 +109,7 @@ function LeaveReview({
         isExpanded={true}
         restaurant={restaurant}
         updateRating={setRatingValue}
+        key={instanceKey}
       />
       <form action="" className="leave-review__form" onSubmit={handleSubmit}>
         <label htmlFor="review-text" className="leave-review__label">

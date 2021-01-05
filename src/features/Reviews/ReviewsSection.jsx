@@ -125,8 +125,11 @@ function ReviewsSection() {
           {renderButton()}
 
           <Button medium={true} handleClick={showLeaveReview}>
-            {!isReviewed && <span>leave a review</span>}
-            {isReviewed && <span>edit your review</span>}
+            {isReviewed ? (
+              <span>edit your review</span>
+            ) : (
+              <span>leave a review</span>
+            )}
           </Button>
         </div>
 
