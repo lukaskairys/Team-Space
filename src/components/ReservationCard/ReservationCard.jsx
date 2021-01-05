@@ -86,7 +86,7 @@ export default function Card({
       </figure>
       <div className="reservation-card__content">
         <span className="reservation-card__caption">{topCaption}</span>
-        <HeartIcon itemType={favoriteType} itemId={id} />
+        <HeartIcon itemType={favoriteType} title={title} itemId={id} />
         <h3 className="reservation-card__title">{title}</h3>
         <div className="reservation-card__status">{renderStatus()}</div>
         <div className="reservation-card__cta">

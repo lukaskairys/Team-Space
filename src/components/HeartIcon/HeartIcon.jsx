@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+
 import { FavoriteTypes } from "../../utils/FavoriteTypes";
 import { isObjectEmpty } from "../../utils/objects";
-import "./heartIcon.scss";
+import Button from "components/button/Button";
 import { ReactComponent as Heart } from "assets/icons/heart.svg";
 import { UserContext } from "../../contexts/UserContext";
 import { patch } from "../../apis/services";
 
-function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
+import "./heartIcon.scss";
+
+// eslint-disable-next-line react/prop-types
+function HeartIcon({ clickEvent, strokeColor, itemType, itemId, title }) {
   const [active, setActive] = useState(false);
 
   const { data, likeState, setLikeState } = useContext(UserContext);
@@ -91,9 +95,17 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
   };
 
   return (
-    <>
-      <Heart onClick={toggleFavorite} className={heartClass} />
-    </>
+    <Button
+      handleClick={toggleFavorite}
+      empty={true}
+      ariaLabel={
+        !active
+          ? `Add ${title} ${itemType} to favorite`
+          : `Remove ${title} ${itemType} from favorite`
+      }
+    >
+      <Heart className={heartClass} />
+    </Button>
   );
 }
 

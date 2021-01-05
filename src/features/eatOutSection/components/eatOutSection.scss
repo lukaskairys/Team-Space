@@ -33,6 +33,7 @@ $_breakpoint2: 1091;
     &__column {
         background-color: $color-white;
         border-radius: 0.8rem;
+        list-style: none;
         padding-bottom: 2rem;
 
         @include respond-to-tablet() {

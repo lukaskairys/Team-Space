@@ -15,6 +15,7 @@ function EatOutCardSubheader({ id, restaurantName, openingHours }) {
     const schedule = createWorkingSchedule(workingSchedule);
     return (
       <time className="card-subheader__time">
+        <span className="visually-hidden">Working schedule:</span>
         {formatOpeningDate(schedule)}
       </time>
     );
@@ -26,7 +27,11 @@ function EatOutCardSubheader({ id, restaurantName, openingHours }) {
         <Link to={`/eat-out/${id}`}>
           <h3 className="card-subheader__title">{restaurantName}</h3>
         </Link>
-        <HeartIcon itemType={FavoriteTypes.RESTAURANT} itemId={id} />
+        <HeartIcon
+          itemType={FavoriteTypes.RESTAURANT}
+          title={restaurantName}
+          itemId={id}
+        />
       </div>
       {formTime(openingHours)}
     </div>
