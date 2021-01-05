@@ -17,10 +17,16 @@ $_margin-size: 1.6rem;
     &__logo {
         fill: $color-white;
         height: 4.8rem;
-        margin: 2.4rem 0 11rem 2.4rem;
+
         transition: fill 1500ms;
         transition-delay: 300ms;
         width: 11.425rem;
+    }
+
+    &__logo-container {
+        display: flex;
+        margin: 2.4rem 0 11rem 2.4rem;
+        width: max-content;
     }
 
     &__toggle {
@@ -77,15 +83,15 @@ $_margin-size: 1.6rem;
         height: 5.5rem;
         justify-content: flex-start;
         margin-bottom: 1.7rem;
-        outline: transparent;
+        outline-offset: -3px;
         position: relative;
         text-decoration: none;
         width: 100%;
 
-        &:focus {
+        /*   &:focus {
             outline: 3px solid $color-dark-violet;
             outline-offset: -3px;
-        }
+        } */
     }
 
     &__list-icon-container {
