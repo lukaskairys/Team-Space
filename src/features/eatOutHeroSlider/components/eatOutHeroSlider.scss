@@ -143,7 +143,7 @@ $_title-font-size: $font-size-32;
 
         @include respond-to($_breakpoint, max) {
             font-size: $font-size-10;
-            width: 10.2rem;
+            width: 11rem;
         }
 
         &:hover,

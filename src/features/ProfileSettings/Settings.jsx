@@ -92,6 +92,7 @@ function Settings() {
           <ConfirmationModalContent
             confirm={confirm}
             cancel={cancel}
+            withPassword={true}
             title={"Do you really want to delete your account?"}
             content={"All your saved data will be lost."}
           />

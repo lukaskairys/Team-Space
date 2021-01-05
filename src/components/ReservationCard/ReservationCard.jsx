@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { useModal } from "utils/useModal";
 import { ReactComponent as IconAvailable } from "assets/icons/icon-available.svg";
 import { ReactComponent as IconReserved } from "assets/icons/icon-reserved.svg";
 import Button from "components/button/Button";
 import HeartIcon from "components/HeartIcon/HeartIcon";
 import Rating from "components/Rating/Rating";
+import Modal from "components/Modal/Modal";
+import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 
 import "./reservationCard.scss";
 import {
@@ -26,6 +29,8 @@ export default function Card({
   isFromReserved,
   cancelReservation,
 }) {
+  const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
+
   let buttonDisabled = false;
   const renderStatus = () => {
     const unavailableDate = formatDateToGB(bookedUntil);
@@ -90,11 +95,7 @@ export default function Card({
             View more
           </Button>
           {isFromReserved ? (
-            <Button
-              medium
-              disabled={false}
-              handleClick={() => cancelReservation(id)}
-            >
+            <Button medium disabled={false} handleClick={showModal}>
               Cancel
             </Button>
           ) : (
@@ -104,6 +105,17 @@ export default function Card({
           )}
         </div>
       </div>
+      {modalOpen && (
+        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+          <ConfirmationModalContent
+            confirm={() => cancelReservation(id)}
+            cancel={closeModal}
+            title={"Do you really want to cancel your reservation?"}
+            cancelText={"no, keep it"}
+            confirmText={"yes, cancel"}
+          />
+        </Modal>
+      )}
     </div>
   );
 }
