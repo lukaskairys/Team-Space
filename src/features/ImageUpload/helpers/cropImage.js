@@ -1,12 +1,15 @@
-const createImage = (url) => {
-  const image = new Image();
-  image.src = `data:image/jpeg;base64,${url}`;
-  return image;
-};
+const createImage = (url) =>
+  new Promise((resolve, reject) => {
+    const image = new Image();
+    image.addEventListener("load", () => resolve(image));
+    image.addEventListener("error", (error) => reject(error));
+    image.src = `data:image/jpeg;base64,${url}`;
+    return image;
+  });
 
 /**
  * This function was adapted from the one in the ReadMe of https://github.com/DominicTobias/react-image-crop
- * @param {File} image - Image File url
+ * @param {String} imageSrc - imageSrc as base64 string
  * @param {Object} pixelCrop - pixelCrop Object provided by react-easy-crop
  */
 export default async function getCroppedImg(imageSrc, pixelCrop) {
