@@ -43,9 +43,7 @@
         "stories": [],
         "rooms": []
       },
-      "checkIn": {
-        "id": "h3hlqj5bcb"
-      },
+      "checkIn": {},
       "rated": {
         "books": []
       },
@@ -126,12 +124,6 @@
       "image": "https://images.unsplash.com/photo-1498579485796-98be3abc076e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
       "checkIns": 8,
       "reviews": [
-        {
-          "userName": "Frontend Wizard",
-          "id": "7c481037-b17d-453f-b428-67b33e260f35",
-          "comment": "",
-          "rating": 5
-        },
         {
           "userName": "Luke Skywalker",
           "id": "730tybsl12",
