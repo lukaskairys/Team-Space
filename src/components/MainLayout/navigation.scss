@@ -1,0 +1,54 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+$_border-prop: 0.1rem solid $color-light-porcelain;
+
+.navigation-list {
+    background-color: $color-bright-violet;
+    bottom: 0;
+    display: flex;
+    height: $navigation-size;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+
+    &__title {
+        color: $color-light-porcelain;
+        margin-left: 1rem;
+    }
+
+    &__icon-container {
+        @include square-size($icon-size);
+    }
+
+    &__icon {
+        @include square-size($icon-size);
+
+        stroke: $color-light-porcelain;
+    }
+
+    &__item {
+        @include typography-h4-alternative;
+
+        align-items: center;
+        border-top: $_border-prop;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: 100%;
+
+        &:focus {
+            outline: 0.3rem solid $color-black;
+            outline-offset: -0.3rem;
+        }
+
+        &.is_active {
+            background-color: $color-dark-violet;
+        }
+
+        &:not(:last-child) {
+            border-right: $_border-prop;
+        }
+    }
+}

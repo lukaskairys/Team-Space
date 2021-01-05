@@ -18,6 +18,12 @@
     }
 }
 
+@mixin respond-to-tablet() {
+    @include respond-to(768, max) {
+        @content;
+    }
+}
+
 @mixin respond-between($lower, $upper) {
     @media (min-width: $lower + px) and (max-width: ($upper - 1) + px) {
         @content;
