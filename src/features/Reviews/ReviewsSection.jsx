@@ -39,7 +39,7 @@ function ReviewsSection() {
 
   useObserver({ callback: observeWidthCallback, element: containerRef });
 
-  const { data: user } = useContext(UserContext);
+  const { data: user, setRepeatRequest } = useContext(UserContext);
 
   const reviewCountToRender = () => {
     if (containerWidth < 1016 && width < 1455) {
@@ -152,6 +152,7 @@ function ReviewsSection() {
               setReviews={setReviews}
               setIsReviewed={setIsReviewed}
               reviews={reviews}
+              setRepeatRequest={setRepeatRequest}
             />
           </Modal>
         )}

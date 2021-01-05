@@ -20,8 +20,9 @@ function LeaveReview({
   setReviews,
   setIsReviewed,
   reviews,
+  setRepeatRequest,
 }) {
-  const { data, setRepeatRequest } = useContext(UserContext);
+  const { data } = useContext(UserContext);
   let displayedComment;
   if (reviews.some((review) => review.userName === data.userName)) {
     const currentReview = reviews.filter(
@@ -34,7 +35,6 @@ function LeaveReview({
 
   const [inputValue, setInputValue] = useState(displayedComment);
   const [ratingValue, setRatingValue] = useState(null);
-  const [instanceKey, setInstanceKey] = useState(0);
   const currentUser = data.userName;
   const commentArray = restaurant.reviews;
 
@@ -91,12 +91,16 @@ function LeaveReview({
     );
     const dataToUpdate = { reviews: [...deletedArray] };
 
+    const removeIndex = commentArray
+      .map((comment) => comment.userName)
+      .indexOf(currentUser);
+    ~removeIndex && commentArray.splice(removeIndex, 1);
+
     patch("restaurants", dataToUpdate, restaurant.id);
     setReviews(dataToUpdate.reviews);
     setInputValue("");
     setRatingValue(null);
     setIsReviewed(false);
-    setInstanceKey((i) => i + 1);
     closeModal();
     setRepeatRequest(Math.random());
     successToast(`Your review for ${restaurant.name} has been deleted`);
@@ -109,7 +113,6 @@ function LeaveReview({
         isExpanded={true}
         restaurant={restaurant}
         updateRating={setRatingValue}
-        key={instanceKey}
       />
       <form action="" className="leave-review__form" onSubmit={handleSubmit}>
         <label htmlFor="review-text" className="leave-review__label">
@@ -152,6 +155,7 @@ LeaveReview.propTypes = {
   setReviews: PropTypes.func,
   setIsReviewed: PropTypes.func,
   reviews: PropTypes.array,
+  setRepeatRequest: PropTypes.func,
 };
 
 export default LeaveReview;
