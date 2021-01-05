@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import FocusLock from "react-focus-lock";
+
 import { createPortal } from "react-dom";
 import PropTypes, { oneOfType } from "prop-types";
 
@@ -14,27 +16,49 @@ const Modal = (props) => {
 
   useOnClickOutside(modalRef, () => setModalOpen(false));
 
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown, false);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown, false);
+    };
+  }, [closeModal]);
+
   const content = (
     <>
       <div className="overlay"></div>
-      <div
-        className="modal"
-        ref={modalRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-        // aria-describedby="description"
-      >
-        <span id="modal-title" className="visually-hidden">
-          {modalTitle}
-        </span>
-        <div className="modal__button-container">
-          <Button type={"button"} iconX={true} handleClick={closeModal}>
-            <IconX />
-          </Button>
+      <FocusLock>
+        <div
+          className="modal"
+          ref={modalRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          tabIndex="-1"
+        >
+          <span id="modal-title" className="visually-hidden">
+            {modalTitle}
+          </span>
+          <div className="modal__button-container">
+            <Button
+              type={"button"}
+              iconX={true}
+              handleClick={closeModal}
+              aria-labelledby="button-title"
+            >
+              <span id="button-title" className="visually-hidden">
+                Close
+              </span>
+              <IconX />
+            </Button>
+          </div>
+          {children}
         </div>
-        {children}
-      </div>
+      </FocusLock>
     </>
   );
   return createPortal(content, document.querySelector("#modal-root"));

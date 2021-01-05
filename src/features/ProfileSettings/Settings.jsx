@@ -5,11 +5,8 @@ import bcrypt from "bcryptjs";
 import SettingsHeader from "./SettingsHeader";
 import Form from "components/form/components/Form";
 import CurrentInfo from "./CurrentInfo";
-import Modal from "components/Modal/Modal";
-import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 
 import { UserContext } from "contexts/UserContext";
-import { useModal } from "utils/useModal";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
 import { isObjectEmpty } from "utils/objects";
 import { todaysDate } from "utils/date";
@@ -18,7 +15,6 @@ import "./settings.scss";
 
 function Settings() {
   const { data } = useContext(UserContext);
-  const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
 
   const [whichForm, setWhichForm] = useState("account");
   const [user, setUser] = useState({});
@@ -35,15 +31,10 @@ function Settings() {
     bcrypt.compare(inputValue, user.password).then((result) => {
       if (result) {
         deleteUser();
-        closeModal();
       } else {
         setError("Wrong password. Please try again.");
       }
     });
-  };
-
-  const cancel = () => {
-    closeModal();
   };
 
   const getAction = () => {
@@ -65,39 +56,26 @@ function Settings() {
   };
 
   return (
-    <>
-      <article className="profile-settings">
-        <h1 className="profile-settings__title">Profile settings</h1>
-        <div className="profile-settings__content">
-          <CurrentInfo user={user} />
-          <Form
-            action={getAction()}
-            max={todaysDate()}
-            user={user}
-            setUser={setUser}
-            showModal={showModal}
-            settingsHeaderRenderer={() => (
-              <SettingsHeader
-                setWhichForm={setWhichForm}
-                whichForm={whichForm}
-                userImage={user.userImage}
-              />
-            )}
-          />
-        </div>
-      </article>
-
-      {modalOpen && (
-        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
-          <ConfirmationModalContent
-            confirm={confirm}
-            cancel={cancel}
-            title={"Do you really want to delete your account?"}
-            content={"All your saved data will be lost."}
-          />
-        </Modal>
-      )}
-    </>
+    <article className="profile-settings">
+      <h1 className="profile-settings__title">Profile settings</h1>
+      <div className="profile-settings__content">
+        <CurrentInfo user={user} />
+        <Form
+          action={getAction()}
+          max={todaysDate()}
+          user={user}
+          setUser={setUser}
+          confirmDeleteAccount={confirm}
+          settingsHeaderRenderer={() => (
+            <SettingsHeader
+              setWhichForm={setWhichForm}
+              whichForm={whichForm}
+              userImage={user.userImage}
+            />
+          )}
+        />
+      </div>
+    </article>
   );
 }
 

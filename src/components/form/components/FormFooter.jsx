@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useModal } from "utils/useModal";
 
 import Button from "components/button/Button";
-
+import Modal from "components/Modal/Modal";
+import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
 import "./formFooter.scss";
 
-function FormFooter({ action, showModal }) {
+function FormFooter({ action, confirmDeleteAccount }) {
+  const deleteBtnRef = useRef(null);
+  const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
+
   const getFormFooterData = () => {
     let data = {
       label: "",
@@ -48,7 +53,11 @@ function FormFooter({ action, showModal }) {
       <p>
         {textBeforeLink}
         {action === "account" ? (
-          <Button handleClick={showModal} blankNoBorder>
+          <Button
+            handleClick={showModal}
+            blankNoBorder
+            buttonRef={deleteBtnRef}
+          >
             Delete my account
           </Button>
         ) : (
@@ -57,13 +66,34 @@ function FormFooter({ action, showModal }) {
           </Link>
         )}
       </p>
+
+      {modalOpen && (
+        <Modal
+          closeModal={() => {
+            closeModal();
+            deleteBtnRef.current.focus();
+          }}
+          setModalOpen={setModalOpen}
+          modalTitle={"Confirmation."}
+        >
+          <ConfirmationModalContent
+            confirm={confirmDeleteAccount}
+            cancel={() => {
+              closeModal();
+              deleteBtnRef.current.focus();
+            }}
+            title={"Do you really want to delete your account?"}
+            content={"All your saved data will be lost."}
+          />
+        </Modal>
+      )}
     </div>
   );
 }
 
 FormFooter.propTypes = {
   action: PropTypes.string,
-  showModal: PropTypes.func,
+  confirmDeleteAccount: PropTypes.func,
 };
 
 export default FormFooter;
