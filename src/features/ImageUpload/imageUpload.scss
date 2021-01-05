@@ -2,6 +2,7 @@
 @import '../../styles/mixins/mixins';
 
 $_icon-size: 1.3em;
+$_z-index-top: 100;
 
 .filepond {
     $this: &;
@@ -45,6 +46,25 @@ $_icon-size: 1.3em;
     left: 3.8rem;
 }
 
+.image-upload-wrapper {
+    position: relative;
+
+    .button--blank {
+        font-size: $font-size-10;
+        margin-top: 1rem;
+    }
+
+    &__caption {
+        color: $color-slate-gray;
+        font-size: $font-size-10;
+        left: 50%;
+        position: absolute;
+        top: -2.8rem;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+}
+
 .crop-container {
     @include animation(
         'fade-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both'
@@ -55,7 +75,7 @@ $_icon-size: 1.3em;
     position: absolute;
     right: 0;
     top: 0;
-    z-index: $z-index-base;
+    z-index: $_z-index-top;
 
     &__label {
         bottom: 3%;
