@@ -5,18 +5,18 @@ const duration = 1;
 
 export const sidebarClose = () => {
   gsap.to(".sidebar", {
-    width: 96,
+    width: "9.6rem",
     duration: duration,
     ease: ease,
   });
   gsap.to(".main-layout__content", {
-    "margin-left": 96,
+    "margin-left": "9.6rem",
     duration: duration,
     ease: ease,
   });
   gsap.to(".sidebar__toggle", {
     rotation: 180,
-    x: -110,
+    x: "-11rem",
     duration: duration,
     ease: ease,
   });
@@ -24,12 +24,12 @@ export const sidebarClose = () => {
 
 export const sidebarOpen = () => {
   gsap.to(".sidebar", {
-    width: 206,
+    width: "20.6rem",
     duration: duration,
     ease: ease,
   });
   gsap.to(".main-layout__content", {
-    "margin-left": 206,
+    "margin-left": "20.6rem",
     duration: duration,
     ease: ease,
   });
