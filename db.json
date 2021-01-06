@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2021-01-04"
+    "date": "2021-01-05"
   },
   "users": [
     {
@@ -44,6 +44,9 @@
         "rooms": []
       },
       "checkIn": {},
+      "rated": {
+        "books": []
+      },
       "password": "$2a$10$B45aCBU95AtqX/7/FD1E1OJLeZuihs0kbWWZhonvnu2UKkorJGc3K",
       "id": "470f8bfe-9105-4d86-bf82-f456cfc803fe"
     },
@@ -67,8 +70,12 @@
         "stories": []
       },
       "checkIn": {},
+      "rated": {
+        "books": []
+      },
       "password": "$2a$10$/j67t6BDAIEUCszmLkL7teKqFFs3V/J0Puk.yU0DMjQkzFWh.PRjm",
       "id": "a0a58de9-a849-48ff-b66c-595686909963"
+<<<<<<< HEAD
     },
     {
       "userName": "Mart Surv",
@@ -88,8 +95,13 @@
         "stories": []
       },
       "checkIn": {},
+      "rated": {
+        "books": []
+      },
       "password": "$2a$10$CxsVxxd.FHWQlHwzEU4hjeT9UORigD1VuhYtIkWJkJJDE/NaNfNVC",
       "id": "ed3d03cd-d588-4261-bc67-8c107c73ef35"
+=======
+>>>>>>> 020247e1b6c1a96bdf84ff3a5fdb12f71b400737
     }
   ],
   "restaurants": [
