@@ -47,7 +47,10 @@ $_z-index-top: 100;
 }
 
 .image-upload-wrapper {
-    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .button--blank {
         font-size: $font-size-10;
@@ -57,11 +60,7 @@ $_z-index-top: 100;
     &__caption {
         color: $color-slate-gray;
         font-size: $font-size-10;
-        left: 50%;
-        position: absolute;
-        top: -2.8rem;
-        transform: translateX(-50%);
-        white-space: nowrap;
+        margin-bottom: 1.5rem;
     }
 }
 
