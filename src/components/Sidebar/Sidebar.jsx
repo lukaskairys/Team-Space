@@ -10,6 +10,7 @@ import { ReactComponent as ToggleIcon } from "assets/icons/toggle.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
 
 import "./Sidebar.scss";
+import { sidebarClose, sidebarOpen } from "./sidebarAnimations";
 
 const sidebarData = [
   {
@@ -30,6 +31,14 @@ const sidebarData = [
 ];
 
 const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
+  const handleAnimation = () => {
+    if (isSidebarClosed) {
+      sidebarOpen();
+    } else {
+      sidebarClose();
+    }
+  };
+
   return (
     <nav
       className={classNames("sidebar", {
@@ -42,6 +51,7 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
       <button
         className="sidebar__toggle"
         onClick={() => {
+          handleAnimation();
           toggleSidebar();
         }}
       >

@@ -10,7 +10,6 @@ $_margin-size: 1.6rem;
     flex-grow: 0;
     height: 100vh;
     position: fixed;
-    transition: width 1000ms;
     width: 20.6rem;
     z-index: $z-index-sidebar;
 
@@ -40,7 +39,7 @@ $_margin-size: 1.6rem;
         outline: transparent;
         position: absolute;
         top: 12rem;
-        transition: transform 1000ms;
+        /* transition: transform 1000ms; */
     }
 
     &__close-icon {
@@ -87,11 +86,6 @@ $_margin-size: 1.6rem;
         position: relative;
         text-decoration: none;
         width: 100%;
-
-        /*   &:focus {
-            outline: 3px solid $color-dark-violet;
-            outline-offset: -3px;
-        } */
     }
 
     &__list-icon-container {
@@ -177,13 +171,6 @@ $_margin-size: 1.6rem;
 }
 
 .sidebar--closed.sidebar {
-    transition: width 1000ms;
-    width: 9.6rem;
-
-    .sidebar__toggle {
-        transform: translateX(-11rem) rotate(180deg);
-    }
-
     .sidebar__item-title {
         opacity: 0;
         transition: opacity 350ms, visibility 350ms;
