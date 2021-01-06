@@ -70,6 +70,9 @@ const Form = (props) => {
       stories: [],
     },
     checkIn: {},
+    rated: {
+      books: [],
+    },
   };
 
   const dataToChange = {

@@ -33,8 +33,8 @@ export default (user, files, setRepeatRequest) => {
       )
         .then((res) => {
           if (res.status >= 200 && res.status < 300) {
-            load(res.request.responseText);
-            successToast("Your picture was uploaded successfully!");
+            load();
+            successToast("Your profile picture was changed successfully!");
             setRepeatRequest(file.name);
           }
         })
@@ -42,7 +42,7 @@ export default (user, files, setRepeatRequest) => {
           if (axios.isCancel(thrown)) {
             error(thrown.message);
           } else {
-            error("Failed to upload the image");
+            error("Failed to upload the picture.");
           }
         });
       return {
