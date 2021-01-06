@@ -1,7 +1,7 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_form-width: 50rem;
+$_form-width: 47rem;
 
 .profile-settings {
     @include typography-body-2;
@@ -34,6 +34,10 @@ $_form-width: 50rem;
             min-width: 40rem;
             width: $_form-width;
         }
+
+        @include respond-to-mobile() {
+            width: 100%;
+        }
     }
 
     .form {
@@ -47,6 +51,10 @@ $_form-width: 50rem;
             border-top-left-radius: unset;
             border-top-right-radius: unset;
             padding: 2rem;
+        }
+
+        @include respond-to-mobile() {
+            width: 100%;
         }
     }
 

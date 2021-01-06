@@ -10,15 +10,18 @@
         justify-content: space-between;
         margin-bottom: 4.8rem;
 
-        @include respond-to(1300, max) {
+        @include respond-to(990, max) {
             gap: 4rem;
+            height: 37rem;
             justify-content: center;
-            margin-left: 10.5rem;
+            margin-left: 6.5rem;
         }
 
-        @include respond-to(900, max) {
-            margin-left: 0;
+        @include respond-between(990, 1440) {
+            gap: 1.1rem;
+            height: 20rem;
         }
+
         @include respond-to(768, max) {
             height: 0;
             margin-bottom: 0;

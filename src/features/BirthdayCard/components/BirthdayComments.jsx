@@ -96,6 +96,7 @@ function BirthdayComments({
             className="comment-input"
             username={username}
             date={new Date()}
+            autoComplete="off"
           />
           <Button
             medium={true}
