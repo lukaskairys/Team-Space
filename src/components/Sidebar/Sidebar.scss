@@ -10,7 +10,6 @@ $_margin-size: 1.6rem;
     flex-grow: 0;
     height: 100vh;
     position: fixed;
-    width: 20.6rem;
     z-index: $z-index-sidebar;
 
     &__logo {
@@ -39,7 +38,6 @@ $_margin-size: 1.6rem;
         outline: transparent;
         position: absolute;
         top: 12rem;
-        /* transition: transform 1000ms; */
     }
 
     &__close-icon {
@@ -171,6 +169,12 @@ $_margin-size: 1.6rem;
 }
 
 .sidebar--closed.sidebar {
+    width: 9.6rem;
+
+    .sidebar__toggle {
+        transform: translateX(-11rem) rotate(180deg);
+    }
+
     .sidebar__item-title {
         opacity: 0;
         transition: opacity 350ms, visibility 350ms;
