@@ -39,7 +39,7 @@ function ReviewsSection() {
 
   useObserver({ callback: observeWidthCallback, element: containerRef });
 
-  const { data: user } = useContext(UserContext);
+  const { data: user, setRepeatRequest } = useContext(UserContext);
 
   const reviewCountToRender = () => {
     if (containerWidth < 1016 && width < 1455) {
@@ -125,8 +125,11 @@ function ReviewsSection() {
           {renderButton()}
 
           <Button medium={true} handleClick={showLeaveReview}>
-            {!isReviewed && <span>leave a review</span>}
-            {isReviewed && <span>edit your review</span>}
+            {isReviewed ? (
+              <span>edit your review</span>
+            ) : (
+              <span>leave a review</span>
+            )}
           </Button>
         </div>
 
@@ -149,6 +152,7 @@ function ReviewsSection() {
               setReviews={setReviews}
               setIsReviewed={setIsReviewed}
               reviews={reviews}
+              setRepeatRequest={setRepeatRequest}
             />
           </Modal>
         )}

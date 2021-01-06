@@ -69,7 +69,13 @@ export default function Card({
           <span className="reservation-card__caption">{`Quantity: ${quantityOrRating}`}</span>
         );
       case "bookList":
-        return <Rating ratingValue={quantityOrRating} isFromBooks={true} />;
+        return (
+          <Rating
+            ratingValue={quantityOrRating}
+            isFromBooks={true}
+            itemId={id}
+          />
+        );
       case "roomList":
         return (
           <span className="reservation-card__caption">{`Seat Count: ${quantityOrRating}`}</span>
