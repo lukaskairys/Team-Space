@@ -68,9 +68,9 @@ function Upload() {
   useEffect(() => {
     if (files.length > 0 && files[0].getFileEncodeBase64String?.())
       setImageB64(files[0].getFileEncodeBase64String());
-  }, [files, imageB64]);
+  }, [files]);
 
-  const onCropComplete = useCallback((croppedAreaPixels) => {
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
 
@@ -79,7 +79,7 @@ function Upload() {
       const croppedImage = await getCroppedImg(imageB64, croppedAreaPixels);
       pondRef.current.addFile(croppedImage);
     } catch (e) {
-      warnToast("Failed to crop the image");
+      warnToast("Failed to crop the picture.");
     }
   }, [croppedAreaPixels, imageB64]);
 
@@ -92,9 +92,22 @@ function Upload() {
     setImageAdded(false);
   };
 
+  const handleButtonRestore = () => {
+    fetch("https://i.imgur.com/2DEZq70.jpg")
+      .then((res) => res.blob())
+      .then((blob) => {
+        pondRef.current.addFile(blob).then((file) => {
+          pondRef.current.processFile();
+        });
+      });
+  };
+
   if (user) {
     return (
-      <>
+      <div className="image-upload-wrapper">
+        <span className="image-upload-wrapper__caption">
+          Click on the picture to edit
+        </span>
         <FilePond
           ref={pondRef}
           files={files}
@@ -136,7 +149,10 @@ function Upload() {
             </span>
           </div>
         )}
-      </>
+        <Button handleClick={handleButtonRestore} blank>
+          Restore default picture
+        </Button>
+      </div>
     );
   } else return null;
 }

@@ -8,7 +8,7 @@ import { ReactComponent as Heart } from "assets/icons/heart.svg";
 import { UserContext } from "../../contexts/UserContext";
 import { patch } from "../../apis/services";
 
-function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
+function HeartIcon({ clickEvent, strokeColor, itemType, itemId, feedCard }) {
   const [active, setActive] = useState(false);
 
   const { data, likeState, setLikeState } = useContext(UserContext);
@@ -17,6 +17,7 @@ function HeartIcon({ clickEvent, strokeColor, itemType, itemId }) {
     "heart-icon": true,
     "heart-icon--active": active,
     "heart-icon--news": strokeColor === "slate-gray",
+    "heart-icon--feed-card": feedCard,
   });
 
   const toggleFavorite = () => {
@@ -102,6 +103,7 @@ HeartIcon.propTypes = {
   strokeColor: PropTypes.string,
   itemType: PropTypes.oneOf(Object.values(FavoriteTypes)),
   itemId: PropTypes.string,
+  feedCard: PropTypes.bool,
 };
 
 export default HeartIcon;

@@ -30,7 +30,7 @@ const rearrangeCards = (bigCardsArr, smallCardsArr, width) => {
   let isThreeColumns = false;
 
   // Check whether there's gonna be 3 columns
-  if (width > 1500) isThreeColumns = true;
+  if (width > 1440) isThreeColumns = true;
   else isThreeColumns = false;
 
   // If there's 2, 4, 6 and so on... small cards, add a placeholder

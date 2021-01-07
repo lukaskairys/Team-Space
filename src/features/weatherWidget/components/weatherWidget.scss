@@ -20,6 +20,11 @@ $_breakpoint-sm: 500;
     @include respond-to-mobile() {
         width: 40rem;
     }
+    @include respond-between(990, 1440) {
+        left: -0.1rem;
+        top: 2rem;
+        width: 40rem;
+    }
 
     &__content {
         background: $color-white;
@@ -31,6 +36,10 @@ $_breakpoint-sm: 500;
 
         @include respond-to-mobile() {
             width: 32.6rem;
+        }
+        @include respond-between(990, 1440) {
+            left: 3.6rem;
+            width: 35.6rem;
         }
     }
 
@@ -72,10 +81,10 @@ $_breakpoint-sm: 500;
         padding: 0;
         @include respond-to($_breakpoint-md, max) {
             font-size: $font-size-12;
-            left: 30rem;
+            left: 27.5rem;
             margin-left: 1rem;
             position: relative;
-            top: -14rem;
+            top: -15rem;
             visibility: visible;
             z-index: $z-index-header;
 
@@ -85,7 +94,7 @@ $_breakpoint-sm: 500;
         }
         @include respond-to($_breakpoint-sm, max) {
             font-size: $font-size-10;
-            left: 25.7rem;
+            left: 20.2rem;
         }
     }
 
@@ -104,6 +113,13 @@ $_breakpoint-sm: 500;
         right: 0;
         top: 0;
         width: 21rem;
+
+        @include respond-between(769, 1440) {
+            left: 25rem;
+            position: relative;
+            top: -14rem;
+            width: 16rem;
+        }
 
         @include respond-to-mobile() {
             width: 15rem;
@@ -147,10 +163,10 @@ $_breakpoint-sm: 500;
         @include respond-to($_breakpoint-md, max) {
             font-size: $font-size-32;
             height: 4rem;
-            left: 41rem;
+            left: 38rem;
             margin-left: 1rem;
             position: relative;
-            top: -23.2rem;
+            top: -23.8rem;
             visibility: visible;
             width: 4rem;
             z-index: $z-index-header;
@@ -158,7 +174,7 @@ $_breakpoint-sm: 500;
 
         @include respond-to($_breakpoint-sm, max) {
             font-size: $font-size-24;
-            left: 35rem;
+            left: 29.5rem;
             top: -22.9rem;
         }
     }

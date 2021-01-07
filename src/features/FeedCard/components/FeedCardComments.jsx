@@ -75,6 +75,7 @@ function FeedCardComments({ comments, username, userPhoto, likes, id }) {
           className="comment-input"
           username={username}
           date={new Date()}
+          autoComplete="off"
         />
         <Button
           medium={true}
