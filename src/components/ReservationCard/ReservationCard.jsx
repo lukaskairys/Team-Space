@@ -91,18 +91,20 @@ export default function Card({
         <div className="reservation-card__status">{renderStatus()}</div>
         <div className="reservation-card__cta">
           {renderBottomCaption()}
-          <Button medium blank>
-            View more
-          </Button>
-          {isFromReserved ? (
-            <Button medium disabled={false} handleClick={showModal}>
-              Cancel
+          <div>
+            <Button medium blank>
+              View more
             </Button>
-          ) : (
-            <Button medium disabled={buttonDisabled ? true : false}>
-              Book
-            </Button>
-          )}
+            {isFromReserved ? (
+              <Button medium disabled={false} handleClick={showModal}>
+                Cancel
+              </Button>
+            ) : (
+              <Button medium disabled={buttonDisabled ? true : false}>
+                Book
+              </Button>
+            )}
+          </div>
         </div>
       </div>
       {modalOpen && (

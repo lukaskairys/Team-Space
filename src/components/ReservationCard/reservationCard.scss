@@ -1,6 +1,8 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_breakpoint-sm: 440;
+
 .reservation-card {
     background-color: $color-white;
     border-radius: $base-border-radius;
@@ -22,6 +24,10 @@
         height: 100%;
         object-fit: contain;
         width: 100%;
+
+        @include respond-to($_breakpoint-sm, max) {
+            object-fit: cover;
+        }
     }
 
     &__content {
@@ -71,6 +77,14 @@
         display: flex;
         justify-content: flex-end;
         margin-top: auto;
+
+        @include respond-to($_breakpoint-sm, max) {
+            align-items: flex-end;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
 
         .rating-container {
             margin-right: auto;
