@@ -6,6 +6,7 @@ $_side-margin-normal: 4rem;
 $_side-margin-sm: 2rem;
 
 $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
+$_logo-size: 9.6rem;
 
 .main-layout {
     display: flex;
@@ -30,12 +31,17 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
     }
 
     &__logo-container {
-        @include square-size(9.6rem);
+        @include square-size($_logo-size);
         margin-right: auto;
+
+        @include respond-to-mobile() {
+            overflow: hidden;
+            width: 6rem;
+        }
     }
 
     &__logo {
-        @include square-size(100%);
+        @include square-size($_logo-size);
 
         margin-left: $_side-margin-normal;
 

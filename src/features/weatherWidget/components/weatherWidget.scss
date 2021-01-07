@@ -94,7 +94,7 @@ $_breakpoint-sm: 500;
         }
         @include respond-to($_breakpoint-sm, max) {
             font-size: $font-size-10;
-            left: 20.2rem;
+            left: 16.2rem;
         }
     }
 
@@ -174,7 +174,7 @@ $_breakpoint-sm: 500;
 
         @include respond-to($_breakpoint-sm, max) {
             font-size: $font-size-24;
-            left: 29.1rem;
+            left: 25.1rem;
             top: -23.3rem;
         }
     }
