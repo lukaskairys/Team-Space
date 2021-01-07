@@ -95,7 +95,7 @@ $_margin-size: 1.6rem;
     &__item-title {
         margin-left: $_margin-size;
         transition: opacity 1500ms, visibility 1500ms;
-        transition-delay: 300ms;
+        transition-delay: 400ms;
     }
 
     &__list-item--active {
@@ -177,7 +177,7 @@ $_margin-size: 1.6rem;
 
     .sidebar__item-title {
         opacity: 0;
-        transition: opacity 350ms, visibility 350ms;
+        transition: opacity 250ms, visibility 250ms;
         visibility: hidden;
     }
 

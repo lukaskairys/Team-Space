@@ -19,7 +19,7 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         width: 100%;
 
         @include respond-to-tablet() {
-            margin-left: 0;
+            margin-left: 0 !important;
             transition: none;
         }
     }
@@ -100,7 +100,7 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 .main-layout__content--sidebar-closed {
     margin-left: 9.6rem;
     @include respond-to-tablet() {
-        margin-left: 0;
+        margin-left: 0 !important;
         transition: none;
     }
 }
