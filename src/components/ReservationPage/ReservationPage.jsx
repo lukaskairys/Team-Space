@@ -29,7 +29,7 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
   return (
     <>
       <Breadcrumbs />
-      <div className="reservation-page">
+      <section className="reservation-page">
         <h1 className="reservation-page__title">{`${page.slice(
           0,
           -1
@@ -70,7 +70,7 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
             endpoint={page}
           />
         </div>
-      </div>
+      </section>
     </>
   );
 };

@@ -40,7 +40,9 @@ export default function Card({
       return (
         <>
           <IconReserved className="reservation-card__icon" />
-          <span className="reservation-card__caption">{`Booked until ${unavailableDate}`}</span>
+          <p className="reservation-card__caption">
+            Booked until <time dateTime={bookedUntil}>{unavailableDate}</time>
+          </p>
         </>
       );
     } else if (typeof quantityOrRating === "number" && quantityOrRating === 0) {
@@ -86,7 +88,7 @@ export default function Card({
   };
 
   return (
-    <div className="reservation-card">
+    <article className="reservation-card">
       <figure className="reservation-card__img-box">
         <img src={image} alt={alt} className="reservation-card__image" />
       </figure>
@@ -122,7 +124,7 @@ export default function Card({
           />
         </Modal>
       )}
-    </div>
+    </article>
   );
 }
 

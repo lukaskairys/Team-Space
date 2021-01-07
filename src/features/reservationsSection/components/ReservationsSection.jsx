@@ -37,10 +37,10 @@ const ReservationsSection = ({ title, customMessageRenderer, isNarrow }) => {
   }, [data, error]);
 
   return (
-    <div className="reservations">
+    <section className="reservations">
       <h2 className="reservations__title">{title}</h2>
       {customMessageRenderer && customMessageRenderer()}
-      <div
+      <nav
         className={classNames({
           reservations__cards: true,
           "reservations__cards--narrow": isNarrow,
@@ -73,8 +73,8 @@ const ReservationsSection = ({ title, customMessageRenderer, isNarrow }) => {
         >
           <Door className="reservations__image" />
         </ReservationCardLink>
-      </div>
-    </div>
+      </nav>
+    </section>
   );
 };
 
