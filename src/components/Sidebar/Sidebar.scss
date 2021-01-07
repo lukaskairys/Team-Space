@@ -10,17 +10,25 @@ $_margin-size: 1.6rem;
     flex-grow: 0;
     height: 100vh;
     position: fixed;
-    transition: width 1000ms;
-    width: 20.6rem;
     z-index: $z-index-sidebar;
+
+    @include respond-to-tablet() {
+        display: none;
+    }
 
     &__logo {
         fill: $color-white;
         height: 4.8rem;
-        margin: 2.4rem 0 11rem 2.4rem;
+
         transition: fill 1500ms;
         transition-delay: 300ms;
         width: 11.425rem;
+    }
+
+    &__logo-container {
+        display: flex;
+        margin: 2.4rem 0 11rem 2.4rem;
+        width: max-content;
     }
 
     &__toggle {
@@ -34,7 +42,6 @@ $_margin-size: 1.6rem;
         outline: transparent;
         position: absolute;
         top: 12rem;
-        transition: transform 1000ms;
     }
 
     &__close-icon {
@@ -77,15 +84,10 @@ $_margin-size: 1.6rem;
         height: 5.5rem;
         justify-content: flex-start;
         margin-bottom: 1.7rem;
-        outline: transparent;
+        outline-offset: -0.3rem;
         position: relative;
         text-decoration: none;
         width: 100%;
-
-        &:focus {
-            outline: 3px solid $color-dark-violet;
-            outline-offset: -3px;
-        }
     }
 
     &__list-icon-container {
@@ -97,7 +99,7 @@ $_margin-size: 1.6rem;
     &__item-title {
         margin-left: $_margin-size;
         transition: opacity 1500ms, visibility 1500ms;
-        transition-delay: 300ms;
+        transition-delay: 400ms;
     }
 
     &__list-item--active {
@@ -171,7 +173,6 @@ $_margin-size: 1.6rem;
 }
 
 .sidebar--closed.sidebar {
-    transition: width 1000ms;
     width: 9.6rem;
 
     .sidebar__toggle {
@@ -180,7 +181,7 @@ $_margin-size: 1.6rem;
 
     .sidebar__item-title {
         opacity: 0;
-        transition: opacity 350ms, visibility 350ms;
+        transition: opacity 250ms, visibility 250ms;
         visibility: hidden;
     }
 

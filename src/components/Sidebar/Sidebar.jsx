@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
@@ -10,6 +10,12 @@ import { ReactComponent as ToggleIcon } from "assets/icons/toggle.svg";
 import { ReactComponent as Logo } from "assets/logo-white.svg";
 
 import "./Sidebar.scss";
+import {
+  sidebarClose,
+  sidebarOpen,
+  setToClosed,
+  setToOpened,
+} from "./sidebarAnimations";
 
 const sidebarData = [
   {
@@ -30,18 +36,28 @@ const sidebarData = [
 ];
 
 const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
+  const handleAnimation = () => {
+    isSidebarClosed ? sidebarOpen() : sidebarClose();
+  };
+
+  useEffect(() => {
+    isSidebarClosed ? setToClosed() : setToOpened();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <nav
       className={classNames("sidebar", {
         "sidebar--closed": isSidebarClosed,
       })}
     >
-      <Link to="/">
+      <Link className="sidebar__logo-container" to="/">
         <Logo className="sidebar__logo" />
       </Link>
       <button
         className="sidebar__toggle"
         onClick={() => {
+          handleAnimation();
           toggleSidebar();
         }}
       >
