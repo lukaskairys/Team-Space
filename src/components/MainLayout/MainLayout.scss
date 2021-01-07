@@ -2,13 +2,16 @@
 @import '../../styles/mixins/mixins';
 
 $_breakpoint-for-padding: 400;
+$_side-margin-normal: 4rem;
+$_side-margin-sm: 2rem;
 
 $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 
 .main-layout {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    // height: 100vh;
+    min-height: 100vh; //used min-height to fix issue on mobile scroll, hopefully it will not make issues on desktop. A NOTE.
     width: 100vw;
 
     &__content {
@@ -21,6 +24,7 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 
         @include respond-to-tablet() {
             margin-left: 0;
+            padding-bottom: $navigation-size;
             transition: none;
         }
     }
@@ -32,7 +36,12 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
 
     &__logo {
         @include square-size(100%);
-        margin-left: 4rem;
+
+        margin-left: $_side-margin-normal;
+
+        @include respond-to($_breakpoint-for-padding, max) {
+            margin-left: $_side-margin-sm;
+        }
     }
 
     &__header {
@@ -64,8 +73,12 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         background-color: $color-white;
         border-radius: 50%;
         height: 4rem;
-        margin-right: 4rem;
+        margin-right: $_side-margin-normal;
         width: 4rem;
+
+        @include respond-to($_breakpoint-for-padding, max) {
+            margin-right: $_side-margin-sm;
+        }
     }
 
     &__main {
@@ -74,7 +87,7 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         padding: 2.7rem 4rem 6.4rem;
 
         @include respond-to($_breakpoint-for-padding, max) {
-            padding: 2.7rem 2rem 6.4rem;
+            padding: 2.7rem 0.5rem 6.4rem;
         }
     }
 
@@ -83,10 +96,6 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         box-shadow: $_box-shadow;
         height: 7.2rem;
         text-align: end;
-
-        @include respond-to-tablet() {
-            margin-bottom: $navigation-size;
-        }
     }
 
     &__copyright {
@@ -106,8 +115,4 @@ $_box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
         margin-left: 0;
         transition: none;
     }
-}
-
-.button--mobile-toggle {
-    margin-left: 4rem;
 }

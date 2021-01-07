@@ -34,15 +34,20 @@ $_breakpoint-sm: 500;
                 background-color: $color-fiord;
                 content: '';
                 display: block;
-                height: 3.4rem;
+                height: 2.4rem;
                 left: 9.5rem;
                 position: absolute;
-                top: 4.2rem;
+                top: 4.7rem;
                 width: 0.08rem;
             }
         }
         @include respond-to($_breakpoint-sm, max) {
-            left: 15rem;
+            font-size: $font-size-24;
+            left: 14rem;
+
+            &::after {
+                left: 7.9rem;
+            }
         }
     }
 

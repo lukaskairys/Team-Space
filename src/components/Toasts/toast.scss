@@ -5,6 +5,10 @@
     &__toast-container {
         max-width: 34.3rem;
         width: auto;
+
+        @include respond-to(480, max) {
+            left: unset;
+        }
     }
 
     &__toast-body {

@@ -19,7 +19,7 @@ $_title-font-size: $font-size-32;
     border-radius: $_slider-border;
     box-shadow: $card-shadow;
     display: flex;
-    height: 32.2rem;
+    height: 33rem;
     overflow: hidden;
     width: 100%;
 
@@ -45,7 +45,7 @@ $_title-font-size: $font-size-32;
         height: $_image-stretch;
 
         @include respond-to($_breakpoint, max) {
-            max-height: 45%;
+            max-height: 44%;
         }
     }
 
@@ -94,9 +94,13 @@ $_title-font-size: $font-size-32;
         padding: $_details-padding;
 
         @include respond-to($_breakpoint, max) {
-            max-height: 55%;
-            padding-bottom: 1.4rem;
+            max-height: 56%;
+            padding-bottom: 1.6rem;
             padding-top: 0;
+        }
+
+        @include respond-to-mobile() {
+            padding-bottom: 1.3rem;
         }
     }
 
