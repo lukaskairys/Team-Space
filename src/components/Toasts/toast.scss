@@ -7,7 +7,8 @@
         width: auto;
 
         @include respond-to(480, max) {
-            left: unset;
+            max-width: unset;
+            width: 100%;
         }
     }
 
@@ -48,6 +49,10 @@
         margin-right: 0.4rem;
         min-height: 4.8rem;
         padding: 1.6rem;
+
+        @include respond-to(480, max) {
+            margin-right: 0;
+        }
 
         &--success {
             background-color: $color-mint;
