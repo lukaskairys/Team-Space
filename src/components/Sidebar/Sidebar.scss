@@ -12,6 +12,10 @@ $_margin-size: 1.6rem;
     position: fixed;
     z-index: $z-index-sidebar;
 
+    @include respond-to-tablet() {
+        display: none;
+    }
+
     &__logo {
         fill: $color-white;
         height: 4.8rem;
