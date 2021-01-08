@@ -15,8 +15,12 @@ $_breakpoint-narrow-lg: 1400;
     grid-template-columns: 1fr;
     padding: 0 5rem;
 
+    @include respond-to-tablet {
+        padding: 0 4rem;
+    }
+
     @include respond-to-mobile {
-        padding: 0 3rem;
+        padding: 0;
     }
 }
 
