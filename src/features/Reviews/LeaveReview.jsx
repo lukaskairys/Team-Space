@@ -134,12 +134,12 @@ function LeaveReview({
         />
         <div className="leave-review__buttons">
           <Button medium={true} type={"submit"}>
-            Submit review
+            Submit
           </Button>
 
           {commentArray.some((review) => review.userName === currentUser) && (
             <Button medium={true} handleClick={handleDelete}>
-              delete review
+              Delete
             </Button>
           )}
         </div>

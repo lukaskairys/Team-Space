@@ -18,7 +18,11 @@ html {
     font-size: $font-size-reset;
 
     @include respond-to-mobile() {
-        font-size: $font-size-reset-mobile;
+        font-size: $font-size-reset-md;
+    }
+
+    @include respond-to(350, max) {
+        font-size: $font-size-reset-sm;
     }
 }
 

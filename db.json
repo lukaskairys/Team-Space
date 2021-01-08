@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2021-01-07"
+    "date": "2021-01-08"
   },
   "users": [
     {
@@ -16,9 +16,6 @@
           }
         ],
         "devices": [
-          {
-            "id": "193ywpe740"
-          },
           {
             "id": "1563187740"
           }
@@ -369,7 +366,7 @@
       "categories": [
         "Salads",
         "Grill",
-        "Soups"
+        "Soup"
       ],
       "coordinates": {
         "lat": 55.10545044712004,

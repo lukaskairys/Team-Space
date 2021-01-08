@@ -101,6 +101,22 @@
     }
 }
 
+//for icons - to get same size as desktop, because it seems that on the small resolutions(like phone) icons are too small.
+
+@mixin desktop-size($width, $height) {
+    height: $height;
+    width: $width;
+
+    @include respond-to-mobile() {
+        height: $height * $resize-coefficient;
+        width: $width * $resize-coefficient;
+    }
+}
+
+@mixin desktop-size-square($size) {
+    @include desktop-size($size, $size);
+}
+
 @mixin animation($str) {
     animation: #{$str};
 }

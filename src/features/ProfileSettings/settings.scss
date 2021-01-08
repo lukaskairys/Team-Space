@@ -36,6 +36,7 @@ $_form-width: 47rem;
         }
 
         @include respond-to-mobile() {
+            min-width: unset;
             width: 100%;
         }
     }

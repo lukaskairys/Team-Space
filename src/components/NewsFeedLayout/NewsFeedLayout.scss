@@ -1,9 +1,9 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-$_breakpoint-md: 990;
+.news-feed {
+    $_breakpoint-md: 990;
 
-.news-feed-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
