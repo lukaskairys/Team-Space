@@ -46,6 +46,7 @@ const ReservedItems = ({
     setReservedItems(reservedItems.filter((item) => item.id !== id));
     patch(`/users`, { reservations: updatedReservations(id) }, user.id);
     successToast("Your reservation is canceled.");
+    document.body.style.position = "";
   };
 
   return (
