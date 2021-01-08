@@ -18,13 +18,11 @@ $_logo-size: 9.6rem;
     &__content {
         display: flex;
         flex-direction: column;
-        margin-left: 20.6rem;
         overflow-x: hidden;
-        transition: margin-left 1000ms;
         width: 100%;
 
         @include respond-to-tablet() {
-            margin-left: 0;
+            margin-left: 0 !important;
             padding-bottom: $navigation-size;
             transition: none;
         }
@@ -119,10 +117,8 @@ $_logo-size: 9.6rem;
 
 .main-layout__content--sidebar-closed {
     margin-left: 9.6rem;
-    transition: margin-left 1000ms;
-
     @include respond-to-tablet() {
-        margin-left: 0;
+        margin-left: 0 !important;
         transition: none;
     }
 }

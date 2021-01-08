@@ -28,6 +28,7 @@ $_breakpoint-narrow-lg: 1400;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 6.4rem;
 
     &__title {
         @include typography-h2-alternative;

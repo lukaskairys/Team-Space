@@ -25,6 +25,9 @@ $_breakpoint-sm: 500;
         top: 2rem;
         width: 40rem;
     }
+    @include respond-between(769, 991) {
+        width: 90%;
+    }
 
     &__content {
         background: $color-white;
