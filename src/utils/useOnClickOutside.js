@@ -7,7 +7,6 @@ export function useOnClickOutside(ref, handler) {
       if (!ref.current || ref.current.contains(event.target)) {
         return;
       }
-      document.body.style.overflowY = "visible";
       handler(event);
     };
 

@@ -16,7 +16,7 @@ export const useModal = () => {
   const closeModal = (ref) => {
     setModalOpen(false);
     const body = document.body;
-    body.style.overflow = "visible";
+    body.style.overflowY = "visible";
     setRef(ref);
   };
   return {

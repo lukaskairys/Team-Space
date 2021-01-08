@@ -14,7 +14,10 @@ const Modal = (props) => {
   const { children, setModalOpen, closeModal, modalTitle, buttonRef } = props;
   const modalRef = useRef(null);
 
-  useOnClickOutside(modalRef, () => setModalOpen(false));
+  useOnClickOutside(modalRef, () => {
+    setModalOpen(false);
+    document.body.style.overflowY = "visible";
+  });
 
   useEffect(() => {
     const onKeyDown = (e) => {
