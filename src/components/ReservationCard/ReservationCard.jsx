@@ -104,7 +104,12 @@ export default function Card({
               View more
             </Button>
             {isFromReserved ? (
-              <Button medium disabled={false} handleClick={showModal}>
+              <Button
+                medium
+                disabled={false}
+                handleClick={showModal}
+                buttonRef={cancelBtnRef}
+              >
                 Cancel
               </Button>
             ) : (
@@ -118,11 +123,17 @@ export default function Card({
       {modalOpen && (
         <Modal
           closeModal={() => closeModal(cancelBtnRef)}
+          buttonRef={cancelBtnRef}
           setModalOpen={setModalOpen}
         >
           <ConfirmationModalContent
-            confirm={() => cancelReservation(id)}
-            cancel={() => closeModal(cancelBtnRef)}
+            confirm={() => {
+              cancelReservation(id);
+              closeModal();
+            }}
+            cancel={() => {
+              closeModal(cancelBtnRef);
+            }}
             title={"Do you really want to cancel your reservation?"}
             cancelText={"no, keep it"}
             confirmText={"yes, cancel"}

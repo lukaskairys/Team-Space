@@ -47,6 +47,7 @@ const ReservedItems = ({
     patch(`/users`, { reservations: updatedReservations(id) }, user.id);
     successToast("Your reservation is canceled.");
     document.body.style.position = "";
+    document.body.style.overflowY = "visible";
   };
 
   return (

@@ -76,6 +76,7 @@ function FormFooter({ action, confirmDeleteAccount }) {
           modalTitle={"Confirmation."}
         >
           <ConfirmationModalContent
+            withPassword={true}
             confirm={confirmDeleteAccount}
             cancel={() => {
               closeModal(deleteBtnRef);
