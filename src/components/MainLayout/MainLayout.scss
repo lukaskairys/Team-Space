@@ -91,11 +91,7 @@ $_logo-size: 9.6rem;
         padding: 2.7rem 4rem 6.4rem;
 
         @include respond-to-mobile() {
-            padding: 2.7rem 0.5rem 6.4rem;
-        }
-
-        @include respond-to($_breakpoint-for-padding, max) {
-            padding: 2.7rem 0.5rem 6.4rem;
+            padding: 2.7rem 1rem 6.4rem;
         }
     }
 
