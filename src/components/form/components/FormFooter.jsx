@@ -70,8 +70,7 @@ function FormFooter({ action, confirmDeleteAccount }) {
       {modalOpen && (
         <Modal
           closeModal={() => {
-            closeModal();
-            deleteBtnRef.current.focus();
+            closeModal(deleteBtnRef);
           }}
           setModalOpen={setModalOpen}
           modalTitle={"Confirmation."}
@@ -79,8 +78,7 @@ function FormFooter({ action, confirmDeleteAccount }) {
           <ConfirmationModalContent
             confirm={confirmDeleteAccount}
             cancel={() => {
-              closeModal();
-              deleteBtnRef.current.focus();
+              closeModal(deleteBtnRef);
             }}
             title={"Do you really want to delete your account?"}
             content={"All your saved data will be lost."}

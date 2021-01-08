@@ -11,7 +11,7 @@ import { useOnClickOutside } from "utils/useOnClickOutside";
 import "./modal.scss";
 
 const Modal = (props) => {
-  const { children, setModalOpen, closeModal, modalTitle } = props;
+  const { children, setModalOpen, closeModal, modalTitle, buttonRef } = props;
   const modalRef = useRef(null);
 
   useOnClickOutside(modalRef, () => setModalOpen(false));
@@ -47,7 +47,9 @@ const Modal = (props) => {
             <Button
               type={"button"}
               iconX={true}
-              handleClick={closeModal}
+              handleClick={() => {
+                closeModal(buttonRef);
+              }}
               aria-labelledby="button-title"
             >
               <span id="button-title" className="visually-hidden">

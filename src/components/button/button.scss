@@ -106,12 +106,7 @@
         &:hover,
         &:focus {
             background: none;
-            box-shadow: none;
             color: $color-midnight;
-        }
-
-        &:focus-visible {
-            outline: 1px solid $color-fiord;
         }
     }
 
@@ -124,12 +119,7 @@
         top: 3.5rem;
 
         &:hover,
-        &:focus {
-            background: none;
-            // box-shadow: none;
-            transform: scale(1.2);
-        }
-
+        &:focus,
         &:active {
             background: none;
         }
@@ -212,10 +202,7 @@
         padding: 0;
 
         &:hover,
-        &:focus {
-            background: none;
-        }
-
+        &:focus,
         &:active {
             background: none;
         }
@@ -230,7 +217,6 @@
         &:hover,
         &:focus {
             background-color: $color-white;
-            box-shadow: none;
             cursor: default;
         }
     }

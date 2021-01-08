@@ -21,6 +21,7 @@ function LeaveReview({
   setIsReviewed,
   reviews,
   setRepeatRequest,
+  buttonRef,
 }) {
   const { data } = useContext(UserContext);
   let displayedComment;
@@ -41,7 +42,7 @@ function LeaveReview({
   const handleSubmit = (event) => {
     event.preventDefault();
     if (inputValue === "" && ratingValue === undefined) {
-      closeModal();
+      closeModal(buttonRef);
       warnToast(`Review was not submited because it was empty`);
     } else if (inputValue === "") {
       errorToast(`Please fill in your review`);
@@ -75,7 +76,8 @@ function LeaveReview({
         setIsReviewed(true);
       }
 
-      closeModal();
+      closeModal(buttonRef);
+
       setRepeatRequest(newReview);
       successToast(`You have left review for ${restaurant.name}`);
     }
@@ -101,7 +103,8 @@ function LeaveReview({
     setInputValue("");
     setRatingValue(null);
     setIsReviewed(false);
-    closeModal();
+    closeModal(buttonRef);
+
     setRepeatRequest(Math.random());
     successToast(`Your review for ${restaurant.name} has been deleted`);
   };
@@ -156,6 +159,7 @@ LeaveReview.propTypes = {
   setIsReviewed: PropTypes.func,
   reviews: PropTypes.array,
   setRepeatRequest: PropTypes.func,
+  buttonRef: PropTypes.object,
 };
 
 export default LeaveReview;
