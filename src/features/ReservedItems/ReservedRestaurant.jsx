@@ -23,7 +23,7 @@ const ReservedRestaurant = () => {
     <article className="reserved-restaurant">
       {checkedInRestaurant && checkedInRestaurant.length !== 0 && (
         <>
-          <h3 className="reserved-restaurant__title">Checked in:</h3>
+          <h2 className="reserved-restaurant__title">Checked in:</h2>
           <EatOutCard restaurant={checkedInRestaurant} />
         </>
       )}
