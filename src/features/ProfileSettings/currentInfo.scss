@@ -54,6 +54,7 @@
 
         @include respond-to($breakpoint-settings-md, max) {
             margin-bottom: 0;
+            min-width: 9rem;
             width: 20%;
         }
     }

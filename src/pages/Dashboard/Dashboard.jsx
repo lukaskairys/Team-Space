@@ -24,9 +24,7 @@ const Dashboard = () => {
         <WeatherWidget currentTime={currentTime} />
       </div>
 
-      <div className="dashboard__reservations-section">
-        <ReservationsSection title={"Reservations"} />
-      </div>
+      <ReservationsSection title={"Reservations"} />
 
       <div className="dashboard__eat-out-section">
         <ContextProvider endpoint="/restaurants">

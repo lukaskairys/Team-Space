@@ -36,7 +36,7 @@ $_breakpoint-sm: 500;
             display: inline;
             font-size: $font-size-32;
             height: 4rem;
-            left: 12rem;
+            left: 8.4rem;
             position: relative;
             top: -14rem;
             visibility: visible;
@@ -47,15 +47,20 @@ $_breakpoint-sm: 500;
                 background-color: $color-fiord;
                 content: '';
                 display: block;
-                height: 3.4rem;
-                left: 9.5rem;
+                height: 2.4rem;
+                left: 10rem;
                 position: absolute;
-                top: 4.2rem;
+                top: 4.7rem;
                 width: 0.08rem;
             }
         }
         @include respond-to($_breakpoint-sm, max) {
-            left: 10.2rem;
+            font-size: $font-size-24;
+            left: 3rem;
+
+            &::after {
+                left: 7.6rem;
+            }
         }
     }
 

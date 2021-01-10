@@ -36,7 +36,7 @@ const checkSidebarState = () => {
 
 const MainLayout = ({ children }) => {
   const [isSidebarClosed, setIsSidebarClosed] = useState(checkSidebarState());
-  const { width: windowWidth } = useWindowDimensions(0);
+  const { width: windowWidth } = useWindowDimensions();
   const [isSmallerScreen, setSmallerScreen] = useState(false);
   const mobileSize = 500;
   const maxWidth = 768;
@@ -55,8 +55,8 @@ const MainLayout = ({ children }) => {
 
   sessionStorage.sidebarState = isSidebarClosed;
   return (
-    <UserContextProvider>
-      <div className="main-layout">
+    <div className="main-layout">
+      <UserContextProvider>
         {!isSmallerScreen && (
           <Sidebar
             isSidebarClosed={isSidebarClosed}
@@ -95,8 +95,8 @@ const MainLayout = ({ children }) => {
             </p>
           </footer>
         </div>
-      </div>
-    </UserContextProvider>
+      </UserContextProvider>
+    </div>
   );
 };
 

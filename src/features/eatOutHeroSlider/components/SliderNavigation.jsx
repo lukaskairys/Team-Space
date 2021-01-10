@@ -14,7 +14,7 @@ const SliderNavigation = ({
   isAnimationLoading,
 }) => {
   const captureEvent = (e, i) => {
-    transitionRestaurant(i);
+    if (i !== currentIndex) transitionRestaurant(i);
   };
 
   const transitionRestaurant = (i) => {
