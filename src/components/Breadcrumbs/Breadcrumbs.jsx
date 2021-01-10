@@ -19,7 +19,7 @@ const Breadcrumbs = () => {
       .shift();
 
     return (
-      <nav className="breadcrumbs">
+      <nav className="breadcrumbs" aria-label="Secondary">
         <Link className="breadcrumbs__item" to="/">
           dashboard
         </Link>

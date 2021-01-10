@@ -31,13 +31,10 @@ const Map = ({ location }) => {
 
 const LocationPin = ({ address }) => {
   return (
-    <div className="pin">
-      <span>
-        <PinIcon className="pin__icon" />
-      </span>
-
-      <p className="pin__text">{address}</p>
-    </div>
+    <figure className="pin">
+      <PinIcon className="pin__icon" alt="Pin on the map." />
+      <figcaption className="pin__text">{address}</figcaption>
+    </figure>
   );
 };
 

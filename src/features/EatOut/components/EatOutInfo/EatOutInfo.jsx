@@ -39,37 +39,37 @@ const EatOutInfo = () => {
     };
 
     return (
-      <main className="eat-out-info">
+      <article className="eat-out-info">
         <h2 className="eat-out-info__header">Information</h2>
         <div className="eat-out-info__content">
-          <div className="eat-out-info__content-item">
+          <section className="eat-out-info__content-item">
             <PinIcon className="eat-out-info__icon" />
             <h3 className="eat-out-info__content-header">Address</h3>
             <p className="eat-out-info__content-info">{restaurant.address}</p>
-          </div>
-          <div className="eat-out-info__content-item">
+          </section>
+          <section className="eat-out-info__content-item">
             <GlobeIcon className="eat-out-info__icon" />
             <h3 className="eat-out-info__content-header">Website</h3>
             <a className="eat-out-info__content-info" href={restaurant.website}>
               {restaurant.website.replace(/www.|http:\/\/|https:\/\//gi, "")}
             </a>
-          </div>
-          <div className="eat-out-info__content-item">
+          </section>
+          <section className="eat-out-info__content-item">
             <PhoneIcon className="eat-out-info__icon" />
             <h3 className="eat-out-info__content-header">Phone number</h3>
             <p className="eat-out-info__content-info">{restaurant.phone}</p>
-          </div>
-          <div className="eat-out-info__content-item">
+          </section>
+          <section className="eat-out-info__content-item">
             <ClockIcon className="eat-out-info__icon" />
             <h3 className="eat-out-info__content-header">Work hours</h3>
             <p className="eat-out-info__content-info eat-out-info__content-info--hours">
               {renderHours()}
             </p>
-          </div>
+          </section>
         </div>
         <h2 className="eat-out-info__header">Location</h2>
         <Map location={restaurant} />
-      </main>
+      </article>
     );
   } else if (error) {
     return <div>Error</div>;

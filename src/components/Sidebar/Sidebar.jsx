@@ -50,6 +50,7 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
       className={classNames("sidebar", {
         "sidebar--closed": isSidebarClosed,
       })}
+      aria-label="Primary"
     >
       <Link className="sidebar__logo-container" to="/">
         <Logo className="sidebar__logo" />

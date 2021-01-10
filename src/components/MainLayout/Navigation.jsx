@@ -30,7 +30,7 @@ const navigationData = [
 const Navigation = ({ isMobile }) => {
   return (
     <>
-      <div className="navigation-list">
+      <nav className="navigation-list" aria-label="Primary">
         {navigationData.map((val, key) => {
           return (
             <Link
@@ -49,7 +49,7 @@ const Navigation = ({ isMobile }) => {
             </Link>
           );
         })}
-      </div>
+      </nav>
     </>
   );
 };
