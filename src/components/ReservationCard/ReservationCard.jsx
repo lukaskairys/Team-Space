@@ -15,6 +15,7 @@ import {
   formatDateToGB,
   isUnavailable,
 } from "features/reservationsPageList/utils/dateFormatters";
+
 export default function Card({
   image,
   alt,
@@ -32,6 +33,7 @@ export default function Card({
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
   const cancelBtnRef = useRef(null);
   let buttonDisabled = false;
+
   const renderStatus = () => {
     const unavailableDate = formatDateToGB(bookedUntil);
     const itemUnavailable = isUnavailable(date, bookedUntil);
@@ -109,6 +111,7 @@ export default function Card({
                 disabled={false}
                 handleClick={showModal}
                 buttonRef={cancelBtnRef}
+                ariaLabel={`cancel ${title}.`}
               >
                 Cancel
               </Button>

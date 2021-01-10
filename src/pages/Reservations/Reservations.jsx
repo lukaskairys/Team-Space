@@ -20,20 +20,20 @@ const Reservations = () => {
       <Breadcrumbs />
       <h1 className="reservations-page__title">Your reservations</h1>
 
-      <div className="reservations-page__all-reservations">
+      <article className="reservations-page__all-reservations">
         <ReservedItemsSection
           setEmptyReservations={setEmptyReservations}
           emptyReservations={emptyReservations}
         />
         <ReservedRestaurant />
-      </div>
+      </article>
 
       {!emptyReservations && (
-        <div className="reservations-page__new-reservations">
+        <section className="reservations-page__new-reservations">
           <ReservationSection
             title={"Need something else? Make a new reservation"}
           />
-        </div>
+        </section>
       )}
     </div>
   );

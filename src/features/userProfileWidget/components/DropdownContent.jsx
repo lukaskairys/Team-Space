@@ -38,7 +38,12 @@ function DropDownContent({ isOpen, setOpen, logout }) {
           </Link>
         </li>
         <li className="dropdown__item">
-          <Link to="/login" onClick={logout} className="dropdown__link">
+          <Link
+            to="/login"
+            onClick={logout}
+            onKeyDown={() => setOpen(false)}
+            className="dropdown__link"
+          >
             <LogOutIcon className="dropdown__icon" />
             <span>Log out</span>
           </Link>

@@ -20,7 +20,7 @@ const ReservedRestaurant = () => {
       : [];
 
   return (
-    <article className="reserved-restaurant">
+    <section className="reserved-restaurant">
       {checkedInRestaurant && checkedInRestaurant.length !== 0 && (
         <>
           <h2 className="reserved-restaurant__title">Checked in:</h2>
@@ -36,7 +36,7 @@ const ReservedRestaurant = () => {
           <EatOutSection withoutRestaurants={true} />
         </div>
       )}
-    </article>
+    </section>
   );
 };
 
