@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2021-01-10"
+    "date": "2021-01-12"
   },
   "users": [
     {
@@ -43,7 +43,9 @@
         "stories": [],
         "rooms": []
       },
-      "checkIn": {},
+      "checkIn": {
+        "id": "3gogeanl0p"
+      },
       "rated": {
         "books": []
       },

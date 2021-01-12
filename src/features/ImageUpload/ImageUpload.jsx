@@ -72,6 +72,15 @@ function Upload() {
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels);
+
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setImageAdded(false);
+    };
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+    };
   }, []);
 
   const addCroppedImage = useCallback(async () => {
