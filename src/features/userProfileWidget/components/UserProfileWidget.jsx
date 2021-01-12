@@ -13,28 +13,36 @@ import "./userProfileWidget.scss";
 function UserProfileWidget() {
   const [image, setImage] = useState(null);
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const { data, error } = useContext(UserContext);
   const { logout } = useAuthentication();
   const dropdownRef = useRef(null);
-  const pictureRef = useRef(null);
+  const pictureBtnRef = useRef(null);
   useOnClickOutside(dropdownRef, () => setOpen(false));
 
   useEffect(() => {
-    if (!isObjectEmpty(data)) {
-      setImage(data.userImage);
-      pictureRef.current.style.visibility = "visible";
-    } else {
-      pictureRef.current.style.visibility = "hidden";
-    }
-    if (error !== null) {
-      setImage(userIcon);
-      pictureRef.current.style.visibility = "visible";
-    }
+    if (!isObjectEmpty(data)) setImage(data.userImage);
+    if (error !== null) setImage(userIcon);
   }, [data, error]);
+
+  useEffect(() => {
+    setExpanded(!expanded);
+    // eslint-disable-next-line
+  }, [open]);
 
   return (
     <div className="profile-widget" ref={dropdownRef}>
-      <button onClick={() => setOpen(!open)} ref={pictureRef}>
+      <button
+        onClick={() => {
+          setOpen(!open);
+        }}
+        ref={pictureBtnRef}
+        aria-expanded={expanded}
+        aria-controls="settings-dropdown"
+      >
+        <span id="settings-label" className="visually-hidden">
+          Profile settings.
+        </span>
         {image && (
           <img
             className="profile-widget__picture"
@@ -43,13 +51,18 @@ function UserProfileWidget() {
                 ? image
                 : `data:image/jpeg;base64,${data.userImage}`
             }
-            alt="user profile"
+            alt=""
           />
         )}
-        <ArrowDown className="profile-widget__arrow " />
+        <ArrowDown className="profile-widget__arrow " aria-hidden="true" />
       </button>
 
-      <DropDownContent isOpen={open} logout={logout} setOpen={setOpen} />
+      <DropDownContent
+        isOpen={open}
+        logout={logout}
+        setOpen={setOpen}
+        setExpanded={setExpanded}
+      />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 import { useModal } from "utils/useModal";
@@ -15,6 +15,7 @@ import {
   formatDateToGB,
   isUnavailable,
 } from "features/reservationsPageList/utils/dateFormatters";
+
 export default function Card({
   image,
   alt,
@@ -30,8 +31,9 @@ export default function Card({
   cancelReservation,
 }) {
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
-
+  const cancelBtnRef = useRef(null);
   let buttonDisabled = false;
+
   const renderStatus = () => {
     const unavailableDate = formatDateToGB(bookedUntil);
     const itemUnavailable = isUnavailable(date, bookedUntil);
@@ -104,7 +106,13 @@ export default function Card({
               View more
             </Button>
             {isFromReserved ? (
-              <Button medium disabled={false} handleClick={showModal}>
+              <Button
+                medium
+                disabled={false}
+                handleClick={showModal}
+                buttonRef={cancelBtnRef}
+                ariaLabel={`cancel ${title}.`}
+              >
                 Cancel
               </Button>
             ) : (
@@ -116,10 +124,19 @@ export default function Card({
         </div>
       </div>
       {modalOpen && (
-        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+        <Modal
+          closeModal={() => closeModal(cancelBtnRef)}
+          buttonRef={cancelBtnRef}
+          setModalOpen={setModalOpen}
+        >
           <ConfirmationModalContent
-            confirm={() => cancelReservation(id)}
-            cancel={closeModal}
+            confirm={() => {
+              cancelReservation(id);
+              closeModal();
+            }}
+            cancel={() => {
+              closeModal(cancelBtnRef);
+            }}
             title={"Do you really want to cancel your reservation?"}
             cancelText={"no, keep it"}
             confirmText={"yes, cancel"}

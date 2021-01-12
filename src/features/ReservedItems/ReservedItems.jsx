@@ -31,7 +31,7 @@ const ReservedItems = ({
           ...allItems[listName].filter((i) => i.id === resItem.id),
         ];
       });
-      setReservedItemsDataList(filtered);
+      setReservedItemsDataList([...reservedItemsDataList, ...filtered]);
     }
     // eslint-disable-next-line
   }, [reservedItems, listName, allItems]);
@@ -41,16 +41,22 @@ const ReservedItems = ({
     [name]: reservedItems.filter((item) => item.id !== id),
   });
 
+  useEffect(() => {
+    setRepeatRequest(true);
+  }, [reservedItems, setRepeatRequest]);
+
   const cancelReservation = (id) => {
-    setRepeatRequest(id);
     setReservedItems(reservedItems.filter((item) => item.id !== id));
     patch(`/users`, { reservations: updatedReservations(id) }, user.id);
+    setRepeatRequest(id);
     successToast("Your reservation is canceled.");
+    document.body.style.position = "";
+    document.body.style.overflowY = "visible";
   };
 
   return (
     <section className="reservation-item">
-      <h3 className="reservation-item__title">{title}</h3>
+      <h2 className="reservation-item__title">{title}</h2>
       {reservedItemsDataList
         .sort((first, second) => {
           return new Date(first.bookedUntil) - new Date(second.bookedUntil);
