@@ -1,25 +1,30 @@
 @import '../../styles/base/base';
 
-.heart-icon {
-    fill: $color-transparent;
-    flex-shrink: 0;
+.favorite {
     height: 2.2rem;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 2;
     width: 2.4rem;
 
     &:hover {
         cursor: pointer;
     }
 
-    &--news {
+    &__heart-icon {
+        fill: $color-transparent;
+        flex-shrink: 0;
+        height: 100%;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+        width: 100%;
+    }
+
+    &__heart-icon--news {
         path {
             stroke: $color-slate-gray;
         }
     }
 
-    &--active {
+    &__heart-icon--active {
         fill: $color-watermelon;
 
         path {
@@ -27,7 +32,7 @@
         }
     }
 
-    &--feed-card {
+    &__heart-icon--feed-card {
         &:hover {
             transform: scale(1.1);
         }
