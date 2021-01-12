@@ -20,6 +20,8 @@ function LeaveReview({
   setReviews,
   setIsReviewed,
   reviews,
+  setRepeatRequest,
+  buttonRef,
 }) {
   const { data } = useContext(UserContext);
   let displayedComment;
@@ -33,14 +35,14 @@ function LeaveReview({
   }
 
   const [inputValue, setInputValue] = useState(displayedComment);
-  const [ratingValue, setRatingValue] = useState();
+  const [ratingValue, setRatingValue] = useState(null);
   const currentUser = data.userName;
   const commentArray = restaurant.reviews;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (inputValue === "" && ratingValue === undefined) {
-      closeModal();
+      closeModal(buttonRef);
       warnToast(`Review was not submited because it was empty`);
     } else if (inputValue === "") {
       errorToast(`Please fill in your review`);
@@ -74,7 +76,9 @@ function LeaveReview({
         setIsReviewed(true);
       }
 
-      closeModal();
+      closeModal(buttonRef);
+
+      setRepeatRequest(newReview);
       successToast(`You have left review for ${restaurant.name}`);
     }
   };
@@ -89,11 +93,19 @@ function LeaveReview({
     );
     const dataToUpdate = { reviews: [...deletedArray] };
 
+    const removeIndex = commentArray
+      .map((comment) => comment.userName)
+      .indexOf(currentUser);
+    ~removeIndex && commentArray.splice(removeIndex, 1);
+
     patch("restaurants", dataToUpdate, restaurant.id);
     setReviews(dataToUpdate.reviews);
     setInputValue("");
+    setRatingValue(null);
     setIsReviewed(false);
-    closeModal();
+    closeModal(buttonRef);
+
+    setRepeatRequest(Math.random());
     successToast(`Your review for ${restaurant.name} has been deleted`);
   };
 
@@ -122,12 +134,12 @@ function LeaveReview({
         />
         <div className="leave-review__buttons">
           <Button medium={true} type={"submit"}>
-            Submit review
+            Submit
           </Button>
 
           {commentArray.some((review) => review.userName === currentUser) && (
             <Button medium={true} handleClick={handleDelete}>
-              delete review
+              Delete
             </Button>
           )}
         </div>
@@ -146,6 +158,8 @@ LeaveReview.propTypes = {
   setReviews: PropTypes.func,
   setIsReviewed: PropTypes.func,
   reviews: PropTypes.array,
+  setRepeatRequest: PropTypes.func,
+  buttonRef: PropTypes.object,
 };
 
 export default LeaveReview;

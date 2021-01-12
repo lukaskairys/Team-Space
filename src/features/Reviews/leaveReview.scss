@@ -39,6 +39,7 @@ $_color-black-transp: rgba(255, 255, 255, 0);
         line-height: $_review-line-heigh;
         margin: 0.8rem 0 1.6rem;
         resize: none;
+        width: 100%;
     }
 
     &__buttons {

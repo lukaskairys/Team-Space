@@ -67,6 +67,7 @@ $font-size-48: 4.8rem;
 $font-size-100: 10rem;
 
 $font-size-time: 10rem;
+$font-size-time-md: 8rem;
 
 @mixin typography-h1 {
     font-size: $font-size-36;
@@ -153,11 +154,25 @@ $font-size-time: 10rem;
     line-height: 1.14;
 }
 
+@mixin typography-caption-desktop {
+    @include typography-caption;
+
+    @include respond-to-mobile() {
+        font-size: $font-size-14 * $resize-coefficient;
+    }
+}
+
 @mixin typography-caption-caps {
     font-size: $font-size-12;
     font-weight: $medium-weight;
     line-height: 1.08;
     text-transform: uppercase;
+}
+
+@mixin typography-caption-caps-desktop {
+    @include respond-to-mobile() {
+        font-size: $font-size-14 * $resize-coefficient;
+    }
 }
 
 @mixin typography-tiny-caps {

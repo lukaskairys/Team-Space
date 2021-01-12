@@ -39,9 +39,9 @@ const NewsFeedLayout = ({ children }) => {
   }, []);
 
   return (
-    <section className="news-feed-section" ref={newsFeedSection}>
-      <h2 className="news-feed-section__title">News and Stories</h2>
-      <section className="news-feed-section__content">{cards}</section>
+    <section className="news-feed" ref={newsFeedSection}>
+      <h2 className="news-feed__title">News and Stories</h2>
+      <div className="news-feed__content">{cards}</div>
     </section>
   );
 };

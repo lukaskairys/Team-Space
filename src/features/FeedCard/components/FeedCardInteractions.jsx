@@ -26,6 +26,7 @@ function FeedCardInteractions({ likes, id, storyOwner }) {
         clickEvent={toggleLike}
         strokeColor={"slate-gray"}
         title={storyOwner}
+        feedCard
       />
       <p>{liked}</p>
     </>

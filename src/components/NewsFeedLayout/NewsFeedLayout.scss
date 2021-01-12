@@ -1,17 +1,23 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
-.news-feed-section {
+.news-feed {
+    $_breakpoint-md: 990;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 10rem;
+    margin-top: 6.4rem;
 
     &__title {
         @include typography-h2-alternative;
 
         color: $color-fiord;
         margin-bottom: 7rem;
+
+        @include respond-to($_breakpoint-md, max) {
+            text-align: center;
+        }
     }
 
     &__content {
@@ -21,7 +27,7 @@
         grid-template-columns: repeat(3, minmax(15rem, 1fr));
         justify-items: center;
 
-        @include respond-to(1500, max) {
+        @include respond-to(1439, max) {
             grid-template-columns: repeat(2, minmax(30rem, 1fr));
         }
 
@@ -36,9 +42,9 @@
         color: $color-iron;
         display: flex;
         font-size: $font-size-time;
-        height: 184px;
+        height: 18.4rem;
         justify-content: center;
-        width: 395px;
+        width: 39.5rem;
     }
 }
 

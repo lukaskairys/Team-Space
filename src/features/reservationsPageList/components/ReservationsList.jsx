@@ -93,7 +93,7 @@ function ReservationsList({
     };
 
     return (
-      <div className="reservations-list">
+      <section className="reservations-list">
         <div className="reservations-list__details">
           <h3 className="reservations-list__title">
             {`${filteredData.length} results${
@@ -104,7 +104,7 @@ function ReservationsList({
           {renderTags()}
         </div>
         {items.length > 0 ? renderCardsAndPagination() : null}
-      </div>
+      </section>
     );
   } else return null;
 }

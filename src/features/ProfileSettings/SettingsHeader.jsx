@@ -14,7 +14,7 @@ const SettingsHeader = ({ setWhichForm, whichForm, userImage, user }) => {
           isMarked={whichForm === "account" && true}
           handleClick={() => setWhichForm("account")}
         >
-          Change Account Details
+          Change Details
         </Button>
         <Button
           blankNoBorder={true}

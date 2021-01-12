@@ -18,7 +18,11 @@ html {
     font-size: $font-size-reset;
 
     @include respond-to-mobile() {
-        font-size: $font-size-reset-mobile;
+        font-size: $font-size-reset-md;
+    }
+
+    @include respond-to(350, max) {
+        font-size: $font-size-reset-sm;
     }
 }
 
@@ -29,13 +33,20 @@ body {
 
 a {
     text-decoration: none;
+
+    &:focus-visible {
+        outline: $base-outline;
+    }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
 }
 
 button {
     background: none;
     border: unset;
     cursor: pointer;
-    outline: none;
     padding: 0;
 
     &:hover,
@@ -43,8 +54,12 @@ button {
         background: none;
     }
 
-    &:focus {
-        box-shadow: 0 0 2px 2px $color-fiord;
+    &:focus-visible {
+        outline: $base-outline;
+    }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
     }
 }
 

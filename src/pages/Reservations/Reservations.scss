@@ -2,8 +2,6 @@
 @import '../../styles/mixins/mixins';
 
 .reservations-page {
-    @include typography-body;
-
     &__title {
         @include typography-h1;
 
@@ -27,8 +25,6 @@
     }
 
     .reservation-card__cta {
-        z-index: $z-index-above;
-
         .rating-container {
             display: none;
         }

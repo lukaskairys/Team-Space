@@ -1,10 +1,17 @@
 @import '../../styles/base/base';
 @import '../../styles/mixins/mixins';
 
+$_breakpoint-sm: 480;
+
 .Toastify {
     &__toast-container {
         max-width: 34.3rem;
         width: auto;
+
+        @include respond-to($_breakpoint-sm, max) {
+            max-width: unset;
+            width: 100%;
+        }
     }
 
     &__toast-body {
@@ -41,9 +48,13 @@
         font-size: $font-size-14;
         font-weight: $bold-weight;
         line-height: 1.14;
-        margin-right: 0.4rem;
+        margin-right: 0.8rem;
         min-height: 4.8rem;
         padding: 1.6rem;
+
+        @include respond-to($_breakpoint-sm, max) {
+            margin-right: 0;
+        }
 
         &--success {
             background-color: $color-mint;

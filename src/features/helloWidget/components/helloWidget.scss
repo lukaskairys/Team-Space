@@ -10,22 +10,35 @@ $_breakpoint-sm: 500;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    @include respond-between(1301, 1485) {
-        margin-bottom: 10rem;
-        word-wrap: break-word;
+    width: 45.1rem;
+
+    @include respond-between(1126, 1440) {
+        width: 50%;
+    }
+    @include respond-between(990, 1127) {
+        width: 40%;
+    }
+    @include respond-between(769, 991) {
+        width: 90%;
     }
 
     &__time {
         font-size: $font-size-time;
         font-weight: bold;
         line-height: 11.7rem;
+
+        @include respond-between(769, 1440) {
+            font-size: $font-size-time-md;
+            line-height: 10rem;
+        }
+
         @include respond-to($_breakpoint-md, max) {
             display: inline;
             font-size: $font-size-32;
             height: 4rem;
-            left: 15rem;
+            left: 8.4rem;
             position: relative;
-            top: -13.4rem;
+            top: -14rem;
             visibility: visible;
             width: 4rem;
             z-index: $z-index-header;
@@ -34,20 +47,30 @@ $_breakpoint-sm: 500;
                 background-color: $color-fiord;
                 content: '';
                 display: block;
-                height: 3.4rem;
-                left: 9.5rem;
+                height: 2.4rem;
+                left: 10rem;
                 position: absolute;
-                top: 4.2rem;
+                top: 4.7rem;
                 width: 0.08rem;
             }
         }
         @include respond-to($_breakpoint-sm, max) {
-            left: 15rem;
+            font-size: $font-size-24;
+            left: 3rem;
+
+            &::after {
+                left: 7.6rem;
+            }
         }
     }
 
     &__greeting {
         @include typography-h1;
+        display: flex;
+        @include respond-between(769, 1440) {
+            font-size: $font-size-32;
+            line-height: 1.2;
+        }
         @include respond-to($_breakpoint-md, max) {
             display: none;
         }

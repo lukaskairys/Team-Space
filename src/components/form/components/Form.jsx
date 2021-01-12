@@ -26,6 +26,7 @@ const Form = (props) => {
     showModal,
     settingsHeaderRenderer,
     max,
+    confirmDeleteAccount,
   } = props;
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
@@ -70,6 +71,9 @@ const Form = (props) => {
       stories: [],
     },
     checkIn: {},
+    rated: {
+      books: [],
+    },
   };
 
   const dataToChange = {
@@ -172,6 +176,7 @@ const Form = (props) => {
           action={action}
           showModal={showModal}
           email={dataToChange.email}
+          confirmDeleteAccount={confirmDeleteAccount}
         />
       </form>
     </section>
@@ -188,6 +193,7 @@ Form.propTypes = {
   settingsHeaderRenderer: PropTypes.func,
   max: PropTypes.string,
   setUser: PropTypes.func,
+  confirmDeleteAccount: PropTypes.func,
 };
 
 export default Form;

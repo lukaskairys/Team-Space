@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 import { useModal } from "utils/useModal";
@@ -15,6 +15,7 @@ import {
   formatDateToGB,
   isUnavailable,
 } from "features/reservationsPageList/utils/dateFormatters";
+
 export default function Card({
   image,
   alt,
@@ -30,8 +31,9 @@ export default function Card({
   cancelReservation,
 }) {
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
-
+  const cancelBtnRef = useRef(null);
   let buttonDisabled = false;
+
   const renderStatus = () => {
     const unavailableDate = formatDateToGB(bookedUntil);
     const itemUnavailable = isUnavailable(date, bookedUntil);
@@ -40,7 +42,9 @@ export default function Card({
       return (
         <>
           <IconReserved className="reservation-card__icon" />
-          <span className="reservation-card__caption">{`Booked until ${unavailableDate}`}</span>
+          <p className="reservation-card__caption">
+            Booked until <time dateTime={bookedUntil}>{unavailableDate}</time>
+          </p>
         </>
       );
     } else if (typeof quantityOrRating === "number" && quantityOrRating === 0) {
@@ -69,7 +73,13 @@ export default function Card({
           <span className="reservation-card__caption">{`Quantity: ${quantityOrRating}`}</span>
         );
       case "bookList":
-        return <Rating ratingValue={quantityOrRating} isFromBooks={true} />;
+        return (
+          <Rating
+            ratingValue={quantityOrRating}
+            isFromBooks={true}
+            itemId={id}
+          />
+        );
       case "roomList":
         return (
           <span className="reservation-card__caption">{`Seat Count: ${quantityOrRating}`}</span>
@@ -80,7 +90,7 @@ export default function Card({
   };
 
   return (
-    <div className="reservation-card">
+    <article className="reservation-card">
       <figure className="reservation-card__img-box">
         <img src={image} alt={alt} className="reservation-card__image" />
       </figure>
@@ -91,32 +101,49 @@ export default function Card({
         <div className="reservation-card__status">{renderStatus()}</div>
         <div className="reservation-card__cta">
           {renderBottomCaption()}
-          <Button medium blank>
-            View more
-          </Button>
-          {isFromReserved ? (
-            <Button medium disabled={false} handleClick={showModal}>
-              Cancel
+          <div>
+            <Button medium blank>
+              View more
             </Button>
-          ) : (
-            <Button medium disabled={buttonDisabled ? true : false}>
-              Book
-            </Button>
-          )}
+            {isFromReserved ? (
+              <Button
+                medium
+                disabled={false}
+                handleClick={showModal}
+                buttonRef={cancelBtnRef}
+                ariaLabel={`cancel ${title}.`}
+              >
+                Cancel
+              </Button>
+            ) : (
+              <Button medium disabled={buttonDisabled ? true : false}>
+                Book
+              </Button>
+            )}
+          </div>
         </div>
       </div>
       {modalOpen && (
-        <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+        <Modal
+          closeModal={() => closeModal(cancelBtnRef)}
+          buttonRef={cancelBtnRef}
+          setModalOpen={setModalOpen}
+        >
           <ConfirmationModalContent
-            confirm={() => cancelReservation(id)}
-            cancel={closeModal}
+            confirm={() => {
+              cancelReservation(id);
+              closeModal();
+            }}
+            cancel={() => {
+              closeModal(cancelBtnRef);
+            }}
             title={"Do you really want to cancel your reservation?"}
             cancelText={"no, keep it"}
             confirmText={"yes, cancel"}
           />
         </Modal>
       )}
-    </div>
+    </article>
   );
 }
 
