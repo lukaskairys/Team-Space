@@ -32,6 +32,8 @@ function ReviewsSection() {
 
   const { data, error, isLoading } = useContext(Context);
   const containerRef = useRef(null);
+  const showMoreBtnRef = useRef(null);
+  const leaveReviewBtnRef = useRef(null);
 
   const observeWidthCallback = (width) => {
     if (width) setContainerWidth(width);
@@ -89,7 +91,12 @@ function ReviewsSection() {
       reviewsToShow.some((rew) => rew.comment.length > maxCharToShow)
     ) {
       return (
-        <Button medium={true} handleClick={showModal}>
+        <Button
+          medium={true}
+          handleClick={showModal}
+          buttonRef={showMoreBtnRef}
+          ariaLabel="show more reviews"
+        >
           <span>Show more</span>
         </Button>
       );
@@ -124,7 +131,11 @@ function ReviewsSection() {
         >
           {renderButton()}
 
-          <Button medium={true} handleClick={showLeaveReview}>
+          <Button
+            medium={true}
+            handleClick={showLeaveReview}
+            buttonRef={leaveReviewBtnRef}
+          >
             {isReviewed ? (
               <span>edit your review</span>
             ) : (
@@ -134,7 +145,14 @@ function ReviewsSection() {
         </div>
 
         {modalOpen && (
-          <Modal closeModal={closeModal} setModalOpen={setModalOpen}>
+          <Modal
+            closeModal={() => {
+              closeModal(showMoreBtnRef);
+            }}
+            setModalOpen={setModalOpen}
+            modalTitle={"all reviews."}
+            buttonRef={showMoreBtnRef}
+          >
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} inModal={true} />
             ))}
@@ -143,16 +161,23 @@ function ReviewsSection() {
 
         {leaveReviewOpen && (
           <Modal
-            closeModal={closeLeaveReview}
+            closeModal={() => {
+              closeLeaveReview(leaveReviewBtnRef);
+            }}
             setModalOpen={setLeaveReviewOpen}
+            modalTitle={"leave a review."}
+            buttonRef={leaveReviewBtnRef}
           >
             <LeaveReview
-              closeModal={closeLeaveReview}
+              closeModal={() => {
+                closeLeaveReview(leaveReviewBtnRef);
+              }}
               restaurant={restaurant[0]}
               setReviews={setReviews}
               setIsReviewed={setIsReviewed}
               reviews={reviews}
               setRepeatRequest={setRepeatRequest}
+              buttonRef={leaveReviewBtnRef}
             />
           </Modal>
         )}

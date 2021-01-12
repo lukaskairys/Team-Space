@@ -1,24 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [ref, setRef] = useState("");
+  useEffect(() => {
+    ref && ref.current && ref.current.focus();
+  }, [ref, modalOpen]);
+
   const showModal = () => {
     setModalOpen(true);
-    const scrollY = document.documentElement.style.getPropertyValue(
-      "--scroll-y"
-    );
     const body = document.body;
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}`;
+    body.style.overflow = "hidden";
   };
 
-  const closeModal = () => {
+  const closeModal = (ref) => {
     setModalOpen(false);
     const body = document.body;
-    const scrollY = body.style.top;
-    body.style.position = "";
-    body.style.top = "";
-    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    body.style.overflowY = "visible";
+    setRef(ref);
   };
   return {
     modalOpen,
