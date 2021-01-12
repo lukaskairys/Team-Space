@@ -23,11 +23,11 @@ function FeedCard({ story, userPhoto, userName, type }) {
         <p>
           <span className="visually-hidden">Post location: </span>{" "}
           {story.postLocation}{" "}
-          <time className="feed-card__time">
+          <span className="feed-card__time">
             <span className="visually-hidden">Post made </span>{" "}
             {timeDifference(new Date(), new Date(story.postDate))}
             <span className="visually-hidden">ago</span>
-          </time>
+          </span>
         </p>
       </div>
       <div className="feed-card__content">
