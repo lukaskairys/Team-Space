@@ -46,6 +46,8 @@ function FeedCardComments({ comments, username, userPhoto, likes, id }) {
         <FeedCardInteractions likes={likes} id={id} />
         <CommentIcon
           className="card-comment-icon"
+          tabIndex="0"
+          aria-label="Comment on a post"
           onClick={handleCommentIconClick}
         />
         <p>{allComments.length}</p>

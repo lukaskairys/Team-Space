@@ -7,7 +7,12 @@ import FeedCardComments from "./FeedCardComments";
 
 function FeedCard({ story, userPhoto, userName, type }) {
   return (
-    <div className="feed-card" type={story.type}>
+    <div
+      role="region"
+      aria-label="Feed card"
+      className="feed-card"
+      type={story.type}
+    >
       <div className="feed-card__info">
         <img
           className="feed-card__info-img"
@@ -16,10 +21,13 @@ function FeedCard({ story, userPhoto, userName, type }) {
         />
         <p>{story.userName}</p>
         <p>
+          <span className="visually-hidden">Post location: </span>{" "}
           {story.postLocation}{" "}
-          <span className="feed-card__time">
+          <time className="feed-card__time">
+            <span className="visually-hidden">Post made </span>{" "}
             {timeDifference(new Date(), new Date(story.postDate))}
-          </span>
+            <span className="visually-hidden">ago</span>
+          </time>
         </p>
       </div>
       <div className="feed-card__content">
