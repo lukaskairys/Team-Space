@@ -16,7 +16,7 @@ import "./settings.scss";
 function Settings() {
   const { data } = useContext(UserContext);
 
-  const [whichForm, setWhichForm] = useState("account");
+  const [whichForm, setWhichForm] = useState("change-details");
   const [user, setUser] = useState({});
 
   const { deleteUser } = useProfileSettings(user, setUser);
@@ -40,13 +40,13 @@ function Settings() {
   const getAction = () => {
     let action;
     switch (whichForm) {
-      case "account":
+      case "change-details":
         action = "account";
         break;
-      case "passwords":
-        action = "passwords";
+      case "change-password":
+        action = "password";
         break;
-      case "email":
+      case "change-email":
         action = "email";
         break;
       default:
@@ -56,26 +56,29 @@ function Settings() {
   };
 
   return (
-    <article className="profile-settings">
-      <h1 className="profile-settings__title">Profile settings</h1>
+    <div className="profile-settings">
+      <h1 className="profile-settings__title" id="settings-title">
+        Profile settings
+      </h1>
       <div className="profile-settings__content">
         <CurrentInfo user={user} />
         <Form
           action={getAction()}
-          max={todaysDate()}
+          maxDate={todaysDate()}
           user={user}
           setUser={setUser}
           confirmDeleteAccount={confirm}
-          settingsHeaderRenderer={() => (
+          settingsHeaderRenderer={(setValues, setErrors) => (
             <SettingsHeader
+              setValues={setValues}
+              setErrors={setErrors}
               setWhichForm={setWhichForm}
               whichForm={whichForm}
-              userImage={user.userImage}
             />
           )}
         />
       </div>
-    </article>
+    </div>
   );
 }
 

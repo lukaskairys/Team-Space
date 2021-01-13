@@ -111,9 +111,8 @@ export default function Card({
                 disabled={false}
                 handleClick={showModal}
                 buttonRef={cancelBtnRef}
-                ariaLabel={`cancel ${title}.`}
               >
-                Cancel
+                Cancel <span className="visually-hidden">{title}</span>
               </Button>
             ) : (
               <Button medium disabled={buttonDisabled ? true : false}>

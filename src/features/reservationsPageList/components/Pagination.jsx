@@ -30,7 +30,11 @@ export default function Pagination({ page, setPage, pageCount }) {
 
   const renderButtonPrev =
     page === 0 ? null : (
-      <Button handleClick={handlePrev} ariaLabel={"previous page"} pagination>
+      <Button
+        handleClick={handlePrev}
+        ariaLabelText={"previous page"}
+        pagination
+      >
         <ChevronLeft className="chevron-left" />
       </Button>
     );
@@ -39,7 +43,7 @@ export default function Pagination({ page, setPage, pageCount }) {
     page > 1 || page < pageCount ? (
       <Button
         handleClick={handleFirstPage}
-        ariaLabel={"first page"}
+        ariaLabelText={"first page"}
         pagination
         isActive={page === 0 && true}
       >
@@ -51,7 +55,7 @@ export default function Pagination({ page, setPage, pageCount }) {
     page === 0 || page === pageCount ? null : (
       <Button
         handleClick={handleCurrentPage}
-        ariaLabel={`current page ${page + 1}`}
+        ariaLabelText={`current page ${page + 1}`}
         pagination
         isActive
       >
@@ -70,7 +74,7 @@ export default function Pagination({ page, setPage, pageCount }) {
     pageCount === 0 ? null : (
       <Button
         handleClick={handleLastPage}
-        ariaLabel={`last page ${pageCount + 1}`}
+        ariaLabelText={`last page ${pageCount + 1}`}
         pagination
         isActive={page === pageCount && true}
       >
@@ -82,7 +86,7 @@ export default function Pagination({ page, setPage, pageCount }) {
 
   const renderButtonNext =
     page === pageCount ? null : (
-      <Button handleClick={handleNext} ariaLabel={"next page"} pagination>
+      <Button handleClick={handleNext} ariaLabelText={"next page"} pagination>
         <ChevronRight className="chevron-right" />
       </Button>
     );

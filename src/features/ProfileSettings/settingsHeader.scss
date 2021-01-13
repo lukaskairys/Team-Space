@@ -11,17 +11,36 @@
         margin-bottom: 2.5rem;
     }
 
-    &__left {
+    &__items {
+        @include typography-h4-alternative;
+
+        color: $color-fiord;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
         width: 19rem;
     }
 
-    .profile-widget__picture {
-        @include square-size(11rem);
+    &__item {
+        font-weight: $medium-weight;
+        padding: 0.6rem;
 
-        margin-right: 6rem;
+        &:hover,
+        &:focus {
+            color: $color-midnight;
+        }
 
-        @include respond-to($breakpoint-settings-md, max) {
-            margin-right: 3rem;
+        a:visited {
+            color: $color-fiord;
+        }
+    }
+
+    .active-setting-link {
+        color: $color-bright-violet;
+        font-weight: $bold-weight;
+
+        a:visited {
+            color: $color-bright-violet;
         }
     }
 }

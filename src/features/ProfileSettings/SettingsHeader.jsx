@@ -1,36 +1,65 @@
-import React from "react";
-import Button from "components/button/Button";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import "./settingsHeader.scss";
 import ImageUpload from "features/ImageUpload/ImageUpload";
 
-const SettingsHeader = ({ setWhichForm, whichForm, userImage, user }) => {
+import "./settingsHeader.scss";
+
+const SettingsHeader = ({ setWhichForm, whichForm, setValues, setErrors }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (
+      location.hash &&
+      (location.hash === "#change-details" ||
+        location.hash === "#change-password" ||
+        location.hash === "#change-email")
+    ) {
+      setWhichForm(location.hash.substring(1));
+      setValues({});
+      setErrors({});
+    }
+  }, [location, setWhichForm, setErrors, setValues]);
+
   return (
-    <nav className="profile-settings-nav">
-      <div className="profile-settings-nav__left">
-        <Button
-          blankNoBorder={true}
-          isMarked={whichForm === "account" && true}
-          handleClick={() => setWhichForm("account")}
+    <nav className="profile-settings-nav" aria-labelledby="settings-title">
+      <ul className="profile-settings-nav__items">
+        <li
+          className={classNames("profile-settings-nav__item", {
+            "active-setting-link": whichForm === "change-details",
+          })}
         >
-          Change Details
-        </Button>
-        <Button
-          blankNoBorder={true}
-          isMarked={whichForm === "passwords" && true}
-          handleClick={() => setWhichForm("passwords")}
+          <a
+            href="#change-details"
+            onClick={() => setWhichForm("change-details")}
+          >
+            Change Details
+          </a>
+        </li>
+        <li
+          className={classNames("profile-settings-nav__item", {
+            "active-setting-link": whichForm === "change-password",
+          })}
         >
-          Change Password
-        </Button>
-        <Button
-          blankNoBorder={true}
-          isMarked={whichForm === "email" && true}
-          handleClick={() => setWhichForm("email")}
+          <a
+            href="#change-password"
+            onClick={() => setWhichForm("change-password")}
+          >
+            Change Password
+          </a>
+        </li>
+        <li
+          className={classNames("profile-settings-nav__item", {
+            "active-setting-link": whichForm === "change-email",
+          })}
         >
-          Change Email
-        </Button>
-      </div>
+          <a href="#change-email" onClick={() => setWhichForm("change-email")}>
+            Change Email
+          </a>
+        </li>
+      </ul>
       <div className="profile-settings-nav__right">
         <ImageUpload />
       </div>
@@ -41,8 +70,8 @@ const SettingsHeader = ({ setWhichForm, whichForm, userImage, user }) => {
 SettingsHeader.propTypes = {
   whichForm: PropTypes.string,
   setWhichForm: PropTypes.func,
-  userImage: PropTypes.string,
-  user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  setValues: PropTypes.func,
+  setErrors: PropTypes.func,
 };
 
 export default SettingsHeader;

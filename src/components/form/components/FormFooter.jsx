@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useModal } from "utils/useModal";
-
+import { getFormFooterData } from "../utils/formsSwitchers";
 import Button from "components/button/Button";
 import Modal from "components/Modal/Modal";
 import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
@@ -12,38 +12,20 @@ function FormFooter({ action, confirmDeleteAccount }) {
   const deleteBtnRef = useRef(null);
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
 
-  const getFormFooterData = () => {
-    let data = {
-      label: "",
-      textBeforeLink: "",
-      linkText: "",
-      linkPath: "",
-    };
-    switch (action) {
-      case "register":
-        data.label = "Register";
-        data.textBeforeLink = "Already have account?";
-        data.linkText = "Sign in";
-        data.linkPath = "/login";
-        break;
-      case "login":
-        data.label = "Login";
-        data.textBeforeLink = "Don't have an account?";
-        data.linkText = "Sign up";
-        data.linkPath = "/registration";
-        break;
-      case "account":
-      case "passwords":
-      case "email":
-        data.label = "Change";
-        break;
-      default:
-        return data;
-    }
-    return data;
-  };
+  const { label, textBeforeLink, linkText, linkPath } = getFormFooterData(
+    action
+  );
 
-  const { label, textBeforeLink, linkText, linkPath } = getFormFooterData();
+  const renderLink = () => {
+    if (linkPath !== "") {
+      return (
+        <Link to={linkPath} className="form-footer__link">
+          {linkText}
+        </Link>
+      );
+    }
+    return "";
+  };
 
   return (
     <div className="form-footer">
@@ -61,9 +43,7 @@ function FormFooter({ action, confirmDeleteAccount }) {
             Delete my account
           </Button>
         ) : (
-          <Link to={linkPath} className="form-footer__link">
-            {linkText}
-          </Link>
+          renderLink()
         )}
       </p>
 

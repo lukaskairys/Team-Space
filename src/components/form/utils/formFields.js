@@ -4,6 +4,7 @@ const fields = {
     name: "firstName",
     text: "First Name",
     placeholder: "Wizard",
+    required: true,
   },
   lastName: {
     type: "text",
@@ -30,6 +31,7 @@ const fields = {
     text: "Email",
     placeholder: "email@example.com",
     inputLong: true,
+    required: true,
   },
   birthday: {
     type: "date",
@@ -42,30 +44,35 @@ const fields = {
     name: "password",
     text: "Password",
     placeholder: "******",
+    required: true,
   },
   repeatPassword: {
     type: "password",
     name: "repeatPassword",
     text: "Repeat Password",
     placeholder: "******",
+    required: true,
   },
-  oldPassword: {
+  currentPassword: {
     type: "password",
-    name: "oldPassword",
+    name: "currentPassword",
     text: "Current Password",
     placeholder: "******",
     inputLong: true,
+    required: true,
   },
   newPassword: {
     type: "password",
     name: "newPassword",
     text: "New Password",
     placeholder: "******",
+    required: true,
   },
 };
 fields.passwordLong = {
   ...fields.password,
   inputLong: true,
+  required: true,
 };
 export const loginForm = [fields.email, fields.passwordLong];
 export const registerForm = [
@@ -77,9 +84,9 @@ export const registerForm = [
 ];
 export const accountForm = [fields.userName, fields.birthday, fields.location];
 export const passwordsForm = [
-  fields.oldPassword,
+  fields.currentPassword,
   fields.newPassword,
   fields.repeatPassword,
 ];
 
-export const emailForm = [fields.email, fields.oldPassword];
+export const emailForm = [fields.email, fields.currentPassword];

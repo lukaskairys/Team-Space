@@ -12,7 +12,7 @@ function LoginPage() {
       <Helmet>
         <title>Login · Team Space</title>
       </Helmet>
-      <div className="form-container">
+      <main className="form-container">
         <Logo className="logo" />
         <Form
           action={"login"}
@@ -20,7 +20,7 @@ function LoginPage() {
           subtitle={"Welcome back, please login."}
           buttonLabel={"Login"}
         />
-      </div>
+      </main>
     </div>
   );
 }

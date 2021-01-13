@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import Loader from "react-loader-spinner";
 
 import useForm from "../utils/useForm";
 import FormContent from "./FormContent";
 import FormFooter from "./FormFooter";
 import Message from "components/Message/Message";
-import Loader from "react-loader-spinner";
-import {
-  validateRegistration,
-  validateLogin,
-  noValidation,
-  validatePasswords,
-  validateEmail,
-} from "../utils/validationRules";
+import ErrorsList from "./ErrorsList";
+
+import { getValidation, getId } from "../utils/formsSwitchers.js";
 import { useAuthentication } from "authentication/useAuthentication";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
+import { isObjectEmpty } from "utils/objects";
 
 const Form = (props) => {
   const {
@@ -23,9 +20,8 @@ const Form = (props) => {
     action,
     user,
     setUser,
-    showModal,
     settingsHeaderRenderer,
-    max,
+    maxDate,
     confirmDeleteAccount,
   } = props;
   const [showMessage, setShowMessage] = useState(false);
@@ -44,12 +40,14 @@ const Form = (props) => {
 
   const {
     values,
+    setValues,
     errors,
+    setErrors,
     handleChange,
     handleSubmit,
-    handleFocus,
-    handleXclick,
-  } = useForm(getCallback(), getValidation());
+    handleBlur,
+    submitClicked,
+  } = useForm(getCallback(), getValidation(action));
 
   const dataToPost = {
     userName: `${values.firstName} ${values.lastName}`,
@@ -83,7 +81,7 @@ const Form = (props) => {
   };
 
   const passwords = {
-    old: values.oldPassword,
+    old: values.currentPassword,
     new: values.newPassword,
     repeat: values.repeatPassword,
   };
@@ -100,12 +98,12 @@ const Form = (props) => {
       case "account":
         callback = () => changeAccountDetails(dataToChange, setUser);
         break;
-      case "passwords":
+      case "password":
         callback = () => changePassword(passwords, user, setUser);
         break;
       case "email":
         callback = () =>
-          changeEmail(values.email, values.oldPassword, user, setUser);
+          changeEmail(values.email, values.currentPassword, user, setUser);
         break;
       default:
         return;
@@ -113,56 +111,43 @@ const Form = (props) => {
     return callback;
   }
 
-  function getValidation() {
-    let validation;
-    switch (action) {
-      case "register":
-        validation = validateRegistration;
-        break;
-      case "login":
-        validation = validateLogin;
-        break;
-      case "account":
-        validation = noValidation;
-        break;
-      case "passwords":
-        validation = validatePasswords;
-        break;
-      case "email":
-        validation = validateEmail;
-        break;
-      default:
-        return;
-    }
-    return validation;
-  }
-
   return (
     <section className="form">
       {settingsHeaderRenderer ? (
-        settingsHeaderRenderer()
+        settingsHeaderRenderer(setValues, setErrors)
       ) : (
         <div className="form__header">
-          <h2 className="form__title">{title}</h2>
+          <h2 className="form__title" id={getId(action)}>
+            {title}
+          </h2>
           <p className="form__subtitle">{subtitle}</p>
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        aria-labelledby={getId(action)}
+        id={getId(action)}
+      >
         {isPosting ? (
           <div className="form__loader">
             <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
           </div>
         ) : (
-          <FormContent
-            values={values}
-            errors={errors}
-            handleChange={handleChange}
-            handleFocus={handleFocus}
-            action={action}
-            handleXclick={handleXclick}
-            max={max}
-          />
+          <>
+            {!isObjectEmpty(errors) && (
+              <ErrorsList errors={errors} submitClicked={submitClicked} />
+            )}
+            <FormContent
+              values={values}
+              errors={errors}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              action={action}
+              maxDate={maxDate}
+              setValues={setValues}
+            />
+          </>
         )}
         {showMessage && (
           <Message
@@ -174,8 +159,6 @@ const Form = (props) => {
 
         <FormFooter
           action={action}
-          showModal={showModal}
-          email={dataToChange.email}
           confirmDeleteAccount={confirmDeleteAccount}
         />
       </form>
@@ -189,9 +172,8 @@ Form.propTypes = {
   subtitle: PropTypes.string,
   buttonLabel: PropTypes.string,
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  showModal: PropTypes.func,
   settingsHeaderRenderer: PropTypes.func,
-  max: PropTypes.string,
+  maxDate: PropTypes.string,
   setUser: PropTypes.func,
   confirmDeleteAccount: PropTypes.func,
 };

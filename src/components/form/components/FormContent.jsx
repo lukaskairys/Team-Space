@@ -1,51 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+import { getFormStructure } from "../utils/formsSwitchers";
 import FormInput from "../input/FormInput";
-import {
-  registerForm,
-  loginForm,
-  accountForm,
-  passwordsForm,
-  emailForm,
-} from "../utils/formFields";
 
 import "./formContent.scss";
 
 function FormContent(props) {
-  const {
-    action,
-    values,
-    errors,
-    handleChange,
-    handleFocus,
-    handleXclick,
-    max,
-  } = props;
+  const { action, values, errors, handleChange, handleBlur, maxDate } = props;
 
-  const formStructure = getFormStructure();
-  function getFormStructure() {
-    let formStructure;
-    switch (action) {
-      case "register":
-        formStructure = registerForm;
-        break;
-      case "login":
-        formStructure = loginForm;
-        break;
-      case "account":
-        formStructure = accountForm;
-        break;
-      case "passwords":
-        formStructure = passwordsForm;
-        break;
-      case "email":
-        formStructure = emailForm;
-        break;
-      default:
-        return;
-    }
-    return formStructure;
-  }
+  const formStructure = getFormStructure(action);
 
   return (
     <div className="form-content">
@@ -63,15 +27,19 @@ function FormContent(props) {
             name={field.name}
             placeholder={field.placeholder}
             onChange={handleChange}
-            onFocus={handleFocus}
+            onBlur={handleBlur}
             className={`form-input ${
               errors[field.name] && "form-input--error"
             }`}
             isError={errors[field.name] ? true : false}
-            handleXclick={handleXclick}
-            max={max}
+            maxDate={maxDate}
+            describedby={`error-${field.text}`}
+            ariaRequired={field.required}
+            errors={errors}
           />
-          <p className="form-content__error-msg">{errors[field.name]}</p>
+          <p className="form-content__error-msg" id={`error-${field.text}`}>
+            {errors[field.name]}
+          </p>
         </div>
       ))}
     </div>
@@ -83,9 +51,8 @@ FormContent.propTypes = {
   values: PropTypes.object,
   errors: PropTypes.object,
   handleChange: PropTypes.func,
-  handleFocus: PropTypes.func,
-  handleXclick: PropTypes.func,
-  max: PropTypes.string,
+  handleBlur: PropTypes.func,
+  maxDate: PropTypes.string,
 };
 
 export default FormContent;

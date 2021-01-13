@@ -1,5 +1,4 @@
 import bcrypt from "bcryptjs";
-
 import { useState, useEffect } from "react";
 
 import { useRequest } from "apis/useRequest";
@@ -12,32 +11,26 @@ const useForm = (callback, validate) => {
   const [isValid, setIsValid] = useState(false);
   const [repeatRequest, setRepeatRequest] = useState(false);
   const [passwordCorrect, setPasswordCorrect] = useState(true);
+  const [submitClicked, setSubmitClicked] = useState(false);
   const { data } = useRequest("/users", repeatRequest);
   const { userId } = useAuthentication();
 
-  const handleXclick = (inputRef) => {
-    const inputName = inputRef.current.name;
-    // clear current input value
-    setValues({
-      ...values,
-      [inputName]: "",
-    });
-  };
   const currentUser = data.filter((user) => user.id === userId)[0];
 
   useEffect(() => {
     setPasswordCorrect(
-      values.oldPassword &&
-        bcrypt.compareSync(values.oldPassword, currentUser.password)
+      values.currentPassword &&
+        bcrypt.compareSync(values.currentPassword, currentUser.password)
     );
-  }, [currentUser, values.oldPassword]);
+  }, [currentUser, values.currentPassword]);
 
   const err = validate(values, data, passwordCorrect);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (values.oldPassword) {
+    if (values.currentPassword) {
       setPasswordCorrect(
-        bcrypt.compareSync(values.oldPassword, currentUser.password)
+        bcrypt.compareSync(values.currentPassword, currentUser.password)
       );
     }
     setRepeatRequest(true);
@@ -49,6 +42,8 @@ const useForm = (callback, validate) => {
     } else {
       setIsValid(false);
     }
+    setSubmitClicked(true);
+    window.location.hash = "";
   };
 
   const handleChange = (event) => {
@@ -59,24 +54,28 @@ const useForm = (callback, validate) => {
       ...values,
       [name]: value,
     });
+    setSubmitClicked(false);
   };
 
-  const handleFocus = (event) => {
+  const handleBlur = (event) => {
     const { name } = event.target;
     event.persist();
-    // delete error from state
+    //delete error from state
     const { [name]: tmp, ...rest } = errors;
     setErrors(rest);
+    setSubmitClicked(false);
   };
 
   return {
     handleChange,
     handleSubmit,
-    handleFocus,
+    handleBlur,
+    setErrors,
+    setValues,
     values,
     errors,
     isValid,
-    handleXclick,
+    submitClicked,
   };
 };
 
