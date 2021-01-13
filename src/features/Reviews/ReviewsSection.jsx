@@ -95,7 +95,7 @@ function ReviewsSection() {
           medium={true}
           handleClick={showModal}
           buttonRef={showMoreBtnRef}
-          ariaLabel="show more reviews"
+          ariaLabelText="show more reviews"
         >
           <span>Show more</span>
         </Button>
