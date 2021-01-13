@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 
 import "./eatOutSection.scss";
 import { FetchBestRatedRestaurants } from "../../../utils/Api";
-import Button from "../../../components/button/Button";
-import CreateTopRestaurantColumn from "./CreateTopRestaurantColumn";
+import SmallCard from "./SmallCard";
 
 const EatOutSection = ({ withoutRestaurants }) => {
   const count = 2;
@@ -41,27 +40,25 @@ const EatOutSection = ({ withoutRestaurants }) => {
     if (restaurants.length !== count) {
       restaurants = mockData();
     }
-    return restaurants.map((restaurant) =>
-      CreateTopRestaurantColumn(restaurant)
-    );
+    return restaurants.map((restaurant) => (
+      <SmallCard key={restaurant.id} restaurant={restaurant} />
+    ));
   };
 
   return (
-    <section className="eat-out-section">
-      <div className="eat-out-section__column">
-        <div className="eat-out-section__content">
+    <ul className="eat-out-section">
+      <li className="eat-out-section__column">
+        <section className="eat-out-section__content">
           <h3 className="eat-out-section__suggestion">
             View all your favorite lunch spots and more
           </h3>
-          <Link to={"/eat-out"}>
-            <Button medium={true}>
-              <span>Browse List</span>
-            </Button>
+          <Link to={"/eat-out"} className={"button button--medium"}>
+            <span>Browse List</span>
           </Link>
-        </div>
-      </div>
+        </section>
+      </li>
       {!withoutRestaurants && renderRestaurants(restaurants)}
-    </section>
+    </ul>
   );
 };
 

@@ -1,6 +1,10 @@
 {
   "lastClearDate": {
+<<<<<<< HEAD
     "date": "2021-01-12"
+=======
+    "date": "2021-01-13"
+>>>>>>> 0848afe55b617e76c0a7e5c1edd25cdd27d1052e
   },
   "users": [
     {
@@ -37,14 +41,23 @@
         }
       ],
       "liked": {
-        "restaurants": [],
+        "restaurants": [
+          {
+            "id": "0px1y6iixy"
+          }
+        ],
         "books": [],
         "devices": [],
-        "stories": [],
+        "stories": [
+          {
+            "id": "10187tep27"
+          }
+        ],
         "rooms": []
       },
       "checkIn": {
-        "id": "3gogeanl0p"
+        "id": "0px1y6iixy",
+        "name": "Hop Doc Gastropub"
       },
       "rated": {
         "books": []
@@ -3855,7 +3868,7 @@
       "postLocation": "LDN",
       "postDate": "2020-11-26T10:27:00.000Z",
       "postImage": "https://images.unsplash.com/photo-1601974222604-f8c88fc836fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-      "likes": 25,
+      "likes": 26,
       "comments": [
         {
           "userName": "Uncle Roger",
