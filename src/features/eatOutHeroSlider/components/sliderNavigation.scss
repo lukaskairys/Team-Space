@@ -1,4 +1,5 @@
 @import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
 
 $_bullet-point-size: 0.6rem;
 $_bullet-point-margin: 1rem;
@@ -15,33 +16,23 @@ $_bullet-point-active-size: 0.8rem;
     }
 
     &__circle {
-        height: $_bullet-point-size;
+        @include square-size($_bullet-point-size);
+
+        background-color: $color-silver;
+        border-radius: 50%;
         margin-right: $_bullet-point-margin;
-        width: $_bullet-point-size;
-    }
 
-    &__circle path {
-        fill: $color-silver;
-        stroke: $color-silver;
-
-        &:hover {
-            fill: $color-silver;
-            stroke: $color-silver;
+        &:hover,
+        &:focus {
+            background-color: $color-silver;
         }
     }
 
     &__circle.is_active {
-        height: $_bullet-point-active-size;
+        @include square-size($_bullet-point-active-size);
+
+        background-color: $color-watermelon;
+        margin-top: $_bullet-point-margin / 3;
         position: relative;
-        width: $_bullet-point-active-size;
-
-        path {
-            fill: $color-watermelon;
-            stroke: $color-watermelon;
-        }
-    }
-
-    &__circle:hover {
-        cursor: pointer;
     }
 }

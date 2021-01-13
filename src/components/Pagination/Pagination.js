@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import PaginationButtons from "components/PaginationButtons/PaginationButtons";
+
 import "./Pagination.scss";
-import { ReactComponent as ChevronRight } from "assets/icons/chevron-right.svg";
-import { ReactComponent as ChevronLeft } from "assets/icons/chevron-left.svg";
 
 const Pagination = ({ currentPage, totalPages, paginate }) => {
   const slideLeft = () => {
@@ -20,16 +20,7 @@ const Pagination = ({ currentPage, totalPages, paginate }) => {
     paginate(nextPage);
   };
 
-  return (
-    <div className="navigation-buttons">
-      <button className="navigation-buttons__left" onClick={slideLeft}>
-        <ChevronLeft className="navigation-buttons__icon" />
-      </button>
-      <button className="navigation-buttons__right" onClick={slideRight}>
-        <ChevronRight className="navigation-buttons__icon" />
-      </button>
-    </div>
-  );
+  return <PaginationButtons slideLeft={slideLeft} slideRight={slideRight} />;
 };
 
 Pagination.propTypes = {

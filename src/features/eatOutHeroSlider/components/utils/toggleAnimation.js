@@ -1,4 +1,4 @@
-export const ToggleAnimation = () => {
+export const toggleAnimation = () => {
   const heroSlider = document.getElementsByClassName("eat-out-slider")[0];
 
   if (heroSlider.classList.contains("animate-out")) {

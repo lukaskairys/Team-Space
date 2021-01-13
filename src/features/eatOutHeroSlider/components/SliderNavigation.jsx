@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import NavigationButtons from "./NavigationButtons";
-import { ReactComponent as CircleIcon } from "assets/icons/circle.svg";
+import PaginationButtons from "components/PaginationButtons/PaginationButtons";
+
+import sliderTransitionHandler from "./utils/sliderTransitionHandler";
 import "./sliderNavigation.scss";
-import { ToggleAnimation } from "./ToggleAnimation";
 
 const SliderNavigation = ({
   counter,
@@ -13,26 +13,20 @@ const SliderNavigation = ({
   setAnimationLoading,
   isAnimationLoading,
 }) => {
-  const captureEvent = (e, i) => {
+  const {
+    slideLeft,
+    slideRight,
+    transitionRestaurant,
+  } = sliderTransitionHandler(
+    currentIndex,
+    counter,
+    setAnimationLoading,
+    isAnimationLoading,
+    setCurrentIndex
+  );
+
+  const captureEvent = (i) => {
     if (i !== currentIndex) transitionRestaurant(i);
-  };
-
-  const transitionRestaurant = (i) => {
-    if (!isAnimationLoading) {
-      ToggleAnimation();
-      setAnimationLoading(true);
-
-      setTimeout(function () {
-        setCurrentIndex(i);
-        const listBullets = document.getElementsByClassName(
-          "slider-navigation__circle"
-        );
-
-        for (const el of listBullets) el.classList.remove("is_active");
-
-        listBullets[i].classList.add("is_active");
-      }, 250);
-    }
   };
 
   const formEllipsis = (counter) => {
@@ -44,34 +38,26 @@ const SliderNavigation = ({
           ? "slider-navigation__circle is_active"
           : "slider-navigation__circle";
       indents.push(
-        <CircleIcon
-          key={i}
-          className={className}
-          onClick={(e) => captureEvent(e, i)}
-        />
+        <li key={i}>
+          <button
+            onClick={() => captureEvent(i)}
+            className={className}
+            aria-label={
+              i === currentIndex
+                ? `Current page: ${i + 1}`
+                : `Slide to page ${i + 1}`
+            }
+          ></button>
+        </li>
       );
     }
     return indents;
   };
 
-  const slideLeft = () => {
-    let newIndex = currentIndex;
-    if (currentIndex === 0) newIndex = counter - 1;
-    else newIndex = currentIndex - 1;
-    transitionRestaurant(newIndex);
-  };
-
-  const slideRight = () => {
-    let newIndex = currentIndex;
-    if (currentIndex === counter - 1) newIndex = 0;
-    else newIndex = currentIndex + 1;
-    transitionRestaurant(newIndex);
-  };
-
   return (
     <div className="slider-navigation">
       <ul className="slider-navigation__list">{formEllipsis(counter)}</ul>
-      <NavigationButtons slideLeft={slideLeft} slideRight={slideRight} />
+      <PaginationButtons slideLeft={slideLeft} slideRight={slideRight} />
     </div>
   );
 };
