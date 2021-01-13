@@ -41,6 +41,7 @@ function SearchInputs({ searchBtnClick }) {
       <div className="search-bar__inputs-text">
         <input
           type="text"
+          aria-label="search by text"
           className="form-input search-bar__inputs-text-input"
           onChange={handleSearchInputChange}
           onKeyPress={searchWithEnter}
@@ -54,14 +55,15 @@ function SearchInputs({ searchBtnClick }) {
       </div>
       <div className="search-bar__inputs-date">
         <label
-          htmlFor="reservationDate"
+          htmlFor="reservation-date"
           className="search-bar__inputs-date-input-label"
         >
           Reservation date
         </label>
         <input
           type="date"
-          name="reservationDate"
+          name="reservation-date"
+          id="reservation-date"
           className="form-input search-bar__inputs-date-input"
           onChange={handleDateChange}
           min={todaysDate()}
