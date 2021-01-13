@@ -1,7 +1,7 @@
 import React from "react";
 
 import EatOutHeroSlider from "./EatOutHeroSlider";
-import "./eatOutHeroWidget.scss";
+import "./EatOutHeroWidget.scss";
 
 const EatOutHeroWidget = () => {
   return (

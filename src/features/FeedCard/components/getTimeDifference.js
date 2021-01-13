@@ -16,7 +16,7 @@ export const timeDifference = (current, previous) => {
   } else if (elapsed < msPerMonth) {
     return +Math.round(elapsed / msPerDay) + "d";
   } else if (elapsed < msPerYear) {
-    return +Math.round(elapsed / msPerMonth) + "m";
+    return +Math.round(elapsed / msPerMonth) + "M";
   } else {
     return Math.round(elapsed / msPerYear) + "y";
   }

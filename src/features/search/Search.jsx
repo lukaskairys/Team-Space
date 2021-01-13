@@ -8,11 +8,11 @@ import "./search.scss";
 
 function Search({ searchBtnClick, activeFilter }) {
   return (
-    <div className="search-bar">
+    <section role="search" aria-label="reservations" className="search-bar">
       <h2 className="search-bar__title">Search</h2>
       <SearchFilters activeFilter={activeFilter} />
       <SearchInputs searchBtnClick={searchBtnClick} />
-    </div>
+    </section>
   );
 }
 Search.propTypes = {
