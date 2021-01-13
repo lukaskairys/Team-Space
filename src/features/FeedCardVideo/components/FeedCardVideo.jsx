@@ -40,6 +40,7 @@ function FeedCardVideo({ story, userPhoto, userName }) {
       <FeedCardComments
         comments={story.comments}
         username={userName}
+        storyOwner={story.userName}
         userPhoto={userPhoto}
         likes={story.likes}
         id={story.id}

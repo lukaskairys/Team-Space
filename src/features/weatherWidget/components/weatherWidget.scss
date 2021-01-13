@@ -29,7 +29,7 @@ $_breakpoint-sm: 500;
         width: 90%;
     }
 
-    &__content {
+    &__main {
         background: $color-white;
         border-radius: 1rem;
         color: $_content-color;
@@ -46,13 +46,13 @@ $_breakpoint-sm: 500;
         }
     }
 
-    &__section {
+    &__footer {
         display: flex;
         margin-top: 0.5rem;
         width: 70%;
     }
 
-    &__subsection {
+    &__forecast-secondary {
         font-size: $font-size-12;
         font-weight: $light-weight;
         margin-right: 2rem;
@@ -82,6 +82,7 @@ $_breakpoint-sm: 500;
         letter-spacing: 0.1rem;
         margin: 0;
         padding: 0;
+
         @include respond-to($_breakpoint-md, max) {
             font-size: $font-size-12;
             left: 24rem;
@@ -102,7 +103,7 @@ $_breakpoint-sm: 500;
     }
 
     &__header,
-    &__paragraph {
+    &__forecast-primary {
         @include trim();
 
         text-transform: capitalize;
@@ -141,7 +142,7 @@ $_breakpoint-sm: 500;
         right: -1rem;
     }
 
-    &__paragraph {
+    &__forecast-primary {
         font-size: $_paragraph-font-size;
         font-weight: $light-weight;
         line-height: 1.8;
@@ -163,6 +164,7 @@ $_breakpoint-sm: 500;
         font-weight: $light-weight;
         line-height: 1.1;
         margin-right: 0.6rem;
+
         @include respond-to($_breakpoint-md, max) {
             font-size: $font-size-32;
             height: 4rem;
