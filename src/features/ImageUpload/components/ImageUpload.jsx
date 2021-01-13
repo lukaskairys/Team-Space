@@ -6,6 +6,7 @@ import React, {
   useRef,
 } from "react";
 import Cropper from "react-easy-crop";
+import FocusLock from "react-focus-lock";
 import { FilePond, registerPlugin } from "react-filepond";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginImageCrop from "filepond-plugin-image-crop";
@@ -24,9 +25,9 @@ import Button from "components/button/Button";
 import { errorToast, warnToast } from "components/Toasts/ToastHandler";
 
 import "./imageUpload.scss";
-import b64toBlob from "./helpers/b64toBlob";
-import serverConfig from "./helpers/serverConfig";
-import getCroppedImg from "./helpers/cropImage";
+import b64toBlob from "../helpers/b64toBlob";
+import serverConfig from "../helpers/serverConfig";
+import getCroppedImg from "../helpers/cropImage";
 
 registerPlugin(
   FilePondPluginImagePreview,
@@ -72,15 +73,6 @@ function Upload() {
 
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels);
-
-    const handleEsc = (e) => {
-      if (e.key === "Escape") setImageAdded(false);
-    };
-    document.addEventListener("keydown", handleEsc);
-
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-    };
   }, []);
 
   const addCroppedImage = useCallback(async () => {
@@ -117,6 +109,9 @@ function Upload() {
         <span className="image-upload-wrapper__caption">
           Click on the picture to edit
         </span>
+        <button onClick={() => setImageAdded(true)} className="visually-hidden">
+          Edit picture
+        </button>
         <FilePond
           ref={pondRef}
           files={files}
@@ -141,21 +136,23 @@ function Upload() {
         />
         {imageAdded && (
           <div className="crop-container">
-            <Cropper
-              image={`data:image/jpeg;base64,${imageB64}`}
-              cropShape={"round"}
-              crop={crop}
-              zoom={zoom}
-              aspect={1 / 1}
-              onCropChange={setCrop}
-              onZoomChange={setZoom}
-              onCropComplete={onCropComplete}
-            />
-            <Button handleClick={handleButtonConfirm}>Confirm crop</Button>
-            <Button handleClick={handleButtonCancel}>Cancel</Button>
-            <span className="crop-container__label">
-              Use your mouse or your fingers to zoom in/out
-            </span>
+            <FocusLock>
+              <Cropper
+                image={`data:image/jpeg;base64,${imageB64}`}
+                cropShape={"round"}
+                crop={crop}
+                zoom={zoom}
+                aspect={1 / 1}
+                onCropChange={setCrop}
+                onZoomChange={setZoom}
+                onCropComplete={onCropComplete}
+              />
+              <Button handleClick={handleButtonConfirm}>Confirm crop</Button>
+              <Button handleClick={handleButtonCancel}>Cancel</Button>
+              <span className="crop-container__label">
+                Use your mouse or your fingers to zoom in/out
+              </span>
+            </FocusLock>
           </div>
         )}
         <Button handleClick={handleButtonRestore} blank>
