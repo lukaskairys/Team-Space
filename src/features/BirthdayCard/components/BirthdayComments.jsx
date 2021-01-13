@@ -62,6 +62,8 @@ function BirthdayComments({
         <BirthdayInteractions wishes={wishes} />
         <CommentIcon
           className="card-comment-icon"
+          tabIndex="0"
+          aria-label="Comment on a post"
           onClick={handleCommentIconClick}
         />
         <p>{allComments.length}</p>

@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import ImageUpload from "features/ImageUpload/ImageUpload";
+import "./settingsHeader.scss";
+import ImageUpload from "features/imageUpload/components/ImageUpload";
 
 import "./settingsHeader.scss";
 

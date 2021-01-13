@@ -5,6 +5,7 @@ import { UserContext } from "../../../contexts/UserContext";
 import useCurrentTime from "../../../utils/useCurrentTime";
 import { infoToast } from "../../Toasts/ToastHandler";
 import { patch, put, putCollection } from "../../../apis/services";
+import { successToast } from "components/Toasts/ToastHandler";
 
 const useCheckinHandler = (restaurant) => {
   const {
@@ -28,7 +29,14 @@ const useCheckinHandler = (restaurant) => {
 
   const isRecheckining = (userCheckIn) => {
     if (!isObjectEmpty(userCheckIn))
-      infoToast(`You have rechecked to ${restaurant.name}`);
+      infoToast(
+        `You have rechecked from ${userCheckIn.name} to ${restaurant.name} restaurant`
+      );
+    else {
+      successToast(
+        `You have succesfully checked in to ${restaurant.name} restaurant`
+      );
+    }
   };
 
   const update = (user) => {
@@ -40,11 +48,12 @@ const useCheckinHandler = (restaurant) => {
   const remove = (user) => {
     user.checkIn = {};
     update(user);
+    successToast(`You have succesfully checked out from ${restaurant.name}`);
   };
 
   const add = (user, restaurant) => {
     isRecheckining(user.checkIn);
-    user.checkIn = { id: restaurant.id };
+    user.checkIn = { id: restaurant.id, name: restaurant.name };
     update(user);
   };
 

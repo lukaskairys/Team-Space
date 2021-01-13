@@ -23,6 +23,10 @@ function BirthdayInteractions({ wishes }) {
       <GiftIcon
         className={classNames("gift-icon", { "gift-icon--active": isWished })}
         onClick={toggleWish}
+        tabIndex="0"
+        aria-label={
+          !isWished ? `Send a happy birthday wish` : `Unsend a birthday wish`
+        }
       />
       <p>{wished}</p>
     </>

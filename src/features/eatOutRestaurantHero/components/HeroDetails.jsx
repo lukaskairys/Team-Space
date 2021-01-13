@@ -15,7 +15,11 @@ export default function HeroDetails({ restaurant }) {
     <div className="hero-details">
       <div className="hero-details__rating-box">
         <Rating restaurant={restaurant} isStatic={false} />
-        <HeartIcon itemType={FavoriteTypes.RESTAURANT} itemId={restaurant.id} />
+        <HeartIcon
+          itemType={FavoriteTypes.RESTAURANT}
+          title={restaurant.name}
+          itemId={restaurant.id}
+        />
       </div>
       <span className="hero-details__check-ins">{`${checkIns} People already checked-in!`}</span>
       <div className="hero-details__cta-box">
@@ -31,5 +35,6 @@ export default function HeroDetails({ restaurant }) {
 HeroDetails.propTypes = {
   restaurant: PropTypes.shape({
     id: PropTypes.string,
+    name: PropTypes.string,
   }),
 };

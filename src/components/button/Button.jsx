@@ -28,6 +28,7 @@ function Button({
   buttonRef,
   mobileNavToggle,
   ariaLabelText,
+  modifierClass = "",
 }) {
   const btnClass = classNames({
     button: !excludeMainClass,
@@ -52,7 +53,9 @@ function Button({
     <button
       type={type}
       onClick={handleClick}
-      className={btnClass}
+      className={
+        modifierClass === "" ? btnClass : `${btnClass} ${modifierClass}`
+      }
       tabIndex={isStatic && "-1"}
       disabled={disabled}
       data-tag-name={dataTagName}
@@ -92,6 +95,7 @@ Button.propTypes = {
   clearInput: PropTypes.bool,
   mobileNavToggle: PropTypes.bool,
   ariaLabelText: PropTypes.string,
+  modifierClass: PropTypes.string,
   buttonRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),

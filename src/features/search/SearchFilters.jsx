@@ -33,7 +33,11 @@ function SearchFilters({ activeFilter }) {
   };
 
   return (
-    <div className="search-bar__filter">
+    <div
+      role="region"
+      aria-label="search filters"
+      className="search-bar__filter"
+    >
       <Button
         filterButton
         excludeMainClass={true}
