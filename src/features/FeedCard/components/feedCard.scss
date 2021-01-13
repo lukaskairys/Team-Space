@@ -95,7 +95,6 @@
     display: flex;
     height: 4.8rem;
     margin-left: 0.2rem;
-    overflow: hidden;
     vertical-align: middle;
 }
 
@@ -147,11 +146,11 @@
     }
 }
 
-.heart-icon {
+.favorite {
     margin-right: 0.6rem;
 }
 
-.heart-icon--active {
+.favorite__heart-icon--active {
     fill: $color-watermelon;
     stroke: $color-watermelon;
 }

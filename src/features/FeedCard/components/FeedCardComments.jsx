@@ -8,7 +8,14 @@ import FeedCardCommentsRenderer from "./FeedCardCommentsRenderer";
 import Button from "../../../components/button/Button";
 import { patch } from "../../../apis/services";
 
-function FeedCardComments({ comments, username, userPhoto, likes, id }) {
+function FeedCardComments({
+  comments,
+  username,
+  userPhoto,
+  likes,
+  id,
+  storyOwner,
+}) {
   const [inputValues, setInputValues] = useState({
     commentInput: "",
   });
@@ -43,7 +50,7 @@ function FeedCardComments({ comments, username, userPhoto, likes, id }) {
   return (
     <div style={{ padding: "0 1.6rem" }}>
       <div className="interactions-container">
-        <FeedCardInteractions likes={likes} id={id} />
+        <FeedCardInteractions likes={likes} id={id} storyOwner={storyOwner} />
         <CommentIcon
           className="card-comment-icon"
           onClick={handleCommentIconClick}
@@ -96,6 +103,7 @@ FeedCardComments.propTypes = {
   userPhoto: PropTypes.string,
   likes: PropTypes.number,
   id: PropTypes.string,
+  storyOwner: PropTypes.string,
 };
 
 export default FeedCardComments;

@@ -24,11 +24,14 @@ function EatOutCardHeader({ restaurant, handleImageLoad, checkinHandler }) {
       <img
         src={restaurant.image}
         className="card-header__image"
-        alt="restaurant food"
+        alt=""
         onLoad={handleImageLoad}
       />
       <div className="card-header__icons">
-        <PersonComponent checkinHandler={checkinHandler} />
+        <PersonComponent
+          checkinHandler={checkinHandler}
+          name={restaurant.name}
+        />
         <RatingComponent restaurant={restaurant} />
       </div>
       {formCategories(restaurant.categories)}
@@ -43,6 +46,7 @@ EatOutCardHeader.propTypes = {
     categories: PropTypes.array,
     ratingAverage: PropTypes.string,
     reviews: PropTypes.array,
+    name: PropTypes.string,
   }),
   handleImageLoad: PropTypes.func,
   checkinHandler: PropTypes.shape({

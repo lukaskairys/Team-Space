@@ -24,11 +24,13 @@ import PublicRoute from "./authentication/PublicRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
 import Page404 from "pages/Page404/Page404";
 import MainLayout from "components/MainLayout/MainLayout";
+import ScrollToTop from "components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <Toast />
 
         <Switch>

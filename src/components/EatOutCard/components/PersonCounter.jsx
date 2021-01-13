@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+
+import Button from "components/button/Button";
+
 import { ReactComponent as PersonIcon } from "assets/icons/person.svg";
 
 import "./personCounter.scss";
 
-const Person = ({ checkinHandler }) => {
+const Person = ({ checkinHandler, name }) => {
   const { active, toggleCheckIn, checkIns } = checkinHandler;
   const PersonClass = classNames({
     "person-container": true,
@@ -13,17 +16,19 @@ const Person = ({ checkinHandler }) => {
   });
 
   return (
-    <div
-      onClick={toggleCheckIn}
-      onKeyDown={toggleCheckIn}
-      role="button"
-      tabIndex="0"
-      className={PersonClass}
-    >
-      <div className="person-container__items">
+    <div className={PersonClass}>
+      <Button
+        empty={true}
+        handleClick={toggleCheckIn}
+        ariaLabelText={
+          active
+            ? `Checkout from the ${name} restaurant. Check in count: ${checkIns}`
+            : `Check in to the ${name} restaurant. Check in count: ${checkIns}`
+        }
+      >
         <PersonIcon className="person-container__icon" />
-        <span className="person-container__counter">{checkIns}</span>
-      </div>
+        {checkIns}
+      </Button>
     </div>
   );
 };
@@ -34,6 +39,7 @@ Person.propTypes = {
     toggleCheckIn: PropTypes.func,
     checkIns: PropTypes.number,
   }),
+  name: PropTypes.string,
 };
 
 export default Person;

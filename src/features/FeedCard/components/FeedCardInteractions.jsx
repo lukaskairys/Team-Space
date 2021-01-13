@@ -6,7 +6,7 @@ import "./feedCard.scss";
 import HeartIcon from "../../../components/HeartIcon/HeartIcon";
 import { patch } from "../../../apis/services";
 
-function FeedCardInteractions({ likes, id }) {
+function FeedCardInteractions({ likes, id, storyOwner }) {
   const [liked, setLiked] = useState(likes);
 
   const toggleLike = (active) => {
@@ -25,6 +25,7 @@ function FeedCardInteractions({ likes, id }) {
         itemId={id}
         clickEvent={toggleLike}
         strokeColor={"slate-gray"}
+        title={storyOwner}
         feedCard
       />
       <p>{liked}</p>
@@ -35,6 +36,7 @@ function FeedCardInteractions({ likes, id }) {
 FeedCardInteractions.propTypes = {
   likes: PropTypes.number,
   id: PropTypes.string,
+  storyOwner: PropTypes.string,
 };
 
 export default FeedCardInteractions;
