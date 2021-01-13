@@ -27,8 +27,8 @@ function Button({
   clearInput,
   buttonRef,
   mobileNavToggle,
-  ariaLabel,
-  concreteClass = "",
+  ariaLabelText,
+  modifierClass = "",
 }) {
   const btnClass = classNames({
     button: !excludeMainClass,
@@ -54,13 +54,13 @@ function Button({
       type={type}
       onClick={handleClick}
       className={
-        concreteClass === "" ? btnClass : `${btnClass} ${concreteClass}`
+        modifierClass === "" ? btnClass : `${btnClass} ${modifierClass}`
       }
       tabIndex={isStatic && "-1"}
       disabled={disabled}
       data-tag-name={dataTagName}
       ref={buttonRef}
-      aria-label={ariaLabel}
+      aria-label={ariaLabelText}
     >
       {children}
     </button>
@@ -94,8 +94,8 @@ Button.propTypes = {
   excludeMainClass: PropTypes.bool,
   clearInput: PropTypes.bool,
   mobileNavToggle: PropTypes.bool,
-  ariaLabel: PropTypes.string,
-  concreteClass: PropTypes.string,
+  ariaLabelText: PropTypes.string,
+  modifierClass: PropTypes.string,
   buttonRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),

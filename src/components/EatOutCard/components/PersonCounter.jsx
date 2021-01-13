@@ -20,7 +20,7 @@ const Person = ({ checkinHandler, name }) => {
       <Button
         empty={true}
         handleClick={toggleCheckIn}
-        ariaLabel={
+        ariaLabelText={
           active
             ? `Checkout from the ${name} restaurant. Check in count: ${checkIns}`
             : `Check in to the ${name} restaurant. Check in count: ${checkIns}`

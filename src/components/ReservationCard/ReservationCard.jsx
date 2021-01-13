@@ -111,7 +111,7 @@ export default function Card({
                 disabled={false}
                 handleClick={showModal}
                 buttonRef={cancelBtnRef}
-                ariaLabel={`cancel ${title}.`}
+                ariaLabelText={`cancel ${title}.`}
               >
                 Cancel
               </Button>

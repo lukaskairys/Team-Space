@@ -34,8 +34,8 @@ function HeartIcon({
     <Button
       handleClick={toggleFavorite}
       empty={true}
-      concreteClass={"favorite"}
-      ariaLabel={
+      modifierClass={"favorite"}
+      ariaLabelText={
         !active
           ? `Add ${title} ${itemType} to favorite`
           : `Remove ${title} ${itemType} from favorite`
