@@ -8,7 +8,7 @@ import "./search.scss";
 
 function Search({ searchBtnClick, activeFilter }) {
   return (
-    <section aria-label="reservation search" className="search-bar">
+    <section role="search" aria-label="reservations" className="search-bar">
       <h2 className="search-bar__title">Search</h2>
       <SearchFilters activeFilter={activeFilter} />
       <SearchInputs searchBtnClick={searchBtnClick} />
