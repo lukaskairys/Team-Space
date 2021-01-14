@@ -37,6 +37,7 @@ function EatOutCard({ restaurant, handleImageLoad }) {
           handleCheckIns={toggleCheckIn}
           isCheckinActive={active}
           restaurantID={id}
+          name={name}
         />
       </div>
     </>

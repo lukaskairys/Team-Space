@@ -39,7 +39,7 @@ a {
     }
 
     &:focus:not(:focus-visible) {
-        outline: none;
+        outline: 0;
     }
 }
 
@@ -59,7 +59,7 @@ button {
     }
 
     &:focus:not(:focus-visible) {
-        outline: none;
+        outline: 0;
     }
 }
 

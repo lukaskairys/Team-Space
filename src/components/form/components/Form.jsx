@@ -117,50 +117,57 @@ const Form = (props) => {
         settingsHeaderRenderer(setValues, setErrors)
       ) : (
         <div className="form__header">
-          <h2 className="form__title" id={getId(action)}>
-            {title}
-          </h2>
+          <h2 className="form__title">{title}</h2>
           <p className="form__subtitle">{subtitle}</p>
         </div>
       )}
 
-      <form
-        onSubmit={handleSubmit}
-        aria-labelledby={getId(action)}
-        id={getId(action)}
-      >
-        {isPosting ? (
-          <div className="form__loader">
-            <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
-          </div>
-        ) : (
-          <>
-            {!isObjectEmpty(errors) && (
-              <ErrorsList errors={errors} submitClicked={submitClicked} />
-            )}
-            <FormContent
-              values={values}
-              errors={errors}
-              handleChange={handleChange}
-              handleBlur={handleBlur}
-              action={action}
-              maxDate={maxDate}
-              setValues={setValues}
+      <form onSubmit={handleSubmit} aria-labelledby={getId(action)}>
+        <fieldset className="form__fieldset">
+          {settingsHeaderRenderer ? (
+            <legend
+              className="visually-hidden"
+              id={getId(action)}
+            >{`change ${action} ${
+              action === "account" ? "details" : ""
+            }`}</legend>
+          ) : (
+            <legend className="visually-hidden" id={getId(action)}>
+              {title}
+            </legend>
+          )}
+          {isPosting ? (
+            <div className="form__loader">
+              <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
+            </div>
+          ) : (
+            <>
+              {!isObjectEmpty(errors) && (
+                <ErrorsList errors={errors} submitClicked={submitClicked} />
+              )}
+              <FormContent
+                values={values}
+                errors={errors}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                action={action}
+                maxDate={maxDate}
+                setValues={setValues}
+              />
+            </>
+          )}
+          {showMessage && (
+            <Message
+              message={messageText}
+              type={"error"}
+              setShowMessage={setShowMessage}
             />
-          </>
-        )}
-        {showMessage && (
-          <Message
-            message={messageText}
-            type={"error"}
-            setShowMessage={setShowMessage}
+          )}
+          <FormFooter
+            action={action}
+            confirmDeleteAccount={confirmDeleteAccount}
           />
-        )}
-
-        <FormFooter
-          action={action}
-          confirmDeleteAccount={confirmDeleteAccount}
-        />
+        </fieldset>
       </form>
     </section>
   );

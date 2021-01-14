@@ -37,7 +37,11 @@ function FormContent(props) {
             ariaRequired={field.required}
             errors={errors}
           />
-          <p className="form-content__error-msg" id={`error-${field.text}`}>
+          <p
+            className="form-content__error-msg"
+            id={`error-${field.text}`}
+            aria-live="assertive"
+          >
             {errors[field.name]}
           </p>
         </div>
