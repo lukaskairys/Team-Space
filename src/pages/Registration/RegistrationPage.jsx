@@ -12,7 +12,7 @@ function RegistrationPage() {
       <Helmet>
         <title>Registration · Team Space</title>
       </Helmet>
-      <div className="form-container">
+      <main className="form-container">
         <Logo className="logo" />
         <Form
           action={"register"}
@@ -20,7 +20,7 @@ function RegistrationPage() {
           subtitle={"Let’s get you on board."}
           buttonLabel={"Register"}
         />
-      </div>
+      </main>
     </div>
   );
 }

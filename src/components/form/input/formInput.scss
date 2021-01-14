@@ -25,4 +25,10 @@
         color: $color-iron;
         font-size: $font-size-14;
     }
+
+    &__x-icon {
+        position: absolute;
+        right: 0.7rem;
+        top: 3.7rem;
+    }
 }

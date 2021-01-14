@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 import ContextProvider from "contexts/ContextProvider";
 import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
-import EatOutByCategories from "features/EatOutByCategories/EatOutByCategories";
+import RestaurantsByCategories from "features/RestaurantsByCategories/RestaurantsByCategories";
 import { isObjectEmpty } from "utils/objects";
 import { useRequest } from "apis/useRequest";
 
@@ -28,7 +28,7 @@ function EatOutCategoriesPage() {
         <title>{"Places for " + catogoryToCheck + " · Team Space"}</title>
       </Helmet>
       <Breadcrumbs />
-      <EatOutByCategories />
+      <RestaurantsByCategories />
     </ContextProvider>
   );
 }

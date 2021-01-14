@@ -1,17 +1,11 @@
 export function validateRegistration(values, data) {
-  const { firstName, lastName, email, password, repeatPassword } = values;
+  const { firstName, email, password, repeatPassword } = values;
   let errors = {};
   // first name
   if (!firstName) {
     errors.firstName = "First Name is required";
   } else if (firstName.length < 3) {
     errors.firstName = "First Name should be at least 3 characters long.";
-  }
-  // last name
-  if (!lastName) {
-    errors.lastName = "Last Name is required";
-  } else if (lastName.length < 3) {
-    errors.lastName = "Last Name should be at least 3 characters long.";
   }
   // email
   if (!email) {
@@ -62,27 +56,28 @@ export function noValidation() {
 }
 
 export function validatePasswords(values, data, passwordCorrect) {
-  const { oldPassword, repeatPassword } = values;
+  const { currentPassword, repeatPassword } = values;
   let { newPassword } = values;
 
   let errors = {};
-  //old password
-  if (!oldPassword) {
-    errors.oldPassword = "Current password is required";
-  } else if (oldPassword.length < 6) {
-    errors.oldPassword = "Password must be 6 or more characters";
+  //current password
+  if (!currentPassword) {
+    errors.currentPassword = "Current password is required";
+  } else if (currentPassword.length < 6) {
+    errors.currentPassword = "Password must be 6 or more characters";
   } else if (!passwordCorrect) {
-    errors.oldPassword = "Password is incorrect";
+    errors.currentPassword = "Password is incorrect";
   }
   // new password
   if (!newPassword) {
     errors.newPassword = "Password is required";
   } else if (newPassword.length < 6) {
     errors.newPassword = "Password must be 6 or more characters";
-  } else if (newPassword === oldPassword) {
-    errors.newPassword = "New password should be different from the old one.";
+  } else if (newPassword === currentPassword) {
+    errors.newPassword =
+      "New password should be different from the current one.";
     errors.repeatPassword =
-      "New password should be different from the old one.";
+      "New password should be different from the current one.";
   }
   // password repeat
   if (!repeatPassword) {
@@ -100,7 +95,7 @@ export function validatePasswords(values, data, passwordCorrect) {
 }
 
 export function validateEmail(values, data, passwordCorrect) {
-  const { email, oldPassword } = values;
+  const { email, currentPassword } = values;
   let errors = {};
   // email
   if (!email) {
@@ -112,12 +107,12 @@ export function validateEmail(values, data, passwordCorrect) {
   }
 
   // password
-  if (!oldPassword) {
-    errors.oldPassword = "Current password is required";
-  } else if (oldPassword.length < 6) {
-    errors.oldPassword = "Password must be 6 or more characters";
+  if (!currentPassword) {
+    errors.currentPassword = "Current password is required";
+  } else if (currentPassword.length < 6) {
+    errors.currentPassword = "Password must be 6 or more characters";
   } else if (!passwordCorrect) {
-    errors.oldPassword = "Password is incorrect";
+    errors.currentPassword = "Password is incorrect";
   }
   return errors;
 }
