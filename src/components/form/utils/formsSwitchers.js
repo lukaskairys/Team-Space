@@ -85,7 +85,7 @@ export const getFormStructure = (action) => {
   return formStructure;
 };
 
-export const getFormFooterData = (action) => {
+export const getFormControlsData = (action) => {
   let data = {
     label: "",
     textBeforeLink: "",

@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 
 import { Context } from "contexts/Context";
 import EatOutCard from "components/EatOutCard/EatOutCard";
-import "./eatOutByCategory.scss";
+import "./restaurantsByCategory.scss";
 
-function EatOutCategoriesPage() {
+function RestaurantsByCategories() {
   const { category } = useParams();
   const { data, error, isLoading } = useContext(Context);
 
@@ -22,7 +22,7 @@ function EatOutCategoriesPage() {
   const restaurants = getRestaurants();
 
   return (
-    <main className="categories-page">
+    <article className="categories-page">
       <h1 className="categories-page__title">
         The best places for the{" "}
         <span className="categories-page__title categories-page__title--uppercase">
@@ -42,8 +42,8 @@ function EatOutCategoriesPage() {
             <EatOutCard restaurant={restaurant} key={restaurant.id} />
           ))}
       </section>
-    </main>
+    </article>
   );
 }
 
-export default EatOutCategoriesPage;
+export default RestaurantsByCategories;

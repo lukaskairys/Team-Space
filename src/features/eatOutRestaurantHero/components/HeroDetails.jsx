@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import useCheckinHandler from "components/EatOutCard/components/useCheckinHandler";
+import useCheckinHandler from "utils/useCheckinHandler";
 
 import "./heroDetails.scss";
 import HeartIcon from "components/HeartIcon/HeartIcon";
 import Button from "components/button/Button";
 import Rating from "components/Rating/Rating";
-import { FavoriteTypes } from "../../../utils/FavoriteTypes";
+import { FavoriteTypes } from "utils/FavoriteTypes";
 
 export default function HeroDetails({ restaurant }) {
   const { toggleCheckIn, active, checkIns } = useCheckinHandler(restaurant);

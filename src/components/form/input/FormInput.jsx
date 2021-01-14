@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
-import { ReactComponent as IconX } from "../../../assets/images/x.svg";
+import { ReactComponent as IconX } from "assets/images/x.svg";
 
 import "./formInput.scss";
 

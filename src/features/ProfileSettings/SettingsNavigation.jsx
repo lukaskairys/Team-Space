@@ -3,12 +3,16 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import "./settingsHeader.scss";
 import ImageUpload from "features/imageUpload/components/ImageUpload";
 
-import "./settingsHeader.scss";
+import "./settingsNavigation.scss";
 
-const SettingsHeader = ({ setWhichForm, whichForm, setValues, setErrors }) => {
+const SettingsNavigation = ({
+  setWhichForm,
+  whichForm,
+  setValues,
+  setErrors,
+}) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -68,11 +72,11 @@ const SettingsHeader = ({ setWhichForm, whichForm, setValues, setErrors }) => {
   );
 };
 
-SettingsHeader.propTypes = {
+SettingsNavigation.propTypes = {
   whichForm: PropTypes.string,
   setWhichForm: PropTypes.func,
   setValues: PropTypes.func,
   setErrors: PropTypes.func,
 };
 
-export default SettingsHeader;
+export default SettingsNavigation;

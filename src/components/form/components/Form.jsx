@@ -4,7 +4,7 @@ import Loader from "react-loader-spinner";
 
 import useForm from "../utils/useForm";
 import FormContent from "./FormContent";
-import FormFooter from "./FormFooter";
+import FormControls from "./FormControls";
 import Message from "components/Message/Message";
 import ErrorsList from "./ErrorsList";
 
@@ -20,7 +20,7 @@ const Form = (props) => {
     action,
     user,
     setUser,
-    settingsHeaderRenderer,
+    settingsNavigationRenderer,
     maxDate,
     confirmDeleteAccount,
   } = props;
@@ -113,8 +113,8 @@ const Form = (props) => {
 
   return (
     <section className="form">
-      {settingsHeaderRenderer ? (
-        settingsHeaderRenderer(setValues, setErrors)
+      {settingsNavigationRenderer ? (
+        settingsNavigationRenderer(setValues, setErrors)
       ) : (
         <div className="form__header">
           <h2 className="form__title">{title}</h2>
@@ -124,7 +124,7 @@ const Form = (props) => {
 
       <form onSubmit={handleSubmit} aria-labelledby={getId(action)}>
         <fieldset className="form__fieldset">
-          {settingsHeaderRenderer ? (
+          {settingsNavigationRenderer ? (
             <legend
               className="visually-hidden"
               id={getId(action)}
@@ -163,7 +163,7 @@ const Form = (props) => {
               setShowMessage={setShowMessage}
             />
           )}
-          <FormFooter
+          <FormControls
             action={action}
             confirmDeleteAccount={confirmDeleteAccount}
           />
@@ -179,7 +179,7 @@ Form.propTypes = {
   subtitle: PropTypes.string,
   buttonLabel: PropTypes.string,
   user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  settingsHeaderRenderer: PropTypes.func,
+  settingsNavigationRenderer: PropTypes.func,
   maxDate: PropTypes.string,
   setUser: PropTypes.func,
   confirmDeleteAccount: PropTypes.func,

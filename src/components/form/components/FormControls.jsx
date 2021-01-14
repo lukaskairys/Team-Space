@@ -2,24 +2,24 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useModal } from "utils/useModal";
-import { getFormFooterData } from "../utils/formsSwitchers";
+import { getFormControlsData } from "../utils/formsSwitchers";
 import Button from "components/button/Button";
 import Modal from "components/Modal/Modal";
 import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
-import "./formFooter.scss";
+import "./formControls.scss";
 
-function FormFooter({ action, confirmDeleteAccount }) {
+function FormControls({ action, confirmDeleteAccount }) {
   const deleteBtnRef = useRef(null);
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
 
-  const { label, textBeforeLink, linkText, linkPath } = getFormFooterData(
+  const { label, textBeforeLink, linkText, linkPath } = getFormControlsData(
     action
   );
 
   const renderLink = () => {
     if (linkPath !== "") {
       return (
-        <Link to={linkPath} className="form-footer__link">
+        <Link to={linkPath} className="form-controls__link">
           {linkText}
         </Link>
       );
@@ -28,7 +28,7 @@ function FormFooter({ action, confirmDeleteAccount }) {
   };
 
   return (
-    <div className="form-footer">
+    <div className="form-controls">
       <Button type={"submit"} large={true}>
         <span>{label}</span>
       </Button>
@@ -70,9 +70,9 @@ function FormFooter({ action, confirmDeleteAccount }) {
   );
 }
 
-FormFooter.propTypes = {
+FormControls.propTypes = {
   action: PropTypes.string,
   confirmDeleteAccount: PropTypes.func,
 };
 
-export default FormFooter;
+export default FormControls;

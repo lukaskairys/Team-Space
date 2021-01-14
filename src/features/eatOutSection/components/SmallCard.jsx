@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import EatOutCardHeader from "components/EatOutCard/components/EatOutCardHeader";
 import EatOutCardSubheader from "components/EatOutCard/components/EatOutCardSubheader";
-import useCheckinHandler from "components/EatOutCard/components/useCheckinHandler";
+import useCheckinHandler from "utils/useCheckinHandler";
 
 const SmallCard = ({ restaurant }) => {
   const { toggleCheckIn, checkIns, active } = useCheckinHandler(restaurant);

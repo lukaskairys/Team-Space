@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import bcrypt from "bcryptjs";
 
-import SettingsHeader from "./SettingsHeader";
+import SettingsNavigation from "./SettingsNavigation";
 import Form from "components/form/components/Form";
 import CurrentInfo from "./CurrentInfo";
 
@@ -68,8 +68,8 @@ function Settings() {
           user={user}
           setUser={setUser}
           confirmDeleteAccount={confirm}
-          settingsHeaderRenderer={(setValues, setErrors) => (
-            <SettingsHeader
+          settingsNavigationRenderer={(setValues, setErrors) => (
+            <SettingsNavigation
               setValues={setValues}
               setErrors={setErrors}
               setWhichForm={setWhichForm}

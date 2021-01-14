@@ -5,7 +5,7 @@ import EatOutCardHeader from "./components/EatOutCardHeader";
 import EatOutCardSubheader from "./components/EatOutCardSubheader";
 import EatOutCardContent from "./components/EatOutCardContent";
 import EatOutCardFooter from "./components/EatOutCardFooter";
-import useCheckinHandler from "./components/useCheckinHandler";
+import useCheckinHandler from "utils/useCheckinHandler";
 
 import "./eatOutCard.scss";
 
