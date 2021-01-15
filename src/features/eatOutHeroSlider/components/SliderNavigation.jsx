@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import PaginationButtons from "components/PaginationButtons/PaginationButtons";
+import Pagination from "components/Pagination/Pagination";
 
 import sliderTransitionHandler from "./utils/sliderTransitionHandler";
 import "./sliderNavigation.scss";
@@ -13,17 +13,16 @@ const SliderNavigation = ({
   setAnimationLoading,
   isAnimationLoading,
 }) => {
-  const {
-    slideLeft,
-    slideRight,
-    transitionRestaurant,
-  } = sliderTransitionHandler(
-    currentIndex,
-    counter,
+  const { transitionRestaurant } = sliderTransitionHandler(
     setAnimationLoading,
     isAnimationLoading,
     setCurrentIndex
   );
+
+  const createLabelText = (bulletIndex) => {
+    if (bulletIndex === currentIndex) return `Current page: ${bulletIndex + 1}`;
+    return `Slide to page ${bulletIndex + 1}`;
+  };
 
   const captureEvent = (i) => {
     if (i !== currentIndex) transitionRestaurant(i);
@@ -42,11 +41,7 @@ const SliderNavigation = ({
           <button
             onClick={() => captureEvent(i)}
             className={className}
-            aria-label={
-              i === currentIndex
-                ? `Current page: ${i + 1}`
-                : `Slide to page ${i + 1}`
-            }
+            aria-label={createLabelText(i)}
           ></button>
         </li>
       );
@@ -56,8 +51,14 @@ const SliderNavigation = ({
 
   return (
     <div className="slider-navigation">
-      <ul className="slider-navigation__list">{formEllipsis(counter)}</ul>
-      <PaginationButtons slideLeft={slideLeft} slideRight={slideRight} />
+      <nav role="navigation" aria-label="Slider page bullet">
+        <ul className="slider-navigation__list">{formEllipsis(counter)}</ul>{" "}
+      </nav>
+      <Pagination
+        currentPage={currentIndex}
+        totalPages={counter}
+        paginate={transitionRestaurant}
+      />
     </div>
   );
 };

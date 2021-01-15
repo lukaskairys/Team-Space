@@ -1,26 +1,10 @@
 import { toggleAnimation } from "./toggleAnimation";
 
 const sliderTransitionHandler = (
-  currentIndex,
-  counter,
   setAnimationLoading,
   isAnimationLoading,
   setCurrentIndex
 ) => {
-  const slideLeft = () => {
-    let newIndex = currentIndex;
-    if (currentIndex === 0) newIndex = counter - 1;
-    else newIndex = currentIndex - 1;
-    transitionRestaurant(newIndex);
-  };
-
-  const slideRight = () => {
-    let newIndex = currentIndex;
-    if (currentIndex === counter - 1) newIndex = 0;
-    else newIndex = currentIndex + 1;
-    transitionRestaurant(newIndex);
-  };
-
   const transitionRestaurant = (i) => {
     if (!isAnimationLoading) {
       toggleAnimation();
@@ -39,7 +23,7 @@ const sliderTransitionHandler = (
     }
   };
 
-  return { slideLeft, slideRight, transitionRestaurant };
+  return { transitionRestaurant };
 };
 
 export default sliderTransitionHandler;

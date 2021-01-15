@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2021-01-13"
+    "date": "2021-01-15"
   },
   "users": [
     {
@@ -40,10 +40,23 @@
         "restaurants": [
           {
             "id": "0px1y6iixy"
+          },
+          {
+            "id": "nv6hmnta6r"
+          },
+          {
+            "id": "9kdf9qawui"
+          },
+          {
+            "id": "h3hlqj5bcb"
           }
         ],
         "books": [],
-        "devices": [],
+        "devices": [
+          {
+            "id": "193ywpe740"
+          }
+        ],
         "stories": [
           {
             "id": "10187tep27"
@@ -52,8 +65,8 @@
         "rooms": []
       },
       "checkIn": {
-        "id": "0px1y6iixy",
-        "name": "Hop Doc Gastropub"
+        "id": "9kdf9qawui",
+        "name": "Katpėdėlė"
       },
       "rated": {
         "books": []
