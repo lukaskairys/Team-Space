@@ -44,9 +44,8 @@ const SliderNavigation = ({
           ? "slider-navigation__circle is_active"
           : "slider-navigation__circle";
       indents.push(
-        <li>
+        <li key={i}>
           <CircleIcon
-            key={i}
             className={className}
             onClick={(e) => captureEvent(e, i)}
           />
