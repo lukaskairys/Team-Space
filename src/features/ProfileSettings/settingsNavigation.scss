@@ -1,0 +1,46 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.profile-settings-nav {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+
+    @include respond-to($breakpoint-settings-md, max) {
+        margin-bottom: 2.5rem;
+    }
+
+    &__items {
+        @include typography-h4-alternative;
+
+        color: $color-fiord;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        width: 19rem;
+    }
+
+    &__item {
+        font-weight: $medium-weight;
+        padding: 0.6rem;
+
+        &:hover,
+        &:focus {
+            color: $color-midnight;
+        }
+
+        a:visited {
+            color: $color-fiord;
+        }
+    }
+
+    .active-setting-link {
+        color: $color-bright-violet;
+        font-weight: $bold-weight;
+
+        a:visited {
+            color: $color-bright-violet;
+        }
+    }
+}

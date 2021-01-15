@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import RatingComponent from "../../../components/Rating/Rating";
+import RatingComponent from "components/Rating/Rating";
 import PersonComponent from "./PersonCounter";
 import "./eatOutCardHeader.scss";
 

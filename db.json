@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2021-01-15"
+    "date": "2021-01-14"
   },
   "users": [
     {
@@ -64,10 +64,7 @@
         ],
         "rooms": []
       },
-      "checkIn": {
-        "id": "9kdf9qawui",
-        "name": "Katpėdėlė"
-      },
+      "checkIn": {},
       "rated": {
         "books": []
       },

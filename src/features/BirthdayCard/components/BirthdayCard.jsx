@@ -20,7 +20,13 @@ function BirthdayCard({ story, userPhoto, userName }) {
   };
 
   return (
-    <div className={heartClass} id={story.id} ref={birthdayCard}>
+    <div
+      role="region"
+      aria-label="birthday card"
+      className={heartClass}
+      id={story.id}
+      ref={birthdayCard}
+    >
       <div className="birthday-card__image-container">
         <img
           className="birthday-card__image"

@@ -9,7 +9,7 @@ import { ReactComponent as PlayButton } from "../../../assets/images/play-button
 
 function FeedCardVideo({ story, userPhoto, userName }) {
   return (
-    <div className="feed-card">
+    <div role="region" aria-label="Video feed card" className="feed-card">
       <div className="feed-card__info">
         <img
           className="feed-card__info-img"
@@ -33,6 +33,7 @@ function FeedCardVideo({ story, userPhoto, userName }) {
           playing
           controls
           playIcon={<PlayButton />}
+          aria-label="Video post"
         />
       </div>
       <div className="feed-card-divider"></div>

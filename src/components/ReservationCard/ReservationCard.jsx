@@ -113,7 +113,7 @@ export default function Card({
                 buttonRef={cancelBtnRef}
                 ariaLabelText={`cancel ${title}.`}
               >
-                Cancel
+                Cancel <span className="visually-hidden">{title}</span>
               </Button>
             ) : (
               <Button medium disabled={buttonDisabled ? true : false}>

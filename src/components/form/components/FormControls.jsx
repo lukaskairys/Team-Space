@@ -2,51 +2,33 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useModal } from "utils/useModal";
-
+import { getFormControlsData } from "../utils/formsSwitchers";
 import Button from "components/button/Button";
 import Modal from "components/Modal/Modal";
 import ConfirmationModalContent from "components/Confirmation/ConfirmationModalContent";
-import "./formFooter.scss";
+import "./formControls.scss";
 
-function FormFooter({ action, confirmDeleteAccount }) {
+function FormControls({ action, confirmDeleteAccount }) {
   const deleteBtnRef = useRef(null);
   const { modalOpen, showModal, setModalOpen, closeModal } = useModal();
 
-  const getFormFooterData = () => {
-    let data = {
-      label: "",
-      textBeforeLink: "",
-      linkText: "",
-      linkPath: "",
-    };
-    switch (action) {
-      case "register":
-        data.label = "Register";
-        data.textBeforeLink = "Already have account?";
-        data.linkText = "Sign in";
-        data.linkPath = "/login";
-        break;
-      case "login":
-        data.label = "Login";
-        data.textBeforeLink = "Don't have an account?";
-        data.linkText = "Sign up";
-        data.linkPath = "/registration";
-        break;
-      case "account":
-      case "passwords":
-      case "email":
-        data.label = "Change";
-        break;
-      default:
-        return data;
+  const { label, textBeforeLink, linkText, linkPath } = getFormControlsData(
+    action
+  );
+
+  const renderLink = () => {
+    if (linkPath !== "") {
+      return (
+        <Link to={linkPath} className="form-controls__link">
+          {linkText}
+        </Link>
+      );
     }
-    return data;
+    return "";
   };
 
-  const { label, textBeforeLink, linkText, linkPath } = getFormFooterData();
-
   return (
-    <div className="form-footer">
+    <div className="form-controls">
       <Button type={"submit"} large={true}>
         <span>{label}</span>
       </Button>
@@ -61,9 +43,7 @@ function FormFooter({ action, confirmDeleteAccount }) {
             Delete my account
           </Button>
         ) : (
-          <Link to={linkPath} className="form-footer__link">
-            {linkText}
-          </Link>
+          renderLink()
         )}
       </p>
 
@@ -90,9 +70,9 @@ function FormFooter({ action, confirmDeleteAccount }) {
   );
 }
 
-FormFooter.propTypes = {
+FormControls.propTypes = {
   action: PropTypes.string,
   confirmDeleteAccount: PropTypes.func,
 };
 
-export default FormFooter;
+export default FormControls;
