@@ -151,8 +151,9 @@ const Rating = ({
                 <input
                   className="rating__input visually-hidden"
                   type="radio"
-                  name={`rating-for-${!isStatic ? restaurant.id : ""}`}
-                  id={`star${ratingValue}`}
+                  name={`rating-for-${
+                    !isStatic && !isFromBooks ? restaurant.id : ""
+                  }`}
                   value={ratingValue}
                   onChange={() => {
                     setRating(ratingValue, (currentRating) => {

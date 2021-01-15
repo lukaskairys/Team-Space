@@ -40,6 +40,7 @@ const InputSlider = ({ min, max, step, setCounter }) => {
       <input
         ref={range}
         className="range-slider__input"
+        aria-label="range filter slider."
         id="range"
         type="range"
         min={min}

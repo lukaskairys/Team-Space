@@ -22,10 +22,18 @@ const Pagination = ({ currentPage, totalPages, paginate }) => {
 
   return (
     <div className="navigation-buttons">
-      <button className="navigation-buttons__left" onClick={slideLeft}>
+      <button
+        className="navigation-buttons__left"
+        aria-label="previous."
+        onClick={slideLeft}
+      >
         <ChevronLeft className="navigation-buttons__icon" />
       </button>
-      <button className="navigation-buttons__right" onClick={slideRight}>
+      <button
+        className="navigation-buttons__right"
+        aria-label="next."
+        onClick={slideRight}
+      >
         <ChevronRight className="navigation-buttons__icon" />
       </button>
     </div>
