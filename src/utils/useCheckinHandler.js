@@ -1,10 +1,11 @@
 import { useContext, useState, useEffect, useCallback } from "react";
 
-import { isObjectEmpty } from "../../../utils/objects";
-import { UserContext } from "../../../contexts/UserContext";
-import useCurrentTime from "../../../utils/useCurrentTime";
-import { infoToast } from "../../Toasts/ToastHandler";
-import { patch, put, putCollection } from "../../../apis/services";
+import useCurrentTime from "utils/useCurrentTime";
+
+import { isObjectEmpty } from "utils/objects";
+import { UserContext } from "contexts/UserContext";
+import { patch, put, putCollection } from "apis/services";
+import { infoToast } from "components/Toasts/ToastHandler";
 import { successToast } from "components/Toasts/ToastHandler";
 
 const useCheckinHandler = (restaurant) => {

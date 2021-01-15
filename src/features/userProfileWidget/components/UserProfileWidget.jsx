@@ -13,7 +13,7 @@ import "./userProfileWidget.scss";
 function UserProfileWidget() {
   const [image, setImage] = useState(null);
   const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const { data, error } = useContext(UserContext);
   const { logout } = useAuthentication();
   const dropdownRef = useRef(null);
@@ -26,8 +26,7 @@ function UserProfileWidget() {
   }, [data, error]);
 
   useEffect(() => {
-    setExpanded(!expanded);
-    // eslint-disable-next-line
+    setExpanded(open);
   }, [open]);
 
   return (

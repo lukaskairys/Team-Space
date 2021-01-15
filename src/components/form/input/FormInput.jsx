@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import { ReactComponent as IconX } from "../../../assets/images/x.svg";
+
+import { ReactComponent as IconX } from "assets/images/x.svg";
+
 import "./formInput.scss";
-import Button from "../../button/Button";
 
 function FormInput(props) {
   const {
@@ -14,17 +15,20 @@ function FormInput(props) {
     onChange,
     className,
     value,
-    onFocus,
+    onBlur,
     isError,
-    handleXclick,
-    max,
+    maxDate,
+    describedby,
+    ariaRequired,
   } = props;
 
-  const inputRef = React.useRef(null);
+  const inputRef = useRef(null);
 
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name}>
+        {label} {ariaRequired && <span aria-hidden>*</span>}
+      </label>
       <input
         id={id}
         name={name}
@@ -33,19 +37,15 @@ function FormInput(props) {
         value={value}
         placeholder={placeholder}
         className={className}
-        onFocus={onFocus}
+        onBlur={onBlur}
         ref={inputRef}
-        max={max}
+        max={maxDate}
+        aria-describedby={describedby}
+        autoComplete="off"
+        aria-required={ariaRequired ? "true" : "false"}
+        aria-invalid={isError ? "true" : "false"}
       />
-      {isError && (
-        <Button
-          type={"button"}
-          iconX={true}
-          handleClick={() => handleXclick(inputRef)}
-        >
-          <IconX />
-        </Button>
-      )}
+      {isError && <IconX className="form-input__x-icon" />}
     </>
   );
 }
@@ -59,10 +59,11 @@ FormInput.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.any,
   className: PropTypes.string,
-  onFocus: PropTypes.func,
-  handleXclick: PropTypes.func,
+  onBlur: PropTypes.func,
   isError: PropTypes.bool,
-  max: PropTypes.string,
+  maxDate: PropTypes.string,
+  describedby: PropTypes.string,
+  ariaRequired: PropTypes.bool,
 };
 
 export default FormInput;

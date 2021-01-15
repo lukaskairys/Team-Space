@@ -1,0 +1,20 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+.errors-list {
+    color: $color-fiord;
+    margin: 0 0 1rem 3rem;
+
+    &__link {
+        color: $color-dark-violet;
+        text-decoration: underline;
+
+        &:visited {
+            color: $color-dark-violet;
+        }
+    }
+
+    &__title {
+        margin-left: -3rem;
+    }
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -16,16 +16,28 @@ function Message({ type, message, setShowMessage }) {
     "message--error": type === "error",
   });
 
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    buttonRef?.current && buttonRef.current.focus();
+  }, [message]);
+
   const closeMessage = () => {
     setShowMessage(false);
   };
 
   return (
-    <p className={messageClass}>
+    <p className={messageClass} role={type === "error" ? "alert" : ""}>
       {type === "success" && <Check className="message__icon" />}
       {type === "error" && <CircleX className="message__icon" />}
       {message}
-      <Button iconX={true} type={"button"} handleClick={closeMessage}>
+      <Button
+        iconX={true}
+        type={"button"}
+        handleClick={closeMessage}
+        ariaLabelText={"close error"}
+        buttonRef={buttonRef}
+      >
         <IconX />
       </Button>
     </p>

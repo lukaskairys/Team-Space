@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FavoriteTypes } from "../../../utils/FavoriteTypes";
 import { Link } from "react-router-dom";
 
-import HeartIcon from "../../HeartIcon/HeartIcon";
+import HeartIcon from "components/HeartIcon/HeartIcon";
+
+import { FavoriteTypes } from "utils/FavoriteTypes";
 import {
   createWorkingSchedule,
   formatOpeningDate,
-} from "./RestaurantWorkingSchedule";
+} from "../utils/RestaurantWorkingSchedule";
+
 import "./eatOutCardSubheader.scss";
 
 function EatOutCardSubheader({ id, restaurantName, openingHours }) {
