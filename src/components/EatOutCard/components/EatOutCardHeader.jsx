@@ -8,7 +8,7 @@ import "./eatOutCardHeader.scss";
 function EatOutCardHeader({ restaurant, handleImageLoad, checkinHandler }) {
   const formCategories = (categories) => {
     return (
-      <ul className="card-header__categories">
+      <ul className="card-header__categories" aria-label="Main menu dishes">
         {categories.map((category) => {
           return (
             <li key={category.toString()} className="card-header__item">
