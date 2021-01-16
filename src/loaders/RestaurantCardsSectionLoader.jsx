@@ -15,7 +15,7 @@ const Grid = () => {
     );
   };
 
-  const mobileLayout = () => {
+  const tabletLayout = () => {
     return (
       <>
         <rect x="20" y="36" rx="5" ry="5" width="360" height="350" />
@@ -26,12 +26,12 @@ const Grid = () => {
 
   const renderLoader = () => {
     if (width > 1200) return desktopLayout();
-    else return mobileLayout();
+    else return tabletLayout();
   };
 
   return (
     <ContentLoader
-      viewBox="5 0 790 500"
+      viewBox="5 0 790 450"
       height="100%"
       width="100%"
       backgroundColor="#f6f7f8"

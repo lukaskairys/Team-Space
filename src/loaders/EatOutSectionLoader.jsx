@@ -7,8 +7,7 @@ const EatOutSectionContentLoader = () => {
   const [viewBoxHeight, setViewBoxHeight] = useState(220);
 
   useEffect(() => {
-    if (width > 1439) setViewBoxHeight(220);
-    else if (width < 1440 && width > 1090) setViewBoxHeight(380);
+    if (width < 1440 && width > 1090) setViewBoxHeight(380);
     else setViewBoxHeight(800);
   }, [width]);
 

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import ContentLoader from "react-content-loader";
 import useWindowDimensions from "utils/useWindowDimensions";
 
-const Grid = () => {
+const ReservationsPageLoader = () => {
   const { width } = useWindowDimensions();
-  const [viewBoxHeight, setViewBoxHeight] = useState(100);
+  const [viewBoxHeight, setViewBoxHeight] = useState(400);
 
   useEffect(() => {
-    if (width > 1200) setViewBoxHeight(650);
-    else setViewBoxHeight(800);
+    if (width < 1200) setViewBoxHeight(600);
   }, [width]);
 
   const desktopLayout = () => {
@@ -26,9 +25,8 @@ const Grid = () => {
   const mobileLayout = () => {
     return (
       <>
-        <rect x="30" y="36" rx="5" ry="5" width="720" height="130" />
-        <rect x="30" y="186" rx="5" ry="5" width="720" height="130" />
-        <rect x="30" y="336" rx="5" ry="5" width="720" height="130" />
+        <rect x="30" y="36" rx="5" ry="5" width="720" height="180" />
+        <rect x="30" y="300" rx="5" ry="5" width="720" height="180" />
       </>
     );
   };
@@ -50,4 +48,4 @@ const Grid = () => {
   );
 };
 
-export default Grid;
+export default ReservationsPageLoader;
