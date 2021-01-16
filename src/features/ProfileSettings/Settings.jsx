@@ -56,7 +56,7 @@ function Settings() {
   };
 
   return (
-    <div className="profile-settings">
+    <div className="profile-settings fade-in">
       <h1 className="profile-settings__title" id="settings-title">
         Profile settings
       </h1>

@@ -14,7 +14,7 @@ import "./Dashboard.scss";
 const Dashboard = () => {
   const currentTime = useCurrentTime();
   return (
-    <div className="dashboard">
+    <div className="dashboard fade-in">
       <Helmet>
         <title>Dashboard · Team Space</title>
       </Helmet>

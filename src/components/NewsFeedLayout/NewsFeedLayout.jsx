@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
+import NewsFeedLoader from "loaders/NewsFeedLoader";
+
 import "./NewsFeedLayout.scss";
 import useLayoutChildren from "./useLayoutChildren";
 
@@ -17,7 +19,7 @@ const NewsFeedLayout = ({ children }) => {
     );
 
     if (
-      e.currentTarget.classList.contains("news-feed-section") &&
+      e.currentTarget.classList.contains("news-feed") &&
       !e.target.classList.contains("comment-input") &&
       !e.target.classList.contains("button") &&
       !e.target.classList.contains("new-comment-container")
@@ -41,7 +43,11 @@ const NewsFeedLayout = ({ children }) => {
   return (
     <section className="news-feed" ref={newsFeedSection}>
       <h2 className="news-feed__title">News and Stories</h2>
-      <div className="news-feed__content">{cards}</div>
+      {cards.length > 0 ? (
+        <div className="news-feed__content">{cards}</div>
+      ) : (
+        <NewsFeedLoader height={850} width={450} />
+      )}
     </section>
   );
 };

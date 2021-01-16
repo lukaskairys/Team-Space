@@ -2,7 +2,7 @@
 @import '../../../styles/mixins/mixins';
 
 $_icon-size: 1.3em;
-$_z-index-top: 100;
+$_z-index-top: 1000;
 
 .filepond {
     $this: &;
@@ -66,7 +66,7 @@ $_z-index-top: 100;
 
 .crop-container {
     @include animation(
-        'fade-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both'
+        'fadeIn 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both'
     );
     background-color: $color-black-faded;
     bottom: 0;

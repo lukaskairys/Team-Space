@@ -23,6 +23,7 @@
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-content-loader": "^6.0.0",
     "react-dom": "^17.0.1",
     "react-easy-crop": "^3.3.1",
     "react-filepond": "^7.1.0",
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-server": "json-server --watch db.json --port 3008",
+    "start-server": "json-server --watch db.json --port 3008 --delay 2000",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "npm run -s lint:prettier:check && npm run -s lint:eslint:check && npm run -s lint:stylelint:check",

@@ -27,7 +27,6 @@ function BirthdayComments({
 
   function handleCommentIconClick() {
     commentDisplay.current.classList.toggle("d-none");
-    commentDisplay.current.classList.toggle("fade-in");
     textInput.current.focus();
     if (onCommentClick !== undefined) {
       onCommentClick();

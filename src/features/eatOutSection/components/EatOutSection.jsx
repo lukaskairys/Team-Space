@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import EatOutSectionLoader from "loaders/EatOutSectionLoader";
+
 import "./eatOutSection.scss";
 import { FetchBestRatedRestaurants } from "../../../utils/Api";
 import SmallCard from "./SmallCard";
@@ -45,21 +47,29 @@ const EatOutSection = ({ withoutRestaurants }) => {
     ));
   };
 
-  return (
-    <ul className="eat-out-section">
-      <li className="eat-out-section__column">
-        <section className="eat-out-section__content">
-          <h3 className="eat-out-section__suggestion">
-            View all your favorite lunch spots and more
-          </h3>
-          <Link to={"/eat-out"} className={"button button--medium"}>
-            <span>Browse List</span>
-          </Link>
-        </section>
-      </li>
-      {!withoutRestaurants && renderRestaurants(restaurants)}
-    </ul>
-  );
+  if (restaurants.length === 0) {
+    return (
+      <>
+        <EatOutSectionLoader />
+      </>
+    );
+  } else {
+    return (
+      <ul className="eat-out-section">
+        <li className="eat-out-section__column">
+          <section className="eat-out-section__content">
+            <h3 className="eat-out-section__suggestion">
+              View all your favorite lunch spots and more
+            </h3>
+            <Link to={"/eat-out"} className={"button button--medium"}>
+              <span>Browse List</span>
+            </Link>
+          </section>
+        </li>
+        {!withoutRestaurants && renderRestaurants(restaurants)}
+      </ul>
+    );
+  }
 };
 
 EatOutSection.propTypes = {

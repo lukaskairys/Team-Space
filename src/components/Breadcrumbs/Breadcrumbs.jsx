@@ -52,9 +52,9 @@ const Breadcrumbs = () => {
       </nav>
     );
   } else if (error) {
-    return <div>Error</div>;
+    return null;
   }
-  return <div></div>;
+  return <div style={{ height: "1.28rem", marginBottom: "0.8rem" }}></div>;
 };
 
 export default Breadcrumbs;

@@ -9,8 +9,8 @@ import "./tag.scss";
 function Tag({ name, handleSingleTag }) {
   return (
     <div className="tag">
-      <span className="tag__name">{name}</span>
       <Button empty dataTagName={name} handleClick={handleSingleTag}>
+        <span className="tag__name">{name}</span>
         <IconX className="tag__icon" />
       </Button>
     </div>
