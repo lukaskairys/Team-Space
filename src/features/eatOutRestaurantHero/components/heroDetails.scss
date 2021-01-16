@@ -62,7 +62,7 @@ $_spacing: 1.6rem;
 
     &__invite-text {
         @include typography-caption-caps;
-        color: $color-slate-gray;
+        color: $color-darkened-slate-gray;
         cursor: pointer;
         padding: 0 $_spacing;
 

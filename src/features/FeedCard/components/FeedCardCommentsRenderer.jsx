@@ -5,7 +5,8 @@ import "../../FeedCard/components/feedCard.scss";
 
 function FeedCardCommentsRenderer({ comments }) {
   return (
-    <div className="feed-card__comments-container">
+    // eslint-disable-next-line
+    <div className="feed-card__comments-container" tabIndex="0">
       {comments
         .sort(function (firstComment, secondComment) {
           return new Date(firstComment.date) - new Date(secondComment.date);

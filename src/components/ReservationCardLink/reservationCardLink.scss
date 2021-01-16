@@ -2,7 +2,6 @@
 @import '../../styles/mixins/mixins';
 
 $_breakpoint: 1515;
-$_darkened-slate-gray: darken($color-slate-gray, 2%);
 
 .reservations-card {
     align-items: center;
@@ -56,7 +55,7 @@ $_darkened-slate-gray: darken($color-slate-gray, 2%);
 
     &__caption {
         @include typography-caption-caps;
-        color: $_darkened-slate-gray;
+        color: $color-darkened-slate-gray;
     }
 
     &__image-box {

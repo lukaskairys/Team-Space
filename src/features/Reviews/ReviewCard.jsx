@@ -13,13 +13,13 @@ function ReviewCard({ review, inModal }) {
         "review-card--in-modal": inModal,
       })}
     >
-      <h4
+      <h3
         className={classNames("review-card__title", {
           "review-card__title--truncate": !inModal,
         })}
       >
         {review.userName}
-      </h4>
+      </h3>
       <p
         className={classNames("review-card__content", {
           "review-card__content--truncate": !inModal,
