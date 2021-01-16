@@ -46,7 +46,7 @@ const NewsFeedLayout = ({ children }) => {
       {cards.length > 0 ? (
         <div className="news-feed__content">{cards}</div>
       ) : (
-        <NewsFeedLoader height={850} width={450} />
+        <NewsFeedLoader />
       )}
     </section>
   );
