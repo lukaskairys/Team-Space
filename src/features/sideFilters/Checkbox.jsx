@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 
 import "./checkbox.scss";
 
-const Checkbox = ({ name, checked, onChange, label, dataFilterType }) => {
+const Checkbox = (props) => {
+  const { name, checked, onChange, label, dataFilterType } = props;
+
   return (
     <div className="checkbox">
       <input
