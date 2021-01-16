@@ -80,13 +80,13 @@ const MainLayout = ({ children }) => {
             {isSmallerScreen && (
               <Navigation isMobile={windowWidth <= mobileSize ? true : false} />
             )}
-            <div className="main-layout__status">
+            <section className="main-layout__status">
               <NotificationBell className="main-layout__notifications" />
 
               <div className="main-layout__profile">
                 <UserProfileWidget />
               </div>
-            </div>
+            </section>
           </header>
           <main className="main-layout__main">{children}</main>
           <footer className="main-layout__footer">

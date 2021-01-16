@@ -3,7 +3,7 @@
 
 $_transition-speed: 0.5s;
 
-.rating-container {
+.rating {
     $_this: &;
 
     @include typography-caption;
@@ -26,13 +26,9 @@ $_transition-speed: 0.5s;
         justify-content: space-between;
     }
 
-    &__label {
+    &__star {
         padding-top: 0.2rem;
         width: 0;
-    }
-
-    &__input {
-        display: none;
     }
 
     &__icon {
@@ -51,18 +47,29 @@ $_transition-speed: 0.5s;
         transition: opacity 0.3s;
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
+        background: $color-yellow;
         cursor: pointer;
         transition: width $_transition-speed;
         width: 14.5rem;
 
         @for $i from 2 through 5 {
-            #{$_this}__label:nth-of-type(#{$i}) .is-expandable {
+            #{$_this}__star:nth-of-type(#{$i}) .is-expandable {
                 opacity: 1;
                 transition: opacity $_transition-speed;
                 transition-delay: 0.1s + (($i - 2) * 0.04s);
             }
         }
+    }
+
+    &:focus-visible {
+        outline: $base-outline;
+    }
+
+    &:focus:not(:focus-visible) {
+        background: $color-yellow;
+        outline: none;
     }
 
     &--is-static {
@@ -82,6 +89,10 @@ $_transition-speed: 0.5s;
             &__icon {
                 cursor: auto;
                 fill: $color-dark-fiord;
+            }
+
+            &__input {
+                display: none;
             }
         }
 
@@ -106,11 +117,11 @@ $_transition-speed: 0.5s;
             justify-content: space-evenly;
         }
 
-        #{$_this}__label {
+        #{$_this}__star {
             width: 1.2rem;
         }
 
-        #{$_this}__label .is-expandable {
+        #{$_this}__star .is-expandable {
             opacity: 1;
         }
     }

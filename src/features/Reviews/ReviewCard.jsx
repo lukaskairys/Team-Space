@@ -7,7 +7,7 @@ import "./reviewCard.scss";
 
 function ReviewCard({ review, inModal }) {
   return (
-    <div
+    <article
       className={classNames("review-card", {
         "review-card--truncate": !inModal,
         "review-card--in-modal": inModal,
@@ -28,7 +28,7 @@ function ReviewCard({ review, inModal }) {
         {review.comment}
       </p>
       <RatingComponent ratingValue={review.rating} isStatic={true} />
-    </div>
+    </article>
   );
 }
 
