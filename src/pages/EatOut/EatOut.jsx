@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from "react";
-import { useLocation, useHistory } from "react-router-dom";
+import React, { useRef } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { HandleScroll } from "utils/HandleScroll.js";
@@ -12,16 +11,9 @@ import RestaurantCardsSection from "components/RestaurantsCardsSection/Restauran
 import "./EatOut.scss";
 
 const EatOut = () => {
-  const location = useLocation();
-  const history = useHistory();
   const scrollRef = useRef(null);
-
-  useEffect(() => {
-    if (location.isRedirected) {
-      history.push("#categories");
-    }
-  }, [location, history]);
-  HandleScroll(scrollRef, "#categories");
+  const hash = "#categories";
+  HandleScroll(scrollRef, hash);
 
   return (
     <div className="eat-out">

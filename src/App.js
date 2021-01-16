@@ -81,7 +81,7 @@ function App() {
             <Redirect
               to={{
                 pathname: "/eat-out",
-                isRedirected: true,
+                hash: "categories",
               }}
             />
           </PrivateRoute>
