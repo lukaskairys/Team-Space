@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ContentLoader from "react-content-loader";
 import useWindowDimensions from "utils/useWindowDimensions";
 
-const Grid = () => {
+const EatOutSectionContentLoader = () => {
   const { width } = useWindowDimensions();
   const [viewBoxHeight, setViewBoxHeight] = useState(220);
 
@@ -60,4 +60,4 @@ const Grid = () => {
   );
 };
 
-export default Grid;
+export default EatOutSectionContentLoader;

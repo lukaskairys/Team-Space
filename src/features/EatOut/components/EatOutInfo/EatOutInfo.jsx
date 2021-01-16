@@ -72,9 +72,9 @@ const EatOutInfo = () => {
       </main>
     );
   } else if (error) {
-    return <div>Error</div>;
+    return null;
   }
-  return <div></div>;
+  return null;
 };
 
 export default EatOutInfo;

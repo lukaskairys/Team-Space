@@ -2,7 +2,7 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 import useWindowDimensions from "utils/useWindowDimensions";
 
-const Grid = () => {
+const NewsFeedContentLoader = () => {
   const { width } = useWindowDimensions();
 
   const desktopLayout = () => {
@@ -56,4 +56,4 @@ const Grid = () => {
   );
 };
 
-export default Grid;
+export default NewsFeedContentLoader;

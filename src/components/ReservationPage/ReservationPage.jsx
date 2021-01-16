@@ -5,6 +5,7 @@ import Breadcrumbs from "components/Breadcrumbs/Breadcrumbs";
 import ReservationsList from "features/reservationsPageList/components/ReservationsList";
 import SideFilters from "features/sideFilters/SideFilters";
 import Search from "features/search/Search";
+import ReservationsPageLoader from "loaders/ReservationsPageLoader";
 
 import { useReservationPages } from "./useReservationPages";
 import { useSearch } from "features/search/useSearch";
@@ -35,41 +36,45 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
           -1
         )} Reservations`}</h1>
         <Search searchBtnClick={searchBtnClick} activeFilter={activeFilter} />
-        <div className="reservation-page__content">
-          <div className="reservation-page__side-filters">
-            {filtersToRender !== undefined &&
-              filtersToRender.map((item, i) => (
-                <SideFilters
-                  key={item[0]}
-                  title={item[0]}
-                  filterItems={item[1]}
-                  filterTags={tags}
-                  clearAll={clearAll}
-                  tags={tags}
-                  handleChange={handleChange}
-                  filterRef={refs && refs[i]}
-                  value={item}
-                  counter={counter}
-                  isCombined={Array.isArray(listData[0][item[0]])}
-                />
-              ))}
-            {inputSliderRenderer
-              ? inputSliderRenderer(setCounter, listData)
-              : ""}
+        {listData ? (
+          <div className="reservation-page__content">
+            <div className="reservation-page__side-filters">
+              {filtersToRender !== undefined &&
+                filtersToRender.map((item, i) => (
+                  <SideFilters
+                    key={item[0]}
+                    title={item[0]}
+                    filterItems={item[1]}
+                    filterTags={tags}
+                    clearAll={clearAll}
+                    tags={tags}
+                    handleChange={handleChange}
+                    filterRef={refs && refs[i]}
+                    value={item}
+                    counter={counter}
+                    isCombined={Array.isArray(listData[0][item[0]])}
+                  />
+                ))}
+              {inputSliderRenderer
+                ? inputSliderRenderer(setCounter, listData)
+                : ""}
+            </div>
+            <ReservationsList
+              searchTerm={searchData.searchTerm}
+              date={searchData.date}
+              tags={tags}
+              handleSingleTag={handleSingleTag}
+              availabilityOn={searchData.availabilityOn}
+              favoritesOn={searchData.favoritesOn}
+              listName={listName}
+              listData={listData}
+              counter={counter}
+              endpoint={page}
+            />
           </div>
-          <ReservationsList
-            searchTerm={searchData.searchTerm}
-            date={searchData.date}
-            tags={tags}
-            handleSingleTag={handleSingleTag}
-            availabilityOn={searchData.availabilityOn}
-            favoritesOn={searchData.favoritesOn}
-            listName={listName}
-            listData={listData}
-            counter={counter}
-            endpoint={page}
-          />
-        </div>
+        ) : (
+          <ReservationsPageLoader />
+        )}
       </section>
     </>
   );

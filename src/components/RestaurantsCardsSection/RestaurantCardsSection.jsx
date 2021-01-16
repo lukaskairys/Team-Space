@@ -21,6 +21,7 @@ import { geolocationOptions } from "../../utils/geolocationOptions";
 import { toggleAnimation } from "../../utils/toggleAnimation";
 import { LayoutHandler } from "./LayoutHandler";
 import { isObjectEmpty } from "utils/objects";
+import RestaurantCardsSectionLoader from "loaders/RestaurantCardsSectionLoader";
 
 const RestaurantCardsSection = ({ title, mode }) => {
   const { data, error } = useContext(Context);
@@ -106,7 +107,9 @@ const RestaurantCardsSection = ({ title, mode }) => {
     }
   };
 
-  if (data.length > 0) {
+  if (data.length === 0) {
+    return <RestaurantCardsSectionLoader />;
+  } else if (data.length > 0) {
     if (visibleData.length > 0) {
       return (
         <div ref={sectionRef} className="restaurant-cards-section">
@@ -138,7 +141,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
       );
     } else return <Error message={"No restaurants matched"} />;
   } else if (error) {
-    return <Error message={"Failed to fetch  restaurants"} />;
+    return <Error message={"Failed to fetch restaurants"} />;
   }
   return "";
 };
