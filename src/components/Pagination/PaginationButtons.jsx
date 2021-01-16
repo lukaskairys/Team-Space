@@ -1,34 +1,45 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./navigationButtons.scss";
+import "./paginationButtons.scss";
 import { ReactComponent as ChevronRight } from "assets/icons/chevron-right.svg";
 import { ReactComponent as ChevronLeft } from "assets/icons/chevron-left.svg";
 
-const NavigationButtons = (props) => {
+const PaginationButtons = ({
+  slideLeft,
+  slideRight,
+  formatAriaRight,
+  formatAriaLeft,
+}) => {
   return (
-    <div className="navigation-buttons">
+    <nav
+      role="navigation"
+      aria-label="Pagination"
+      className="navigation-buttons"
+    >
       <button
         className="navigation-buttons__left"
-        aria-label="previous."
-        onClick={props.slideLeft}
+        onClick={slideLeft}
+        aria-label={formatAriaLeft()}
       >
         <ChevronLeft className="navigation-buttons__icon" />
       </button>
       <button
         className="navigation-buttons__right"
-        aria-label="next."
-        onClick={props.slideRight}
+        onClick={slideRight}
+        aria-label={formatAriaRight()}
       >
         <ChevronRight className="navigation-buttons__icon" />
       </button>
-    </div>
+    </nav>
   );
 };
 
-NavigationButtons.propTypes = {
+PaginationButtons.propTypes = {
   slideLeft: PropTypes.func,
   slideRight: PropTypes.func,
+  formatAriaLeft: PropTypes.func,
+  formatAriaRight: PropTypes.func,
 };
 
-export default NavigationButtons;
+export default PaginationButtons;

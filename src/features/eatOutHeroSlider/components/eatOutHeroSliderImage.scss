@@ -1,0 +1,35 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$_image-stretch: 100%;
+$_breakpoint: 900;
+
+.eat-out-slider {
+    &__image-container {
+        flex: 2;
+        height: $_image-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            max-height: 44%;
+        }
+    }
+
+    &__image {
+        height: $_image-stretch;
+        mask-image: linear-gradient(
+            270deg,
+            rgba(255, 255, 255, 0) 0%,
+            $color-white 100%
+        );
+        object-fit: cover;
+        width: $_image-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            mask-image: linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0) 0%,
+                $color-white 100%
+            );
+        }
+    }
+}

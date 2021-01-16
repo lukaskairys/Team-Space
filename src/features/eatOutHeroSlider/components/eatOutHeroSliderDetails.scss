@@ -1,0 +1,105 @@
+@import '../../../styles/base/base';
+@import '../../../styles/mixins/mixins';
+
+$_details-padding: 2.4rem;
+$_breakpoint: 900;
+$_caption-font-size: 1rem;
+$_typography-content-stretch: 85%;
+$_content-font-size: $font-size-16;
+$_title-font-size: $font-size-32;
+$_margin-size-smaller: 1.2rem;
+
+.eat-out-slider {
+    &__details {
+        align-items: flex-start;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+        padding: $_details-padding;
+
+        @include respond-to($_breakpoint, max) {
+            max-height: 56%;
+            padding-bottom: 1.6rem;
+            padding-top: 0;
+        }
+
+        @include respond-to-mobile() {
+            padding-bottom: 1.3rem;
+        }
+    }
+
+    &__main {
+        width: 100%;
+    }
+
+    &__caption {
+        @include trim;
+
+        color: $color-watermelon;
+        font-size: $_caption-font-size;
+        margin-bottom: 0.4rem;
+        margin-top: 1.2rem;
+        text-transform: uppercase;
+        width: $_typography-content-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            margin-bottom: 0.4rem;
+            margin-top: 0.2rem;
+        }
+    }
+
+    &__title {
+        @include typography-h2;
+        @include trim;
+
+        color: $color-midnight;
+        font-size: $_title-font-size;
+        margin-bottom: $_margin-size-smaller;
+        width: $_typography-content-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            margin-bottom: 0.6rem;
+            width: 95%;
+        }
+    }
+
+    &__content {
+        @include trim(4);
+
+        color: $color-slate-gray;
+        font-size: $_content-font-size;
+        font-weight: $regular-weight;
+        line-height: 1.5;
+        width: $_typography-content-stretch;
+
+        @include respond-to($_breakpoint, max) {
+            @include trim(2);
+            line-height: 1.2;
+            width: 95%;
+        }
+    }
+
+    &__learn-more {
+        background: $color-watermelon;
+        cursor: pointer;
+        font-size: $font-size-16;
+        text-align: center;
+        width: 14.6rem;
+
+        @include respond-to($_breakpoint, max) {
+            font-size: $font-size-10;
+            width: 11rem;
+        }
+
+        &:hover,
+        &:focus {
+            background: $color-dark-watermelon;
+        }
+
+        &:active {
+            background: $color-dark-watermelon;
+        }
+    }
+}

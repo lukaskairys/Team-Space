@@ -33,27 +33,42 @@ const InputSlider = ({ min, max, step, setCounter }) => {
   }, []);
 
   return (
-    <div className="range-slider">
-      <div ref={rangeV} className="range-slider__value-container" id="rangeV">
-        <span className="range-slider__value">{internalCount}+ </span>
-      </div>
+    <section className="range-slider">
+      <p id="sliderDescription" aria-hidden={true} className="visually-hidden">
+        Use the arrow keys to change the value.
+      </p>
       <input
         ref={range}
         className="range-slider__input"
         aria-label="range filter slider."
         id="range"
         type="range"
+        aria-describedby="sliderDescription"
         min={min}
         max={max}
         step={step}
         value={internalCount}
         onChange={handleChange}
       />
-      <div className="range-slider__min-max">
-        <label htmlFor="range-slider__min">{min}</label>
-        <label htmlFor="range-slider__max">{max}</label>
+
+      <p className="visually-hidden">
+        {`Is the current Value. Slider values range from ${min} to ${max}`}
+      </p>
+
+      <div ref={rangeV} className="range-slider__value-container" id="rangeV">
+        <p className="range-slider__value" aria-hidden={true}>
+          {internalCount}+{" "}
+        </p>
       </div>
-    </div>
+      <div className="range-slider__min-max">
+        <p aria-hidden={true} id="range-slider__min">
+          {min}
+        </p>
+        <p aria-hidden={true} id="range-slider__max">
+          {max}
+        </p>
+      </div>
+    </section>
   );
 };
 

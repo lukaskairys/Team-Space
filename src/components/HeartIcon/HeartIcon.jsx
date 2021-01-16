@@ -1,10 +1,10 @@
 import React from "react";
 import classNames from "classnames";
-
 import PropTypes from "prop-types";
 
 import Button from "components/button/Button";
 import { ReactComponent as Heart } from "assets/icons/heart.svg";
+
 import useHeartIcon from "./useHeartIcon";
 import { FavoriteTypes } from "../../utils/FavoriteTypes";
 import "./heartIcon.scss";
@@ -21,7 +21,8 @@ function HeartIcon({
     itemId,
     itemType,
     clickEvent,
-    FavoriteTypes
+    FavoriteTypes,
+    title
   );
   const heartClass = classNames({
     "favorite__heart-icon": true,
