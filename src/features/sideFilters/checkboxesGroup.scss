@@ -1,0 +1,15 @@
+@import '../../styles/base/base';
+@import '../../styles/mixins/mixins';
+
+.checkboxes-group {
+    @include typography-body-2;
+
+    border: 0;
+    color: $color-fiord;
+    margin-left: -0.5rem;
+    padding-top: 0.5rem;
+
+    @include respond-to(1200, max) {
+        display: contents;
+    }
+}

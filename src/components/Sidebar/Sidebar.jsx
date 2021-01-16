@@ -50,12 +50,18 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
       className={classNames("sidebar", {
         "sidebar--closed": isSidebarClosed,
       })}
+      aria-label="Primary"
     >
-      <Link className="sidebar__logo-container" to="/">
+      <Link
+        className="sidebar__logo-container"
+        to="/"
+        aria-label="Logo of Team Space, go back to main page."
+      >
         <Logo className="sidebar__logo" />
       </Link>
       <button
         className="sidebar__toggle"
+        aria-label="Toggle sidebar."
         onClick={() => {
           handleAnimation();
           toggleSidebar();

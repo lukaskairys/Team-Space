@@ -126,24 +126,34 @@ const Rating = ({
         displayedRating = roundNumber(ratingValue);
       }
     }
-
     return (
       <div
-        className={classNames("rating-container", {
-          "rating-container--is-static": isStatic,
-          "rating-container--is-expanded": isExpanded,
+        className={classNames("rating", {
+          "rating--is-static": isStatic,
+          "rating--is-expanded": isExpanded,
+        })}
+        role="radiogroup"
+        aria-label={classNames(`Average rating ${displayedRating}.`, {
+          "Leave a rating from 1 to 5 stars": !isStatic && !isExpanded,
         })}
       >
-        <div className="rating-container__items">
+        <div className="rating__items">
           {[...Array(5)].map((star, i) => {
             const ratingValue = i + 1;
 
             return (
-              <label key={i} className="rating-container__label">
+              <label key={i} className="rating__star">
+                <span className="visually-hidden">
+                  {ratingValue === 1
+                    ? `${ratingValue} star`
+                    : `${ratingValue} stars`}
+                </span>
                 <input
-                  className="rating-container__input"
+                  className="rating__input visually-hidden"
                   type="radio"
-                  name="rating"
+                  name={`rating-for-${
+                    !isStatic && !isFromBooks ? restaurant.id : ""
+                  }`}
                   value={ratingValue}
                   onChange={() => {
                     setRating(ratingValue, (currentRating) => {
@@ -157,7 +167,7 @@ const Rating = ({
                 />
                 <StarIcon
                   className={classNames(
-                    "rating-container__icon",
+                    "rating__icon",
                     {
                       "is-filled": ratingValue <= (hover || rating),
                     },
@@ -171,7 +181,9 @@ const Rating = ({
               </label>
             );
           })}
-          <span className="rating-container__average">{displayedRating}</span>
+          <span className="rating__average" aria-hidden="true">
+            {displayedRating}
+          </span>
         </div>
       </div>
     );

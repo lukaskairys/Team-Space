@@ -1,7 +1,9 @@
 @import '../../styles/base/base';
 
 .range-slider {
+    $_this: &;
     margin-top: 3.2rem;
+    order: 2;
     position: relative;
     width: 100%;
 
@@ -70,6 +72,10 @@
 
         &:focus::-webkit-slider-runnable-track {
             background: $color-ghost;
+        }
+
+        &:focus::-webkit-slider-thumb {
+            box-shadow: 0 0 4px 2px $color-bright-violet;
         }
     }
 

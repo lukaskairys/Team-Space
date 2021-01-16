@@ -1,110 +1,58 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { FetchBestRatedRestaurants } from "utils/Api";
-import { roundNumber } from "utils/Math";
-import Button from "../../../components/button/Button";
+import React from "react";
+
 import Loader from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import "./eatOutHeroSlider.scss";
-import SliderNavigation from "./SliderNavigation";
-import { ToggleAnimation } from "./ToggleAnimation";
+import EatOutHeroSliderDetails from "./EatOutHeroSliderDetails";
+import EatOutHeroSliderImage from "./EatOutHeroSliderImage";
+import useEatOutHeroSlider from "./useEatOutHeroSlider";
 
 const EatOutHeroSlider = () => {
-  const count = 5;
-  let path = "/eat-out/";
-  const { restaurants, error } = FetchBestRatedRestaurants(count);
-  const [currentIndex, setCurrentIndex] = useState(
-    roundNumber(count / 2, 0) - 1
-  );
-  const [currentItem, setCurrentItem] = useState({});
-  const [isAnimationLoading, setAnimationLoading] = useState(false);
-  const [fetchState, setFetchState] = useState(error);
-  const [isLoading, setLoading] = useState(true);
+  const {
+    isDisabled,
+    isLoading,
+    fetchState,
+    hasError,
+    handleImageLoaded,
+    currentItem,
+    count,
+    currentIndex,
+    setCurrentIndex,
+    setAnimationLoading,
+    isAnimationLoading,
+  } = useEatOutHeroSlider();
 
-  const cacheImages = async (restaurants) => {
-    const promises = await restaurants.map((restaurant) => {
-      return new Promise(function (resolve, reject) {
-        const img = new Image();
-        img.src = restaurant.image;
-        img.onload = resolve();
-        img.onerror = reject();
-      });
-    });
-    await Promise.all(promises);
-  };
-
-  const handleImageLoaded = () => {
-    if (isAnimationLoading) {
-      ToggleAnimation();
-    }
-    setAnimationLoading(false);
-  };
-
-  const loadStatus = useCallback(() => {
-    if (restaurants.length > 0) {
-      setLoading(false);
-    } else if (error !== "" && error !== null && error !== fetchState) {
-      setFetchState("Failed to fetch a restaurant.");
-      setLoading(false);
-    }
-  }, [error, fetchState, restaurants.length]);
-
-  useEffect(() => {
-    cacheImages(restaurants);
-  }, [restaurants]);
-
-  useEffect(() => {
-    const currentSingle =
-      restaurants.length > 0 ? restaurants[currentIndex] : {};
-    setCurrentItem(currentSingle);
-    loadStatus();
-  }, [restaurants, currentIndex, error, loadStatus]);
-
-  if (isLoading) {
-    return (
-      <div className="eat-out-slider is_disabled">
+  return (
+    <article
+      className={classNames("eat-out-slider", {
+        is_disabled: isDisabled(),
+      })}
+    >
+      {isLoading && (
         <div className="eat-out-slider__loader">
           <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
         </div>
-      </div>
-    );
-  } else if (fetchState !== "" && fetchState !== null) {
-    return (
-      <div className="eat-out-slider is_disabled">
-        <h2 className="eat-out-slider__error">{fetchState}</h2>
-      </div>
-    );
-  }
-  return (
-    <div className="eat-out-slider">
-      <div className="eat-out-slider__image-container">
-        <img
-          className="eat-out-slider__image"
-          src={currentItem.image}
-          onLoad={handleImageLoaded}
-          alt={currentItem.name}
-        />
-      </div>
-      <div className="eat-out-slider__details">
-        <div className="eat-out-slider__main">
-          <SliderNavigation
-            counter={count}
+      )}
+      {hasError() && <h2 className="eat-out-slider__error">{fetchState}</h2>}
+
+      {!isLoading && !hasError() && (
+        <>
+          <EatOutHeroSliderImage
+            imageLocation={currentItem.image}
+            handleImageLoaded={handleImageLoaded}
+          />
+          <EatOutHeroSliderDetails
+            count={count}
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}
             setAnimationLoading={setAnimationLoading}
             isAnimationLoading={isAnimationLoading}
+            activeRestaurant={currentItem}
           />
-          <p className="eat-out-slider__caption">{currentItem.slogan}</p>
-          <h2 className="eat-out-slider__title">{currentItem.name}</h2>
-          <p className="eat-out-slider__content">{currentItem.description}</p>
-        </div>
-        <Link to={path + currentItem.id}>
-          <Button className="eat-out-slider__learn-more" medium={true}>
-            <span>Learn More</span>
-          </Button>
-        </Link>
-      </div>
-    </div>
+        </>
+      )}
+    </article>
   );
 };
 

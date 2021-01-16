@@ -1,10 +1,17 @@
 import { useState, useEffect, useCallback, useContext } from "react";
 
-import { UserContext } from "../../contexts/UserContext";
-import { patch } from "../../apis/services";
-import { isObjectEmpty } from "../../utils/objects";
+import { successToast } from "components/Toasts/ToastHandler";
+import { UserContext } from "contexts/UserContext";
+import { patch } from "apis/services";
+import { isObjectEmpty } from "utils/objects";
 
-export const useHeartIcon = (itemId, itemType, clickEvent, FavoriteTypes) => {
+export const useHeartIcon = (
+  itemId,
+  itemType,
+  clickEvent,
+  FavoriteTypes,
+  title
+) => {
   const [active, setActive] = useState(false);
 
   const { data, likeState, setLikeState } = useContext(UserContext);
@@ -46,11 +53,17 @@ export const useHeartIcon = (itemId, itemType, clickEvent, FavoriteTypes) => {
   const remove = (itemId, data) => {
     genericHandler(data, itemId, removeHandler);
     patch("/users", data, data.id);
+    successToast(
+      `You have succesfully removed ${title} ${itemType} from favorites`
+    );
   };
 
   const add = (itemId, user) => {
     genericHandler(user, itemId, addHandler);
     patch("/users", user, user.id);
+    successToast(
+      `You have succesfully added ${title} ${itemType} to favorites`
+    );
   };
 
   useEffect(() => {
