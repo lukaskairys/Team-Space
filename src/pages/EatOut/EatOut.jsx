@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useRef, useEffect } from "react";
+import { useLocation, useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import { HandleScroll } from "utils/HandleScroll.js";
@@ -13,10 +13,15 @@ import "./EatOut.scss";
 
 const EatOut = () => {
   const location = useLocation();
+  const history = useHistory();
   const scrollRef = useRef(null);
-  const condition = location.isRedirected;
 
-  HandleScroll(scrollRef, condition, "#categories");
+  useEffect(() => {
+    if (location.isRedirected) {
+      history.push("#categories");
+    }
+  }, [location, history]);
+  HandleScroll(scrollRef, "#categories");
 
   return (
     <div className="eat-out">
