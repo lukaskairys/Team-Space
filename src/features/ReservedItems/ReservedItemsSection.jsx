@@ -14,7 +14,9 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   const [reservedDevices, setReservedDevices] = useState([]);
   const [reservedBooks, setReservedBooks] = useState([]);
   const [reservedRooms, setReservedRooms] = useState([]);
-  const { data: user, setRepeatRequest, error } = useContext(UserContext);
+  const { data: user, setRepeatRequest, isLoading, error } = useContext(
+    UserContext
+  );
 
   const {
     data: devices,
@@ -49,57 +51,53 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   }, [reservedDevices, reservedBooks, reservedRooms, setEmptyReservations]);
 
   const renderDevices = () => {
-    if (reservedDevices && reservedDevices.length > 0)
-      return (
-        <ReservedItems
-          reservedItems={reservedDevices}
-          setReservedItems={setReservedDevices}
-          allItems={devices}
-          listName={"deviceList"}
-          title={"Devices"}
-          name={"devices"}
-          user={user}
-          setRepeatRequest={setRepeatRequest}
-        />
-      );
+    return (
+      <ReservedItems
+        reservedItems={reservedDevices}
+        setReservedItems={setReservedDevices}
+        allItems={devices}
+        listName={"deviceList"}
+        title={"Devices"}
+        name={"devices"}
+        user={user}
+        setRepeatRequest={setRepeatRequest}
+      />
+    );
   };
 
   const renderBooks = () => {
-    if (reservedBooks && reservedBooks.length > 0)
-      return (
-        <ReservedItems
-          reservedItems={reservedBooks}
-          setReservedItems={setReservedBooks}
-          allItems={books}
-          listName={"bookList"}
-          title={"Books"}
-          name={"books"}
-          user={user}
-          setRepeatRequest={setRepeatRequest}
-        />
-      );
+    return (
+      <ReservedItems
+        reservedItems={reservedBooks}
+        setReservedItems={setReservedBooks}
+        allItems={books}
+        listName={"bookList"}
+        title={"Books"}
+        name={"books"}
+        user={user}
+        setRepeatRequest={setRepeatRequest}
+      />
+    );
   };
 
   const renderRooms = () => {
-    if (reservedRooms && reservedRooms.length > 0)
-      return (
-        <ReservedItems
-          reservedItems={reservedRooms}
-          setReservedItems={setReservedRooms}
-          allItems={rooms}
-          listName={"roomList"}
-          title={"Meeting rooms"}
-          name={"rooms"}
-          user={user}
-          setRepeatRequest={setRepeatRequest}
-        />
-      );
+    return (
+      <ReservedItems
+        reservedItems={reservedRooms}
+        setReservedItems={setReservedRooms}
+        allItems={rooms}
+        listName={"roomList"}
+        title={"Meeting rooms"}
+        name={"rooms"}
+        user={user}
+        setRepeatRequest={setRepeatRequest}
+      />
+    );
   };
 
-  if (loadDevices || loadBooks || loadRooms) {
+  if (isLoading || loadDevices || loadBooks || loadRooms) {
     return <ThreeDotsLoader />;
   }
-
   if (error || errorDevices || errorBooks || errorRooms) {
     return <p className="reserved-items__error">Failed to fetch data</p>;
   }
