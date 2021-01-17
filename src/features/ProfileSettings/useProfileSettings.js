@@ -1,13 +1,35 @@
+import { useEffect } from "react";
 import bcrypt from "bcryptjs";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { successToast } from "components/Toasts/ToastHandler";
 import { isObjectEmpty } from "utils/objects";
 import { hash } from "utils/hashPassword";
 import { patch, deleteData } from "apis/services";
 
-export const useProfileSettings = (user) => {
+export const useProfileSettings = (
+  user,
+  setShowMessage,
+  setValues,
+  setErrors
+) => {
   const history = useHistory();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (
+      location.hash &&
+      (location.hash === "#change-details" ||
+        location.hash === "#change-password" ||
+        location.hash === "#change-email") &&
+      setValues &&
+      setErrors
+    ) {
+      setShowMessage(false);
+      setValues({});
+      setErrors({});
+    }
+  }, [location, setShowMessage, setValues, setErrors]);
 
   const changeAccountDetails = (dataToChange, setUser) => {
     let newData = {};
@@ -17,7 +39,6 @@ export const useProfileSettings = (user) => {
         newData = { ...newData, [prop]: dataToChange[prop] };
       }
     }
-
     setUser({ ...user, ...newData });
 
     if (!isObjectEmpty(newData)) {
@@ -36,7 +57,7 @@ export const useProfileSettings = (user) => {
         history.push("/settings");
         setUser({ ...user, password: newHashed });
       } else {
-        setUser(user);
+        return;
       }
     });
   };

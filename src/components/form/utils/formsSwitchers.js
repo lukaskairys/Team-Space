@@ -115,3 +115,21 @@ export const getFormControlsData = (action) => {
   }
   return data;
 };
+
+export const getAction = (whichForm) => {
+  let action;
+  switch (whichForm) {
+    case "change-details":
+      action = "account";
+      break;
+    case "change-password":
+      action = "password";
+      break;
+    case "change-email":
+      action = "email";
+      break;
+    default:
+      return;
+  }
+  return action;
+};
