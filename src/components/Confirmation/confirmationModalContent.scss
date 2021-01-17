@@ -29,10 +29,10 @@
     .form-input {
         display: block;
         width: 100%;
-    }
 
-    .button--icon-x {
-        right: 6rem;
-        top: 16.5rem;
+        &__x-icon {
+            right: 6.5rem;
+            top: 16.5rem;
+        }
     }
 }
