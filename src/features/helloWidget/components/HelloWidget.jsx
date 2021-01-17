@@ -32,7 +32,10 @@ const HelloWidget = ({ currentTime }) => {
       <time className="hello-widget__time" dateTime={currentTime}>
         {currentTime}
       </time>
-      <h1 className="hello-widget__greeting">{`${renderGreeting()}, ${userName}`}</h1>
+      <h1
+        id="main-content"
+        className="hello-widget__greeting"
+      >{`${renderGreeting()}, ${userName}`}</h1>
     </article>
   );
 };

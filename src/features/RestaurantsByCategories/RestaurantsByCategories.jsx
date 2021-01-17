@@ -23,7 +23,7 @@ function RestaurantsByCategories() {
 
   return (
     <article className="categories-page">
-      <h1 className="categories-page__title">
+      <h1 id="main-content" className="categories-page__title">
         The best places for the{" "}
         <span className="categories-page__title categories-page__title--uppercase">
           {category}!
