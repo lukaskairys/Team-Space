@@ -1,5 +1,7 @@
 @import '../../styles/base/base';
 
+$_darkened-fiord: darken($color-fiord, 5%);
+
 .breadcrumbs {
     @include typography-caption-caps;
 
@@ -10,17 +12,17 @@
     stroke: $color-gull-gray;
 
     &__item {
-        color: $color-gull-gray;
+        color: $color-darkened-gull-gray;
         min-width: max-content;
         text-decoration: none;
 
         &:hover {
-            color: $color-fiord;
+            color: $_darkened-fiord;
         }
     }
 
     &__item--last {
-        color: $color-fiord;
+        color: $_darkened-fiord;
         cursor: default;
     }
 

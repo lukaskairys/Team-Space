@@ -13,7 +13,7 @@ const NewsFeedLayout = ({ children }) => {
       ".birthday-card.birthday-card--comments-displayed"
     );
     const birthdayCardsComments = document.querySelectorAll(
-      "#birthday-comment-display"
+      ".birthday-comment-display"
     );
 
     if (

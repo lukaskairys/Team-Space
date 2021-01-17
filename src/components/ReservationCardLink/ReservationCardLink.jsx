@@ -30,7 +30,7 @@ function ReservationsCard({
   return (
     <Link to={path} className={cardClassNames}>
       <div>
-        <h2 className="reservations-card__title">{name}</h2>
+        <h3 className="reservations-card__title">{name}</h3>
         <span className="reservations-card__caption">{`${count} ${caption}`}</span>
       </div>
       <div className={cardImageClassnames}>{children}</div>
