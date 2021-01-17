@@ -7,7 +7,7 @@ const ReservationsPageLoader = () => {
   const [viewBoxHeight, setViewBoxHeight] = useState(400);
 
   useEffect(() => {
-    if (width < 1200) setViewBoxHeight(600);
+    if (width < 1200) setViewBoxHeight(700);
   }, [width]);
 
   const desktopLayout = () => {
@@ -25,8 +25,8 @@ const ReservationsPageLoader = () => {
   const mobileLayout = () => {
     return (
       <>
-        <rect x="30" y="36" rx="5" ry="5" width="720" height="180" />
-        <rect x="30" y="300" rx="5" ry="5" width="720" height="180" />
+        <rect x="10" y="100" rx="5" ry="5" width="775" height="250" />
+        <rect x="10" y="400" rx="5" ry="5" width="775" height="250" />
       </>
     );
   };

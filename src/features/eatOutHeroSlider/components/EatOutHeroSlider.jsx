@@ -1,7 +1,7 @@
 import React from "react";
-
-import Loader from "react-loader-spinner";
 import classNames from "classnames";
+
+import ThreeDotsLoader from "loaders/ThreeDotsLoader";
 
 import "./eatOutHeroSlider.scss";
 import EatOutHeroSliderDetails from "./EatOutHeroSliderDetails";
@@ -31,7 +31,7 @@ const EatOutHeroSlider = () => {
     >
       {isLoading && (
         <div className="eat-out-slider__loader">
-          <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
+          <ThreeDotsLoader />
         </div>
       )}
       {hasError() && <h2 className="eat-out-slider__error">{fetchState}</h2>}

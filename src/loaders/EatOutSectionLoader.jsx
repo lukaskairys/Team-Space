@@ -15,9 +15,9 @@ const EatOutSectionContentLoader = () => {
   const desktopLayout = () => {
     return (
       <>
-        <rect x="10" y="10" rx="5" ry="5" width="240" height="160" />
-        <rect x="280" y="10" rx="5" ry="5" width="240" height="160" />
-        <rect x="550" y="10" rx="5" ry="5" width="240" height="160" />
+        <rect x="10" y="10" rx="5" ry="5" width="245" height="160" />
+        <rect x="280" y="10" rx="5" ry="5" width="245" height="160" />
+        <rect x="550" y="10" rx="5" ry="5" width="245" height="160" />
       </>
     );
   };

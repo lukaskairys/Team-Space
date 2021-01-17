@@ -8,12 +8,12 @@ const NewsFeedContentLoader = () => {
   const desktopLayout = () => {
     return (
       <>
-        <rect x="10" y="10" rx="5" ry="5" width="250" height="130" />
-        <rect x="280" y="10" rx="5" ry="5" width="250" height="270" />
-        <rect x="550" y="10" rx="5" ry="5" width="250" height="130" />
-        <rect x="10" y="160" rx="5" ry="5" width="250" height="270" />
-        <rect x="280" y="300" rx="5" ry="5" width="250" height="130" />
-        <rect x="550" y="160" rx="5" ry="5" width="250" height="270" />
+        <rect x="10" y="10" rx="5" ry="5" width="250" height="140" />
+        <rect x="280" y="10" rx="5" ry="5" width="250" height="290" />
+        <rect x="550" y="10" rx="5" ry="5" width="250" height="140" />
+        <rect x="10" y="170" rx="5" ry="5" width="250" height="290" />
+        <rect x="280" y="320" rx="5" ry="5" width="250" height="140" />
+        <rect x="550" y="170" rx="5" ry="5" width="250" height="290" />
       </>
     );
   };
@@ -46,7 +46,7 @@ const NewsFeedContentLoader = () => {
 
   return (
     <ContentLoader
-      viewBox="0 0 810 420"
+      viewBox="0 0 810 470"
       height="100%"
       width="100%"
       backgroundColor="#f6f7f8"

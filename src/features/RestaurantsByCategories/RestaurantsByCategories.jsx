@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import { Context } from "contexts/Context";
 import EatOutCard from "components/EatOutCard/EatOutCard";
 import "./restaurantsByCategory.scss";
+import RestaurantCardsSectionLoader from "loaders/RestaurantCardsSectionLoader";
 
 function RestaurantsByCategories() {
   const { category } = useParams();
-  const { data, error, isLoading } = useContext(Context);
+  const { data, isLoading } = useContext(Context);
 
   const getRestaurants = () => {
     if (Object.keys(data).length !== 0) {
@@ -29,19 +30,22 @@ function RestaurantsByCategories() {
           {category}!
         </span>
       </h1>
-      <section className="categories-page__section">
-        {isLoading && <span></span>}
-        {error && <span>Sorry, failed to fetch data.</span>}
-        {restaurants !== undefined && restaurants.length === 0 ? (
-          <span>This category has no restaurants in our database.</span>
-        ) : (
-          ""
-        )}
-        {restaurants &&
-          restaurants.map((restaurant) => (
-            <EatOutCard restaurant={restaurant} key={restaurant.id} />
-          ))}
-      </section>
+
+      {isLoading ? (
+        <RestaurantCardsSectionLoader />
+      ) : (
+        <section className="categories-page__section">
+          {restaurants !== undefined && restaurants.length === 0 ? (
+            <span>This category has no restaurants in our database.</span>
+          ) : (
+            ""
+          )}
+          {restaurants &&
+            restaurants.map((restaurant) => (
+              <EatOutCard restaurant={restaurant} key={restaurant.id} />
+            ))}
+        </section>
+      )}
     </article>
   );
 }

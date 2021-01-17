@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import Loader from "react-loader-spinner";
 
 import { useRequest } from "apis/useRequest";
 import { UserContext } from "contexts/UserContext";
@@ -9,14 +8,13 @@ import EmptyReservations from "features/ReservedItems/EmptyReservations";
 import ReservedItems from "./ReservedItems";
 
 import "./reservedItemsSection.scss";
+import ThreeDotsLoader from "loaders/ThreeDotsLoader";
 
 const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   const [reservedDevices, setReservedDevices] = useState([]);
   const [reservedBooks, setReservedBooks] = useState([]);
   const [reservedRooms, setReservedRooms] = useState([]);
-  const { data: user, isLoading, setRepeatRequest, error } = useContext(
-    UserContext
-  );
+  const { data: user, setRepeatRequest, error } = useContext(UserContext);
 
   const {
     data: devices,
@@ -98,12 +96,8 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
       );
   };
 
-  if (isLoading || loadDevices || loadBooks || loadRooms) {
-    return (
-      <div className="reserved-items__loader">
-        <Loader type="TailSpin" color="#6e44ff" height={60} width={60} />
-      </div>
-    );
+  if (loadDevices || loadBooks || loadRooms) {
+    return <ThreeDotsLoader />;
   }
 
   if (error || errorDevices || errorBooks || errorRooms) {
