@@ -96,7 +96,11 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   };
 
   if (isLoading || loadDevices || loadBooks || loadRooms) {
-    return <ThreeDotsLoader />;
+    return (
+      <div style={{ height: "924px" }}>
+        <ThreeDotsLoader />
+      </div>
+    );
   }
   if (error || errorDevices || errorBooks || errorRooms) {
     return <p className="reserved-items__error">Failed to fetch data</p>;

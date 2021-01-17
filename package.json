@@ -38,7 +38,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-server": "json-server --watch db.json --port 3008 --delay 2000",
+    "start-server": "json-server --watch db.json --port 3008 --delay 500",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "npm run -s lint:prettier:check && npm run -s lint:eslint:check && npm run -s lint:stylelint:check",
