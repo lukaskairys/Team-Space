@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
@@ -39,6 +39,11 @@ const MainLayout = ({ children }) => {
   const mobileSize = 500;
   const maxWidth = 768;
 
+  const startFocus = useRef(null);
+  useEffect(() => {
+    startFocus.current.focus();
+  });
+
   useEffect(() => {
     if (windowWidth <= maxWidth && isSmallerScreen === false) {
       setSmallerScreen(true);
@@ -54,7 +59,13 @@ const MainLayout = ({ children }) => {
   sessionStorage.sidebarState = isSidebarClosed;
   return (
     <div className="main-layout">
-      <div className="main-layout__skip" id="skip-to-content">
+      <div
+        // eslint-disable-next-line
+        tabIndex="0"
+        className="main-layout__skip"
+        id="skip-to-content"
+        ref={startFocus}
+      >
         <a
           tabIndex="0"
           className="main-layout__skip-link button button button--large"
