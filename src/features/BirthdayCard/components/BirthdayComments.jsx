@@ -68,11 +68,7 @@ function BirthdayComments({
         />
         <p>{allComments.length}</p>
       </div>
-      <div
-        id="birthday-comment-display"
-        ref={commentDisplay}
-        className="d-none"
-      >
+      <div ref={commentDisplay} className="d-none birthday-comment-display">
         <div className="feed-card-divider"></div>
         <BirthdayCommentsRenderer comments={allComments} />
         <div className="feed-card-divider"></div>

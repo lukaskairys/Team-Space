@@ -9,7 +9,7 @@ const Devices = () => {
       <Helmet>
         <title>Device Reservations · Team Space</title>
       </Helmet>
-      <ReservationPage page={"devices"} />;
+      <ReservationPage page={"devices"} />
     </>
   );
 };

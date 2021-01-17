@@ -55,7 +55,7 @@ function Settings() {
 
   return (
     <div className="profile-settings">
-      <h1 className="profile-settings__title" id="settings-title">
+      <h1 id="main-content settings-title" className="profile-settings__title">
         Profile settings
       </h1>
       <div className="profile-settings__content">
