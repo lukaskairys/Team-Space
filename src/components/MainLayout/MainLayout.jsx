@@ -108,6 +108,7 @@ const MainLayout = ({ children }) => {
             </section>
           </header>
           <main ref={mainRef} className="main-layout__main">
+            <div className="main-layout__main-box-shadow"></div>
             {children}
           </main>
           <footer className="main-layout__footer">

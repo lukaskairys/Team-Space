@@ -9,7 +9,7 @@ function ProfileSettings() {
       <Helmet>
         <title>Profile settings · Team Space</title>
       </Helmet>
-      <Settings />;
+      <Settings />
     </>
   );
 }
