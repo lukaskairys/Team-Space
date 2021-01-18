@@ -21,12 +21,11 @@ $_breakpoint-sm: 500;
         width: 40rem;
     }
     @include respond-between(990, 1440) {
-        left: -3rem;
         top: 2rem;
-        width: 40rem;
+        width: 42.3rem;
     }
     @include respond-between(769, 991) {
-        width: 90%;
+        width: 47.2rem;
     }
 
     &__main {
@@ -41,7 +40,11 @@ $_breakpoint-sm: 500;
             width: 32.6rem;
         }
         @include respond-between(990, 1440) {
-            width: 35.6rem;
+            width: 34.9rem;
+        }
+
+        @include respond-between(769, 991) {
+            width: 39rem;
         }
     }
 
@@ -106,7 +109,11 @@ $_breakpoint-sm: 500;
         @include trim();
 
         text-transform: capitalize;
-        width: 70%;
+        width: 78%;
+
+        @include respond-between(990, 1440) {
+            width: 82%;
+        }
     }
 
     &__figure {
@@ -118,14 +125,10 @@ $_breakpoint-sm: 500;
         width: 21rem;
 
         @include respond-between(990, 1440) {
-            right: -3rem;
             width: 15rem;
         }
         @include respond-between(769, 991) {
-            left: 32rem;
-            position: relative;
-            top: -15.5rem;
-            width: 15rem;
+            width: 17rem;
         }
 
         @include respond-to-mobile() {
@@ -163,10 +166,10 @@ $_breakpoint-sm: 500;
 
     &__temperature {
         color: $_temperature-font-color;
+        display: inline-block;
         font-size: $_temperature-font-size;
         font-weight: $light-weight;
         line-height: 1.1;
-        margin-right: 0.6rem;
 
         @include respond-to($_breakpoint-md, max) {
             font-size: $font-size-32;

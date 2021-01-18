@@ -1,8 +1,14 @@
 import images from "./weatherConditions";
 
-export const translateIdToImage = (id, currentTime, cloudStatus) => {
+export const translateIdToImage = (
+  id,
+  currentTime,
+  cloudStatus,
+  unixSunset,
+  unixSunrise
+) => {
   const conditions = images.WeatherConditions;
-  const dayStatus = isNightTime(currentTime);
+  const dayStatus = isNightTime(currentTime, unixSunset, unixSunrise);
   const imgObj = { shift: 0 };
   if (id >= 200 && id < 300) {
     shiftLeft(imgObj);
@@ -47,9 +53,9 @@ const setImage = (imgObj, image, dayStatus) => {
   return imgObj;
 };
 
-const isNightTime = (currentTime) => {
-  const nightStart = 20;
-  const nightEnd = 5;
+const isNightTime = (currentTime, unixSunset, unixSunrise) => {
+  const nightEnd = new Date(unixSunrise * 1000).getHours();
+  const nightStart = new Date(unixSunset * 1000).getHours();
   const [hours] = currentTime.split(":");
 
   if (hours >= nightEnd && hours < nightStart) return 0;
