@@ -36,6 +36,7 @@ const MainLayout = ({ children }) => {
   const [isSidebarClosed, setIsSidebarClosed] = useState(checkSidebarState());
   const { width: windowWidth } = useWindowDimensions();
   const [isSmallerScreen, setSmallerScreen] = useState(false);
+  const mainRef = useRef(null);
   const mobileSize = 500;
   const maxWidth = 768;
 
@@ -106,7 +107,9 @@ const MainLayout = ({ children }) => {
               </div>
             </section>
           </header>
-          <main className="main-layout__main">{children}</main>
+          <main ref={mainRef} className="main-layout__main">
+            {children}
+          </main>
           <footer className="main-layout__footer">
             <p className="main-layout__copyright">
               copyright &copy; {year} devbridge

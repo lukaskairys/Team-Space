@@ -2,7 +2,6 @@
 @import '../../../styles/mixins/mixins';
 
 $_height: 51.7rem;
-$_animation: fadeIn 0.5s 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 $_margin: -2.7rem -4.1rem 5.6rem;
 $_padding-left: 4rem;
 $_padding-top: 2.7rem;
@@ -54,12 +53,7 @@ $_padding-top: 2.7rem;
     }
 
     &__loader {
-        animation: $_animation;
         display: grid;
-        height: $_height;
-        margin: $_margin;
-        padding-left: $_padding-left;
-        padding-top: $_padding-top;
         place-items: center;
     }
 }

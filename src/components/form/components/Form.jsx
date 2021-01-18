@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Loader from "react-loader-spinner";
+
+import ThreeDotsLoader from "loaders/ThreeDotsLoader";
+import { useAuthentication } from "authentication/useAuthentication";
+import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
+import { isObjectEmpty } from "utils/objects";
+import Message from "components/Message/Message";
 
 import useForm from "../utils/useForm";
 import FormContent from "./FormContent";
 import FormControls from "./FormControls";
-import Message from "components/Message/Message";
 import ErrorsList from "./ErrorsList";
-
-import { getValidation, getId } from "../utils/formsSwitchers";
+import { getValidation, getId } from "../utils/formsSwitchers.js";
 import { getDataToUpdate } from "../utils/getDataToUpdate";
-import { useAuthentication } from "authentication/useAuthentication";
-import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
-import { isObjectEmpty } from "utils/objects";
 
 const Form = (props) => {
   const {
@@ -103,7 +103,7 @@ const Form = (props) => {
 
           {isPosting ? (
             <div className="form__loader">
-              <Loader type="TailSpin" color="#6e44ff" height={80} width={80} />
+              <ThreeDotsLoader />
             </div>
           ) : (
             <>

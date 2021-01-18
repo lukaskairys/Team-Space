@@ -32,6 +32,11 @@ $_breakpoint-md: 886;
         }
     }
 
+    &__loader {
+        display: grid;
+        place-items: center;
+    }
+
     &__image {
         height: 15rem;
         width: 15rem;
