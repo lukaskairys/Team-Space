@@ -51,7 +51,7 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   }, [reservedDevices, reservedBooks, reservedRooms, setEmptyReservations]);
 
   const renderDevices = () => {
-    if (reservedDevices.length > 0)
+    if (reservedDevices && reservedDevices.length > 0)
       return (
         <ReservedItems
           reservedItems={reservedDevices}
@@ -67,7 +67,7 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   };
 
   const renderBooks = () => {
-    if (reservedBooks.length > 0)
+    if (reservedBooks && reservedBooks.length > 0)
       return (
         <ReservedItems
           reservedItems={reservedBooks}
@@ -83,7 +83,7 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   };
 
   const renderRooms = () => {
-    if (reservedBooks.length > 0)
+    if (reservedRooms && reservedRooms.length > 0)
       return (
         <ReservedItems
           reservedItems={reservedRooms}
