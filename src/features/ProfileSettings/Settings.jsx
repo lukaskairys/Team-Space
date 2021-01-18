@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import bcrypt from "bcryptjs";
+import { useLocation } from "react-router-dom";
 
 import SettingsNavigation from "./SettingsNavigation";
 import Form from "components/form/components/Form";
 import CurrentInfo from "./CurrentInfo";
 
+import { getAction } from "components/form/utils/formsSwitchers.js";
 import { UserContext } from "contexts/UserContext";
 import { useProfileSettings } from "features/ProfileSettings/useProfileSettings";
 import { isObjectEmpty } from "utils/objects";
@@ -14,12 +15,23 @@ import { todaysDate } from "utils/date";
 import "./settings.scss";
 
 function Settings() {
-  const { data } = useContext(UserContext);
-
   const [whichForm, setWhichForm] = useState("change-details");
   const [user, setUser] = useState({});
 
+  const { data } = useContext(UserContext);
   const { deleteUser } = useProfileSettings(user, setUser);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (
+      location.hash &&
+      (location.hash === "#change-details" ||
+        location.hash === "#change-password" ||
+        location.hash === "#change-email")
+    ) {
+      setWhichForm(location.hash.substring(1));
+    }
+  }, [location.hash]);
 
   useEffect(() => {
     if (data && !isObjectEmpty(data)) {
@@ -27,51 +39,36 @@ function Settings() {
     }
   }, [data, setUser]);
 
-  const confirm = (inputValue, setError) => {
-    bcrypt.compare(inputValue, user.password).then((result) => {
-      if (result) {
-        deleteUser();
-      } else {
-        setError("Wrong password. Please try again.");
-      }
-    });
-  };
-
-  const getAction = () => {
-    let action;
-    switch (whichForm) {
-      case "change-details":
-        action = "account";
-        break;
-      case "change-password":
-        action = "password";
-        break;
-      case "change-email":
-        action = "email";
-        break;
-      default:
-        return;
+  const confirmDeleteAccount = (inputValue, setError) => {
+    if (inputValue) {
+      bcrypt.compare(inputValue, user.password).then((result) => {
+        if (result) {
+          deleteUser();
+        } else {
+          setError("Wrong password. Please try again.");
+        }
+      });
+    } else {
+      setError("Confirmation with password is required.");
     }
-    return action;
   };
 
   return (
     <div className="profile-settings">
-      <h1 className="profile-settings__title" id="settings-title">
+      <h1 id="main-content settings-title" className="profile-settings__title">
         Profile settings
       </h1>
       <div className="profile-settings__content">
         <CurrentInfo user={user} />
         <Form
-          action={getAction()}
+          action={getAction(whichForm)}
           maxDate={todaysDate()}
           user={user}
           setUser={setUser}
-          confirmDeleteAccount={confirm}
-          settingsNavigationRenderer={(setValues, setErrors) => (
+          confirmDeleteAccount={confirmDeleteAccount}
+          isFromSettings
+          settingsNavigationRenderer={() => (
             <SettingsNavigation
-              setValues={setValues}
-              setErrors={setErrors}
               setWhichForm={setWhichForm}
               whichForm={whichForm}
             />
@@ -81,10 +78,5 @@ function Settings() {
     </div>
   );
 }
-
-Settings.propTypes = {
-  whichForm: PropTypes.string,
-  switchSettingsForm: PropTypes.func,
-};
 
 export default Settings;

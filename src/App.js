@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
+import { useRequest } from "apis/useRequest";
 import ContextProvider from "contexts/ContextProvider";
 import RegistrationPage from "pages/Registration/RegistrationPage";
 import LoginPage from "pages/Login/LoginPage";
@@ -23,10 +24,12 @@ import PrivateRoute from "./authentication/PrivateRoute.jsx";
 import PublicRoute from "./authentication/PublicRoute.jsx";
 import Toast from "../src/components/Toasts/Toast";
 import Page404 from "pages/Page404/Page404";
+import Page503 from "pages/Page503/Page503";
 import MainLayout from "components/MainLayout/MainLayout";
 import ScrollToTop from "components/ScrollToTop/ScrollToTop";
 
 function App() {
+  const { error } = useRequest(`/`);
   return (
     <HelmetProvider>
       <Router>
@@ -34,9 +37,12 @@ function App() {
         <Toast />
 
         <Switch>
+          {error && <Page503 />}
+
           <PublicRoute exact path="/login">
             <LoginPage />
           </PublicRoute>
+
           <PublicRoute exact path="/registration">
             <RegistrationPage />
           </PublicRoute>
@@ -81,7 +87,7 @@ function App() {
             <Redirect
               to={{
                 pathname: "/eat-out",
-                isRedirected: true,
+                hash: "categories",
               }}
             />
           </PrivateRoute>
@@ -99,11 +105,13 @@ function App() {
               </ContextProvider>
             </MainLayout>
           </PrivateRoute>
+
           <PrivateRoute exact path="/eat-out/categories/:category">
             <MainLayout>
               <EatOutCategoriesPage />
             </MainLayout>
           </PrivateRoute>
+
           <Route component={Page404} />
         </Switch>
       </Router>

@@ -30,10 +30,9 @@ const ReservationPage = ({ page, inputSliderRenderer }) => {
     <>
       <Breadcrumbs />
       <section className="reservation-page">
-        <h1 className="reservation-page__title">{`${page.slice(
-          0,
-          -1
-        )} Reservations`}</h1>
+        <h1 id="main-content" className="reservation-page__title">
+          {`${page.slice(0, -1)} Reservations`}{" "}
+        </h1>
         <Search searchBtnClick={searchBtnClick} activeFilter={activeFilter} />
         <div className="reservation-page__content">
           <div className="reservation-page__side-filters">

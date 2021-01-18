@@ -35,7 +35,7 @@ function Message({ type, message, setShowMessage }) {
         iconX={true}
         type={"button"}
         handleClick={closeMessage}
-        ariaLabelText={"close error"}
+        ariaLabelText={`${message} Close error message`}
         buttonRef={buttonRef}
       >
         <IconX />

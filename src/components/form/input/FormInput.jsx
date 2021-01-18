@@ -20,6 +20,7 @@ function FormInput(props) {
     maxDate,
     describedby,
     ariaRequired,
+    onKeyPress,
   } = props;
 
   const inputRef = useRef(null);
@@ -42,6 +43,7 @@ function FormInput(props) {
         max={maxDate}
         aria-describedby={describedby}
         autoComplete="off"
+        onKeyPress={onKeyPress}
         aria-required={ariaRequired ? "true" : "false"}
         aria-invalid={isError ? "true" : "false"}
       />
@@ -64,6 +66,7 @@ FormInput.propTypes = {
   maxDate: PropTypes.string,
   describedby: PropTypes.string,
   ariaRequired: PropTypes.bool,
+  onKeyPress: PropTypes.func,
 };
 
 export default FormInput;

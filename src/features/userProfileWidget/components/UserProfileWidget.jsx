@@ -13,21 +13,19 @@ import "./userProfileWidget.scss";
 function UserProfileWidget() {
   const [image, setImage] = useState(null);
   const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+
   const { data, error } = useContext(UserContext);
   const { logout } = useAuthentication();
+
   const dropdownRef = useRef(null);
   const pictureBtnRef = useRef(null);
+
   useOnClickOutside(dropdownRef, () => setOpen(false));
 
   useEffect(() => {
     if (!isObjectEmpty(data)) setImage(data.userImage);
     if (error !== null) setImage(userIcon);
   }, [data, error]);
-
-  useEffect(() => {
-    setExpanded(open);
-  }, [open]);
 
   return (
     <div className="profile-widget" ref={dropdownRef}>
@@ -36,7 +34,7 @@ function UserProfileWidget() {
           setOpen(!open);
         }}
         ref={pictureBtnRef}
-        aria-expanded={expanded}
+        aria-expanded={open === true ? "true" : "false"}
         aria-controls="settings-dropdown"
       >
         <span id="settings-label" className="visually-hidden">
@@ -56,12 +54,7 @@ function UserProfileWidget() {
         <ArrowDown className="profile-widget__arrow " aria-hidden="true" />
       </button>
 
-      <DropDownContent
-        isOpen={open}
-        logout={logout}
-        setOpen={setOpen}
-        setExpanded={setExpanded}
-      />
+      <DropDownContent isOpen={open} logout={logout} setOpen={setOpen} />
     </div>
   );
 }

@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 import { ReactComponent as Logo } from "assets/logo165.svg";
-
 import { ReactComponent as NotificationBell } from "assets/icons/notification-bell.svg";
 import Sidebar from "components/Sidebar/Sidebar";
-import UserProfileWidget from "../../features/userProfileWidget/components/UserProfileWidget";
 import useWindowDimensions from "utils/useWindowDimensions";
 import UserContextProvider from "contexts/UserContextProvider";
 
+import UserProfileWidget from "../../features/userProfileWidget/components/UserProfileWidget";
 import Navigation from "./Navigation";
-
 import "./MainLayout.scss";
 
 const creationYear = 2020;
@@ -41,6 +39,11 @@ const MainLayout = ({ children }) => {
   const mobileSize = 500;
   const maxWidth = 768;
 
+  const startFocus = useRef(null);
+  useEffect(() => {
+    startFocus.current.focus();
+  });
+
   useEffect(() => {
     if (windowWidth <= maxWidth && isSmallerScreen === false) {
       setSmallerScreen(true);
@@ -56,6 +59,21 @@ const MainLayout = ({ children }) => {
   sessionStorage.sidebarState = isSidebarClosed;
   return (
     <div className="main-layout">
+      <div
+        // eslint-disable-next-line
+        tabIndex="0"
+        className="main-layout__skip"
+        id="skip-to-content"
+        ref={startFocus}
+      >
+        <a
+          tabIndex="0"
+          className="main-layout__skip-link button button button--large"
+          href="#main-content"
+        >
+          Skip to main content
+        </a>
+      </div>
       <UserContextProvider>
         {!isSmallerScreen && (
           <Sidebar
