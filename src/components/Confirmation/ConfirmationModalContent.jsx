@@ -18,6 +18,12 @@ const ConfirmationModalContent = ({
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
 
+  const confirmWithEnter = (e) => {
+    if (e.key === "Enter") {
+      confirm(inputValue, setError);
+    }
+  };
+
   return (
     <div className="confirmation">
       <h4 className="confirmation__question">{title}</h4>
@@ -30,13 +36,14 @@ const ConfirmationModalContent = ({
             type={"password"}
             placeholder={"******"}
             onChange={(e) => setInputValue(e.target.value)}
+            onKeyPress={confirmWithEnter}
             value={inputValue}
             className={`form-input ${error !== "" && "form-input--error"}`}
             isError={error !== "" ? true : false}
-            handleXclick={() => setInputValue("")}
-            onFocus={() => setError("")}
           />
-          <p className="form-content__error-msg">{error}</p>
+          <p className="form-content__error-msg" aria-live="assertive">
+            {error}
+          </p>
         </>
       )}
 

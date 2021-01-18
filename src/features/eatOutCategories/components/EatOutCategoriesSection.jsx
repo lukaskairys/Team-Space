@@ -41,7 +41,7 @@ const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
 
     return (
       <section className="categories-section" ref={scrollRef}>
-        <h3 className="categories-section__title">Categories</h3>
+        <h2 className="categories-section__title">Categories</h2>
         {categories.length > 0 ? (
           <div className="categories-section__content">
             {renderCategories()}

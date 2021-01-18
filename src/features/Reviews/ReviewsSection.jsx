@@ -108,7 +108,7 @@ function ReviewsSection() {
       <section ref={containerRef} className="reviews">
         {reviews.length !== 0 && (
           <>
-            <h3 className="reviews__title">Reviews</h3>
+            <h2 className="reviews__title">Reviews</h2>
 
             <div
               className={classNames("reviews__content", {

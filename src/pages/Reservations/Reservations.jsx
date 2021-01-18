@@ -18,7 +18,9 @@ const Reservations = () => {
         <title>Reservations · Team Space</title>
       </Helmet>
       <Breadcrumbs />
-      <h1 className="reservations-page__title">Your reservations</h1>
+      <h1 id="main-content" className="reservations-page__title">
+        Your reservations
+      </h1>
 
       <article className="reservations-page__all-reservations">
         <ReservedItemsSection

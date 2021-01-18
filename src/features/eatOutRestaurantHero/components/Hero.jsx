@@ -40,7 +40,9 @@ function Hero({ children }) {
           {children}
           <div className="HERO__content">
             <nav className="HERO__categories">{renderCategories()}</nav>
-            <h1 className="HERO__title">{restaurant.name}</h1>
+            <h1 id="main-content" className="HERO__title">
+              {restaurant.name}
+            </h1>
             <HeroDetails restaurant={restaurant} />
           </div>
         </section>

@@ -12,6 +12,7 @@ import FormContent from "./FormContent";
 import FormControls from "./FormControls";
 import ErrorsList from "./ErrorsList";
 import { getValidation, getId } from "../utils/formsSwitchers.js";
+import { getDataToUpdate } from "../utils/getDataToUpdate";
 
 const Form = (props) => {
   const {
@@ -23,6 +24,7 @@ const Form = (props) => {
     settingsNavigationRenderer,
     maxDate,
     confirmDeleteAccount,
+    isFromSettings,
   } = props;
   const [showMessage, setShowMessage] = useState(false);
   const [messageText, setMessageText] = useState("Something went wrong");
@@ -33,58 +35,24 @@ const Form = (props) => {
   );
 
   const {
-    changeAccountDetails,
-    changePassword,
-    changeEmail,
-  } = useProfileSettings(user, setUser);
-
-  const {
     values,
     setValues,
     errors,
     setErrors,
     handleChange,
     handleSubmit,
+    handleSettingsSubmit,
     handleBlur,
     submitClicked,
-  } = useForm(getCallback(), getValidation(action));
+  } = useForm(getCallback(), getValidation(action), setShowMessage);
 
-  const dataToPost = {
-    userName: `${values.firstName} ${values.lastName}`,
-    email: values.email,
-    userImage: "https://i.imgur.com/2DEZq70.jpg",
-    birthdayDate: "",
-    location: "",
-    reservations: {
-      books: [],
-      devices: [],
-      rooms: [],
-    },
-    notifications: [],
-    liked: {
-      restaurants: [],
-      books: [],
-      devices: [],
-      rooms: [],
-      stories: [],
-    },
-    checkIn: {},
-    rated: {
-      books: [],
-    },
-  };
+  const {
+    changeAccountDetails,
+    changePassword,
+    changeEmail,
+  } = useProfileSettings(user, setShowMessage, setValues, setErrors);
 
-  const dataToChange = {
-    userName: values.userName,
-    location: values.location,
-    birthdayDate: values.birthday,
-  };
-
-  const passwords = {
-    old: values.currentPassword,
-    new: values.newPassword,
-    repeat: values.repeatPassword,
-  };
+  const { dataToPost, dataToChange, passwords } = getDataToUpdate(values);
 
   function getCallback() {
     let callback;
@@ -122,20 +90,17 @@ const Form = (props) => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} aria-labelledby={getId(action)}>
+      <form
+        onSubmit={!isFromSettings ? handleSubmit : handleSettingsSubmit}
+        aria-labelledby={getId(action)}
+      >
         <fieldset className="form__fieldset">
-          {settingsNavigationRenderer ? (
-            <legend
-              className="visually-hidden"
-              id={getId(action)}
-            >{`change ${action} ${
-              action === "account" ? "details" : ""
-            }`}</legend>
-          ) : (
-            <legend className="visually-hidden" id={getId(action)}>
-              {title}
-            </legend>
-          )}
+          <legend className="visually-hidden" id={getId(action)}>
+            {settingsNavigationRenderer
+              ? `change ${action} ${action === "account" ? "details" : ""}`
+              : title}
+          </legend>
+
           {isPosting ? (
             <div className="form__loader">
               <ThreeDotsLoader />
@@ -183,6 +148,7 @@ Form.propTypes = {
   maxDate: PropTypes.string,
   setUser: PropTypes.func,
   confirmDeleteAccount: PropTypes.func,
+  isFromSettings: PropTypes.bool,
 };
 
 export default Form;

@@ -1,6 +1,6 @@
 {
   "lastClearDate": {
-    "date": "2021-01-17"
+    "date": "2021-01-18"
   },
   "users": [
     {
@@ -10,24 +10,9 @@
       "birthdayDate": "2020-10-30",
       "location": "A. Juozapavičiaus pr. 11 D, Kaunas",
       "reservations": {
-        "books": [
-          {
-            "id": "9781484231791"
-          }
-        ],
-        "devices": [
-          {
-            "id": "1563187740"
-          },
-          {
-            "id": "193ywpe740"
-          }
-        ],
-        "rooms": [
-          {
-            "id": "497ee32e-bd90-4515-94dc-4bc408345845"
-          }
-        ]
+        "books": [],
+        "devices": [],
+        "rooms": []
       },
       "notifications": [
         {
@@ -521,6 +506,12 @@
       "image": "https://images.unsplash.com/photo-1483918793747-5adbf82956c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
       "checkIns": 19,
       "reviews": [
+        {
+          "userName": "Frontend Wizard",
+          "id": "a9922923-4ded-4424-a090-4a23f417b11e",
+          "comment": "",
+          "rating": 4
+        },
         {
           "userName": "Pandora Burns",
           "id": "euz4pyx8bd",

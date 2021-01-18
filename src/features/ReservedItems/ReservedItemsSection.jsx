@@ -51,48 +51,51 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   }, [reservedDevices, reservedBooks, reservedRooms, setEmptyReservations]);
 
   const renderDevices = () => {
-    return (
-      <ReservedItems
-        reservedItems={reservedDevices}
-        setReservedItems={setReservedDevices}
-        allItems={devices}
-        listName={"deviceList"}
-        title={"Devices"}
-        name={"devices"}
-        user={user}
-        setRepeatRequest={setRepeatRequest}
-      />
-    );
+    if (reservedDevices.length > 0)
+      return (
+        <ReservedItems
+          reservedItems={reservedDevices}
+          setReservedItems={setReservedDevices}
+          allItems={devices}
+          listName={"deviceList"}
+          title={"Devices"}
+          name={"devices"}
+          user={user}
+          setRepeatRequest={setRepeatRequest}
+        />
+      );
   };
 
   const renderBooks = () => {
-    return (
-      <ReservedItems
-        reservedItems={reservedBooks}
-        setReservedItems={setReservedBooks}
-        allItems={books}
-        listName={"bookList"}
-        title={"Books"}
-        name={"books"}
-        user={user}
-        setRepeatRequest={setRepeatRequest}
-      />
-    );
+    if (reservedBooks.length > 0)
+      return (
+        <ReservedItems
+          reservedItems={reservedBooks}
+          setReservedItems={setReservedBooks}
+          allItems={books}
+          listName={"bookList"}
+          title={"Books"}
+          name={"books"}
+          user={user}
+          setRepeatRequest={setRepeatRequest}
+        />
+      );
   };
 
   const renderRooms = () => {
-    return (
-      <ReservedItems
-        reservedItems={reservedRooms}
-        setReservedItems={setReservedRooms}
-        allItems={rooms}
-        listName={"roomList"}
-        title={"Meeting rooms"}
-        name={"rooms"}
-        user={user}
-        setRepeatRequest={setRepeatRequest}
-      />
-    );
+    if (reservedBooks.length > 0)
+      return (
+        <ReservedItems
+          reservedItems={reservedRooms}
+          setReservedItems={setReservedRooms}
+          allItems={rooms}
+          listName={"roomList"}
+          title={"Meeting rooms"}
+          name={"rooms"}
+          user={user}
+          setRepeatRequest={setRepeatRequest}
+        />
+      );
   };
 
   if (isLoading || loadDevices || loadBooks || loadRooms) {

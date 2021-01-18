@@ -5,10 +5,9 @@ import { useRequest } from "apis/useRequest";
 import { isObjectEmpty } from "utils/objects";
 import { useAuthentication } from "authentication/useAuthentication";
 
-const useForm = (callback, validate) => {
+const useForm = (callback, validate, setShowMessage) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false);
   const [repeatRequest, setRepeatRequest] = useState(false);
   const [passwordCorrect, setPasswordCorrect] = useState(true);
   const [submitClicked, setSubmitClicked] = useState(false);
@@ -18,32 +17,45 @@ const useForm = (callback, validate) => {
   const currentUser = data.filter((user) => user.id === userId)[0];
 
   useEffect(() => {
-    setPasswordCorrect(
-      values.currentPassword &&
-        bcrypt.compareSync(values.currentPassword, currentUser.password)
-    );
+    try {
+      setPasswordCorrect(
+        values.currentPassword &&
+          bcrypt.compareSync(values.currentPassword, currentUser.password)
+      );
+    } catch (err) {
+      return;
+    }
   }, [currentUser, values.currentPassword]);
 
-  const err = validate(values, data, passwordCorrect);
+  const errorsFromValidation = validate(values, data, passwordCorrect);
 
-  const handleSubmit = (event) => {
+  const submit = () => {
+    setErrors(errorsFromValidation);
+    if (isObjectEmpty(errorsFromValidation)) {
+      callback();
+      setValues({});
+    }
+    setSubmitClicked(true);
+  };
+
+  const handleSettingsSubmit = (event) => {
     event.preventDefault();
-    if (values.currentPassword) {
+    if (currentUser && values.currentPassword) {
       setPasswordCorrect(
         bcrypt.compareSync(values.currentPassword, currentUser.password)
       );
     }
+    currentUser && !isObjectEmpty(currentUser)
+      ? submit()
+      : setShowMessage(true);
+
     setRepeatRequest(true);
-    setErrors(err);
-    if (isObjectEmpty(err)) {
-      callback();
-      setIsValid(true);
-      setValues({});
-    } else {
-      setIsValid(false);
-    }
-    setSubmitClicked(true);
     window.location.hash = "";
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    data.length !== 0 ? submit() : setShowMessage(true);
   };
 
   const handleChange = (event) => {
@@ -69,13 +81,14 @@ const useForm = (callback, validate) => {
   return {
     handleChange,
     handleSubmit,
+    handleSettingsSubmit,
     handleBlur,
     setErrors,
     setValues,
     values,
     errors,
-    isValid,
     submitClicked,
+    setRepeatRequest,
   };
 };
 

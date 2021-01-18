@@ -28,3 +28,5 @@ $color-medium-violet: rgba(88, 54, 204, 1);
 $color-dark-violet: rgba(70, 44, 163, 1);
 $color-dark-fiord: #31465e;
 $color-black-faded: rgba(0, 0, 0, 0.8);
+$color-darkened-gull-gray: darken($color-gull-gray, 18.5%);
+$color-darkened-slate-gray: darken($color-slate-gray, 2%);
