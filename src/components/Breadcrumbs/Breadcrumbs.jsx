@@ -54,7 +54,7 @@ const Breadcrumbs = () => {
   } else if (error) {
     return null;
   }
-  return <div style={{ height: "1.28rem", marginBottom: "0.8rem" }}></div>;
+  return <div className="breadcrumbs__placeholder"></div>;
 };
 
 export default Breadcrumbs;

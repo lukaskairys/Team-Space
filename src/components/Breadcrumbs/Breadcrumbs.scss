@@ -31,4 +31,9 @@ $_darkened-fiord: darken($color-fiord, 5%);
         flex-shrink: 0;
         height: 1rem;
     }
+
+    &__placeholder {
+        height: 1.28rem;
+        margin-bottom: 0.8rem;
+    }
 }

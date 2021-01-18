@@ -14,7 +14,7 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   const [reservedDevices, setReservedDevices] = useState([]);
   const [reservedBooks, setReservedBooks] = useState([]);
   const [reservedRooms, setReservedRooms] = useState([]);
-  const { data: user, setRepeatRequest, isLoading, error } = useContext(
+  const { data: user, isLoading, setRepeatRequest, error } = useContext(
     UserContext
   );
 
