@@ -494,6 +494,12 @@
       "checkIns": 19,
       "reviews": [
         {
+          "userName": "Frontend Wizard",
+          "id": "a9922923-4ded-4424-a090-4a23f417b11e",
+          "comment": "",
+          "rating": 4
+        },
+        {
           "userName": "Pandora Burns",
           "id": "euz4pyx8bd",
           "comment": "I would never usually consider going to a vegan/vegetarian restaurant but now I will because this place was so good!",

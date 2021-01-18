@@ -100,7 +100,7 @@ export default function Card({
         <h3 className="reservation-card__title">{title}</h3>
         <div className="reservation-card__status">{renderStatus()}</div>
         <div className="reservation-card__cta">
-          {renderBottomCaption()}
+          {!isFromReserved && renderBottomCaption()}
           <div>
             <Button medium blank>
               View more

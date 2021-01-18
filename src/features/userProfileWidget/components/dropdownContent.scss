@@ -3,10 +3,11 @@
 $drop-border-radius: 0.5rem;
 
 .dropdown {
-    display: none;
     opacity: 0;
     position: relative;
     transform: scale(0);
+    transition: all 0.2s ease-in;
+    visibility: hidden;
 
     &__content {
         @include typography-body-2;
@@ -74,10 +75,9 @@ $drop-border-radius: 0.5rem;
     }
 
     &.is-active {
-        @include animation('grow 0.3s ease-in-out');
-
-        display: inline-block;
         opacity: 1;
         transform: scale(1);
+        transition: all 0.3s ease-in-out;
+        visibility: visible;
     }
 }
