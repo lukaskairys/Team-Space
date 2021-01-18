@@ -52,9 +52,9 @@ const Breadcrumbs = () => {
       </nav>
     );
   } else if (error) {
-    return <div>Error</div>;
+    return null;
   }
-  return <div></div>;
+  return <div className="breadcrumbs__placeholder"></div>;
 };
 
 export default Breadcrumbs;

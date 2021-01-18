@@ -7,6 +7,7 @@ import { useRequest } from "apis/useRequest";
 
 import "./eatOutCategoriesSection.scss";
 import filteredRestaurants from "./filteredRestaurants";
+import ThreeDotsLoader from "loaders/ThreeDotsLoader";
 
 const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
   const { data } = useContext(Context);
@@ -41,7 +42,15 @@ const EatOutCategoriesSection = forwardRef((props, scrollRef) => {
     return (
       <section className="categories-section" ref={scrollRef}>
         <h2 className="categories-section__title">Categories</h2>
-        <div className="categories-section__content">{renderCategories()}</div>
+        {categories.length > 0 ? (
+          <div className="categories-section__content">
+            {renderCategories()}
+          </div>
+        ) : (
+          <div className="categories-section__loader">
+            <ThreeDotsLoader />
+          </div>
+        )}
       </section>
     );
   }

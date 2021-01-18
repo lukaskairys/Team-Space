@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "../../FeedCard/components/feedCard.scss";
 import BirthdayInteractions from "./BirthdayInteractions";
 import { ReactComponent as CommentIcon } from "../../../assets/icons/comment-icon.svg";
-import BirthdayCommentsRenderer from "./BirthdayCommentsRenderer";
+import FeedCardCommentsRenderer from "../../FeedCard/components/FeedCardCommentsRenderer";
 import Button from "../../../components/button/Button";
 import { patch } from "../../../apis/services";
 
@@ -27,7 +27,6 @@ function BirthdayComments({
 
   function handleCommentIconClick() {
     commentDisplay.current.classList.toggle("d-none");
-    commentDisplay.current.classList.toggle("fade-in");
     textInput.current.focus();
     if (onCommentClick !== undefined) {
       onCommentClick();
@@ -70,7 +69,7 @@ function BirthdayComments({
       </div>
       <div ref={commentDisplay} className="d-none birthday-comment-display">
         <div className="feed-card-divider"></div>
-        <BirthdayCommentsRenderer comments={allComments} />
+        <FeedCardCommentsRenderer comments={allComments} />
         <div className="feed-card-divider"></div>
         <div className="new-comment-container">
           {userPhoto && (

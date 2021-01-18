@@ -13,7 +13,7 @@ const Reservations = () => {
   const [emptyReservations, setEmptyReservations] = useState(true);
 
   return (
-    <div className="reservations-page">
+    <div className="reservations-page fade-in">
       <Helmet>
         <title>Reservations · Team Space</title>
       </Helmet>

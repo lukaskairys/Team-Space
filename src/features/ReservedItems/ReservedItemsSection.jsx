@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import Loader from "react-loader-spinner";
 
 import { useRequest } from "apis/useRequest";
 import { UserContext } from "contexts/UserContext";
@@ -9,6 +8,7 @@ import EmptyReservations from "features/ReservedItems/EmptyReservations";
 import ReservedItems from "./ReservedItems";
 
 import "./reservedItemsSection.scss";
+import ThreeDotsLoader from "loaders/ThreeDotsLoader";
 
 const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
   const [reservedDevices, setReservedDevices] = useState([]);
@@ -100,12 +100,11 @@ const ReservedItemsSection = ({ setEmptyReservations, emptyReservations }) => {
 
   if (isLoading || loadDevices || loadBooks || loadRooms) {
     return (
-      <div className="reserved-items__loader">
-        <Loader type="TailSpin" color="#6e44ff" height={60} width={60} />
+      <div style={{ height: "924px" }}>
+        <ThreeDotsLoader />
       </div>
     );
   }
-
   if (error || errorDevices || errorBooks || errorRooms) {
     return <p className="reserved-items__error">Failed to fetch data</p>;
   }

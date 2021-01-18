@@ -2,19 +2,18 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
 
 import "./hero.scss";
-import { Context } from "../../../contexts/Context";
+import { Context } from "contexts/Context";
 import Category from "./Category";
 import HeroDetails from "./HeroDetails";
+import ThreeDotsLoader from "loaders/ThreeDotsLoader";
 
 function Hero({ children }) {
   const { id } = useParams();
   const { data } = useContext(Context);
 
-  if (data) {
+  if (data.length > 0) {
     const restaurant = data
       .filter((restaurant) => {
         return restaurant.id === id;
@@ -49,12 +48,13 @@ function Hero({ children }) {
         </section>
       );
     } else return null;
+  } else {
+    return (
+      <div className="HERO__loader">
+        <ThreeDotsLoader />
+      </div>
+    );
   }
-  return (
-    <div className="HERO__loader">
-      <Loader type="TailSpin" color="#6e44ff" height={70} width={70} />
-    </div>
-  );
 }
 
 Hero.propTypes = {

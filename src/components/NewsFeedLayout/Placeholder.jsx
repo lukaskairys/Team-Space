@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function Placeholder() {
+const Placeholder = () => {
   return <div className="news-feed__placeholder">...</div>;
-}
+};
+
+export default Placeholder;

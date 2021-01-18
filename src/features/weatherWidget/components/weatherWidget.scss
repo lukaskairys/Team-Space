@@ -21,7 +21,7 @@ $_breakpoint-sm: 500;
         width: 40rem;
     }
     @include respond-between(990, 1440) {
-        left: -0.1rem;
+        left: -3rem;
         top: 2rem;
         width: 40rem;
     }
@@ -41,7 +41,6 @@ $_breakpoint-sm: 500;
             width: 32.6rem;
         }
         @include respond-between(990, 1440) {
-            left: 3.6rem;
             width: 35.6rem;
         }
     }
@@ -90,7 +89,7 @@ $_breakpoint-sm: 500;
             position: relative;
             top: -15rem;
             visibility: visible;
-            z-index: $z-index-header;
+            z-index: $z-index-above;
 
             .weather-widget__spinner {
                 visibility: hidden;
@@ -118,11 +117,15 @@ $_breakpoint-sm: 500;
         top: 0;
         width: 21rem;
 
-        @include respond-between(769, 1440) {
-            left: 25rem;
+        @include respond-between(990, 1440) {
+            right: -3rem;
+            width: 15rem;
+        }
+        @include respond-between(769, 991) {
+            left: 32rem;
             position: relative;
-            top: -14rem;
-            width: 16rem;
+            top: -15.5rem;
+            width: 15rem;
         }
 
         @include respond-to-mobile() {

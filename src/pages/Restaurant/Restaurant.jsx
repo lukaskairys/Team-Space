@@ -31,7 +31,7 @@ const Restaurant = () => {
   }
 
   return (
-    <div className="restaurant">
+    <div className="restaurant fade-in">
       <>
         <Hero>
           <Breadcrumbs />

@@ -92,7 +92,7 @@ ReservedItems.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
   listName: PropTypes.string,
-  user: PropTypes.object,
+  user: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   setRepeatRequest: PropTypes.func,
 };
 

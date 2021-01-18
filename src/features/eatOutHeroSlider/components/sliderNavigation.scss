@@ -31,7 +31,7 @@ $_bullet-point-active-size: 0.8rem;
     &__circle.is_active {
         @include square-size($_bullet-point-active-size);
 
-        background-color: $color-watermelon;
+        background-color: $color-darkened-watermelon;
         margin-top: $_bullet-point-margin / 3;
         position: relative;
     }
