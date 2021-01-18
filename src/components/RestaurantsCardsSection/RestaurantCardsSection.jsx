@@ -7,6 +7,7 @@ import "./restaurantCardsSection.scss";
 import SectionTitle from "./SectionTitle.jsx";
 import Pagination from "../Pagination/Pagination";
 import Error from "./Error";
+import RestaurantCardsSectionLoader from "loaders/RestaurantCardsSectionLoader";
 import useRestaurantCardsSection from "./useRestaurantCardsSection";
 
 const RestaurantCardsSection = ({ title, mode }) => {
@@ -24,7 +25,9 @@ const RestaurantCardsSection = ({ title, mode }) => {
     handleImageLoad,
   } = useRestaurantCardsSection(sectionRef, listRef, mode);
 
-  if (data.length > 0) {
+  if (data.length === 0) {
+    return <RestaurantCardsSectionLoader />;
+  } else if (data.length > 0) {
     if (visibleData.length > 0) {
       return (
         <article ref={sectionRef} className="restaurant-cards-section">
@@ -56,7 +59,7 @@ const RestaurantCardsSection = ({ title, mode }) => {
       );
     } else return <Error message={"No restaurants matched"} />;
   } else if (error) {
-    return <Error message={"Failed to fetch  restaurants"} />;
+    return <Error message={"Failed to fetch restaurants"} />;
   }
   return "";
 };

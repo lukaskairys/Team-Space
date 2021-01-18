@@ -16,7 +16,7 @@ const EatOut = () => {
   HandleScroll(scrollRef, hash);
 
   return (
-    <div className="eat-out">
+    <div className="eat-out fade-in">
       <Helmet>
         <title>Eat Out · Team Space</title>
       </Helmet>

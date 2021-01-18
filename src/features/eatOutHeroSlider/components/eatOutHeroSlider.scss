@@ -28,9 +28,7 @@ $_loader-fade-time: 6s;
     }
 
     &__loader {
-        animation: fadeIn $_loader-fade-time forwards ease-in-out;
         margin: auto;
-        opacity: 0;
     }
 
     &.animate-out {

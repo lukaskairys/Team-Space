@@ -79,5 +79,6 @@ $drop-border-radius: 0.5rem;
         transform: scale(1);
         transition: all 0.3s ease-in-out;
         visibility: visible;
+        z-index: $z-index-above;
     }
 }
