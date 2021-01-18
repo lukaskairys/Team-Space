@@ -10,7 +10,7 @@ $_border-prop: 0.1rem solid $color-light-porcelain;
     height: $navigation-size;
     justify-content: center;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     z-index: $z-index-header;
 
     &__title {
