@@ -24,10 +24,15 @@
     &__item {
         font-weight: $medium-weight;
         padding: 0.6rem;
+    }
+
+    &__link {
+        color: $color-fiord;
+        padding: 0.6rem;
 
         &:hover,
         &:focus {
-            color: $color-midnight;
+            color: $color-dark-violet;
         }
 
         a:visited {
