@@ -10,36 +10,36 @@ const SettingsNavigation = ({ setWhichForm, whichForm }) => {
   return (
     <nav className="profile-settings-nav" aria-labelledby="settings-title">
       <ul className="profile-settings-nav__items">
-        <li
-          className={classNames("profile-settings-nav__item", {
-            "active-setting-link": whichForm === "change-details",
-          })}
-        >
+        <li className="profile-settings-nav__item">
           <a
+            className={classNames("profile-settings-nav__link", {
+              "active-setting-link": whichForm === "change-details",
+            })}
             href="#change-details"
             onClick={() => setWhichForm("change-details")}
           >
             Change Details
           </a>
         </li>
-        <li
-          className={classNames("profile-settings-nav__item", {
-            "active-setting-link": whichForm === "change-password",
-          })}
-        >
+        <li className="profile-settings-nav__item">
           <a
+            className={classNames("profile-settings-nav__link", {
+              "active-setting-link": whichForm === "change-password",
+            })}
             href="#change-password"
             onClick={() => setWhichForm("change-password")}
           >
             Change Password
           </a>
         </li>
-        <li
-          className={classNames("profile-settings-nav__item", {
-            "active-setting-link": whichForm === "change-email",
-          })}
-        >
-          <a href="#change-email" onClick={() => setWhichForm("change-email")}>
+        <li className="profile-settings-nav__item">
+          <a
+            className={classNames("profile-settings-nav__link", {
+              "active-setting-link": whichForm === "change-email",
+            })}
+            href="#change-email"
+            onClick={() => setWhichForm("change-email")}
+          >
             Change Email
           </a>
         </li>
