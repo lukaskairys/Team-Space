@@ -107,6 +107,28 @@ $_logo-size: 9.6rem;
         @include respond-to-mobile() {
             padding: 2.7rem 1rem 6.4rem;
         }
+
+        &-box-shadow {
+            background-color: $color-white;
+            height: 0.5rem;
+            left: 0;
+            position: absolute;
+            top: 8.7rem;
+            width: 100%;
+            z-index: $z-index-base;
+        }
+
+        &::before {
+            background-color: $color-white;
+            box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.2);
+            content: '';
+            height: 0.5rem;
+            left: 0;
+            position: absolute;
+            top: 9.1rem;
+            width: 100%;
+            z-index: $z-index-base;
+        }
     }
 
     &__footer {
