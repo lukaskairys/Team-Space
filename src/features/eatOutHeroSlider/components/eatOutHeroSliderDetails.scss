@@ -8,7 +8,7 @@ $_typography-content-stretch: 85%;
 $_content-font-size: $font-size-16;
 $_title-font-size: $font-size-32;
 $_margin-size-smaller: 1.2rem;
-$_darkened-watermelon: darken($color-watermelon, 25%);
+$_color-watermelon-hover: darken($color-darkened-watermelon, 5%);
 
 .eat-out-slider {
     &__details {
@@ -38,7 +38,7 @@ $_darkened-watermelon: darken($color-watermelon, 25%);
     &__caption {
         @include trim;
 
-        color: $_darkened-watermelon;
+        color: $color-darkened-watermelon;
         font-size: $_caption-font-size;
         margin-bottom: 0.4rem;
         margin-top: 1.2rem;
@@ -83,7 +83,7 @@ $_darkened-watermelon: darken($color-watermelon, 25%);
     }
 
     &__learn-more {
-        background: $color-watermelon;
+        background: $color-darkened-watermelon;
         cursor: pointer;
         font-size: $font-size-16;
         text-align: center;
@@ -96,11 +96,11 @@ $_darkened-watermelon: darken($color-watermelon, 25%);
 
         &:hover,
         &:focus {
-            background: $color-dark-watermelon;
+            background: $_color-watermelon-hover;
         }
 
         &:active {
-            background: $color-dark-watermelon;
+            background: $_color-watermelon-hover;
         }
     }
 }
