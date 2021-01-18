@@ -118,10 +118,10 @@ $_breakpoint-sm: 500;
         width: 21rem;
 
         @include respond-between(769, 1440) {
-            left: 25rem;
+            left: 26rem;
             position: relative;
             top: -14rem;
-            width: 16rem;
+            width: 15rem;
         }
 
         @include respond-to-mobile() {
