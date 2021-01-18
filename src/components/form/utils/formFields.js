@@ -11,6 +11,7 @@ const fields = {
     name: "lastName",
     text: "Last Name",
     placeholder: "Supermagic",
+    required: true,
   },
   location: {
     type: "text",

@@ -1,11 +1,17 @@
 export function validateRegistration(values, data) {
-  const { firstName, email, password, repeatPassword } = values;
+  const { firstName, lastName, email, password, repeatPassword } = values;
   let errors = {};
   // first name
   if (!firstName) {
     errors.firstName = "First Name is required";
   } else if (firstName.length < 3) {
     errors.firstName = "First Name should be at least 3 characters long.";
+  }
+  // last name
+  if (!lastName) {
+    errors.lastName = "Last Name is required";
+  } else if (lastName.length < 3) {
+    errors.lastName = "Last Name should be at least 3 characters long.";
   }
   // email
   if (!email) {
