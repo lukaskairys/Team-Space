@@ -41,7 +41,6 @@ $_breakpoint-sm: 500;
             width: 32.6rem;
         }
         @include respond-between(990, 1440) {
-            left: 3.6rem;
             width: 35.6rem;
         }
     }
