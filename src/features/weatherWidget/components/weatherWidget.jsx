@@ -25,7 +25,7 @@ export default function WeatherWidget({ currentTime }) {
   const loadFigure = () => {
     if (isLoaded) {
       const { image, shift } = translateIdToImage(
-        items.conditionsId,
+        items.conditionId,
         currentTime,
         items.clouds,
         items.unixSunset,
