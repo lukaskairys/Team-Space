@@ -89,7 +89,7 @@ $_breakpoint-sm: 500;
             position: relative;
             top: -15rem;
             visibility: visible;
-            z-index: $z-index-header;
+            z-index: $z-index-above;
 
             .weather-widget__spinner {
                 visibility: hidden;
