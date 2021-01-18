@@ -117,10 +117,14 @@ $_breakpoint-sm: 500;
         top: 0;
         width: 21rem;
 
-        @include respond-between(769, 1440) {
-            left: 26rem;
+        @include respond-between(990, 1440) {
+            right: -2.6rem;
+            width: 15rem;
+        }
+        @include respond-between(769, 991) {
+            left: 32rem;
             position: relative;
-            top: -14rem;
+            top: -15.5rem;
             width: 15rem;
         }
 
