@@ -27,7 +27,9 @@ export default function WeatherWidget({ currentTime }) {
       const { image, shift } = translateIdToImage(
         items.conditionId,
         currentTime,
-        items.clouds
+        items.clouds,
+        items.unixSunset,
+        items.unixSunrise
       );
       let className = "weather-widget__figure";
       if (shift > 0) className += " weather-widget__figure-shift-left";

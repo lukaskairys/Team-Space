@@ -20,6 +20,8 @@ export const deconstructAPI = (
       location: data.name,
       conditionId: data.weather[0].id,
       clouds: data.clouds.all,
+      unixSunrise: data.sys.sunrise,
+      unixSunset: data.sys.sunset,
     });
     setLoading(true);
   }
