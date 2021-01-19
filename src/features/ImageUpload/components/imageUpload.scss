@@ -2,7 +2,6 @@
 @import '../../../styles/mixins/mixins';
 
 $_icon-size: 1.3em;
-$_z-index-top: 1000;
 
 .filepond {
     $this: &;
@@ -74,11 +73,12 @@ $_z-index-top: 1000;
     position: fixed;
     right: 0;
     top: 0;
-    z-index: $_z-index-top;
+    z-index: $z-index-above;
 
     &__label {
         bottom: 3%;
         color: $color-ghost;
+        font-size: $font-size-14;
         left: 50%;
         position: absolute;
         transform: translateX(-50%);

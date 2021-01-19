@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useRef,
 } from "react";
+import { createPortal } from "react-dom";
 import Cropper from "react-easy-crop";
 import FocusLock from "react-focus-lock";
 import { FilePond, registerPlugin } from "react-filepond";
@@ -103,6 +104,28 @@ function Upload() {
       });
   };
 
+  const cropContainer = (
+    <div className="crop-container">
+      <FocusLock>
+        <Cropper
+          image={`data:image/jpeg;base64,${imageB64}`}
+          cropShape={"round"}
+          crop={crop}
+          zoom={zoom}
+          aspect={1 / 1}
+          onCropChange={setCrop}
+          onZoomChange={setZoom}
+          onCropComplete={onCropComplete}
+        />
+        <Button handleClick={handleButtonConfirm}>Confirm crop</Button>
+        <Button handleClick={handleButtonCancel}>Cancel</Button>
+        <span className="crop-container__label">
+          Use your mouse or your fingers to zoom in/out
+        </span>
+      </FocusLock>
+    </div>
+  );
+
   if (user) {
     return (
       <div className="image-upload-wrapper">
@@ -134,27 +157,11 @@ function Upload() {
           maxFileSize="150KB"
           instantUpload={false}
         />
-        {imageAdded && (
-          <div className="crop-container">
-            <FocusLock>
-              <Cropper
-                image={`data:image/jpeg;base64,${imageB64}`}
-                cropShape={"round"}
-                crop={crop}
-                zoom={zoom}
-                aspect={1 / 1}
-                onCropChange={setCrop}
-                onZoomChange={setZoom}
-                onCropComplete={onCropComplete}
-              />
-              <Button handleClick={handleButtonConfirm}>Confirm crop</Button>
-              <Button handleClick={handleButtonCancel}>Cancel</Button>
-              <span className="crop-container__label">
-                Use your mouse or your fingers to zoom in/out
-              </span>
-            </FocusLock>
-          </div>
-        )}
+        {imageAdded &&
+          createPortal(
+            cropContainer,
+            document.getElementById("crop-container")
+          )}
         <Button handleClick={handleButtonRestore} blank>
           Restore default picture
         </Button>
