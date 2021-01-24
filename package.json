@@ -29,6 +29,7 @@
     "react-filepond": "^7.1.0",
     "react-focus-lock": "^2.5.0",
     "react-helmet-async": "^1.0.7",
+    "react-map-gl": "^6.0.3",
     "react-player": "^2.7.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",

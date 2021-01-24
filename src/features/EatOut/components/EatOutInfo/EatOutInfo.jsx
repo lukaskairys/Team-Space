@@ -7,7 +7,8 @@ import { ReactComponent as PinIcon } from "assets/icons/map-pin.svg";
 import { ReactComponent as GlobeIcon } from "assets/icons/globe.svg";
 import { ReactComponent as PhoneIcon } from "assets/icons/phone.svg";
 import { ReactComponent as ClockIcon } from "assets/icons/clock.svg";
-import Map from "features/EatOut/components/Map/Map";
+/* import Map from "features/EatOut/components/Map/Map"; */
+import MapBox from "features/EatOut/components/Map/MapBox";
 
 import "./EatOutInfo.scss";
 
@@ -68,7 +69,7 @@ const EatOutInfo = () => {
           </section>
         </div>
         <h2 className="eat-out-info__header">Location</h2>
-        <Map location={restaurant} />
+        <MapBox location={restaurant} />
       </article>
     );
   } else if (error) {
