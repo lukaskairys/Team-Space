@@ -29,6 +29,7 @@
     "react-filepond": "^7.1.0",
     "react-focus-lock": "^2.5.0",
     "react-helmet-async": "^1.0.7",
+    "react-map-gl": "^6.0.3",
     "react-player": "^2.7.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
@@ -38,7 +39,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-server": "json-server --watch db.json --port 3008 --delay 500",
+    "start-server": "json-server --watch db.json --port 3008",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "npm run -s lint:prettier:check && npm run -s lint:eslint:check && npm run -s lint:stylelint:check",
