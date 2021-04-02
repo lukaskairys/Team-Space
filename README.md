@@ -1,8 +1,6 @@
 ![screenshot1](https://i.ibb.co/v11N9Sg/1.png)
 ![screenshot2](https://i.ibb.co/TWQNzvV/2.png)
-
-
-🚨 Be sure to update this file according to your team.
+![screenshot3](https://i.ibb.co/w45BXhS/3.png)
 
 ## Run the project
 * To run this project you will need [Node](https://nodejs.org/en/). We strongly recommend to use [nvm](https://github.com/nvm-sh/nvm) for installing node.
