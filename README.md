@@ -1,4 +1,4 @@
-![screenshot1](https://imgbb.com/)
+![screenshot1](https://ibb.co/mJJnp31)
 
 🚨 Be sure to update this file according to your team.
 
