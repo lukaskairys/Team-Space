@@ -13,7 +13,7 @@ const navigationData = [
   {
     title: "Dashboard",
     icon: <HomeIcon className="navigation-list__icon" />,
-    link: "/",
+    link: "/Team-Space",
   },
   {
     title: "Reservations",

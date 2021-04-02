@@ -21,7 +21,7 @@ const sidebarData = [
   {
     title: "Dashboard",
     icon: <HomeIcon className="sidebar__list-icon" />,
-    link: "/",
+    link: "/Team-Space",
   },
   {
     title: "Reservations",
@@ -54,7 +54,7 @@ const Sidebar = ({ isSidebarClosed, toggleSidebar }) => {
     >
       <Link
         className="sidebar__logo-container"
-        to="/"
+        to="/Team-Space"
         aria-label="Logo of Team Space, go back to main page."
       >
         <Logo className="sidebar__logo" />

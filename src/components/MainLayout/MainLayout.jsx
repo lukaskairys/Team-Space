@@ -91,7 +91,7 @@ const MainLayout = ({ children }) => {
           <header className="main-layout__header">
             {isSmallerScreen && (
               <div className="main-layout__logo-container">
-                <Link to="/">
+                <Link to="/Team-Space">
                   <Logo className="main-layout__logo" />
                 </Link>
               </div>

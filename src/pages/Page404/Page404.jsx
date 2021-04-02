@@ -29,7 +29,7 @@ const Page404 = () => {
           mystery. But you can click the button below to go back to the
           homepage.
         </p>
-        <Link to="/" className={"button button--medium"}>
+        <Link to="/Team-Space" className={"button button--medium"}>
           HOME
         </Link>
       </section>

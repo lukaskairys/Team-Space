@@ -47,7 +47,7 @@ function App() {
             <RegistrationPage />
           </PublicRoute>
 
-          <PrivateRoute exact path="/">
+          <PrivateRoute exact path="/Team-Space">
             <MainLayout>
               <Dashboard />
             </MainLayout>

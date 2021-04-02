@@ -35,7 +35,9 @@ export const useAuthentication = (setShowMessage, setMessageText) => {
             setUserId(loggingUser[0].id);
             localStorage.setItem("user", JSON.stringify(loggingUser[0].id));
             history.push(
-              location.from && location.from !== "/login" ? location.from : "/"
+              location.from && location.from !== "/login"
+                ? location.from
+                : "/Team-Space"
             );
             successToast("Your are successfully logged in. Welcome back!");
           } else {
@@ -64,7 +66,7 @@ export const useAuthentication = (setShowMessage, setMessageText) => {
       setIsPosting(false);
       setUserId(dataToPost.id);
       localStorage.setItem("user", JSON.stringify(dataToPost.id));
-      history.push("/");
+      history.push("/Team-Space");
       successToast("You are now a registered member of Team Space. Welcome!");
     } catch (err) {
       setShowMessage(true);

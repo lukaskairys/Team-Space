@@ -16,7 +16,7 @@ const PublicRoute = ({ children, ...rest }) => {
           return (
             <Redirect
               to={{
-                pathname: "/",
+                pathname: "/Team-Space",
               }}
             />
           );
