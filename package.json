@@ -1,5 +1,6 @@
 {
   "name": "sfe-template-20",
+  "homepage": "https://lukaskairys.github.io/Team-Space",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,6 +41,8 @@
   "scripts": {
     "start": "react-scripts start",
     "start-server": "json-server --watch db.json --port 3008",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "npm run -s lint:prettier:check && npm run -s lint:eslint:check && npm run -s lint:stylelint:check",
