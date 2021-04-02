@@ -1,4 +1,6 @@
 ![screenshot1](https://i.ibb.co/v11N9Sg/1.png)
+![screenshot2](https://i.ibb.co/TWQNzvV/2.png)
+
 
 🚨 Be sure to update this file according to your team.
 
